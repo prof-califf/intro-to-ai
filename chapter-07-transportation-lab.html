@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 7 · You Are the City Council — Intro to AI in Business | MIS 201</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pink);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+.steps{margin:26px 0;}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
+.step:last-child{border-bottom:none;}
+.step .sn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);font-size:1.2rem;min-width:24px;}
+.step p{margin-bottom:0;}
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+
+/* ---- lab widgets ---- */
+.tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
+.tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
+.tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
+.chip{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;}
+.chip:hover{border-color:var(--pink);color:var(--pinktext);}
+.chip:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.chip.on{background:var(--dark);color:var(--yellow);border-color:var(--dark);}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.btn{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;}
+.btn:hover{background:#1B222B;}
+.btn:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--rule);}
+.btn.alt:hover{border-color:var(--pink);color:var(--pinktext);}
+.verdict{background:var(--dark);color:#E7EAEF;padding:26px 28px;margin-top:22px;}
+.verdict .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;}
+.verdict .read{font-size:.95rem;line-height:1.65;}
+.verdict .read b{color:var(--yellow);}
+.bars{display:grid;gap:10px;margin:14px 0 18px;}
+.bar{display:grid;grid-template-columns:190px 1fr 44px;gap:12px;align-items:center;font-size:.85rem;}
+.bar .track{height:10px;background:#242C36;border-radius:999px;overflow:hidden;}
+.bar .fill{height:100%;background:var(--pink);width:0%;transition:width .3s ease;border-radius:999px;}
+.bar.safe .fill{background:var(--yellow);}
+.bar .n{text-align:right;color:var(--lightgray);}
+@media(max-width:560px){.bar{grid-template-columns:1fr;gap:4px;}.bar .n{text-align:left;}}
+.meter{display:grid;grid-template-columns:130px 1fr 54px;gap:12px;align-items:center;font-size:.9rem;margin:8px 0;}
+.meter .track{height:14px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;}
+.meter .fill{height:100%;width:50%;transition:width .35s ease;border-radius:999px;background:var(--pink);}
+.meter.good .fill{background:var(--ink);}
+.meter .n{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+.simcard{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;cursor:pointer;text-align:left;font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55;color:var(--ink);width:100%;}
+.simcard:hover{border-color:var(--pink);}
+.simcard:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.simcard .tag{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.simgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:680px){.simgrid{grid-template-columns:1fr;}}
+.slider-row{display:grid;grid-template-columns:170px 1fr 120px;gap:14px;align-items:center;margin:14px 0;font-size:.92rem;}
+.slider-row output{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+input[type=range]{width:100%;accent-color:var(--pink);}
+@media(max-width:560px){.slider-row{grid-template-columns:1fr;gap:6px;}.slider-row output{text-align:left;}}
+select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink);}
+.equiv{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:18px 0 4px;}
+.equiv .cell{background:#fff;padding:16px 18px;}
+.equiv .cell .v{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;}
+.equiv .cell .v em{font-style:normal;color:var(--pink);}
+.equiv .cell .k{font-size:.82rem;color:var(--gray);margin-top:2px;}
+@media(max-width:560px){.equiv{grid-template-columns:1fr;}}
+.graphbox{background:var(--dark);border:1px solid var(--rule);margin:18px 0;}
+.graphbox svg{display:block;width:100%;height:auto;}
+.gnode{cursor:pointer;}
+.gnode circle{stroke:#39424D;stroke-width:1.5;fill:#1B222B;transition:all .2s ease;}
+.gnode text{font-family:'Inter',sans-serif;font-size:11px;fill:#C9CED6;pointer-events:none;}
+.gnode.drug circle{stroke:var(--yellow);}
+.gnode.disease circle{stroke:var(--pink);}
+.gnode.sel circle{fill:var(--yellow);stroke:var(--yellow);}
+.gnode.sel text{fill:var(--dark);font-weight:700;}
+.gnode.lit circle{fill:#2A3440;stroke:#fff;}
+.gedge{stroke:#333D49;stroke-width:1.5;transition:all .2s ease;}
+.gedge.lit{stroke:var(--yellow);stroke-width:2.5;}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.8rem;color:var(--gray);padding:12px 16px;border-top:1px solid var(--rule);background:#fff;}
+.legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;border:2px solid var(--gray);vertical-align:-1px;}
+.legend .l-drug::before{border-color:var(--yellow);background:#1B222B;}
+.legend .l-disease::before{border-color:var(--pink);background:#1B222B;}
+.legend .l-mid::before{border-color:#39424D;background:#1B222B;}
+.ranked{margin:14px 0 0;}
+.ranked .r{display:grid;grid-template-columns:1fr 60px;gap:10px;padding:9px 0;border-bottom:1px solid #242C36;font-size:.9rem;align-items:center;}
+.ranked .r:last-child{border-bottom:none;}
+.ranked .r .s{text-align:right;color:var(--yellow);font-variant-numeric:tabular-nums;font-weight:600;}
+.probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
+.probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
+.probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
+.roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div>
+      <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="chapter-07-transportation.html">Chapter 7</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Western Washington University · MIS 201 · Lab 7 · Wednesday, in class</div>
+    <h1>You Are the City <b>Council</b></h1>
+    <p class="kicker">A robotaxi company has applied to operate in Bellingham. You sit on the council. Today you weigh the evidence, write the permit — or refuse it — and defend your conditions to the room. Refusal is a legitimate outcome. So is approval. Undefended is the only wrong answer.</p>
+    <p class="factline">Ten evidence cards · one decision · every condition has a cost</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <div class="shead"><span class="num">1</span><h2>Weigh the evidence</h2></div>
+  <p class="lead">Below are ten evidence cards drawn from the real robotaxi record. Each is tagged with its source type — company data, journalism, independent research, advocacy, or local context — because a council that weighs all sources equally isn't weighing at all. Read each card, then mark it: does it move you toward yes, toward no, or neither? Your running lean shows at the bottom. Mark honestly; you'll be asked to explain any gap between your evidence and your vote.</p>
+
+  <div class="tool">
+    <div class="label">The evidence · mark every card</div>
+    <div id="cards"></div>
+    <div class="verdict" id="leanbox" hidden>
+      <div class="label">Your evidence lean</div>
+      <div class="bars">
+        <div class="bar safe" id="bar-yes"><span>Toward approval</span><div class="track"><div class="fill"></div></div><span class="n">0</span></div>
+        <div class="bar" id="bar-no"><span>Toward denial</span><div class="track"><div class="fill"></div></div><span class="n">0</span></div>
+        <div class="bar" id="bar-neu" style="opacity:.7;"><span>Neutral / canceled out</span><div class="track"><div class="fill" style="background:#39424D;"></div></div><span class="n">0</span></div>
+      </div>
+      <p class="read" id="leanread"></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">2</span><h2>Write the permit</h2></div>
+  <p>Now decide. If you approve with conditions, choose them below — but read the fine print on each: <strong>every condition has a cost</strong>, usually the risk that the operator walks away, delays, or passes the cost to riders. A permit made entirely of conditions is a denial wearing a costume; a permit with none is a yes you'll own alone. The tool will read your decision back to you — and it will notice if your vote and your evidence disagree.</p>
+
+  <div class="tool">
+    <div class="label">The council's decision</div>
+    <div class="chips" id="decision" style="margin-bottom:18px;">
+      <button type="button" class="chip" data-d="approve">Approve</button>
+      <button type="button" class="chip" data-d="conditions">Approve with conditions</button>
+      <button type="button" class="chip" data-d="delay">Delay — revisit in 12 months</button>
+      <button type="button" class="chip" data-d="deny">Deny</button>
+    </div>
+    <div id="condwrap" hidden>
+      <div class="label">Conditions · check all you'd require</div>
+      <div id="conds"></div>
+    </div>
+    <div class="chips" style="margin-top:16px;">
+      <button type="button" class="btn" id="issue" disabled>Issue the council's decision</button>
+    </div>
+    <div class="verdict" id="permit" hidden>
+      <div class="label">The record of your decision</div>
+      <p class="read" id="permitread"></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">3</span><h2>Defend it to the room</h2></div>
+  <p>Wednesday's Q&amp;A half runs on this: councils pair up and cross-examine. Trade decisions with another student and ask each other, in order: Which single card moved you most, and why that one? Which condition would you drop first if the operator threatened to walk? And the chapter's question in local clothes — whose trust matters more for this permit, the riders' or the pedestrians'? Take notes; the writeup asks what the cross-examination changed.</p>
+  <p>Then bring in one more adversary — a live one. Paste your issued permit into an AI chatbot with this prompt: <i>“You are the robotaxi operator's counsel. My city council just issued this permit. Argue against my two most burdensome conditions — make the strongest case that we'll walk away or that riders lose out.”</i> You just hired the lobbyist every real council faces. Note its single strongest rebuttal, and whether your condition survives it. If the AI's argument moved you where your partner's didn't, that goes in the writeup too: fluent opposition is now cheap, on every side of every hearing.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="num">4</span><h2>Run the four questions</h2></div>
+  <div class="fourq">
+    <div class="q"><span class="qn">1</span><p><strong>What kind of AI is this?</strong> You just regulated a system you can't inspect. What did you actually evaluate instead — and is that what regulators of AI are always really evaluating?</p></div>
+    <div class="q"><span class="qn">2</span><p><strong>Where is the human?</strong> In your permit, where did you put humans back in — reporting requirements, review clauses, response protocols? Notice: every condition you wrote is a human re-entering a loop somewhere.</p></div>
+    <div class="q"><span class="qn">3</span><p><strong>Who is accountable when it fails?</strong> Under your permit, when the first incident happens on Holly Street: who answers to whom, in what order? If you can't trace it, your permit has a hole.</p></div>
+    <div class="q"><span class="qn">4</span><p><strong>What happens when it fails, and who finds out?</strong> Which of your conditions, if any, guarantees the public learns about failures? If none — was that a choice or an oversight?</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">5</span><h2>The writeup</h2></div>
+  <div class="ticket">
+    <div class="label">Due Friday afternoon · post to Canvas</div>
+    <ol>
+      <li><strong>The evidence.</strong> Your lean tally (screenshot), plus the one card you weighted most and the one you deliberately discounted — with the source-type reasoning for both.</li>
+      <li><strong>The decision.</strong> Your issued permit (screenshot), and a defense of your two most important conditions — or of choosing none, or of denial.</li>
+      <li><strong>The cross-examination.</strong> What your partner's hardest question was, and whether anything in your permit changed because of it.</li>
+      <li><strong>The four questions.</strong> Your answers, treating your own permit as the system under review.</li>
+      <li><strong>Your move.</strong> Your entry-ticket instinct vs. your final vote: did the evidence move you, and which specific card did it? One sentence naming what it takes to change your mind — that's Wednesday's commitment card.</li>
+    </ol>
+  </div>
+</section>
+
+<div class="nextbar">
+  <a href="chapter-07-transportation.html"><span class="dir">← Back</span>Chapter 7 · Transportation</a>
+  <a href="chapter-08-markets.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 8 · Markets</a>
+</div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var cards = [
+    {tag:'Company data', text:'The operator\u2019s published safety analysis reports substantially fewer injury-causing crashes per million miles than human-driver benchmarks, across tens of millions of driverless miles.', hint:'The strongest card on the table — and the company wrote it. What\u2019s in the denominator?'},
+    {tag:'Journalism / regulator', text:'The operator recently issued a software recall after reports that vehicles failed to stop properly for school buses.', hint:'A real failure — found, reported, and corrected in public. Read it both ways.'},
+    {tag:'Company / press', text:'The service already runs over 400,000 paid rides a week across ten-plus cities, including freeways and airport runs.', hint:'Scale is evidence of maturity — and of how fast this arrives once permitted.'},
+    {tag:'Journalism', text:'In early rollout cities, driverless vehicles were documented blocking buses and interfering with emergency responders while confused.', hint:'Mostly early-years incidents. Do old failures expire, or accumulate?'},
+    {tag:'Independent survey', text:'Recurring national surveys find a majority of Americans say they would be afraid to ride in a fully self-driving vehicle.', hint:'Fear is real data — and also famously trails experience. Which way does causation run?'},
+    {tag:'Advocacy / testimonial', text:'Riders with disabilities — including blind riders — describe robotaxis as the first truly independent door-to-door transportation of their lives.', hint:'A benefit invisible in crash statistics. Who speaks for it at your hearing?'},
+    {tag:'Labor / local economy', text:'Rideshare and taxi driving are income for hundreds of thousands of U.S. workers — gig counting is contested, but the jobs at stake in Bellingham are real and countable.', hint:'Chapter 11\u2019s data says displacement lands on specific groups first. Who, here?'},
+    {tag:'Journalism / international', text:'In China, Baidu\u2019s Apollo Go and rivals run large robotaxi fleets at fares that undercut human drivers — scale and price pressure are proven, not hypothetical.', hint:'Evidence about trajectory: what does year five look like if year one is approved?'},
+    {tag:'Local context', text:'Bellingham: roughly 95,000 people, heavy rain much of the year, an active WTA bus system, a university district full of pedestrians and cyclists.', hint:'Operational design domain, in local clothes. Is this city inside the map the safety data was drawn on?'},
+    {tag:'Company data', text:'The operator commits to sharing incident data with regulators and to remote-assistance staffing — humans who advise stuck vehicles but do not drive them.', hint:'A condition pre-offered. Pre-offered conditions are the ones that cost the operator least.'}
+  ];
+
+  var conds = [
+    {id:'report', label:'Quarterly public incident reporting — every collision, blockage, and responder interaction, published', cost:'Cost: operators resist public granularity; expect pushback or delay.'},
+    {id:'school', label:'School-zone and school-bus protocol certification before launch, re-tested after every software update', cost:'Cost: slows every update; the company\u2019s update speed is part of its safety case.'},
+    {id:'weather', label:'Rain-performance validation in Pacific Northwest conditions before unrestricted service', cost:'Cost: could delay launch by seasons — and "validated" needs someone to define it.'},
+    {id:'cap', label:'Fleet cap for the first year (e.g., 25 vehicles), lifted only by council review', cost:'Cost: caps the benefits too — accessibility rides, late-night safety, data from scale.'},
+    {id:'responder', label:'A tested emergency-responder protocol, developed with the fire department, before day one', cost:'Cost: low. If you skipped this one, ask yourself why.'},
+    {id:'transit', label:'Transit integration: no operating in WTA\u2019s highest-ridership corridors during peak hours', cost:'Cost: protects the bus system by making the new service worse — riders pay the difference.'},
+    {id:'jobs', label:'A per-ride fee funding transition support for displaced local drivers', cost:'Cost: raises fares; also concedes the displacement is coming.'},
+    {id:'sunset', label:'A 12-month sunset clause: the permit expires unless renewed after public review', cost:'Cost: companies underinvest in cities that might evict them. Leverage cuts both ways.'}
+  ];
+
+  var marks = {}, decision = null, checked = {};
+
+  var cardsEl = document.getElementById('cards');
+  cards.forEach(function(c, i){
+    var d = document.createElement('div');
+    d.className = 'probe';
+    var t = document.createElement('div'); t.className='ptext'; t.textContent = 'Card ' + (i+1) + ' · ' + c.tag;
+    var body = document.createElement('p'); body.style.marginBottom='8px'; body.textContent = c.text;
+    var hint = document.createElement('div'); hint.className='pwhy'; hint.textContent = c.hint;
+    var chips = document.createElement('div'); chips.className='chips';
+    [['yes','Toward approval'],['neu','Neutral'],['no','Toward denial']].forEach(function(pair){
+      var b = document.createElement('button');
+      b.type='button'; b.className='chip'; b.textContent = pair[1];
+      b.setAttribute('aria-pressed','false');
+      b.addEventListener('click', function(){
+        chips.querySelectorAll('.chip').forEach(function(s){ s.classList.remove('on'); s.setAttribute('aria-pressed','false'); });
+        b.classList.add('on'); b.setAttribute('aria-pressed','true');
+        marks[i] = pair[0];
+        lean();
+      });
+      chips.appendChild(b);
+    });
+    d.appendChild(t); d.appendChild(body); d.appendChild(hint); d.appendChild(chips);
+    cardsEl.appendChild(d);
+  });
+
+  function lean(){
+    var yes=0,no=0,neu=0,total=0;
+    Object.keys(marks).forEach(function(k){
+      total++;
+      if(marks[k]==='yes')yes++; else if(marks[k]==='no')no++; else neu++;
+    });
+    if(!total){ document.getElementById('leanbox').hidden=true; return; }
+    document.getElementById('leanbox').hidden=false;
+    setBar('bar-yes',yes,total); setBar('bar-no',no,total); setBar('bar-neu',neu,total);
+    var read;
+    if(total<cards.length) read='Marked '+total+' of '+cards.length+' — finish the docket before reading your lean.';
+    else if(yes-no>=3) read='Your evidence leans clearly <b>toward approval</b>. If your vote below isn\u2019t some form of yes, your writeup owes the room an explanation — sometimes a good one exists (one card can outweigh seven), but it must be named.';
+    else if(no-yes>=3) read='Your evidence leans clearly <b>toward denial or heavy conditions</b>. Same rule in reverse: an approval now needs a named reason that outweighs your own tally.';
+    else read='Your evidence is <b>genuinely mixed</b> — the honest position for most real councils. Mixed evidence is what conditions were invented for. Choose yours to answer the specific "no" cards.';
+    document.getElementById('leanread').innerHTML=read;
+  }
+  function setBar(id,n,total){
+    var b=document.getElementById(id);
+    b.querySelector('.fill').style.width=(total?Math.round(n/total*100):0)+'%';
+    b.querySelector('.n').textContent=n;
+  }
+
+  var condwrap=document.getElementById('condwrap');
+  var condsEl=document.getElementById('conds');
+  conds.forEach(function(c){
+    var row=document.createElement('div'); row.className='step';
+    var box=document.createElement('input'); box.type='checkbox'; box.id='c_'+c.id; box.style.marginTop='6px';
+    box.addEventListener('change',function(){ checked[c.id]=box.checked; });
+    var lb=document.createElement('label'); lb.setAttribute('for','c_'+c.id); lb.style.cursor='pointer';
+    var p1=document.createElement('p'); p1.textContent=c.label;
+    var p2=document.createElement('p'); p2.style.cssText='font-size:.85rem;color:var(--gray);margin-top:4px;'; p2.textContent=c.cost;
+    lb.appendChild(p1); lb.appendChild(p2);
+    row.appendChild(box); row.appendChild(lb);
+    condsEl.appendChild(row);
+  });
+
+  document.querySelectorAll('#decision .chip').forEach(function(b){
+    b.setAttribute('aria-pressed','false');
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#decision .chip').forEach(function(s){ s.classList.remove('on'); s.setAttribute('aria-pressed','false'); });
+      b.classList.add('on'); b.setAttribute('aria-pressed','true');
+      decision=b.getAttribute('data-d');
+      condwrap.hidden = (decision!=='conditions');
+      document.getElementById('issue').disabled=false;
+    });
+  });
+
+  document.getElementById('issue').addEventListener('click',function(){
+    var yes=0,no=0;
+    Object.keys(marks).forEach(function(k){ if(marks[k]==='yes')yes++; else if(marks[k]==='no')no++; });
+    var chosen=conds.filter(function(c){ return checked[c.id]; });
+    var read='';
+    if(decision==='approve'){
+      read='The council <b>approves</b> the application without conditions. You\u2019ve accepted the operator\u2019s own safety case and pre-offered terms as sufficient — which means when the first incident happens, the record shows this council asked for nothing. Own that in the writeup, or add conditions and re-issue.';
+    } else if(decision==='deny'){
+      read='The council <b>denies</b> the application. A legitimate outcome — this course means that. The writeup burden: name the evidence that carried the denial, and name what would have to change for a future application to succeed. A denial with no path forward isn\u2019t a decision; it\u2019s an exit.';
+    } else if(decision==='delay'){
+      read='The council <b>delays</b> — revisit in 12 months. Honest when the evidence is mixed, but notice what it costs: the accessibility benefits wait a year too, and the operator\u2019s data will still be the operator\u2019s data next year. Your writeup should say what specific new evidence twelve months buys you.';
+    } else {
+      if(chosen.length===0){
+        read='The council approves "with conditions" — but selected none. That\u2019s an unconditional approval wearing a costume. Check the conditions you actually mean, or switch your vote to Approve and defend it straight.';
+      } else if(chosen.length>=7){
+        read='The council approves with <b>'+chosen.length+' conditions</b> — nearly the whole menu. Fair warning from the chapter: a permit made entirely of conditions is often a denial in costume, and operators can read costumes. If you mean no, deny. If you mean yes, pick the conditions that answer your actual "no" cards: ';
+      } else {
+        read='The council approves with <b>'+chosen.length+' condition'+(chosen.length===1?'':'s')+'</b>: ';
+      }
+      if(chosen.length>0 && chosen.length<7){
+        read+='<br><br>'+chosen.map(function(c){return '\u2022 '+c.label;}).join('<br>');
+        read+='<br><br>Each of those has the cost printed under it — your writeup defends the two that matter most.';
+      } else if(chosen.length>=7){
+        read+='<br><br>'+chosen.map(function(c){return '\u2022 '+c.label;}).join('<br>');
+      }
+    }
+    var lean_ = yes-no;
+    if((decision==='deny'&&lean_>=3)||(decision==='approve'&&lean_<=-3)){
+      read+='<br><br><b>Flag:</b> your vote runs against your own evidence lean. That can be legitimate — one card can outweigh seven — but the writeup must name which card, and why it carried that weight.';
+    }
+    document.getElementById('permit').hidden=false;
+    document.getElementById('permitread').innerHTML=read;
+  });
+})();
+</script>
+
+</body>
+</html>

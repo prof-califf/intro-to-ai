@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 12 · The Future — Intro to AI in Business | MIS 201</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+
+/* ---- nav ---- */
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pink);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+
+/* ---- masthead ---- */
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+
+/* ---- contents ---- */
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+
+/* ---- sections ---- */
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+
+/* ---- concept boxes ---- */
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+
+/* ---- callout ---- */
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+
+/* ---- number facts ---- */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+
+/* ---- four questions ---- */
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+
+/* ---- key terms ---- */
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+
+/* ---- entry ticket ---- */
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+
+/* ---- next ---- */
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+
+/* ---- footer ---- */
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+</style>
+<style>
+.tryit details{border-top:1px dashed var(--rule);padding:10px 0;}
+.tryit details:first-of-type{border-top:none;}
+.tryit summary{cursor:pointer;font-weight:600;font-size:.95rem;}
+.tryit p{margin:8px 0 2px;font-size:.9rem;color:var(--gray);}
+.srcnote{border:1px solid var(--rule);border-radius:10px;padding:14px 18px;margin:30px 0;background:#fff;font-size:.9rem;}
+.srcnote summary{cursor:pointer;font-weight:700;color:var(--ink);}
+.srcnote p{margin:10px 0 2px;color:var(--gray);}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div>
+      <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="chapter-12-future-lab.html">Lab 12</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Western Washington University · MIS 201 · Chapter 12 · Capstone</div>
+    <h1>The Future — and How to <b>Read</b> It</h1>
+    <p class="kicker">Every course about AI ends with someone predicting the future, and every prediction is wrong within a year. This chapter does something more useful. It teaches you to read futures the way this course taught you to read systems: name the mechanism, find the instrument, ask the four questions. Then it answers the question we asked on Day 1.</p>
+    <p class="factline">Three futures on the table · one skill for all of them · the people who'll live with it</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="contents">
+  <div class="label">In this chapter</div>
+  <ol>
+    <li><a href="#s1">The question we've been carrying</a></li>
+    <li><a href="#s2">The concepts: prediction, scenario, agent, self-improvement, instrument</a></li>
+    <li><a href="#s3">The case: the future that already arrived</a></li>
+    <li><a href="#s4">The concepts at work: three published futures</a></li>
+    <li><a href="#s5">Question it &amp; decide — and what went right</a></li>
+    <li><a href="#s6">Key terms</a></li>
+    <li><a href="#s7">Entry ticket</a></li>
+  </ol>
+</div>
+
+<div class="contents">
+  <div class="label">By the end of this chapter, you can</div>
+  <ol>
+    <li>Tell a prediction from a scenario from an instrument reading — and treat each with the right amount of trust.</li>
+    <li>Explain what an AI agent is, and why "acting" changes every one of the four questions.</li>
+    <li>Explain recursive self-improvement — the concept underneath the loudest fears — and say what's real now versus claimed.</li>
+    <li>Lay out the three published futures fairly, and name the evidence that would tell them apart.</li>
+    <li>Answer the course question with reasons: can we build a good, beneficial hybrid society — and under what conditions?</li>
+  </ol>
+</div>
+
+<section id="s1">
+  <div class="shead"><span class="num">1</span><h2>The question we've been carrying</h2></div>
+  <p class="lead">On the first day of this course, a researcher had just quit one of the world's leading AI companies, warning that the industry was racing toward self-improving systems it had no plan to control. We asked you not to decide what to make of that. We asked what you'd need to see. That list went on the board and stayed there.</p>
+  <p>Eleven weeks later you've seen a lot: a drug-hunter that finds cures in neglected research, a robotaxi fleet with a coverage map, a classifier that beat the humans it replaced and still discriminated, a feed that knows what it costs you, a courtroom full of citations that never existed, a payroll dataset where the youngest workers quietly stopped being hired. None of it settles the researcher's warning. All of it changes how you should read it. That's what this chapter is for: not a forecast, but the skill of reading forecasts — and then, finally, our answer to the question the whole course has carried.</p>
+</section>
+
+<section id="s2">
+  <div class="shead"><span class="num">2</span><h2>The concepts: prediction, scenario, agent, self-improvement, instrument</h2></div>
+  <p>Five ideas, taught plain, before we touch a single future. Watch for each one in the case and the debate that follow.</p>
+
+  <p><strong>Prediction vs. scenario.</strong> A prediction says what will happen: "AI will automate half of white-collar work by 2030." It has a date and a number, and it's almost always wrong, because the future is a system with more parts than any forecaster can hold. A <em>scenario</em> is different: it's a story with mechanisms you can inspect — "if agents get reliable enough to be trusted with multi-day tasks, then firms will reorganize around them, then the J-curve from Chapter 8 starts, then..." You can't fact-check a scenario. You can check whether each step's mechanism is real and whether it's happening yet. Serious people who think about the future write scenarios in the plural, because the point isn't to be right about one — it's to be ready for several.</p>
+  <div class="concept">
+    <div class="term">Scenario thinking</div>
+    <p>Multiple plausible futures, each built from mechanisms you can inspect, each paired with the early signals that would tell you it's the one arriving. The discipline isn't guessing which future wins. It's knowing what you'd have to see to find out — and looking.</p>
+  </div>
+
+  <p><strong>Agents: from answering to acting.</strong> Everything in Chapters 2 and 10 was an AI that <em>answers</em> — you ask, it produces. An <em>agent</em> is an AI that <em>acts</em>: given a goal, it plans steps, uses tools (a browser, a spreadsheet, a code editor, another AI), checks its own results, and keeps going without a human between steps. The customer-service example in Chapter 1's quiz — reads your complaint, issues the refund, sends the email — is a small one. The ones under development run for hours or days. Run our second Monday question on that and notice what happens: with an agent, "where is the human?" stops being a design choice at one gate and becomes a question about <em>every</em> step. Agents are the concept that turns most futures, which is why every scenario in section 4 hinges on how good they get.</p>
+  <div class="concept">
+    <div class="term">Agent</div>
+    <p>An AI system that pursues a goal across multiple steps — planning, using tools, acting, and checking its own work — with no human between the steps. The loop question, multiplied by every step in the chain.</p>
+  </div>
+
+  <p><strong>Recursive self-improvement.</strong> This is the idea underneath the Day 1 headline, and it deserves to be understood rather than felt. Today, better AI models are built by humans running enormous training processes (Chapter 4). Increasingly, AI systems help with that work — writing the code, designing the experiments, generating the training data. <em>Recursive self-improvement</em> is the scenario where that help becomes the whole job: systems improving the systems that improve them, with humans further from the loop each round. Nobody has built this. It's the hinge concept in the entire debate, because if it's possible the curve bends sharply, and if it isn't, AI is another general-purpose technology diffusing on the dynamo's timetable. The honest status, as of this writing: real research toward it, real disagreement about whether it's near, and — this is the part that made a researcher quit — no agreed method for keeping such a system aligned with what its builders intend.</p>
+  <div class="concept">
+    <div class="term">Recursive self-improvement &amp; alignment</div>
+    <p><b>Self-improvement:</b> AI systems doing the work of making better AI systems, humans receding from the loop. <b>Alignment:</b> the problem of making a system's goals and behavior match what its builders and users actually intend — hard enough today, and unsolved for systems more capable than their overseers. The first concept is what the fear is about; the second is what the fear is <em>of</em>.</p>
+  </div>
+
+  <p><strong>How to watch a future arrive.</strong> You already know this concept; you've used it all quarter without the name. An <em>instrument</em> is a measurement that updates on a schedule you can watch: the Canaries Dashboard for who's getting hired, the Adoption Monitor for whether firms are reorganizing, the Safety Index for whether companies' conduct matches their rhetoric, a robotaxi coverage map for how fast the physical world is changing. Instruments beat opinions because they can't be argued with — only interpreted. Every scenario in this chapter comes with the instrument that would confirm it.</p>
+  <div class="concept">
+    <div class="term">Instrument</div>
+    <p>A measurement that updates on a schedule — a dashboard, an index, a map — that lets you watch a claim about the future become true or false in public. The course's answer to "who do I believe?": nobody. Watch the instrument.</p>
+  </div>
+
+  <div class="callout tryit">
+    <div class="label">Try it · five statements about the future — prediction, scenario, instrument reading, or slogan?</div>
+    <details><summary>1. "Fully autonomous trucks will handle 40% of long-haul freight by 2031."</summary><p>Prediction — a date and a number. Treat as a hypothesis to watch, not a fact. Ask what instrument would show it arriving (fleet permits, freight-mile data).</p></details>
+    <details><summary>2. "If agents become reliable for week-long tasks, small firms will be able to do what mid-size firms do today, which would show up first in business-formation data."</summary><p>Scenario — a chain of mechanisms with a named signal at the end. Each link can be checked. This is the useful kind.</p></details>
+    <details><summary>3. "The August dashboard shows the employment gap for young workers in AI-exposed jobs widened to 19%."</summary><p>Instrument reading — a measurement, dated. Trust it more than either of the above, and then argue about what caused it (Chapter 11).</p></details>
+    <details><summary>4. "AI is going to change everything."</summary><p>Slogan. True, empty, and unfalsifiable. Chapter 1's rule: it asks you to feel, not look. Ask "which everything, by what mechanism, visible where?"</p></details>
+    <details><summary>5. "Insiders believe AI could kill everyone this decade."</summary><p>The hard one: it's a report about beliefs, not about AI. It's real evidence that serious people are afraid — and it's not evidence about the systems themselves. Read it as an instrument reading of the <em>people</em>, then go look at the specific claims underneath (section 4).</p></details>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="shead"><span class="num">3</span><h2>The case: the future that already arrived</h2></div>
+  <p>Before the three futures, a calibration exercise: some of what would have sounded like the future on Day 1 is already here, and it's worth seeing how the four questions handle things that recently didn't exist.</p>
+  <p><strong>AI in science.</strong> For fifty years, one of biology's hardest problems was predicting how a protein folds — the three-dimensional shape that determines what it does. Working it out for a single protein could take a doctoral student years. In 2020, a system from Google DeepMind called AlphaFold essentially solved the problem, and by 2024 the work had won <a class="inline" href="https://www.nobelprize.org/prizes/chemistry/2024/press-release/" target="_blank" rel="noopener">the Nobel Prize in Chemistry</a> — the first Nobel for a prediction system. Its structure database now covers essentially every known protein. This is Chapter 3's argument at planetary scale: prediction mining a record, then handing findings to humans who verify them in wet labs, which still takes years. Four questions, fast: predictive AI; humans firmly in the loop at verification; accountability with the labs that publish the follow-on claims; failures visible, because science has referees. Notice that the best-case AI story in the world passes every question cleanly — that's not a coincidence, and section 5 comes back to it.</p>
+  <p><strong>Agents in deployment.</strong> The agents of section 2 are not hypothetical: software companies now use AI systems that take a bug report, write the fix, run the tests, and open the change for human review; companies run agents on multi-step customer-service and back-office work; the "customer-service system" from Chapter 1's quiz is a product category. Run the questions: agentic; the human is <em>at the end</em> (the reviewer), which is the on-the-loop seat Chapter 7 warned about; accountability is contested — the company deploying, or the company that built the agent (Chapter 6's <em>Mobley</em> question, coming to every industry); failure visibility depends entirely on whether the reviewer actually reviews. The agent future is arriving through the middle seat.</p>
+  <p><strong>The physical world.</strong> Chapter 7's coverage map keeps expanding — more cities, more freeway miles, London next — and the same perception-prediction-planning stack is moving into warehouses, hospitals, and sidewalks. Embodied; human out of the loop by design; corporate accountability; failures filmed. The future here has a schedule, and the schedule is a permit calendar.</p>
+  <p>What the calibration shows: things that would have read as science fiction in Week 1 turn out to be ordinary objects for the four questions. The ritual works on the future. That's the whole reason we practiced it eleven times.</p>
+</section>
+
+<section id="s4">
+  <div class="shead"><span class="num">4</span><h2>The concepts at work: three published futures</h2></div>
+  <p>Now the futures that don't exist yet — presented as their authors would, with the mechanism each depends on and the instrument that would show it arriving. Three camps, all serious, all published, all in open disagreement.</p>
+
+  <p><strong>Future one: the fast takeoff.</strong> This is the Day 1 researcher's future, and it has a detailed written version: <a class="inline" href="https://ai-2027.com" target="_blank" rel="noopener"><em>AI 2027</em></a>, a scenario published in 2025 by a group of forecasters that walks month by month through agents automating AI research itself, recursive self-improvement kicking in, and a world transformed within a few years — with two endings, one where alignment holds and one where it doesn't. Jacob Coxon's resignation this September is this future with a human face: three years of pretraining research at OpenAI and Anthropic, then a public exit warning that both companies were "racing straight to self-improving superintelligence and gambling with our lives," and a senior Anthropic alignment researcher <a class="inline" href="https://www.sfchronicle.com/tech/article/anthropic-researcher-resigns-ai-safety-fears-22423993.php" target="_blank" rel="noopener">publicly agreeing</a> — putting the odds of AI-caused human extinction within the decade above ten percent, and saying plainly that the company did not yet have a plan to solve alignment for systems smarter than their overseers. The mechanism this future needs: agents good enough to do AI research, then self-improvement. The instrument: watch for AI systems doing measurable, verified shares of frontier research work — the labs themselves report it, and the Safety Index grades whether anyone independent can check.</p>
+
+  <p><strong>Future two: normal technology.</strong> The strongest published rebuttal comes from two Princeton computer scientists, Arvind Narayanan and Sayash Kapoor, in an essay called <a class="inline" href="https://knightcolumbia.org/content/ai-as-normal-technology" target="_blank" rel="noopener"><em>AI as Normal Technology</em></a>. Their argument is Chapter 8's, sharpened: even transformative technologies diffuse through institutions slowly — electricity took forty years, and AI has to pass through regulation, liability, retraining, and reorganization the same way. Capability isn't deployment. Intelligence isn't power; power comes from being trusted with resources, and trust is granted slowly by institutions built to be slow. On this reading, the takeoff scenario mistakes a lab benchmark for the world. The mechanism this future needs: none — it's what happens by default when nothing extraordinary occurs. The instrument: the Adoption Monitor's intensive margin, and the Canaries Dashboard. If firms reorganize slowly and labor effects stay gradual and uneven, this is the future arriving.</p>
+
+  <p><strong>Future three: flourishing.</strong> The most optimistic serious case comes from inside the industry — Dario Amodei, Anthropic's chief executive, in a 2024 essay called <a class="inline" href="https://www.darioamodei.com/essay/machines-of-loving-grace" target="_blank" rel="noopener"><em>Machines of Loving Grace</em></a>. His scenario: if powerful AI arrives and alignment holds, the payoff is a century of scientific progress compressed into a decade — most diseases cured, mental health transformed, poverty reduced at unprecedented rates — with AlphaFold as the down payment. (Disclosure, the course's practice and the course's principle: this textbook was drafted with the model his company makes. Weigh accordingly, and notice that the same company houses this future's author and the previous future's most alarmed researcher. That's not hypocrisy; that's the disagreement being real.) The mechanism: the same powerful AI as future one, plus successful alignment. The instrument: EveryCure's clinical pipeline, drug approvals traceable to AI-originated candidates, the kind of science-output data that would show the decade compressing.</p>
+
+  <p>Read all three with the skeptics' voice in the room, because it belongs there: some critics argue that extinction talk from insiders is a form of marketing — a way to advertise the power of the product to investors, especially ahead of enormous stock offerings — and others argue the fears are simply overblown, that intelligence doesn't automatically become power. Coxon's own reply was that the fear was not a marketing stunt, and that he heard the same fear expressed privately by people who softened it in public. You can't settle that from outside. What you <em>can</em> do — the skill — is notice that futures one and three share a mechanism and disagree about alignment, that future two disagrees with both about diffusion speed, and that each comes with an instrument. Three scenarios, three signals, one habit: watch.</p>
+</section>
+
+<section id="s5">
+  <div class="shead"><span class="num">5</span><h2>Question it &amp; decide — and what went right</h2></div>
+  <div class="callout">
+    <div class="label">The Monday questions, run on a system that improves itself — one last time</div>
+    <div class="fourq">
+      <div class="q"><span class="qn">1</span><p><strong>What kind of AI is this?</strong> All three kinds at once, chained: agentic systems that predict, generate, and act — pointed at their own successors. The kind question has no clean answer here, which is itself the answer: our categories were built for systems with a human at one gate.</p></div>
+      <div class="q"><span class="qn">2</span><p><strong>Where is the human?</strong> The entire debate, compressed. Future one is the story of the human leaving the loop; future two says the institutions won't let that happen quickly; future three says it can happen safely. Your Day 1 answer to this question, and your answer now, are the two ends of this course.</p></div>
+      <div class="q"><span class="qn">3</span><p><strong>Who is accountable when it fails?</strong> A system no company claims to fully understand, built by companies that publicly disagree with themselves about its safety. The chain runs to executives, boards, and — since the pivot in Chapter 9 — governments. The honest answer today is "not yet anyone in particular," which is the answer this course taught you to treat as an emergency.</p></div>
+      <div class="q"><span class="qn">4</span><p><strong>What happens when it fails, and who finds out?</strong> The gravest failure mode in the book with the least visible failure: a senior safety researcher said, on the record, that there is no plan yet. The visibility rule at maximum stakes. What institutions can see inside — indexes, regulators, whistleblowers, researchers who quit loudly — is the list of what to support.</p></div>
+    </div>
+  </div>
+
+  <p><strong>Deciding.</strong> Here is the course's answer to its own question. <em>Can we build a good, beneficial hybrid society?</em> Yes — under conditions, and the conditions are the reason this course exists, because we spent eleven weeks learning to name them. Look at where it went right, because it did, repeatedly: a doctor read his own lab results and a cure that had sat on a shelf for decades reached the patient. Dispatchers refused to trust a system until it earned a track record, and then trusted it well. Blind riders got the first independent ride of their lives. One applicant resubmitted her application with a different birthdate and caught a company breaking the law. Opposing counsel actually looked up the citations. A fabricated robocall was traced and prosecuted. Journalists found the failures companies didn't publish; a dashboard made an invisible labor shift visible every month; a researcher quit loudly instead of quietly. Every one of those is the hybrid society working — and every one has the same cause. <strong>Someone looked.</strong> Someone kept the failure visible, put a human where a human helped, held a name accountable, priced the cost, and checked.</p>
+  <p>That's the finding. The four questions were never a critique of AI. They were the building code — the conditions under which this technology produces cures instead of phantoms, and the conditions are met by people, not by the systems. Which of the three futures arrives is not settled, and this book won't pretend to know. But all three agree on one thing: the difference between the good versions and the bad ones runs through whether humans keep looking, keep checking, and keep the power to refuse. The people who'll live with it are the ones who decide which future shows up. This book was written for them. That was always the plan. Now go look.</p>
+</section>
+
+<section id="s6">
+  <div class="shead"><span class="num">6</span><h2>Key terms</h2></div>
+  <div class="terms">
+    <div class="term-card"><div class="t">Scenario</div><p>A plausible future built from inspectable mechanisms, written in the plural, paired with the signal that would confirm it.</p></div>
+    <div class="term-card"><div class="t">Agent</div><p>AI that pursues a goal across steps — planning, tools, action, self-checking — with no human between the steps.</p></div>
+    <div class="term-card"><div class="t">Recursive self-improvement</div><p>Systems improving the systems that improve them. Unbuilt; the hinge of the whole debate.</p></div>
+    <div class="term-card"><div class="t">Alignment</div><p>Making a system's goals and behavior match what its builders intend. Unsolved for systems more capable than their overseers.</p></div>
+    <div class="term-card"><div class="t">Diffusion</div><p>How technology actually spreads through institutions — slowly, through law, liability, training, and reorganization. The "normal technology" thesis.</p></div>
+    <div class="term-card"><div class="t">Instrument</div><p>A dated, scheduled measurement — dashboard, index, map — that lets a claim about the future become true or false in public.</p></div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="shead"><span class="num">7</span><h2>Entry ticket</h2></div>
+  <div class="ticket">
+    <div class="label">Due before the finals session · post to Canvas</div>
+    <ol>
+      <li>Take one confident prediction about AI you've heard this quarter — from a friend, a headline, a CEO — and rewrite it as a scenario: the chain of mechanisms it requires, and the instrument that would show it arriving.</li>
+      <li>Explain recursive self-improvement to someone who missed the course, in four sentences, ending with why a researcher would quit over it — without using the word "extinction."</li>
+      <li>Pick the future of the three you find least plausible and steelman it in three sentences. Then name the single instrument reading that would make you take it seriously.</li>
+      <li>Your Day 1 answer to "what would you need to see?" is on the board. Did you see it? Answer in one paragraph with a specific case from the course, and say whether the researcher's warning reads differently to you now, and why.</li>
+      <li>The course question, one last time — "can we build a good, beneficial hybrid society?" — answered in your own words, with your conditions, and with your Week 1 answer quoted beside it. The distance between them is what you learned.</li>
+    </ol>
+  </div>
+</section>
+
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <p>The Coxon resignation (8 Sep 2026): Wired's report is linked in Chapter 1; this chapter links the San Francisco Chronicle's account, which carries the colleague's public agreement and probability estimate; quotations and roles cross-checked against Wired, the Wall Street Journal's interview as reported, Newsweek, and Slate, 10 Sep 2026 — the skeptics' marketing critique is drawn from that coverage and attributed as such. The AlphaFold Nobel: Nobel Foundation press release, 2024 (historical). The three futures are linked to their primary texts — <i>AI 2027</i> (2025), Narayanan &amp; Kapoor (Knight Institute, 2025), Amodei (2024); these three URLs are from the author's records rather than a fresh search on 10 Sep 2026 — click-verify before deploy. Claims about agents in deployment are pattern-level and unlinked by design. The Anthropic conflict of interest is disclosed in Chapter 1, Chapter 9, and here. Found an error? Tell your instructor — corrections are course content.</p>
+</details>
+
+<div class="nextbar">
+  <a href="chapter-11-work.html"><span class="dir">← Back</span>Chapter 11 · AI &amp; the Future of Work</a>
+  <a href="chapter-12-future-lab.html" style="text-align:right;"><span class="dir">Next →</span>Lab 12 · Opening Positions, Reversed</a>
+</div>
+
+</main>
+
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+  </div>
+</footer>
+
+</body>
+</html>

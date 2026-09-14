@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 10 · Truth — Intro to AI in Business | MIS 201</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pink);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+.steps{margin:26px 0;}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
+.step:last-child{border-bottom:none;}
+.step .sn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);font-size:1.2rem;min-width:24px;}
+.step p{margin-bottom:0;}
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+
+/* ---- lab widgets ---- */
+.tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
+.tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
+.tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
+.chip{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;}
+.chip:hover{border-color:var(--pink);color:var(--pinktext);}
+.chip:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.chip.on{background:var(--dark);color:var(--yellow);border-color:var(--dark);}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.btn{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;}
+.btn:hover{background:#1B222B;}
+.btn:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--rule);}
+.btn.alt:hover{border-color:var(--pink);color:var(--pinktext);}
+.verdict{background:var(--dark);color:#E7EAEF;padding:26px 28px;margin-top:22px;}
+.verdict .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;}
+.verdict .read{font-size:.95rem;line-height:1.65;}
+.verdict .read b{color:var(--yellow);}
+.bars{display:grid;gap:10px;margin:14px 0 18px;}
+.bar{display:grid;grid-template-columns:190px 1fr 44px;gap:12px;align-items:center;font-size:.85rem;}
+.bar .track{height:10px;background:#242C36;border-radius:999px;overflow:hidden;}
+.bar .fill{height:100%;background:var(--pink);width:0%;transition:width .3s ease;border-radius:999px;}
+.bar.safe .fill{background:var(--yellow);}
+.bar .n{text-align:right;color:var(--lightgray);}
+@media(max-width:560px){.bar{grid-template-columns:1fr;gap:4px;}.bar .n{text-align:left;}}
+.meter{display:grid;grid-template-columns:130px 1fr 54px;gap:12px;align-items:center;font-size:.9rem;margin:8px 0;}
+.meter .track{height:14px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;}
+.meter .fill{height:100%;width:50%;transition:width .35s ease;border-radius:999px;background:var(--pink);}
+.meter.good .fill{background:var(--ink);}
+.meter .n{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+.simcard{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;cursor:pointer;text-align:left;font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55;color:var(--ink);width:100%;}
+.simcard:hover{border-color:var(--pink);}
+.simcard:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.simcard .tag{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.simgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:680px){.simgrid{grid-template-columns:1fr;}}
+.slider-row{display:grid;grid-template-columns:170px 1fr 120px;gap:14px;align-items:center;margin:14px 0;font-size:.92rem;}
+.slider-row output{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+input[type=range]{width:100%;accent-color:var(--pink);}
+@media(max-width:560px){.slider-row{grid-template-columns:1fr;gap:6px;}.slider-row output{text-align:left;}}
+select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink);}
+.equiv{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:18px 0 4px;}
+.equiv .cell{background:#fff;padding:16px 18px;}
+.equiv .cell .v{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;}
+.equiv .cell .v em{font-style:normal;color:var(--pink);}
+.equiv .cell .k{font-size:.82rem;color:var(--gray);margin-top:2px;}
+@media(max-width:560px){.equiv{grid-template-columns:1fr;}}
+.graphbox{background:var(--dark);border:1px solid var(--rule);margin:18px 0;}
+.graphbox svg{display:block;width:100%;height:auto;}
+.gnode{cursor:pointer;}
+.gnode circle{stroke:#39424D;stroke-width:1.5;fill:#1B222B;transition:all .2s ease;}
+.gnode text{font-family:'Inter',sans-serif;font-size:11px;fill:#C9CED6;pointer-events:none;}
+.gnode.drug circle{stroke:var(--yellow);}
+.gnode.disease circle{stroke:var(--pink);}
+.gnode.sel circle{fill:var(--yellow);stroke:var(--yellow);}
+.gnode.sel text{fill:var(--dark);font-weight:700;}
+.gnode.lit circle{fill:#2A3440;stroke:#fff;}
+.gedge{stroke:#333D49;stroke-width:1.5;transition:all .2s ease;}
+.gedge.lit{stroke:var(--yellow);stroke-width:2.5;}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.8rem;color:var(--gray);padding:12px 16px;border-top:1px solid var(--rule);background:#fff;}
+.legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;border:2px solid var(--gray);vertical-align:-1px;}
+.legend .l-drug::before{border-color:var(--yellow);background:#1B222B;}
+.legend .l-disease::before{border-color:var(--pink);background:#1B222B;}
+.legend .l-mid::before{border-color:#39424D;background:#1B222B;}
+.ranked{margin:14px 0 0;}
+.ranked .r{display:grid;grid-template-columns:1fr 60px;gap:10px;padding:9px 0;border-bottom:1px solid #242C36;font-size:.9rem;align-items:center;}
+.ranked .r:last-child{border-bottom:none;}
+.ranked .r .s{text-align:right;color:var(--yellow);font-variant-numeric:tabular-nums;font-weight:600;}
+.probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
+.probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
+.probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
+.roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div>
+      <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="chapter-10-truth-lab.html">Lab 10</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Western Washington University · MIS 201 · Chapter 10</div>
+    <h1>Truth: The Plausibility <b>Machines</b></h1>
+    <p class="kicker">The systems we've studied all quarter share one design fact this chapter finally faces head-on: none of them was built to tell the truth. They were built to be plausible — and plausible is cheaper than true, faster than true, and increasingly hard to tell from true. What does a society do when the difference stops being visible?</p>
+    <p class="factline">Hallucination is not a bug · the phantom citations · the liar's dividend</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="contents">
+  <div class="label">In this chapter</div>
+  <ol>
+    <li><a href="#s1">Built for plausible, not true</a></li>
+    <li><a href="#s2">Case one: the phantom citations</a></li>
+    <li><a href="#s3">Case two: the voice on the phone</a></li>
+    <li><a href="#s4">The asymmetry — and the dividend</a></li>
+    <li><a href="#s5">Question it &amp; decide</a></li>
+    <li><a href="#s6">Key terms</a></li>
+    <li><a href="#s7">Entry ticket</a></li>
+  </ol>
+</div>
+
+<section id="s1">
+  <div class="shead"><span class="num">1</span><h2>Built for plausible, not true</h2></div>
+  <p class="lead">Start with the mechanism, because everything in this chapter follows from it. A large language model is trained to produce the most plausible continuation of a text — the words that best fit the pattern of everything it has read. Truth and plausibility usually overlap, which is why these systems are so often right. But the system has no internal flag that distinguishes them. When it states a fact, and when it invents one with perfect confidence, <em>it is doing the same operation.</em></p>
+  <p>This is why "hallucination" — the industry's word for confident fabrication — is not a bug being patched out. It's the machine working as designed, in the cases where plausible and true come apart. The systems have gotten meaningfully better at staying aligned with truth; they have not changed what they fundamentally optimize. If this book has one sentence to tattoo somewhere before the exam, this chapter's candidate: <strong>the machine is never lying, and it is never telling the truth. It is always doing something else — and checking is our job.</strong></p>
+  <div class="concept">
+    <div class="term">Hallucination</div>
+    <p>Confident fabrication by a generative model — invented facts, quotes, sources, delivered in the same fluent voice as everything accurate. Not a malfunction: the plausibility engine running in territory where plausible and true diverge.</p>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="shead"><span class="num">2</span><h2>Case one: the phantom citations</h2></div>
+  <p>In 2023, two New York lawyers filed a brief in a routine airline-injury lawsuit, <a class="inline" href="https://www.forbes.com/sites/mollybohannon/2023/06/08/lawyer-used-chatgpt-in-court-and-cited-fake-cases-a-judge-is-considering-sanctions/" target="_blank" rel="noopener"><em>Mata v. Avianca</em></a>. The brief cited multiple court cases supporting their argument — cases with convincing names, plausible citations, quotable passages. Opposing counsel couldn't find them. Neither could the judge. Because they did not exist. One of the lawyers had asked ChatGPT for supporting cases; it produced them, complete and confident and fictional. Asked directly whether the cases were real, it assured him they were. The court sanctioned the lawyers, and the case became the first famous collision between a plausibility machine and an institution built on verification.</p>
+  <p>Here's what makes it a chapter case rather than a funny story: it keeps happening. Courts and researchers now track AI-fabricated citations in legal filings, and the running counts are in the hundreds — after every lawyer in America heard about the first one. The lesson isn't that some lawyers are lazy. It's structural: the fabrication arrives <em>pre-formatted in the genre of reliability</em>. A phantom citation looks exactly like a real one; the fluency that makes the tool useful is the same fluency that makes its failures invisible. Wednesday's lab hands you the actual phantom citations from the actual case and makes you catch them yourself — with a clock running, for a reason you'll see in section 4.</p>
+</section>
+
+<section id="s3">
+  <div class="shead"><span class="num">3</span><h2>Case two: the voice on the phone</h2></div>
+  <p>Two days before the 2024 New Hampshire presidential primary, thousands of Democratic voters got a robocall in Joe Biden's voice telling them not to vote in it. The voice was an AI clone — commissioned, it turned out, by a political consultant, generated with commercial tools, for a few hundred dollars. Regulators moved quickly by government standards: the FCC declared AI-cloned voices in robocalls illegal, proposed a multimillion-dollar fine, and prosecutors brought charges. A year earlier, days before Slovakia's national election — during the legal quiet period when candidates couldn't respond — an audio clip spread of a leading candidate apparently discussing how to rig the vote. Fabricated, experts concluded. He lost. Whether the clip decided the race is unknowable, which is precisely the problem.</p>
+  <p>What both cases demonstrate is the collapse of an old default. For a century, audio and video were self-authenticating: hearing was believing, more or less. That default is gone. What used to require a studio now requires an app; the marginal cost of fabricated evidence has fallen close to zero. Elections are just where the stakes make it visible first — the same collapse is arriving in insurance claims, school disputes, workplace HR files, and family group chats.</p>
+</section>
+
+<section id="s4">
+  <div class="shead"><span class="num">4</span><h2>The asymmetry — and the dividend</h2></div>
+  <p>Put the two cases side by side and the common structure emerges. The phantom citations took seconds to generate and hours of professional time to expose. The robocall cost a few hundred dollars and consumed investigators, regulators, and courts for years. This is the chapter's central economic fact: <strong>generation is cheap and verification is expensive — and the gap is widening.</strong> Any system where attacking costs pennies and defending costs hours has a stability problem, and "the information environment" is now such a system.</p>
+  <div class="concept">
+    <div class="term">The verification asymmetry</div>
+    <p>Fabricating content costs seconds and cents; checking it costs minutes, expertise, and institutional time. Whoever benefits from noise can now produce it faster than anyone can clean it up. Most of what this chapter recommends is, one way or another, an attempt to cheapen verification.</p>
+  </div>
+  <p>And the deepest damage doesn't come from the fakes. It comes from what the <em>possibility</em> of fakes does to real evidence. Legal scholars call it the <em>liar's dividend</em>: once everyone knows audio can be faked, anyone caught on real audio can say "deepfake" — and some people will believe them, and everyone else has to do work to prove otherwise. The technology pays dishonest people a dividend without their generating anything at all. Follow that to its end state and you get the real stakes of this chapter: not a world where people believe false things, but a world where people can't be made to believe true ones — where every inconvenient fact has a plausible exit. A society can survive some lies. It cannot govern itself without a shared way to settle what happened.</p>
+</section>
+
+<section id="s5">
+  <div class="shead"><span class="num">5</span><h2>Question it &amp; decide</h2></div>
+  <div class="callout">
+    <div class="label">The Monday questions, applied</div>
+    <div class="fourq">
+      <div class="q"><span class="qn">1</span><p><strong>What kind of AI is this?</strong> Generative, in its purest form — and note the full stack: the model that fabricates, the platforms that distribute, the recommender systems from Chapter 5 that decide what spreads. The truth problem is all three chapters working together.</p></div>
+      <div class="q"><span class="qn">2</span><p><strong>Where is the human?</strong> At the checking step — or nowhere. Every case in this chapter is a story about the human who skipped verification: the lawyer who didn't look up the cases, the voter who didn't question the call. The loop this chapter cares about runs through us.</p></div>
+      <div class="q"><span class="qn">3</span><p><strong>Who is accountable when it fails?</strong> The Avianca court had an easy answer: the lawyers who signed the brief. The tool's confident false assurances changed nothing legally. Whatever we produce with AI, we sign. Carry that into every job you'll ever hold.</p></div>
+      <div class="q"><span class="qn">4</span><p><strong>What happens when it fails, and who finds out?</strong> Failure here is epistemic pollution — no crash, no recall, just a rising cost of knowing anything. Who finds out is the asymmetry question: whoever can afford verification. What does it mean when knowing becomes a luxury good?</p></div>
+    </div>
+  </div>
+  <p><strong>Deciding</strong> operates at two levels. Personal: adopt a verification protocol and make it a reflex — the lab builds yours, and Think · Ask · Judge · Reflect has been rehearsing it all quarter. The Judge step was always the point; this chapter just showed you the stakes. Structural: personal vigilance doesn't fix an asymmetry — cheapening verification does. That means provenance standards that let cameras cryptographically sign what they capture, platform accountability for what gets amplified, institutions (courts, journalism, science) funded to do the expensive checking — and it means deciding, as citizens, that we'll pay for referees. The mature position, one last time, refuses both exits: not "trust nothing" (that's the liar's dividend winning) and not "it'll sort itself out" (the asymmetry says it won't). See it. Question it. Decide. That was never advice about AI. It was advice about being a citizen of what comes next.</p>
+</section>
+
+<section id="s6">
+  <div class="shead"><span class="num">6</span><h2>Key terms</h2></div>
+  <div class="terms">
+    <div class="term-card"><div class="t">Plausibility optimization</div><p>What language models actually do: produce the most likely continuation. Truth is a frequent correlate, not the target.</p></div>
+    <div class="term-card"><div class="t">Hallucination</div><p>Confident fabrication — the plausibility engine running where plausible and true diverge. Not a separable bug.</p></div>
+    <div class="term-card"><div class="t">Deepfake</div><p>AI-fabricated audio, image, or video of a real person. The end of self-authenticating media.</p></div>
+    <div class="term-card"><div class="t">Verification asymmetry</div><p>Generation costs seconds; checking costs hours. The economics underneath every case in this chapter.</p></div>
+    <div class="term-card"><div class="t">The liar's dividend</div><p>The bonus fakery pays the dishonest: real evidence becomes deniable. The deepest damage runs through true things, not false ones.</p></div>
+    <div class="term-card"><div class="t">Provenance</div><p>Cryptographic content credentials — cameras and tools signing what they produce — the leading attempt to make verification cheap again.</p></div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="shead"><span class="num">7</span><h2>Entry ticket</h2></div>
+  <div class="ticket">
+    <div class="label">Due before Monday's class · post to Canvas · exam review Wednesday, so this ticket doubles as review</div>
+    <ol>
+      <li>Explain "the machine is never lying and never telling the truth" to someone who missed the quarter — and why that's more useful than calling AI "unreliable." Three sentences.</li>
+      <li>The Avianca lawyers asked the chatbot if the cases were real, and it said yes. Using this chapter's mechanism, explain why that check was worthless — and name the check that would have worked, in under a minute.</li>
+      <li>Find the liar's dividend in miniature somewhere in your own life or feed: a moment where "that could be fake" did work for someone. What would have settled it, and what did settling it cost?</li>
+      <li>Review question — connect three chapters in three sentences: how do Chapter 5's engagement systems, this chapter's plausibility machines, and Chapter 2's seeming combine into one problem? (This synthesis is exam material.)</li>
+      <li>Your working stance, final revision: Chapter 2 asked what's human that no dial can turn up. After ten chapters, answer again — same question, everything you now know. Bring both versions Monday; the distance between them is the course.</li>
+    </ol>
+  </div>
+</section>
+
+<div class="nextbar">
+  <a href="chapter-09-ethics-war.html"><span class="dir">← Back</span>Chapter 9 · Ethics &amp; War</a>
+  <a href="chapter-10-truth-lab.html" style="text-align:right;"><span class="dir">Next →</span>Lab 10 · The Phantom Docket</a>
+</div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+  </div>
+</footer>
+
+</body>
+</html>

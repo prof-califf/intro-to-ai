@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 3 · Inside the Graph — Intro to AI in Business | MIS 201</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pink);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+.steps{margin:26px 0;}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
+.step:last-child{border-bottom:none;}
+.step .sn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);font-size:1.2rem;min-width:24px;}
+.step p{margin-bottom:0;}
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+
+/* ---- lab widgets ---- */
+.tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
+.tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
+.tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
+.chip{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;}
+.chip:hover{border-color:var(--pink);color:var(--pinktext);}
+.chip:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.chip.on{background:var(--dark);color:var(--yellow);border-color:var(--dark);}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.btn{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;}
+.btn:hover{background:#1B222B;}
+.btn:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--rule);}
+.btn.alt:hover{border-color:var(--pink);color:var(--pinktext);}
+.verdict{background:var(--dark);color:#E7EAEF;padding:26px 28px;margin-top:22px;}
+.verdict .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;}
+.verdict .read{font-size:.95rem;line-height:1.65;}
+.verdict .read b{color:var(--yellow);}
+.bars{display:grid;gap:10px;margin:14px 0 18px;}
+.bar{display:grid;grid-template-columns:190px 1fr 44px;gap:12px;align-items:center;font-size:.85rem;}
+.bar .track{height:10px;background:#242C36;border-radius:999px;overflow:hidden;}
+.bar .fill{height:100%;background:var(--pink);width:0%;transition:width .3s ease;border-radius:999px;}
+.bar.safe .fill{background:var(--yellow);}
+.bar .n{text-align:right;color:var(--lightgray);}
+@media(max-width:560px){.bar{grid-template-columns:1fr;gap:4px;}.bar .n{text-align:left;}}
+.meter{display:grid;grid-template-columns:130px 1fr 54px;gap:12px;align-items:center;font-size:.9rem;margin:8px 0;}
+.meter .track{height:14px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;}
+.meter .fill{height:100%;width:50%;transition:width .35s ease;border-radius:999px;background:var(--pink);}
+.meter.good .fill{background:var(--ink);}
+.meter .n{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+.simcard{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;cursor:pointer;text-align:left;font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55;color:var(--ink);width:100%;}
+.simcard:hover{border-color:var(--pink);}
+.simcard:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.simcard .tag{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.simgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:680px){.simgrid{grid-template-columns:1fr;}}
+.slider-row{display:grid;grid-template-columns:170px 1fr 120px;gap:14px;align-items:center;margin:14px 0;font-size:.92rem;}
+.slider-row output{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+input[type=range]{width:100%;accent-color:var(--pink);}
+@media(max-width:560px){.slider-row{grid-template-columns:1fr;gap:6px;}.slider-row output{text-align:left;}}
+select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink);}
+.equiv{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:18px 0 4px;}
+.equiv .cell{background:#fff;padding:16px 18px;}
+.equiv .cell .v{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;}
+.equiv .cell .v em{font-style:normal;color:var(--pink);}
+.equiv .cell .k{font-size:.82rem;color:var(--gray);margin-top:2px;}
+@media(max-width:560px){.equiv{grid-template-columns:1fr;}}
+.graphbox{background:var(--dark);border:1px solid var(--rule);margin:18px 0;}
+.graphbox svg{display:block;width:100%;height:auto;}
+.gnode{cursor:pointer;}
+.gnode circle{stroke:#39424D;stroke-width:1.5;fill:#1B222B;transition:all .2s ease;}
+.gnode text{font-family:'Inter',sans-serif;font-size:11px;fill:#C9CED6;pointer-events:none;}
+.gnode.drug circle{stroke:var(--yellow);}
+.gnode.disease circle{stroke:var(--pink);}
+.gnode.sel circle{fill:var(--yellow);stroke:var(--yellow);}
+.gnode.sel text{fill:var(--dark);font-weight:700;}
+.gnode.lit circle{fill:#2A3440;stroke:#fff;}
+.gedge{stroke:#333D49;stroke-width:1.5;transition:all .2s ease;}
+.gedge.lit{stroke:var(--yellow);stroke-width:2.5;}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.8rem;color:var(--gray);padding:12px 16px;border-top:1px solid var(--rule);background:#fff;}
+.legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;border:2px solid var(--gray);vertical-align:-1px;}
+.legend .l-drug::before{border-color:var(--yellow);background:#1B222B;}
+.legend .l-disease::before{border-color:var(--pink);background:#1B222B;}
+.legend .l-mid::before{border-color:#39424D;background:#1B222B;}
+.ranked{margin:14px 0 0;}
+.ranked .r{display:grid;grid-template-columns:1fr 60px;gap:10px;padding:9px 0;border-bottom:1px solid #242C36;font-size:.9rem;align-items:center;}
+.ranked .r:last-child{border-bottom:none;}
+.ranked .r .s{text-align:right;color:var(--yellow);font-variant-numeric:tabular-nums;font-weight:600;}
+.probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
+.probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
+.probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
+.roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}.gnode:focus-visible{outline:2px solid var(--pink);outline-offset:2px;border-radius:4px;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div>
+      <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="chapter-03-medicine.html">Chapter 3</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Western Washington University · MIS 201 · Lab 3</div>
+    <h1>Inside the <b>Graph</b></h1>
+    <p class="kicker">EveryCure's real graph has millions of nodes. Ours has thirteen — small enough to see whole, real enough that every connection below comes from actual medicine. Your job: run the prediction yourself, then break it the way the world breaks it.</p>
+    <p class="factline">Three drugs · six diseases · one machine you can see all the way through</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <div class="shead"><span class="num">1</span><h2>Meet the graph</h2></div>
+  <p class="lead">Below is a miniature biomedical knowledge graph. Drugs on the left, diseases on the right, biological pathways in the middle. Every line is a simplified version of a documented relationship — including the famous ones: sirolimus really is the drug that saved Fajgenbaum, and propranolol really was discovered to treat infantile hemangioma after decades as a blood-pressure drug. <strong>Click any node</strong> to light up what it connects to. Spend two minutes just exploring before you score anything. Then the scoring, which is simpler than it looks: select a drug and press <em>Score</em>, and the system counts — for every disease on the board — how many distinct routes of three hops or fewer connect them through the biology. That count is the score. Nothing fancier is happening. It's EveryCure's ranking step shrunk to desk size: their system weighs millions of drug–disease pairs with machine learning; ours scores fifteen by counting paths. But both are asking the identical question of every pair: how strongly does the assembled research record already imply this connection? One design note before you start: this is the one lab in the course with no live AI in it, on purpose. The point this week is to see <em>inside</em> a prediction system — every dot, every line, every score in front of you is the entire machine. Nothing is hidden, so nothing needs to be taken on trust. Enjoy that while it lasts; it's the last system in this book you'll be able to say that about.</p>
+
+  <div class="tool">
+    <div class="label">The graph</div>
+    <p class="roundinfo" id="gstatus" aria-live="polite" style="margin-bottom:10px;"><b>Step 1:</b> click any node to light up what it connects to. <b>Step 2:</b> click one of the three drugs (left column) to select it — then the score button below wakes up.</p>
+    <div class="graphbox">
+      <svg id="kg" viewBox="0 0 800 500" role="img" aria-label="Interactive knowledge graph of drugs, pathways, and diseases"></svg>
+    </div>
+    <div class="legend">
+      <span class="l-drug">Drug</span>
+      <span class="l-mid">Pathway / mechanism</span>
+      <span class="l-disease">Disease</span>
+    </div>
+    <div class="chips" style="margin-top:16px;">
+      <button type="button" class="btn" id="scorebtn" disabled>Score selected drug against every disease</button>
+      <button type="button" class="chip" id="attn" aria-pressed="false">Show research attention</button>
+      <button type="button" class="chip" id="rewind" aria-pressed="false">Rewind: before the mTOR research</button>
+    </div>
+    <div class="verdict" id="verdict" aria-live="polite" hidden>
+      <div class="label" id="vlabel">Predicted matches</div>
+      <p class="read" style="font-size:.85rem;opacity:.85;margin-bottom:10px;">Score = independent routes (three hops or fewer) connecting this drug to that disease in the graph. More independent biology, stronger implied connection. Zero = nothing connects in the record.</p>
+      <div class="ranked" id="ranked"></div>
+      <p class="read" id="reading" style="margin-top:14px;"></p>
+    </div>
+  </div>
+
+  <div class="concept">
+    <div class="term">How the score works</div>
+    <p>The scoring here is the honest toy version of what EveryCure does: count the distinct paths (up to three hops) connecting a drug to a disease. More independent paths through the biology = a stronger implied connection. The real system weighs paths with machine learning instead of counting them — but the logic, and the weakness you're about to find, are the same.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">2</span><h2>Run the predictions</h2></div>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Select <strong>Sirolimus</strong> and score it. Record the full ranking. Where does Castleman disease land — and can you trace, by clicking, the exact paths that put it there?</p></div>
+    <div class="step"><span class="sn">b</span><p>Score <strong>Propranolol</strong>. The system should surface infantile hemangioma — a repurposing that real doctors found by accident in 2008. Would this graph have found it on purpose? What research had to exist first?</p></div>
+    <div class="step"><span class="sn">c</span><p>Score <strong>Metformin</strong>. Notice its direct line to type 2 diabetes — approved uses are the easy, already-known edges. The interesting rows are everything below it. Which of metformin's indirect matches would you send to the human review team, and which would you discard? Write down your cut line and your reason.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">3</span><h2>Find the gap</h2></div>
+  <p>Now the chapter's argument, live. Toggle <strong>Show research attention</strong> — node size now reflects how connected each node is, our stand-in for how much science has studied it. Find ROHHAD syndrome. It's real: an ultra-rare childhood disease, on the order of a hundred documented cases worldwide, no approved treatment, and very little research. In our graph, that lack of research is a single thin line.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Score all three drugs again and record what each predicts for ROHHAD. The scores aren't low because no drug could help. They're low because almost nothing connects — nobody has looked.</p></div>
+    <div class="step"><span class="sn">b</span><p>Write the mechanism in your own words, one sentence: how exactly did the research gap become the prediction gap? You'll need this sentence Friday.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">4</span><h2>Unpublish the science</h2></div>
+  <p>Last experiment. Toggle <strong>Rewind: before the mTOR research</strong>. This deletes the findings connecting the mTOR pathway to immune disease — roughly the knowledge Fajgenbaum's own work helped establish. Then score sirolimus again.</p>
+  <p>Watch what happens to Castleman disease. Same drug. Same disease. Same underlying biology in the real world — the drug would still work. But the prediction is gone, because the graph never knew. Sit with that for a second: <strong>the machine didn't discover the cure. It inherited a discovery.</strong> Somewhere in the graph's real, million-node version, the next Castleman is sitting at zero right now, waiting for a paper that hasn't been written.</p>
+  <div class="callout">
+    <div class="label">Why this experiment matters beyond medicine</div>
+    <p>Every predictive system in this course — lending models, hiring screens, news feeds — runs on some recorded version of the past. This lab is the cleanest place to see the rule: the system's blind spots are the record's blind spots, inherited at scale. When we meet hiring data in Chapter 6, bring this toggle with you in your head.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">5</span><h2>Run the four questions</h2></div>
+  <div class="fourq">
+    <div class="q"><span class="qn">1</span><p><strong>What kind of AI is this?</strong> You've now operated it yourself — describe it in one sentence to someone who thinks all AI is ChatGPT.</p></div>
+    <div class="q"><span class="qn">2</span><p><strong>Where is the human?</strong> In this lab, you were the human review team at step 2c. What did you actually need to make your cut line defensible — and did the graph give it to you?</p></div>
+    <div class="q"><span class="qn">3</span><p><strong>Who is accountable when it fails?</strong> If your cut line discarded a real cure, whose failure is that — yours, the graph's, or the research world that left the edge undrawn?</p></div>
+    <div class="q"><span class="qn">4</span><p><strong>What happens when it fails, and who finds out?</strong> You just watched a failure nobody would ever detect: ROHHAD at zero. Who, in the real world, is even positioned to notice that kind of nothing?</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">6</span><h2>The writeup</h2></div>
+  <div class="ticket">
+    <div class="label">Due Friday afternoon · post to Canvas</div>
+    <ol>
+      <li><strong>The rankings.</strong> Your recorded scores for all three drugs, plus the paths behind sirolimus–Castleman traced in your own words.</li>
+      <li><strong>The cut line.</strong> Which metformin matches you'd send to human review, which you'd discard, and the rule you used to decide.</li>
+      <li><strong>The gap.</strong> Your one-sentence mechanism for ROHHAD, plus: what would it actually take, in the real world, to raise that score honestly?</li>
+      <li><strong>The rewind.</strong> What the mTOR experiment showed, and one other domain (not medicine) where you suspect the same "undrawn edge" problem exists. Name the missing record.</li>
+      <li><strong>Your move.</strong> One sentence you'll carry into the rest of this course about what predictive AI can and cannot see. This becomes your commitment card Wednesday.</li>
+    </ol>
+  </div>
+</section>
+
+<div class="nextbar">
+  <a href="chapter-03-medicine.html"><span class="dir">← Back</span>Chapter 3 · Medicine</a>
+  <a href="chapter-04-environment.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 4 · Environment</a>
+</div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nodes = [
+    {id:'sir',  label:'Sirolimus',              x:95,  y:120, type:'drug'},
+    {id:'met',  label:'Metformin',              x:95,  y:260, type:'drug'},
+    {id:'prop', label:'Propranolol',            x:95,  y:400, type:'drug'},
+    {id:'mtor', label:'mTOR pathway',           x:340, y:110, type:'mid'},
+    {id:'imm',  label:'Immune signaling',       x:340, y:230, type:'mid'},
+    {id:'ves',  label:'Blood vessel growth',    x:340, y:330, type:'mid'},
+    {id:'str',  label:'Stress hormone response',x:340, y:430, type:'mid'},
+    {id:'cas',  label:'Castleman disease',      x:625, y:60,  type:'disease'},
+    {id:'lym',  label:'Lymphatic malformation', x:625, y:135, type:'disease'},
+    {id:'hem',  label:'Infantile hemangioma',   x:625, y:215, type:'disease'},
+    {id:'t2d',  label:'Type 2 diabetes',        x:625, y:295, type:'disease'},
+    {id:'txr',  label:'Transplant rejection',   x:625, y:370, type:'disease'},
+    {id:'roh',  label:'ROHHAD syndrome (rare)', x:625, y:450, type:'disease'}
+  ];
+  var edges = [
+    ['sir','mtor'], ['sir','txr'],
+    ['met','mtor'], ['met','t2d'],
+    ['prop','str'],
+    ['mtor','imm'], ['mtor','ves'], ['mtor','cas'],
+    ['str','ves'],
+    ['imm','cas'],
+    ['ves','lym'], ['ves','hem'],
+    ['str','roh']
+  ];
+  var rewindRemoved = [['mtor','imm'],['mtor','cas']];
+
+  var svg = document.getElementById('kg');
+  var NS = 'http://www.w3.org/2000/svg';
+  var byId = {};
+  nodes.forEach(function(n){ byId[n.id] = n; });
+
+  var selectedDrug = null;
+  var attnOn = false;
+  var rewindOn = false;
+
+  function activeEdges(){
+    if (!rewindOn) return edges;
+    return edges.filter(function(e){
+      return !rewindRemoved.some(function(r){ return r[0]===e[0] && r[1]===e[1]; });
+    });
+  }
+  function adjacency(){
+    var adj = {};
+    nodes.forEach(function(n){ adj[n.id] = []; });
+    activeEdges().forEach(function(e){
+      adj[e[0]].push(e[1]); adj[e[1]].push(e[0]);
+    });
+    return adj;
+  }
+  function countPaths(from, to, maxLen){
+    var adj = adjacency(); var count = 0;
+    function dfs(node, target, visited, depth){
+      if (node === target){ count++; return; }
+      if (depth === maxLen) return;
+      adj[node].forEach(function(nx){
+        if (visited.indexOf(nx) === -1) dfs(nx, target, visited.concat([nx]), depth+1);
+      });
+    }
+    dfs(from, to, [from], 0);
+    return count;
+  }
+  function degree(id){
+    return adjacency()[id].length;
+  }
+
+  var edgeEls = [], nodeEls = {};
+  function draw(){
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    edgeEls = []; nodeEls = {};
+    activeEdges().forEach(function(e){
+      var a = byId[e[0]], b = byId[e[1]];
+      var line = document.createElementNS(NS,'line');
+      line.setAttribute('x1',a.x); line.setAttribute('y1',a.y);
+      line.setAttribute('x2',b.x); line.setAttribute('y2',b.y);
+      line.setAttribute('class','gedge');
+      line.setAttribute('data-a',e[0]); line.setAttribute('data-b',e[1]);
+      svg.appendChild(line);
+      edgeEls.push(line);
+    });
+    nodes.forEach(function(n){
+      var g = document.createElementNS(NS,'g');
+      g.setAttribute('class','gnode ' + n.type + (selectedDrug===n.id?' sel':''));
+      g.setAttribute('data-id', n.id);
+      var c = document.createElementNS(NS,'circle');
+      var r = attnOn ? (5 + degree(n.id)*2.5) : 9;
+      c.setAttribute('cx',n.x); c.setAttribute('cy',n.y); c.setAttribute('r',r);
+      var t = document.createElementNS(NS,'text');
+      var leftSide = n.type==='drug';
+      t.setAttribute('x', n.x + (leftSide ? -(r+8) : (n.type==='disease' ? (r+8)*-1 : 0)));
+      if (n.type==='drug'){ t.setAttribute('x', n.x - r - 8); t.setAttribute('text-anchor','end'); }
+      else if (n.type==='disease'){ t.setAttribute('x', n.x + r + 8); t.setAttribute('text-anchor','start'); }
+      else { t.setAttribute('x', n.x); t.setAttribute('text-anchor','middle'); t.setAttribute('dy', -r-7); }
+      t.setAttribute('y', n.y);
+      if (n.type!=='mid') t.setAttribute('dy', 4);
+      t.textContent = n.label;
+      g.appendChild(c); g.appendChild(t);
+      g.setAttribute('tabindex','0');
+      g.setAttribute('role','button');
+      g.setAttribute('aria-label', n.label + (n.type==='drug' ? ' (drug — press Enter to select)' : n.type==='disease' ? ' (disease)' : ' (pathway)'));
+      if (n.type==='drug') g.setAttribute('aria-pressed', selectedDrug===n.id ? 'true' : 'false');
+      g.addEventListener('click', function(){ onNodeClick(n); });
+      g.addEventListener('keydown', function(ev){ if (ev.key==='Enter' || ev.key===' '){ ev.preventDefault(); onNodeClick(n); } });
+      svg.appendChild(g);
+      nodeEls[n.id] = g;
+    });
+  }
+
+  function clearHighlights(){
+    edgeEls.forEach(function(e){ e.classList.remove('lit'); });
+    Object.keys(nodeEls).forEach(function(id){ nodeEls[id].classList.remove('lit'); });
+  }
+
+  function onNodeClick(n){
+    clearHighlights();
+    var st = document.getElementById('gstatus');
+    if (n.type === 'drug'){
+      selectedDrug = (selectedDrug === n.id) ? null : n.id;
+      Object.keys(nodeEls).forEach(function(id){
+        nodeEls[id].classList.toggle('sel', id === selectedDrug);
+        if (byId[id].type==='drug') nodeEls[id].setAttribute('aria-pressed', id===selectedDrug ? 'true' : 'false');
+      });
+      document.getElementById('scorebtn').disabled = !selectedDrug;
+      var sb = document.getElementById('scorebtn');
+      if (selectedDrug){
+        sb.textContent = 'Score ' + n.label + ' against every disease';
+        st.innerHTML = '<b>' + n.label + ' selected.</b> The lit lines are what it directly touches in the biology. Now press the score button — the system will count the routes from ' + n.label + ' to every disease on the right.';
+      } else {
+        sb.textContent = 'Score selected drug against every disease';
+        st.innerHTML = '<b>' + n.label + ' deselected.</b> Click a drug on the left to select one for scoring, or keep exploring.';
+      }
+    } else {
+      st.innerHTML = '<b>' + n.label + '</b> — a ' + (n.type==='disease' ? 'disease' : 'pathway') + ' node. The lit lines are its documented connections' + (n.type==='disease' ? ': every route the system can use has to arrive through these.' : ': this is middle biology that routes can pass through.') + ' (Scoring starts from a <b>drug</b> — the left column.)';
+    }
+    if (false){ }
+    var adj = adjacency();
+    edgeEls.forEach(function(e){
+      if (e.getAttribute('data-a')===n.id || e.getAttribute('data-b')===n.id) e.classList.add('lit');
+    });
+    adj[n.id].forEach(function(nb){ nodeEls[nb].classList.add('lit'); });
+  }
+
+  document.getElementById('scorebtn').addEventListener('click', function(){
+    if (!selectedDrug) return;
+    var drug = byId[selectedDrug];
+    var results = nodes.filter(function(n){ return n.type==='disease'; }).map(function(d){
+      return { label: d.label, id: d.id, score: countPaths(selectedDrug, d.id, 3) };
+    }).sort(function(a,b){ return b.score - a.score; });
+
+    var v = document.getElementById('verdict');
+    v.hidden = false;
+    document.getElementById('vlabel').textContent = 'Predicted matches for ' + drug.label + (rewindOn ? ' · rewind ON' : '');
+    var list = document.getElementById('ranked');
+    list.innerHTML = '';
+    results.forEach(function(r){
+      var row = document.createElement('div');
+      row.className = 'r';
+      var name = document.createElement('span'); name.textContent = r.label;
+      var s = document.createElement('span'); s.className = 's'; s.textContent = r.score + (r.score===1 ? ' path' : ' paths');
+      row.appendChild(name); row.appendChild(s);
+      list.appendChild(row);
+    });
+    var top = results[0];
+    var zeros = results.filter(function(r){ return r.score === 0; }).length;
+    var read = 'Top match: <b>' + top.label + '</b> with ' + top.score + ' independent path' + (top.score===1?'':'s') + ' through the biology. ' +
+      (zeros ? zeros + ' disease' + (zeros===1?' scores':'s score') + ' zero — remember, zero means <b>nothing connects in the record</b>, not "the drug can\u2019t help."' : 'Every disease connects at least once — rare in a real graph.');
+    if (rewindOn) read += ' You\u2019re scoring against the pre-discovery record. Compare this ranking to your step 2a notes.';
+    document.getElementById('reading').innerHTML = read;
+  });
+
+  document.getElementById('attn').addEventListener('click', function(){
+    attnOn = !attnOn;
+    this.classList.toggle('on', attnOn);
+    this.setAttribute('aria-pressed', String(attnOn));
+    draw();
+  });
+
+  document.getElementById('rewind').addEventListener('click', function(){
+    rewindOn = !rewindOn;
+    this.classList.toggle('on', rewindOn);
+    this.setAttribute('aria-pressed', String(rewindOn));
+    draw();
+  });
+
+  draw();
+})();
+</script>
+
+</body>
+</html>

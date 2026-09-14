@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 11 · AI and the Future of Work — Intro to AI in Business | MIS 201</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+
+/* ---- nav ---- */
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pink);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+
+/* ---- masthead ---- */
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+
+/* ---- contents ---- */
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+
+/* ---- sections ---- */
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+
+/* ---- concept boxes ---- */
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+
+/* ---- callout ---- */
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+
+/* ---- number facts ---- */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+
+/* ---- four questions ---- */
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+
+/* ---- key terms ---- */
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+
+/* ---- entry ticket ---- */
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+
+/* ---- next ---- */
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+
+/* ---- footer ---- */
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div>
+      <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="chapter-11-work-lab.html">Lab 11</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Western Washington University · MIS 201 · Chapter 11</div>
+    <h1><b>AI</b> and the Future of Work</h1>
+    <p class="kicker">The question we've saved for last is the one most of us walked in carrying: what does all of this mean for the jobs we're about to go get? This chapter looks at the best evidence we have — and what we can actually do with it.</p>
+    <p class="factline">Stanford Digital Economy Lab · payroll data from millions of workers · updated monthly</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="contents">
+  <div class="label">In this chapter</div>
+  <ol>
+    <li><a href="#s1">The nervousness is data too</a></li>
+    <li><a href="#s2">The case: Canaries in the Coal Mine</a></li>
+    <li><a href="#s3">Two lines that matter more than the headline</a></li>
+    <li><a href="#s4">Question it: is AI actually causing this?</a></li>
+    <li><a href="#s5">Decide: what we do about it</a></li>
+    <li><a href="#s6">Key terms</a></li>
+    <li><a href="#s7">Entry ticket</a></li>
+  </ol>
+</div>
+
+<section id="s1">
+  <div class="shead"><span class="num">1</span><h2>The nervousness is data too</h2></div>
+  <p class="lead">Ask a room of college students how they feel about AI and their careers, and the honest answer is usually some version of nervous. That feeling is worth taking seriously — not because the worst headlines are true, but because vague dread is the least useful form of concern. This chapter's job is to convert nervousness into something specific: what does the evidence actually show, who is affected, through what mechanism, and what moves does that leave us?</p>
+  <p>We run our usual questions on the way in. What kind of AI are we talking about? Mostly generative AI — the systems this book has spent nine chapters examining. Where is the human? That's exactly what's in dispute: whether AI is replacing people, working alongside them, or quietly changing who gets hired at all. Who is accountable, and what happens when it fails? Hold those. They come back at the end of the chapter with more force than usual — because this time the system being examined includes the job market we're all about to enter.</p>
+</section>
+
+<section id="s2">
+  <div class="shead"><span class="num">2</span><h2>The case: Canaries in the Coal Mine</h2></div>
+  <p>Coal miners used to carry canaries underground. The birds were more sensitive to dangerous gas than the miners were — if the canary stopped singing, you got out before the danger reached you. Researchers at the Stanford Digital Economy Lab borrowed the image for a study called <a class="inline" href="https://digitaleconomy.stanford.edu/news/canariesaug26/" target="_blank" rel="noopener">"Canaries in the Coal Mine? Six Facts About the Recent Employment Effects of Artificial Intelligence."</a> Their question: if AI is starting to change the job market, who would feel it first — and can we detect it before it shows up everywhere?</p>
+  <p>Their data source matters. Instead of surveys or predictions, the researchers — Erik Brynjolfsson, Bharat Chandar, and Ruyu Chen — used payroll records from ADP, a company that processes paychecks for millions of American workers. Real jobs, real hires, real paychecks, month by month, since ChatGPT launched in late 2022. The August 2026 revision of the study says two things at once, and we need to hold both.</p>
+  <p><strong>First: there is no widespread, economy-wide job displacement from AI.</strong> The robot apocalypse is not in the data. Across the whole workforce, ages 22 to 70, employment looks broadly normal.</p>
+  <p><strong>Second: workers ages 22 to 25 in the jobs most exposed to AI are falling behind.</strong> Their employment now sits about 19% below where it would be if it had kept pace with their less-exposed peers of the same age. Experienced workers in the same occupations show no comparable gap. A year earlier, that number was 15%. It is widening.</p>
+  <p>That second finding is about us. It is the age group in this room, entering the job market over the next few years, in exactly the kinds of white-collar, knowledge-work roles a business degree points toward.</p>
+
+  <div class="facts">
+    <div class="fact"><div class="big"><em>19%</em></div><div class="small">Employment gap for workers 22–25 in highly AI-exposed jobs, vs. less-exposed peers (June 2026)</div></div>
+    <div class="fact"><div class="big"><em>15%</em> → 19%</div><div class="small">The same gap one year earlier. The divergence has widened steadily.</div></div>
+    <div class="fact"><div class="big"><em>0</em></div><div class="small">Comparable gap for experienced workers in the same occupations.</div></div>
+  </div>
+
+  <div class="concept">
+    <div class="term">AI exposure</div>
+    <p>A measure of how much of a job's tasks current AI systems can plausibly perform. Researchers score occupations from low exposure (electricians, nurses, chefs) to high exposure (customer service, basic accounting, entry-level software work). Exposure is not destiny — it measures overlap between the job and the technology, not what employers will actually do.</p>
+  </div>
+
+  <p>One more detail before we look under the hood: the gap does not come from firing. It comes from <em>hiring</em>. Companies are not laying young workers off in large numbers. They are not opening the door in the first place. That distinction changes everything about how the problem feels — and who notices it. A wave of layoffs makes news. A hiring slowdown makes silence: fewer postings, longer searches, more "we went with another candidate." The canary doesn't drop. It just stops getting invited into the mine.</p>
+</section>
+
+<section id="s3">
+  <div class="shead"><span class="num">3</span><h2>Two lines that matter more than the headline</h2></div>
+  <p>The 19% number gets the attention. Two distinctions inside the study matter more, because they tell us <em>where</em> the pressure lands — and where it doesn't.</p>
+
+  <h3>Automating vs. complementing</h3>
+  <p>The employment declines are concentrated in occupations where AI is used to <em>automate</em> human tasks — where the system does the work and a person, at most, checks the output. In occupations where AI is used to <em>complement</em> workers — extending what a person can do rather than replacing what they do — employment is flat or rising, especially for experienced workers. Same technology. Opposite outcomes. The difference is not the AI; it's how the job is built around it.</p>
+
+  <div class="concept">
+    <div class="term">Automation vs. complement</div>
+    <p>Automating use: AI performs the task; the human role shrinks toward review or disappears. Complementing use: AI extends the human — drafting so the person can edit, searching so the person can judge, calculating so the person can decide. The Canaries data shows employment falling in automating occupations and holding or growing in complementing ones.</p>
+  </div>
+
+  <h3>Codified vs. tacit knowledge</h3>
+  <p>The sharpest line in the study is one you can feel in your own education. Employment fell among young workers in jobs built on <em>codified knowledge</em> — the formal, standardized, written-down kind you can learn from textbooks, documentation, and procedures. Employment <em>rose</em> among experienced workers in jobs built on <em>tacit knowledge</em> — the kind acquired through practice, mentorship, and repeated exposure to real situations.</p>
+  <p>Think about why that pattern makes sense. Large language models were trained on the world's written text. Anything that has been fully written down — rules, procedures, standard analyses, textbook methods — is exactly what these systems reproduce best. But knowledge that lives in experience rather than text — reading a tense meeting, knowing which client actually decides, sensing that a number is wrong before you can say why — has never been written down, so the models never trained on it. It has to be earned the old way: by doing.</p>
+
+  <div class="concept">
+    <div class="term">Codified vs. tacit knowledge</div>
+    <p>Codified knowledge is documented and teachable through text: formulas, procedures, standard methods. Tacit knowledge is acquired through practice and mentorship and resists being written down. AI is strongest exactly where knowledge is codified — which is also, uncomfortably, what much of a degree certifies.</p>
+  </div>
+
+  <div class="callout">
+    <div class="label">The uncomfortable sentence</div>
+    <p>A college degree is largely a certificate of codified knowledge — and codified knowledge is what AI reproduces best. That does not make the degree worthless. It means the degree alone is no longer the differentiator it was. The differentiator is what we layer on top of it: judgment, experience, and the tacit knowledge no model trained on.</p>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="shead"><span class="num">4</span><h2>Question it: is AI actually causing this?</h2></div>
+  <p>Here is where this book has trained us not to stop at the headline. The researchers themselves are careful: these are <em>descriptive patterns, not causal estimates</em>. The data shows the gap exists and is widening. It cannot prove, on its own, that AI caused it. Other forces — interest rates, post-pandemic corrections, remote work — hit the same job market at the same time.</p>
+  <p>And this isn't a hypothetical caveat — it's a live scientific fight, playing out on the radio this very week. In <a class="inline" href="https://www.npr.org/2026/08/18/nx-s1-5910677/many-recent-grads-say-ai-is-making-it-harder-to-get-a-job-economists-arent-so-sure" target="_blank" rel="noopener">an NPR story on struggling recent grads</a> — one applicant: 450 applications, 19 interviews, zero offers — economists look at the same suffering and disagree about the cause. A New York Fed analysis found AI <em>didn't</em> explain the rise in young-grad unemployment; remote work fit better. Harvard's David Deming supplies the mechanism: training a junior hire from afar is costly, so remote work quietly tilts every hiring decision toward experienced people — no algorithm required. Chicago's Anders Humlum adds a test worth remembering: if AI were the culprit, firms adopting it fastest should be shedding entry-level roles fastest, and he doesn't see it. Notice who's on the other side: Brynjolfsson — the Canaries study's own lead author — defending the AI signal, while agreeing with his critics that a major shift is underway either way. Two rigorous readings of the same numbers, unresolved, in public. That's not a flaw in the science. That <em>is</em> the science, mid-stride — and you get to watch it settle on a monthly dashboard.</p>
+  <p>So the researchers stress-tested their own finding. The gap survives when they exclude tech companies and computer jobs. It survives when they control for interest-rate exposure and remote work. It keeps widening well after interest rates peaked. It concentrates precisely in automating occupations with a clear age gradient — a pattern that interest rates alone would not naturally produce. And U.S. Census data shows broadly consistent patterns.</p>
+  <p>They also publish their reasons for doubt: the gap shrinks when education is accounted for, some trends predate generative AI, and their estimates run larger than national survey benchmarks. Their own conclusion: no single study — including theirs — is definitive. And rather than declaring the question settled, they built infrastructure to keep watching: the <a class="inline" href="https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/" target="_blank" rel="noopener">Canaries Dashboard</a> updates these results every month.</p>
+
+  <div class="callout">
+    <div class="label">The Monday questions, applied to a study</div>
+    <div class="fourq">
+      <div class="q"><span class="qn">1</span><p><strong>What kind of AI is this?</strong> The study measures the labor effects of generative AI — but the study itself is a predictive analysis built on payroll data. We're using data systems to watch data systems.</p></div>
+      <div class="q"><span class="qn">2</span><p><strong>Where is the human?</strong> Researchers in the loop at every step: choosing exposure measures, running robustness checks, publishing their own doubts. Compare that to how confidently the same numbers get repeated in headlines.</p></div>
+      <div class="q"><span class="qn">3</span><p><strong>Who is accountable when it fails?</strong> If this study is wrong — too alarming or not alarming enough — who bears the cost? The students who changed majors because of a headline? The policymakers who waited for certainty?</p></div>
+      <div class="q"><span class="qn">4</span><p><strong>What happens when it fails, and who finds out?</strong> This is the study's best answer in the whole chapter: a public dashboard, updated monthly. If the finding is wrong, it fails in the open. Most of the systems in this book cannot say that.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="shead"><span class="num">5</span><h2>Decide: what we do about it</h2></div>
+  <p class="lead">Being nervous is a reasonable response to this data. But the study doesn't just describe a problem. It points at the exits. Every move below comes from a mechanism the researchers actually documented — not from generic career advice.</p>
+
+  <h3>Build tacit knowledge on purpose</h3>
+  <p>The knowledge holding its value is the kind acquired by doing real things in real situations: internships, jobs, projects with actual stakes, working alongside people who have done it longer. Treat every one of those as an investment AI cannot replicate. The degree gets you considered. The tacit layer gets you kept.</p>
+
+  <h3>Position yourself in complement work, not automation work</h3>
+  <p>When you look at a role, ask which side of the line it sits on. Is the AI doing the task while a person checks the output? Or is the AI extending what the person can do? The first kind is shrinking for people our age. The second isn't. This is a question you can ask in an interview — and asking it well is itself a signal.</p>
+
+  <h3>Be the person who judges the output</h3>
+  <p>This is why the whole book runs on Think · Ask · Judge · Reflect. Anyone can generate plausible text now. The scarce skill is knowing when it's wrong, why it's wrong, and what to do instead. That judgment is tacit knowledge, and every lab in this course has been building it. That was the point.</p>
+
+  <h3>Treat the first job as the hard part — because it is</h3>
+  <p>The gap operates through hiring, which means the steepest step is the first one. That argues for starting earlier: real experience while we're still here, not after graduation. It also reframes rejection. A long search in an exposed field is not a personal verdict; it's the mechanism the data describes. Knowing that doesn't make it easy. It makes it navigable.</p>
+
+  <h3>Keep watching</h3>
+  <p>The researchers don't know whether these patterns will accelerate, stabilize, or reverse. Neither do we. But unlike almost any other question in this book, this one comes with a live instrument. See it. Question it. Decide — and re-decide as the data moves. The lab this week puts that instrument in our hands.</p>
+</section>
+
+<section id="s6">
+  <div class="shead"><span class="num">6</span><h2>Key terms</h2></div>
+  <div class="terms">
+    <div class="term-card"><div class="t">AI exposure</div><p>How much of a job's tasks current AI can plausibly perform. Measures overlap, not destiny.</p></div>
+    <div class="term-card"><div class="t">Displacement</div><p>Workers losing employment because technology performs their work. The study finds no economy-wide displacement — but a concentrated gap for young workers.</p></div>
+    <div class="term-card"><div class="t">Automating use</div><p>AI performs the task; the human shrinks toward review. Employment is falling here for young workers.</p></div>
+    <div class="term-card"><div class="t">Complementing use</div><p>AI extends what a person can do. Employment is flat or rising here.</p></div>
+    <div class="term-card"><div class="t">Codified knowledge</div><p>Formal, documented, teachable-through-text knowledge. What AI reproduces best.</p></div>
+    <div class="term-card"><div class="t">Tacit knowledge</div><p>Knowledge earned through practice, mentorship, and real situations. Hard to write down, hard for AI to replicate.</p></div>
+    <div class="term-card"><div class="t">Hiring vs. separations</div><p>The gap comes from reduced hiring of young workers, not increased firing. The door narrows quietly.</p></div>
+    <div class="term-card"><div class="t">Descriptive vs. causal</div><p>The data shows the pattern exists; it cannot alone prove AI caused it. The researchers say so themselves.</p></div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="shead"><span class="num">7</span><h2>Entry ticket</h2></div>
+  <div class="ticket">
+    <div class="label">Due before Monday's class · listen to <a class="inline" href="https://www.npr.org/2026/08/18/nx-s1-5910677/many-recent-grads-say-ai-is-making-it-harder-to-get-a-job-economists-arent-so-sure" target="_blank" rel="noopener">the NPR story on recent grads</a> (about 4 minutes), then post to Canvas</div>
+    <ol>
+      <li>The study says no widespread displacement, but a 19% gap for workers your age. Which of those two facts do you think will get the headlines? Why does that matter?</li>
+      <li>The gap comes from reduced hiring, not firing. What does that difference change about who notices the problem, and when? (This is our fourth question wearing a different coat.)</li>
+      <li>Think about the job you actually want after graduation. Is the AI in that job more likely automating tasks or complementing the person? What's your evidence?</li>
+      <li>Name one piece of tacit knowledge you already have — something you learned by doing, not from a textbook. Could an AI trained on all the world's text replicate it?</li>
+      <li>The researchers say this is one study, not proof. What would you need to see on the dashboard between now and December to become more convinced? Less convinced?</li>
+    </ol>
+  </div>
+</section>
+
+<div class="nextbar">
+  <a href="index.html"><span class="dir">← Back</span>Contents</a>
+  <a href="chapter-11-work-lab.html" style="text-align:right;"><span class="dir">Next →</span>Lab 11 · The Exposure Audit</a>
+</div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+  </div>
+</footer>
+
+</body>
+</html>

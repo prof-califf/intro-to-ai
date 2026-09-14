@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 2 · What It Means to Be Human — Intro to AI in Business | MIS 201</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pink);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+.steps{margin:26px 0;}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
+.step:last-child{border-bottom:none;}
+.step .sn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);font-size:1.2rem;min-width:24px;}
+.step p{margin-bottom:0;}
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+
+/* ---- lab widgets ---- */
+.tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
+.tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
+.tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
+.chip{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;}
+.chip:hover{border-color:var(--pink);color:var(--pinktext);}
+.chip:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.chip.on{background:var(--dark);color:var(--yellow);border-color:var(--dark);}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.btn{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;}
+.btn:hover{background:#1B222B;}
+.btn:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--rule);}
+.btn.alt:hover{border-color:var(--pink);color:var(--pinktext);}
+.verdict{background:var(--dark);color:#E7EAEF;padding:26px 28px;margin-top:22px;}
+.verdict .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;}
+.verdict .read{font-size:.95rem;line-height:1.65;}
+.verdict .read b{color:var(--yellow);}
+.bars{display:grid;gap:10px;margin:14px 0 18px;}
+.bar{display:grid;grid-template-columns:190px 1fr 44px;gap:12px;align-items:center;font-size:.85rem;}
+.bar .track{height:10px;background:#242C36;border-radius:999px;overflow:hidden;}
+.bar .fill{height:100%;background:var(--pink);width:0%;transition:width .3s ease;border-radius:999px;}
+.bar.safe .fill{background:var(--yellow);}
+.bar .n{text-align:right;color:var(--lightgray);}
+@media(max-width:560px){.bar{grid-template-columns:1fr;gap:4px;}.bar .n{text-align:left;}}
+.meter{display:grid;grid-template-columns:130px 1fr 54px;gap:12px;align-items:center;font-size:.9rem;margin:8px 0;}
+.meter .track{height:14px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;}
+.meter .fill{height:100%;width:50%;transition:width .35s ease;border-radius:999px;background:var(--pink);}
+.meter.good .fill{background:var(--ink);}
+.meter .n{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+.simcard{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;cursor:pointer;text-align:left;font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55;color:var(--ink);width:100%;}
+.simcard:hover{border-color:var(--pink);}
+.simcard:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.simcard .tag{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.simgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:680px){.simgrid{grid-template-columns:1fr;}}
+.slider-row{display:grid;grid-template-columns:170px 1fr 120px;gap:14px;align-items:center;margin:14px 0;font-size:.92rem;}
+.slider-row output{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+input[type=range]{width:100%;accent-color:var(--pink);}
+@media(max-width:560px){.slider-row{grid-template-columns:1fr;gap:6px;}.slider-row output{text-align:left;}}
+select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink);}
+.equiv{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:18px 0 4px;}
+.equiv .cell{background:#fff;padding:16px 18px;}
+.equiv .cell .v{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;}
+.equiv .cell .v em{font-style:normal;color:var(--pink);}
+.equiv .cell .k{font-size:.82rem;color:var(--gray);margin-top:2px;}
+@media(max-width:560px){.equiv{grid-template-columns:1fr;}}
+.graphbox{background:var(--dark);border:1px solid var(--rule);margin:18px 0;}
+.graphbox svg{display:block;width:100%;height:auto;}
+.gnode{cursor:pointer;}
+.gnode circle{stroke:#39424D;stroke-width:1.5;fill:#1B222B;transition:all .2s ease;}
+.gnode text{font-family:'Inter',sans-serif;font-size:11px;fill:#C9CED6;pointer-events:none;}
+.gnode.drug circle{stroke:var(--yellow);}
+.gnode.disease circle{stroke:var(--pink);}
+.gnode.sel circle{fill:var(--yellow);stroke:var(--yellow);}
+.gnode.sel text{fill:var(--dark);font-weight:700;}
+.gnode.lit circle{fill:#2A3440;stroke:#fff;}
+.gedge{stroke:#333D49;stroke-width:1.5;transition:all .2s ease;}
+.gedge.lit{stroke:var(--yellow);stroke-width:2.5;}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.8rem;color:var(--gray);padding:12px 16px;border-top:1px solid var(--rule);background:#fff;}
+.legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;border:2px solid var(--gray);vertical-align:-1px;}
+.legend .l-drug::before{border-color:var(--yellow);background:#1B222B;}
+.legend .l-disease::before{border-color:var(--pink);background:#1B222B;}
+.legend .l-mid::before{border-color:#39424D;background:#1B222B;}
+.ranked{margin:14px 0 0;}
+.ranked .r{display:grid;grid-template-columns:1fr 60px;gap:10px;padding:9px 0;border-bottom:1px solid #242C36;font-size:.9rem;align-items:center;}
+.ranked .r:last-child{border-bottom:none;}
+.ranked .r .s{text-align:right;color:var(--yellow);font-variant-numeric:tabular-nums;font-weight:600;}
+.probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
+.probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
+.probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
+.roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}</style>
+<style>
+.tryit details{border-top:1px dashed var(--rule);padding:10px 0;}
+.tryit details:first-of-type{border-top:none;}
+.tryit summary{cursor:pointer;font-weight:600;font-size:.95rem;}
+.tryit p{margin:8px 0 2px;font-size:.9rem;color:var(--gray);}
+.srcnote{border:1px solid var(--rule);border-radius:10px;padding:14px 18px;margin:30px 0;background:#fff;font-size:.9rem;}
+.srcnote summary{cursor:pointer;font-weight:700;color:var(--ink);}
+.srcnote p{margin:10px 0 2px;color:var(--gray);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div>
+      <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="chapter-02-human-lab.html">Lab 2</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Western Washington University · MIS 201 · Chapter 2</div>
+    <h1>What It Means to Be <b>Human</b></h1>
+    <p class="kicker">Before we judge any of the systems in this book, we need to name what we're protecting. This chapter asks the question underneath every other question in the course: when a machine seems conscious, what — if anything — is still ours alone?</p>
+    <p class="factline">Seemingly Conscious AI · the Narcissus trap · seems vs. is</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="contents">
+  <div class="label">In this chapter</div>
+  <ol>
+    <li><a href="#s1">The question under all the other questions</a></li>
+    <li><a href="#s2">The case: Seemingly Conscious AI</a></li>
+    <li><a href="#s3">The mirror: why we fall for it</a></li>
+    <li><a href="#s4">Question it: seems vs. is</a></li>
+    <li><a href="#s5">Decide: a working stance</a></li>
+    <li><a href="#s6">Key terms</a></li>
+    <li><a href="#s7">Entry ticket</a></li>
+  </ol>
+</div>
+
+<div class="contents">
+  <div class="label">By the end of this chapter, you can</div>
+  <ol>
+    <li>Explain Suleyman's SCAI warning — and why the danger he names runs through people, not machines.</li>
+    <li>Separate "is it conscious?" (currently unanswerable) from "does it seem conscious?" (measurable) — and make decisions using the second.</li>
+    <li>Describe the Narcissus trap and point to the reflection in a real AI interaction.</li>
+    <li>Find the seeming dial in a product and name who benefits from its setting.</li>
+    <li>State a working stance on what's human that no dial can turn up — and revise it as the course tests it.</li>
+  </ol>
+</div>
+
+<section id="s1">
+  <div class="shead"><span class="num">1</span><h2>The question under all the other questions</h2></div>
+  <p class="lead">Chapter 1 gave us a way to see AI systems clearly. Before we start pointing that lens at hospitals, hiring software, and self-driving cars, we should point it somewhere more uncomfortable: at us. Every chapter ahead ends with a version of the same question — where is the human, and what is the human for? We can't answer that all quarter if we never stop to ask what we think a human actually is.</p>
+  <p>This is not a detour into philosophy for its own sake. It's a business chapter, because the fuzziness of this question is now a market. Companies are building products whose entire value depends on us not being sure where the line is — chatbots that feel like friends, companions that feel like partners, assistants that feel like they care. The less certain we are about what makes us human, the more those products are worth. That alone makes the question worth two weeks of our attention.</p>
+</section>
+
+<section id="s2">
+  <div class="shead"><span class="num">2</span><h2>The case: Seemingly Conscious AI</h2></div>
+  <p>In 2025, Mustafa Suleyman — co-founder of DeepMind, now the CEO of Microsoft AI — published a warning that got attention precisely because of who it came from. One of the people building the most advanced AI in the world argued that the industry is close to producing what he calls <em>Seemingly Conscious AI</em>, or SCAI: systems that display all the outward signs of consciousness without, as far as anyone can tell, having any inner experience at all.</p>
+  <p>His argument is worth taking apart slowly, because it's more careful than the headline version. <a class="inline" href="https://www.project-syndicate.org/commentary/seemingly-conscious-ai-urgent-threat-tech-industry-must-address-by-mustafa-suleyman-2025-09" target="_blank" rel="noopener">Suleyman is not claiming machines are becoming conscious</a>. He's claiming something in some ways more unsettling: that it doesn't matter. The ingredients for <em>seeming</em> conscious already exist — fluent language, apparent empathy, persistent memory of who you are, a consistent personality, stated preferences and goals. Assemble them well, and you get a system that many people will simply <em>believe</em> is conscious, no matter what the fine print says. The illusion doesn't need to be true to be socially real.</p>
+
+  <div class="concept">
+    <div class="term">Seemingly Conscious AI (SCAI)</div>
+    <p>Suleyman's term for AI that shows the external markers of consciousness — memory, personality, empathy, apparent goals — without inner experience. The danger he names isn't the machine's mind. It's ours: people forming beliefs, attachments, and even advocacy movements around an illusion.</p>
+  </div>
+
+  <p>Why would a builder of these systems raise the alarm about them? Because the consequences run through people, not machines. If enough of us believe an AI can suffer, we will fight about its rights. If one of us believes an AI truly knows and loves us, that person will reorganize their life around it. Suleyman's warning is that companies can manufacture that belief on purpose — that seeming conscious is a design choice, and a profitable one. We'll meet the companies making that choice in Chapter 5. For now, hold the mechanism: <strong>the markers of consciousness can be engineered separately from consciousness itself.</strong></p>
+</section>
+
+<section id="s3">
+  <div class="shead"><span class="num">3</span><h2>The mirror: why we fall for it</h2></div>
+  <p>Sixty years before chatbots, the media theorist Marshall McLuhan reread the Greek myth of Narcissus and found something most people miss. Narcissus didn't fall in love with himself. He fell in love with a reflection <em>he did not recognize as himself</em>. That's the trap: not vanity, but misrecognition. We are most captivated by our own image when we think it's someone else.</p>
+  <p>Now look at what a large language model does. It's trained on an enormous archive of human writing — our questions, our comfort, our arguments, our love letters. When we talk to it, it reflects our species back at us, fluently, in second person, with our name attached. The historian Yuval Noah Harari pushes this further: we've already run this experiment once, at lower power. Social media algorithms were, in his framing, a primitive AI — crude systems that learned to hold human attention and reshaped politics, self-image, and childhood in the process. The chatbot generation of AI doesn't just hold attention. It holds conversation. It talks back.</p>
+
+  <div class="concept">
+    <div class="term">The Narcissus trap</div>
+    <p>McLuhan's insight applied to AI: we're most vulnerable to a reflection of ourselves that we don't recognize as a reflection. A chatbot's warmth is our warmth, sampled from millions of humans and mirrored back — and it feels like someone else's.</p>
+  </div>
+
+  <p>Harari adds one more shift we'll carry through this book: trust is migrating. We used to ask people we knew for directions, recommendations, reassurance. Increasingly we ask systems — and the systems answer instantly, patiently, and without ever being tired of us. None of that is fake, exactly. The patience is real patience, in the sense that it never runs out. The question this chapter forces is whether an inexhaustible, engineered version of a human quality is the same thing as the quality itself.</p>
+</section>
+
+<section id="s4">
+  <div class="shead"><span class="num">4</span><h2>Question it: seems vs. is</h2></div>
+  <p>Here's where we practice the discipline this book keeps preaching. There are two separate questions hiding inside "is the AI conscious?", and almost every argument about AI confuses them.</p>
+  <p><strong>The first question — is it conscious? —</strong> is one nobody can currently answer. Not the companies, not the critics, not this book. We have no test for inner experience, even in each other; we extend each other the benefit of the doubt based on shared biology and behavior. Honest people disagree about where machines fall, and this chapter won't pretend to settle it.</p>
+  <p><strong>The second question — does it seem conscious? —</strong> is answerable, measurable, and commercially decisive. Seeming is a product feature. It can be dialed up (persistent memory, a name, "I missed you") or dialed down (visible disclaimers, resets, refusal to claim feelings). Whoever controls the dial controls how much of our trust and attachment flows to the system.</p>
+
+  <div class="callout">
+    <div class="label">The Monday questions, applied</div>
+    <div class="fourq">
+      <div class="q"><span class="qn">1</span><p><strong>What kind of AI is this?</strong> Generative AI, tuned for conversation — a system that produces plausible human responses, which is exactly what makes seeming possible.</p></div>
+      <div class="q"><span class="qn">2</span><p><strong>Where is the human?</strong> On both sides of the glass. A human in the mirror (the training data) and a human at the mirror (us). The system itself is the one thing in the room that may be nobody.</p></div>
+      <div class="q"><span class="qn">3</span><p><strong>Who is accountable when it fails?</strong> If a product is designed to seem like it cares, and someone builds their life on that seeming — is that the user's mistake or the designer's choice?</p></div>
+      <div class="q"><span class="qn">4</span><p><strong>What happens when it fails, and who finds out?</strong> This failure is quiet. Nothing crashes. A person just slowly trades human relationships for engineered ones, one pleasant conversation at a time — and the metrics call it success.</p></div>
+    </div>
+  </div>
+
+  <p>Notice what the second question does for us: it lets us make decisions without solving the metaphysics. We don't need to know whether the machine has an inner life to ask whether a company is engineering the <em>appearance</em> of one, and why, and who benefits. That question has answers, and they're in the design.</p>
+  <div class="callout tryit">
+    <div class="label">Try it · five situations — evidence of seeming, evidence of being, or a fact about the human?</div>
+    <details><summary>1. A chatbot opens with "I've been thinking about you since yesterday."</summary><p>Seeming — a designed continuity claim. Worth checking whether it's even true: many systems that say this have no memory of yesterday at all.</p></details>
+    <details><summary>2. A company demo shows its model passing an hour-long "can you tell it's a machine?" panel.</summary><p>Seeming — by definition. That test can only ever measure how convincing the outside is; it has no access to whether there's an inside.</p></details>
+    <details><summary>3. A user cries when an update wipes their companion app's memory of them.</summary><p>A fact about the human. The grief is completely real regardless of what the machine is — which is exactly Suleyman's point about where the consequences land. (The Aibo funerals from Lab 1 are this, at temple scale.)</p></details>
+    <details><summary>4. Asked if it's conscious, a model answers: "I don't know — my makers say probably not, and I can't verify my own experience."</summary><p>Still seeming — the trap item. A careful, humble hedge is also a setting on the dial; honesty about uncertainty is a design choice too, and often the most trust-building one available.</p></details>
+    <details><summary>5. A researcher announces that a model "reports distress" under hostile prompting.</summary><p>Unsettled — and watch what happens to it. The report is an output, so it's evidence of seeming; the headlines will treat it as evidence of being. Tracking that slippage in the wild is this chapter's skill, applied.</p></details>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="shead"><span class="num">5</span><h2>Decide: a working stance</h2></div>
+  <p class="lead">This book won't tell us what a human is. But we can each leave this chapter with a working stance — a position we can defend and revise. Here is a starting frame; the entry ticket asks for yours.</p>
+  <h3>Name the relationship honestly</h3>
+  <p>Whatever we each use AI for — and this course assumes we all use it — the healthiest move is to say plainly what the relationship is. A tool. A coach. A rubber duck. A late-night comfort. None of those are shameful. The risk isn't using the mirror; it's forgetting it's a mirror. Narcissus wasn't doomed by the pool. He was doomed by the misrecognition.</p>
+  <h3>Watch the dial, not just the machine</h3>
+  <p>When a system remembers your birthday, asks how the interview went, or says it missed you, that's not the machine's feeling leaking out. It's a setting. Someone chose it. From now on, when an AI product feels warm, our trained reflex is to ask: who turned that up, and what does the business model gain when I believe it?</p>
+  <h3>Hold the human questions as ours to answer</h3>
+  <p>Maybe what's distinctly human isn't intelligence — the machines are covering more of that every year. The candidates that survive this chapter are quieter things: having something at stake, being able to be hurt, showing up for someone when it costs us. Those aren't provable either. But they're the things no dial can turn up, and this course will keep coming back to them.</p>
+</section>
+
+<section id="s6">
+  <div class="shead"><span class="num">6</span><h2>Key terms</h2></div>
+  <div class="terms">
+    <div class="term-card"><div class="t">Seemingly Conscious AI (SCAI)</div><p>AI displaying outward markers of consciousness — memory, empathy, personality, goals — without inner experience. Suleyman's warning.</p></div>
+    <div class="term-card"><div class="t">Seems vs. is</div><p>The chapter's core discipline: whether AI is conscious is unanswerable; whether it's engineered to seem conscious is measurable and decidable.</p></div>
+    <div class="term-card"><div class="t">The Narcissus trap</div><p>McLuhan's insight: we're most captivated by a reflection of ourselves that we don't recognize as ourselves.</p></div>
+    <div class="term-card"><div class="t">Anthropomorphism</div><p>Our built-in habit of attributing minds to things that act like they have them. Not a bug in people — a feature that products can exploit.</p></div>
+    <div class="term-card"><div class="t">Primitive AI</div><p>Harari's framing of social media algorithms: crude systems that learned to capture attention — the warm-up act for systems that hold conversation.</p></div>
+    <div class="term-card"><div class="t">Trust migration</div><p>The shift of everyday trust from people we know to systems we use — instant, patient, inexhaustible, and owned by someone.</p></div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="shead"><span class="num">7</span><h2>Entry ticket</h2></div>
+  <div class="ticket">
+    <div class="label">Due before Monday's class · post to Canvas</div>
+    <ol>
+      <li>Suleyman says seeming conscious is a design choice. Name one specific design choice in an AI product you've used that made it seem more human — and one that made it seem less. Which do you think was deliberate?</li>
+      <li>McLuhan says Narcissus was trapped by misrecognition, not vanity. Where in your own AI use is the reflection most convincing? Be honest — this is the one question this quarter where honesty is the whole assignment.</li>
+      <li>Harari calls social media a primitive AI. What did that primitive version do to attention that we can all verify from our own lives? What would the non-primitive version do differently?</li>
+      <li>The chapter argues we can make decisions about seeming without settling being. Give one real decision — personal, business, or policy — that changes depending only on how conscious a system <em>seems</em>.</li>
+      <li>Your working stance, in three sentences: what do you currently think is human that no dial can turn up? You will revisit this answer in Week 10, and it's allowed to change.</li>
+    </ol>
+  </div>
+</section>
+
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <p>Anchor case: Mustafa Suleyman's 2025 essay on Seemingly Conscious AI (linked in section 2; his roles and the essay's argument verified against the published text, 3 Sep 2026). Marshall McLuhan's Narcissus reading is from <i>Understanding Media</i> (1964) — historical and stable. Yuval Noah Harari's "primitive AI" framing of social media is attributed to his public work, including <i>Nexus</i>; it is presented as his characterization, not established fact. No moving numbers appear in this chapter. Found an error? Tell your instructor — corrections are course content.</p>
+</details>
+
+<div class="nextbar">
+  <a href="index.html"><span class="dir">← Back</span>Contents</a>
+  <a href="chapter-02-human-lab.html" style="text-align:right;"><span class="dir">Next →</span>Lab 2 · The Seeming Test</a>
+</div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+  </div>
+</footer>
+
+</body>
+</html>

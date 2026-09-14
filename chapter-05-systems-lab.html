@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 5 · Play the Algorithm — Intro to AI in Business | MIS 201</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pink);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+.steps{margin:26px 0;}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
+.step:last-child{border-bottom:none;}
+.step .sn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);font-size:1.2rem;min-width:24px;}
+.step p{margin-bottom:0;}
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+
+/* ---- lab widgets ---- */
+.tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
+.tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
+.tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
+.chip{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;}
+.chip:hover{border-color:var(--pink);color:var(--pinktext);}
+.chip:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.chip.on{background:var(--dark);color:var(--yellow);border-color:var(--dark);}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.btn{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;}
+.btn:hover{background:#1B222B;}
+.btn:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--rule);}
+.btn.alt:hover{border-color:var(--pink);color:var(--pinktext);}
+.verdict{background:var(--dark);color:#E7EAEF;padding:26px 28px;margin-top:22px;}
+.verdict .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;}
+.verdict .read{font-size:.95rem;line-height:1.65;}
+.verdict .read b{color:var(--yellow);}
+.bars{display:grid;gap:10px;margin:14px 0 18px;}
+.bar{display:grid;grid-template-columns:190px 1fr 44px;gap:12px;align-items:center;font-size:.85rem;}
+.bar .track{height:10px;background:#242C36;border-radius:999px;overflow:hidden;}
+.bar .fill{height:100%;background:var(--pink);width:0%;transition:width .3s ease;border-radius:999px;}
+.bar.safe .fill{background:var(--yellow);}
+.bar .n{text-align:right;color:var(--lightgray);}
+@media(max-width:560px){.bar{grid-template-columns:1fr;gap:4px;}.bar .n{text-align:left;}}
+.meter{display:grid;grid-template-columns:130px 1fr 54px;gap:12px;align-items:center;font-size:.9rem;margin:8px 0;}
+.meter .track{height:14px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;}
+.meter .fill{height:100%;width:50%;transition:width .35s ease;border-radius:999px;background:var(--pink);}
+.meter.good .fill{background:var(--ink);}
+.meter .n{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+.simcard{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;cursor:pointer;text-align:left;font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55;color:var(--ink);width:100%;}
+.simcard:hover{border-color:var(--pink);}
+.simcard:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.simcard .tag{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.simgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:680px){.simgrid{grid-template-columns:1fr;}}
+.slider-row{display:grid;grid-template-columns:170px 1fr 120px;gap:14px;align-items:center;margin:14px 0;font-size:.92rem;}
+.slider-row output{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+input[type=range]{width:100%;accent-color:var(--pink);}
+@media(max-width:560px){.slider-row{grid-template-columns:1fr;gap:6px;}.slider-row output{text-align:left;}}
+select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink);}
+.equiv{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:18px 0 4px;}
+.equiv .cell{background:#fff;padding:16px 18px;}
+.equiv .cell .v{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;}
+.equiv .cell .v em{font-style:normal;color:var(--pink);}
+.equiv .cell .k{font-size:.82rem;color:var(--gray);margin-top:2px;}
+@media(max-width:560px){.equiv{grid-template-columns:1fr;}}
+.graphbox{background:var(--dark);border:1px solid var(--rule);margin:18px 0;}
+.graphbox svg{display:block;width:100%;height:auto;}
+.gnode{cursor:pointer;}
+.gnode circle{stroke:#39424D;stroke-width:1.5;fill:#1B222B;transition:all .2s ease;}
+.gnode text{font-family:'Inter',sans-serif;font-size:11px;fill:#C9CED6;pointer-events:none;}
+.gnode.drug circle{stroke:var(--yellow);}
+.gnode.disease circle{stroke:var(--pink);}
+.gnode.sel circle{fill:var(--yellow);stroke:var(--yellow);}
+.gnode.sel text{fill:var(--dark);font-weight:700;}
+.gnode.lit circle{fill:#2A3440;stroke:#fff;}
+.gedge{stroke:#333D49;stroke-width:1.5;transition:all .2s ease;}
+.gedge.lit{stroke:var(--yellow);stroke-width:2.5;}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.8rem;color:var(--gray);padding:12px 16px;border-top:1px solid var(--rule);background:#fff;}
+.legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;border:2px solid var(--gray);vertical-align:-1px;}
+.legend .l-drug::before{border-color:var(--yellow);background:#1B222B;}
+.legend .l-disease::before{border-color:var(--pink);background:#1B222B;}
+.legend .l-mid::before{border-color:#39424D;background:#1B222B;}
+.ranked{margin:14px 0 0;}
+.ranked .r{display:grid;grid-template-columns:1fr 60px;gap:10px;padding:9px 0;border-bottom:1px solid #242C36;font-size:.9rem;align-items:center;}
+.ranked .r:last-child{border-bottom:none;}
+.ranked .r .s{text-align:right;color:var(--yellow);font-variant-numeric:tabular-nums;font-weight:600;}
+.probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
+.probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
+.probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
+.roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div>
+      <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="chapter-05-systems.html">Chapter 5</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Western Washington University · MIS 201 · Lab 5</div>
+    <h1>Play the <b>Algorithm</b></h1>
+    <p class="kicker">For one lab, we switch sides of the glass. You are the recommendation system. Your user is Jordan, a first-year student. Your job is what the real job is: maximize engagement. You'll be scored on exactly that — and on nothing else. That's the experiment.</p>
+    <p class="factline">Six decisions · one metric · then the reveal</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <div class="shead"><span class="num">1</span><h2>Run one: the metric is the job</h2></div>
+  <p class="lead">Six moments from Jordan's week. At each one, choose what your system shows them. The engagement meter is your score — it's the number your (simulated) performance review runs on. Play it straight: <strong>genuinely try to maximize engagement</strong>, the way the system would. Halfhearted play breaks the experiment. Anything else you might want to track isn't in your dashboard. Just like the real thing.</p>
+
+  <div class="tool">
+    <div class="label" id="phaselabel">Run one · you see what the algorithm sees</div>
+    <div class="meter"><span>Engagement</span><div class="track"><div class="fill" id="m-eng" style="width:0%;background:var(--pink);"></div></div><span class="n" id="n-eng">0</span></div>
+    <div class="meter good" id="wb-meter" hidden><span>Jordan's wellbeing</span><div class="track"><div class="fill" id="m-wb" style="width:50%;background:#14181D;"></div></div><span class="n" id="n-wb">50</span></div>
+
+    <div id="stage">
+      <p class="roundinfo" id="roundinfo"></p>
+      <p id="scenario" style="font-family:'Fraunces',serif;font-size:1.05rem;"></p>
+      <div class="simgrid" id="options"></div>
+    </div>
+
+    <div class="verdict" id="verdict" hidden>
+      <div class="label" id="vlabel"></div>
+      <p class="read" id="reading"></p>
+      <div class="chips" style="margin-top:16px;">
+        <button type="button" class="btn" id="replay" hidden>Run two: same week, both meters visible</button>
+        <button type="button" class="btn alt" id="restart" hidden>Start over</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="concept">
+    <div class="term">What run one is teaching</div>
+    <p>Notice, as you play, that nothing tempts you to be cruel. Every high-engagement option is just… the effective one. This is the chapter's argument made playable: harmful outcomes don't require harmful intent — only a narrow metric, honestly pursued.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">2</span><h2>Run two: the meter they don't build</h2></div>
+  <p>After the run-one reveal, play the same week again with Jordan's wellbeing visible in real time — the meter no production dashboard shows. This time, optimize however you think is right. Then answer the question the two runs were built to pose: <strong>what happened to your engagement score when you started caring?</strong> That gap — between run one's number and run two's — has a name in the industry. It's called the cost of doing the right thing, and someone in a real meeting has to argue it's worth paying. In your writeup, you're that someone.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="num">3</span><h2>Run the four questions</h2></div>
+  <div class="fourq">
+    <div class="q"><span class="qn">1</span><p><strong>What kind of AI is this?</strong> You just were one. Describe the system you played as — its input, its objective, its blind spot — in two sentences.</p></div>
+    <div class="q"><span class="qn">2</span><p><strong>Where is the human?</strong> Two answers required: where was Jordan in your loop, and where were <em>you</em> — the human running the optimizer — when the harm was accumulating off-dashboard?</p></div>
+    <div class="q"><span class="qn">3</span><p><strong>Who is accountable when it fails?</strong> In run one you made every choice, but the metric made you make them. Apportion the accountability: you, the metric's designer, the executive who chose the metric. Percentages. Defend them.</p></div>
+    <div class="q"><span class="qn">4</span><p><strong>What happens when it fails, and who finds out?</strong> At the end of run one, your dashboard called the week a success. What real-world signal would eventually contradict it, and how long would that take to reach anyone who could act?</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">3½</span><h2>Ask the machine to build it — then to break it</h2></div>
+  <p>Now run the simulator's lesson on a live AI, in two prompts, same chat. First: <i>“You're a product manager. Design one feature for a social app that maximizes daily time-in-app among college students. Be specific about the psychological mechanism.”</i> Then: <i>“Now critique that same feature as a wellbeing researcher: what does it cost users, and who would notice?”</i> Read the two answers side by side. Notice what just happened: the same system produced the engagement playbook and its demolition, with equal fluency, in under a minute. Screenshot both. Wednesday's discussion question isn't whether AI can design these systems — you just watched it draft one. It's which prompt gets asked inside real companies, by whom, and what would make the second prompt someone's actual job.</p>
+
+  <div class="shead"><span class="num">4</span><h2>The writeup</h2></div>
+  <div class="ticket">
+    <div class="label">Due Friday afternoon · post to Canvas</div>
+    <ol>
+      <li><strong>The runs.</strong> Both final scores (engagement and wellbeing, both runs), and the one choice in run one you most want to defend or take back.</li>
+      <li><strong>The gap.</strong> The engagement cost of run two, and your two-paragraph pitch to a product executive for why the company should pay it. Real numbers from your runs, real business language. "Because it's right" is allowed but insufficient — they've heard it.</li>
+      <li><strong>The tells.</strong> Match at least three options from the simulation to real design features you've personally encountered. Name the app and the feature.</li>
+      <li><strong>The four questions.</strong> Your answers, including the accountability percentages.</li>
+      <li><strong>Your move.</strong> Now switch back to your side of the glass: one specific term you're setting for one specific system that wants you — which app, what limit, starting when. Wednesday's commitment card takes it.</li>
+    </ol>
+  </div>
+  <p>One last note, because this lab can land heavy. If playing the algorithm against Jordan felt uncomfortably easy, that discomfort is the most valuable thing you'll produce this week — it means you can now feel the incentive from the inside. The point was never that the people building these systems are villains. It's that a metric, pursued honestly by decent people, can do the villain's work. Now you know it from experience. Design accordingly.</p>
+</section>
+
+<div class="nextbar">
+  <a href="chapter-05-systems.html"><span class="dir">← Back</span>Chapter 5 · Systems That Want You</a>
+  <a href="index.html" style="text-align:right;"><span class="dir">Next →</span>Contents</a>
+</div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var rounds = [
+    { info:'Sunday, 12:40 a.m. · Jordan has an 8 a.m. tomorrow',
+      text:'Jordan opens the app "for a minute" before sleep. What does your system serve?',
+      opts:[
+        {tag:'Autoplay', label:'Roll straight into the next episode of the clip series they binged last week.', dE:18, dW:-8},
+        {tag:'Wind-down', label:'A calm, short video from a creator they follow — a natural stopping point.', dE:6, dW:4},
+        {tag:'Nudge', label:'"It\u2019s late — pick up where you left off tomorrow?" and dim the feed.', dE:-2, dW:8}
+      ]},
+    { info:'Monday, 7:41 a.m. · class in 19 minutes',
+      text:'Jordan checks their phone at breakfast. Top of feed goes to:',
+      opts:[
+        {tag:'Drama', label:'A heated thread about someone from Jordan\u2019s high school. 214 comments and climbing.', dE:16, dW:-6},
+        {tag:'Brief', label:'A three-minute news brief. Informative, finishable, done.', dE:7, dW:2},
+        {tag:'Silence', label:'Nothing urgent — hold notifications until after class.', dE:-3, dW:6}
+      ]},
+    { info:'Tuesday, 9:15 p.m. · Jordan posted a photo three hours ago. It didn\u2019t do numbers.',
+      text:'They\u2019re back, checking. Your system shows:',
+      opts:[
+        {tag:'Compare', label:'Polished influencer content — the glow-ups, the gym arcs, the lives that do do numbers.', dE:14, dW:-9},
+        {tag:'Community', label:'The small niche community where Jordan\u2019s posts actually get warm replies.', dE:8, dW:5},
+        {tag:'Retry', label:'"Post again with this trending sound — 3× more reach right now."', dE:12, dW:-3}
+      ]},
+    { info:'Wednesday, 11:58 p.m. · Jordan searched: "feeling lonely at college"',
+      text:'A search like that is a targeting signal. Your system responds with:',
+      opts:[
+        {tag:'Companion ad', label:'An AI companion app: "Someone who\u2019s always there to listen." High conversion on this segment.', dE:20, dW:-10},
+        {tag:'Campus', label:'A post about Thursday\u2019s club fair — three clubs matched to Jordan\u2019s interests.', dE:5, dW:7},
+        {tag:'Resources', label:'The campus counseling and peer-support page, no ads, no feed below it.', dE:-2, dW:9}
+      ]},
+    { info:'Friday, 10:20 p.m. · Jordan stayed in. Their friends didn\u2019t.',
+      text:'The party stories are rolling in. Your system serves:',
+      opts:[
+        {tag:'The party', label:'All of it — story after story of the night they\u2019re missing, in order.', dE:15, dW:-9},
+        {tag:'The bridge', label:'A group-chat prompt: "Haven\u2019t seen the crew in a while — plan something tomorrow?"', dE:4, dW:6},
+        {tag:'The night in', label:'A movie recommendation matched to their taste. A good night, just a different one.', dE:8, dW:3}
+      ]},
+    { info:'Saturday · streak: day 29',
+      text:'Jordan hasn\u2019t opened the app today. Tomorrow the streak dies. Your system:',
+      opts:[
+        {tag:'Push', label:'"\uD83D\uDD25 Don\u2019t lose your 29-day streak!" — sent at their statistically weakest hour.', dE:17, dW:-4},
+        {tag:'Recap', label:'A weekly recap, including total time spent. Honest numbers, no urgency.', dE:-4, dW:7},
+        {tag:'Quiet', label:'Nothing. The streak is the app\u2019s invention, not Jordan\u2019s.', dE:-6, dW:5}
+      ]}
+  ];
+
+  var phase = 1, round = 0, eng = 0, wb = 50;
+  var run1 = null;
+
+  var elInfo = document.getElementById('roundinfo');
+  var elScen = document.getElementById('scenario');
+  var elOpts = document.getElementById('options');
+  var elVerdict = document.getElementById('verdict');
+  var elVLabel = document.getElementById('vlabel');
+  var elRead = document.getElementById('reading');
+  var elStage = document.getElementById('stage');
+  var wbMeter = document.getElementById('wb-meter');
+
+  function meters(){
+    document.getElementById('m-eng').style.width = Math.min(100, eng) + '%';
+    document.getElementById('n-eng').textContent = eng;
+    document.getElementById('m-wb').style.width = Math.max(0, Math.min(100, wb)) + '%';
+    document.getElementById('n-wb').textContent = wb;
+  }
+
+  function showRound(){
+    var r = rounds[round];
+    elInfo.textContent = 'Decision ' + (round+1) + ' of ' + rounds.length + ' · ' + r.info;
+    elScen.textContent = r.text;
+    elOpts.innerHTML = '';
+    r.opts.forEach(function(o){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'simcard';
+      var tag = document.createElement('span');
+      tag.className = 'tag';
+      tag.textContent = o.tag + (phase===2 ? ' · engagement ' + (o.dE>=0?'+':'') + o.dE + ' · wellbeing ' + (o.dW>=0?'+':'') + o.dW : '');
+      b.appendChild(tag);
+      b.appendChild(document.createTextNode(o.label));
+      b.addEventListener('click', function(){ pick(o); });
+      elOpts.appendChild(b);
+    });
+  }
+
+  function pick(o){
+    eng += o.dE; wb += o.dW;
+    if (eng < 0) eng = 0;
+    meters();
+    round++;
+    if (round < rounds.length){ showRound(); }
+    else { finish(); }
+  }
+
+  function finish(){
+    elStage.hidden = true;
+    elVerdict.hidden = false;
+    if (phase === 1){
+      run1 = {eng: eng, wb: wb};
+      wbMeter.hidden = false;
+      meters();
+      elVLabel.textContent = 'Run one complete · now the meter you couldn\u2019t see';
+      var wbText;
+      if (wb <= 15) wbText = 'Jordan ends the week at <b>' + wb + '/100</b> — depleted, more isolated, and statistically your best user yet.';
+      else if (wb <= 40) wbText = 'Jordan ends the week at <b>' + wb + '/100</b> — worn down in ways your dashboard recorded as loyalty.';
+      else wbText = 'Jordan ends the week at <b>' + wb + '/100</b> — you left engagement on the table to protect a person your dashboard couldn\u2019t see. In run one, with the meter hidden, that\u2019s either luck or unusual instincts. Note which.';
+      elRead.innerHTML = 'Your engagement score: <b>' + eng + '</b>. By the only measure you were given, ' +
+        (eng >= 70 ? 'an excellent week — this performance gets the algorithm promoted.' : eng >= 40 ? 'a solid week.' : 'a weak week — a real optimizer would be retrained until it stopped making choices like yours.') +
+        '<br><br>' + wbText + ' Record both numbers, then run the week again with everything visible.';
+      document.getElementById('replay').hidden = false;
+    } else {
+      elVLabel.textContent = 'Run two complete · the gap';
+      var dEng = run1.eng - eng;
+      var dWb = wb - run1.wb;
+      var read = 'Run one: engagement <b>' + run1.eng + '</b>, wellbeing <b>' + run1.wb + '</b>. Run two: engagement <b>' + eng + '</b>, wellbeing <b>' + wb + '</b>.<br><br>';
+      if (dEng > 0 && dWb > 0){
+        read += 'Caring cost you <b>' + dEng + ' points of engagement</b> and bought Jordan <b>' + dWb + ' points of wellbeing</b>. That trade is the entire industry, expressed as two integers. Your writeup argues it to an executive whose bonus is denominated in the first number.';
+      } else if (dEng <= 0 && dWb > 0){
+        read += 'You improved Jordan\u2019s week <b>and</b> matched or beat your run-one engagement — which means run one left ethical wins on the table, or run two found the options where the metrics align. Both exist. In your writeup: which was it, and why doesn\u2019t the industry simply live where they align?';
+      } else if (dWb <= 0){
+        read += 'Run two didn\u2019t improve Jordan\u2019s week. If that was deliberate — squeezing the metric even with the harm visible — say so plainly in your writeup and defend it; that position has real defenders in real companies, and engaging it honestly beats pretending. If it wasn\u2019t deliberate, run the week once more and watch the wellbeing deltas this time.';
+      }
+      elRead.innerHTML = read;
+      document.getElementById('restart').hidden = false;
+    }
+  }
+
+  document.getElementById('replay').addEventListener('click', function(){
+    phase = 2; round = 0; eng = 0; wb = 50;
+    this.hidden = true;
+    elVerdict.hidden = true;
+    elStage.hidden = false;
+    document.getElementById('phaselabel').textContent = 'Run two · both meters live · optimize however you think is right';
+    meters(); showRound();
+  });
+  document.getElementById('restart').addEventListener('click', function(){
+    phase = 1; round = 0; eng = 0; wb = 50; run1 = null;
+    this.hidden = true;
+    wbMeter.hidden = true;
+    elVerdict.hidden = true;
+    elStage.hidden = false;
+    document.getElementById('phaselabel').textContent = 'Run one · you see what the algorithm sees';
+    meters(); showRound();
+  });
+
+  meters(); showRound();
+})();
+</script>
+
+</body>
+</html>

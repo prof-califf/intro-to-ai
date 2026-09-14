@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 3 · Medicine — Intro to AI in Business | MIS 201</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pink);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+.steps{margin:26px 0;}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
+.step:last-child{border-bottom:none;}
+.step .sn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);font-size:1.2rem;min-width:24px;}
+.step p{margin-bottom:0;}
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+
+/* ---- lab widgets ---- */
+.tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
+.tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
+.tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
+.chip{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;}
+.chip:hover{border-color:var(--pink);color:var(--pinktext);}
+.chip:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.chip.on{background:var(--dark);color:var(--yellow);border-color:var(--dark);}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.btn{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;}
+.btn:hover{background:#1B222B;}
+.btn:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--rule);}
+.btn.alt:hover{border-color:var(--pink);color:var(--pinktext);}
+.verdict{background:var(--dark);color:#E7EAEF;padding:26px 28px;margin-top:22px;}
+.verdict .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;}
+.verdict .read{font-size:.95rem;line-height:1.65;}
+.verdict .read b{color:var(--yellow);}
+.bars{display:grid;gap:10px;margin:14px 0 18px;}
+.bar{display:grid;grid-template-columns:190px 1fr 44px;gap:12px;align-items:center;font-size:.85rem;}
+.bar .track{height:10px;background:#242C36;border-radius:999px;overflow:hidden;}
+.bar .fill{height:100%;background:var(--pink);width:0%;transition:width .3s ease;border-radius:999px;}
+.bar.safe .fill{background:var(--yellow);}
+.bar .n{text-align:right;color:var(--lightgray);}
+@media(max-width:560px){.bar{grid-template-columns:1fr;gap:4px;}.bar .n{text-align:left;}}
+.meter{display:grid;grid-template-columns:130px 1fr 54px;gap:12px;align-items:center;font-size:.9rem;margin:8px 0;}
+.meter .track{height:14px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;}
+.meter .fill{height:100%;width:50%;transition:width .35s ease;border-radius:999px;background:var(--pink);}
+.meter.good .fill{background:var(--ink);}
+.meter .n{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+.simcard{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;cursor:pointer;text-align:left;font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55;color:var(--ink);width:100%;}
+.simcard:hover{border-color:var(--pink);}
+.simcard:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.simcard .tag{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.simgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:680px){.simgrid{grid-template-columns:1fr;}}
+.slider-row{display:grid;grid-template-columns:170px 1fr 120px;gap:14px;align-items:center;margin:14px 0;font-size:.92rem;}
+.slider-row output{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+input[type=range]{width:100%;accent-color:var(--pink);}
+@media(max-width:560px){.slider-row{grid-template-columns:1fr;gap:6px;}.slider-row output{text-align:left;}}
+select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink);}
+.equiv{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:18px 0 4px;}
+.equiv .cell{background:#fff;padding:16px 18px;}
+.equiv .cell .v{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;}
+.equiv .cell .v em{font-style:normal;color:var(--pink);}
+.equiv .cell .k{font-size:.82rem;color:var(--gray);margin-top:2px;}
+@media(max-width:560px){.equiv{grid-template-columns:1fr;}}
+.graphbox{background:var(--dark);border:1px solid var(--rule);margin:18px 0;}
+.graphbox svg{display:block;width:100%;height:auto;}
+.gnode{cursor:pointer;}
+.gnode circle{stroke:#39424D;stroke-width:1.5;fill:#1B222B;transition:all .2s ease;}
+.gnode text{font-family:'Inter',sans-serif;font-size:11px;fill:#C9CED6;pointer-events:none;}
+.gnode.drug circle{stroke:var(--yellow);}
+.gnode.disease circle{stroke:var(--pink);}
+.gnode.sel circle{fill:var(--yellow);stroke:var(--yellow);}
+.gnode.sel text{fill:var(--dark);font-weight:700;}
+.gnode.lit circle{fill:#2A3440;stroke:#fff;}
+.gedge{stroke:#333D49;stroke-width:1.5;transition:all .2s ease;}
+.gedge.lit{stroke:var(--yellow);stroke-width:2.5;}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.8rem;color:var(--gray);padding:12px 16px;border-top:1px solid var(--rule);background:#fff;}
+.legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;border:2px solid var(--gray);vertical-align:-1px;}
+.legend .l-drug::before{border-color:var(--yellow);background:#1B222B;}
+.legend .l-disease::before{border-color:var(--pink);background:#1B222B;}
+.legend .l-mid::before{border-color:#39424D;background:#1B222B;}
+.ranked{margin:14px 0 0;}
+.ranked .r{display:grid;grid-template-columns:1fr 60px;gap:10px;padding:9px 0;border-bottom:1px solid #242C36;font-size:.9rem;align-items:center;}
+.ranked .r:last-child{border-bottom:none;}
+.ranked .r .s{text-align:right;color:var(--yellow);font-variant-numeric:tabular-nums;font-weight:600;}
+.probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
+.probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
+.probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
+.roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}</style>
+<style>
+.tryit details{border-top:1px dashed var(--rule);padding:10px 0;}
+.tryit details:first-of-type{border-top:none;}
+.tryit summary{cursor:pointer;font-weight:600;font-size:.95rem;}
+.tryit p{margin:8px 0 2px;font-size:.9rem;color:var(--gray);}
+.srcnote{border:1px solid var(--rule);border-radius:10px;padding:14px 18px;margin:30px 0;background:#fff;font-size:.9rem;}
+.srcnote summary{cursor:pointer;font-weight:700;color:var(--ink);}
+.srcnote p{margin:10px 0 2px;color:var(--gray);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div>
+      <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="chapter-03-medicine-lab.html">Lab 3</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Western Washington University · MIS 201 · Chapter 3</div>
+    <h1>Medicine: The Cures Already on the <b>Shelf</b></h1>
+    <p class="kicker">A doctor who saved his own life with a drug nobody thought to try is now using AI to run the same search for everyone. This chapter is our first full case — and our first chance to see that the most important AI in the world might not be the kind that talks.</p>
+    <p class="factline">EveryCure · knowledge graphs · predictive AI, not generative</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="contents">
+  <div class="label">In this chapter</div>
+  <ol>
+    <li><a href="#s1">A patient with no options</a></li>
+    <li><a href="#s2">The case: EveryCure</a></li>
+    <li><a href="#s3">How the machine actually works</a></li>
+    <li><a href="#s4">The gap in the graph</a></li>
+    <li><a href="#s5">Question it &amp; decide</a></li>
+    <li><a href="#s6">Key terms</a></li>
+    <li><a href="#s7">Entry ticket</a></li>
+  </ol>
+</div>
+
+<div class="contents">
+  <div class="label">By the end of this chapter, you can</div>
+  <ol>
+    <li>Explain drug repurposing — and why market economics leaves findable cures unfound.</li>
+    <li>Describe a knowledge graph and how indirect paths turn published research into predictions.</li>
+    <li>Tell predictive from generative AI in the wild, and ask the right questions of each.</li>
+    <li>Explain how a research gap becomes a prediction gap — and find the same mechanism outside medicine.</li>
+    <li>Argue both sides of the human gate in medical AI, using the current evidence, and say where you land.</li>
+  </ol>
+</div>
+
+<section id="s1">
+  <div class="shead"><span class="num">1</span><h2>A patient with no options</h2></div>
+  <p class="lead">In his third year of medical school, David Fajgenbaum's organs began shutting down. The diagnosis was Castleman disease — rare, poorly understood, and in his case relentless. He was read his last rites. Five times over the following years, the disease nearly killed him, and the approved treatments kept failing.</p>
+  <p>So the dying medical student did something almost nobody is in a position to do: he studied his own disease. Digging through his lab results and the research literature, he found evidence that a cheap, decades-old drug — sirolimus, approved for kidney transplant patients — might interrupt the process killing him. No one had ever used it for Castleman disease. He tried it. As of this writing, he has been in remission for over a decade, on a drug that was sitting in pharmacies the entire time he was dying.</p>
+  <p>Hold that fact, because it's the engine of this whole chapter: <strong>the cure existed. The knowledge to find it existed. What was missing was anyone connecting them.</strong> Fajgenbaum's question afterward was the obvious one, and it's the one that turns a survival story into a business case: how many other treatments are already on the shelf, approved and manufactured, that nobody has thought to try for the disease that needs them?</p>
+</section>
+
+<section id="s2">
+  <div class="shead"><span class="num">2</span><h2>The case: EveryCure</h2></div>
+  <p>Fajgenbaum co-founded a nonprofit called <a class="inline" href="https://everycure.org" target="_blank" rel="noopener">EveryCure</a> to answer that question at scale. The math of the problem explains why it needed AI. There are roughly 3,000 diseases with an approved treatment — and over 9,000 without one, most of them rare diseases affecting hundreds of millions of people worldwide. Meanwhile there are about 4,000 approved drugs. No pharmaceutical company can afford to test old, cheap, off-patent drugs against thousands of diseases; there's no profit in a cure you can't patent. And no team of humans can read the millions of research papers where the connecting clues are buried.</p>
+  <p>EveryCure's system scores <em>every approved drug against every known disease</em> — millions of pairings — and ranks them by how promising the connection looks. The top-ranked matches go to human scientists and physicians, who investigate, and where the evidence holds, to clinical trials. The AI doesn't cure anyone. It reorders the haystack so the people looking for needles start in the right place.</p>
+
+  <div class="facts">
+    <div class="fact"><div class="big"><em>~9,000</em></div><div class="small">Diseases with no approved treatment — most of them rare, most of them ignored by drug development economics</div></div>
+    <div class="fact"><div class="big"><em>~4,000</em></div><div class="small">Drugs already approved, manufactured, and sitting on shelves</div></div>
+    <div class="fact"><div class="big">Millions</div><div class="small">Of drug–disease pairs the system scores — a search no human team could run</div></div>
+  </div>
+
+  <div class="concept">
+    <div class="term">Predictive AI vs. generative AI</div>
+    <p>Most of the AI in the news generates things: text, images, code. EveryCure's AI generates nothing. It <b>predicts</b> — it estimates how likely each drug–disease pairing is to work, and outputs a ranked list. Predictive AI has quietly run logistics, lending, and medicine for years. Keep this distinction loaded all quarter: when someone says "AI," our first question is which kind.</p>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="shead"><span class="num">3</span><h2>How the machine actually works</h2></div>
+  <p>The system's foundation is a structure called a <em>knowledge graph</em> — and it's less exotic than it sounds. Picture a giant map of dots and lines. The dots are things biomedical science knows about: drugs, diseases, genes, proteins, symptoms, biological pathways. The lines are documented relationships pulled from research: <em>this drug inhibits this protein; this protein drives this disease; this gene is involved in this pathway.</em> EveryCure's graph links millions of these entities, assembled from decades of published research.</p>
+  <p>Here's the move that makes it powerful. Sirolimus and Castleman disease had no direct line between them — nobody had studied the pair. But paths existed <em>through</em> the graph: the drug connects to a protein, the protein connects to an immune pathway, the pathway connects to the disease. The AI's job is to find and score those indirect paths across the entire map at once. A strong score means: the literature, assembled, already implies this connection — even though no single paper ever said it.</p>
+
+  <div class="concept">
+    <div class="term">Knowledge graph</div>
+    <p>A network of entities (dots) and documented relationships (lines). Prediction works by finding indirect paths: if A connects to B and B connects to C, maybe A helps C. The graph can only contain what research has documented — remember that sentence; it's about to matter.</p>
+  </div>
+
+  <p>And note where the humans stand. A high score triggers scientific review, not a prescription. Physicians and researchers interrogate every top match before anything reaches a patient. In the language this course will use all quarter: the AI proposes, humans dispose. That's a design choice — and in medicine, a non-negotiable one.</p>
+</section>
+
+<section id="s4">
+  <div class="shead"><span class="num">4</span><h2>The gap in the graph</h2></div>
+  <p>Now the turn this book trains us to make. The graph is built from published research. So ask: which diseases have the most published research? The answer follows the money and the caseload — common diseases in wealthy countries. A heavily studied disease is a dense hub in the graph, lines running everywhere. And a rare disease that few scientists have ever studied? A dot with almost no lines attached.</p>
+  <p>Follow the logic one step further and it gets uncomfortable. The AI predicts by finding paths. Few lines means few paths. Few paths means weak scores — <em>for every drug</em>, no matter how well one might actually work. The system doesn't know the drug won't help. It knows nothing connects, because nobody ever looked. <strong>The research gap becomes a prediction gap.</strong> The diseases most neglected by science are, by construction, the ones the AI is least able to help — and they're the ones EveryCure exists to serve.</p>
+  <div class="callout tryit">
+    <div class="label">Try it · five scores — what does each one actually tell you?</div>
+    <details><summary>1. A drug scores low against a disease with 12,000 published studies.</summary><p>Probably a real no. The disease is a dense hub — if a path existed, the system had every chance to find it. Absence of connection is informative here.</p></details>
+    <details><summary>2. The same drug scores low against a disease with nine published studies.</summary><p>Uninformative — the chapter's core move. A sparse dot can't distinguish "won't work" from "nobody ever looked." Low confidence, not low promise.</p></details>
+    <details><summary>3. A system built from English-language journals scores a compound from Japanese traditional-medicine research low.</summary><p>The record has a shape, and language is part of it. Research that exists but wasn't ingested is invisible to the graph — same mechanism, different border.</p></details>
+    <details><summary>4. A hiring model scores an unusual career path low against past successful hires.</summary><p>The same gap, outside medicine. Few past examples means few paths means weak scores — for reasons that have nothing to do with the candidate. Chapter 6 lives here.</p></details>
+    <details><summary>5. A very high score connects two famous, heavily studied entities.</summary><p>Scrutinize this one too — in the other direction. Dense hubs connect to everything; some of that is real signal, some is just popularity. High confidence also inherits the record's shape.</p></details>
+  </div>
+  <div class="callout">
+    <div class="label">The sentence to carry out of this chapter</div>
+    <p>An AI system can only be as complete as the record it learned from — and the record has a shape. The holes in our knowledge don't disappear inside the machine. They get inherited, at scale, with a confidence score attached. This week's lab puts that sentence in your hands: you'll work a small knowledge graph yourself and watch a research gap become a prediction gap.</p>
+  </div>
+  <p>To EveryCure's credit, this isn't a gotcha they're unaware of — filling the graph's gaps is part of the work. But the pattern generalizes far beyond medicine, and we'll meet it again in hiring data, lending records, and news archives. This is just the first place we can see it whole.</p>
+  <p>One more turn, because 2026 delivered it on schedule. This chapter called the human gate non-negotiable — and that consensus just acquired a serious challenger. In an August article in the Journal of the American Medical Association, <a class="inline" href="https://www.wired.com/story/ai-has-human-doctors-asking-whats-left-for-us/" target="_blank" rel="noopener">covered by Wired</a>, bioethicist Ezekiel Emanuel and investor Vinod Khosla surveyed hundreds of studies and argued that for the cognitive parts of medicine — diagnosis, treatment selection — AI alone will likely outperform not just doctors working alone but doctor-AI teams. Read that again: the claim isn't that machines beat humans. It's that adding the human can make the system worse — overriding correct outputs, anchoring on first impressions, adding noise at the gate. Robert Wachter, who leads medicine at UCSF, put the uncomfortable version plainly: there "will be times when humans will muck up the performance."</p>
+  <p>The pushback is just as instructive. The American Medical Association's CEO answered that many of the surveyed studies are simulations rather than blinded clinical trials — the field's gold standard — so the verdict is premature. And Wachter himself raises the question that should bother us most: if AI-alone care becomes good and cheap, human-plus-AI medicine may become the first-class cabin, with everyone else flying AI-only economy. Hold both edges, and notice what just happened to our second Monday question. "Where is the human?" has stopped assuming the human is always a safety feature. Sometimes the human is the safeguard. Sometimes the human is the noise. Medicine is now running the experiment that decides which is which, task by task — and Chapter 7 shows us the same fight on the road.</p>
+  <p>Here is what that experiment looks like when someone runs it the AMA's way. In September 2026, <i>The Lancet Digital Health</i> published <a class="inline" href="https://www.thelancet.com/journals/landig/article/PIIS2589-7500(26)00063-4/fulltext" target="_blank" rel="noopener">a multicentre randomised controlled trial</a> of an AI system that flags malformations in the fetal brain on prenatal ultrasound. Not a simulation: 1,584 high-risk pregnancies at five Chinese hospitals, scanned by working sonographers with three to eight years' experience, each scan done both with and without the machine. With the AI marking suspicious contours on the screen, sensitivity rose by 8.7 percentage points and specificity held, so the gain was not bought with more false alarms. And the trial priced <em>where</em> the human sits: the AI helped most as a live co-pilot during the scan, and helped less, though still measurably, as a second read of the recorded video afterward. That is Question 2 with a number on it. The human was neither the safeguard nor the noise. The human was a variable, and the trial measured it.</p>
+</section>
+
+<section id="s5">
+  <div class="shead"><span class="num">5</span><h2>Question it &amp; decide</h2></div>
+  <div class="callout">
+    <div class="label">The Monday questions, applied</div>
+    <div class="fourq">
+      <div class="q"><span class="qn">1</span><p><strong>What kind of AI is this?</strong> Predictive AI over a knowledge graph. It ranks; it doesn't write, chat, or decide. Notice how different this is from the AI in Chapter 2 — same word, different machine.</p></div>
+      <div class="q"><span class="qn">2</span><p><strong>Where is the human?</strong> Firmly in the loop: every prediction passes through scientists and physicians before touching a patient. Ask yourself what pressure that gate will face as the system scales — section 4's JAMA argument is exactly that pressure, arrived.</p></div>
+      <div class="q"><span class="qn">3</span><p><strong>Who is accountable when it fails?</strong> If a repurposed drug harms someone, the chain runs from the algorithm's maker through the reviewing scientists to the prescribing doctor. Where would you place the weight, and why?</p></div>
+      <div class="q"><span class="qn">4</span><p><strong>What happens when it fails, and who finds out?</strong> The sharpest version: a false match gets investigated and discarded — visible failure. A missed cure just stays missed. Nobody ever finds out. Which failure should worry us more?</p></div>
+    </div>
+  </div>
+  <p><strong>Deciding</strong> on this one is genuinely hard in the best way. Here is a system doing something close to unambiguous good — hunting cures for abandoned diseases, with humans at every gate, run by a nonprofit founded by a patient. If we can't say yes to this, we can't say yes to anything. And yet the gap in the graph is real, and the fourth question's answer — the invisible missed cure — should stay lodged somewhere. The mature position this course is after isn't "AI in medicine: good or bad." It's: <em>yes to this design, and here is the specific thing I'd watch.</em> Practice saying both halves.</p>
+</section>
+
+<section id="s6">
+  <div class="shead"><span class="num">6</span><h2>Key terms</h2></div>
+  <div class="terms">
+    <div class="term-card"><div class="t">Drug repurposing</div><p>Finding new diseases that existing approved drugs can treat. Cheap, fast, and commercially neglected — no patent, no profit.</p></div>
+    <div class="term-card"><div class="t">Predictive AI</div><p>AI that estimates and ranks rather than generates. Runs medicine, lending, and logistics — and predates the chatbot era.</p></div>
+    <div class="term-card"><div class="t">Knowledge graph</div><p>A network of known entities and documented relationships that a system can search for indirect connections.</p></div>
+    <div class="term-card"><div class="t">Human-in-the-loop</div><p>A design where humans review AI outputs before they take effect. In EveryCure's case: scientists and physicians at every gate.</p></div>
+    <div class="term-card"><div class="t">Research gap → prediction gap</div><p>This chapter's core mechanism: what science never studied, the graph can't connect, so the AI can't find — and the neglect compounds.</p></div>
+    <div class="term-card"><div class="t">Invisible failure</div><p>A failure no one can observe: the cure that was never surfaced. The fourth Monday question exists for exactly this.</p></div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="shead"><span class="num">7</span><h2>Entry ticket</h2></div>
+  <div class="ticket">
+    <div class="label">Due before Monday's class · watch Fajgenbaum's TED talk, then post to Canvas</div>
+    <ol>
+      <li>The cure for Fajgenbaum existed for decades before he found it. In one sentence: what exactly was the missing ingredient — and why couldn't the existing medical system supply it?</li>
+      <li>Why did this have to be a nonprofit? Walk the business logic: what specifically makes drug repurposing unprofitable for pharmaceutical companies, even when it saves lives?</li>
+      <li>EveryCure's AI predicts; Chapter 2's AI converses. Give one important question we should ask about the chatbot that makes no sense to ask about EveryCure — and one that applies to both.</li>
+      <li>Explain "the research gap becomes the prediction gap" to someone who has never taken this class, in three sentences, using no course vocabulary.</li>
+      <li>A false match gets caught by human review. A missed cure is invisible forever. Which failure worries you more, and what — concretely — could anyone do about the second one?</li>
+    </ol>
+  </div>
+</section>
+
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <p>Anchor case: David Fajgenbaum's story is from his own published accounts (including his memoir <i>Chasing My Cure</i>); EveryCure's mission and the disease/drug figures are from the organization's published materials (linked in section 2), verified in a prior pass. The human-gate debate (section 4) is from the August 2026 JAMA article by Emanuel and Khosla and the surrounding reporting — Wired's coverage is linked; the AMA response and the Wachter quotation are as reported there, cross-checked against multiple secondary accounts, 4 Sep 2026. The prenatal-ultrasound RCT (section 4) is Lei et al., The Lancet Digital Health, 10 September 2026 (linked; the Lancet page blocks automated access, so the link is click-verify). Design, enrolment, sensitivity gain, and the real-time vs offline finding are from a published summary of the paper, cross-checked against the same group's 2023 npj Digital Medicine trial, 14 Sep 2026; confirm the 8.7-point figure against the paper itself. The claim about AI-alone care is the authors' argument, not settled science — which is why the rebuttal stands beside it. Found an error? Tell your instructor — corrections are course content.</p>
+</details>
+
+<div class="nextbar">
+  <a href="chapter-02-human.html"><span class="dir">← Back</span>Chapter 2 · What It Means to Be Human</a>
+  <a href="chapter-03-medicine-lab.html" style="text-align:right;"><span class="dir">Next →</span>Lab 3 · Inside the Graph</a>
+</div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 6 · Hiring &amp; Lending — Intro to AI in Business | MIS 201</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pink);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+.steps{margin:26px 0;}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
+.step:last-child{border-bottom:none;}
+.step .sn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);font-size:1.2rem;min-width:24px;}
+.step p{margin-bottom:0;}
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+
+/* ---- lab widgets ---- */
+.tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
+.tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
+.tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
+.chip{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;}
+.chip:hover{border-color:var(--pink);color:var(--pinktext);}
+.chip:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.chip.on{background:var(--dark);color:var(--yellow);border-color:var(--dark);}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.btn{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;}
+.btn:hover{background:#1B222B;}
+.btn:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--rule);}
+.btn.alt:hover{border-color:var(--pink);color:var(--pinktext);}
+.verdict{background:var(--dark);color:#E7EAEF;padding:26px 28px;margin-top:22px;}
+.verdict .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;}
+.verdict .read{font-size:.95rem;line-height:1.65;}
+.verdict .read b{color:var(--yellow);}
+.bars{display:grid;gap:10px;margin:14px 0 18px;}
+.bar{display:grid;grid-template-columns:190px 1fr 44px;gap:12px;align-items:center;font-size:.85rem;}
+.bar .track{height:10px;background:#242C36;border-radius:999px;overflow:hidden;}
+.bar .fill{height:100%;background:var(--pink);width:0%;transition:width .3s ease;border-radius:999px;}
+.bar.safe .fill{background:var(--yellow);}
+.bar .n{text-align:right;color:var(--lightgray);}
+@media(max-width:560px){.bar{grid-template-columns:1fr;gap:4px;}.bar .n{text-align:left;}}
+.meter{display:grid;grid-template-columns:130px 1fr 54px;gap:12px;align-items:center;font-size:.9rem;margin:8px 0;}
+.meter .track{height:14px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;}
+.meter .fill{height:100%;width:50%;transition:width .35s ease;border-radius:999px;background:var(--pink);}
+.meter.good .fill{background:var(--ink);}
+.meter .n{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+.simcard{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;cursor:pointer;text-align:left;font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55;color:var(--ink);width:100%;}
+.simcard:hover{border-color:var(--pink);}
+.simcard:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.simcard .tag{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.simgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:680px){.simgrid{grid-template-columns:1fr;}}
+.slider-row{display:grid;grid-template-columns:170px 1fr 120px;gap:14px;align-items:center;margin:14px 0;font-size:.92rem;}
+.slider-row output{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+input[type=range]{width:100%;accent-color:var(--pink);}
+@media(max-width:560px){.slider-row{grid-template-columns:1fr;gap:6px;}.slider-row output{text-align:left;}}
+select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink);}
+.equiv{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:18px 0 4px;}
+.equiv .cell{background:#fff;padding:16px 18px;}
+.equiv .cell .v{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;}
+.equiv .cell .v em{font-style:normal;color:var(--pink);}
+.equiv .cell .k{font-size:.82rem;color:var(--gray);margin-top:2px;}
+@media(max-width:560px){.equiv{grid-template-columns:1fr;}}
+.graphbox{background:var(--dark);border:1px solid var(--rule);margin:18px 0;}
+.graphbox svg{display:block;width:100%;height:auto;}
+.gnode{cursor:pointer;}
+.gnode circle{stroke:#39424D;stroke-width:1.5;fill:#1B222B;transition:all .2s ease;}
+.gnode text{font-family:'Inter',sans-serif;font-size:11px;fill:#C9CED6;pointer-events:none;}
+.gnode.drug circle{stroke:var(--yellow);}
+.gnode.disease circle{stroke:var(--pink);}
+.gnode.sel circle{fill:var(--yellow);stroke:var(--yellow);}
+.gnode.sel text{fill:var(--dark);font-weight:700;}
+.gnode.lit circle{fill:#2A3440;stroke:#fff;}
+.gedge{stroke:#333D49;stroke-width:1.5;transition:all .2s ease;}
+.gedge.lit{stroke:var(--yellow);stroke-width:2.5;}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.8rem;color:var(--gray);padding:12px 16px;border-top:1px solid var(--rule);background:#fff;}
+.legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;border:2px solid var(--gray);vertical-align:-1px;}
+.legend .l-drug::before{border-color:var(--yellow);background:#1B222B;}
+.legend .l-disease::before{border-color:var(--pink);background:#1B222B;}
+.legend .l-mid::before{border-color:#39424D;background:#1B222B;}
+.ranked{margin:14px 0 0;}
+.ranked .r{display:grid;grid-template-columns:1fr 60px;gap:10px;padding:9px 0;border-bottom:1px solid #242C36;font-size:.9rem;align-items:center;}
+.ranked .r:last-child{border-bottom:none;}
+.ranked .r .s{text-align:right;color:var(--yellow);font-variant-numeric:tabular-nums;font-weight:600;}
+.probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
+.probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
+.probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
+.roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div>
+      <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="chapter-06-hiring-lending-lab.html">Lab 6</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Western Washington University · MIS 201 · Chapter 6</div>
+    <h1>Hiring &amp; Lending: The Machines That <b>Judge</b> Us</h1>
+    <p class="kicker">This chapter is about one concept: classification — AI that sorts people into yes and no by learning from the past. It's the AI most likely to change your life without your ever seeing it, because it reads your résumé before any human does and prices your loan before any banker looks up. Four real cases show how it works, how bias gets in, and who answers when it's wrong.</p>
+    <p class="factline">One concept: the classifier · four cases: Amazon, iTutorGroup, Workday, the mortgage data</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="contents">
+  <div class="label">In this chapter</div>
+  <ol>
+    <li><a href="#s1">The concept: learning to say no</a></li>
+    <li><a href="#s2">Where bias enters: the Amazon case</a></li>
+    <li><a href="#s3">Proxies and disparate impact: the lending data</a></li>
+    <li><a href="#s4">Accountability: iTutorGroup and the Workday case</a></li>
+    <li><a href="#s5">Question it &amp; decide</a></li>
+    <li><a href="#s6">Key terms</a></li>
+    <li><a href="#s7">Entry ticket</a></li>
+  </ol>
+</div>
+
+<section id="s1">
+  <div class="shead"><span class="num">1</span><h2>The concept: learning to say no</h2></div>
+  <p class="lead">Strip every case in this chapter down and the same machine is inside: a <strong>classifier</strong> — predictive AI that takes a person's data and outputs a judgment. Interview or reject. Approve or deny. High risk or low. It's the oldest, quietest, most widespread kind of AI we've met, and its mechanism is Chapter 1's five parts with the stakes turned up: show the model thousands of past decisions — who got hired, who repaid — and it finds the pattern. Then it applies that pattern to you.</p>
+  <p>Now notice what that mechanism actually promises. It does not learn who <em>deserved</em> the job or the loan. It learns who <em>got</em> them — which means it learns the pattern of every past decision, including the biased ones, and applies it forward with perfect consistency at industrial scale. That single sentence is the whole conceptual content of this chapter. Everything else — the scrapped tool, the federal settlement, the class action, the mortgage data — is that sentence meeting the real world.</p>
+  <div class="concept">
+    <div class="term">The objectivity trap</div>
+    <p>Classifiers get adopted with a seductive pitch: humans are biased, math is neutral, let the algorithm decide. The trap is that the algorithm learned from the humans. A model trained on biased history doesn't remove the bias — it launders it, converting messy human prejudice into a clean, confident, uniform score. The output <em>looks</em> objective precisely because the subjectivity moved upstream, into the data, where nobody can see it.</p>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="shead"><span class="num">2</span><h2>Where bias enters: the Amazon case</h2></div>
+  <p>The cleanest demonstration on record comes from Amazon. Starting in 2014, the company built an experimental AI recruiting engine — feed it 100 résumés, get back the top five. It was trained on a decade of résumés submitted to Amazon, and as <a class="inline" href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G/" target="_blank" rel="noopener">Reuters reported in 2018</a>, that's exactly where it went wrong: the tech industry's applicant pool had been mostly male, so the model learned that maleness predicted "good candidate." It penalized résumés containing the word "women's" — as in "women's chess club captain" — and downgraded graduates of two all-women's colleges. Nobody programmed that rule. The model <em>found</em> it, because it was genuinely there in the data.</p>
+  <p>The instructive part is the ending. Amazon's engineers edited the model to neutralize those specific terms — and then scrapped the project anyway, because they couldn't guarantee it wasn't finding <em>other</em> ways to reach the same conclusion. Sit with that: the people with full access to the model, at one of the most technically capable companies on earth, could not prove their classifier fair. They could only stop using it. Run our five parts on this and the diagnosis writes itself — the failure lived in part one, the data, before a line of the model existed. Biased history in, biased pattern out, with a new coat of mathematical paint.</p>
+</section>
+
+<section id="s3">
+  <div class="shead"><span class="num">3</span><h2>Proxies and disparate impact: the lending data</h2></div>
+  <p>"Fine," says the obvious fix, "just don't show the model gender or race." Lending is where that fix goes to die, and it dies on a concept called the <strong>proxy</strong>. A model forbidden from seeing a protected trait can often reconstruct it from what it <em>is</em> allowed to see: zip code, shopping patterns, which college, even word choices — Amazon's model never saw a gender field; "women's chess club" was proxy enough. In American lending this has a long pre-AI history: redlining literally drew the maps that make zip code a racial proxy today. A classifier trained on data shaped by that history can produce <strong>disparate impact</strong> — systematically worse outcomes for a protected group — without a discriminatory line of code anywhere.</p>
+  <p>Here's what the evidence actually shows, and it cuts both ways — this book keeps both edges. A UC Berkeley team studied millions of U.S. mortgages in the <a class="inline" href="https://www.nber.org/papers/w25943" target="_blank" rel="noopener">most cited analysis of algorithmic lending</a>, comparing borrowers with equivalent credit risk. Their findings: Black and Latino borrowers paid measurably higher interest rates than risk-equivalent white borrowers — a gap worth hundreds of millions of dollars per year — <em>and</em> algorithmic fintech lenders discriminated roughly 40% less than face-to-face lenders did. Both facts at once. The machine judged more fairly than the humans it replaced, and it still charged people more for the color of their skin. Neither "algorithms are biased, ban them" nor "algorithms fix bias, adopt them" survives contact with that study — which is precisely why it's the one to remember.</p>
+  <div class="concept">
+    <div class="term">Proxy discrimination &amp; disparate impact</div>
+    <p>A <b>proxy</b> is an allowed variable that stands in for a forbidden one — zip code for race, graduation year for age, "women's chess club" for gender. <b>Disparate impact</b> is the legal name for what proxies produce: a neutral-looking process with systematically unequal outcomes. U.S. law has prohibited it in hiring and lending since long before AI — the classifier didn't invent the problem. It industrialized it, and made it harder to see.</p>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="shead"><span class="num">4</span><h2>Accountability: iTutorGroup and the Workday case</h2></div>
+  <p>So when the classifier says no and the no is illegal — who answers? Our third Monday question now has real case law, and it's moving fast.</p>
+  <p>The first answer came cheap and clear. Tutoring company iTutorGroup programmed its application software to automatically reject female applicants 55 and older and male applicants 60 and older — caught when one applicant, rejected under her real birthdate, resubmitted the identical application with a younger one and promptly got an interview. In 2023 it became <a class="inline" href="https://www.eeoc.gov/newsroom/itutorgroup-pay-365000-settle-eeoc-discriminatory-hiring-suit" target="_blank" rel="noopener">the EEOC's first settlement over AI-driven hiring discrimination</a>: $365,000 to more than 200 auto-rejected applicants. The legal principle was almost boring, and that's the point: automating a discriminatory decision changes nothing about its illegality. The software was just the fingerprints.</p>
+  <p>The harder question is live right now. In <em>Mobley v. Workday</em>, a job seeker who was rejected from more than 100 positions — some within minutes, one at 1:50 a.m. — sued not the employers but <em>Workday</em>, the vendor whose screening algorithms thousands of employers use. The court let the case proceed on a theory with enormous reach: an AI vendor whose tools effectively make screening decisions can be treated as the employer's <em>agent</em>, and sued like one. A federal judge <a class="inline" href="https://www.forbes.com/sites/sheilacallaham/2026/05/29/a-federal-judge-a-1967-law-and-a-billion-rejected-job-applications/" target="_blank" rel="noopener">certified a nationwide age-discrimination collective</a>; in court filings, Workday disclosed its tools had rejected applications numbering in the billions during the covered period, and roughly 14,000 people joined before the 2026 deadline. Workday denies the claims and says its tools don't make hiring decisions and keep humans in the loop. However it ends, the case has already ended something: the era when "the algorithm did it" pointed at nobody. Between employer and vendor, the courts are now deciding exactly where the accountability lands — because it has to land somewhere.</p>
+  <p>One more piece completes the concept: the <strong>right to an explanation</strong>. U.S. credit law has required "adverse action notices" — specific reasons for a denial — since the 1970s, and the Consumer Financial Protection Bureau has <a class="inline" href="https://www.consumerfinance.gov/about-us/newsroom/cfpb-acts-to-protect-the-public-from-black-box-credit-models-using-complex-algorithms/" target="_blank" rel="noopener">told lenders directly</a> that "our model is too complex to explain" is not a legal excuse. Hold that standard up against hiring, where no equivalent exists: a loan denial must come with reasons; a 1:50 a.m. rejection email doesn't. Same classifier, same stakes, one domain with a forty-year-old explanation right and one without. That gap is a policy choice — which makes it changeable.</p>
+</section>
+
+<section id="s5">
+  <div class="shead"><span class="num">5</span><h2>Question it &amp; decide</h2></div>
+  <div class="callout">
+    <div class="label">The Monday questions, applied</div>
+    <div class="fourq">
+      <div class="q"><span class="qn">1</span><p><strong>What kind of AI is this?</strong> Predictive — classifiers throughout. Notice they need no chatbot and no fluency to change a life; the least glamorous AI in this book carries some of the highest stakes.</p></div>
+      <div class="q"><span class="qn">2</span><p><strong>Where is the human?</strong> Officially, reviewing the shortlist. Practically — at billions of applications — the human sees only what the classifier surfaces. Is a human who never sees the rejected pile "in the loop" in any meaningful sense? Compare the dispatcher standard from Chapter 7 when we get there.</p></div>
+      <div class="q"><span class="qn">3</span><p><strong>Who is accountable when it fails?</strong> The chapter's spine: iTutorGroup says the automating company; <em>Mobley</em> asks whether the vendor answers too. The wrong answer — nobody — is the one the courts are currently closing off.</p></div>
+      <div class="q"><span class="qn">4</span><p><strong>What happens when it fails, and who finds out?</strong> Here's this chapter's darkest feature: the rejected never learn why, and usually never learn <em>that</em>. Amazon's bias was found by insiders; iTutorGroup's by one applicant's lucky experiment; Workday's is being tested in court. Every discovery was nearly an accident. Wednesday's lab is about making discovery deliberate.</p></div>
+    </div>
+  </div>
+  <p><strong>Deciding</strong> here has a personal edge the other chapters don't, because you're about to be on both sides of this machine — screened by classifiers every time you apply for a job, a loan, an apartment, and, for many of you, deploying them once you're hired. So the decision splits. As the judged: knowing that proxies, disparate impact, and adverse-action rights exist is genuine leverage — you can ask what screened you, and in lending, the law says they must answer. As the deployer: the Berkeley finding is your framework — a classifier can be both better than the humans it replaced <em>and</em> still discriminatory, which means "better than before" isn't the finish line, auditing is. And refusal keeps its seat: some firms have concluded, like Amazon did, that a classifier they can't verify is a classifier they shouldn't run. That's not technophobia. That's the five parts, taken seriously, by people who could see all five.</p>
+</section>
+
+<section id="s6">
+  <div class="shead"><span class="num">6</span><h2>Key terms</h2></div>
+  <div class="terms">
+    <div class="term-card"><div class="t">Classifier</div><p>Predictive AI that sorts cases into categories — interview/reject, approve/deny — by learning patterns from past decisions.</p></div>
+    <div class="term-card"><div class="t">Training-data bias</div><p>When the history a model learns from encodes discrimination, the model learns the discrimination. Amazon's case, in one line.</p></div>
+    <div class="term-card"><div class="t">Proxy</div><p>An allowed variable that reconstructs a forbidden one — zip code for race, graduation year for age. Why deleting the sensitive field doesn't work.</p></div>
+    <div class="term-card"><div class="t">Disparate impact</div><p>A neutral-looking process with systematically unequal outcomes for a protected group — illegal in hiring and lending since before AI existed.</p></div>
+    <div class="term-card"><div class="t">The objectivity trap</div><p>Mistaking a classifier's consistency for neutrality. The bias didn't vanish; it moved upstream into the data.</p></div>
+    <div class="term-card"><div class="t">Adverse action notice</div><p>Credit law's forty-year-old right to an explanation for a denial — the standard hiring doesn't have, yet.</p></div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="shead"><span class="num">7</span><h2>Entry ticket</h2></div>
+  <div class="ticket">
+    <div class="label">Due before Monday's class · skim the Reuters Amazon story and the EEOC settlement release linked above, then post to Canvas</div>
+    <ol>
+      <li>Explain the objectivity trap to a manager who says "we switched to AI screening specifically to <em>remove</em> bias." Three sentences, no course vocabulary — then one sentence naming what would actually test whether their new system is fair.</li>
+      <li>Amazon's engineers neutralized the obvious biased terms and still couldn't trust the model, so they killed it. Using the proxy concept, explain what they were afraid of — and why "we removed the bad variables" can never fully answer it.</li>
+      <li>The Berkeley mortgage study found algorithms discriminated less than humans and still cost minority borrowers hundreds of millions a year. Someone cites only the first half to you; someone else cites only the second. Write the two-sentence response that holds both facts at once.</li>
+      <li>Find the proxy in your own résumé: name one thing on it that a classifier could read as a signal about your age, gender, background, or class — something a fair evaluation of your skills shouldn't use. (You'll test exactly this on Wednesday.)</li>
+      <li>Lending has a legal right to an explanation; hiring doesn't. Should it? One position, two sentences of defense, and one honest cost of your position — someone pays for every explanation requirement; say who.</li>
+    </ol>
+  </div>
+</section>
+
+<div class="nextbar">
+  <a href="chapter-05-systems.html"><span class="dir">← Back</span>Chapter 5 · Systems That Want You</a>
+  <a href="chapter-06-hiring-lending-lab.html" style="text-align:right;"><span class="dir">Next →</span>Lab 6 · You Are the Auditor</a>
+</div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+  </div>
+</footer>
+
+</body>
+</html>

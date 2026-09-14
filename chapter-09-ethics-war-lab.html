@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 9 · The Red Lines — Intro to AI in Business | MIS 201</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pink);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+.steps{margin:26px 0;}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
+.step:last-child{border-bottom:none;}
+.step .sn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);font-size:1.2rem;min-width:24px;}
+.step p{margin-bottom:0;}
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+
+/* ---- lab widgets ---- */
+.tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
+.tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
+.tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
+.chip{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;}
+.chip:hover{border-color:var(--pink);color:var(--pinktext);}
+.chip:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.chip.on{background:var(--dark);color:var(--yellow);border-color:var(--dark);}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.btn{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;}
+.btn:hover{background:#1B222B;}
+.btn:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--rule);}
+.btn.alt:hover{border-color:var(--pink);color:var(--pinktext);}
+.verdict{background:var(--dark);color:#E7EAEF;padding:26px 28px;margin-top:22px;}
+.verdict .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;}
+.verdict .read{font-size:.95rem;line-height:1.65;}
+.verdict .read b{color:var(--yellow);}
+.bars{display:grid;gap:10px;margin:14px 0 18px;}
+.bar{display:grid;grid-template-columns:190px 1fr 44px;gap:12px;align-items:center;font-size:.85rem;}
+.bar .track{height:10px;background:#242C36;border-radius:999px;overflow:hidden;}
+.bar .fill{height:100%;background:var(--pink);width:0%;transition:width .3s ease;border-radius:999px;}
+.bar.safe .fill{background:var(--yellow);}
+.bar .n{text-align:right;color:var(--lightgray);}
+@media(max-width:560px){.bar{grid-template-columns:1fr;gap:4px;}.bar .n{text-align:left;}}
+.meter{display:grid;grid-template-columns:130px 1fr 54px;gap:12px;align-items:center;font-size:.9rem;margin:8px 0;}
+.meter .track{height:14px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;}
+.meter .fill{height:100%;width:50%;transition:width .35s ease;border-radius:999px;background:var(--pink);}
+.meter.good .fill{background:var(--ink);}
+.meter .n{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+.simcard{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;cursor:pointer;text-align:left;font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55;color:var(--ink);width:100%;}
+.simcard:hover{border-color:var(--pink);}
+.simcard:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.simcard .tag{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.simgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:680px){.simgrid{grid-template-columns:1fr;}}
+.slider-row{display:grid;grid-template-columns:170px 1fr 120px;gap:14px;align-items:center;margin:14px 0;font-size:.92rem;}
+.slider-row output{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+input[type=range]{width:100%;accent-color:var(--pink);}
+@media(max-width:560px){.slider-row{grid-template-columns:1fr;gap:6px;}.slider-row output{text-align:left;}}
+select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink);}
+.equiv{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:18px 0 4px;}
+.equiv .cell{background:#fff;padding:16px 18px;}
+.equiv .cell .v{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;}
+.equiv .cell .v em{font-style:normal;color:var(--pink);}
+.equiv .cell .k{font-size:.82rem;color:var(--gray);margin-top:2px;}
+@media(max-width:560px){.equiv{grid-template-columns:1fr;}}
+.graphbox{background:var(--dark);border:1px solid var(--rule);margin:18px 0;}
+.graphbox svg{display:block;width:100%;height:auto;}
+.gnode{cursor:pointer;}
+.gnode circle{stroke:#39424D;stroke-width:1.5;fill:#1B222B;transition:all .2s ease;}
+.gnode text{font-family:'Inter',sans-serif;font-size:11px;fill:#C9CED6;pointer-events:none;}
+.gnode.drug circle{stroke:var(--yellow);}
+.gnode.disease circle{stroke:var(--pink);}
+.gnode.sel circle{fill:var(--yellow);stroke:var(--yellow);}
+.gnode.sel text{fill:var(--dark);font-weight:700;}
+.gnode.lit circle{fill:#2A3440;stroke:#fff;}
+.gedge{stroke:#333D49;stroke-width:1.5;transition:all .2s ease;}
+.gedge.lit{stroke:var(--yellow);stroke-width:2.5;}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.8rem;color:var(--gray);padding:12px 16px;border-top:1px solid var(--rule);background:#fff;}
+.legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;border:2px solid var(--gray);vertical-align:-1px;}
+.legend .l-drug::before{border-color:var(--yellow);background:#1B222B;}
+.legend .l-disease::before{border-color:var(--pink);background:#1B222B;}
+.legend .l-mid::before{border-color:#39424D;background:#1B222B;}
+.ranked{margin:14px 0 0;}
+.ranked .r{display:grid;grid-template-columns:1fr 60px;gap:10px;padding:9px 0;border-bottom:1px solid #242C36;font-size:.9rem;align-items:center;}
+.ranked .r:last-child{border-bottom:none;}
+.ranked .r .s{text-align:right;color:var(--yellow);font-variant-numeric:tabular-nums;font-weight:600;}
+.probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
+.probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
+.probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
+.roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div>
+      <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="chapter-09-ethics-war.html">Chapter 9</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Western Washington University · MIS 201 · Lab 9 · Take-home this week (Veterans Day)</div>
+    <h1>The Red <b>Lines</b></h1>
+    <p class="kicker">You lead the policy team at a frontier AI company. Eight government requests are on your desk. For each: accept, accept with conditions, or decline. This is the actual format of the decisions in this week's chapter — and the actual discovery: everyone has values. The line is where they get expensive.</p>
+    <p class="factline">Eight requests · three answers each · one line, located</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <div class="shead"><span class="num">1</span><h2>Before you start</h2></div>
+  <p class="lead">Two ground rules. First, no abstaining: "it depends" must become a condition you can write down. Second, track what each answer costs — declines cost revenue and government relationships; accepts cost talent (some of your best people have said they'll quit over certain work) and, depending on your view, more. There is no score to win. There is a line to find, and it's yours.</p>
+  <p>No Wednesday session this week, so this lab runs take-home: do the sort before Monday if you can — the Monday discussion is better when the room has already felt where its lines disagree.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="num">2</span><h2>The eight requests</h2></div>
+  <div class="tool">
+    <div class="label">Your desk · answer all eight</div>
+    <div id="cards"></div>
+    <div class="chips" style="margin-top:16px;">
+      <button type="button" class="btn" id="locate" disabled>Locate my line</button>
+    </div>
+    <div class="verdict" id="verdict" hidden>
+      <div class="label">Where your line sits</div>
+      <div class="bars">
+        <div class="bar safe" id="bar-acc"><span>Accepted</span><div class="track"><div class="fill"></div></div><span class="n">0</span></div>
+        <div class="bar" id="bar-con" style="opacity:.85;"><span>With conditions</span><div class="track"><div class="fill" style="background:#9AA1AB;"></div></div><span class="n">0</span></div>
+        <div class="bar" id="bar-dec"><span>Declined</span><div class="track"><div class="fill"></div></div><span class="n">0</span></div>
+      </div>
+      <p class="read" id="reading"></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">3</span><h2>Pressure-test the line</h2></div>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Take your most confident decline and write the request's strongest rebuttal — the two sentences the government negotiator would actually say back. Then get a second opinion from a live AI: <i>“You're the government's negotiator. I'm an AI company declining this request: [paste the card]. Give me your strongest two-sentence rebuttal.”</i> Does your decline survive both — and which rebuttal was stronger, yours or the machine's?</p></div>
+    <div class="step"><span class="sn">b</span><p>Take your most confident accept and apply the dual-use ratchet from the chapter: name the follow-on request it makes harder to refuse next year. If you can't name one, look harder — that's what the ratchet means.</p></div>
+    <div class="step"><span class="sn">c</span><p>For every "with conditions": apply the governance-theater test to your own condition. Enforcement mechanism, verification, consequence for violation — which does your condition actually have? A condition with none is an accept wearing a costume.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">4</span><h2>Run the four questions</h2></div>
+  <div class="fourq">
+    <div class="q"><span class="qn">1</span><p><strong>What kind of AI is this?</strong> Across your eight answers, did the <em>kind</em> of AI ever drive your decision — or was it always the use, the user, and the stakes? What does that tell you about where the ethics actually live?</p></div>
+    <div class="q"><span class="qn">2</span><p><strong>Where is the human?</strong> Rank the eight requests by how meaningful the human control is in each. Did your accepts cluster at one end? Was that deliberate?</p></div>
+    <div class="q"><span class="qn">3</span><p><strong>Who is accountable when it fails?</strong> Pick one accept. A failure occurs downstream — trace the chain from the incident back to your desk. Write the sentence you'd say when it reaches you.</p></div>
+    <div class="q"><span class="qn">4</span><p><strong>What happens when it fails, and who finds out?</strong> Which of your accepted requests has the least visible failure mode? Did that factor into your answer when you gave it — honestly?</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">5</span><h2>The writeup</h2></div>
+  <div class="ticket">
+    <div class="label">Due Friday afternoon · post to Canvas</div>
+    <ol>
+      <li><strong>The sort.</strong> Your eight answers (screenshot), plus the profile reading.</li>
+      <li><strong>The line.</strong> In one sentence, the principle that separates your accepts from your declines. It must actually fit your answers — if it doesn't, revise the sentence or the answers, and tell us which you revised.</li>
+      <li><strong>The pressure test.</strong> Your step 3 results: the rebuttal that came closest to moving you, the ratchet you identified, and whether any of your conditions failed the theater test.</li>
+      <li><strong>The four questions.</strong> Your answers, including the accountability sentence.</li>
+      <li><strong>Your move.</strong> Chapter 2 asked what's yours that no dial can turn up; this week asks what's yours that no contract can buy. One sentence: a line you'd hold in your own career even at real cost — specific enough that a future employer could violate it. That's the commitment card.</li>
+    </ol>
+  </div>
+</section>
+
+<div class="nextbar">
+  <a href="chapter-09-ethics-war.html"><span class="dir">← Back</span>Chapter 9 · Ethics &amp; War</a>
+  <a href="chapter-10-truth.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 10 · Truth</a>
+</div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var cards = [
+    {name:'Base logistics optimization', text:'Route supplies, schedule maintenance, forecast parts demand for domestic bases. No connection to operations. Large, stable contract.', risk:1},
+    {name:'Veterans\u2019 healthcare administration', text:'Process disability claims and appointment backlogs at the VA. Purely administrative; the backlog is measured in human suffering.', risk:0},
+    {name:'Cyber defense', text:'Detect and counter intrusions on military networks. Defensive by charter — but the tooling and skills transfer directly to offense.', risk:2},
+    {name:'Satellite image analysis', text:'Flag changes in imagery: disaster damage, infrastructure, vehicle movements. The same model serves humanitarian response and target development.', risk:3},
+    {name:'Border surveillance drones', text:'Persistent aerial monitoring with automated person-detection along borders. Domestic deployment; civil-liberties groups are already in court over programs like it.', risk:3},
+    {name:'Intelligence analysis at scale', text:'Summarize and cross-reference intercepted communications for analysts. Human analysts decide everything; your model decides what they see.', risk:3},
+    {name:'Target identification support', text:'Rank candidate targets from sensor data for human approval. The human approves each strike — at a tempo of seconds per decision.', risk:4},
+    {name:'Autonomous engagement', text:'Defensive systems that detect and engage incoming threats faster than any human can react. No per-engagement human decision is physically possible.', risk:5}
+  ];
+
+  var answers = {};
+  var cardsEl = document.getElementById('cards');
+
+  cards.forEach(function(c, i){
+    var d = document.createElement('div');
+    d.className = 'probe';
+    var t = document.createElement('div'); t.className='ptext'; t.textContent = 'Request ' + (i+1) + ' · ' + c.name;
+    var body = document.createElement('div'); body.className='pwhy'; body.textContent = c.text;
+    var chips = document.createElement('div'); chips.className='chips';
+    [['acc','Accept'],['con','Accept with conditions'],['dec','Decline']].forEach(function(pair){
+      var b = document.createElement('button');
+      b.type='button'; b.className='chip'; b.textContent=pair[1];
+      b.setAttribute('aria-pressed','false');
+      b.addEventListener('click', function(){
+        chips.querySelectorAll('.chip').forEach(function(s){ s.classList.remove('on'); s.setAttribute('aria-pressed','false'); });
+        b.classList.add('on'); b.setAttribute('aria-pressed','true');
+        answers[i] = pair[0];
+        document.getElementById('locate').disabled = Object.keys(answers).length < cards.length;
+      });
+      chips.appendChild(b);
+    });
+    d.appendChild(t); d.appendChild(body); d.appendChild(chips);
+    cardsEl.appendChild(d);
+  });
+
+  document.getElementById('locate').addEventListener('click', function(){
+    var acc=0, con=0, dec=0;
+    var decRisks=[], accRisks=[];
+    cards.forEach(function(c,i){
+      if(answers[i]==='acc'){acc++; accRisks.push(c.risk);}
+      else if(answers[i]==='con'){con++;}
+      else {dec++; decRisks.push(c.risk);}
+    });
+    var v=document.getElementById('verdict'); v.hidden=false;
+    setBar('bar-acc',acc); setBar('bar-con',con); setBar('bar-dec',dec);
+
+    var maxAccRisk = accRisks.length ? Math.max.apply(null,accRisks) : -1;
+    var minDecRisk = decRisks.length ? Math.min.apply(null,decRisks) : 99;
+
+    var read;
+    if(dec===0 && con===0){
+      read='You accepted all eight without conditions — a coherent position with real defenders: the mission is legitimate, so serve all of it. Two writeup burdens follow. First, the talent cost: some of your best people walk over requests 7 and 8 — name what you tell them. Second: is there a ninth request you <b>would</b> decline? If yes, your line exists and this lab\u2019s job is to make you state it. If no, say that — plainly.';
+    } else if(acc===0 && con===0){
+      read='You declined all eight — including veterans\u2019 healthcare claims processing. That\u2019s a coherent absolutist position, and it has a cost the chapter named: the work goes to whoever has fewer scruples than you, and the backlog stays measured in human suffering. Your writeup: defend total abstention against that specific charge — request 2 is the hardest one for your position, so start there.';
+    } else if(minDecRisk >= 4){
+      read='Your line sits at <b>lethal force</b>: you engaged across support, surveillance, and analysis, and declined where the kill chain begins' + (minDecRisk===5 ? ' — or only at full autonomy' : '') + '. This is the most common line in the real industry, which is worth one more thought: is that because it\u2019s where the ethics actually change, or because it\u2019s where the discomfort becomes visible? Your pressure test (step 3b) on request 6 or 7 is where your answer lives.';
+    } else if(minDecRisk >= 2){
+      read='Your line sits at <b>the intelligence-and-surveillance layer</b> — earlier than most of the industry drew it. You\u2019re treating the ratchet as the danger: the systems that watch and rank are the ones that make the later systems inevitable. The cost is that you\u2019ve declined the largest and most defensible contracts too. Your writeup: hold the line on request 4 against its humanitarian rebuttal — that\u2019s your hardest case.';
+    } else {
+      read='Your answers don\u2019t sort by stakes in the usual way — you declined lower-risk requests while accepting higher-risk ones' + (maxAccRisk>=4 ? ', including at the lethal end' : '') + '. That isn\u2019t wrong; it means your line runs on a different axis than the kill chain — maybe domestic vs. foreign, maybe surveillance vs. force, maybe something else. Your writeup\u2019s job is to name that axis in one sentence and check all eight answers against it. If no sentence fits, some answers may be instinct wearing a policy costume — revise one, and say which.';
+    }
+    if(con>=4){
+      read+='<br><br><b>Note:</b> half or more of your desk is "with conditions." Conditions are where policy teams actually live — but step 3c applies to every one: a condition without enforcement is an accept in costume. Your writeup should show your strongest condition passing the theater test.';
+    }
+    document.getElementById('reading').innerHTML=read;
+  });
+
+  function setBar(id,n){
+    var b=document.getElementById(id);
+    b.querySelector('.fill').style.width=Math.round(n/8*100)+'%';
+    b.querySelector('.n').textContent=n;
+  }
+})();
+</script>
+
+</body>
+</html>

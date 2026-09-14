@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intro to AI in Business — MIS 201 | Western Washington University</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pink);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+.steps{margin:26px 0;}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
+.step:last-child{border-bottom:none;}
+.step .sn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);font-size:1.2rem;min-width:24px;}
+.step p{margin-bottom:0;}
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+
+/* ---- lab widgets ---- */
+.tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
+.tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
+.tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
+.chip{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;}
+.chip:hover{border-color:var(--pink);color:var(--pinktext);}
+.chip:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.chip.on{background:var(--dark);color:var(--yellow);border-color:var(--dark);}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.btn{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;}
+.btn:hover{background:#1B222B;}
+.btn:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--rule);}
+.btn.alt:hover{border-color:var(--pink);color:var(--pinktext);}
+.verdict{background:var(--dark);color:#E7EAEF;padding:26px 28px;margin-top:22px;}
+.verdict .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;}
+.verdict .read{font-size:.95rem;line-height:1.65;}
+.verdict .read b{color:var(--yellow);}
+.bars{display:grid;gap:10px;margin:14px 0 18px;}
+.bar{display:grid;grid-template-columns:190px 1fr 44px;gap:12px;align-items:center;font-size:.85rem;}
+.bar .track{height:10px;background:#242C36;border-radius:999px;overflow:hidden;}
+.bar .fill{height:100%;background:var(--pink);width:0%;transition:width .3s ease;border-radius:999px;}
+.bar.safe .fill{background:var(--yellow);}
+.bar .n{text-align:right;color:var(--lightgray);}
+@media(max-width:560px){.bar{grid-template-columns:1fr;gap:4px;}.bar .n{text-align:left;}}
+.meter{display:grid;grid-template-columns:130px 1fr 54px;gap:12px;align-items:center;font-size:.9rem;margin:8px 0;}
+.meter .track{height:14px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;}
+.meter .fill{height:100%;width:50%;transition:width .35s ease;border-radius:999px;background:var(--pink);}
+.meter.good .fill{background:var(--ink);}
+.meter .n{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+.simcard{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;cursor:pointer;text-align:left;font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55;color:var(--ink);width:100%;}
+.simcard:hover{border-color:var(--pink);}
+.simcard:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.simcard .tag{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.simgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:680px){.simgrid{grid-template-columns:1fr;}}
+.slider-row{display:grid;grid-template-columns:170px 1fr 120px;gap:14px;align-items:center;margin:14px 0;font-size:.92rem;}
+.slider-row output{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+input[type=range]{width:100%;accent-color:var(--pink);}
+@media(max-width:560px){.slider-row{grid-template-columns:1fr;gap:6px;}.slider-row output{text-align:left;}}
+select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink);}
+.equiv{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:18px 0 4px;}
+.equiv .cell{background:#fff;padding:16px 18px;}
+.equiv .cell .v{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;}
+.equiv .cell .v em{font-style:normal;color:var(--pink);}
+.equiv .cell .k{font-size:.82rem;color:var(--gray);margin-top:2px;}
+@media(max-width:560px){.equiv{grid-template-columns:1fr;}}
+.graphbox{background:var(--dark);border:1px solid var(--rule);margin:18px 0;}
+.graphbox svg{display:block;width:100%;height:auto;}
+.gnode{cursor:pointer;}
+.gnode circle{stroke:#39424D;stroke-width:1.5;fill:#1B222B;transition:all .2s ease;}
+.gnode text{font-family:'Inter',sans-serif;font-size:11px;fill:#C9CED6;pointer-events:none;}
+.gnode.drug circle{stroke:var(--yellow);}
+.gnode.disease circle{stroke:var(--pink);}
+.gnode.sel circle{fill:var(--yellow);stroke:var(--yellow);}
+.gnode.sel text{fill:var(--dark);font-weight:700;}
+.gnode.lit circle{fill:#2A3440;stroke:#fff;}
+.gedge{stroke:#333D49;stroke-width:1.5;transition:all .2s ease;}
+.gedge.lit{stroke:var(--yellow);stroke-width:2.5;}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.8rem;color:var(--gray);padding:12px 16px;border-top:1px solid var(--rule);background:#fff;}
+.legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;border:2px solid var(--gray);vertical-align:-1px;}
+.legend .l-drug::before{border-color:var(--yellow);background:#1B222B;}
+.legend .l-disease::before{border-color:var(--pink);background:#1B222B;}
+.legend .l-mid::before{border-color:#39424D;background:#1B222B;}
+.ranked{margin:14px 0 0;}
+.ranked .r{display:grid;grid-template-columns:1fr 60px;gap:10px;padding:9px 0;border-bottom:1px solid #242C36;font-size:.9rem;align-items:center;}
+.ranked .r:last-child{border-bottom:none;}
+.ranked .r .s{text-align:right;color:var(--yellow);font-variant-numeric:tabular-nums;font-weight:600;}
+.probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
+.probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
+.probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
+.roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}</style>
+<style>
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px;}
+.hero-actions a{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:700;font-size:.95rem;text-decoration:none;}
+.hero-actions .primary{background:var(--yellow);color:var(--ink);}
+.hero-actions .ghost{border:1.5px solid #3A414B;color:#E8EAED;}
+.fourline{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:24px 0 6px;}
+.fourline .fq{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:14px 16px;font-size:.9rem;}
+.fourline .fq b{display:block;font-family:Fraunces,serif;color:var(--pink);font-size:1.2rem;margin-bottom:4px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:8px;}
+.card{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:20px;display:flex;flex-direction:column;}
+.card .cn{font-family:Fraunces,serif;font-size:2rem;font-weight:600;color:var(--pink);line-height:1;}
+.card h3{font-family:Fraunces,serif;font-size:1.2rem;margin:8px 0 6px;}
+.card p{font-size:.88rem;color:var(--gray);flex:1;margin-bottom:14px;}
+.card .wktag{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-top:6px;}
+.card .btns{display:flex;gap:10px;}
+.card .btns a{flex:1;text-align:center;padding:9px 0;border-radius:8px;font-weight:700;font-size:.85rem;text-decoration:none;}
+.card .btns .ch{background:var(--ink);color:#fff;}
+.card .btns .lb{border:1.5px solid var(--pink);color:var(--pinktext);}
+.howto{background:var(--dark);color:#E8EAED;border-radius:12px;padding:24px;margin:10px 0 30px;}
+.howto .label{color:var(--yellow);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
+.howto p{margin:6px 0;font-size:.95rem;}
+.howto b{color:#fff;}
+.howto a{color:var(--yellow);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div>
+      <a class="navlink" href="schedule.html">Schedule</a>
+      <a class="navlink" href="chapter-01-what-is-ai.html">Start reading</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Western Washington University · MIS 201 · Fall 2026</div>
+    <h1>Intro to <b>AI</b> in Business</h1>
+    <p class="kicker">Eleven weeks, eleven real systems, one future — a drug-hunter, a robotaxi, a résumé screen, a feed that wants you back — and one question underneath all of them: can we build a good, beneficial hybrid society? This book teaches a way of looking, not a side to take. See it. Question it. Decide.</p>
+    <p class="factline">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <div class="hero-actions">
+      <a class="primary" href="schedule.html">View the schedule</a>
+      <a class="ghost" href="chapter-01-what-is-ai.html">Start with Chapter 1</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <div class="shead"><span class="num">?</span><h2>The four questions we ask every week</h2></div>
+  <div class="fourline">
+    <div class="fq"><b>1</b>What kind of AI is this?</div>
+    <div class="fq"><b>2</b>Where is the human?</div>
+    <div class="fq"><b>3</b>Who is accountable when it fails?</div>
+    <div class="fq"><b>4</b>What happens when it fails — and who finds out?</div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">→</span><h2>How this book works</h2></div>
+  <div class="howto">
+    <div class="label">The weekly rhythm</div>
+    <p><b>Read the chapter</b> before Monday and post its five-question entry ticket to Canvas.</p>
+    <p><b>Monday</b> is discussion. <b>Wednesday</b> is Q&amp;A plus the lab, in class, laptop open — every lab has you doing something real, often with a live AI on the other side.</p>
+    <p><b>Friday afternoon</b>, the lab writeup is due. Its last item becomes your commitment card — one sentence you actually keep.</p>
+    <p>Full dates, holidays, and the exam: <a href="schedule.html">the schedule</a>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">§</span><h2>Chapters &amp; labs</h2></div>
+  <div class="grid">
+
+    <div class="card"><span class="cn">1</span><h3>What Is AI?</h3>
+      <p>The way of looking: three kinds of AI, the five parts of every system, and the four questions. Lab: ten unbelievable claims — all true — and the hunt for real workflows.</p>
+      <div class="btns"><a class="ch" href="chapter-01-what-is-ai.html">Chapter</a><a class="lb" href="chapter-01-what-is-ai-lab.html">Lab · Opening Positions</a></div>
+      <div class="wktag">Week 1 · Sept 23</div></div>
+
+    <div class="card"><span class="cn">2</span><h3>What It Means to Be Human</h3>
+      <p>Machines built to seem — and what "seems" does to us. Lab: run five probes on a live AI and score the seeming yourself.</p>
+      <div class="btns"><a class="ch" href="chapter-02-human.html">Chapter</a><a class="lb" href="chapter-02-human-lab.html">Lab · The Seeming Test</a></div>
+      <div class="wktag">Week 2 · Sept 28</div></div>
+
+    <div class="card"><span class="cn">3</span><h3>Medicine</h3>
+      <p>A doctor who cured himself, and the AI hunting treatments for 9,000 diseases nobody studies. Lab: click through the knowledge graph and find the cure — then rewind history and watch it vanish.</p>
+      <div class="btns"><a class="ch" href="chapter-03-medicine.html">Chapter</a><a class="lb" href="chapter-03-medicine-lab.html">Lab · Inside the Graph</a></div>
+      <div class="wktag">Week 3 · Oct 5</div></div>
+
+    <div class="card"><span class="cn">4</span><h3>Environment</h3>
+      <p>Data centers, reopened reactors, and the footprint nobody publishes. Lab: run the numbers at four scales — then interrogate a live AI about its own energy use.</p>
+      <div class="btns"><a class="ch" href="chapter-04-environment.html">Chapter</a><a class="lb" href="chapter-04-environment-lab.html">Lab · The Footprint Machine</a></div>
+      <div class="wktag">Week 4 · Oct 12</div></div>
+
+    <div class="card"><span class="cn">5</span><h3>Systems That Want You</h3>
+      <p>Engagement machines, companion apps, and what optimizing for attention trades away. Lab: run the feed twice — once seeing only what the company sees, once seeing everything.</p>
+      <div class="btns"><a class="ch" href="chapter-05-systems.html">Chapter</a><a class="lb" href="chapter-05-systems-lab.html">Lab · Play the Algorithm</a></div>
+      <div class="wktag">Week 5 · Oct 19</div></div>
+
+    <div class="card"><span class="cn">6</span><h3>Hiring &amp; Lending</h3>
+      <p>The classifiers that read your résumé and price your loan — and how bias launders through them. Lab: run a real audit on a live AI screener, one variable at a time.</p>
+      <div class="btns"><a class="ch" href="chapter-06-hiring-lending.html">Chapter</a><a class="lb" href="chapter-06-hiring-lending-lab.html">Lab · You Are the Auditor</a></div>
+      <div class="wktag">Week 6 · Oct 26</div></div>
+
+    <div class="card"><span class="cn">7</span><h3>Transportation</h3>
+      <p>An AI that advises pilots' dispatchers, and 400,000 driverless rides a week — opposite answers to "where is the human." Lab: you're the city council; write the permit.</p>
+      <div class="btns"><a class="ch" href="chapter-07-transportation.html">Chapter</a><a class="lb" href="chapter-07-transportation-lab.html">Lab · You Are the City Council</a></div>
+      <div class="wktag">Week 7 · Nov 2</div></div>
+
+    <div class="card"><span class="cn">8</span><h3>Markets</h3>
+      <p>Everyone's using AI; the productivity statistics barely blinked. The forty-year lesson of the electric motor. Lab: run a firm for eight quarters and feel why redesign is rare.</p>
+      <div class="btns"><a class="ch" href="chapter-08-markets.html">Chapter</a><a class="lb" href="chapter-08-markets-lab.html">Lab · Run the Firm</a></div>
+      <div class="wktag">Week 9 · Nov 16 · after Ch. 9</div></div>
+
+    <div class="card"><span class="cn">9</span><h3>Ethics &amp; War</h3>
+      <p>The military pivot, autonomy in lethal force, and who grades the graders — held with respect on Veterans Day week. Lab: eight defense contracts on your desk; find your line.</p>
+      <div class="btns"><a class="ch" href="chapter-09-ethics-war.html">Chapter</a><a class="lb" href="chapter-09-ethics-war-lab.html">Lab · The Red Lines</a></div>
+      <div class="wktag">Week 8 · Nov 9 · read before Ch. 8</div></div>
+
+    <div class="card"><span class="cn">10</span><h3>Truth</h3>
+      <p>Machines built for plausible, not true: phantom court cases, cloned voices, and the liar's dividend. Lab: six citations, three fabricated by a chatbot — catch them, with the clock running.</p>
+      <div class="btns"><a class="ch" href="chapter-10-truth.html">Chapter</a><a class="lb" href="chapter-10-truth-lab.html">Lab · The Phantom Docket</a></div>
+      <div class="wktag">Week 11 · Nov 30 · exam week</div></div>
+
+    <div class="card"><span class="cn">11</span><h3>AI &amp; the Future of Work</h3>
+      <p>The canaries in the payroll data, the economists arguing about what it means — and where you stand. Lab: audit a real job posting you might actually apply for.</p>
+      <div class="btns"><a class="ch" href="chapter-11-work.html">Chapter</a><a class="lb" href="chapter-11-work-lab.html">Lab · The Exposure Audit</a></div>
+      <div class="wktag">Finals week · read before · lab take-home</div></div>
+
+    <div class="card"><span class="cn">12</span><h3>The Future — and How to Read It</h3>
+      <p>Three published futures, the concepts underneath them, the instruments that would show each arriving — and the course's answer to its own question. Lab: write the ten claims about 2036 the next class will judge.</p>
+      <div class="btns"><a class="ch" href="chapter-12-future.html">Chapter</a><a class="lb" href="chapter-12-future-lab.html">Lab · Opening Positions, Reversed</a></div>
+      <div class="wktag">Finals week · Dec 7 · capstone</div></div>
+
+    <div class="card" style="background:var(--dark);border-color:var(--dark);color:#E8EAED;">
+      <span class="cn" style="color:var(--yellow);">★</span><h3 style="color:#fff;">The Schedule</h3>
+      <p style="color:#B7BDC6;">Every date, every due, the Veterans Day and Thanksgiving weeks, the exam, and the capstone — one page.</p>
+      <div class="btns"><a class="ch" style="background:var(--yellow);color:var(--ink);" href="schedule.html">Open the schedule</a></div>
+      <div class="wktag" style="color:#8A919B;">Fall 2026</div></div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+  </div>
+</footer>
+
+</body>
+</html>

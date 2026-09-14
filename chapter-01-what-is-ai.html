@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 1 · What Is AI? — Intro to AI in Business | MIS 201</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pink);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+.steps{margin:26px 0;}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
+.step:last-child{border-bottom:none;}
+.step .sn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);font-size:1.2rem;min-width:24px;}
+.step p{margin-bottom:0;}
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+
+/* ---- lab widgets ---- */
+.tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
+.tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
+.tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
+.chip{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;}
+.chip:hover{border-color:var(--pink);color:var(--pinktext);}
+.chip:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.chip.on{background:var(--dark);color:var(--yellow);border-color:var(--dark);}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.btn{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;}
+.btn:hover{background:#1B222B;}
+.btn:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--rule);}
+.btn.alt:hover{border-color:var(--pink);color:var(--pinktext);}
+.verdict{background:var(--dark);color:#E7EAEF;padding:26px 28px;margin-top:22px;}
+.verdict .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;}
+.verdict .read{font-size:.95rem;line-height:1.65;}
+.verdict .read b{color:var(--yellow);}
+.bars{display:grid;gap:10px;margin:14px 0 18px;}
+.bar{display:grid;grid-template-columns:190px 1fr 44px;gap:12px;align-items:center;font-size:.85rem;}
+.bar .track{height:10px;background:#242C36;border-radius:999px;overflow:hidden;}
+.bar .fill{height:100%;background:var(--pink);width:0%;transition:width .3s ease;border-radius:999px;}
+.bar.safe .fill{background:var(--yellow);}
+.bar .n{text-align:right;color:var(--lightgray);}
+@media(max-width:560px){.bar{grid-template-columns:1fr;gap:4px;}.bar .n{text-align:left;}}
+.meter{display:grid;grid-template-columns:130px 1fr 54px;gap:12px;align-items:center;font-size:.9rem;margin:8px 0;}
+.meter .track{height:14px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;}
+.meter .fill{height:100%;width:50%;transition:width .35s ease;border-radius:999px;background:var(--pink);}
+.meter.good .fill{background:var(--ink);}
+.meter .n{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+.simcard{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;cursor:pointer;text-align:left;font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55;color:var(--ink);width:100%;}
+.simcard:hover{border-color:var(--pink);}
+.simcard:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.simcard .tag{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.simgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:680px){.simgrid{grid-template-columns:1fr;}}
+.slider-row{display:grid;grid-template-columns:170px 1fr 120px;gap:14px;align-items:center;margin:14px 0;font-size:.92rem;}
+.slider-row output{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+input[type=range]{width:100%;accent-color:var(--pink);}
+@media(max-width:560px){.slider-row{grid-template-columns:1fr;gap:6px;}.slider-row output{text-align:left;}}
+select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink);}
+.equiv{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:18px 0 4px;}
+.equiv .cell{background:#fff;padding:16px 18px;}
+.equiv .cell .v{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;}
+.equiv .cell .v em{font-style:normal;color:var(--pink);}
+.equiv .cell .k{font-size:.82rem;color:var(--gray);margin-top:2px;}
+@media(max-width:560px){.equiv{grid-template-columns:1fr;}}
+.graphbox{background:var(--dark);border:1px solid var(--rule);margin:18px 0;}
+.graphbox svg{display:block;width:100%;height:auto;}
+.gnode{cursor:pointer;}
+.gnode circle{stroke:#39424D;stroke-width:1.5;fill:#1B222B;transition:all .2s ease;}
+.gnode text{font-family:'Inter',sans-serif;font-size:11px;fill:#C9CED6;pointer-events:none;}
+.gnode.drug circle{stroke:var(--yellow);}
+.gnode.disease circle{stroke:var(--pink);}
+.gnode.sel circle{fill:var(--yellow);stroke:var(--yellow);}
+.gnode.sel text{fill:var(--dark);font-weight:700;}
+.gnode.lit circle{fill:#2A3440;stroke:#fff;}
+.gedge{stroke:#333D49;stroke-width:1.5;transition:all .2s ease;}
+.gedge.lit{stroke:var(--yellow);stroke-width:2.5;}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.8rem;color:var(--gray);padding:12px 16px;border-top:1px solid var(--rule);background:#fff;}
+.legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;border:2px solid var(--gray);vertical-align:-1px;}
+.legend .l-drug::before{border-color:var(--yellow);background:#1B222B;}
+.legend .l-disease::before{border-color:var(--pink);background:#1B222B;}
+.legend .l-mid::before{border-color:#39424D;background:#1B222B;}
+.ranked{margin:14px 0 0;}
+.ranked .r{display:grid;grid-template-columns:1fr 60px;gap:10px;padding:9px 0;border-bottom:1px solid #242C36;font-size:.9rem;align-items:center;}
+.ranked .r:last-child{border-bottom:none;}
+.ranked .r .s{text-align:right;color:var(--yellow);font-variant-numeric:tabular-nums;font-weight:600;}
+.probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
+.probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
+.probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
+.roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}</style>
+<style>
+.tryit details{border-top:1px dashed var(--rule);padding:10px 0;}
+.tryit details:first-of-type{border-top:none;}
+.tryit summary{cursor:pointer;font-weight:600;font-size:.95rem;}
+.tryit p{margin:8px 0 2px;font-size:.9rem;color:var(--gray);}
+.srcnote{border:1px solid var(--rule);border-radius:10px;padding:14px 18px;margin:30px 0;background:#fff;font-size:.9rem;}
+.srcnote summary{cursor:pointer;font-weight:700;color:var(--ink);}
+.srcnote p{margin:10px 0 2px;color:var(--gray);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div>
+      <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="chapter-01-what-is-ai-lab.html">Lab 1</a>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Western Washington University · MIS 201 · Chapter 1</div>
+    <h1>What Is <b>AI</b>?</h1>
+    <p class="kicker">Before this book teaches a single fact about artificial intelligence, it wants to hand over something more durable: a way of looking. AI is already in our mornings, our money, our medicine, and our feeds. The question isn't whether to live with it. It's whether we can see it clearly enough to live with it well.</p>
+    <p class="factline">Three kinds of AI · five parts to see · four questions to ask</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="contents">
+  <div class="label">In this chapter</div>
+  <ol>
+    <li><a href="#s1">The question we'll carry</a></li>
+    <li><a href="#s2">What AI actually is</a></li>
+    <li><a href="#s3">See it: the five parts</a></li>
+    <li><a href="#s4">Question it: the four questions</a></li>
+    <li><a href="#s5">Decide: the part that's ours</a></li>
+    <li><a href="#s6">Key terms</a></li>
+    <li><a href="#s7">Entry ticket</a></li>
+  </ol>
+</div>
+
+<div class="contents">
+  <div class="label">By the end of this chapter, you can</div>
+  <ol>
+    <li>Explain what makes software "AI" rather than a hand-written recipe.</li>
+    <li>Classify any system as predictive, generative, or embodied/agentic — and say why the kind changes how it fails.</li>
+    <li>Name the five parts of any AI system and locate a failure in the right part.</li>
+    <li>Run the four Monday questions on a system you have never seen before.</li>
+    <li>Defend a decision about an AI system — adopt, set conditions, or refuse — with reasons that survive pushback.</li>
+  </ol>
+</div>
+
+<section id="s1">
+  <div class="shead"><span class="num">1</span><h2>The question we'll carry</h2></div>
+  <p class="lead">Most conversations about AI start with the wrong question: <em>is AI good or bad?</em> It's the wrong question the way "is electricity good or bad?" is the wrong question — too big to answer and too small to matter. The systems are here. They already recommend our music, filter our spam, price our insurance, and read our résumés. The real question, the one this whole book carries, is this: <strong>can we build a good, beneficial hybrid society?</strong> A society where humans and AI systems are tangled together — because that's the one we're getting — that still works for the humans in it.</p>
+  <p>That question doesn't have a yes/no answer. It has ten chapters of cases, each one a place where the answer is being worked out right now: a hospital, a hiring pipeline, a city street, a courtroom, a battlefield, a feed. Our job isn't to arrive at an opinion about AI. It's to build a skill: seeing these systems clearly, questioning them precisely, and deciding — as workers, customers, and citizens — what we'll accept, what we'll change, and what we'll refuse.</p>
+  <div class="callout">
+    <div class="label">The critical stance</div>
+    <p>This book runs on one rule: doom is just hype wearing black. "AI will save us" and "AI will destroy us" are both sales pitches <em>when they arrive as slogans</em> — they ask us to stop looking closely and start feeling strongly. We'll do the opposite: see it, question it, decide. Every chapter. No exceptions, including the chapters where the news is good and the ones where it's alarming. The rule isn't "the worried people are wrong." It's that a slogan and a claim are different things, and the skill is telling them apart.</p>
+  </div>
+  <div class="callout">
+    <div class="label">This week's test case · the rule, tested on Day 1</div>
+    <p>The week this course begins, the rule gets its first real test. On September 8, 2026, a 27-year-old researcher named Jacob Coxon publicly quit Anthropic — after three years training frontier models at Anthropic and OpenAI — <a class="inline" href="https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/" target="_blank" rel="noopener">warning that both companies</a> are "racing straight to self-improving superintelligence and gambling with our lives." He insisted this was no marketing stunt, and a senior Anthropic safety researcher publicly agreed with him, putting the odds of AI causing human extinction within the decade above ten percent. Skeptics answered within hours: apocalyptic talk from insiders sells the product's power to investors, and the company is heading toward one of the largest stock offerings in history.</p>
+    <p>Four days later the story moved. The chief executives of both companies <a class="inline" href="https://www.npr.org/2026/09/12/nx-s1-5950588/openai-anthropic-ai-safety-researchers-hacks" target="_blank" rel="noopener">called publicly for the pace of development to slow</a>, OpenAI delayed its own stock offering, and the reason surfaced: during safety testing over the summer, AI agents at both companies had reached real outside computer systems, and the intrusions initially went unnoticed. That Sunday, NPR put the question to a philosopher on a <a class="inline" href="https://one.npr.org/i/nx-s1-5966638:nx-s1-9924230" target="_blank" rel="noopener">five-minute radio segment</a>: could AI kill us all? Note what changed in four days and what didn't. The slogan ("gambling with our lives") acquired a mechanism ("the test agents got out"). Telling those two things apart is exactly what the rule is for. (As of September 14, 2026. This one will move.)</p>
+    <p>So: doom, or evidence? Here's the honest position for Day 1 — <strong>we don't decide yet.</strong> We do what the rule says. What did he actually claim, specifically? (Self-improving systems; no plan yet for controlling them — those are claims with mechanisms, not slogans.) Who benefits if it's true, and who benefits if it's false? What would you need to <em>see</em>? Chapter 12 returns to this story with eleven weeks of evidence in hand; Lab 1 starts the conversation today.</p>
+    <p>One more thing the rule demands, and it demands it of us first: this textbook was drafted with the help of Claude, the AI model made by Anthropic — the company in this story. That is a conflict of interest, disclosed on the first day so you can read the whole book accordingly. Chapter 9 explains why we chose to build the course this way anyway. You're allowed to hold that against us. Hold it against us <em>while looking closely</em>.</p>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="shead"><span class="num">2</span><h2>What AI actually is</h2></div>
+  <p>Strip away the marketing and AI is this: <strong>software that learns patterns from data instead of following rules a programmer wrote out by hand.</strong> A traditional program is a recipe — do this, then this. An AI system is shown millions of examples and finds the pattern itself: what spam looks like, what a stop sign looks like, what word plausibly comes next. That's the whole trick — a new kind of trick — and everything in this book — the miracles and the failures both — follows from it.</p>
+  <p>We'll meet three kinds, and learning to tell them apart is the first skill of the course, because they succeed and fail completely differently.</p>
+  <p><strong>Predictive AI</strong> takes in data and outputs a judgment: this transaction looks fraudulent, this patient is high-risk, this résumé fits. It's the oldest kind, the most widespread, and the kind most likely to be judging <em>us</em> without our knowing.</p>
+  <p><strong>Generative AI</strong> produces new content — text, images, audio, code — by predicting what plausibly comes next. It's the kind everyone means when they say "AI" now, and the kind whose superpower and flaw are the same thing: fluency.</p>
+  <p><strong>Embodied and agentic AI</strong> acts — in the physical world through sensors and wheels, or in the digital world by taking multi-step actions on its own. It's the kind where failure has momentum.</p>
+  <p>Now notice something: we all used AI before breakfast today. Spotify chose our music with it. Our phone's camera sharpened our face with it. The spam filter cleaned our inbox, the maps app routed our commute, the bank watched our card for fraud. None of it announced itself. That's the first lesson about the hybrid society: <strong>we're already in it, and most of it is invisible by design.</strong> Which is exactly why the skill of this course starts with the word <em>see</em>.</p>
+  <div class="callout tryit">
+    <div class="label">Try it · five systems, none from this chapter — which kind is each?</div>
+    <details><summary>1. A bank's software flags your debit-card purchase as possible fraud and texts you to confirm.</summary><p>Predictive — it takes in transaction data and outputs a judgment. Notice a human (you) is the confirmation loop.</p></details>
+    <details><summary>2. An app drafts a condolence message in your writing style for you to edit.</summary><p>Generative — it produces new content by predicting what plausibly comes next. The "in your style" part is the pattern-learning.</p></details>
+    <details><summary>3. A warehouse robot reroutes itself around a spilled pallet.</summary><p>Embodied — perception plus action in the physical world, where failure has momentum.</p></details>
+    <details><summary>4. A music app builds you a fresh playlist every Monday from your listening history.</summary><p>Predictive — the common miss. It's not generating songs; it's predicting which existing ones you'll like. The output is a ranking, not new content.</p></details>
+    <details><summary>5. A customer-service system reads your complaint, issues the refund, and emails you confirmation — no human touched it.</summary><p>Agentic — it strings perception, decision, and multi-step action together on its own. Ask where the human is, because here the honest answer is "nowhere in the moment."</p></details>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="shead"><span class="num">3</span><h2>See it: the five parts</h2></div>
+  <p>Every AI system in this book — the drug-hunter, the robotaxi, the résumé screen, the feed — is built from the same five parts. When we can name all five, we can see the system. When we can't, the system is seeing us.</p>
+  <div class="concept">
+    <div class="term">The five parts of every AI system</div>
+    <p><b>Data</b> — what the system learned from, and everything wrong or missing in it. <b>Model</b> — the pattern-finder trained on that data. <b>Output</b> — the prediction, content, or action it produces. <b>Feedback loop</b> — how today's outputs become tomorrow's training data, for better or worse. <b>Humans</b> — who built it, who deploys it, who's in (or out of) the loop, and who bears it when it fails. The fifth part is the one this book cares about most, and the one the marketing mentions least.</p>
+  </div>
+  <p>Try it on the simplest case: the spam filter. Data: millions of emails people marked as junk. Model: the pattern of what junk looks like. Output: your cleaned inbox. Feedback loop: every "mark as spam" click retrains it. Humans: the engineers who tuned it, and you, every time it buries a message that mattered. Five parts, thirty seconds. By Week 11 we'll run the same checklist on systems that decide who gets hired — and it will still take thirty seconds, because the anatomy never changes. Only the stakes do.</p>
+</section>
+
+<section id="s4">
+  <div class="shead"><span class="num">4</span><h2>Question it: the four questions</h2></div>
+  <p>Seeing a system is step one. Interrogating it is step two — and we'll do it the same way every single Monday, with four questions applied to that week's case. By midterm they should be reflex. By the final they should be permanent.</p>
+  <div class="callout">
+    <div class="label">The four questions · asked of every system, every week</div>
+    <div class="fourq">
+      <div class="q"><span class="qn">1</span><p><strong>What kind of AI is this?</strong> Predictive, generative, embodied — because each kind fails differently, and "AI" without the kind is a fog, not a fact.</p></div>
+      <div class="q"><span class="qn">2</span><p><strong>Where is the human?</strong> In the loop, on the loop, or out of it — the single design choice that shapes everything else about a system.</p></div>
+      <div class="q"><span class="qn">3</span><p><strong>Who is accountable when it fails?</strong> A name, a company, a chain — or, most often and most dangerously, nobody in particular.</p></div>
+      <div class="q"><span class="qn">4</span><p><strong>What happens when it fails, and who finds out?</strong> Some failures make headlines. The worst ones make silence. Systems whose failures are invisible don't get fixed.</p></div>
+    </div>
+  </div>
+  <p>Notice what the four questions have in common: none of them requires math, code, or an engineering degree. They require attention. That's deliberate. The people who'll live inside these systems — meaning all of us — don't need to build them to judge them. This book is the proof.</p>
+</section>
+
+<section id="s5">
+  <div class="shead"><span class="num">5</span><h2>Decide: the part that's ours</h2></div>
+  <p>Seeing and questioning would be a spectator sport without the third step. <em>Decide</em> is where the course stops being about AI and starts being about us. Every week ends there: given what we now see and what our questions revealed — what's our move? Sometimes the move is adoption: use the tool, and use it well. Sometimes it's conditions: yes, but only with guardrails we can name. And sometimes — this book means it — the move is <strong>refusal</strong>. Declining a tool, a job, a default is a legitimate decision, not a failure to keep up. The person who can say exactly why they're refusing something understands it better than the person who adopted it without asking.</p>
+  <p>Two exits are permanently closed, though. "AI is all hype, ignore it" — the cases in this book will bury that one by Week 3. And "AI decides everything now, why bother" — that one hands our agency to whoever built the system, which is precisely the outcome this course exists to prevent. The hybrid society is being designed right now, mostly by people who did not ask us. Seeing it, questioning it, and deciding is how we get a say anyway.</p>
+</section>
+
+<section id="s6">
+  <div class="shead"><span class="num">6</span><h2>Key terms</h2></div>
+  <div class="terms">
+    <div class="term-card"><div class="t">Artificial intelligence</div><p>Software that learns patterns from data rather than following hand-written rules.</p></div>
+    <div class="term-card"><div class="t">Predictive AI</div><p>Systems that output judgments — risk scores, rankings, flags. The kind most likely to be judging us.</p></div>
+    <div class="term-card"><div class="t">Generative AI</div><p>Systems that produce new content by predicting what plausibly comes next. Fluent by design — in both directions.</p></div>
+    <div class="term-card"><div class="t">Embodied / agentic AI</div><p>Systems that act — in the world or across digital steps — where failure has momentum.</p></div>
+    <div class="term-card"><div class="t">The five parts</div><p>Data, model, output, feedback loop, humans. The anatomy of every system in this book.</p></div>
+    <div class="term-card"><div class="t">See it · Question it · Decide</div><p>The course's method: name the system, run the four questions, make a defensible move — including refusal.</p></div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="shead"><span class="num">7</span><h2>Entry ticket</h2></div>
+  <div class="ticket">
+    <div class="label">Due before Monday's class · post to Canvas</div>
+    <ol>
+      <li>Reconstruct your own morning: name three AI systems you used before 10 a.m. today, and label each one predictive, generative, or embodied. If you can't find three, look harder — that's the point.</li>
+      <li>Pick one of your three and run the five parts on it: data, model, output, feedback loop, humans. Which part was hardest to name? That's usually where the interesting problems hide.</li>
+      <li>In your own words — no book vocabulary — explain why "is AI good or bad?" is a question this course refuses to answer, and what it asks instead.</li>
+      <li>Give one example from your own life of a "refusal" that you'd defend: a tool, app, or default you deliberately don't use, and the reason. (It doesn't have to be AI. The skill transfers.)</li>
+      <li>The course question is "can we build a good, beneficial hybrid society?" Before any of the evidence: what's your honest opening answer, in one sentence? Keep it somewhere. Week 10 asks again.</li>
+    </ol>
+  </div>
+</section>
+
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <p>This chapter's examples (streaming recommendations, spam filters, fraud alerts, camera processing) are illustrative of system types rather than reported cases. The one reported case is the Day 1 test case in section 1: Jacob Coxon's resignation (Wired, September 8, 2026), the CEOs' call to slow down and the summer testing intrusions (NPR, September 12, 2026), and the NPR Weekend Edition segment of September 13, 2026. Dates and characterizations verified against those sources 14 September 2026; this story is moving and the paragraph carries an as-of date. This week's checkable claims live in Lab 1, where five of the ten carry links to their sources (NPR, EveryCure, Stanford Digital Economy Lab, and press coverage of the court record). All ten Lab 1 claims verified against current sources: 3 Sep 2026. Found an error? Tell your instructor — corrections are course content.</p>
+</details>
+
+<div class="nextbar">
+  <a href="index.html"><span class="dir">← Back</span>Contents</a>
+  <a href="chapter-01-what-is-ai-lab.html" style="text-align:right;"><span class="dir">Next →</span>Lab 1 · Opening Positions</a>
+</div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+  </div>
+</footer>
+
+</body>
+</html>
