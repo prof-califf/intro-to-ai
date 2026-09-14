@@ -181,6 +181,20 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   .nav .navlinks{width:100%;justify-content:flex-start}
   .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
 }
+
+/* ---- warm-up: teach it to see ---- */
+.tis-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.tis-classes{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:12px;font-size:.85rem;color:var(--gray)}
+.tis-classes label{display:inline-flex;align-items:center;gap:6px}
+.tis-classes input{font:inherit;font-size:.9rem;padding:4px 8px;border:1px solid var(--rule);width:8em;margin:0;color:var(--ink);background:#fff;border-radius:0}
+#tis-canvas,#tis-weights{width:240px;height:240px;max-width:100%;border:1px solid var(--rule);background:#fff;touch-action:none;display:block}
+#tis-canvas{cursor:crosshair}
+.tis-actions{margin-top:12px}
+.tis-counts,.tis-note{font-size:.85rem;color:var(--gray);margin:10px 0 0}
+.btn[disabled]{background:#3A424C;color:#9AA1AB;cursor:not-allowed}
+.verdict .track{background:#2A323C;height:10px;border-radius:5px;overflow:hidden}
+.verdict .fill{height:100%;background:var(--pink);width:0;transition:width .3s}
+@media (max-width:640px){.tis-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,6 +249,56 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </header>
 
 <main class="wrap">
+
+<section id="warmup">
+  <div class="shead"><span class="num">0</span><h2>Warm-up · Teach it to see</h2></div>
+  <p class="lead">Before the claims, five minutes with a real (tiny) neural network. It runs entirely on your laptop, learns only from what you draw, and forgets everything when you reload. Draw five of one thing and five of another, press <strong>Train</strong>, and then test it. Rough is fine; precision is what the next ten weeks are for.</p>
+
+  <div class="tool" id="tis">
+    <div class="label">Simulator 0 · a neural network that learns from your drawings</div>
+    <div class="tis-grid">
+      <div>
+        <div class="tis-classes">
+          <label>Thing A <input id="tis-a" type="text" value="Smiley" maxlength="14" aria-label="Name of thing A"></label>
+          <label>Thing B <input id="tis-b" type="text" value="House" maxlength="14" aria-label="Name of thing B"></label>
+        </div>
+        <canvas id="tis-canvas" width="240" height="240" aria-label="Drawing pad, 20 by 20 cells. Draw with mouse or finger." role="img"></canvas>
+        <div class="chips tis-actions">
+          <button class="chip" type="button" id="tis-add-a">Save as A</button>
+          <button class="chip" type="button" id="tis-add-b">Save as B</button>
+          <button class="chip" type="button" id="tis-clear">Clear pad</button>
+        </div>
+        <p class="tis-counts" id="tis-counts" aria-live="polite">Saved: 0 of A · 0 of B. Need at least 3 each to train.</p>
+        <div class="chips tis-actions">
+          <button class="btn" type="button" id="tis-train" disabled>Train</button>
+          <button class="btn" type="button" id="tis-guess" disabled>Guess what's on the pad</button>
+          <button class="chip" type="button" id="tis-reset">Start over</button>
+        </div>
+      </div>
+      <div>
+        <div class="label">What it has learned</div>
+        <canvas id="tis-weights" width="240" height="240" aria-label="Heat map of learned weights: pink cells push toward A, dark cells push toward B." role="img"></canvas>
+        <p class="tis-note" id="tis-wnote">Nothing yet. This map shows which cells of the pad the network has decided matter, and for which side. It's all the network knows.</p>
+      </div>
+    </div>
+    <div class="verdict" id="tis-verdict" aria-live="polite" hidden>
+      <div class="label">The network's guess</div>
+      <div class="bars">
+        <div class="bar"><span id="tis-lab-a">A</span><div class="track"><div class="fill" id="tis-fill-a"></div></div><span id="tis-pct-a">0%</span></div>
+        <div class="bar"><span id="tis-lab-b">B</span><div class="track"><div class="fill" id="tis-fill-b"></div></div><span id="tis-pct-b">0%</span></div>
+      </div>
+      <p id="tis-vtext"></p>
+    </div>
+  </div>
+
+  <div class="steps">
+    <div class="step"><span class="sn">1</span><p><strong>Teach it.</strong> Draw a smiley, save it as A. Draw a house, save it as B. Five of each, a little different every time. Then Train. Watch the map on the right: that is the entire "understanding" it has, a grid of numbers about which cells matter.</p></div>
+    <div class="step"><span class="sn">2</span><p><strong>Test it.</strong> Draw a new smiley and press Guess. Then a new house. It should get most of them, from a few seconds of training on your drawings alone.</p></div>
+    <div class="step"><span class="sn">3</span><p><strong>Break it.</strong> Draw a triangle, or a letter, or nothing at all, and press Guess. It has never seen these. Watch the confidence anyway. It has no "I don't know." It only has A and B, because those are the only examples that were in the data.</p></div>
+    <div class="step"><span class="sn">4</span><p><strong>Bias it.</strong> Start over. Save five smileys but only one house, all drawn in the same corner. Train. Test a house drawn somewhere else. Now you've seen what "the training data had a shape" means, and you'll meet it again in Chapter 3 and Chapter 6.</p></div>
+  </div>
+  <p>Screenshot the map and one wrong guess; the writeup asks for it. Everything in this warm-up is the same machine, scaled up a billion times, that reads résumés and drives cars. The difference is only in what it was shown.</p>
+</section>
 
 <section>
   <div class="shead"><span class="num">1</span><h2>Call them</h2></div>
@@ -513,6 +577,94 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   document.addEventListener('click',closeAll);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
   document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+<script>
+(function(){
+  var N=20, cell=12;
+  var pad=document.getElementById('tis-canvas'), wc=document.getElementById('tis-weights');
+  if(!pad) return;
+  var ctx=pad.getContext('2d'), wctx=wc.getContext('2d');
+  var grid=new Float32Array(N*N), exA=[], exB=[], W=null, b=0, trained=false, drawing=false;
+  var $=function(id){return document.getElementById(id);};
+  function nameA(){return $('tis-a').value.trim()||'A';} function nameB(){return $('tis-b').value.trim()||'B';}
+  function drawPad(){
+    ctx.fillStyle='#fff'; ctx.fillRect(0,0,240,240);
+    ctx.strokeStyle='#F0F0EC'; for(var i=0;i<=N;i++){ctx.beginPath();ctx.moveTo(i*cell,0);ctx.lineTo(i*cell,240);ctx.stroke();ctx.beginPath();ctx.moveTo(0,i*cell);ctx.lineTo(240,i*cell);ctx.stroke();}
+    ctx.fillStyle='#14181D';
+    for(var y=0;y<N;y++)for(var x=0;x<N;x++)if(grid[y*N+x]>0)ctx.fillRect(x*cell,y*cell,cell,cell);
+  }
+  function paint(e){
+    var r=pad.getBoundingClientRect(), sx=pad.width/r.width, sy=pad.height/r.height;
+    var x=Math.floor((e.clientX-r.left)*sx/cell), y=Math.floor((e.clientY-r.top)*sy/cell);
+    for(var dy=0;dy<=1;dy++)for(var dx=0;dx<=1;dx++){var xx=x+dx,yy=y+dy;if(xx>=0&&yy>=0&&xx<N&&yy<N)grid[yy*N+xx]=1;}
+    drawPad();
+  }
+  pad.addEventListener('pointerdown',function(e){drawing=true;pad.setPointerCapture(e.pointerId);paint(e);});
+  pad.addEventListener('pointermove',function(e){if(drawing)paint(e);});
+  pad.addEventListener('pointerup',function(){drawing=false;});
+  pad.addEventListener('pointercancel',function(){drawing=false;});
+  function clearPad(){grid=new Float32Array(N*N);drawPad();}
+  function counts(){
+    $('tis-counts').textContent='Saved: '+exA.length+' of '+nameA()+' · '+exB.length+' of '+nameB()+(exA.length>=3&&exB.length>=3?'. Ready to train.':'. Need at least 3 each to train.');
+    $('tis-train').disabled=!(exA.length>=3&&exB.length>=3);
+  }
+  function save(which){
+    var any=false; for(var i=0;i<N*N;i++)if(grid[i]>0){any=true;break;}
+    if(!any){$('tis-counts').textContent='The pad is empty. Draw something first.';return;}
+    (which==='a'?exA:exB).push(Float32Array.from(grid)); clearPad(); counts();
+  }
+  function centered(v){ // shift drawing to its bounding-box center so position matters less
+    var minx=N,miny=N,maxx=-1,maxy=-1;
+    for(var y=0;y<N;y++)for(var x=0;x<N;x++)if(v[y*N+x]>0){if(x<minx)minx=x;if(x>maxx)maxx=x;if(y<miny)miny=y;if(y>maxy)maxy=y;}
+    if(maxx<0)return v;
+    var out=new Float32Array(N*N), ox=Math.round((N-1-maxx-minx)/2), oy=Math.round((N-1-maxy-miny)/2);
+    for(var y2=0;y2<N;y2++)for(var x2=0;x2<N;x2++)if(v[y2*N+x2]>0){var nx=x2+ox,ny=y2+oy;if(nx>=0&&ny>=0&&nx<N&&ny<N)out[ny*N+nx]=1;}
+    return out;
+  }
+  function train(){
+    var X=[],Y=[]; exA.forEach(function(v){X.push(centered(v));Y.push(1);}); exB.forEach(function(v){X.push(centered(v));Y.push(0);});
+    W=new Float32Array(N*N); b=0; var lr=0.05;
+    for(var ep=0;ep<400;ep++){
+      for(var k=0;k<X.length;k++){
+        var z=b; for(var i=0;i<N*N;i++)z+=W[i]*X[k][i];
+        var p=1/(1+Math.exp(-z)), g=p-Y[k];
+        for(var j=0;j<N*N;j++)W[j]-=lr*(g*X[k][j]+0.001*W[j]);
+        b-=lr*g;
+      }
+    }
+    trained=true; drawWeights(); $('tis-guess').disabled=false;
+    $('tis-wnote').textContent='Trained on '+exA.length+' '+nameA()+' and '+exB.length+' '+nameB()+' drawings. Pink cells push its guess toward '+nameA()+', dark cells toward '+nameB()+'. That grid of numbers is the whole model.';
+  }
+  function drawWeights(){
+    wctx.fillStyle='#fff'; wctx.fillRect(0,0,240,240);
+    var mx=0; for(var i=0;i<N*N;i++)mx=Math.max(mx,Math.abs(W[i])); if(mx===0)mx=1;
+    for(var y=0;y<N;y++)for(var x=0;x<N;x++){var w=W[y*N+x]/mx; var a=Math.min(1,Math.abs(w));
+      wctx.fillStyle=w>0?'rgba(255,61,138,'+a+')':'rgba(14,17,22,'+a+')'; wctx.fillRect(x*cell,y*cell,cell,cell);}
+  }
+  function guess(){
+    if(!trained)return;
+    var v=centered(grid), z=b; for(var i=0;i<N*N;i++)z+=W[i]*v[i];
+    var pA=1/(1+Math.exp(-z)), pB=1-pA, a=Math.round(pA*100), bb=100-a;
+    $('tis-verdict').hidden=false;
+    $('tis-lab-a').textContent=nameA(); $('tis-lab-b').textContent=nameB();
+    $('tis-fill-a').style.width=a+'%'; $('tis-fill-b').style.width=bb+'%';
+    $('tis-pct-a').textContent=a+'%'; $('tis-pct-b').textContent=bb+'%';
+    var win=a>=50?nameA():nameB(), conf=Math.max(a,bb);
+    var empty=true; for(var j=0;j<N*N;j++)if(grid[j]>0){empty=false;break;}
+    $('tis-vtext').textContent=(empty?'The pad is empty and it still answered: ':'It says ')+win+', '+conf+'% sure. '+(conf>=85?'Notice it gives no sign of whether that certainty is earned.':'Lower confidence, but it still picked a side. There is no "neither."');
+  }
+  $('tis-add-a').addEventListener('click',function(){save('a');});
+  $('tis-add-b').addEventListener('click',function(){save('b');});
+  $('tis-clear').addEventListener('click',clearPad);
+  $('tis-train').addEventListener('click',train);
+  $('tis-guess').addEventListener('click',guess);
+  $('tis-reset').addEventListener('click',function(){exA=[];exB=[];W=null;b=0;trained=false;clearPad();counts();$('tis-guess').disabled=true;$('tis-verdict').hidden=true;wctx.fillStyle='#fff';wctx.fillRect(0,0,240,240);$('tis-wnote').textContent='Nothing yet. This map shows which cells of the pad the network has decided matter, and for which side. It\'s all the network knows.';});
+  ['tis-a','tis-b'].forEach(function(id){$(id).addEventListener('input',counts);});
+  $('tis-add-a').textContent='Save as '+nameA(); $('tis-add-b').textContent='Save as '+nameB();
+  $('tis-a').addEventListener('input',function(){$('tis-add-a').textContent='Save as '+nameA();});
+  $('tis-b').addEventListener('input',function(){$('tis-add-b').textContent='Save as '+nameB();});
+  drawPad(); counts();
 })();
 </script>
 </body>
