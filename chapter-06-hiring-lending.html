@@ -162,16 +162,65 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
 .probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
 .probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
-.roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}</style>
+.roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
+/* ---- dropdown navigation (chapters / labs) ---- */
+.nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.nav a.navlink{margin-left:0;padding:6px 10px}
+.dd{position:relative}
+.dd-btn{font:inherit;font-size:.85rem;color:var(--gray);background:none;border:1px solid var(--rule);border-radius:4px;padding:6px 10px;cursor:pointer}
+.dd-btn:hover,.dd-btn[aria-expanded="true"]{color:var(--pinktext);border-color:var(--pinktext)}
+.dd-btn .caret{font-size:.7rem;margin-left:.3rem}
+.dd-menu{display:none;position:absolute;right:0;top:calc(100% + 6px);min-width:19rem;background:var(--bg);border:1px solid var(--rule);border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:.35rem 0;max-height:75vh;overflow-y:auto;z-index:50}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:.5rem 1rem;text-decoration:none;color:var(--ink);font-size:.9rem;line-height:1.35}
+.dd-menu a:hover{background:#F3F3EE;color:var(--pinktext)}
+.dd-menu a .lbl{display:block;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--pinktext);margin-bottom:.1rem}
+.dd-menu a.current{background:#F3F3EE;border-left:3px solid var(--pink)}
+@media (max-width:640px){
+  .nav .wrap{flex-wrap:wrap;gap:8px}
+  .nav .navlinks{width:100%;justify-content:flex-start}
+  .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
+}
+</style>
 </head>
 <body>
 
-<nav class="nav">
+<nav class="nav" aria-label="Site">
   <div class="wrap">
     <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
-    <div>
+    <div class="navlinks">
       <a class="navlink" href="index.html">Contents</a>
-      <a class="navlink" href="chapter-06-hiring-lending-lab.html">Lab 6</a>
+      <a class="navlink" href="schedule.html">Schedule</a>
+      <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddc" data-dd="ddc">Chapters<span class="caret" aria-hidden="true">▾</span></button>
+<div class="dd-menu" id="ddc">
+<a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 1</span>What Is AI?</a>
+<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 2</span>What It Means to Be Human</a>
+<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 3</span>Medicine</a>
+<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 4</span>Environment</a>
+<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · Week 5</span>Systems That Want You</a>
+<a href="chapter-06-hiring-lending.html" class="current" aria-current="page"><span class="lbl">Chapter 6 · Week 6</span>Hiring &amp; Lending</a>
+<a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
+<a href="chapter-09-ethics-war.html"><span class="lbl">Chapter 9 · Week 8</span>Ethics &amp; War</a>
+<a href="chapter-08-markets.html"><span class="lbl">Chapter 8 · Week 9</span>Markets</a>
+<a href="chapter-10-truth.html"><span class="lbl">Chapter 10 · Week 11</span>Truth</a>
+<a href="chapter-11-work.html"><span class="lbl">Chapter 11 · Finals</span>AI and the Future of Work</a>
+<a href="chapter-12-future.html"><span class="lbl">Chapter 12 · Finals</span>The Future</a>
+</div></div>
+      <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddl" data-dd="ddl">Labs<span class="caret" aria-hidden="true">▾</span></button>
+<div class="dd-menu" id="ddl">
+<a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 1</span>Opening Positions</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 2</span>The Seeming Test</a>
+<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 3</span>Inside the Graph</a>
+<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 4</span>The Footprint Machine</a>
+<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · Week 5</span>Play the Algorithm</a>
+<a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
+<a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
+<a href="chapter-09-ethics-war-lab.html"><span class="lbl">Lab 9 · Week 8 · take-home</span>The Red Lines</a>
+<a href="chapter-08-markets-lab.html"><span class="lbl">Lab 8 · Week 9</span>Run the Firm</a>
+<a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 11 · take-home</span>The Phantom Docket</a>
+<a href="chapter-11-work-lab.html"><span class="lbl">Lab 11 · Finals</span>The Exposure Audit</a>
+<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Finals</span>Opening Positions, Reversed</a>
+</div></div>
     </div>
   </div>
 </nav>
@@ -289,5 +338,15 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   </div>
 </footer>
 
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.dd-btn'));
+  function closeAll(){btns.forEach(function(b){var m=document.getElementById(b.getAttribute('data-dd'));if(m){m.classList.remove('open');b.setAttribute('aria-expanded','false');}});}
+  btns.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var m=document.getElementById(b.getAttribute('data-dd'));var open=m.classList.contains('open');closeAll();if(!open){m.classList.add('open');b.setAttribute('aria-expanded','true');}});});
+  document.addEventListener('click',closeAll);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+  document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
 </body>
 </html>
