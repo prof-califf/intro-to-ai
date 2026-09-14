@@ -167,8 +167,9 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .nav a.navlink{margin-left:0;padding:6px 10px}
 .dd{position:relative}
-.dd-btn{font:inherit;font-size:.85rem;color:var(--gray);background:none;border:1px solid var(--rule);border-radius:4px;padding:6px 10px;cursor:pointer}
-.dd-btn:hover,.dd-btn[aria-expanded="true"]{color:var(--pinktext);border-color:var(--pinktext)}
+.dd-btn{font:inherit;font-size:.85rem;font-weight:600;color:#fff;background:var(--dark);border:1px solid var(--dark);border-radius:4px;padding:7px 14px;cursor:pointer}
+.dd-btn:hover,.dd-btn[aria-expanded="true"]{background:var(--pinktext);border-color:var(--pinktext);color:#fff}
+.dd-btn .caret{color:var(--yellow)}
 .dd-btn .caret{font-size:.7rem;margin-left:.3rem}
 .dd-menu{display:none;position:absolute;right:0;top:calc(100% + 6px);min-width:19rem;background:var(--bg);border:1px solid var(--rule);border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:.35rem 0;max-height:75vh;overflow-y:auto;z-index:50}
 .dd-menu.open{display:block}
@@ -186,8 +187,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .tis-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
 .tis-classes{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:12px;font-size:.85rem;color:var(--gray)}
 .tis-classes label{display:inline-flex;align-items:center;gap:6px}
-.tis-classes input{font:inherit;font-size:.9rem;padding:4px 8px;border:1px solid var(--rule);width:8em;margin:0;color:var(--ink);background:#fff;border-radius:0}
-#tis-canvas,#tis-weights{width:240px;height:240px;max-width:100%;border:1px solid var(--rule);background:#fff;touch-action:none;display:block}
+.tis-classes input{font:inherit;font-size:.85rem;line-height:1.2;height:30px;padding:2px 8px;border:1px solid var(--rule);width:8em;margin:0;color:var(--ink);background:#fff;border-radius:0}
+#tis-canvas,#tis-weights{width:252px;height:252px;max-width:100%;border:1px solid var(--rule);background:#fff;touch-action:none;display:block}
 #tis-canvas{cursor:crosshair}
 .tis-actions{margin-top:12px}
 .tis-counts,.tis-note{font-size:.85rem;color:var(--gray);margin:10px 0 0}
@@ -262,7 +263,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
           <label>Thing A <input id="tis-a" type="text" value="Smiley" maxlength="14" aria-label="Name of thing A"></label>
           <label>Thing B <input id="tis-b" type="text" value="House" maxlength="14" aria-label="Name of thing B"></label>
         </div>
-        <canvas id="tis-canvas" width="240" height="240" aria-label="Drawing pad, 20 by 20 cells. Draw with mouse or finger." role="img"></canvas>
+        <canvas id="tis-canvas" width="252" height="252" aria-label="Drawing pad, 28 by 28 cells. Draw with mouse or finger." role="img"></canvas>
         <div class="chips tis-actions">
           <button class="chip" type="button" id="tis-add-a">Save as A</button>
           <button class="chip" type="button" id="tis-add-b">Save as B</button>
@@ -277,7 +278,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       </div>
       <div>
         <div class="label">What it has learned</div>
-        <canvas id="tis-weights" width="240" height="240" aria-label="Heat map of learned weights: pink cells push toward A, dark cells push toward B." role="img"></canvas>
+        <canvas id="tis-weights" width="252" height="252" aria-label="Heat map of learned weights: pink cells push toward A, dark cells push toward B." role="img"></canvas>
         <p class="tis-note" id="tis-wnote">Nothing yet. This map shows which cells of the pad the network has decided matter, and for which side. It's all the network knows.</p>
       </div>
     </div>
@@ -581,7 +582,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </script>
 <script>
 (function(){
-  var N=20, cell=12;
+  var N=28, cell=9;
   var pad=document.getElementById('tis-canvas'), wc=document.getElementById('tis-weights');
   if(!pad) return;
   var ctx=pad.getContext('2d'), wctx=wc.getContext('2d');
@@ -589,15 +590,15 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   var $=function(id){return document.getElementById(id);};
   function nameA(){return $('tis-a').value.trim()||'A';} function nameB(){return $('tis-b').value.trim()||'B';}
   function drawPad(){
-    ctx.fillStyle='#fff'; ctx.fillRect(0,0,240,240);
-    ctx.strokeStyle='#F0F0EC'; for(var i=0;i<=N;i++){ctx.beginPath();ctx.moveTo(i*cell,0);ctx.lineTo(i*cell,240);ctx.stroke();ctx.beginPath();ctx.moveTo(0,i*cell);ctx.lineTo(240,i*cell);ctx.stroke();}
+    ctx.fillStyle='#fff'; ctx.fillRect(0,0,252,252);
+    ctx.strokeStyle='#F0F0EC'; for(var i=0;i<=N;i++){ctx.beginPath();ctx.moveTo(i*cell,0);ctx.lineTo(i*cell,252);ctx.stroke();ctx.beginPath();ctx.moveTo(0,i*cell);ctx.lineTo(252,i*cell);ctx.stroke();}
     ctx.fillStyle='#14181D';
     for(var y=0;y<N;y++)for(var x=0;x<N;x++)if(grid[y*N+x]>0)ctx.fillRect(x*cell,y*cell,cell,cell);
   }
   function paint(e){
     var r=pad.getBoundingClientRect(), sx=pad.width/r.width, sy=pad.height/r.height;
     var x=Math.floor((e.clientX-r.left)*sx/cell), y=Math.floor((e.clientY-r.top)*sy/cell);
-    for(var dy=0;dy<=1;dy++)for(var dx=0;dx<=1;dx++){var xx=x+dx,yy=y+dy;if(xx>=0&&yy>=0&&xx<N&&yy<N)grid[yy*N+xx]=1;}
+    if(x>=0&&y>=0&&x<N&&y<N)grid[y*N+x]=1;
     drawPad();
   }
   pad.addEventListener('pointerdown',function(e){drawing=true;pad.setPointerCapture(e.pointerId);paint(e);});
@@ -624,7 +625,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   }
   function train(){
     var X=[],Y=[]; exA.forEach(function(v){X.push(centered(v));Y.push(1);}); exB.forEach(function(v){X.push(centered(v));Y.push(0);});
-    W=new Float32Array(N*N); b=0; var lr=0.05;
+    W=new Float32Array(N*N); b=0; var lr=0.08;
     for(var ep=0;ep<400;ep++){
       for(var k=0;k<X.length;k++){
         var z=b; for(var i=0;i<N*N;i++)z+=W[i]*X[k][i];
@@ -637,7 +638,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     $('tis-wnote').textContent='Trained on '+exA.length+' '+nameA()+' and '+exB.length+' '+nameB()+' drawings. Pink cells push its guess toward '+nameA()+', dark cells toward '+nameB()+'. That grid of numbers is the whole model.';
   }
   function drawWeights(){
-    wctx.fillStyle='#fff'; wctx.fillRect(0,0,240,240);
+    wctx.fillStyle='#fff'; wctx.fillRect(0,0,252,252);
     var mx=0; for(var i=0;i<N*N;i++)mx=Math.max(mx,Math.abs(W[i])); if(mx===0)mx=1;
     for(var y=0;y<N;y++)for(var x=0;x<N;x++){var w=W[y*N+x]/mx; var a=Math.min(1,Math.abs(w));
       wctx.fillStyle=w>0?'rgba(255,61,138,'+a+')':'rgba(14,17,22,'+a+')'; wctx.fillRect(x*cell,y*cell,cell,cell);}
@@ -659,7 +660,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   $('tis-clear').addEventListener('click',clearPad);
   $('tis-train').addEventListener('click',train);
   $('tis-guess').addEventListener('click',guess);
-  $('tis-reset').addEventListener('click',function(){exA=[];exB=[];W=null;b=0;trained=false;clearPad();counts();$('tis-guess').disabled=true;$('tis-verdict').hidden=true;wctx.fillStyle='#fff';wctx.fillRect(0,0,240,240);$('tis-wnote').textContent='Nothing yet. This map shows which cells of the pad the network has decided matter, and for which side. It\'s all the network knows.';});
+  $('tis-reset').addEventListener('click',function(){exA=[];exB=[];W=null;b=0;trained=false;clearPad();counts();$('tis-guess').disabled=true;$('tis-verdict').hidden=true;wctx.fillStyle='#fff';wctx.fillRect(0,0,252,252);$('tis-wnote').textContent='Nothing yet. This map shows which cells of the pad the network has decided matter, and for which side. It\'s all the network knows.';});
   ['tis-a','tis-b'].forEach(function(id){$(id).addEventListener('input',counts);});
   $('tis-add-a').textContent='Save as '+nameA(); $('tis-add-b').textContent='Save as '+nameB();
   $('tis-a').addEventListener('input',function(){$('tis-add-a').textContent='Save as '+nameA();});

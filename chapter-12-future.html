@@ -114,8 +114,9 @@ h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0
 .nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .nav a.navlink{margin-left:0;padding:6px 10px}
 .dd{position:relative}
-.dd-btn{font:inherit;font-size:.85rem;color:var(--gray);background:none;border:1px solid var(--rule);border-radius:4px;padding:6px 10px;cursor:pointer}
-.dd-btn:hover,.dd-btn[aria-expanded="true"]{color:var(--pinktext);border-color:var(--pinktext)}
+.dd-btn{font:inherit;font-size:.85rem;font-weight:600;color:#fff;background:var(--dark);border:1px solid var(--dark);border-radius:4px;padding:7px 14px;cursor:pointer}
+.dd-btn:hover,.dd-btn[aria-expanded="true"]{background:var(--pinktext);border-color:var(--pinktext);color:#fff}
+.dd-btn .caret{color:var(--yellow)}
 .dd-btn .caret{font-size:.7rem;margin-left:.3rem}
 .dd-menu{display:none;position:absolute;right:0;top:calc(100% + 6px);min-width:19rem;background:var(--bg);border:1px solid var(--rule);border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:.35rem 0;max-height:75vh;overflow-y:auto;z-index:50}
 .dd-menu.open{display:block}
