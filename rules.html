@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab 4 · The Footprint Machine — Intro to AI in Business | MIS 201</title>
+<title>Rules — Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -182,6 +182,35 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   .nav .navlinks{width:100%;justify-content:flex-start}
   .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
 }
+
+/* ---- rules sign ---- */
+.sign{background:var(--dark);color:#fff;padding:36px 32px;margin:8px 0 34px;border:6px solid var(--yellow);font-family:'Fraunces',serif;font-weight:700;font-size:clamp(1.6rem,4.5vw,2.6rem);line-height:1.35;letter-spacing:.03em;text-transform:uppercase}
+.sign div{border-bottom:1px solid #2A323C;padding:6px 0}.sign div:last-child{border-bottom:none}
+.rule{border:1px solid var(--rule);background:#fff;padding:18px 22px;margin:14px 0}
+.rule b{font-family:'Fraunces',serif;font-size:1.05rem;letter-spacing:.04em;display:block;margin-bottom:6px}
+.rule p{margin:0;font-size:.95rem;color:var(--ink)}
+.amend{font-size:.9rem;color:var(--gray);border-top:1px solid var(--rule);padding-top:10px}
+</style>
+<style>
+.wk{border:1px solid var(--rule);border-radius:12px;padding:22px 24px;margin-bottom:18px;background:#fff;}
+.wk .whead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px;}
+.wk .wnum{font-family:Fraunces,serif;font-size:1.05rem;color:var(--pinktext);font-weight:600;}
+.wk h3{font-family:Fraunces,serif;font-size:1.35rem;margin:0;}
+.wk .dates{color:var(--gray);font-size:.9rem;white-space:nowrap;}
+.wk .day{display:flex;gap:12px;padding:7px 0;border-top:1px dashed var(--rule);font-size:.95rem;align-items:baseline;}
+.wk .day b{min-width:86px;display:inline-block;font-weight:600;}
+.wk .due{display:inline-block;background:var(--yellow);color:var(--ink);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;margin-left:6px;vertical-align:middle;}
+.wk .off{color:var(--gray);}
+.wk.holiday{background:var(--dark);color:#E8EAED;border-color:var(--dark);}
+.wk.holiday h3{color:#fff;}
+.wk.holiday .day{border-top:1px dashed #2A3038;}
+.wk .wlinks{margin-top:10px;font-size:.9rem;}
+.wk .wlinks a{color:var(--pinktext);font-weight:600;text-decoration:none;border-bottom:1px solid var(--pink);margin-right:16px;}
+.rhythm{background:var(--dark);color:#E8EAED;border-radius:12px;padding:24px;margin:26px 0;}
+.rhythm .label{color:var(--yellow);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
+.rhythm p{margin:6px 0;font-size:.95rem;}
+.rhythm b{color:#fff;}
+.note{border-left:3px solid var(--pink);padding:4px 0 4px 16px;color:var(--gray);font-size:.92rem;margin:18px 0;}
 </style>
 </head>
 <body>
@@ -214,7 +243,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 1</span>Opening Positions</a>
 <a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 2</span>The Seeming Test</a>
 <a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 3</span>Inside the Graph</a>
-<a href="chapter-04-environment-lab.html" class="current" aria-current="page"><span class="lbl">Lab 4 · Week 4</span>The Footprint Machine</a>
+<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 4</span>The Footprint Machine</a>
 <a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · Week 5</span>Play the Algorithm</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
@@ -230,123 +259,43 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <header class="masthead">
   <div class="wrap">
-    <div class="eyebrow">Western Washington University · MIS 201 · Lab 4 · Wednesday, in class</div>
-    <h1>The Footprint <b>Machine</b></h1>
-    <p class="kicker">The chapter said the story lives in the multiplication, not the query. This lab is a multiplication machine. Start with your own real usage, scale it to the planet, then do what almost no calculator will do: show you how uncertain the numbers underneath actually are.</p>
-    <p class="factline">Your usage · four scales · one honesty switch</p>
+    <div class="eyebrow">Western Washington University · MIS 201 · Fall 2026</div>
+    <h1>The <b>Rules</b></h1>
+    <p class="kicker">Seven lines, borrowed from a punk club in Berkeley that has kept a room full of strangers arguing for forty years without anyone getting hurt. This class argues on purpose. These are the rules by the door.</p>
+    <p class="factline">Borrowed from 924 Gilman Street · translated for a classroom</p>
   </div>
 </header>
 
 <main class="wrap">
 
-<section>
-  <div class="shead"><span class="num">1</span><h2>Set the machine to your real life</h2></div>
-  <p class="lead">Be honest with the sliders — the lab only works on real numbers. Count yesterday's actual AI use: every chat message, every AI-generated image, and pick the model tier closest to what you actually use. Then read the daily and yearly output at the scale of just you.</p>
-
-  <div class="tool">
-    <div class="label">The footprint machine · estimates, and the lab is about that word</div>
-
-    <div class="slider-row">
-      <label for="q">Text prompts per day</label>
-      <input type="range" id="q" min="0" max="200" value="20">
-      <output id="qv">20</output>
-    </div>
-    <div class="slider-row">
-      <label for="img">AI images per day</label>
-      <input type="range" id="img" min="0" max="50" value="1">
-      <output id="imgv">1</output>
-    </div>
-    <div class="slider-row">
-      <label for="model">Model tier</label>
-      <select id="model">
-        <option value="0.05">Small — quick tasks, autocomplete-class</option>
-        <option value="0.3" selected>Medium — everyday chatbot</option>
-        <option value="1.2">Large — frontier model, long reasoning</option>
-      </select>
-      <output></output>
-    </div>
-    <div class="slider-row">
-      <label for="scale">Scale it up</label>
-      <select id="scale">
-        <option value="1" selected>Just me (×1)</option>
-        <option value="45">This class (×45)</option>
-        <option value="16000">All of WWU (×16,000)</option>
-        <option value="800000000">Global daily users (×800 million)</option>
-      </select>
-      <output></output>
-    </div>
-    <div class="chips" style="margin-top:10px;">
-      <button type="button" class="chip" id="unc" aria-pressed="false">Show honest uncertainty</button>
-    </div>
-
-    <div class="verdict" style="margin-top:20px;">
-      <div class="label" id="vlabel">Estimated footprint · per year at selected scale</div>
-      <div class="equiv" style="background:#242C36;border-color:#242C36;">
-        <div class="cell" style="background:#1B222B;"><div class="v" style="color:#fff;"><em id="energy">—</em></div><div class="k" style="color:#9AA1AB;" id="energyk">energy per year</div></div>
-        <div class="cell" style="background:#1B222B;"><div class="v" style="color:#fff;"><em id="water">—</em></div><div class="k" style="color:#9AA1AB;" id="waterk">cooling water per year</div></div>
-        <div class="cell" style="background:#1B222B;"><div class="v" style="color:#fff;" id="eq1v">—</div><div class="k" style="color:#9AA1AB;" id="eq1k">—</div></div>
-        <div class="cell" style="background:#1B222B;"><div class="v" style="color:#fff;" id="eq2v">—</div><div class="k" style="color:#9AA1AB;" id="eq2k">—</div></div>
-      </div>
-      <p class="read" id="reading"></p>
-    </div>
-  </div>
-
-  <div class="concept">
-    <div class="term">Where these numbers come from</div>
-    <p>The machine uses mid-range figures from published company and researcher estimates: a few tenths of a watt-hour and a few milliliters of water per medium-model text prompt, more for frontier models and images. They are defensible and disputed at the same time — which is not a flaw in this lab. It's the subject of it. Step 3 makes the dispute visible.</p>
-  </div>
-</section>
-
-<section>
-  <div class="shead"><span class="num">2</span><h2>Run the multiplication</h2></div>
-  <div class="steps">
-    <div class="step"><span class="sn">a</span><p>At <strong>just me</strong>, record your yearly energy and its equivalent. Write one honest sentence about whether that number is more or less than you expected.</p></div>
-    <div class="step"><span class="sn">b</span><p>Step through <strong>class → WWU → global</strong>, keeping your personal usage fixed. Record each. Find the scale where you'd stop calling the number negligible — that threshold is yours to pick, but you have to pick it and defend it Friday.</p></div>
-    <div class="step"><span class="sn">c</span><p>The right-sizing experiment: at <strong>global</strong> scale, flip the model tier from Large to Small and record the difference. That gap is the single biggest lever in this lab — and notice who controls it. (Hint: mostly not us.)</p></div>
-  </div>
-</section>
-
-<section>
-  <div class="shead"><span class="num">3</span><h2>Flip the honesty switch</h2></div>
-  <p>Now toggle <strong>Show honest uncertainty</strong>. The machine stops pretending it knows the number and shows you the band that independent estimates actually span — roughly a factor of ten between the low and high ends, because of everything the chapter described: voluntary disclosure, unsettled accounting, and parties with preferences.</p>
-  <div class="steps">
-    <div class="step"><span class="sn">a</span><p>At global scale, write down the low end and the high end of the yearly energy band. Those two numbers support genuinely different policy conclusions. Name one conclusion the low end supports and one the high end supports.</p></div>
-    <div class="step"><span class="sn">b</span><p>Here's the question the whole lab was built for: <strong>every AI footprint calculator you'll find online shows a single confident number.</strong> This one only does when the switch is off. Which design is more honest — and which is more persuasive? Why do you think they're not the same?</p></div>
-  </div>
-</section>
-
-<section>
-  <div class="shead"><span class="num">3½</span><h2>Interrogate the machine itself</h2></div>
-  <p>One more experiment, and this one is live. Open a chatbot and ask it directly: <i>“How much energy and water did answering this question use? Give me your best specific estimate, and tell me what you actually know versus what you're guessing.”</i> Push back twice — ask where its numbers come from and what its own company has disclosed. Save the transcript. What you're holding at the end is the disclosure gap in first person: a system that can discuss its footprint fluently but cannot actually report it, because the numbers were never published — not even to the model. Mark the moment in the transcript where fluency and knowledge came apart; that's this course's core skill, applied to the machine describing itself.</p>
-
-  <div class="shead"><span class="num">4</span><h2>Run the five questions</h2></div>
-  <div class="fourq">
-    <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> Trick version this week: the calculator isn't AI at all; it's arithmetic on disputed inputs. What is the AI in this story, and why does that distinction matter for how much you should trust the numbers?</p></div>
-    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> Who benefits from the footprint staying an estimate? Name the party that gains most from nobody knowing the real number, and the party that would gain from knowing it.</p></div>
-    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> If the true numbers sit at the high end of the band, who should have known, when, and who would have told the town next door?</p></div>
-    <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> When you asked the chatbot its own footprint, what did it claim, who does that claim serve, and what happened when you pushed back twice? What would you need to see to believe any number it gave?</p></div>
-    <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Keep, fix, or drop your own usage at one of the four scales you modeled, and say what the change actually costs you in a week.</p></div>
-  </div>
-</section>
-
-<section>
-  <div class="shead"><span class="num">5</span><h2>The writeup</h2></div>
-  <div class="ticket">
-    <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
-    <ol>
-      <li><strong>The baseline.</strong> Your real inputs, your just-me yearly number, and your one honest sentence about it.</li>
-      <li><strong>The threshold.</strong> Your recorded numbers at all four scales, the scale where negligible stopped being the right word, and your defense of that line.</li>
-      <li><strong>The lever.</strong> The right-sizing gap at global scale, and one product decision (not a personal habit) that would move it.</li>
-      <li><strong>The band.</strong> Your low and high global numbers, the two policy conclusions they support, and your answer on honest vs. persuasive design.</li>
-      <li><strong>Your move.</strong> Two commitments, one small and one structural: a right-sizing habit you'll actually keep, and one disclosure you'd demand if you could put a question to any AI company on the record. Wednesday's commitment card takes the pair.</li>
-    </ol>
-  </div>
-</section>
-
-<div class="nextbar">
-  <a href="chapter-04-environment.html"><span class="dir">← Back</span>Chapter 4 · Environment</a>
-  <a href="chapter-05-systems.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 5 · Systems That Want You</a>
+<div class="sign" role="img" aria-label="The MIS 201 rules: no racism, no sexism, no homophobia, no transphobia, no fighting, no stagediving, no major label bands.">
+  <div>NO RACISM</div>
+  <div>NO SEXISM</div>
+  <div>NO HOMOPHOBIA</div>
+  <div>NO TRANSPHOBIA</div>
+  <div>NO FIGHTING</div>
+  <div>NO STAGEDIVING</div>
+  <div>NO MAJOR LABEL BANDS</div>
 </div>
+
+<section>
+  <div class="shead"><span class="num">1</span><h2>Where the rules come from</h2></div>
+  <p class="lead"><a class="inline" href="https://bayareapunk.com/blog/924-gilman-rules.html" target="_blank" rel="noopener">924 Gilman Street</a> is a punk club in Berkeley, California, run as a volunteer collective since 1986. Green Day played their early shows there. The club has a hand-painted sign of rules by the door; each one is four words or fewer, and nobody has to interpret them. The rules can only be changed by vote at the members' meeting, and they've mostly stayed the same for forty years.</p>
+  <p>This class argues, on purpose, about jobs, politics, war, medicine, and whether the machines are coming for us. That kind of room needs rules. These are Gilman's, with three lines translated for a classroom.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="num">2</span><h2>What each line means here</h2></div>
+  <div class="rule"><b>NO RACISM · NO SEXISM · NO HOMOPHOBIA · NO TRANSPHOBIA</b><p>The sign, verbatim. These are also the university's rules (see the syllabus, section 14), but they're on this sign because, well, respect others.</p></div>
+  <div class="rule"><b>NO FIGHTING</b><p>This means no attacking someone's position without evidence. "That's wrong" is fighting. "That doesn't make sense because" is pointing out something that could help someone see another angle. The point of the course is to really demystify AI, and to be able to discuss it in real-life terms.</p></div>
+  <div class="rule"><b>NO STAGEDIVING</b><p>We can think of this one as no sudden lunging at each other. This means no sudden interrupting, piling on, or ambushing the person in the room who may be holding a position. Let people speak.</p></div>
+  <div class="rule"><b>NO MAJOR LABEL BANDS</b><p>In the late 1980s and 1990s it was unthinkable to take your music to a major label. That meant selling out. We will interpret this Gilman Street rule as no blind love or hate for an AI company because you like or hate its product. If you like Claude, that's great. If you hate OpenAI, that's great, too. But you need to be able to think critically and talk about why. Liking what an AI system can do is not evidence about it. Neither is hating one. This class is not sponsored by an AI company. It is not my goal to influence whether you like or hate AI. My goal is to discuss and critically think about what AI actually means in different contexts.</p></div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">3</span><h2>Adding to the rules</h2></div>
+  <p>These aren't carved. If something comes up that the rules don't cover, or a rule needs adjusting for how this room actually works, let me know, in class or by email, and we'll add to it or adjust it. Anything added goes on this page.</p>
+</section>
 
 </main>
 
@@ -357,105 +306,6 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
   </div>
 </footer>
-
-<script>
-(function(){
-  var q = document.getElementById('q'), img = document.getElementById('img');
-  var qv = document.getElementById('qv'), imgv = document.getElementById('imgv');
-  var model = document.getElementById('model'), scale = document.getElementById('scale');
-  var unc = document.getElementById('unc');
-  var uncertainty = false;
-
-  var WATER_PER_WH = 1.6;      // mL of cooling water per Wh, mid-range
-  var IMG_WH = 2.5;            // Wh per generated image, mid-range
-  var PHONE_WH = 12;           // one full phone charge
-  var SHOWER_WH = 2000;        // one 8-minute hot shower
-  var HOME_KWH_YR = 10800;     // average US home, per year
-  var BOTTLE_ML = 500;
-
-  function fmtEnergy(wh){
-    if (wh < 1000) return Math.round(wh) + ' Wh';
-    if (wh < 1e6) return round1(wh/1000) + ' kWh';
-    if (wh < 1e9) return round1(wh/1e6) + ' MWh';
-    if (wh < 1e12) return round1(wh/1e9) + ' GWh';
-    return round1(wh/1e12) + ' TWh';
-  }
-  function fmtWater(ml){
-    if (ml < 1000) return Math.round(ml) + ' mL';
-    if (ml < 1e6) return round1(ml/1000) + ' liters';
-    if (ml < 1e9) return round1(ml/1e6) + ' m³';
-    return round1(ml/1e9) + ' thousand m³';
-  }
-  function round1(x){ return (Math.round(x*10)/10).toLocaleString(); }
-  function fmtCount(x){
-    if (x < 1e3) return Math.round(x).toLocaleString();
-    if (x < 1e6) return round1(x/1e3) + ' thousand';
-    if (x < 1e9) return round1(x/1e6) + ' million';
-    return round1(x/1e9) + ' billion';
-  }
-
-  function update(){
-    qv.textContent = q.value;
-    imgv.textContent = img.value;
-    var perQueryWh = parseFloat(model.value);
-    var people = parseFloat(scale.value);
-    var dailyWh = (q.value * perQueryWh + img.value * IMG_WH) * people;
-    var yearWh = dailyWh * 365;
-    var yearMl = yearWh * WATER_PER_WH;
-
-    var energyEl = document.getElementById('energy');
-    var waterEl = document.getElementById('water');
-
-    if (uncertainty){
-      energyEl.textContent = fmtEnergy(yearWh/3) + ' – ' + fmtEnergy(yearWh*3);
-      waterEl.textContent = fmtWater(yearMl/3) + ' – ' + fmtWater(yearMl*3);
-      document.getElementById('vlabel').textContent = 'Estimated footprint · per year · honest band (independent estimates span roughly 10×)';
-    } else {
-      energyEl.textContent = fmtEnergy(yearWh);
-      waterEl.textContent = fmtWater(yearMl);
-      document.getElementById('vlabel').textContent = 'Estimated footprint · per year at selected scale';
-    }
-
-    // equivalents (midpoint even in uncertainty mode)
-    var eq1v = document.getElementById('eq1v'), eq1k = document.getElementById('eq1k');
-    var eq2v = document.getElementById('eq2v'), eq2k = document.getElementById('eq2k');
-    if (yearWh < 5e5){
-      eq1v.textContent = fmtCount(yearWh / PHONE_WH);
-      eq1k.textContent = 'full phone charges';
-      eq2v.textContent = fmtCount(yearWh / SHOWER_WH);
-      eq2k.textContent = 'hot showers';
-    } else {
-      eq1v.textContent = fmtCount(yearWh / 1000 / HOME_KWH_YR);
-      eq1k.textContent = 'US homes powered for a year';
-      eq2v.textContent = fmtCount(yearMl / BOTTLE_ML);
-      eq2k.textContent = 'half-liter water bottles';
-    }
-
-    var read;
-    if (people === 1){
-      read = 'This is the <b>just me</b> view — for most usage patterns, a modest number next to the rest of a modern life. Don\u2019t stop here. The chapter\u2019s argument was never about you alone.';
-    } else if (people < 1e6){
-      read = 'Multiplied across <b>' + fmtCount(people) + ' people</b> with your usage. Still a local-scale number — but watch what one more flip of the scale selector does.';
-    } else {
-      read = 'This is the multiplication the chapter promised: your habits × <b>' + fmtCount(people) + ' users</b> × 365 days. At this scale, model tier stops being a preference and becomes infrastructure policy. Try the right-sizing experiment in step 2c if you haven\u2019t.';
-    }
-    if (uncertainty){
-      read += ' <b>The band is the finding.</b> Everything between those two numbers is currently defensible with published sources — that\u2019s the disclosure gap, rendered as a user interface.';
-    }
-    document.getElementById('reading').innerHTML = read;
-  }
-
-  unc.addEventListener('click', function(){
-    uncertainty = !uncertainty;
-    unc.classList.toggle('on', uncertainty);
-    unc.setAttribute('aria-pressed', String(uncertainty));
-    update();
-  });
-  [q, img].forEach(function(el){ el.addEventListener('input', update); });
-  [model, scale].forEach(function(el){ el.addEventListener('change', update); });
-  update();
-})();
-</script>
 
 <script>
 (function(){

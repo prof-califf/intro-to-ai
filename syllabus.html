@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syllabus — Intro to AI in Business | MIS 201</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pink);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+.steps{margin:26px 0;}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
+.step:last-child{border-bottom:none;}
+.step .sn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);font-size:1.2rem;min-width:24px;}
+.step p{margin-bottom:0;}
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+
+/* ---- lab widgets ---- */
+.tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
+.tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
+.tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
+.chip{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;}
+.chip:hover{border-color:var(--pink);color:var(--pinktext);}
+.chip:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.chip.on{background:var(--dark);color:var(--yellow);border-color:var(--dark);}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.btn{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;}
+.btn:hover{background:#1B222B;}
+.btn:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--rule);}
+.btn.alt:hover{border-color:var(--pink);color:var(--pinktext);}
+.verdict{background:var(--dark);color:#E7EAEF;padding:26px 28px;margin-top:22px;}
+.verdict .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;}
+.verdict .read{font-size:.95rem;line-height:1.65;}
+.verdict .read b{color:var(--yellow);}
+.bars{display:grid;gap:10px;margin:14px 0 18px;}
+.bar{display:grid;grid-template-columns:190px 1fr 44px;gap:12px;align-items:center;font-size:.85rem;}
+.bar .track{height:10px;background:#242C36;border-radius:999px;overflow:hidden;}
+.bar .fill{height:100%;background:var(--pink);width:0%;transition:width .3s ease;border-radius:999px;}
+.bar.safe .fill{background:var(--yellow);}
+.bar .n{text-align:right;color:var(--lightgray);}
+@media(max-width:560px){.bar{grid-template-columns:1fr;gap:4px;}.bar .n{text-align:left;}}
+.meter{display:grid;grid-template-columns:130px 1fr 54px;gap:12px;align-items:center;font-size:.9rem;margin:8px 0;}
+.meter .track{height:14px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;}
+.meter .fill{height:100%;width:50%;transition:width .35s ease;border-radius:999px;background:var(--pink);}
+.meter.good .fill{background:var(--ink);}
+.meter .n{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+.simcard{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;cursor:pointer;text-align:left;font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55;color:var(--ink);width:100%;}
+.simcard:hover{border-color:var(--pink);}
+.simcard:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.simcard .tag{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.simgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:680px){.simgrid{grid-template-columns:1fr;}}
+.slider-row{display:grid;grid-template-columns:170px 1fr 120px;gap:14px;align-items:center;margin:14px 0;font-size:.92rem;}
+.slider-row output{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+input[type=range]{width:100%;accent-color:var(--pink);}
+@media(max-width:560px){.slider-row{grid-template-columns:1fr;gap:6px;}.slider-row output{text-align:left;}}
+select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink);}
+.equiv{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:18px 0 4px;}
+.equiv .cell{background:#fff;padding:16px 18px;}
+.equiv .cell .v{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;}
+.equiv .cell .v em{font-style:normal;color:var(--pink);}
+.equiv .cell .k{font-size:.82rem;color:var(--gray);margin-top:2px;}
+@media(max-width:560px){.equiv{grid-template-columns:1fr;}}
+.graphbox{background:var(--dark);border:1px solid var(--rule);margin:18px 0;}
+.graphbox svg{display:block;width:100%;height:auto;}
+.gnode{cursor:pointer;}
+.gnode circle{stroke:#39424D;stroke-width:1.5;fill:#1B222B;transition:all .2s ease;}
+.gnode text{font-family:'Inter',sans-serif;font-size:11px;fill:#C9CED6;pointer-events:none;}
+.gnode.drug circle{stroke:var(--yellow);}
+.gnode.disease circle{stroke:var(--pink);}
+.gnode.sel circle{fill:var(--yellow);stroke:var(--yellow);}
+.gnode.sel text{fill:var(--dark);font-weight:700;}
+.gnode.lit circle{fill:#2A3440;stroke:#fff;}
+.gedge{stroke:#333D49;stroke-width:1.5;transition:all .2s ease;}
+.gedge.lit{stroke:var(--yellow);stroke-width:2.5;}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.8rem;color:var(--gray);padding:12px 16px;border-top:1px solid var(--rule);background:#fff;}
+.legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;border:2px solid var(--gray);vertical-align:-1px;}
+.legend .l-drug::before{border-color:var(--yellow);background:#1B222B;}
+.legend .l-disease::before{border-color:var(--pink);background:#1B222B;}
+.legend .l-mid::before{border-color:#39424D;background:#1B222B;}
+.ranked{margin:14px 0 0;}
+.ranked .r{display:grid;grid-template-columns:1fr 60px;gap:10px;padding:9px 0;border-bottom:1px solid #242C36;font-size:.9rem;align-items:center;}
+.ranked .r:last-child{border-bottom:none;}
+.ranked .r .s{text-align:right;color:var(--yellow);font-variant-numeric:tabular-nums;font-weight:600;}
+.probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
+.probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
+.probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
+.roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
+/* ---- dropdown navigation (chapters / labs) ---- */
+.nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.nav a.navlink{margin-left:0;padding:6px 10px}
+.dd{position:relative}
+.dd-btn{font:inherit;font-size:.85rem;font-weight:600;color:#fff;background:var(--dark);border:1px solid var(--dark);border-radius:4px;padding:7px 14px;cursor:pointer}
+.dd-btn:hover,.dd-btn[aria-expanded="true"]{background:var(--pinktext);border-color:var(--pinktext);color:#fff}
+.dd-btn .caret{color:var(--yellow)}
+.dd-btn .caret{font-size:.7rem;margin-left:.3rem}
+.dd-menu{display:none;position:absolute;right:0;top:calc(100% + 6px);min-width:19rem;background:var(--bg);border:1px solid var(--rule);border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:.35rem 0;max-height:75vh;overflow-y:auto;z-index:50}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:.5rem 1rem;text-decoration:none;color:var(--ink);font-size:.9rem;line-height:1.35}
+.dd-menu a:hover{background:#F3F3EE;color:var(--pinktext)}
+.dd-menu a .lbl{display:block;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--pinktext);margin-bottom:.1rem}
+.dd-menu a.current{background:#F3F3EE;border-left:3px solid var(--pink)}
+@media (max-width:640px){
+  .nav .wrap{flex-wrap:wrap;gap:8px}
+  .nav .navlinks{width:100%;justify-content:flex-start}
+  .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
+}
+
+/* ---- syllabus ---- */
+.toc{border:1px solid var(--rule);background:#fff;padding:18px 22px;margin:22px 0;font-size:.92rem;line-height:1.9}
+.toc .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:6px}
+.toc a{color:var(--ink);text-decoration:none}.toc a:hover{color:var(--pinktext)}
+table.syl{width:100%;border-collapse:collapse;margin:16px 0 22px;font-size:.93rem}
+table.syl th{text-align:left;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);border-bottom:2px solid var(--pink);padding:8px 10px}
+table.syl td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.syl.scale td:nth-child(odd){font-weight:600}
+.fill{background:#FFF7C2;padding:0 4px}
+section ol li{margin-bottom:.5em}
+@media (max-width:640px){table.syl{font-size:.82rem;display:block;overflow-x:auto}table.syl th,table.syl td{padding:6px}}
+
+ul.gilman{list-style:none;padding:0;margin:14px 0 18px;border:1px solid var(--rule);background:#fff}
+ul.gilman li{padding:10px 16px;border-bottom:1px solid var(--rule);font-size:.95rem}
+ul.gilman li:last-child{border-bottom:none}
+ul.gilman b{font-family:'Fraunces',serif;font-weight:700;letter-spacing:.04em;color:var(--ink);margin-right:10px}
+ul.gilman span{color:var(--gray)}
+</style>
+<style>
+.wk{border:1px solid var(--rule);border-radius:12px;padding:22px 24px;margin-bottom:18px;background:#fff;}
+.wk .whead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px;}
+.wk .wnum{font-family:Fraunces,serif;font-size:1.05rem;color:var(--pinktext);font-weight:600;}
+.wk h3{font-family:Fraunces,serif;font-size:1.35rem;margin:0;}
+.wk .dates{color:var(--gray);font-size:.9rem;white-space:nowrap;}
+.wk .day{display:flex;gap:12px;padding:7px 0;border-top:1px dashed var(--rule);font-size:.95rem;align-items:baseline;}
+.wk .day b{min-width:86px;display:inline-block;font-weight:600;}
+.wk .due{display:inline-block;background:var(--yellow);color:var(--ink);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;margin-left:6px;vertical-align:middle;}
+.wk .off{color:var(--gray);}
+.wk.holiday{background:var(--dark);color:#E8EAED;border-color:var(--dark);}
+.wk.holiday h3{color:#fff;}
+.wk.holiday .day{border-top:1px dashed #2A3038;}
+.wk .wlinks{margin-top:10px;font-size:.9rem;}
+.wk .wlinks a{color:var(--pinktext);font-weight:600;text-decoration:none;border-bottom:1px solid var(--pink);margin-right:16px;}
+.rhythm{background:var(--dark);color:#E8EAED;border-radius:12px;padding:24px;margin:26px 0;}
+.rhythm .label{color:var(--yellow);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
+.rhythm p{margin:6px 0;font-size:.95rem;}
+.rhythm b{color:#fff;}
+.note{border-left:3px solid var(--pink);padding:4px 0 4px 16px;color:var(--gray);font-size:.92rem;margin:18px 0;}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div class="navlinks">
+      <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="syllabus.html">Syllabus</a>
+      <a class="navlink" href="rules.html">Rules</a>
+      <a class="navlink" href="schedule.html">Schedule</a>
+      <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddc" data-dd="ddc">Chapters<span class="caret" aria-hidden="true">▾</span></button>
+<div class="dd-menu" id="ddc">
+<a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 1</span>What Is AI?</a>
+<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 2</span>What It Means to Be Human</a>
+<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 3</span>Medicine</a>
+<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 4</span>Environment</a>
+<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · Week 5</span>Systems That Want You</a>
+<a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Hiring &amp; Lending</a>
+<a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
+<a href="chapter-09-ethics-war.html"><span class="lbl">Chapter 9 · Week 8</span>Ethics &amp; War</a>
+<a href="chapter-08-markets.html"><span class="lbl">Chapter 8 · Week 9</span>Markets</a>
+<a href="chapter-10-truth.html"><span class="lbl">Chapter 10 · Week 11</span>Truth</a>
+<a href="chapter-11-work.html"><span class="lbl">Chapter 11 · Week 11</span>AI and the Future of Work</a>
+<a href="chapter-12-future.html"><span class="lbl">Chapter 12 · Week 11</span>The Future</a>
+</div></div>
+      <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddl" data-dd="ddl">Labs<span class="caret" aria-hidden="true">▾</span></button>
+<div class="dd-menu" id="ddl">
+<a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 1</span>Opening Positions</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 2</span>The Seeming Test</a>
+<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 3</span>Inside the Graph</a>
+<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 4</span>The Footprint Machine</a>
+<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · Week 5</span>Play the Algorithm</a>
+<a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
+<a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
+<a href="chapter-09-ethics-war-lab.html"><span class="lbl">Lab 9 · Week 8 · Monday, in class</span>The Red Lines</a>
+<a href="chapter-08-markets-lab.html"><span class="lbl">Lab 8 · Week 9</span>Run the Firm</a>
+<a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 11 · take-home</span>The Phantom Docket</a>
+<a href="chapter-11-work-lab.html"><span class="lbl">Lab 11 · Decide project method</span>The Exposure Audit</a>
+<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 11 · capstone</span>Opening Positions, Reversed</a>
+</div></div>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Western Washington University · MIS 201 · Fall 2026</div>
+    <h1>The <b>Syllabus</b></h1>
+    <p class="kicker">Everything about how this course runs: who, when, what counts, and the rules that settle arguments before they start. The book is the textbook; this page is the contract.</p>
+    <p class="factline">Mon &amp; Wed, 2:00 · labs Wednesday · writeups Friday night · midterm Oct 19 · capstone Dec 2 · final exam finals week</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="rhythm">
+  <div class="label">In one paragraph</div>
+  <p>Western Washington University, College of Business and Economics. In person, eleven weeks, Monday and Wednesday, 110 minutes each. Read a chapter over the weekend, argue it Monday, do the lab Wednesday, post the writeup Friday night. A midterm in Week 5, a final in finals week, and a capstone session in between built from the first day. Everything you turn in goes to Canvas.</p>
+</div>
+
+<div class="toc">
+  <div class="label">Contents</div>
+  <p><a href="#s1">People and office hours</a> · <a href="#s2">What this course is</a> · <a href="#s3">Learning outcomes</a> · <a href="#s4">Materials</a> · <a href="#s5">The weekly rhythm</a> · <a href="#s6">Grading</a> · <a href="#s7">Mondays</a> · <a href="#s8">Wednesdays and the labs</a> · <a href="#s9">Quizzes, exams, and the Decide project</a> · <a href="#s10">AI policy</a> · <a href="#s11">Late work</a> · <a href="#s12">Grade scale</a> · <a href="#s13">The fine print</a> · <a href="#s14">University policies</a> · <a href="#s15">Week by week</a></p>
+</div>
+
+<section id="s1">
+  <div class="shead"><span class="num">1</span><h2>People and office hours</h2></div>
+  <p><strong>Professor:</strong> Christopher Califf, PhD (<a class="inline" href="mailto:califfc@wwu.edu">califfc@wwu.edu</a>). Class meets Monday and Wednesday, 2:00 to 3:50 p.m., in Academic West 306. Office hours Mondays and Wednesdays, 11:30 a.m. to 1:50 p.m., in Parks Hall 039, or by appointment in person or on Zoom; email to set a time.</p>
+</section>
+
+<section id="s2">
+  <div class="shead"><span class="num">2</span><h2>What this course is</h2></div>
+  <p>AI is already in your life: the spam filter on your inbox, the bank watching your card, the software reading your résumé, the feed deciding what you see next. This course is not about building it. It's about seeing it clearly enough to decide what to do about it, as a worker, a customer, and a citizen. The question the whole quarter carries: can we build a hybrid society, one where humans and AI systems are tangled together, that still works for the humans in it?</p>
+  <p>The course runs on a free digital textbook written for it: this website. Every chapter is anchored on a real system at a real moment (EveryCure's drug search, Amazon's scrapped hiring tool, Waymo's crash data, the lawyer who cited phantom cases, the New Hampshire robocall, the "canaries" study on entry-level jobs), and every chapter reads its case through the same method: <strong>See it, question it, decide.</strong> See it means naming the five parts of any AI system: data, model, output, feedback loop, humans. Question it means asking the same five questions of every system, every week: what is it and what does it do; why does it exist and who benefits; what happens when it fails and who finds out; who's saying that and how would we know; and keep it, fix it, or drop it, and what does that cost. Decide means taking a position you can defend: keep it, fix it, or drop it.</p>
+  <p>The labs are where you do it yourself: train a tiny neural network on your own drawings, audit a résumé screener, sit on a city council deciding whether to permit robotaxis, run a firm through an AI reorganization, verify a docket of court citations against a chatbot's inventions, and classify a real job posting for what AI can and can't take from it.</p>
+  <p>One disclosure, made on the first page of the book and repeated here: this textbook was drafted with the help of Claude, an AI model made by Anthropic, a company that appears in the book's cases. That is a conflict of interest. Chapter 9 explains the choice; you are allowed to hold it against the book while reading closely.</p>
+</section>
+
+<section id="s3">
+  <div class="shead"><span class="num">3</span><h2>Learning outcomes and how they are assessed</h2></div>
+  <p>D = Monday discussion · L = labs · Q = reading quizzes · E = midterm and final · P = the Decide project. By the end of the course you should be able to:</p>
+  <ol>
+    <li>Explain what makes software "AI" rather than a hand-written recipe, and classify any system as predictive, generative, or embodied/agentic, saying why the kind changes how it fails (D, Q, E).</li>
+    <li>Name the five parts of any AI system and locate a failure in the right part (D, L, E).</li>
+    <li>Run the five questions on a system you have never seen before (D, L, E, P).</li>
+    <li>Tell a slogan from a claim: identify what a warning or a promise about AI would need to be checkable, and check it (D, L, P).</li>
+    <li>Explain, without math, how a system learned what it knows: training versus use, why the data's gaps become the system's gaps, and why confidence is not accuracy (Q, E).</li>
+    <li>Audit an AI system for bias, error, or harm using a controlled test, and report what you found in plain language (L).</li>
+    <li>Defend a decision about an AI system, keep it, fix it, or drop it, with the costs of each option named (D, L, P).</li>
+    <li>Use AI tools as a tutor and a subject of study without outsourcing your judgment, and say plainly when and how you used them (L).</li>
+  </ol>
+</section>
+
+<section id="s4">
+  <div class="shead"><span class="num">4</span><h2>Materials</h2></div>
+  <p><strong>Textbook:</strong> this website. Twelve chapters, twelve labs, the schedule, all free, all open. Nothing to buy.</p>
+  <p><strong>Software:</strong> a laptop with a web browser for Wednesday labs. Several labs ask you to use a live AI chatbot; a free account with any major one is fine, and the lab tells you which rules apply.</p>
+  <p><strong>Canvas:</strong> reading quizzes, lab writeups, the midterm, the capstone, grades, and announcements.</p>
+  <p><strong>The Rundown AI Workflow Hub and the course Community Hub:</strong> two live feeds we use in class. Lab 1 introduces both.</p>
+</section>
+
+<section id="s5">
+  <div class="shead"><span class="num">5</span><h2>The weekly rhythm</h2></div>
+  <p>The quarter starts on a Wednesday, so Week 1 has one session, which is Chapter 1 and Lab 1 together. Every week after that has the same shape:</p>
+  <p><strong>Weekend:</strong> read the chapter. That's the whole ask. Come Monday with one thing you didn't buy.</p>
+  <p><strong>Monday, 110 minutes:</strong> a five-minute reading quiz on Canvas at the start, then the chapter argued: the case, how the system works, the five questions in groups, and where you land.</p>
+  <p><strong>Wednesday, 110 minutes:</strong> a short recap of Monday, then the lab, in class, laptop open, in pairs, then discussion of what you found.</p>
+  <p><strong>Friday, 11:59 p.m.:</strong> the lab writeup on Canvas. Its last line is your commitment card, one sentence you actually keep.</p>
+  <p>Nothing is due on a weekend. The midterm is Monday, October 19. The capstone session is Wednesday, December 2. The final exam is in finals week.</p>
+</section>
+
+<section id="s6">
+  <div class="shead"><span class="num">6</span><h2>Grading</h2></div>
+  <p>The course is out of 100 points, so every point is one percent of your grade.</p>
+  <table class="syl">
+    <tr><th>What</th><th>Share</th><th>How you earn it</th></tr>
+    <tr><td>Attendance and discussion</td><td>10%</td><td>Upload your notes from that day to Canvas before class ends. 18 class days; full credit at 15. Exam day and holidays don't count.</td></tr>
+    <tr><td>Reading quizzes</td><td>10%</td><td>Five questions, in class at the start of each Monday, open book. Nine quizzes, lowest dropped.</td></tr>
+    <tr><td>Labs</td><td>35%</td><td>Nine lab writeups (Labs 1 through 8, and Lab 10), Friday 11:59 p.m. on Canvas, five items each with the screenshot. Lowest dropped.</td></tr>
+    <tr><td>Midterm</td><td>15%</td><td>In class, Monday, October 19. Chapters 1 through 4 and Labs 1 through 4.</td></tr>
+    <tr><td>Final exam</td><td>15%</td><td>Finals week, university slot, cumulative: Chapters 5 through 12 in full plus the course's main ideas.</td></tr>
+    <tr><td>Decide project</td><td>15%</td><td>One real AI system from your life, taken apart with the course's tools and decided on. Three pages, due before the December 2 capstone session, plus a two-minute show-and-tell that day.</td></tr>
+    <tr><td><strong>Total</strong></td><td><strong>100%</strong></td><td></td></tr>
+  </table>
+</section>
+
+<section id="s7">
+  <div class="shead"><span class="num">7</span><h2>Mondays: discussion, and why attendance counts</h2></div>
+  <p>Attendance is required, and here is why, since you deserve a reason and not just a rule. This course is built on discussion: instead of listening to a lecture about AI, you spend most of every session arguing about a real system with other people. Monday opens with the reading quiz, then the case is told rather than read, then groups of four run the five questions on the board, and then the room takes a position and names its cost. None of it can be made up from the book, because the learning happens in the arguing.</p>
+  <p>That design is not a preference. The largest review of college teaching in science and business, 225 studies published in the <em>Proceedings of the National Academy of Sciences</em> in 2014, found that students in active-learning classes scored about half a letter grade higher and were a third less likely to fail than students in traditional lectures. So the attendance points aren't a reward for showing up. They pay for the part of the course that works best.</p>
+  <p>Attendance is credited by your notes. Each class day has a Canvas assignment that opens when class starts and closes when it ends. Before you leave, upload whatever notes you took: a photo of the page, a few typed lines. A single word counts. What matters is that it was uploaded from the room while class was happening. Eighteen class days, full credit at fifteen, so three absences cost nothing and need no explanation. A documented absence longer than three days is the one case handled by hand; email me within a week of returning.</p>
+  <p><strong>House rules, borrowed from 924 Gilman Street.</strong> The Berkeley club where Green Day started has run since 1986 on a hand-painted sign of rules, each four words or fewer, changed only by vote at the members' meeting. This room argues about jobs, politics, war, and whether the machines are coming for us, so it has the same rules, with each line translated for a classroom:</p>
+  <ul class="gilman">
+    <li><b>NO RACISM</b></li>
+    <li><b>NO SEXISM</b></li>
+    <li><b>NO HOMOPHOBIA</b></li>
+    <li><b>NO TRANSPHOBIA</b></li>
+    <li><b>NO FIGHTING</b> <span>Attacking someone's position without evidence. "That's wrong" is fighting; "that fails because" is arguing, and arguing is the point.</span></li>
+    <li><b>NO STAGEDIVING</b> <span>The sudden lunge: interrupting, piling on, or ambushing the one person holding a position. They get room, and they get the room's best counter, not its loudest.</span></li>
+    <li><b>NO MAJOR LABEL BANDS</b> <span>No selling out to a company because you like its product. Liking a system is not evidence about it. If you work for or own stock in a company we discuss, say so first; the book does.</span></li>
+  </ul>
+  <p>The first four are Gilman's rules, verbatim, and they line up with the university's equal-opportunity policy in section 14. If something comes up that the rules don't cover, let me know and we'll add to them. The rules and the full text live on the <a class="inline" href="rules.html">Rules</a> page.</p>
+  <p>Each chapter ends with five discussion questions that can't be answered from the text. They are never submitted. They are what Monday and Wednesday are for. You are welcome to use AI to prepare: to test an argument, to find the counter-argument, to check a fact. What you say in the room is yours.</p>
+</section>
+
+<section id="s8">
+  <div class="shead"><span class="num">8</span><h2>Wednesdays and the labs</h2></div>
+  <p>Every chapter has a lab. Eight run on Wednesdays in class, in pairs, laptop open: a short recap of Monday, then about an hour of work, then discussion of what you found. Lab 9 (The Red Lines) runs on Monday of Veterans Day week as the discussion itself, with no writeup. Lab 10 (The Phantom Docket) runs take-home the week of the capstone session. Lab 11 (The Exposure Audit) is one of the audit methods you can choose for the Decide project rather than a separate lab. Lab 12 is the capstone session. Each lab ends with a verdict you screenshot and a commitment card, one sentence about what you'll do differently, that the next session asks about.</p>
+  <p>For the nine graded labs, the writeup is due Friday at 11:59 p.m. on Canvas: exactly five items, listed at the end of every lab, the first of which is always your screenshot. Credit is for a complete, on-time writeup that answers what was asked; the lab's own verdict already told you how you did. Writeups are individual even though the lab is done in pairs: same screenshots, your own words.</p>
+  <p>Keep everything you make. A hiring audit, a robotaxi permit with priced conditions, a citation docket you verified by hand, and an exposure audit of a real job posting are all work you can describe on a résumé.</p>
+</section>
+
+<section id="s9">
+  <div class="shead"><span class="num">9</span><h2>Quizzes, exams, and the Decide project</h2></div>
+  <p><strong>Reading quizzes.</strong> Five questions, first five minutes of Monday, on Canvas from your phone or laptop, open book. Every question is a situation to classify with the chapter's core distinction: seems or is, predictive or generative, engagement or wellbeing, proxy or pretext. If you read the chapter, you'll get them. Nine quizzes (Week 1 and the midterm Monday have none), lowest dropped, no makeups.</p>
+  <p><strong>Midterm.</strong> Monday, October 19, in class, closed book. Chapters 1 through 4 and Labs 1 through 4, in multiple choice and short essay: the five steps, the five parts, and the five questions run on systems you haven't seen, plus what each case actually showed. That Wednesday is Chapter 5 in one session followed by Lab 5.</p>
+  <p><strong>Final exam.</strong> Finals week, in the university's scheduled slot, closed book, cumulative. Chapters 5 through 12 and their labs in full, plus the whole course at the level of its main ideas: the five steps, the five parts, the five questions, and what each case company got right or wrong. Roughly half new material and half looking back.</p>
+  <p><strong>The Decide project.</strong> Pick one AI system that is actually in your life or your job: the scheduling tool at work, the software that screened your rental application, the chatbot your bank uses, the feed you can't put down. Run the five parts and the five questions on it. Audit it with one method from the labs (the two-résumé test, the phantom-citation check, the footprint sliders, the seeming probes, the exposure audit). Then decide: keep it, fix it, or drop it, with what it costs and who pays. Three pages, due before the December 2 capstone session, plus a two-minute show-and-tell that day. It is graded on whether the decision survives the questions, not on which decision you make. Refusal, argued well, is a full-credit answer.</p>
+  <p><strong>The capstone session.</strong> Wednesday, December 2: Chapters 11 and 12 discussed together, then Lab 12 in class, where you re-answer the seven claims from Week 1 and write ten claims of your own about 2036, each with the instrument you'd use to check it. Your Week 1 screenshot comes back out.</p>
+</section>
+
+<section id="s10">
+  <div class="shead"><span class="num">10</span><h2>AI policy: it depends on what the assignment is for</h2></div>
+  <p>This is a course about AI, so you'll use it constantly, and the rule changes with what an assignment is for. Three settings:</p>
+  <table class="syl">
+    <tr><th>Setting</th><th>You may</th><th>You may not</th></tr>
+    <tr><td><strong>Tutor</strong></td><td>Explain a concept, quiz you, find the counter-argument, check a fact, help you prepare for discussion.</td><td>Hand it the deliverable. What you submit is yours.</td></tr>
+    <tr><td><strong>Subject</strong></td><td>Use the AI as the lab tells you to: probe it, audit it, argue with it, verify it. The lab states its own rule at the top.</td><td>Ask it the thing the lab exists to teach you to check yourself (Lab 10's rule: never ask a chatbot whether a case is real).</td></tr>
+    <tr><td><strong>Off</strong></td><td>Nothing.</td><td>Any use: the midterm, the final, and the reading quizzes.</td></tr>
+  </table>
+  <p>Where each applies: reading the chapters and preparing for discussion are Tutor. Every lab is Subject, with its rule printed in the lab. The lab writeups and the Decide project are Tutor for thinking and Off for writing: the words are yours. The exams and quizzes are Off.</p>
+  <p>The test throughout is the calculator test: if the tool does the thing the assignment exists to teach, it isn't allowed on that assignment. Whenever you use AI on anything you submit, say so in the submission: which tool, for what part. Undisclosed AI use where it is restricted is academic dishonesty. The book discloses its own AI use on page one; you're held to the same standard.</p>
+</section>
+
+<section id="s11">
+  <div class="shead"><span class="num">11</span><h2>Late work</h2></div>
+  <p>Late lab writeups are accepted with a penalty of 10 percent per day, to a maximum of nine days; after nine days the work is not accepted. Reading quizzes happen in class and cannot be taken late; that's what the dropped quiz is for. The Decide project has one deadline. The exams follow section 13.</p>
+</section>
+
+<section id="s12">
+  <div class="shead"><span class="num">12</span><h2>Grade scale</h2></div>
+  <table class="syl scale">
+    <tr><th>Grade</th><th>Percent</th><th>Grade</th><th>Percent</th></tr>
+    <tr><td>A</td><td>94 to 100</td><td>C+</td><td>77 to 79</td></tr>
+    <tr><td>A−</td><td>90 to 93</td><td>C</td><td>74 to 76</td></tr>
+    <tr><td>B+</td><td>87 to 89</td><td>C−</td><td>70 to 73</td></tr>
+    <tr><td>B</td><td>84 to 86</td><td>D+</td><td>67 to 69</td></tr>
+    <tr><td>B−</td><td>80 to 83</td><td>D</td><td>64 to 66</td></tr>
+    <tr><td></td><td></td><td>D−</td><td>60 to 63</td></tr>
+    <tr><td></td><td></td><td>F</td><td>0 to 59</td></tr>
+  </table>
+</section>
+
+<section id="s13">
+  <div class="shead"><span class="num">13</span><h2>The fine print</h2></div>
+  <p>The rules that settle most arguments before they start.</p>
+  <p><strong>Absences.</strong> The three dropped days are your excused absences; use them for whatever comes up, no documentation needed. A documented absence longer than three days is handled by hand; email me within a week of returning.</p>
+  <p><strong>Arriving late, leaving early.</strong> The notes window is open for the whole class, so arriving late still earns the point as long as you upload before the end. Leaving early means missing the window. Uploading from outside the room is academic dishonesty, and Canvas records where and when submissions arrive.</p>
+  <p><strong>Late work is measured by Canvas.</strong> The Canvas timestamp is the submission time. Days late are counted in 24-hour blocks from the deadline, weekends included.</p>
+  <p><strong>Exam conditions.</strong> In class, closed book, closed notes, no devices. Arrive on time; a student who arrives after the first student has finished cannot sit the exam. A documented emergency is the only makeup; talk to me before the exam if at all possible. The final's date and time are set by the university and cannot be moved.</p>
+  <p><strong>Regrades.</strong> Ask within seven days of the grade being posted, in writing, saying which item and why. A regrade reviews the whole item, so the grade can go down as well as up.</p>
+  <p><strong>Rounding.</strong> Final percentages are rounded to the nearest whole number once, at the end (89.5 rounds to 90; 89.4 does not). There is no extra credit and no end-of-quarter negotiation.</p>
+  <p><strong>Devices in class.</strong> Laptops and tablets are welcome for the labs and for notes. Phones come out for the quiz and go away for discussion. Do not record class without permission.</p>
+  <p><strong>Email.</strong> Use your WWU address, put MIS 201 in the subject, and expect a reply within one business day.</p>
+</section>
+
+<section id="s14">
+  <div class="shead"><span class="num">14</span><h2>University policies and student services</h2></div>
+  <p><strong>Academic honesty.</strong> Students are expected to uphold the WWU standard of conduct relating to academic dishonesty, as described in the WWU Student Bulletin and on WWU's Academic Dishonesty page.</p>
+  <p><strong>Reasonable accommodation.</strong> Accommodation for students with documented disabilities should be established within the first week of class and arranged through the Disability Access Center: 360-650-3083, <a class="inline" href="mailto:drs@wwu.edu">drs@wwu.edu</a>.</p>
+  <p><strong>Equal opportunity.</strong> Western is committed to an environment free of discrimination and harassment. Federal and state law and university policy protect students against discrimination based on race, color, creed, religion, national origin, sex (including pregnancy and parenting status), age, disability, marital status, sexual orientation, gender identity and expression, genetic information, and veteran status. See Western's Equal Opportunity Office policies.</p>
+  <p><strong>WWU syllabus policies.</strong> The university's policies that apply to every course, including academic honesty, accommodation, equal opportunity, religious accommodation, medical excuse, and student conduct, are collected at <a class="inline" href="https://syllabi.wwu.edu" target="_blank" rel="noopener">syllabi.wwu.edu</a>. They are part of this syllabus by reference; read them once.</p>
+  <p><strong>Student services.</strong> The Moss Adams Student Success Center, Parks Hall 045, is the place to ask about any CBE or university resource, policy, or procedure, and the same syllabi.wwu.edu page links to campus services.</p>
+  <p><strong>This syllabus is subject to change.</strong> Changes will be announced in class and on Canvas, and you are responsible for them.</p>
+</section>
+
+<section id="s15">
+  <div class="shead"><span class="num">15</span><h2>Week by week</h2></div>
+  <table class="syl wk">
+    <tr><th>Wk</th><th>Dates</th><th>Monday</th><th>Wednesday</th><th>Read</th></tr>
+    <tr><td>1</td><td>Sept 23</td><td>No class</td><td>What Is AI? + Lab 1 · Opening Positions</td><td>Ch 1 (in class)</td></tr>
+    <tr><td>2</td><td>Sept 28–Oct 2</td><td>What it means to be human: Seemingly Conscious AI, Air Canada</td><td>Lab 2 · The Seeming Test</td><td>Ch 2</td></tr>
+    <tr><td>3</td><td>Oct 5–9</td><td>Medicine: EveryCure, and should the doctor step out of the loop</td><td>Lab 3 · Inside the Graph</td><td>Ch 3</td></tr>
+    <tr><td>4</td><td>Oct 12–16</td><td>Environment: the watt-hour and the disclosure gap</td><td>Lab 4 · The Footprint Machine</td><td>Ch 4</td></tr>
+    <tr><td>5</td><td>Oct 19–23</td><td><strong>Midterm</strong> (Ch 1–4, Labs 1–4)</td><td>Systems that want you, in one session, then Lab 5 · Play the Algorithm</td><td>Ch 5</td></tr>
+    <tr><td>6</td><td>Oct 26–30</td><td>Hiring and lending: laundered bias</td><td>Lab 6 · You Are the Auditor</td><td>Ch 6</td></tr>
+    <tr><td>7</td><td>Nov 2–6</td><td>Transportation: Flyways and Waymo</td><td>Lab 7 · You Are the City Council</td><td>Ch 7</td></tr>
+    <tr><td>8</td><td>Nov 9–13</td><td>Ethics and war, then Lab 9 · The Red Lines in class</td><td>No class, Veterans Day</td><td>Ch 9</td></tr>
+    <tr><td>9</td><td>Nov 16–20</td><td>Markets: the dynamo and the dip</td><td>Lab 8 · Run the Firm</td><td>Ch 8</td></tr>
+    <tr><td></td><td>Nov 23–27</td><td colspan="3">Thanksgiving break: no class</td></tr>
+    <tr><td>10</td><td>Nov 30–Dec 4</td><td>Truth: Mata v. Avianca and the robocall. Lab 10 take-home this week.</td><td><strong>Capstone session:</strong> Work and The Future, then Lab 12. Decide project due.</td><td>Ch 10, 11, 12</td></tr>
+    <tr><td>11</td><td>Dec 7–11</td><td colspan="3"><strong>Final exam</strong>, university slot, cumulative.</td></tr>
+  </table>
+  <p>The <a class="inline" href="schedule.html">full schedule</a> has each session and every deadline. Last revised September 2026. Where this page and Canvas disagree on a date or a deadline, Canvas wins.</p>
+</section>
+
+</main>
+
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.dd-btn'));
+  function closeAll(){btns.forEach(function(b){var m=document.getElementById(b.getAttribute('data-dd'));if(m){m.classList.remove('open');b.setAttribute('aria-expanded','false');}});}
+  btns.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var m=document.getElementById(b.getAttribute('data-dd'));var open=m.classList.contains('open');closeAll();if(!open){m.classList.add('open');b.setAttribute('aria-expanded','true');}});});
+  document.addEventListener('click',closeAll);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+  document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+</body>
+</html>

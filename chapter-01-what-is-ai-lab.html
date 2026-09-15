@@ -196,6 +196,19 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .verdict .track{background:#2A323C;height:10px;border-radius:5px;overflow:hidden}
 .verdict .fill{height:100%;background:var(--pink);width:0;transition:width .3s}
 @media (max-width:640px){.tis-grid{grid-template-columns:1fr}}
+
+/* ---- warm-up part two: MENACE ---- */
+.mn-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.mn-board{display:grid;grid-template-columns:repeat(3,72px);gap:6px}
+.mn-cell{position:relative;width:72px;height:72px;font-family:'Fraunces',serif;font-size:2rem;font-weight:600;border:1px solid var(--rule);background:#fff;color:var(--ink);cursor:pointer;padding:0}
+.mn-cell:hover:not([disabled]){border-color:var(--pinktext)}
+.mn-cell[disabled]{cursor:default}
+.mn-cell .bd{position:absolute;right:5px;bottom:3px;font-family:'Inter',sans-serif;font-size:.68rem;font-weight:600;color:var(--pinktext)}
+.mn-cell.x{color:var(--ink)}.mn-cell.o{color:var(--pinktext)}
+.mn-strip{display:flex;gap:3px;margin-top:8px;flex-wrap:wrap}
+.mn-strip span{display:inline-block;width:14px;height:14px;border-radius:2px;background:#E7E7E2}
+.mn-strip .w{background:var(--pink)}.mn-strip .d{background:#9AA1AB}.mn-strip .l{background:var(--ink)}
+@media (max-width:640px){.mn-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -205,6 +218,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
     <div class="navlinks">
       <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="syllabus.html">Syllabus</a>
+      <a class="navlink" href="rules.html">Rules</a>
       <a class="navlink" href="schedule.html">Schedule</a>
       <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddc" data-dd="ddc">Chapters<span class="caret" aria-hidden="true">▾</span></button>
 <div class="dd-menu" id="ddc">
@@ -218,8 +233,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <a href="chapter-09-ethics-war.html"><span class="lbl">Chapter 9 · Week 8</span>Ethics &amp; War</a>
 <a href="chapter-08-markets.html"><span class="lbl">Chapter 8 · Week 9</span>Markets</a>
 <a href="chapter-10-truth.html"><span class="lbl">Chapter 10 · Week 11</span>Truth</a>
-<a href="chapter-11-work.html"><span class="lbl">Chapter 11 · Finals</span>AI and the Future of Work</a>
-<a href="chapter-12-future.html"><span class="lbl">Chapter 12 · Finals</span>The Future</a>
+<a href="chapter-11-work.html"><span class="lbl">Chapter 11 · Week 11</span>AI and the Future of Work</a>
+<a href="chapter-12-future.html"><span class="lbl">Chapter 12 · Week 11</span>The Future</a>
 </div></div>
       <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddl" data-dd="ddl">Labs<span class="caret" aria-hidden="true">▾</span></button>
 <div class="dd-menu" id="ddl">
@@ -230,11 +245,11 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · Week 5</span>Play the Algorithm</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
-<a href="chapter-09-ethics-war-lab.html"><span class="lbl">Lab 9 · Week 8 · take-home</span>The Red Lines</a>
+<a href="chapter-09-ethics-war-lab.html"><span class="lbl">Lab 9 · Week 8 · Monday, in class</span>The Red Lines</a>
 <a href="chapter-08-markets-lab.html"><span class="lbl">Lab 8 · Week 9</span>Run the Firm</a>
 <a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 11 · take-home</span>The Phantom Docket</a>
-<a href="chapter-11-work-lab.html"><span class="lbl">Lab 11 · Finals</span>The Exposure Audit</a>
-<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Finals</span>Opening Positions, Reversed</a>
+<a href="chapter-11-work-lab.html"><span class="lbl">Lab 11 · Decide project method</span>The Exposure Audit</a>
+<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 11 · capstone</span>Opening Positions, Reversed</a>
 </div></div>
     </div>
   </div>
@@ -253,7 +268,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <section id="warmup">
   <div class="shead"><span class="num">0</span><h2>Warm-up · Teach it to see</h2></div>
-  <p class="lead">Before the claims, five minutes with a real (tiny) neural network. It runs entirely on your laptop, learns only from what you draw, and forgets everything when you reload. Draw five of one thing and five of another, press <strong>Train</strong>, and then test it. Rough is fine; precision is what the next ten weeks are for.</p>
+  <p class="lead">Before the claims, five minutes with a real (tiny) neural network: Chapter 1's step one, ImageNet, in miniature. Your drawings are the labeled data; the heat map is the model. It runs entirely on your laptop, learns only from what you draw, and forgets everything when you reload. Draw five of one thing and five of another, press <strong>Train</strong>, and then test it. Rough is fine; precision is what the next ten weeks are for.</p>
 
   <div class="tool" id="tis">
     <div class="label">Simulator 0 · a neural network that learns from your drawings</div>
@@ -299,6 +314,40 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     <div class="step"><span class="sn">4</span><p><strong>Bias it.</strong> Start over. Save five smileys but only one house, all drawn in the same corner. Train. Test a house drawn somewhere else. Now you've seen what "the training data had a shape" means, and you'll meet it again in Chapter 3 and Chapter 6.</p></div>
   </div>
   <p>Screenshot the map and one wrong guess; the writeup asks for it. Everything in this warm-up is the same machine, scaled up a billion times, that reads résumés and drives cars. The difference is only in what it was shown.</p>
+
+  <p class="lead" style="margin-top:34px"><strong>Part two: teach it to play.</strong> That was step one of the chapter, learning to see. Now step two, learning to act. In 1961 Donald Michie, who had no computer, built a tic-tac-toe player out of 304 matchboxes and a bag of colored beads. Each box is a board position; each bead is a move. It plays by drawing a bead at random. After each game, winning moves get more beads and losing moves lose some. That's all. Play it enough and it stops losing. This is the same machine, and it is the whole idea behind AlphaGo: an action, a result, a nudge, repeated.</p>
+
+  <div class="tool" id="mn">
+    <div class="label">Simulator 0b · MENACE, the matchbox tic-tac-toe player · it plays X and goes first</div>
+    <div class="mn-grid">
+      <div>
+        <div class="mn-board" id="mn-board" role="grid" aria-label="Tic-tac-toe board. You are O."></div>
+        <p class="tis-counts" id="mn-msg" aria-live="polite">Your move: you are O. The small numbers show how many beads each move has in the box for this position.</p>
+        <div class="chips tis-actions">
+          <button class="btn" type="button" id="mn-new">New game</button>
+          <button class="chip" type="button" id="mn-reset">Forget everything</button>
+        </div>
+      </div>
+      <div>
+        <div class="label">Its record</div>
+        <p class="tis-counts" id="mn-score">Games 0 · it won 0 · drew 0 · lost 0</p>
+        <div class="mn-strip" id="mn-strip" aria-label="Last twenty results"></div>
+        <div class="label" style="margin-top:16px">Let it practice</div>
+        <div class="chips">
+          <button class="chip" type="button" id="mn-rand">300 games against a random player</button>
+          <button class="chip" type="button" id="mn-block">300 games against a careful player</button>
+        </div>
+        <p class="tis-note" id="mn-note">Practice games count in the record too. Watch the strip change color.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="steps">
+    <div class="step"><span class="sn">1</span><p><strong>Beat it.</strong> Play five games. It has never played before, so it is choosing moves at random, and you should win most of them. Look at the small numbers on the empty squares before each move: those are the beads in the box for this exact position. Watch what happens to them after you win.</p></div>
+    <div class="step"><span class="sn">2</span><p><strong>Let it practice.</strong> Press "300 games against a careful player." That opponent blocks your wins and takes its own, which is roughly you. Now play it five more games. It should be drawing you, or beating you when you slip. Nobody told it a strategy. The beads moved.</p></div>
+    <div class="step"><span class="sn">3</span><p><strong>Give it the wrong data.</strong> Press "Forget everything," then "300 games against a random player" twice. Its record will look wonderful. Now play it yourself. It learned to beat a player who never blocks, so it never learned to block. Same machine, same learning rule, different data, and its confidence is exactly as high. Screenshot the record and the game you won; the writeup asks for it. You'll meet this in Chapter 3 (the record has a shape) and Chapter 6 (it learned who got hired, not who deserved it).</p></div>
+  </div>
+  <p>Two warm-ups, two of the chapter's five steps: the first machine learned to see from what you showed it, the second learned to act from what happened to it. Neither one understands anything. Both of them work.</p>
 </section>
 
 <section>
@@ -332,12 +381,12 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <section>
   <div class="shead"><span class="num">3</span><h2>The headline · Day 1 discussion</h2></div>
-  <p>Claim 3 gets its own conversation, because it happened the week this course began. A researcher who spent three years training frontier models at OpenAI and Anthropic publicly quit, saying the companies believe the technology could kill everyone by the end of the decade and are racing anyway. A senior colleague agreed in public. Critics said it was hype dressed as warning. (Chapter 1 has the details and the links.)</p>
+  <p>Claim 3 gets its own conversation, because it happened the week this course began, and Chapter 1 closes on it. A researcher who spent three years training frontier models at OpenAI and Anthropic publicly quit, saying the companies believe the technology could kill everyone by the end of the decade and are racing anyway. A senior colleague agreed in public. Critics said it was hype dressed as warning. (Chapter 1 has the details and the links.)</p>
   <div class="callout">
     <div class="label">Same groups of four · eight minutes · no verdicts allowed</div>
     <p><b>1.</b> Separate his <em>specific claims</em> (what he says the systems will be able to do; what he says the companies lack) from the <em>headline</em> ("could kill us all"). Write both down. Which is easier to argue about? Which is easier to check?</p>
     <p><b>2.</b> Who benefits if he's right? Who benefits if he's wrong? Include his former employer on both lists, and notice that it appears on both.</p>
-    <p><b>3.</b> Now the four questions from Chapter 1, run on "a system that improves itself": what kind of AI is it, where is the human, who's accountable, who finds out when it fails? Rough answers. Keep them; Chapter 12 asks you to answer again with eleven weeks of evidence.</p>
+    <p><b>3.</b> Now the five questions from Chapter 1, run on "a system that improves itself": what is it, why does it exist and who benefits, what happens when it fails and who finds out, who's saying so, and keep, fix, or drop? Rough answers. Keep them; Chapter 12 asks you to answer again with eleven weeks of evidence.</p>
     <p>Report back one sentence per group: the single thing you'd need to see. That list goes on the board and stays there all quarter.</p>
   </div>
 </section>
@@ -355,8 +404,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
-  <div class="shead"><span class="num">5</span><h2>Take one apart: the five parts, then the four questions</h2></div>
-  <p>Every claim you just judged is a headline sitting on top of a system, and every system in this course has the same five parts: <strong>data</strong> it learned from, a <strong>model</strong> that found the pattern, an <strong>output</strong> somebody acts on, a <strong>feedback loop</strong> that turns today's outputs into tomorrow's data, and the <strong>humans</strong> who built it, deploy it, and live with it. You already met all five in the warm-up: your drawings were the data, the heat map was the model, the guess was the output, and you were the humans. There was no feedback loop, which is why it never got better on its own.</p>
+  <div class="shead"><span class="num">5</span><h2>Take one apart: the five parts, then the five questions</h2></div>
+  <p>Every claim you just judged is a headline sitting on top of a system, and every system in this course has the same five parts: <strong>data</strong> it learned from, a <strong>model</strong> that found the pattern, an <strong>output</strong> somebody acts on, a <strong>feedback loop</strong> that turns today's outputs into tomorrow's data, and the <strong>humans</strong> who built it, deploy it, and live with it. You already met all five in the warm-up: your drawings were the data, the heat map was the model, the guess was the output, and you were the humans. There was no feedback loop, which is why it never got better on its own. Step two of the chapter, AlphaGo, is what happens when you add one.</p>
   <div class="tool">
     <div class="label">Five parts · pick one claim from section 1</div>
     <p>Choose any of the seven claims and name its five parts, one line each. Rough is fine. The one you can't name is usually where the problem lives.</p>
@@ -368,19 +417,20 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       <div class="step"><span class="sn">5</span><p><strong>Humans.</strong> Who built it, who bought it, who is on the receiving end, and who noticed when it went wrong?</p></div>
     </div>
   </div>
-  <p>Now the four questions. They're the same five parts, asked from the outside. Run them on <em>your own hesitation pick</em> from the hub. First attempt, no grade, rough answers welcome:</p>
+  <p>Now the five questions. They're the same five parts, asked from the outside. Run them on <em>your own hesitation pick</em> from the hub. First attempt, no grade, rough answers welcome:</p>
   <div class="fourq">
-    <div class="q"><span class="qn">1</span><p><strong>What kind of AI is this?</strong> Predictive, generative, embodied, or a chain of several? Best guess.</p></div>
-    <div class="q"><span class="qn">2</span><p><strong>Where is the human?</strong> In the workflow you picked: who checks, who approves, who just receives? If the answer is "nobody," you may have found your hesitation's name.</p></div>
-    <div class="q"><span class="qn">3</span><p><strong>Who is accountable when it fails?</strong> If this workflow produces something wrong and it ships, whose problem is it?</p></div>
-    <div class="q"><span class="qn">4</span><p><strong>What happens when it fails, and who finds out?</strong> Would anyone even notice? How long would it take?</p></div>
+    <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> The workflow you picked from the hub: name the AI inside it, its maker, and its kind. If you can't tell which kind, that's your first finding.</p></div>
+    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> What is this workflow built to save or produce, and for whom? Name the person who wins if it works, and the person who's just supposed to accept the output.</p></div>
+    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> If it produces something wrong and it ships, would anyone notice? How long would it take, and whose problem would it be when they did?</p></div>
+    <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> The hub post says the workflow works. Who wrote that, what do they gain from your believing it, and what would you need to see to check?</p></div>
+    <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Keep it, fix it, or drop it. Name one fix you'd require before using it, and what that fix costs the person running it.</p></div>
   </div>
 </section>
 
 <section>
   <div class="shead"><span class="num">6</span><h2>The writeup</h2></div>
   <div class="ticket">
-    <div class="label">Due Friday afternoon · post to Canvas</div>
+    <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
     <ol>
       <li><strong>The baseline.</strong> Your two screenshots: the network's map from the warm-up, and your seven-claim score. Which claims did you doubt, and what did the network get wrong? This gets re-read in the finals session; write one sentence to your future self about which claim you most want to understand by then.</li>
       <li><strong>The picks.</strong> Your two hub workflows, the one you'd use and the one that made you hesitate, each in one sentence.</li>
@@ -589,6 +639,46 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   $('tis-a').addEventListener('input',function(){$('tis-add-a').textContent='Save as '+nameA();});
   $('tis-b').addEventListener('input',function(){$('tis-add-b').textContent='Save as '+nameB();});
   drawPad(); counts();
+})();
+</script>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  if(!$('mn')) return;
+  var LINES=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+  var boxes={}, board, hist, over, human=true, rec={g:0,w:0,d:0,l:0}, strip=[];
+  var INIT=[4,3,2,1];
+  function key(b){return b.join('');}
+  function xCount(b){return b.filter(function(c){return c==='X';}).length;}
+  function getBox(b){var k=key(b); if(!boxes[k]){var n=INIT[Math.min(xCount(b),3)]; boxes[k]=b.map(function(c){return c===''?n:0;});} return boxes[k];}
+  function winner(b){for(var i=0;i<LINES.length;i++){var L=LINES[i]; if(b[L[0]]&&b[L[0]]===b[L[1]]&&b[L[1]]===b[L[2]])return b[L[0]];} return b.indexOf('')<0?'draw':null;}
+  function menaceMove(b){var box=getBox(b); var tot=box.reduce(function(a,c){return a+c;},0);
+    if(tot===0){var n=INIT[Math.min(xCount(b),3)]; b.forEach(function(c,i){box[i]=c===''?n:0;}); tot=box.reduce(function(a,c){return a+c;},0);}
+    var r=Math.random()*tot; for(var i=0;i<9;i++){r-=box[i]; if(r<0)return i;} return b.indexOf('');}
+  function learn(result){hist.forEach(function(h){var box=boxes[h.k]; if(result==='X')box[h.m]+=3; else if(result==='draw')box[h.m]+=1; else box[h.m]=Math.max(0,box[h.m]-1);});}
+  function careful(b){ // win if possible, block if possible, else random
+    var me='O',you='X'; function tryFor(p){for(var i=0;i<LINES.length;i++){var L=LINES[i],vals=L.map(function(j){return b[j];}); if(vals.filter(function(v){return v===p;}).length===2&&vals.indexOf('')>=0)return L[vals.indexOf('')];} return -1;}
+    var w=tryFor(me); if(w>=0)return w; var bl=tryFor(you); if(bl>=0)return bl; var e=[]; b.forEach(function(c,i){if(c==='')e.push(i);}); return e[Math.floor(Math.random()*e.length)];}
+  function randomMove(b){var e=[]; b.forEach(function(c,i){if(c==='')e.push(i);}); return e[Math.floor(Math.random()*e.length)];}
+  function record(result){rec.g++; if(result==='X')rec.w++; else if(result==='draw')rec.d++; else rec.l++; strip.push(result==='X'?'w':result==='draw'?'d':'l'); if(strip.length>20)strip.shift();
+    $('mn-score').textContent='Games '+rec.g+' · it won '+rec.w+' · drew '+rec.d+' · lost '+rec.l;
+    $('mn-strip').innerHTML=strip.map(function(x){return '<span class="'+x+'"></span>';}).join('');}
+  function playAuto(opp,n){for(var g=0;g<n;g++){var b=['','','','','','','','',''],h=[],res=null; while(!(res=winner(b))){var box=getBox(b),m=menaceMove(b); h.push({k:key(b),m:m}); b[m]='X'; if((res=winner(b)))break; var o=opp(b); b[o]='O';} hist=h; learn(res); record(res);} newGame();}
+  function render(){var el=$('mn-board'); el.innerHTML=''; var box=over?null:getBox(board);
+    board.forEach(function(c,i){var btn=document.createElement('button'); btn.type='button'; btn.className='mn-cell'+(c==='X'?' x':c==='O'?' o':''); btn.setAttribute('role','gridcell'); btn.setAttribute('aria-label','Square '+(i+1)+(c?': '+c:': empty'));
+      btn.textContent=c; if(c||over||!human)btn.disabled=true;
+      if(!c&&!over&&box){var bd=document.createElement('span'); bd.className='bd'; bd.textContent=box[i]; btn.appendChild(bd);}
+      btn.addEventListener('click',function(){humanMove(i);}); el.appendChild(btn);});}
+  function finish(res){over=true; learn(res); record(res); render();
+    $('mn-msg').textContent=res==='X'?'It won. Every move it made just gained three beads.':res==='draw'?'A draw. Its moves each gained one bead.':'You won. Every move it made just lost a bead. Press New game and beat it again.';}
+  function menaceTurn(){var m=menaceMove(board); hist.push({k:key(board),m:m}); board[m]='X'; var res=winner(board); if(res){finish(res);return;} human=true; render(); $('mn-msg').textContent='Your move. The numbers are the beads for each of its possible replies from here.';}
+  function humanMove(i){if(over||!human||board[i])return; board[i]='O'; human=false; var res=winner(board); if(res){finish(res);return;} render(); setTimeout(menaceTurn,250);}
+  function newGame(){board=['','','','','','','','','']; hist=[]; over=false; human=false; render(); $('mn-msg').textContent='It goes first.'; setTimeout(menaceTurn,200);}
+  $('mn-new').addEventListener('click',newGame);
+  $('mn-reset').addEventListener('click',function(){boxes={}; rec={g:0,w:0,d:0,l:0}; strip=[]; $('mn-score').textContent='Games 0 · it won 0 · drew 0 · lost 0'; $('mn-strip').innerHTML=''; $('mn-note').textContent='All beads reset. It knows nothing again.'; newGame();});
+  $('mn-rand').addEventListener('click',function(){playAuto(randomMove,300); $('mn-note').textContent='Practiced 300 games against a player who moves at random.';});
+  $('mn-block').addEventListener('click',function(){playAuto(careful,300); $('mn-note').textContent='Practiced 300 games against a player who takes wins and blocks yours.';});
+  newGame();
 })();
 </script>
 </body>
