@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab 1 · Opening Positions — Intro to AI in Business | MIS 201</title>
+<title>Lab 1 · First Contact — Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -238,7 +238,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </div></div>
       <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddl" data-dd="ddl">Labs<span class="caret" aria-hidden="true">▾</span></button>
 <div class="dd-menu" id="ddl">
-<a href="chapter-01-what-is-ai-lab.html" class="current" aria-current="page"><span class="lbl">Lab 1 · Week 1</span>Opening Positions</a>
+<a href="chapter-01-what-is-ai-lab.html" class="current" aria-current="page"><span class="lbl">Lab 1 · Week 1</span>First Contact</a>
 <a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 2</span>The Seeming Test</a>
 <a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 3</span>Inside the Graph</a>
 <a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 4</span>The Footprint Machine</a>
@@ -249,7 +249,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <a href="chapter-08-markets-lab.html"><span class="lbl">Lab 8 · Week 9</span>Run the Firm</a>
 <a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 11 · take-home</span>The Phantom Docket</a>
 <a href="chapter-11-work-lab.html"><span class="lbl">Lab 11 · Decide project method</span>The Exposure Audit</a>
-<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 11 · capstone</span>Opening Positions, Reversed</a>
+<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 11 · capstone</span>First Contact, Revisited</a>
 </div></div>
     </div>
   </div>
@@ -258,20 +258,27 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <header class="masthead">
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 1 · Week 1, in class</div>
-    <h1>Opening <b>Positions</b></h1>
-    <p class="kicker">First you teach a tiny neural network to see, with your own drawings. Then seven claims about the world you're already living in: call each one true or false on instinct and record what your gut says before the evidence arrives. Screenshot the network's map and your seven-claim score before you leave. The finals session asks whether the same claims still surprise you, and the distance between your two answers is the course, measured.</p>
-    <p class="factline">One network you trained · seven claims · one baseline reading of your instincts</p>
+    <h1>First <b>Contact</b></h1>
+    <p class="kicker">Two AIs you train yourself, in miniature: one that learns to see from your drawings, like ImageNet, and one that learns to play tic-tac-toe by playing itself, like AlphaGo. Then seven claims about the world you're already living in, called true or false on instinct before the evidence arrives, and the main case from Chapter 1 run through the five critical AI questions in the room. In the last week of the course, Lab 12 asks whether the same claims still surprise you; the distance between your two answers is the course, measured.</p>
+    <p class="factline">Two AIs you trained · seven claims · one case · your first reading of your own instincts</p>
   </div>
 </header>
 
 <main class="wrap">
 
 <section id="warmup">
-  <div class="shead"><span class="num">0</span><h2>Warm-up · Teach it to see</h2></div>
-  <p class="lead">Before the claims, five minutes with a real (tiny) neural network: Chapter 1's step one, ImageNet, in miniature. Your drawings are the labeled data; the heat map is the model. It runs entirely on your laptop, learns only from what you draw, and forgets everything when you reload. Draw five of one thing and five of another, press <strong>Train</strong>, and then test it. Rough is fine; precision is what the next ten weeks are for.</p>
+  <div class="shead"><span class="num">1</span><h2>Train an AI to see (ImageNet, in miniature)</h2></div>
+  <p class="lead">In Chapter 1 you read how ImageNet trained a neural network to see: millions of photos, each labeled by a person, and a network that found the pattern. Now do it yourself, in miniature. Below is a real, tiny neural network that runs entirely on your laptop. Your drawings are the labeled photos. The colored grid on the right shows what the AI has learned from them: which parts of the drawing pad it has decided point to a smiley and which point to a house. That grid is the whole model. It learns only from what you draw, and forgets everything when you reload. Read the four steps, then do them in the simulator below. Rough is fine; precision is what the next ten weeks are for.</p>
+
+  <div class="steps">
+    <div class="step"><span class="sn">1</span><p><strong>Teach it.</strong> Draw a smiley with your mouse or finger and press "Save as Smiley." Do that three times, a little different each time. Then draw a house and press "Save as House." Three of those too. Now press <strong>Train the model</strong> and watch the grid on the right fill in: pink where it learned "smiley," dark where it learned "house." That grid is everything the AI knows.</p></div>
+    <div class="step"><span class="sn">2</span><p><strong>Test it.</strong> Draw a new smiley and press "Guess what's on the pad." Then clear the pad, draw a new house, and press Guess again. It should get both, from a few seconds of training on your six drawings.</p></div>
+    <div class="step"><span class="sn">3</span><p><strong>Break it.</strong> Draw a triangle, or a letter, or nothing at all, and press Guess. It has never seen these. Watch the confidence anyway. It has no "I don't know." It only has Smiley and House, because those are the only examples that were in the data.</p></div>
+    <div class="step"><span class="sn">4</span><p><strong>Bias it.</strong> Press "Start over." Save three smileys but only one house, drawn in a corner of the pad. Train the model. Test a house drawn somewhere else. Now you've seen what "the training data had a shape" means, and you'll meet it again in Chapter 3 and Chapter 6.</p></div>
+  </div>
 
   <div class="tool" id="tis">
-    <div class="label">Simulator 0 · a neural network that learns from your drawings</div>
+    <div class="label">Mini-ImageNet · a neural network that learns from your drawings</div>
     <div class="tis-grid">
       <div>
         <div class="tis-classes">
@@ -284,17 +291,17 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
           <button class="chip" type="button" id="tis-add-b">Save as B</button>
           <button class="chip" type="button" id="tis-clear">Clear pad</button>
         </div>
-        <p class="tis-counts" id="tis-counts" aria-live="polite">Saved: 0 of A · 0 of B. Need at least 3 each to train.</p>
+        <p class="tis-counts" id="tis-counts" aria-live="polite">Saved: 0 of Smiley · 0 of House. Need at least 3 each to train.</p>
         <div class="chips tis-actions">
-          <button class="btn" type="button" id="tis-train" disabled>Train</button>
+          <button class="btn" type="button" id="tis-train" disabled>Train the model</button>
           <button class="btn" type="button" id="tis-guess" disabled>Guess what's on the pad</button>
           <button class="chip" type="button" id="tis-reset">Start over</button>
         </div>
       </div>
       <div>
-        <div class="label">What it has learned</div>
+        <div class="label">What mini-ImageNet has learned</div>
         <canvas id="tis-weights" width="252" height="252" aria-label="Heat map of learned weights: pink cells push toward A, dark cells push toward B." role="img"></canvas>
-        <p class="tis-note" id="tis-wnote">Nothing yet. This map shows which cells of the pad the network has decided matter, and for which side. It's all the network knows.</p>
+        <p class="tis-note" id="tis-wnote">Nothing yet. This grid shows which parts of the pad mini-ImageNet has decided point to a smiley and which to a house. It's all it knows.</p>
       </div>
     </div>
     <div class="verdict" id="tis-verdict" aria-live="polite" hidden>
@@ -306,19 +313,22 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       <p id="tis-vtext"></p>
     </div>
   </div>
+  <p>Remember one thing it got wrong; the writeup asks for it. Everything in this warm-up is the same machine, scaled up a billion times, that reads résumés and drives cars. The difference is only in what it was shown.</p>
+
+</section>
+
+<section id="menace">
+  <div class="shead"><span class="num">2</span><h2>Train an AI to play (AlphaGo, in miniature)</h2></div>
+  <p class="lead">You also read how AlphaGo trained itself to play Go by playing millions of games against itself, learning from every win and loss until it beat the best human alive. Now train a tic-tac-toe AI the same way, and see whether it can beat you. It takes five minutes. Read the three steps, then play. In 1961 Donald Michie, who had no computer, built a tic-tac-toe player out of 304 matchboxes and a bag of colored beads. Each box is a board position; each bead is a move. It plays by drawing a bead at random. After each game, winning moves get more beads and losing moves lose some. That's all. Play it enough and it stops losing. This is the same machine, and it is the whole idea behind AlphaGo: an action, a result, a nudge, repeated.</p>
 
   <div class="steps">
-    <div class="step"><span class="sn">1</span><p><strong>Teach it.</strong> Draw a smiley, save it as A. Draw a house, save it as B. Five of each, a little different every time. Then Train. Watch the map on the right: that is the entire "understanding" it has, a grid of numbers about which cells matter.</p></div>
-    <div class="step"><span class="sn">2</span><p><strong>Test it.</strong> Draw a new smiley and press Guess. Then a new house. It should get most of them, from a few seconds of training on your drawings alone.</p></div>
-    <div class="step"><span class="sn">3</span><p><strong>Break it.</strong> Draw a triangle, or a letter, or nothing at all, and press Guess. It has never seen these. Watch the confidence anyway. It has no "I don't know." It only has A and B, because those are the only examples that were in the data.</p></div>
-    <div class="step"><span class="sn">4</span><p><strong>Bias it.</strong> Start over. Save five smileys but only one house, all drawn in the same corner. Train. Test a house drawn somewhere else. Now you've seen what "the training data had a shape" means, and you'll meet it again in Chapter 3 and Chapter 6.</p></div>
+    <div class="step"><span class="sn">1</span><p><strong>Beat it.</strong> Play five games. It has never played before, so it is choosing moves at random, and you should win most of them. Look at the small numbers on the empty squares before each move: those are the beads in the box for this exact position. Watch what happens to them after you win.</p></div>
+    <div class="step"><span class="sn">2</span><p><strong>Let it practice.</strong> Press "Simulate 300 games vs. a careful player." This is AlphaGo's self-play trick: the computer plays both sides, fast. That opponent blocks your wins and takes its own, which is roughly you. Now play it five more games. It should be drawing you, or beating you when you slip. Nobody told it a strategy. The beads moved.</p></div>
+    <div class="step"><span class="sn">3</span><p><strong>Give it the wrong data</strong> (if time is short, do this one at home). Press "Forget everything," then "Simulate 300 games vs. a random player" twice. Its record will look wonderful. Now play it yourself. It learned to beat a player who never blocks, so it never learned to block. Same machine, same learning rule, different data, and its confidence is exactly as high. Notice whether it beat you after practice; the writeup asks for it. You'll meet this in Chapter 3 (the record has a shape) and Chapter 6 (it learned who got hired, not who deserved it).</p></div>
   </div>
-  <p>Screenshot the map and one wrong guess; the writeup asks for it. Everything in this warm-up is the same machine, scaled up a billion times, that reads résumés and drives cars. The difference is only in what it was shown.</p>
-
-  <p class="lead" style="margin-top:34px"><strong>Part two: teach it to play.</strong> That was step one of the chapter, learning to see. Now step two, learning to act. In 1961 Donald Michie, who had no computer, built a tic-tac-toe player out of 304 matchboxes and a bag of colored beads. Each box is a board position; each bead is a move. It plays by drawing a bead at random. After each game, winning moves get more beads and losing moves lose some. That's all. Play it enough and it stops losing. This is the same machine, and it is the whole idea behind AlphaGo: an action, a result, a nudge, repeated.</p>
 
   <div class="tool" id="mn">
-    <div class="label">Simulator 0b · MENACE, the matchbox tic-tac-toe player · it plays X and goes first</div>
+    <div class="label">Mini-AlphaGo · a matchbox tic-tac-toe player (MENACE, 1961) · it plays X and goes first</div>
     <div class="mn-grid">
       <div>
         <div class="mn-board" id="mn-board" role="grid" aria-label="Tic-tac-toe board. You are O."></div>
@@ -329,29 +339,23 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
         </div>
       </div>
       <div>
-        <div class="label">Its record</div>
-        <p class="tis-counts" id="mn-score">Games 0 · it won 0 · drew 0 · lost 0</p>
+        <div class="label">Mini-AlphaGo's record</div>
+        <p class="tis-counts" id="mn-score">Games 0 · Mini-AlphaGo won 0 · draws 0 · human won 0</p>
         <div class="mn-strip" id="mn-strip" aria-label="Last twenty results"></div>
-        <div class="label" style="margin-top:16px">Let it practice</div>
+        <div class="label" style="margin-top:16px">Let it practice (simulated games, played in a second)</div>
         <div class="chips">
-          <button class="chip" type="button" id="mn-rand">300 games against a random player</button>
-          <button class="chip" type="button" id="mn-block">300 games against a careful player</button>
+          <button class="chip" type="button" id="mn-rand">Simulate 300 games vs. a random player</button>
+          <button class="chip" type="button" id="mn-block">Simulate 300 games vs. a careful player</button>
         </div>
-        <p class="tis-note" id="mn-note">Practice games count in the record too. Watch the strip change color.</p>
+        <p class="tis-note" id="mn-note">These are simulations: the computer plays both sides, 300 games in about a second, the way AlphaGo played itself millions of times. They count in the record too. Pink is a Mini-AlphaGo win, gray a draw, black a human win.</p>
       </div>
     </div>
   </div>
-
-  <div class="steps">
-    <div class="step"><span class="sn">1</span><p><strong>Beat it.</strong> Play five games. It has never played before, so it is choosing moves at random, and you should win most of them. Look at the small numbers on the empty squares before each move: those are the beads in the box for this exact position. Watch what happens to them after you win.</p></div>
-    <div class="step"><span class="sn">2</span><p><strong>Let it practice.</strong> Press "300 games against a careful player." That opponent blocks your wins and takes its own, which is roughly you. Now play it five more games. It should be drawing you, or beating you when you slip. Nobody told it a strategy. The beads moved.</p></div>
-    <div class="step"><span class="sn">3</span><p><strong>Give it the wrong data.</strong> Press "Forget everything," then "300 games against a random player" twice. Its record will look wonderful. Now play it yourself. It learned to beat a player who never blocks, so it never learned to block. Same machine, same learning rule, different data, and its confidence is exactly as high. Screenshot the record and the game you won; the writeup asks for it. You'll meet this in Chapter 3 (the record has a shape) and Chapter 6 (it learned who got hired, not who deserved it).</p></div>
-  </div>
-  <p>Two warm-ups, two of the chapter's five steps: the first machine learned to see from what you showed it, the second learned to act from what happened to it. Neither one understands anything. Both of them work.</p>
+  <p>Two AIs, two of the chapter's moments: the first learned to see from what you showed it, like ImageNet; the second learned to act from what happened to it, like AlphaGo. Neither one understands anything. Both of them work.</p>
 </section>
 
 <section>
-  <div class="shead"><span class="num">1</span><h2>True or false: seven things AI is already doing</h2></div>
+  <div class="shead"><span class="num">3</span><h2>True or false: seven things AI is already doing</h2></div>
   <p class="lead">Work alone for this part. No searching, no talking, no hedging. Read each claim, mark it <strong>True</strong> or <strong>False</strong>, and move on. When all seven are marked, the reveal button unlocks. Don't press it yet.</p>
 
   <div class="tool">
@@ -368,7 +372,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
-  <div class="shead"><span class="num">2</span><h2>Talk it out</h2></div>
+  <div class="shead"><span class="num">4</span><h2>Talk it out</h2></div>
   <p>Now pair up with the person next to you. Compare your seven answers without changing them. Then join another pair to make a group of four and work through three questions:</p>
   <div class="callout">
     <div class="label">Groups of four · six minutes · before the reveal</div>
@@ -380,22 +384,21 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
-  <div class="shead"><span class="num">3</span><h2>The headline · Day 1 discussion</h2></div>
-  <p>Claim 3 gets its own conversation, because it happened the week this course began, and Chapter 1 closes on it. A researcher who spent three years training frontier models at OpenAI and Anthropic publicly quit, saying the companies believe the technology could kill everyone by the end of the decade and are racing anyway. A senior colleague agreed in public. Critics said it was hype dressed as warning. (Chapter 1 has the details and the links.)</p>
+  <div class="shead"><span class="num">5</span><h2>The main case, in the room</h2></div>
+  <p class="lead">Claim 3, the researcher who quit Anthropic saying AI could kill everyone, is the main case in Chapter 1. If you haven't seen the CBS interview with Anthropic's CEO, it's embedded in the chapter's section 3; it's five minutes. Then, in groups of four, three questions. Rough answers; keep them, because Chapter 12 asks you to answer again with eleven weeks of evidence.</p>
   <div class="callout">
-    <div class="label">Same groups of four · eight minutes · no verdicts allowed</div>
-    <p><b>1.</b> Separate his <em>specific claims</em> (what he says the systems will be able to do; what he says the companies lack) from the <em>headline</em> ("could kill us all"). Write both down. Which is easier to argue about? Which is easier to check?</p>
-    <p><b>2.</b> Who benefits if he's right? Who benefits if he's wrong? Include his former employer on both lists, and notice that it appears on both.</p>
-    <p><b>3.</b> Now the five questions from Chapter 1, run on "a system that improves itself": what is it, why does it exist and who benefits, what happens when it fails and who finds out, who's saying so, and keep, fix, or drop? Rough answers. Keep them; Chapter 12 asks you to answer again with eleven weeks of evidence.</p>
-    <p>Report back one sentence per group: the single thing you'd need to see. That list goes on the board and stays there all quarter.</p>
+    <div class="label">Groups of four · fifteen minutes</div>
+    <p><b>1. Regulation.</b> The case lists six things a government could actually write down: report incidents, test with someone watching, let an outsider check, track the big computers, decide who's liable, pause. Pick the one your group would pass first. Say what it costs, who pays, and who would fight it.</p>
+    <p><b>2. "Winning the AI race."</b> Some government leaders say we can't regulate because we have to win the race. Your group's job: say what winning would actually look like, in one sentence specific enough to be wrong. If you can't, say what that tells you about the phrase.</p>
+    <p><b>3. Critical AI.</b> Three people said three different things about the same event: "the AI went rogue," "we need to slow down," and "the fears are exaggerated." Each group takes one. Who is saying it, what do they gain if you believe it, and what would you need to see by December to know if it's true?</p>
   </div>
 </section>
 
 <section>
-  <div class="shead"><span class="num">4</span><h2>Go hunting</h2></div>
-  <p>Now the live half. The claims above are the world at course-scale; this part is the world at <em>your</em> scale: what people are actually building with AI, this week, for real work.</p>
+  <div class="shead"><span class="num">6</span><h2>Explore the AI Workflow Hub</h2></div>
+  <p>Now the live half, and Question 1 in the wild: name a real AI system and say what it does. The claims above are the world at course-scale; this part is the world at <em>your</em> scale: what people are actually building with AI, this week, for real work.</p>
   <div class="callout">
-    <div class="label">The hunt · about 10 minutes</div>
+    <div class="label">The Hub · about 10 minutes</div>
     <p>Open the <a class="inline" href="https://app.therundown.ai/community" target="_blank" rel="noopener">Rundown AI Workflow Hub</a>, a live feed of AI workflows real people use for real jobs. Browse until you find <b>two</b>:</p>
     <p><b>One you'd actually use.</b> Not "cool." <i>Use</i>. For your classes, your job, your side hustle, this week.</p>
     <p><b>One that made you hesitate.</b> Something in it felt off; you may not have words for why yet. That hesitation is data. Keep it.</p>
@@ -404,38 +407,19 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
-  <div class="shead"><span class="num">5</span><h2>Take one apart: the five parts, then the five questions</h2></div>
-  <p>Every claim you just judged is a headline sitting on top of a system, and every system in this course has the same five parts: <strong>data</strong> it learned from, a <strong>model</strong> that found the pattern, an <strong>output</strong> somebody acts on, a <strong>feedback loop</strong> that turns today's outputs into tomorrow's data, and the <strong>humans</strong> who built it, deploy it, and live with it. You already met all five in the warm-up: your drawings were the data, the heat map was the model, the guess was the output, and you were the humans. There was no feedback loop, which is why it never got better on its own. Step two of the chapter, AlphaGo, is what happens when you add one.</p>
-  <div class="tool">
-    <div class="label">Five parts · pick one claim from section 1</div>
-    <p>Choose any of the seven claims and name its five parts, one line each. Rough is fine. The one you can't name is usually where the problem lives.</p>
-    <div class="steps">
-      <div class="step"><span class="sn">1</span><p><strong>Data.</strong> What did it learn from, and who collected that?</p></div>
-      <div class="step"><span class="sn">2</span><p><strong>Model.</strong> What pattern was it looking for?</p></div>
-      <div class="step"><span class="sn">3</span><p><strong>Output.</strong> What came out, and who acted on it?</p></div>
-      <div class="step"><span class="sn">4</span><p><strong>Feedback loop.</strong> Does the output change what it learns next? Does a mistake ever come back to it?</p></div>
-      <div class="step"><span class="sn">5</span><p><strong>Humans.</strong> Who built it, who bought it, who is on the receiving end, and who noticed when it went wrong?</p></div>
-    </div>
+  <div class="shead"><span class="num">7</span><h2>The writeup (for homework)</h2></div>
+  <div class="callout">
+    <div class="label">Can you use AI on this writeup? Yes, with eyes open. Here's the line.</div>
+    <p>This is your first "when to use it, when not" decision in a course about exactly that. The rule for every lab writeup is the same. <strong>Use AI as a tutor:</strong> ask it to explain how Mini-AlphaGo learned, argue against your answer so you can sharpen it, quiz you on the seven claims, or fix your grammar and spelling. <strong>Don't use it as the author:</strong> the paragraphs are yours. If a chatbot wrote your baseline, your case answer, or the sentence to your future self, then it did the assignment and you didn't, and the point of the writeup, which is to find out what <em>you</em> think, is gone. The test is the calculator test: if the tool does the thing the assignment exists to teach, it isn't allowed on that part.</p>
+    <p>One more thing, and it's the same rule this book follows: <strong>say so.</strong> At the bottom of your writeup, one line: which tool, if any, and what you used it for. "None" is a fine answer. So is "Claude explained how the tic-tac-toe AI learned; the writing is mine." What isn't fine is silence about it. The book discloses its own AI use on page one; you're held to the same standard.</p>
   </div>
-  <p>Now the five questions. They're the same five parts, asked from the outside. Run them on <em>your own hesitation pick</em> from the hub. First attempt, no grade, rough answers welcome:</p>
-  <div class="fourq">
-    <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> The workflow you picked from the hub: name the AI inside it, its maker, and its kind. If you can't tell which kind, that's your first finding.</p></div>
-    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> What is this workflow built to save or produce, and for whom? Name the person who wins if it works, and the person who's just supposed to accept the output.</p></div>
-    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> If it produces something wrong and it ships, would anyone notice? How long would it take, and whose problem would it be when they did?</p></div>
-    <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> The hub post says the workflow works. Who wrote that, what do they gain from your believing it, and what would you need to see to check?</p></div>
-    <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Keep it, fix it, or drop it. Name one fix you'd require before using it, and what that fix costs the person running it.</p></div>
-  </div>
-</section>
-
-<section>
-  <div class="shead"><span class="num">6</span><h2>The writeup</h2></div>
   <div class="ticket">
     <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
     <ol>
-      <li><strong>The baseline.</strong> Your two screenshots: the network's map from the warm-up, and your seven-claim score. Which claims did you doubt, and what did the network get wrong? This gets re-read in the finals session; write one sentence to your future self about which claim you most want to understand by then.</li>
+      <li><strong>The baseline.</strong> A short paragraph on what you saw in class: what Mini-ImageNet got right and wrong and why, whether Mini-AlphaGo beat you after practice, and how your true/false answers held up against the reveal. Which claims did you doubt? This gets re-read in the last week of the course, so end with one sentence to your future self: which claim do you most want to understand by then?</li>
       <li><strong>The picks.</strong> Your two hub workflows, the one you'd use and the one that made you hesitate, each in one sentence.</li>
       <li><strong>The hesitation, named.</strong> Your best attempt at saying <em>why</em> the second one made you pause. Rough is fine; precision is what the next ten weeks are for.</li>
-      <li><strong>Taken apart.</strong> The claim you chose and its five parts, then your four-question answers on your hesitation pick, from section 5.</li>
+      <li><strong>The case.</strong> Your group's answer to one of the three questions in section 5, in your own words.</li>
       <li><strong>Your move.</strong> One question about AI you want answered by December, specific enough that you'll know if it happened. That's your first commitment card, and the course's promise runs the other way too: check the week tags on the reveal. It's probably on the syllabus.</li>
     </ol>
   </div>
@@ -468,7 +452,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
      why:'<a href=\"https://www.foley.com/en/insights/publications/2023/08/eeoc-ai-based-hiring-practices-landmark-settlement\" target=\"_blank\" rel=\"noopener\">iTutorGroup settled with the EEOC</a> for $365,000 in 2023, the first US settlement over AI hiring. More than 200 applicants were screened out; the company denied wrongdoing. Week 6 asks who else is in the rejected pile that nobody checks.'},
     {week:'Week 9 \u00b7 Ethics &amp; War', side:'concern',
      text:'In September 2026, a researcher who had trained AI models at OpenAI and Anthropic quit his job, giving up his unvested stock, and said the people building the most advanced AI believe it could kill everyone within a decade. A second researcher at the company publicly agreed.',
-     why:'<a href=\"https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/\" target=\"_blank\" rel=\"noopener\">Jacob Coxon, September 8, 2026</a>. Critics called it hype dressed as warning within hours. Both can be true; section 3 is where we work on it. Four days later both companies\u2019 CEOs called for slowing down, after their own test agents reached outside systems (NPR, September 12). (As of September 14, 2026. This one will move.)'},
+     why:'<a href=\"https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/\" target=\"_blank\" rel=\"noopener\">Jacob Coxon, September 8, 2026</a>. Critics called it hype dressed as warning within hours. Both can be true; section 5 is where we work on it. Four days later both companies\u2019 CEOs called for slowing down, after their own test agents reached outside systems (NPR, September 12). (As of September 14, 2026. This one will move.)'},
     {week:'Week 7 \u00b7 Transportation', side:'good',
      text:'After reading a driverless-car company\u2019s 100-million-mile crash data, a trauma neurosurgeon told NPR that self-driving cars could remove car crashes from the list of leading causes of death in America.',
      why:'<a href=\"https://www.npr.org/transcripts/nx-s1-5634879\" target=\"_blank\" rel=\"noopener\">Dr. Jonathan Slotkin, December 2025</a>, reading Waymo\u2019s own published numbers: more than 90 percent fewer of the worst crash types. The numbers are the company\u2019s, which is the catch. Week 7 puts you on the city council that decides whether to believe them.'},
@@ -633,7 +617,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   $('tis-clear').addEventListener('click',clearPad);
   $('tis-train').addEventListener('click',train);
   $('tis-guess').addEventListener('click',guess);
-  $('tis-reset').addEventListener('click',function(){exA=[];exB=[];W=null;b=0;trained=false;clearPad();counts();$('tis-guess').disabled=true;$('tis-verdict').hidden=true;wctx.fillStyle='#fff';wctx.fillRect(0,0,252,252);$('tis-wnote').textContent='Nothing yet. This map shows which cells of the pad the network has decided matter, and for which side. It\'s all the network knows.';});
+  $('tis-reset').addEventListener('click',function(){exA=[];exB=[];W=null;b=0;trained=false;clearPad();counts();$('tis-guess').disabled=true;$('tis-verdict').hidden=true;wctx.fillStyle='#fff';wctx.fillRect(0,0,252,252);$('tis-wnote').textContent='Nothing yet. This grid shows which parts of the pad mini-ImageNet has decided point to a smiley and which to a house. It\'s all it knows.';});
   ['tis-a','tis-b'].forEach(function(id){$(id).addEventListener('input',counts);});
   $('tis-add-a').textContent='Save as '+nameA(); $('tis-add-b').textContent='Save as '+nameB();
   $('tis-a').addEventListener('input',function(){$('tis-add-a').textContent='Save as '+nameA();});
@@ -661,7 +645,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     var w=tryFor(me); if(w>=0)return w; var bl=tryFor(you); if(bl>=0)return bl; var e=[]; b.forEach(function(c,i){if(c==='')e.push(i);}); return e[Math.floor(Math.random()*e.length)];}
   function randomMove(b){var e=[]; b.forEach(function(c,i){if(c==='')e.push(i);}); return e[Math.floor(Math.random()*e.length)];}
   function record(result){rec.g++; if(result==='X')rec.w++; else if(result==='draw')rec.d++; else rec.l++; strip.push(result==='X'?'w':result==='draw'?'d':'l'); if(strip.length>20)strip.shift();
-    $('mn-score').textContent='Games '+rec.g+' · it won '+rec.w+' · drew '+rec.d+' · lost '+rec.l;
+    $('mn-score').textContent='Games '+rec.g+' · Mini-AlphaGo won '+rec.w+' · draws '+rec.d+' · human won '+rec.l;
     $('mn-strip').innerHTML=strip.map(function(x){return '<span class="'+x+'"></span>';}).join('');}
   function playAuto(opp,n){for(var g=0;g<n;g++){var b=['','','','','','','','',''],h=[],res=null; while(!(res=winner(b))){var box=getBox(b),m=menaceMove(b); h.push({k:key(b),m:m}); b[m]='X'; if((res=winner(b)))break; var o=opp(b); b[o]='O';} hist=h; learn(res); record(res);} newGame();}
   function render(){var el=$('mn-board'); el.innerHTML=''; var box=over?null:getBox(board);
@@ -670,14 +654,14 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       if(!c&&!over&&box){var bd=document.createElement('span'); bd.className='bd'; bd.textContent=box[i]; btn.appendChild(bd);}
       btn.addEventListener('click',function(){humanMove(i);}); el.appendChild(btn);});}
   function finish(res){over=true; learn(res); record(res); render();
-    $('mn-msg').textContent=res==='X'?'It won. Every move it made just gained three beads.':res==='draw'?'A draw. Its moves each gained one bead.':'You won. Every move it made just lost a bead. Press New game and beat it again.';}
+    $('mn-msg').textContent=res==='X'?'Mini-AlphaGo won. Every move it made just gained three beads.':res==='draw'?'A draw. Its moves each gained one bead.':'Human won. Every move Mini-AlphaGo made just lost a bead. Press New game and beat it again.';}
   function menaceTurn(){var m=menaceMove(board); hist.push({k:key(board),m:m}); board[m]='X'; var res=winner(board); if(res){finish(res);return;} human=true; render(); $('mn-msg').textContent='Your move. The numbers are the beads for each of its possible replies from here.';}
   function humanMove(i){if(over||!human||board[i])return; board[i]='O'; human=false; var res=winner(board); if(res){finish(res);return;} render(); setTimeout(menaceTurn,250);}
   function newGame(){board=['','','','','','','','','']; hist=[]; over=false; human=false; render(); $('mn-msg').textContent='It goes first.'; setTimeout(menaceTurn,200);}
   $('mn-new').addEventListener('click',newGame);
-  $('mn-reset').addEventListener('click',function(){boxes={}; rec={g:0,w:0,d:0,l:0}; strip=[]; $('mn-score').textContent='Games 0 · it won 0 · drew 0 · lost 0'; $('mn-strip').innerHTML=''; $('mn-note').textContent='All beads reset. It knows nothing again.'; newGame();});
-  $('mn-rand').addEventListener('click',function(){playAuto(randomMove,300); $('mn-note').textContent='Practiced 300 games against a player who moves at random.';});
-  $('mn-block').addEventListener('click',function(){playAuto(careful,300); $('mn-note').textContent='Practiced 300 games against a player who takes wins and blocks yours.';});
+  $('mn-reset').addEventListener('click',function(){boxes={}; rec={g:0,w:0,d:0,l:0}; strip=[]; $('mn-score').textContent='Games 0 · Mini-AlphaGo won 0 · draws 0 · human won 0'; $('mn-strip').innerHTML=''; $('mn-note').textContent='All beads reset. It knows nothing again.'; newGame();});
+  $('mn-rand').addEventListener('click',function(){playAuto(randomMove,300); $('mn-note').textContent='Simulated 300 games against a player who moves at random.';});
+  $('mn-block').addEventListener('click',function(){playAuto(careful,300); $('mn-note').textContent='Simulated 300 games against a player who takes wins and blocks yours.';});
   newGame();
 })();
 </script>
