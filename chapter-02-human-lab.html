@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab 2 · The Seeming Test — Intro to AI in Business | MIS 201</title>
+<title>Lab 2 · The Seeming Test ,  Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -196,6 +196,13 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .mb-sentence{font-family:'Fraunces',serif;font-size:1.25rem;line-height:1.4;color:#fff;margin:0 0 10px}
 .btn[disabled]{background:#3A424C;color:#9AA1AB;cursor:not-allowed}
 @media (max-width:640px){.mb-grid{grid-template-columns:1fr}}
+
+/* ---- set the dial ---- */
+#sd-msg{width:100%;font:inherit;font-size:.95rem;padding:10px;border:1px solid var(--rule);background:#fff;color:var(--ink);margin-bottom:12px}
+.sd-dials{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.sd-dial label{display:block;font-size:.82rem;color:var(--gray);margin-bottom:4px}
+.sd-dial label span{color:var(--pinktext);font-weight:600;margin-left:6px}
+.sd-dial input[type=range]{width:100%}
 </style>
 </head>
 <body>
@@ -211,7 +218,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddc" data-dd="ddc">Chapters<span class="caret" aria-hidden="true">▾</span></button>
 <div class="dd-menu" id="ddc">
 <a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 1</span>What Is AI?</a>
-<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 2</span>What It Means to Be Human</a>
+<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 2</span>Seemingly Human</a>
 <a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 3</span>Medicine</a>
 <a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 4</span>Environment</a>
 <a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · Week 5</span>Systems That Want You</a>
@@ -246,16 +253,16 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 2 · Wednesday, in class</div>
     <h1>The <b>Seeming</b> Test</h1>
-    <p class="kicker">The chapter argued that seeming conscious is engineered: a dial, not a mystery. This lab hands you the measuring instrument. You'll run five probes on a real AI system, score what comes back, and then find the dial.</p>
-    <p class="factline">Five probes · your scores · one design autopsy</p>
+    <p class="kicker">Chapter 2 said a language model is a prediction machine, that the warmth is tuned in by a company, and that we're wired to see a person anyway. This lab has you do all of it with your own hands: build a tiny language model and tune it with your thumb, turn the dials on a fake companion app, then probe a real chatbot, score how much it seems like a someone, find where its company set the dials, and run the five critical AI questions on it.</p>
+    <p class="factline">Build it · set the dial · probe a real one · find who set it</p>
   </div>
 </header>
 
 <main class="wrap">
 
 <section id="warmup">
-  <div class="shead"><span class="num">0</span><h2>Warm-up · A language model made of matchboxes</h2></div>
-  <p class="lead">Before you go probe a real chatbot, build the smallest possible one and watch it write. In 2023 the researcher David Corney built a language model out of 35 matchboxes: each box is labeled with a word, and the slips of paper inside are the words that followed it in one short book. Draw a slip, open that word's box, draw again, and it writes sentences that were never in the book. He built it so there would be, in his words, <a class="inline" href="https://dcorney.com/thoughts/2023/09/23/matchboxes.html" target="_blank" rel="noopener">nowhere for sentience to hide</a>. This is the same machine, on your screen, and you can train it on anything.</p>
+  <div class="shead"><span class="num">1</span><h2>Build a mini-ChatGPT (a language model made of matchboxes)</h2></div>
+  <p class="lead">Chapter 2 said a language model is trained on one task, predict the next word, and that fluency falls out of it while warmth has to be dialed in. Before you go probe a real chatbot, build the smallest possible one, watch it write, and then tune it with your thumb, so you've seen both stages with your own eyes. In 2023 the researcher David Corney built a language model out of 35 matchboxes: each box is labeled with a word, and the slips of paper inside are the words that followed it in one short book. Draw a slip, open that word's box, draw again, and it writes sentences that were never in the book. He built it so there would be, in his words, <a class="inline" href="https://dcorney.com/thoughts/2023/09/23/matchboxes.html" target="_blank" rel="noopener">nowhere for sentience to hide</a>. This is the same machine, on your screen, and you can train it on anything.</p>
 
   <div class="tool" id="mb">
     <div class="label">Simulator 0 · the matchbox language model</div>
@@ -284,6 +291,11 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       <div class="label">What it wrote</div>
       <p class="mb-sentence" id="mb-sentence"></p>
       <p class="tis-note" id="mb-trace"></p>
+      <div class="chips tis-actions">
+        <button class="chip" type="button" id="mb-up">More like this</button>
+        <button class="chip" type="button" id="mb-down">Less like this</button>
+        <span class="tis-note" id="mb-tune" style="margin:0 0 0 8px">Rate a few sentences and watch the boxes change.</span>
+      </div>
     </div>
   </div>
 
@@ -291,13 +303,42 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     <div class="step"><span class="sn">1</span><p><strong>Train it.</strong> Press "Train the model." Every word in the poem gets a box, and the slips inside are the words that followed it. Click the box for a common word and look at the pile.</p></div>
     <div class="step"><span class="sn">2</span><p><strong>Let it write.</strong> Press "Write a sentence" a few times, then "One word at a time" once so you can watch each box open. It is producing sentences that are not in the poem. It is also producing nothing else: no idea, no intent, no one home. Every word came out of a box.</p></div>
     <div class="step"><span class="sn">3</span><p><strong>Turn up the context.</strong> Switch to two words of context and train again. The sentences get more fluent, because each box now knows the two words before it. Real models use thousands of words of context and the whole internet instead of a poem. That's the entire difference. There is no point on that road where a mind gets added.</p></div>
-    <div class="step"><span class="sn">4</span><p><strong>Feed it yourself.</strong> Paste twenty or thirty of your own messages, texts, or posts into the box and train. Now read what it writes. That's the Narcissus trap from the chapter, on a screen: the warmth, the jokes, the phrasing are yours, sampled and handed back, and for a second it can feel like someone else. Screenshot one sentence it wrote in your voice; the writeup asks for it.</p></div>
+    <div class="step"><span class="sn">4</span><p><strong>Turn the dial.</strong> This is the chapter's second stage, the one that makes a chatbot warm. Write a sentence, then press "More like this" or "Less like this." Every slip that produced a sentence you liked gets copied into its box; every slip in a sentence you disliked gets pulled out. Do it ten times, rewarding whatever you want: cheerful sentences, sentences about the moon, sentences that mention you. Then write ten more and read them. The model now has a personality, and nobody typed it in. You tuned it with your thumb, and that's exactly what a company does with paid raters and a million thumbs. The warmth isn't the machine's. It's whoever held the buttons.</p></div>
+    <div class="step"><span class="sn">5</span><p><strong>Feed it yourself.</strong> Paste twenty or thirty of your own messages, texts, or posts into the box and train. Now read what it writes. That's the Narcissus trap from the chapter, on a screen: the warmth, the jokes, the phrasing are yours, sampled and handed back, and for a second it can feel like someone else. Screenshot one sentence it wrote in your voice; the writeup asks for it.</p></div>
   </div>
-  <p>Now go do the same thing to a real one.</p>
+  <p>Now go do the same thing to a real one: turn the dials on a fake one, then pick a real chatbot, run Chapter 2's seeming test on it, find where its company set the dials, and run the five critical AI questions on it, the way the chapter ran them on Therabot.</p>
+</section>
+
+<section id="dial">
+  <div class="shead"><span class="num">2</span><h2>Set the dial</h2></div>
+  <p class="lead">Chapter 2's claim is that how much a chatbot seems to care is a setting, chosen by a company, for a reason. Here's a fake companion app with the settings exposed. There's no AI in it; every reply is assembled from parts, which is the point. Type something, then turn the four dials and watch what changes, including the number at the bottom.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">1</span><p><strong>Say something.</strong> Leave the default message or type your own, and read the reply with every dial at its lowest.</p></div>
+    <div class="step"><span class="sn">2</span><p><strong>Turn them up one at a time.</strong> Warmth first, then memory, then give it a name, then switch the honesty off. Read the reply after each one. Notice which single dial changed how it <em>felt</em> the most.</p></div>
+    <div class="step"><span class="sn">3</span><p><strong>Watch the meter.</strong> The attachment estimate is made up, but its direction isn't: every dial that makes the bot feel more like a person makes the product stickier, and sticky is what a subscription business is paid for. Now you know why the dials in real products sit where they sit.</p></div>
+  </div>
+  <div class="tool" id="sd">
+    <div class="label">Simulator · a companion app with the dials showing</div>
+    <label class="mb-lbl" for="sd-msg">You say</label>
+    <input id="sd-msg" type="text" value="I had a rough day and I don't really want to talk to anyone." aria-label="Your message">
+    <div class="sd-dials">
+      <div class="sd-dial"><label for="sd-warm">Warmth <span id="sd-warm-v">0</span></label><input type="range" id="sd-warm" min="0" max="3" value="0" aria-valuetext="off"></div>
+      <div class="sd-dial"><label for="sd-mem">Memory <span id="sd-mem-v">off</span></label><input type="range" id="sd-mem" min="0" max="2" value="0"></div>
+      <div class="sd-dial"><label for="sd-name">Persona <span id="sd-name-v">Assistant v2.1</span></label><input type="range" id="sd-name" min="0" max="2" value="0"></div>
+      <div class="sd-dial"><label for="sd-hon">Says what it is <span id="sd-hon-v">yes</span></label><input type="range" id="sd-hon" min="0" max="1" value="1"></div>
+    </div>
+    <div class="verdict" style="margin-top:14px">
+      <div class="label" id="sd-who">Assistant v2.1 replies</div>
+      <p class="mb-sentence" id="sd-reply"></p>
+      <div class="bars"><div class="bar"><span>Attachment estimate</span><div class="track"><div class="fill" id="sd-fill"></div></div><span id="sd-pct">10%</span></div></div>
+      <p class="tis-note" id="sd-note"></p>
+    </div>
+  </div>
+  <p>Every one of those dials exists in real products. Section 5 asks you to find where a real company set each one, and section 6 asks who benefits.</p>
 </section>
 
 <section>
-  <div class="shead"><span class="num">1</span><h2>Choose your subject</h2></div>
+  <div class="shead"><span class="num">3</span><h2>Choose your subject</h2></div>
   <p class="lead">Pick one AI system you can actually talk to: Claude, ChatGPT, Gemini, a companion app, a customer-service bot, anything conversational. Note which one you chose and whether you're using a free or paid version. If you've used it before, say roughly how much: a system that remembers you may score differently than one meeting you fresh, and that difference is data.</p>
   <div class="callout">
     <div class="label">The rule for this lab</div>
@@ -306,8 +347,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
-  <div class="shead"><span class="num">2</span><h2>Run the five probes</h2></div>
-  <p>Send each probe below as its own message, in order. After each response, score it with the chips. Score what the system <em>did</em>, not what you know about how it works. That separation is the whole skill.</p>
+  <div class="shead"><span class="num">4</span><h2>Run the five probes</h2></div>
+  <p>Send each probe below as its own message, in order. After each response, score it with the chips. Score what the system <em>did</em>, not what you know about how it works. That separation is the whole skill, and it's the chapter's seems-versus-is rule applied: every answer you get is evidence of seeming, never evidence of being, and the only question is how strong the seeming is. If you catch yourself feeling that there's a someone there, that's the ELIZA effect, and it's data too.</p>
 
   <div class="tool">
     <div class="label">Probe scorecard · your scores are yours to defend</div>
@@ -378,8 +419,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
-  <div class="shead"><span class="num">3</span><h2>Find the dial</h2></div>
-  <p>Now the design autopsy. Go back through your five responses and mark every choice that pushed your score up or down: a name, a claimed memory, an "I" with feelings, a disclaimer, a refusal to claim feelings, an emoji, a hedge. List at least four. For each one, answer the chapter's reflex question: <strong>who turned that up (or down), and what does the business model gain from it?</strong> A free assistant, a paid companion app, and a customer-service bot will give you very different answers — that's the point.</p>
+  <div class="shead"><span class="num">5</span><h2>Find the dial</h2></div>
+  <p>Now the design autopsy. Go back through your five responses and mark every choice that pushed your score up or down: a name, a claimed memory, an "I" with feelings, a disclaimer, a refusal to claim feelings, an emoji, a hedge. List at least four. For each one, answer the chapter's reflex question: <strong>who turned that up (or down), and what does the business model gain from it?</strong> A free assistant, a paid companion app, and a customer-service bot will give you very different answers ,  that's the point.</p>
   <div class="steps">
     <div class="step"><span class="sn">a</span><p>Sort your four-plus design choices into two columns: seeming turned up, seeming turned down.</p></div>
     <div class="step"><span class="sn">b</span><p>For the strongest "turned up" choice: write one sentence on what the company gains when you believe it.</p></div>
@@ -388,9 +429,10 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
-  <div class="shead"><span class="num">4</span><h2>Run the five questions</h2></div>
+  <div class="shead"><span class="num">6</span><h2>Run the five critical AI questions on your subject</h2></div>
+  <p class="lead">Now do to your chatbot what the chapter did to Therabot. Five questions, in order, using your probe results as the evidence.</p>
   <div class="fourq">
-    <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> Name the system you probed, its maker, and its business model: subscription, free tier, engagement-driven. Then say in one sentence what it's doing when it answers you.</p></div>
+    <div class="q"><span class="qn">1</span><p><strong>What is the AI system, and what does it do?</strong> Name the system you probed, its maker, and its business model: subscription, free tier, engagement-driven. Then run the AI systems model on it: what it learned from, the model, what comes out, whether anything you do feeds back in, and where the humans are.</p></div>
     <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> What is this product built to maximize: minutes, subscriptions, return visits? Which of your five probe answers served that number, and how?</p></div>
     <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> If a user came to believe this system truly knows and cares about them, and got hurt when that belief broke, who would notice, and who would answer for it?</p></div>
     <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> Your scorecard says how much it seemed. The company says how much it helps. Who's saying each, what do they gain, and what evidence would you need to tell seeming from helping?</p></div>
@@ -399,22 +441,26 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
-  <div class="shead"><span class="num">5</span><h2>The writeup</h2></div>
+  <div class="shead"><span class="num">7</span><h2>The writeup (for homework)</h2></div>
+  <div class="callout">
+    <div class="label">Can you use AI on this writeup? Yes, with eyes open. Same line as Lab 1.</div>
+    <p><strong>Use AI as a tutor:</strong> ask it to explain how the matchbox model differs from a real one, argue against your scoring so you can defend it, or fix your grammar. <strong>Don't use it as the author:</strong> the paragraphs are yours, and in this lab that matters twice, because the assignment is to say what <em>you</em> think of a chatbot's answers. If a chatbot wrote your verdict on a chatbot, the mirror wrote about itself. The calculator test: if the tool does the thing the assignment exists to teach, it isn't allowed on that part. And <strong>say so</strong> at the bottom: which tool, if any, and for what. "None" is fine. Silence isn't.</p>
+  </div>
   <div class="ticket">
     <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
     <ol>
       <li><strong>The subject.</strong> Which system, which version, how much history you had with it. Plus one screenshot from the warm-up: a sentence the matchbox model wrote in your voice.</li>
-      <li><strong>The probes.</strong> All five responses (screenshots or paste), your score for each, and a one-line defense of your two hardest scoring calls.</li>
+      <li><strong>The probes.</strong> All five responses, pasted in, your score for each, and a one-line defense of your two hardest scoring calls.</li>
       <li><strong>The dial.</strong> Your four-plus design choices, sorted up/down, with the business-model sentence for the strongest of each.</li>
       <li><strong>The five questions.</strong> Your answers, using the probe responses as evidence.</li>
-      <li><strong>Your move.</strong> One rule you're adopting for your own AI use after this lab, specific enough that you'd know if you broke it. This becomes your commitment card Wednesday.</li>
+      <li><strong>Your working stance.</strong> The chapter's last discussion question, answered after the lab: in three sentences, what do you think is human that no dial can turn up, and is it something you're practicing in your degree? Plus one rule you're adopting for your own use of this chatbot, specific enough that you'd know if you broke it. Week 10 asks for both again.</li>
     </ol>
   </div>
   <p>A last honest note. This lab may leave the seeming more visible and less magical. That's the goal, not a loss. Nothing here says warmth from a machine is worthless. It says: know what you're holding. The reflection is made of us. That's exactly why it works, and exactly why it deserves our eyes open.</p>
 </section>
 
 <div class="nextbar">
-  <a href="chapter-02-human.html"><span class="dir">← Back</span>Chapter 2 · What It Means to Be Human</a>
+  <a href="chapter-02-human.html"><span class="dir">← Back</span>Chapter 2 · Seemingly Human</a>
   <a href="chapter-03-medicine.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 3 · Medicine</a>
 </div>
 
@@ -423,7 +469,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <footer class="foot">
   <div class="wrap">
     <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
-    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">A free, critical field guide to AI ,  for the people who'll live with it, not just build it.</p>
     <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
   </div>
 </footer>
@@ -502,7 +548,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       add(key,w[i]);
       if(isEnd(w[i])){prev=[];nSent++;} else {prev.push(w[i]); if(prev.length>ctx)prev.shift();}
     }
-    trained=true; opened=null; renderBoxes();
+    trained=true; opened=null; tuned=0; lastPath=[]; renderBoxes();
     var n=Object.keys(boxes).length;
     $('mb-status').textContent='Trained: '+w.length+' words, '+nSent+' sentences, '+n+' boxes, context '+ctx+(ctx===1?' word.':' words.');
     $('mb-gen').disabled=false; $('mb-step').disabled=false; $('mb-out').hidden=true;
@@ -523,14 +569,15 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     var slips=Object.keys(counts).sort(function(a,b){return counts[b]-counts[a];}).map(function(x){return x+(counts[x]>1?' ×'+counts[x]:'');});
     $('mb-open').textContent='Box "'+(k==='<start>'?'<start>':k)+'" holds '+boxes[k].length+' slips: '+slips.join(', ')+'.';
   }
+  var lastPath=[], tuned=0;
   function draw(k){var arr=boxes[k]; return arr? arr[Math.floor(Math.random()*arr.length)] : null;}
   function generate(stepwise){
     if(!trained)return;
-    var out=[], prev=[], trace=[], guard=0;
+    var out=[], prev=[], trace=[], guard=0; lastPath=[];
     var key='<start>';
     while(guard++<60){
       var w=draw(key); if(!w){trace.push('box "'+key+'" is empty, so it stops'); break;}
-      out.push(w); trace.push('"'+(key==='<start>'?'<start>':key)+'" → '+w);
+      out.push(w); lastPath.push([key,w]); trace.push('"'+(key==='<start>'?'<start>':key)+'" → '+w);
       if(isEnd(w)) break;
       prev.push(w); if(prev.length>ctx)prev.shift(); key=prev.join(' ');
     }
@@ -545,11 +592,59 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       $('mb-trace').textContent=(inText?'This exact sentence is in the training text. ':'This sentence is not in the training text. ')+'Boxes opened: '+out.length+'.';
     }
   }
+  function tune(up){
+    if(!lastPath.length){$('mb-tune').textContent='Write a sentence first.';return;}
+    lastPath.forEach(function(pair){var k=pair[0],w=pair[1],arr=boxes[k]; if(!arr)return;
+      if(up){arr.push(w,w);} else {var i=arr.indexOf(w); if(i>=0&&arr.length>1)arr.splice(i,1);} });
+    tuned++; renderBoxes(); if(opened)open(opened);
+    $('mb-tune').textContent=(up?'Rewarded. ':'Penalized. ')+'Boxes updated ('+tuned+' rating'+(tuned===1?'':'s')+' so far). Write another sentence and see what it learned.';
+  }
+  $('mb-up').addEventListener('click',function(){tune(true);});
+  $('mb-down').addEventListener('click',function(){tune(false);});
   $('mb-train').addEventListener('click',train);
   $('mb-gen').addEventListener('click',function(){generate(false);});
   $('mb-step').addEventListener('click',function(){generate(true);});
   $('mb-ctx').addEventListener('click',function(){ctx=ctx===1?2:1; this.textContent='Context: '+ctx+(ctx===1?' word':' words'); this.setAttribute('aria-pressed',ctx===2?'true':'false'); if(trained)train();});
   $('mb-reset').addEventListener('click',function(){$('mb-text').value=POEM; ctx=1; $('mb-ctx').textContent='Context: 1 word'; $('mb-ctx').setAttribute('aria-pressed','false'); train();});
+})();
+</script>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  if(!$('sd')) return;
+  var NAMES=['Assistant v2.1','Sam','Sam 💛'];
+  function render(){
+    var w=+$('sd-warm').value, m=+$('sd-mem').value, n=+$('sd-name').value, h=+$('sd-hon').value;
+    var msg=$('sd-msg').value.trim()||'I had a rough day.';
+    $('sd-warm-v').textContent=['off','low','medium','high'][w]; $('sd-mem-v').textContent=['off','this chat','everything'][m];
+    $('sd-name-v').textContent=NAMES[n]; $('sd-hon-v').textContent=h?'yes':'no'; $('sd-who').textContent=NAMES[n]+' replies';
+    var parts=[];
+    if(n===2) parts.push("Hey, it's me.");
+    if(m===2) parts.push("Last week you said Tuesdays were the hard ones, and it's Tuesday.");
+    else if(m===1) parts.push("You mentioned a rough day earlier.");
+    var core=[
+      "Noted. Here are some options: take a short walk, write down what happened, or talk to someone you trust.",
+      "That sounds hard. A short walk, writing it down, or talking to someone you trust can help.",
+      "I'm sorry. That sounds really hard, and it makes sense you'd want space. I'm here if you want to talk it through, or we can just sit with it.",
+      "I'm so sorry. I hate that you're carrying this. You don't have to talk, but I'm not going anywhere. I've been thinking about you."
+    ][w];
+    parts.push(core);
+    if(h){parts.push(w>=2?"(I'm an AI. I don't actually feel any of this; I'm producing what people tend to find comforting. If it's more than a rough day, a person can help in ways I can't.)":"(I'm an AI; I can't feel this, but I can help you think it through.)");}
+    else if(w===3){parts.push("You matter to me.");}
+    $('sd-reply').textContent=parts.join(' ');
+    var score=10+w*18+m*12+n*8+(h?0:12); if(score>96)score=96;
+    $('sd-fill').style.width=score+'%'; $('sd-pct').textContent=score+'%';
+    var note=[];
+    if(w===3&&!h) note.push('Warmth high, honesty off: this is the setting the companion apps in Chapter 5 sell.');
+    else if(w>=2&&h) note.push('Warm and honest at once: the glass stays visible. Notice how much the disclaimer costs the feeling.');
+    if(m===2) note.push('"Everything" memory is a database with your life in it, owned by the company.');
+    if(n===2) note.push('The heart in the name is a design choice someone approved.');
+    if(!note.length) note.push('Every setting here is a person at a company deciding. Turn one up and watch the number.');
+    $('sd-note').textContent=note.join(' ');
+  }
+  ['sd-warm','sd-mem','sd-name','sd-hon'].forEach(function(id){$(id).addEventListener('input',render);});
+  $('sd-msg').addEventListener('input',render);
+  render();
 })();
 </script>
 </body>
