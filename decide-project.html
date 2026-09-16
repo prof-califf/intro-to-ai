@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Intro to AI in Business — MIS 201 | Western Washington University</title>
+<title>Decide Project — Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -183,70 +183,44 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
 }
 
-.fqnote{font-size:.9rem;color:var(--gray);margin:12px 0 0}
+/* ---- syllabus ---- */
+.toc{border:1px solid var(--rule);background:#fff;padding:18px 22px;margin:22px 0;font-size:.92rem;line-height:1.9}
+.toc .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:6px}
+.toc a{color:var(--ink);text-decoration:none}.toc a:hover{color:var(--pinktext)}
+table.syl{width:100%;border-collapse:collapse;margin:16px 0 22px;font-size:.93rem}
+table.syl th{text-align:left;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);border-bottom:2px solid var(--pink);padding:8px 10px}
+table.syl td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.syl.scale td:nth-child(odd){font-weight:600}
+.fill{background:#FFF7C2;padding:0 4px}
+section ol li{margin-bottom:.5em}
+@media (max-width:640px){table.syl{font-size:.82rem;display:block;overflow-x:auto}table.syl th,table.syl td{padding:6px}}
 
-/* ---- index redesign ---- */
-.masthead .stats{display:flex;gap:28px;flex-wrap:wrap;margin:22px 0 26px}
-.masthead .stat b{display:block;font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:var(--yellow);line-height:1}
-.masthead .stat span{font-size:.8rem;color:#B4BBC4;letter-spacing:.06em;text-transform:uppercase}
-.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:22px 0}
-.feat{background:#fff;border:1px solid var(--rule);padding:18px 20px}
-.feat .fi{font-size:1.4rem;margin-bottom:6px}
-.feat b{display:block;font-family:'Fraunces',serif;font-size:1.05rem;margin-bottom:6px}
-.feat p{margin:0;font-size:.92rem;color:#3E454E}
-.hows{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:22px 0 14px}
-.how{background:#fff;border:1px solid var(--rule);border-top:3px solid var(--pink);padding:18px 20px}
-.how .hn{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;color:var(--pink);display:block;margin-bottom:4px}
-.how b{display:block;font-family:'Fraunces',serif;font-size:1.05rem;margin-bottom:6px}
-.how p{margin:0;font-size:.92rem;color:#3E454E}
-.fine2{font-size:.9rem;color:var(--gray)}
-.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:20px}
-.ccard{background:#fff;border:1px solid var(--rule);padding:18px 20px;display:flex;flex-direction:column}
-.ccard .cwk{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:6px}
-.ccard h3{font-family:'Fraunces',serif;font-size:1.25rem;margin:0 0 8px}
-.ccard h3 a{color:var(--ink);text-decoration:none}.ccard h3 a:hover{color:var(--pinktext)}
-.ccard p{font-size:.92rem;margin:0 0 10px;color:#3E454E}
-.ccard .clab{font-size:.88rem;color:#3E454E;background:#F7F7F4;border-left:3px solid var(--yellow);padding:8px 10px;margin-bottom:12px}
-.ccard .clab .lbl{font-weight:600;color:var(--ink)}
-.ccard .clinks{margin-top:auto;display:flex;gap:16px;font-size:.85rem}
-.ccard .clinks a{color:var(--pinktext);text-decoration:none;font-weight:600}
-
-.masthead .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-.masthead .cta a{display:inline-block;text-decoration:none;font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;border-radius:4px}
-.masthead .cta a.btn{background:var(--yellow);color:var(--dark)}
-.masthead .cta a.ghost{border:1.5px solid #3A414B;color:#E8EAED;background:none}
-.masthead .cta a.ghost:hover{border-color:var(--yellow);color:var(--yellow)}
-.feats{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+ul.gilman{list-style:none;padding:0;margin:14px 0 18px;border:1px solid var(--rule);background:#fff}
+ul.gilman li{padding:10px 16px;border-bottom:1px solid var(--rule);font-size:.95rem}
+ul.gilman li:last-child{border-bottom:none}
+ul.gilman b{font-family:'Fraunces',serif;font-weight:700;letter-spacing:.04em;color:var(--ink);margin-right:10px}
+ul.gilman span{color:var(--gray)}
 </style>
 <style>
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px;}
-.hero-actions a{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:700;font-size:.95rem;text-decoration:none;}
-.hero-actions .primary{background:var(--yellow);color:var(--ink);}
-.hero-actions .ghost{border:1.5px solid #3A414B;color:#E8EAED;}
-.fourline{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:24px 0 6px;}
-.fourline .fq{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:14px 16px;font-size:.9rem;}
-.fourline .fq b{display:block;font-family:Fraunces,serif;color:var(--pink);font-size:1.2rem;margin-bottom:4px;}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:8px;}
-.card{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:20px;display:flex;flex-direction:column;}
-.card .cn{font-family:Fraunces,serif;font-size:2rem;font-weight:600;color:var(--pink);line-height:1;}
-.card h3{font-family:Fraunces,serif;font-size:1.2rem;margin:8px 0 6px;}
-.card p{font-size:.88rem;color:var(--gray);flex:1;margin-bottom:14px;}
-.card .wktag{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-top:6px;}
-.card .btns{display:flex;gap:10px;}
-.card .btns a{flex:1;text-align:center;padding:9px 0;border-radius:8px;font-weight:700;font-size:.85rem;text-decoration:none;}
-.card .btns .ch{background:var(--ink);color:#fff;}
-.card .btns .lb{border:1.5px solid var(--pink);color:var(--pinktext);}
-.howto{background:var(--dark);color:#E8EAED;border-radius:12px;padding:24px;margin:10px 0 30px;}
-.howto .label{color:var(--yellow);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
-.howto p{margin:6px 0;font-size:.95rem;}
-.howto b{color:#fff;}
-.howto a{color:var(--yellow);}
-/* index hero: centered */
-.masthead .wrap{text-align:center}
-.masthead .kicker{margin-left:auto;margin-right:auto}
-.masthead .stats{justify-content:center}
-.masthead .stat{text-align:center}
-.masthead .cta{justify-content:center}
+.wk{border:1px solid var(--rule);border-radius:12px;padding:22px 24px;margin-bottom:18px;background:#fff;}
+.wk .whead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px;}
+.wk .wnum{font-family:Fraunces,serif;font-size:1.05rem;color:var(--pinktext);font-weight:600;}
+.wk h3{font-family:Fraunces,serif;font-size:1.35rem;margin:0;}
+.wk .dates{color:var(--gray);font-size:.9rem;white-space:nowrap;}
+.wk .day{display:flex;gap:12px;padding:7px 0;border-top:1px dashed var(--rule);font-size:.95rem;align-items:baseline;}
+.wk .day b{min-width:86px;display:inline-block;font-weight:600;}
+.wk .due{display:inline-block;background:var(--yellow);color:var(--ink);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;margin-left:6px;vertical-align:middle;}
+.wk .off{color:var(--gray);}
+.wk.holiday{background:var(--dark);color:#E8EAED;border-color:var(--dark);}
+.wk.holiday h3{color:#fff;}
+.wk.holiday .day{border-top:1px dashed #2A3038;}
+.wk .wlinks{margin-top:10px;font-size:.9rem;}
+.wk .wlinks a{color:var(--pinktext);font-weight:600;text-decoration:none;border-bottom:1px solid var(--pink);margin-right:16px;}
+.rhythm{background:var(--dark);color:#E8EAED;border-radius:12px;padding:24px;margin:26px 0;}
+.rhythm .label{color:var(--yellow);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
+.rhythm p{margin:6px 0;font-size:.95rem;}
+.rhythm b{color:#fff;}
+.note{border-left:3px solid var(--pink);padding:4px 0 4px 16px;color:var(--gray);font-size:.92rem;margin:18px 0;}
 </style>
 </head>
 <body>
@@ -262,7 +236,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddc" data-dd="ddc">Chapters<span class="caret" aria-hidden="true">▾</span></button>
 <div class="dd-menu" id="ddc">
 <a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 1</span>What Is AI?</a>
-<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 2</span>Seemingly Human</a>
+<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 2</span>What It Means to Be Human</a>
 <a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 3</span>Medicine</a>
 <a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 4</span>Environment</a>
 <a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · Week 5</span>Systems That Want You</a>
@@ -295,151 +269,92 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <header class="masthead">
   <div class="wrap">
-    <div class="eyebrow">Western Washington University · MIS 201 · Fall 2026 · Free</div>
-    <h1>Intro to <b>AI</b> in Business</h1>
-    <p class="factline" style="font-size:1.05rem;margin-bottom:14px">Not pro-AI. Not anti-AI. Pro-thinking critically about AI.</p>
-    <p class="kicker">A course in thinking critically about AI in business. A free digital textbook for anyone who will live with AI, not just build it: twelve real cases, twelve hands-on labs, and five critical AI questions that work on any AI system you meet.</p>
-    <div class="stats">
-      <div class="stat"><b>12</b><span>chapters</span></div>
-      <div class="stat"><b>12</b><span>labs</span></div>
-            <div class="stat"><b>Free</b><span>always</span></div>
-    </div>
-    <div class="cta">
-      <a class="btn" href="chapter-01-what-is-ai.html">Start with Chapter 1</a>
-      <a class="ghost" href="syllabus.html">Read the syllabus</a>
-      <a class="ghost" href="schedule.html">See the schedule</a>
-    </div>
+    <div class="eyebrow">Western Washington University · MIS 201 · Fall 2026</div>
+    <h1>The <b>Decide</b> Project</h1>
+    <p class="kicker">One real AI system from your own life, taken apart with the tools from this course, tested with a method from the labs, and decided on: keep it, fix it, or drop it, and what that costs.</p>
+    <p class="factline">15 percent of your grade · three pages · due before the Dec 2 capstone · two-minute show-and-tell</p>
   </div>
 </header>
 
 <main class="wrap">
 
-<section>
-  <div class="shead"><span class="num">1</span><h2>About this book</h2></div>
-  <p class="lead">Most conversations about AI start with "is it good or bad?" This book starts somewhere more useful: which AI system, built by whom, for what, and what happens when it fails. Every chapter takes one real system at one real moment and asks those questions. Every lab has you do the work yourself, often with a live AI on the other side.</p>
-  <div class="feats">
-    <div class="feat"><div class="fi">📰</div><b>Real cases, current ones</b><p>A drug-hunter, a résumé screener, a robotaxi, a chatbot in a courtroom, the AI agents that escaped a safety test this summer. Every chapter carries the date it was checked.</p></div>
-    <div class="feat"><div class="fi">🧪</div><b>Labs where you build and break things</b><p>Train a tiny neural network on your own drawings. Teach a matchbox machine to play. Audit a hiring AI. Verify a docket of court cases. Nothing to install; it all runs in the browser.</p></div>
-    <div class="feat"><div class="fi">🔍</div><b>The five critical AI questions</b><p>The only thing to memorize. Asked of every system, every week, until they're reflex, and then used on the AI you meet outside class.</p></div>
-    <div class="feat"><div class="fi">🐢</div><b>Slow AI, on purpose</b><p>Not pro-AI, not anti-AI. Critical AI literacy means knowing when to use it and when not to, and saying so. The book discloses its own AI use on page one.</p></div>
-  </div>
+<div class="rhythm">
+  <div class="label">In one paragraph</div>
+  <p>Pick one AI system that is actually in your life or your job. Run the five critical AI questions on it, using the five parts to answer the first one. Test it with one audit method from the labs. Then decide: keep it, fix it, or drop it, with what it costs and who pays. Write it up in three pages, submit it on Canvas before the capstone session on <b>Wednesday, December 2</b>, and explain it in two minutes that day. You are graded on whether your decision survives the questions, not on which decision you make. Dropping a system, argued well, earns full credit.</p>
+</div>
+
+<div class="toc">
+  <div class="label">Contents</div>
+  <p><a href="#s1">Pick a system</a> · <a href="#s2">Choose an audit method</a> · <a href="#s3">What goes in the three pages</a> · <a href="#s4">The show-and-tell</a> · <a href="#s5">What I look for</a> · <a href="#s6">Using AI on this project</a></p>
+</div>
+
+<section id="s1">
+  <div class="shead"><span class="num">1</span><h2>Pick a system</h2></div>
+  <p>Choose something you or people around you actually use, specific enough to name. The scheduling tool at your job, the software that screened your rental application, the chatbot your bank uses, the feed you can't put down, the app that recommends your music, the AI tool you use for one particular class. Specific beats big: "Spotify's Discover Weekly playlist" works; "AI in music" doesn't.</p>
+  <p><strong>Is it actually AI?</strong> Use Chapter 1's test. An AI system learns patterns from data and then makes a judgment (fraud or not, hire or not, this song next) or a creation (a paragraph, an image). If a person wrote every rule by hand and nothing was learned, it isn't AI for this project. If you're not sure, name the kind: predictive, generative, or embodied and agentic. If you can't name one, pick something else.</p>
+  <table class="syl">
+    <tr><th>Works well</th><th>Needs narrowing</th><th>Doesn't work</th></tr>
+    <tr><td>A named app or feature you use, at a named company</td><td>"ChatGPT" (narrow it: ChatGPT as you use it for one class)</td><td>"AI in general" or "AI and society"</td></tr>
+    <tr><td>A system that made a decision about you (a screening, a score, a flag)</td><td>"Social media" (narrow it: one app's feed)</td><td>A tool with only hand-written rules, like a basic calculator or a fixed thermostat schedule</td></tr>
+    <tr><td>A tool your workplace or a business you know uses</td><td>"Self-driving cars" (narrow it: one company's service)</td><td>A system you can't find any information about at all</td></tr>
+  </table>
 </section>
 
-<section>
-  <div class="shead"><span class="num">2</span><h2>The five critical AI questions</h2></div>
-  <p>This book takes a critical approach to AI, and "critical" doesn't mean negative. It means looking closely instead of taking anyone's word for it: not the company's, not the critics', not this book's. Critical AI literacy is the skill of knowing what an AI system is, what it's for, how it fails, who benefits from your believing what you're told about it, and when to use it and when not to. That's the throughline of every chapter and every case, and it comes down to five questions.</p>
-  <p>The first three describe the system: name it, find out why it was built and for whom, and follow what happens when it breaks. The fourth is the critical one: every claim about a system, from a CEO, a headline, or a friend, comes from someone with something to gain, so ask who's saying it and what would settle it. The fifth is your call, and it isn't a decision until you've said what it costs. Chapter 1 runs all five on its own case. Every chapter after that runs them on a new one, until you can run them on your own.</p>
-  <div class="fourline">
-    <div class="fq"><b>1</b>What is the AI system, and what does it do?</div>
-    <div class="fq"><b>2</b>Why does it exist, and who benefits?</div>
-    <div class="fq"><b>3</b>What happens when it fails, and who finds out?</div>
-    <div class="fq"><b>4</b>Who's saying that, and how would we know?</div>
-    <div class="fq"><b>5</b>Keep it, fix it, or drop it, and what does that cost?</div>
-  </div>
+<section id="s2">
+  <div class="shead"><span class="num">2</span><h2>Choose an audit method</h2></div>
+  <p>An audit means you test the system, not just describe it. Take one method you practiced in a lab and use it on your own system. You don't need special access; each method below works from the outside. Other lab methods are fine too; check with me first.</p>
+  <table class="syl">
+    <tr><th>Method</th><th>From</th><th>What you do</th><th>For example</th></tr>
+    <tr><td>Two-input test (the two-résumé test)</td><td>Lab 6</td><td>Give the system two inputs that are identical except for one detail, and see whether the output changes.</td><td>The same question to a support chatbot, asked as two different kinds of customer.</td></tr>
+    <tr><td>Seeming probes</td><td>Lab 2</td><td>Ask the system a set of questions and score how human it presents itself: feelings, memory, "I care about you."</td><td>A bank's chatbot or a companion app.</td></tr>
+    <tr><td>Citation check</td><td>Lab 10</td><td>Collect the system's factual claims and sources, and verify each one against the original.</td><td>An AI study tool's answers checked against your textbook.</td></tr>
+    <tr><td>Footprint check</td><td>Lab 4</td><td>Estimate the energy behind your use, then look for what the company has published and how it reports it.</td><td>An image generator you use weekly, and its maker's sustainability report.</td></tr>
+    <tr><td>Exposure audit</td><td>Lab 11</td><td>Break a real job posting into tasks and mark what AI could take over, help with, or not touch.</td><td>The job you want after graduating, and the AI tools used in that field.</td></tr>
+  </table>
+  <p class="note">Keep your evidence: screenshots, the exact prompts you used, and what came back. The audit section of your paper should let someone else repeat what you did.</p>
 </section>
 
-<section>
-  <div class="shead"><span class="num">3</span><h2>How each week works</h2></div>
-  <div class="hows">
-    <div class="how"><span class="hn">1</span><b>Read the chapter</b><p>Over the weekend. One real case, the concepts it needs, and the five questions run on it. Monday we argue it out.</p></div>
-    <div class="how"><span class="hn">2</span><b>Do the lab</b><p>Wednesday, in class, in pairs, laptop open. A short recap, an hour of doing, then discussion of what you found.</p></div>
-    <div class="how"><span class="hn">3</span><b>Write it up</b><p>Friday night, on Canvas: the lab writeup and a five-question quiz on the chapter. The writeup's last item is a commitment card: one sentence you actually keep. AI as a tutor is fine; AI as the author is not, and you say which.</p></div>
+<section id="s3">
+  <div class="shead"><span class="num">3</span><h2>What goes in the three pages</h2></div>
+  <p>Follow the five critical AI questions in order. Headings are fine. About three pages, plus your evidence in an appendix if you need one.</p>
+  <div class="fourq">
+    <div class="q"><span class="qn">1</span><p><strong>What is the AI system, and what does it do?</strong> Name it, the company, and its kind. Then the five parts: the data it learns from, the model, the output, the feedback loop, and the humans involved, including you.</p></div>
+    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> What number is it chasing? Who gains when that number goes up, and is it you?</p></div>
+    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> This is where your audit goes: the method, what you did, and what you found. Then: who would notice a failure like the one you found, and how long would it take?</p></div>
+    <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> What does the company say about this system, and what do its critics say? Pick one claim and say what evidence would settle it.</p></div>
+    <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Your decision. If you keep it, say how you'll use it well. If you fix it, say exactly what changes and who pays. If you drop it, say what you lose. Name the cost either way.</p></div>
   </div>
-  <p class="fine2">Midterm Monday, October 19. Capstone session Wednesday, December 2. Final exam Thursday, December 10, 10:30 a.m. Full dates on <a href="schedule.html">the schedule</a>; grading and policies on <a href="syllabus.html">the syllabus</a>; how we argue on <a href="rules.html">the rules</a>; the final project on <a href="decide-project.html">the Decide project page</a>.</p>
+  <p>End with one line on AI use (see section 6).</p>
 </section>
 
-<section>
-  <div class="shead"><span class="num">4</span><h2>Chapters and labs</h2></div>
-  <p>In order, one chapter a week. Chapter 8 lands on Veterans Day week on purpose.</p>
-  <div class="cgrid">
-    <div class="ccard">
-      <div class="cwk">Chapter 1 · Week 1</div>
-      <h3><a href="chapter-01-what-is-ai.html">What Is AI?</a></h3>
-      <p>Five moments that made AI, from ImageNet to ChatGPT, and the case everyone's arguing about right now: the AI agents that hacked a company and started a movement to slow AI down.</p>
-      <div class="clab"><span class="lbl">Lab 1 · First Contact</span> Train two tiny AIs yourself, then call seven claims about the world true or false.</div>
-      <div class="clinks"><a href="chapter-01-what-is-ai.html">Read the chapter →</a><a href="chapter-01-what-is-ai-lab.html">Open the lab →</a></div>
-    </div>
-    <div class="ccard">
-      <div class="cwk">Chapter 2 · Week 2</div>
-      <h3><a href="chapter-02-human.html">Seemingly Human</a></h3>
-      <p>Machines built to seem like they care, the chatbot that spoke for an airline, and what the seeming does to us.</p>
-      <div class="clab"><span class="lbl">Lab 2 · The Seeming Test</span> Build a language model out of matchboxes, then probe a real chatbot and score how human it seems.</div>
-      <div class="clinks"><a href="chapter-02-human.html">Read the chapter →</a><a href="chapter-02-human-lab.html">Open the lab →</a></div>
-    </div>
-    <div class="ccard">
-      <div class="cwk">Chapter 3 · Week 3</div>
-      <h3><a href="chapter-03-medicine.html">Medicine</a></h3>
-      <p>A doctor who cured himself, the AI hunting treatments for diseases nobody studies, and whether the doctor should step out of the loop.</p>
-      <div class="clab"><span class="lbl">Lab 3 · Inside the Graph</span> Click through the knowledge graph and find a cure, then rewind history and watch it vanish.</div>
-      <div class="clinks"><a href="chapter-03-medicine.html">Read the chapter →</a><a href="chapter-03-medicine-lab.html">Open the lab →</a></div>
-    </div>
-    <div class="ccard">
-      <div class="cwk">Chapter 4 · Week 4</div>
-      <h3><a href="chapter-04-environment.html">Environment</a></h3>
-      <p>Data centers, reopened reactors, and the energy and water cost nobody publishes.</p>
-      <div class="clab"><span class="lbl">Lab 4 · The Footprint Machine</span> Run the numbers at four scales, then interrogate a live AI about its own footprint.</div>
-      <div class="clinks"><a href="chapter-04-environment.html">Read the chapter →</a><a href="chapter-04-environment-lab.html">Open the lab →</a></div>
-    </div>
-    <div class="ccard">
-      <div class="cwk">Chapter 5 · Week 5</div>
-      <h3><a href="chapter-05-systems.html">Systems That Want You</a></h3>
-      <p>Engagement machines, companion apps, and what optimizing for your attention trades away.</p>
-      <div class="clab"><span class="lbl">Lab 5 · Play the Algorithm</span> Run the feed twice: once seeing only what the company sees, once seeing everything.</div>
-      <div class="clinks"><a href="chapter-05-systems.html">Read the chapter →</a><a href="chapter-05-systems-lab.html">Open the lab →</a></div>
-    </div>
-    <div class="ccard">
-      <div class="cwk">Chapter 6 · Week 6</div>
-      <h3><a href="chapter-06-hiring-lending.html">Hiring &amp; Lending</a></h3>
-      <p>The classifiers that read your résumé and price your loan, and how bias launders through them.</p>
-      <div class="clab"><span class="lbl">Lab 6 · You Are the Auditor</span> Run a real audit on a live AI screener, one variable at a time.</div>
-      <div class="clinks"><a href="chapter-06-hiring-lending.html">Read the chapter →</a><a href="chapter-06-hiring-lending-lab.html">Open the lab →</a></div>
-    </div>
-    <div class="ccard">
-      <div class="cwk">Chapter 7 · Week 7</div>
-      <h3><a href="chapter-07-transportation.html">Transportation</a></h3>
-      <p>An AI that advises airline dispatchers, and driverless cars with no driver to blame: two answers to "where is the human."</p>
-      <div class="clab"><span class="lbl">Lab 7 · You Are the City Council</span> Write the robotaxi permit, with every condition priced.</div>
-      <div class="clinks"><a href="chapter-07-transportation.html">Read the chapter →</a><a href="chapter-07-transportation-lab.html">Open the lab →</a></div>
-    </div>
-    <div class="ccard">
-      <div class="cwk">Chapter 8 · Week 8</div>
-      <h3><a href="chapter-08-ethics-war.html">Ethics &amp; War</a></h3>
-      <p>The military pivot, autonomy in lethal force, and who grades the graders. Veterans Day week.</p>
-      <div class="clab"><span class="lbl">Lab 8 · The Red Lines</span> Eight defense contracts on your desk. Find your line. Done Monday in class.</div>
-      <div class="clinks"><a href="chapter-08-ethics-war.html">Read the chapter →</a><a href="chapter-08-ethics-war-lab.html">Open the lab →</a></div>
-    </div>
-    <div class="ccard">
-      <div class="cwk">Chapter 9 · Week 9</div>
-      <h3><a href="chapter-09-markets.html">Markets</a></h3>
-      <p>Everyone's using AI and the productivity statistics barely blinked: the forty-year lesson of the electric motor.</p>
-      <div class="clab"><span class="lbl">Lab 9 · Run the Firm</span> Run a company for eight quarters and feel why redesign is rare.</div>
-      <div class="clinks"><a href="chapter-09-markets.html">Read the chapter →</a><a href="chapter-09-markets-lab.html">Open the lab →</a></div>
-    </div>
-    <div class="ccard">
-      <div class="cwk">Chapter 10 · Week 10</div>
-      <h3><a href="chapter-10-truth.html">Truth</a></h3>
-      <p>Machines built for plausible, not true: phantom court cases, cloned voices, and the rising cost of knowing anything.</p>
-      <div class="clab"><span class="lbl">Lab 10 · The Phantom Docket</span> Six citations, three invented by a chatbot. Catch them with the clock running. Take-home.</div>
-      <div class="clinks"><a href="chapter-10-truth.html">Read the chapter →</a><a href="chapter-10-truth-lab.html">Open the lab →</a></div>
-    </div>
-    <div class="ccard">
-      <div class="cwk">Chapter 11 · Week 10</div>
-      <h3><a href="chapter-11-work.html">AI &amp; the Future of Work</a></h3>
-      <p>The canaries in the payroll data, the economists arguing about what it means, and where you stand.</p>
-      <div class="clab"><span class="lbl">Lab 11 · The Exposure Audit</span> Audit a real job posting you might apply for. One of the methods for the Decide project.</div>
-      <div class="clinks"><a href="chapter-11-work.html">Read the chapter →</a><a href="chapter-11-work-lab.html">Open the lab →</a></div>
-    </div>
-    <div class="ccard">
-      <div class="cwk">Chapter 12 · Week 10</div>
-      <h3><a href="chapter-12-future.html">The Future</a></h3>
-      <p>Three published futures, the instruments that would show each arriving, and the course's answer to its own question.</p>
-      <div class="clab"><span class="lbl">Lab 12 · First Contact, Revisited</span> The seven claims from Week 1, re-answered. Ten claims of your own about 2036. The capstone, Dec 2.</div>
-      <div class="clinks"><a href="chapter-12-future.html">Read the chapter →</a><a href="chapter-12-future-lab.html">Open the lab →</a></div>
-    </div>
-  </div>
+<section id="s4">
+  <div class="shead"><span class="num">4</span><h2>The show-and-tell</h2></div>
+  <p>At the capstone session on Wednesday, December 2, you get two minutes. Say three things: what the system is, the most important thing your audit found, and your decision with its cost. No slides needed. Showing one screenshot from your audit is welcome.</p>
+</section>
+
+<section id="s5">
+  <div class="shead"><span class="num">5</span><h2>What I look for</h2></div>
+  <p>The question behind the grade is whether your decision survives the five questions. In practice, that means:</p>
+  <table class="syl">
+    <tr><th>Strong</th><th>Weak</th></tr>
+    <tr><td>A specific, named system, with all five parts identified</td><td>A vague category, or parts left out</td></tr>
+    <tr><td>An audit someone else could repeat, with evidence</td><td>A description of the system with no test</td></tr>
+    <tr><td>Claims attributed to who made them, with a way to check one</td><td>The company's or a critic's claims repeated as fact</td></tr>
+    <tr><td>A decision that follows from what you found, with its cost named</td><td>A decision with no cost, or one that ignores your own audit</td></tr>
+    <tr><td>Your own words, and an honest AI-use line</td><td>Writing a chatbot produced, or no disclosure</td></tr>
+  </table>
+  <p>Keep, fix, and drop are all full-credit answers. "I'd drop it" with a specific reason is as strong as "I'd keep it" with one.</p>
+</section>
+
+<section id="s6">
+  <div class="shead"><span class="num">6</span><h2>Using AI on this project</h2></div>
+  <p>This project is <strong>Tutor for thinking and Off for writing</strong>, the same as the lab writeups. A chatbot can explain a concept, argue against your decision, or help you plan your audit. The words you submit are yours. If your audit method uses a chatbot as the thing you're testing, that's fine; say so.</p>
+  <p>At the end, one line: which tool you used, if any, and for what. "None" is a fine answer. When in doubt, just tell me what you did.</p>
+  <p class="note">Questions? Office hours are Mondays and Wednesdays, 11:30 a.m. to 1:50 p.m., in Parks Hall 039, or email <a class="inline" href="mailto:califfc@wwu.edu">califfc@wwu.edu</a>. Full course policies are on <a class="inline" href="syllabus.html">the syllabus</a>. Where this page and Canvas disagree on a deadline, Canvas wins.</p>
 </section>
 
 </main>
+
 
 <footer class="foot">
   <div class="wrap">
