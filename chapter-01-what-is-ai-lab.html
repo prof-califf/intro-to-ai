@@ -203,12 +203,18 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .mn-cell{position:relative;width:72px;height:72px;font-family:'Fraunces',serif;font-size:2rem;font-weight:600;border:1px solid var(--rule);background:#fff;color:var(--ink);cursor:pointer;padding:0}
 .mn-cell:hover:not([disabled]){border-color:var(--pinktext)}
 .mn-cell[disabled]{cursor:default}
-.mn-cell .bd{position:absolute;right:5px;bottom:3px;font-family:'Inter',sans-serif;font-size:.68rem;font-weight:600;color:var(--pinktext)}
+.mn-cell .bd{position:absolute;right:5px;bottom:3px;font-family:'Inter',sans-serif;font-size:.74rem;font-weight:600;color:var(--pinktext)}
 .mn-cell.x{color:var(--ink)}.mn-cell.o{color:var(--pinktext)}
 .mn-strip{display:flex;gap:3px;margin-top:8px;flex-wrap:wrap}
 .mn-strip span{display:inline-block;width:14px;height:14px;border-radius:2px;background:#E7E7E2}
 .mn-strip .w{background:var(--ink)}.mn-strip .d{background:#9AA1AB}.mn-strip .l{background:var(--pink)}
 @media (max-width:640px){.mn-grid{grid-template-columns:1fr}}
+.mn-cell.winner{background:#FFF6C2;border-color:var(--yellow);box-shadow:inset 0 0 0 2px var(--yellow)}
+.mn-cell.winner.o{background:#FFE4EE;border-color:var(--pink);box-shadow:inset 0 0 0 2px var(--pink)}
+.mn-result{margin-top:10px;padding:10px 14px;border-radius:4px;font-weight:600;font-size:.95rem}
+.mn-result.ai{background:#FFF6C2;color:var(--ink)}
+.mn-result.me{background:#FFE4EE;color:var(--pinktext)}
+.mn-result.draw{background:#EEF0F3;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -324,11 +330,11 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <section id="menace">
   <div class="shead"><span class="num">2</span><h2>Train an AI to play (AlphaGo, in miniature)</h2></div>
-  <p class="lead">You also read how AlphaGo trained itself to play Go by playing millions of games against itself, learning from every win and loss until it beat the best human alive. Now train a tic-tac-toe AI the same way, and see whether it can beat you. It takes five minutes. Read the three steps, then play. In 1961 Donald Michie, who had no computer, built a tic-tac-toe player out of 304 matchboxes and a bag of colored beads. Each box is a board position; each bead is a move. It plays by drawing a bead at random. After each game, winning moves get more beads and losing moves lose some. That's all. Play it enough and it stops losing. This is the same machine, and it is the whole idea behind AlphaGo: an action, a result, a nudge, repeated.</p>
+  <p class="lead">You also read how AlphaGo trained itself to play Go by playing millions of games against itself, learning from every win and loss until it beat the best human alive. Now train a tic-tac-toe AI the same way, and see whether it can beat you. It takes five minutes. Read the three steps, then play. In 1961 a researcher named Donald Michie, who had no computer, built a tic-tac-toe player that learned from experience: every game it played became data, and the data changed what it did next. Play it enough and it stops losing. This is the same machine, and it is the whole idea behind AlphaGo: play, record what happened, adjust, repeat.</p>
 
   <div class="steps">
-    <div class="step"><span class="sn">1</span><p><strong>Beat it.</strong> Play five games. It has never played before, so it is choosing moves at random, and you should win most of them. Look at the small numbers on the empty squares before each move: those are the beads in the box for this exact position. Watch what happens to them after you win.</p></div>
-    <div class="step"><span class="sn">2</span><p><strong>Let it practice.</strong> Press "Let it practice: 500 games vs. a careful player." This is AlphaGo's self-play trick: the computer plays both sides, fast. That opponent blocks your wins and takes its own, which is roughly you. Now play it five more games. It should be drawing you, or beating you when you slip. Nobody told it a strategy. The beads moved.</p></div>
+    <div class="step"><span class="sn">1</span><p><strong>Beat it.</strong> Play five games. It has never played before, so it has no data at all and is choosing moves at random. You should win most of them. The percent on each empty square is how likely it is to play there; watch those numbers shift after each game, because each game is one more piece of data.</p></div>
+    <div class="step"><span class="sn">2</span><p><strong>Let it practice.</strong> Press "Let it practice: 500 games vs. a careful player." This is AlphaGo's trick: the computer plays both sides, fast, and every game is more data. Now play it five more games. It should be drawing you, or beating you when you slip. Nobody told it a strategy. It just has 500 games of data it didn't have before.</p></div>
     <div class="step"><span class="sn">3</span><p><strong>Give it the wrong data</strong> (if time is short, do this one at home). Press "Forget everything," then "Simulate 300 games vs. a random player" twice. Its record will look wonderful. Now play it yourself. It learned to beat a player who never blocks, so it never learned to block. Same machine, same learning rule, different data, and its confidence is exactly as high. Notice whether it beat you after practice; the writeup asks for it. You'll meet this in Chapter 3 (the record has a shape) and Chapter 6 (it learned who got hired, not who deserved it).</p></div>
   </div>
 
@@ -337,7 +343,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     <div class="mn-grid">
       <div>
         <div class="mn-board" id="mn-board" role="grid" aria-label="Tic-tac-toe board. You are O."></div>
-        <p class="tis-counts" id="mn-msg" aria-live="polite">Your move: you are O. The small numbers show how many beads each move has in the box for this position.</p>
+        <p class="tis-note" style="margin-top:8px"><b>How to read the board.</b> The percent on each empty square is how likely Mini-AlphaGo is to play there. Every game it plays is one more piece of data, and the data is the only thing that changes those numbers: moves that were part of a win get more likely, moves that were part of a loss get less likely. Play a few games and watch them move. That is all the learning there is.</p>
+        <p class="tis-counts" id="mn-msg" aria-live="polite">Your move: you are O. The percent on each empty square is how likely it is to play there next.</p>
         <div class="chips tis-actions">
           <button class="btn" type="button" id="mn-new">New game</button>
           <button class="chip" type="button" id="mn-reset">Forget everything</button>
@@ -362,7 +369,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
   <div class="ticket">
     <div class="label">Section 2 · answer this question for submission</div>
-    <p>Nobody gave Mini-AlphaGo a strategy, and after 500 practice games it stopped losing to you. In a few sentences: what actually changed inside it, using the bead numbers you watched, and why did a wonderful record against a random player not mean it could beat you?</p>
+    <p>Nobody gave Mini-AlphaGo a strategy, and after 500 practice games it stopped losing to you. In a few sentences: what actually changed, using the percents you watched, and why did a wonderful record against a random player not mean it could beat you?</p>
   </div>
 
 <section>
@@ -643,11 +650,12 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   var LINES=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
   var boxes={}, board, hist, over, human=true, rec={g:0,w:0,d:0,l:0}, strip=[];
   var INIT=[2,2,1,1];
-  function key(b){return b.join('');}
+  function key(b){return b.map(function(c){return c||'.';}).join('');}
   function xCount(b){return b.filter(function(c){return c==='X';}).length;}
   function getBox(b){var k=key(b); if(!boxes[k]){var n=INIT[Math.min(xCount(b),3)]; boxes[k]=b.map(function(c){return c===''?n:0;});} return boxes[k];}
   function winner(b){for(var i=0;i<LINES.length;i++){var L=LINES[i]; if(b[L[0]]&&b[L[0]]===b[L[1]]&&b[L[1]]===b[L[2]])return b[L[0]];} return b.indexOf('')<0?'draw':null;}
-  function menaceMove(b){var box=getBox(b); var tot=box.reduce(function(a,c){return a+c;},0);
+  function winLine(b){for(var i=0;i<LINES.length;i++){var L=LINES[i]; if(b[L[0]]&&b[L[0]]===b[L[1]]&&b[L[1]]===b[L[2]])return L;} return null;}
+  function menaceMove(b){var box=getBox(b); b.forEach(function(c,i){if(c)box[i]=0;}); var tot=box.reduce(function(a,c){return a+c;},0);
     if(tot===0){var n=INIT[Math.min(xCount(b),3)]; b.forEach(function(c,i){box[i]=c===''?n:0;}); tot=box.reduce(function(a,c){return a+c;},0);}
     var r=Math.random()*tot; for(var i=0;i<9;i++){r-=box[i]; if(r<0)return i;} return b.indexOf('');}
   function learn(result){hist.forEach(function(h){var box=boxes[h.k]; if(result==='X')box[h.m]+=3; else if(result==='draw')box[h.m]+=2; else box[h.m]=Math.max(0,box[h.m]-2);});}
@@ -659,18 +667,18 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     $('mn-score').textContent='Games '+rec.g+' · Mini-AlphaGo won '+rec.w+' · draws '+rec.d+' · human won '+rec.l;
     $('mn-strip').innerHTML=strip.map(function(x){return '<span class="'+x+'"></span>';}).join('');}
   function playAuto(opp,n){for(var g=0;g<n;g++){var b=['','','','','','','','',''],h=[],res=null; while(!(res=winner(b))){var box=getBox(b),m=menaceMove(b); h.push({k:key(b),m:m}); b[m]='X'; if((res=winner(b)))break; var o=opp(b); b[o]='O';} hist=h; learn(res); record(res);} newGame();}
-  function render(){var el=$('mn-board'); el.innerHTML=''; var box=over?null:getBox(board);
-    board.forEach(function(c,i){var btn=document.createElement('button'); btn.type='button'; btn.className='mn-cell'+(c==='X'?' x':c==='O'?' o':''); btn.setAttribute('role','gridcell'); btn.setAttribute('aria-label','Square '+(i+1)+(c?': '+c:': empty'));
+  function render(){var el=$('mn-board'); el.innerHTML=''; var box=over?null:getBox(board); var tot=box?box.reduce(function(a,c){return a+c;},0):0; var wl=over?winLine(board):null;
+    board.forEach(function(c,i){var btn=document.createElement('button'); btn.type='button'; btn.className='mn-cell'+(c==='X'?' x':c==='O'?' o':'')+(wl&&wl.indexOf(i)>=0?' winner':''); btn.setAttribute('role','gridcell'); btn.setAttribute('aria-label','Square '+(i+1)+(c?': '+c:': empty'));
       btn.textContent=c; if(c||over||!human)btn.disabled=true;
-      if(!c&&!over&&box){var bd=document.createElement('span'); bd.className='bd'; bd.textContent=box[i]; btn.appendChild(bd);}
+      if(!c&&!over&&box){var n=box[i]; var pct=tot?Math.round(100*n/tot):0; var bd=document.createElement('span'); bd.className='bd'; bd.textContent=pct+'%'; btn.appendChild(bd); btn.setAttribute('aria-label','Square '+(i+1)+': empty, a '+pct+' percent chance it plays here');}
       btn.addEventListener('click',function(){humanMove(i);}); el.appendChild(btn);});}
-  function finish(res){over=true; learn(res); record(res); render();
-    $('mn-msg').textContent=res==='X'?'Mini-AlphaGo won. Every move it made just gained three beads.':res==='draw'?'A draw. Its moves each gained two beads.':'Human won. Every move Mini-AlphaGo made just lost two beads. Press New game and beat it again.';}
-  function menaceTurn(){var m=menaceMove(board); hist.push({k:key(board),m:m}); board[m]='X'; var res=winner(board); if(res){finish(res);return;} human=true; render(); $('mn-msg').textContent='Your move. The numbers are the beads for each of its possible replies from here.';}
+  function finish(res){over=true; learn(res); record(res); render(); $('mn-msg').className='tis-counts mn-result '+(res==='X'?'ai':res==='draw'?'draw':'me');
+    $('mn-msg').textContent=res==='X'?'Mini-AlphaGo won. One more game of data, and every move it made just got more likely.':res==='draw'?'A draw. One more game of data; its moves got a little more likely.':'Human won. One more game of data, and every move Mini-AlphaGo made just got less likely. Press New game and beat it again.';}
+  function menaceTurn(){$('mn-msg').className='tis-counts'; var m=menaceMove(board); hist.push({k:key(board),m:m}); board[m]='X'; var res=winner(board); if(res){finish(res);return;} human=true; render(); $('mn-msg').textContent='Your move. The percents show where it would play next.';}
   function humanMove(i){if(over||!human||board[i])return; board[i]='O'; human=false; var res=winner(board); if(res){finish(res);return;} render(); setTimeout(menaceTurn,250);}
-  function newGame(){board=['','','','','','','','','']; hist=[]; over=false; human=false; render(); $('mn-msg').textContent='It goes first.'; setTimeout(menaceTurn,200);}
+  function newGame(){board=['','','','','','','','','']; hist=[]; over=false; human=false; render(); $('mn-msg').className='tis-counts'; $('mn-msg').textContent='It goes first.'; setTimeout(menaceTurn,200);}
   $('mn-new').addEventListener('click',newGame);
-  $('mn-reset').addEventListener('click',function(){boxes={}; rec={g:0,w:0,d:0,l:0}; strip=[]; $('mn-score').textContent='Games 0 · Mini-AlphaGo won 0 · draws 0 · human won 0'; $('mn-strip').innerHTML=''; $('mn-note').textContent='All beads reset. It knows nothing again.'; newGame();});
+  $('mn-reset').addEventListener('click',function(){boxes={}; rec={g:0,w:0,d:0,l:0}; strip=[]; $('mn-score').textContent='Games 0 · Mini-AlphaGo won 0 · draws 0 · human won 0'; $('mn-strip').innerHTML=''; $('mn-note').textContent='All data erased. It knows nothing again.'; newGame();});
   $('mn-rand').addEventListener('click',function(){playAuto(randomMove,300); $('mn-note').textContent='Simulated 300 games against a player who moves at random.';});
   $('mn-block').addEventListener('click',function(){playAuto(careful,500); $('mn-note').textContent='It just played 500 games against a player who takes wins and blocks yours. Now play it.';});
   newGame();
