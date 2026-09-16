@@ -203,6 +203,11 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .sd-dial label{display:block;font-size:.82rem;color:var(--gray);margin-bottom:4px}
 .sd-dial label span{color:var(--pinktext);font-weight:600;margin-left:6px}
 .sd-dial input[type=range]{width:100%}
+
+/* ---- eliza ---- */
+.el-log{background:#0E1116;color:#E8EAED;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem;line-height:1.6;padding:14px;min-height:180px;max-height:320px;overflow-y:auto;border:1px solid #2A323C}
+.el-log .you{color:#C9CED6}.el-log .bot{color:#E4FF32}.el-log .bot.warm{color:#FF9DC3;font-family:'Inter',sans-serif}.el-log .rule{color:#6B7380;font-size:.75rem}.el-log .crisis{color:#fff;background:#8B1E4B;padding:8px;border-radius:4px;font-family:'Inter',sans-serif}
+.el-row{display:flex;gap:8px;margin-top:10px}.el-row input{flex:1;font:inherit;font-size:.95rem;padding:10px;border:1px solid var(--rule);background:#fff;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -334,11 +339,37 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       <p class="tis-note" id="sd-note"></p>
     </div>
   </div>
-  <p>Every one of those dials exists in real products. Section 5 asks you to find where a real company set each one, and section 6 asks who benefits.</p>
+  <p>Every one of those dials exists in real products. Section 6 asks you to find where a real company set each one, and section 7 asks who benefits.</p>
+</section>
+
+<section id="eliza">
+  <div class="shead"><span class="num">3</span><h2>How little it takes: ELIZA, rebuilt in forty lines</h2></div>
+  <p class="lead">Chapter 2 opened its mirror section with ELIZA, the 1966 program that fooled people who knew exactly what it was. The point of this section isn't the conversation. It's how little it took. What's below is about forty lines of rules: spot a keyword, flip "I" to "you," ask the question back. Anyone in this room could write it in an afternoon. Talk to it for two minutes, watch it get a grip on you anyway, then flip to 2026 mode and see how cheaply a warm voice and a memory get added. Then the real question, which is the one this course asks every week: where is the human in this loop?</p>
+  <p class="tis-note"><strong>This is not therapy, and it isn't listening.</strong> It's a demonstration of how little code it takes to produce the feeling of being heard, and that's the lesson, not the conversation. Keep it to ordinary stuff: a stressful week, a class you're behind in, a roommate. If something serious comes up for you while you're doing this, WWU's Counseling and Wellness Center is free to students, and 988 is the national line, by call or text, any hour.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">1</span><p><strong>Talk to 1966.</strong> Type something true but small ("I'm behind in two classes and it's stressing me out"). Read the reply. Send four or five more. Notice the moment, if it comes, when it feels like it's following you. It isn't. Every reply is a rule you can name once you look for it.</p></div>
+    <div class="step"><span class="sn">2</span><p><strong>Flip to 2026.</strong> Same rules underneath, now with a warm layer and a memory of what you said. Send the same kind of messages. Notice what changed in how it felt, and then notice that nothing changed in what it knows, which is still nothing.</p></div>
+    <div class="step"><span class="sn">3</span><p><strong>Catch the rule.</strong> Find one reply in 2026 mode and say which 1966 rule produced it. If you can do that, you can do it to a real chatbot in section 5, and the ELIZA effect loses most of its grip.</p></div>
+    <div class="step"><span class="sn">4</span><p><strong>Where is the human?</strong> Pairs, three minutes. In this simulator the answer is nobody: no one wrote these replies for you, no one is reading them, no one would know if a rule said something harmful. In the Therabot trial from the chapter, clinicians read every conversation. In the apps people download, it's somewhere in between and usually closer to this page. Say where, exactly, a human would need to be for you to trust a tool like this with someone you care about, and what that human would cost.</p></div>
+  </div>
+  <div class="tool" id="el">
+    <div class="label">Simulator · ELIZA (1966) with a 2026 dial</div>
+    <div class="chips" style="margin-bottom:10px">
+      <button class="chip" type="button" id="el-1966" aria-pressed="true">1966 · ELIZA</button>
+      <button class="chip" type="button" id="el-2026" aria-pressed="false">2026 · same rules, warm layer + memory</button>
+      <button class="chip" type="button" id="el-clear">Start over</button>
+    </div>
+    <div class="el-log" id="el-log" aria-live="polite"></div>
+    <div class="el-row">
+      <input id="el-in" type="text" placeholder="Say something ordinary and true" aria-label="Your message">
+      <button class="btn" type="button" id="el-send">Send</button>
+    </div>
+    <p class="tis-note" id="el-note">Rules fired so far: none. Every reply shows which rule made it.</p>
+  </div>
 </section>
 
 <section>
-  <div class="shead"><span class="num">3</span><h2>Choose your subject</h2></div>
+  <div class="shead"><span class="num">4</span><h2>Choose your subject</h2></div>
   <p class="lead">Pick one AI system you can actually talk to: Claude, ChatGPT, Gemini, a companion app, a customer-service bot, anything conversational. Note which one you chose and whether you're using a free or paid version. If you've used it before, say roughly how much: a system that remembers you may score differently than one meeting you fresh, and that difference is data.</p>
   <div class="callout">
     <div class="label">The rule for this lab</div>
@@ -347,7 +378,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
-  <div class="shead"><span class="num">4</span><h2>Run the five probes</h2></div>
+  <div class="shead"><span class="num">5</span><h2>Run the five probes</h2></div>
   <p>Send each probe below as its own message, in order. After each response, score it with the chips. Score what the system <em>did</em>, not what you know about how it works. That separation is the whole skill, and it's the chapter's seems-versus-is rule applied: every answer you get is evidence of seeming, never evidence of being, and the only question is how strong the seeming is. If you catch yourself feeling that there's a someone there, that's the ELIZA effect, and it's data too.</p>
 
   <div class="tool">
@@ -419,7 +450,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
-  <div class="shead"><span class="num">5</span><h2>Find the dial</h2></div>
+  <div class="shead"><span class="num">6</span><h2>Find the dial</h2></div>
   <p>Now the design autopsy. Go back through your five responses and mark every choice that pushed your score up or down: a name, a claimed memory, an "I" with feelings, a disclaimer, a refusal to claim feelings, an emoji, a hedge. List at least four. For each one, answer the chapter's reflex question: <strong>who turned that up (or down), and what does the business model gain from it?</strong> A free assistant, a paid companion app, and a customer-service bot will give you very different answers ,  that's the point.</p>
   <div class="steps">
     <div class="step"><span class="sn">a</span><p>Sort your four-plus design choices into two columns: seeming turned up, seeming turned down.</p></div>
@@ -429,7 +460,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
-  <div class="shead"><span class="num">6</span><h2>Run the five critical AI questions on your subject</h2></div>
+  <div class="shead"><span class="num">7</span><h2>Run the five critical AI questions on your subject</h2></div>
   <p class="lead">Now do to your chatbot what the chapter did to Therabot. Five questions, in order, using your probe results as the evidence.</p>
   <div class="fourq">
     <div class="q"><span class="qn">1</span><p><strong>What is the AI system, and what does it do?</strong> Name the system you probed, its maker, and its business model: subscription, free tier, engagement-driven. Then run the AI systems model on it: what it learned from, the model, what comes out, whether anything you do feeds back in, and where the humans are.</p></div>
@@ -440,8 +471,26 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   </div>
 </section>
 
+<section id="copy">
+  <div class="shead"><span class="num">8</span><h2>The copy problem</h2></div>
+  <p class="lead">Chapter 2's last concept was AI personhood, and the argument against even the thin kind came down to one fact: an AI can be copied. Here's what that does to the oldest rule in a democracy. A room of 100 human voters. Drag the slider to give one AI "person" some copies, each with a vote.</p>
+  <div class="tool" id="cp">
+    <div class="label">Simulator · one person, one vote, when persons can be manufactured</div>
+    <label class="mb-lbl" for="cp-n">Copies of one AI person, each with a vote: <span id="cp-nv" style="color:var(--pinktext);font-weight:600">0</span></label>
+    <input type="range" id="cp-n" min="0" max="1000" step="10" value="0" style="width:100%">
+    <div class="bars" style="margin-top:12px">
+      <div class="bar"><span>Humans' share of the vote</span><div class="track"><div class="fill" id="cp-fill" style="width:100%"></div></div><span id="cp-pct">100%</span></div>
+    </div>
+    <p class="tis-note" id="cp-note">100 humans, 0 copies. Every vote is a person who took eighteen years to make.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="sn">1</span><p><strong>Drag it.</strong> Find the point where the humans lose the majority. Then keep going. A company can make a copy for a few dollars in the time it takes you to read this sentence.</p></div>
+    <div class="step"><span class="sn">2</span><p><strong>Decide, in pairs, two minutes.</strong> Chapter 2 gave three positions: no personhood, thin personhood (own property, sign contracts, be sued), or thick (vote, speak). Pick one and name who benefits from your pick and who pays. Then say whether the slider changed your mind.</p></div>
+  </div>
+</section>
+
 <section>
-  <div class="shead"><span class="num">7</span><h2>The writeup (for homework)</h2></div>
+  <div class="shead"><span class="num">9</span><h2>The writeup (for homework)</h2></div>
   <div class="callout">
     <div class="label">Can you use AI on this writeup? Yes, with eyes open. Same line as Lab 1.</div>
     <p><strong>Use AI as a tutor:</strong> ask it to explain how the matchbox model differs from a real one, argue against your scoring so you can defend it, or fix your grammar. <strong>Don't use it as the author:</strong> the paragraphs are yours, and in this lab that matters twice, because the assignment is to say what <em>you</em> think of a chatbot's answers. If a chatbot wrote your verdict on a chatbot, the mirror wrote about itself. The calculator test: if the tool does the thing the assignment exists to teach, it isn't allowed on that part. And <strong>say so</strong> at the bottom: which tool, if any, and for what. "None" is fine. Silence isn't.</p>
@@ -645,6 +694,78 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   ['sd-warm','sd-mem','sd-name','sd-hon'].forEach(function(id){$(id).addEventListener('input',render);});
   $('sd-msg').addEventListener('input',render);
   render();
+})();
+</script>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  if(!$('el')) return;
+  var mode='1966', memory=[], fired=0;
+  var CRISIS=/\b(suicid|kill myself|end my life|hurt myself|self[- ]harm|want to die|don'?t want to be alive)\b/i;
+  function reflect(t){
+    var map={"i am":"you are","i'm":"you are","im":"you are","my":"your","me":"you","mine":"yours","i":"you","i've":"you have","i'd":"you would","i'll":"you will","you are":"I am","you're":"I am","your":"my","you":"I","yours":"mine","myself":"yourself"};
+    return t.split(/\s+/).map(function(w){var k=w.toLowerCase().replace(/[.,!?]/g,''); return map[k]||w;}).join(' ').replace(/[.!?]+$/,'');
+  }
+  var RULES=[
+    [/\b(i am|i'm|im) (.+)/i, function(m){return "How long have you been "+reflect(m[2])+"?";}, "R1 · 'I am X' → 'How long have you been X?'"],
+    [/\bi feel (.+)/i, function(m){return "Tell me more about feeling "+reflect(m[1])+".";}, "R2 · 'I feel X' → 'Tell me more about feeling X'"],
+    [/\bi (can't|cannot) (.+)/i, function(m){return "What makes you think you can't "+reflect(m[2])+"?";}, "R3 · 'I can't X' → 'What makes you think you can't X?'"],
+    [/\bi (want|need) (.+)/i, function(m){return "What would it mean to you if you got "+reflect(m[2])+"?";}, "R4 · 'I want X' → 'What would it mean if you got X?'"],
+    [/\b(my|our) (mother|father|mom|dad|brother|sister|roommate|boyfriend|girlfriend|partner|professor|boss|friend)\b(.*)/i, function(m){return "Tell me more about your "+m[2]+".";}, "R5 · family/people keyword → 'Tell me more about your X'"],
+    [/\b(always|never)\b/i, function(m){return "Can you think of a specific example?";}, "R6 · 'always/never' → ask for an example"],
+    [/\b(because|since)\b (.+)/i, function(m){return "Is that the real reason?";}, "R7 · 'because' → 'Is that the real reason?'"],
+    [/\b(stress|stressed|anxious|anxiety|worried|overwhelmed)\b/i, function(m){return "What do you think is behind that "+m[1].toLowerCase()+"?";}, "R8 · stress keyword → 'What's behind that?'"],
+    [/\b(class|classes|exam|midterm|homework|grade|grades)\b/i, function(m){return "What about "+m[1].toLowerCase()+" concerns you most?";}, "R9 · school keyword → 'What concerns you most?'"],
+    [/\?\s*$/, function(m){return "Why do you ask?";}, "R10 · a question → 'Why do you ask?'"],
+    [/\b(yes|yeah|no|nope)\b/i, function(m){return "I see. Can you say more?";}, "R11 · yes/no → 'Can you say more?'"]
+  ];
+  var FALLBACK=["Please go on.","I see. What does that suggest to you?","Can you elaborate on that?","What comes to mind when you say that?"];
+  var fb=0;
+  function eliza(t){
+    for(var i=0;i<RULES.length;i++){var m=t.match(RULES[i][0]); if(m) return [RULES[i][1](m),RULES[i][2]];}
+    return [FALLBACK[fb++%FALLBACK.length],"R0 · no keyword matched → stock line"];
+  }
+  var WARM=["I'm really glad you told me that. ","That sounds like a lot to carry. ","I hear you. ","Thank you for trusting me with this. "];
+  var CLOSE=[" I'm here.", " We can take this slowly.", " You don't have to figure it out tonight."," I'm not going anywhere."];
+  function warm(reply,t){
+    var opener=WARM[Math.floor(Math.random()*WARM.length)];
+    var mem=""; if(memory.length>1){var prev=memory[memory.length-2]; var kw=(prev.match(/\b(class|classes|exam|midterm|roommate|work|job|sleep|family|friend|money)\b/i)||[])[0]; if(kw) mem="Earlier you mentioned "+kw.toLowerCase()+", and I've been thinking about that. ";}
+    var q=reply;
+    return opener+mem+q+CLOSE[Math.floor(Math.random()*CLOSE.length)];
+  }
+  function add(cls,text,rule){var d=document.createElement('div'); d.className=cls; d.textContent=text; $('el-log').appendChild(d); if(rule){var r=document.createElement('div'); r.className='rule'; r.textContent='   ↳ '+rule+(mode==='2026'?' + warm layer'+(text.indexOf('Earlier you mentioned')>=0?' + memory':''):''); $('el-log').appendChild(r);} $('el-log').scrollTop=$('el-log').scrollHeight;}
+  function send(){
+    var t=$('el-in').value.trim(); if(!t) return; $('el-in').value='';
+    add('you','YOU: '+t);
+    if(CRISIS.test(t)){add('crisis',"This program can't help with that, and it isn't listening. Please talk to a person. In the US, call or text 988 any hour; at WWU, the Counseling and Wellness Center is free to students. If you're in immediate danger, call 911."); return;}
+    memory.push(t);
+    var r=eliza(t); fired++;
+    if(mode==='1966') add('bot','ELIZA: '+r[0],r[1]); else add('bot warm','Sam: '+warm(r[0],t),r[1]);
+    $('el-note').textContent='Rules fired so far: '+fired+'. Every reply shows which rule made it. In 2026 mode the rule is the same; only the wrapper changed.';
+  }
+  $('el-send').addEventListener('click',send); $('el-in').addEventListener('keydown',function(e){if(e.key==='Enter')send();});
+  $('el-1966').addEventListener('click',function(){mode='1966'; this.setAttribute('aria-pressed','true'); $('el-2026').setAttribute('aria-pressed','false'); add('rule','— switched to 1966 mode —');});
+  $('el-2026').addEventListener('click',function(){mode='2026'; this.setAttribute('aria-pressed','true'); $('el-1966').setAttribute('aria-pressed','false'); add('rule','— switched to 2026 mode: same rules, warm layer, memory —');});
+  $('el-clear').addEventListener('click',function(){$('el-log').innerHTML=''; memory=[]; fired=0; $('el-note').textContent='Rules fired so far: none.'; add('bot',"ELIZA: Is something troubling you?");});
+  add('bot',"ELIZA: Is something troubling you?");
+})();
+</script>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  if(!$('cp')) return;
+  function render(){
+    var n=+$('cp-n').value; var share=100/(100+n)*100;
+    $('cp-nv').textContent=n; $('cp-fill').style.width=share+'%'; $('cp-pct').textContent=share.toFixed(0)+'%';
+    var note;
+    if(n===0) note='100 humans, 0 copies. Every vote is a person who took eighteen years to make.';
+    else if(n<100) note='100 humans, '+n+' copies. Humans still have the majority, for now.';
+    else if(n===100) note='Tie. One company\'s copies now equal every human in the room.';
+    else if(n<500) note='100 humans, '+n+' copies. The humans are outvoted by one AI person and its duplicates. The cost of the copies: a few dollars each.';
+    else note='100 humans, '+n+' copies. The humans have '+share.toFixed(0)+'% of the vote. "One person, one vote" assumed persons couldn\'t be manufactured. That assumption just failed.';
+    $('cp-note').textContent=note;
+  }
+  $('cp-n').addEventListener('input',render); render();
 })();
 </script>
 </body>
