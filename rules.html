@@ -190,6 +190,14 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .rule b{font-family:'Fraunces',serif;font-size:1.05rem;letter-spacing:.04em;display:block;margin-bottom:6px}
 .rule p{margin:0;font-size:.95rem;color:var(--ink)}
 .amend{font-size:.9rem;color:var(--gray);border-top:1px solid var(--rule);padding-top:10px}
+
+.sign details.rule-dd{border-bottom:1px solid #2A323C}.sign details.rule-dd:last-child{border-bottom:none}
+.sign summary{cursor:pointer;list-style:none;padding:8px 0;display:flex;justify-content:space-between;align-items:center}
+.sign summary::-webkit-details-marker{display:none}
+.sign summary::after{content:"+";font-family:'Inter',sans-serif;font-size:1.2rem;color:var(--yellow);margin-left:16px}
+.sign details[open] summary::after{content:"\2212"}
+.sign summary:hover{color:var(--yellow)}
+.sign details p{font-family:'Inter',sans-serif;font-weight:400;font-size:.95rem;letter-spacing:0;text-transform:none;line-height:1.6;color:#E8EAED;margin:0 0 14px;max-width:60ch}
 </style>
 <style>
 .wk{border:1px solid var(--rule);border-radius:12px;padding:22px 24px;margin-bottom:18px;background:#fff;}
@@ -226,7 +234,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddc" data-dd="ddc">Chapters<span class="caret" aria-hidden="true">▾</span></button>
 <div class="dd-menu" id="ddc">
 <a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 1</span>What Is AI?</a>
-<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 2</span>What It Means to Be Human</a>
+<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 2</span>Seemingly Human</a>
 <a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 3</span>Medicine</a>
 <a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 4</span>Environment</a>
 <a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · Week 5</span>Systems That Want You</a>
@@ -261,39 +269,31 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Fall 2026</div>
     <h1>The <b>Rules</b></h1>
-    <p class="kicker">Seven lines, borrowed from a punk club in Berkeley that has kept a room full of strangers arguing for forty years without anyone getting hurt. This class argues on purpose. These are the rules by the door.</p>
+    <p class="kicker">Seven lines, borrowed from a punk club in Berkeley that has kept a room full of strangers arguing for forty years without anyone getting hurt. People in this class will disagree, sometimes about things they care about a lot. When that happens, respect them. These are the rules by the door.</p>
     <p class="factline">Borrowed from 924 Gilman Street · translated for a classroom</p>
   </div>
 </header>
 
 <main class="wrap">
 
-<div class="sign" role="img" aria-label="The MIS 201 rules: no racism, no sexism, no homophobia, no transphobia, no fighting, no stagediving, no major label bands.">
-  <div>NO RACISM</div>
-  <div>NO SEXISM</div>
-  <div>NO HOMOPHOBIA</div>
-  <div>NO TRANSPHOBIA</div>
-  <div>NO FIGHTING</div>
-  <div>NO STAGEDIVING</div>
-  <div>NO MAJOR LABEL BANDS</div>
+<div class="sign" aria-label="The MIS 201 rules. Open each one to read what it means here.">
+  <details class="rule-dd"><summary>NO RACISM</summary><p>Gilman's rule, verbatim. It's also the university's rule (see the syllabus, section 14), but it's here because, well, respect others.</p></details>
+  <details class="rule-dd"><summary>NO SEXISM</summary><p>Gilman's rule, verbatim. It's also the university's rule (see the syllabus, section 14), but it's here because, well, respect others.</p></details>
+  <details class="rule-dd"><summary>NO HOMOPHOBIA</summary><p>Gilman's rule, verbatim. It's also the university's rule (see the syllabus, section 14), but it's here because, well, respect others.</p></details>
+  <details class="rule-dd"><summary>NO TRANSPHOBIA</summary><p>Gilman's rule, verbatim. It's also the university's rule (see the syllabus, section 14), but it's here because, well, respect others.</p></details>
+  <details class="rule-dd"><summary>NO FIGHTING</summary><p>This means no attacking someone's position without evidence. "That's wrong" is fighting. "That doesn't make sense because" is pointing out something that could help someone see another angle. The point of the course is to really demystify AI, and to be able to discuss it in real-life terms.</p></details>
+  <details class="rule-dd"><summary>NO STAGEDIVING</summary><p>We can think of this one as no sudden lunging at each other. This means no sudden interrupting, piling on, or ambushing the person in the room who may be holding a position. Let people speak.</p></details>
+  <details class="rule-dd"><summary>NO MAJOR LABEL BANDS</summary><p>In the late 1980s and 1990s it was unthinkable to take your music to a major label. That meant selling out. We will interpret this Gilman Street rule as no blind love or hate for an AI company because you like or hate its product. If you like Claude, that's great. If you hate OpenAI, that's great, too. But you need to be able to think critically and talk about why. Liking what an AI system can do is not evidence about it. Neither is hating one. This class is not sponsored by an AI company. It is not my goal to influence whether you like or hate AI. My goal is to discuss and critically think about what AI actually means in different contexts.</p></details>
 </div>
 
 <section>
   <div class="shead"><span class="num">1</span><h2>Where the rules come from</h2></div>
   <p class="lead"><a class="inline" href="https://bayareapunk.com/blog/924-gilman-rules.html" target="_blank" rel="noopener">924 Gilman Street</a> is a punk club in Berkeley, California, run as a volunteer collective since 1986. Green Day played their early shows there. The club has a hand-painted sign of rules by the door; each one is four words or fewer, and nobody has to interpret them. The rules can only be changed by vote at the members' meeting, and they've mostly stayed the same for forty years.</p>
-  <p>This class argues, on purpose, about jobs, politics, war, medicine, and whether the machines are coming for us. That kind of room needs rules. These are Gilman's, with three lines translated for a classroom.</p>
+  <p>We'll be talking about jobs, politics, war, medicine, and whether the machines are coming for us, and people in this room will disagree. That's fine. What matters is how we treat each other when it happens, and that kind of room needs rules. These are Gilman's, with three lines translated for a classroom. Tap any rule above to read what it means in this room.</p>
 </section>
 
 <section>
-  <div class="shead"><span class="num">2</span><h2>What each line means here</h2></div>
-  <div class="rule"><b>NO RACISM · NO SEXISM · NO HOMOPHOBIA · NO TRANSPHOBIA</b><p>The sign, verbatim. These are also the university's rules (see the syllabus, section 14), but they're on this sign because, well, respect others.</p></div>
-  <div class="rule"><b>NO FIGHTING</b><p>This means no attacking someone's position without evidence. "That's wrong" is fighting. "That doesn't make sense because" is pointing out something that could help someone see another angle. The point of the course is to really demystify AI, and to be able to discuss it in real-life terms.</p></div>
-  <div class="rule"><b>NO STAGEDIVING</b><p>We can think of this one as no sudden lunging at each other. This means no sudden interrupting, piling on, or ambushing the person in the room who may be holding a position. Let people speak.</p></div>
-  <div class="rule"><b>NO MAJOR LABEL BANDS</b><p>In the late 1980s and 1990s it was unthinkable to take your music to a major label. That meant selling out. We will interpret this Gilman Street rule as no blind love or hate for an AI company because you like or hate its product. If you like Claude, that's great. If you hate OpenAI, that's great, too. But you need to be able to think critically and talk about why. Liking what an AI system can do is not evidence about it. Neither is hating one. This class is not sponsored by an AI company. It is not my goal to influence whether you like or hate AI. My goal is to discuss and critically think about what AI actually means in different contexts.</p></div>
-</section>
-
-<section>
-  <div class="shead"><span class="num">3</span><h2>Adding to the rules</h2></div>
+  <div class="shead"><span class="num">2</span><h2>Adding to the rules</h2></div>
   <p>These aren't carved. If something comes up that the rules don't cover, or a rule needs adjusting for how this room actually works, let me know, in class or by email, and we'll add to it or adjust it. Anything added goes on this page.</p>
 </section>
 
