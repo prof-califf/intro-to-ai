@@ -182,6 +182,32 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   .nav .navlinks{width:100%;justify-content:flex-start}
   .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
 }
+
+h3.sub{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.8em 0 .8em;padding-bottom:6px;border-bottom:1px solid var(--pink);color:var(--ink)}
+h3.sub span{color:var(--pinktext);margin-right:10px}
+
+table.risk{width:100%;border-collapse:collapse;margin:16px 0 8px;font-size:.9rem}
+table.risk th{text-align:left;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);border-bottom:2px solid var(--pink);padding:8px 10px}
+table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.risk tr.grp td{background:#F3F3EE;font-family:'Fraunces',serif;font-weight:600;font-size:.95rem}
+.tablenote{font-size:.85rem;color:var(--gray);margin-bottom:20px}
+@media (max-width:640px){table.risk{display:block;overflow-x:auto;font-size:.82rem}}
+
+table.pred td b{color:var(--pinktext)}
+table.pred td:first-child{width:46%}
+
+.tablecap{font-size:.88rem;color:var(--gray);margin:14px 0 4px}
+figure.diagram{margin:22px 0}
+figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;margin-top:8px}
+</style>
+<style>
+.tryit details{border-top:1px dashed var(--rule);padding:10px 0;}
+.tryit details:first-of-type{border-top:none;}
+.tryit summary{cursor:pointer;font-weight:600;font-size:.95rem;}
+.tryit p{margin:8px 0 2px;font-size:.9rem;color:var(--gray);}
+.srcnote{border:1px solid var(--rule);border-radius:10px;padding:14px 18px;margin:30px 0;background:#fff;font-size:.9rem;}
+.srcnote summary{cursor:pointer;font-weight:700;color:var(--ink);}
+.srcnote p{margin:10px 0 2px;color:var(--gray);}
 </style>
 </head>
 <body>
@@ -197,7 +223,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddc" data-dd="ddc">Chapters<span class="caret" aria-hidden="true">▾</span></button>
 <div class="dd-menu" id="ddc">
 <a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 1</span>What Is AI?</a>
-<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 2</span>What It Means to Be Human</a>
+<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 2</span>Seemingly Human</a>
 <a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 3</span>Medicine</a>
 <a href="chapter-04-environment.html" class="current" aria-current="page"><span class="lbl">Chapter 4 · Week 4</span>Environment</a>
 <a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · Week 5</span>Systems That Want You</a>
@@ -232,104 +258,226 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Chapter 4</div>
     <h1>The Machine Has a <b>Body</b></h1>
-    <p class="kicker">Every prompt we send runs somewhere physical: a building full of hot chips, drawing power from a real grid, cooled by real water, next to a real town. This chapter follows the answer back to the building — and to the strangest fact of all: nobody will tell us exactly what it costs.</p>
-    <p class="factline">Data centers · training vs. inference · the disclosure gap</p>
+    <p class="kicker">Every prompt we send runs somewhere physical: a building full of hot chips, drawing power from a real grid, cooled by real water, next to a real town. The cost of one prompt is tiny. The cost of billions of prompts a day, forever, is an industry building nuclear reactors. This chapter follows the answer back to the building, and then to the strangest fact in the story: the number that would settle the argument is one the companies have, and mostly don't publish.</p>
+    <p class="factline">Data centers · training vs. inference · externalities · the disclosure gap</p>
   </div>
 </header>
 
 <main class="wrap">
 
 <div class="contents">
+  <div class="label">Learning objectives</div>
+  <ol>
+    <li>Explain where a prompt physically goes, and what a data center needs from the place it's built in.</li>
+    <li>Separate training cost from inference cost, and show why the multiplication matters more than the query.</li>
+    <li>Define an externality and find one in the AI buildout and one in your own week.</li>
+    <li>Describe the disclosure gap: what has been published, by whom, and what still hasn't.</li>
+    <li>Decide on the buildout with the two easy exits closed, and name what your decision costs.</li>
+  </ol>
+</div>
+<div class="contents">
   <div class="label">In this chapter</div>
   <ol>
-    <li><a href="#s1">Where the answer comes from</a></li>
-    <li><a href="#s2">The case: the buildout</a></li>
-    <li><a href="#s3">Two costs: training and inference</a></li>
-    <li><a href="#s4">The disclosure gap</a></li>
-    <li><a href="#s5">Question it &amp; decide</a></li>
-    <li><a href="#s6">Key terms</a></li>
-    <li><a href="#s7">Discussion questions</a></li>
+    <li><a href="#s1">The question, and the point of this chapter</a></li>
+    <li><a href="#s2">The concepts: the building, the two costs, the neighbor's bill, and the fog</a></li>
+    <li><a href="#s3">The main case: the buildout</a></li>
+    <li><a href="#s4">Decide: right-size what we control, demand disclosure for what we don't</a></li>
+    <li><a href="#s5">Key terms</a></li>
+    <li><a href="#s6">Discussion questions</a></li>
   </ol>
 </div>
 
 <section id="s1">
-  <div class="shead"><span class="num">1</span><h2>Where the answer comes from</h2></div>
-  <p class="lead">The cloud is a marketing word for other people's buildings. When any of us sends a prompt, it travels to a data center — a warehouse of specialized chips running hot enough that cooling them is an industrial engineering problem of its own. The response feels weightless. It isn't. It has a wattage, a water bill, and a street address.</p>
-  <p>Most of this book asks what AI systems do to people. This chapter asks what running them does to everything else — and, just as important for our critical training, why that question turns out to be so strangely hard to answer.</p>
+  <div class="shead"><span class="num">1</span><h2>The question, and the point of this chapter</h2></div>
+  <p class="lead">Most of this book asks what AI systems do to people. This chapter asks what running them does to everything else. The cloud is a marketing word for other people's buildings. When any of us sends a prompt, it travels to a data center, a warehouse of specialized chips running hot enough that keeping them cool is an industrial engineering problem of its own. The answer comes back feeling weightless. It isn't. It has a wattage, a water bill, and a street address.</p>
+  <p>So the question for the week: what does AI cost the physical world, and who pays? And the second question, which turns out to be the more interesting one: why is the first question so strangely hard to answer?</p>
+  <p><strong>The point of this chapter, in one sentence:</strong> AI's physical cost is small per prompt and enormous in total, part of it is paid by people who never sent a prompt, and the number that would settle every argument about it is a number the companies have and mostly choose not to publish.</p>
+  <p><strong>What this chapter teaches.</strong> Five concepts, then a case to use them on.</p>
+  <ul class="ideas">
+    <li>First, <em>the data center</em>: the building where AI actually runs, and what it needs from the town around it.</li>
+    <li>Second, <em>training versus inference</em>: the two very different costs of a model, and why the small one wins.</li>
+    <li>Third, <em>the externality</em>: the most reusable economics word in this course, and the neighbor's power bill.</li>
+    <li>Fourth, <em>the disclosure gap</em>: who has published a number, who hasn't, and who benefits from the fog.</li>
+    <li>Fifth, <em>right-sizing and the waste factor</em>: the one lever that actually moves the total, and who is holding it.</li>
+  </ul>
+  <p>Then the main case: the buildout, the largest infrastructure spending spree in the history of software, told through one nuclear plant and one electric bill, and run through the five critical AI questions. Wednesday's lab is a multiplication machine. You'll enter your own real AI use, scale it from you to the planet, and then flip a switch that shows how wide the honest uncertainty band really is. Then you'll ask a chatbot what it just cost, and watch it not know.</p>
 </section>
 
 <section id="s2">
-  <div class="shead"><span class="num">2</span><h2>The case: the buildout</h2></div>
-  <p>The AI industry is in the middle of one of the largest infrastructure buildouts in history. Microsoft, Google, Amazon, Meta, and OpenAI are collectively committing hundreds of billions of dollars to new data centers — spending on a scale usually associated with national highway systems, not software companies. The energy appetite is reshaping the power industry itself: Microsoft signed a deal to restart a reactor at Three Mile Island — yes, that Three Mile Island — to feed its data centers, and Google has agreements with Kairos Power to build small nuclear reactors for the same purpose. When software companies start commissioning nuclear plants, the machine has stopped being a metaphor.</p>
-  <p>The buildout also has neighbors. Data centers cluster where land and power are cheap, and the surrounding communities inherit the load: strained grids, rising electricity rates, and water draws in places that don't have water to spare. The costs of the boom don't stay on the companies' books — some flow outward onto people who never sent a prompt. Economists call that an <em>externality</em>, and it's a concept we'll reuse in half the chapters ahead.</p>
+  <div class="shead"><span class="num">2</span><h2>The concepts: the building, the two costs, the neighbor's bill, and the fog</h2></div>
+
+  <h3 class="sub"><span>2.1</span> The data center: where the answer comes from</h3>
+  <p>A <strong>data center</strong> is a building full of computers that other people use over the internet. The ones built for AI are different from the ones that ran email a decade ago in one way that matters: the chips. An AI chip, the kind Chapter 1's ImageNet team bought for $500 each in 2012, now costs tens of thousands of dollars, and a modern AI data center holds tens of thousands of them, wired together, running near their limit around the clock. Chips that run hard get hot. Cooling them takes fans, chilled water, or both. So an AI data center needs three things from wherever it lands: a lot of electricity, delivered without interruption; water, or the power to run cooling that doesn't use water; and land near a grid connection big enough to carry the load.</p>
+  <p>Let's put a size on it. A single large AI data center is now planned in the hundreds of megawatts, and the largest campuses in the gigawatts. One gigawatt is roughly the output of one nuclear reactor. By the International Energy Agency's count, data centers worldwide used about 415 terawatt-hours of electricity in 2024, around 1.5 percent of all the electricity on Earth, and the IEA expects that to roughly double by 2030, with AI the main driver. In the United States, a Lawrence Berkeley National Laboratory report put data centers at 4.4 percent of national electricity in 2023 and projected somewhere between 6.7 and 12 percent by 2028. The width of that range is this chapter's subject.</p>
+  <div class="concept">
+    <div class="term">Data center</div>
+    <p>The physical building where AI runs: chips, power, cooling, and a street address with neighbors. What people get wrong: they picture "the cloud" as nowhere. It's somewhere, and the somewhere has a grid, a water table, a zoning board, and a power bill that other people share. Every question in this chapter starts by finding the building.</p>
+  </div>
+
+  <h3 class="sub"><span>2.2</span> Two costs: training and inference</h3>
+  <p>To think clearly about AI's footprint, split it into two pieces that behave completely differently.</p>
+  <p><strong>Training</strong> is the cost of teaching the model: weeks or months of thousands of chips running flat out on most of the internet, until the billions of numbers inside the model stop being wrong. For a frontier model it's an energy bill in the gigawatt-hours and a money bill in the hundreds of millions of dollars. It's a big number. But it's paid once per model, and then spread across everything that model ever does.</p>
+  <p><strong>Inference</strong> is the cost of answering: every prompt, from every user, forever. Each one is tiny. In August 2025 Google published the first detailed measurement from a major company: the median text prompt to its Gemini app used <a class="inline" href="https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference" target="_blank" rel="noopener">0.24 watt-hours</a> of electricity and about 0.26 milliliters of water, which Google compared to nine seconds of television and five drops. OpenAI's chief executive gave a similar figure for an average ChatGPT query in a blog post that June, about 0.34 watt-hours. Independent researchers at Epoch AI landed near 0.3. So for an ordinary question to an ordinary chatbot, the honest number is a few tenths of a watt-hour: about what a microwave uses in a single second.</p>
+  <p>Then why does anyone care? Because of the multiplication. Let's do it.</p>
+  <p class="tablecap"><strong>Table 1 · The multiplication.</strong> Company-reported and independent figures for a typical text prompt, scaled up. The per-prompt numbers are the companies' own; the scale-up is arithmetic.</p>
+  <table class="risk pred">
+    <thead><tr><th>Scale</th><th>Energy per day at 0.3 Wh a prompt, 20 prompts a person</th><th>Roughly the same as</th></tr></thead>
+    <tbody>
+      <tr><td><b>You</b></td><td>6 Wh</td><td>Charging your phone halfway</td></tr>
+      <tr><td><b>This class</b> (45 people)</td><td>270 Wh</td><td>One load of laundry, washed cold</td></tr>
+      <tr><td><b>All of WWU</b> (about 16,000)</td><td>96 kWh</td><td>Three US homes for a day</td></tr>
+      <tr><td><b>800 million people</b>, every day, for a year</td><td>1.75 TWh</td><td>The yearly electricity of roughly 160,000 US homes</td></tr>
+    </tbody>
+  </table>
+  <p>Now two things that make the table an underestimate. First, the 0.3 figure is for a short text answer from a mid-sized model. Ask a frontier "reasoning" model to think for a minute before it answers, and independent estimates run to tens of watt-hours for a single reply; for those models, no company has published a number. Second, most AI use isn't a person typing a question. It's AI built into search results, email, spreadsheets, customer service, and code, firing on every keystroke whether you asked or not. That use is invisible to you and enormous in aggregate. The IEA's growth figures come from counting chips shipped and power drawn, not from adding up chat prompts, and that is why the total keeps rising even as each prompt gets cheaper. Google's own report says the energy of its median prompt fell 33 times in a year. Google's total electricity use went up anyway.</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tit tid" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="tit">Training versus inference over the life of a model</title>
+      <desc id="tid">A chart with time along the bottom. On the left, a tall narrow dark bar labeled training: one big cost, paid once. To its right, a long pink band that starts thin and grows wider across the rest of the chart, labeled inference: a small cost, every prompt, forever, growing with users. A label near the right edge reads: the area under the pink band overtakes the dark bar.</desc>
+      <line x1="40" y1="190" x2="730" y2="190" stroke="#14181D" stroke-width="1.5"/>
+      <text x="730" y="210" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">time →</text>
+      <rect x="60" y="40" width="34" height="150" fill="#0E1116"/>
+      <text x="77" y="30" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="14" font-weight="700" fill="#14181D">Training</text>
+      <text x="77" y="225" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">one big cost, paid once</text>
+      <path d="M110,190 L110,182 C300,176 500,150 730,96 L730,190 Z" fill="#FF3D8A" opacity="0.85"/>
+      <text x="420" y="60" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="14" font-weight="700" fill="#14181D">Inference</text>
+      <text x="420" y="78" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">a small cost, every prompt, forever, growing with users</text>
+      <text x="600" y="176" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#fff">this area wins</text>
+    </svg>
+    <figcaption>The shape of the two costs. Training is the tall bar everyone argues about. Inference is the band that gets wider every time a company adds users or wires AI into another product, and it's where the bill lives.</figcaption>
+  </figure>
+  <div class="concept">
+    <div class="term">Training vs. inference</div>
+    <p>Training: the one-time cost of building the model. Inference: the recurring cost of every answer. What people get wrong: they argue about the query. "A prompt uses less than a lightbulb" and "a prompt is boiling the oceans" are both about the query, and neither is the story. The story is small times billions times forever, and the second, invisible kind of use nobody counts as "using AI."</p>
+  </div>
+
+  <h3 class="sub"><span>2.3</span> The externality: the neighbor's bill</h3>
+  <p>Here's the concept from this chapter you'll use most for the rest of the course. An <strong>externality</strong> is a cost, or a benefit, of an activity that falls on someone who wasn't part of the deal. Your prompt is free to you and profitable to the company. If the data center that answered it raises the electric bill of a family two counties away, that family paid for your prompt and never got a say. Economists have had the word for a century. Pollution is the classic example. Data centers are the current one.</p>
+  <p>Let's look at what happened. The biggest US grid is called PJM. It covers all or part of thirteen states, from Illinois to New Jersey, and it hosts more data centers than anywhere else on Earth. Once a year PJM runs an auction where power plants get paid to promise capacity for a future year, and that cost goes onto everyone's bill. In the auction for 2025 to 2026, the price jumped roughly nine times. PJM's independent market monitor, whose job is to watch the market for exactly this, <a class="inline" href="https://ieefa.org/resources/projected-data-center-growth-spurs-pjm-capacity-prices-factor-10" target="_blank" rel="noopener">estimated</a> that data centers were responsible for 63 percent of the increase, about $9.3 billion passed to customers. In July 2026 PJM itself projected a further $6.3 billion increase in consumer costs over three years, mostly attributable to data center demand. In Virginia, which has more data centers than any state, residential electricity prices rose more than 13 percent in a year.</p>
+  <p>Now the other edge, because this chapter wouldn't be honest without it. A July 2026 working paper from the Electric Power Research Institute, an industry-funded lab, looked at 2015 through 2024 and found the opposite of what everyone assumed: over that decade, each doubling of data center capacity was associated with retail electricity prices going <a class="inline" href="https://fortune.com/2026/07/26/data-centers-electricity-costs-cheaper-7billion-buildout-ai-demand/" target="_blank" rel="noopener"><em>down</em></a> about 3.5 percent. Why? A grid has huge fixed costs, and a big new customer spreads them over more kilowatt-hours. The paper's own author warns the pattern reverses if the grid builds for AI demand that doesn't show up. So the externality can run in either direction, and which direction depends on a bet about the future that nobody on the residential side of the bill was asked to place.</p>
   <div class="concept">
     <div class="term">Externality</div>
-    <p>A cost (or benefit) of an activity that lands on someone who wasn't part of the transaction. Your prompt is free to you and profitable to the provider; the neighboring town's higher power bill is an externality. Once you have the word, you'll see the pattern everywhere in this course.</p>
+    <p>A cost or benefit that falls on someone outside the transaction. The neighboring town's higher power bill is one; so is a cheaper bill from a grid that spread its costs wider. What people get wrong: they think an externality is a side effect. It's a transfer. Someone pays, someone gains, and the whole point of the word is that the person paying didn't agree to.</p>
+  </div>
+
+  <h3 class="sub"><span>2.4</span> The disclosure gap: the fog, and who benefits from it</h3>
+  <p>Now the part that trains the skill this course keeps sharpening. Try to find the per-prompt energy cost of the AI product you use most. Here's what you'll find. Google has published one number, for one product, measured one way. OpenAI's CEO gave a figure in a blog post, without the method. Mistral, a French company, published a full life-cycle estimate for one of its models in 2025. For the current frontier models from OpenAI, Anthropic, xAI, and most others, there is no first-party number at all, and every figure you'll see is an outside estimate. That is the <strong>disclosure gap</strong>: the absence of standard, published footprint data for the products that use the most.</p>
+  <p>Why the fog? Because disclosure is voluntary, the accounting rules are unsettled, and the companies hold the data. What counts: just the chips, or the cooling too? The idle servers waiting for peak load? Measured on which model, at what length of prompt, on which day? Every one of those choices moves the number, and the parties making the choices have preferences about what the number should look like. Even Google's number, the best we have, drew immediate criticism: it counts the water used on site to cool the chips, and leaves out the far larger amount of water used to generate the electricity in the first place. Google's five drops is a real measurement and an incomplete one, and both of those things are true.</p>
+  <p>This should feel familiar. In Chapter 3 we saw that a graph can only predict what research recorded. Here, the public can only judge what companies disclose, and the record has a shape someone chose. Who benefits from the fog? Ask it the way Question 2 asks it. A company with no published number can't be held to one. A critic with no published number can pick the scariest estimate. A utility with no published number can forecast whatever justifies the plant it wants to build. The fog has customers on every side.</p>
+  <div class="concept">
+    <div class="term">Disclosure gap</div>
+    <p>The absence of standardized, published footprint data for AI products; the reason honest estimates for the same question can differ by a factor of ten. What people get wrong: they treat the disagreement as a debate about facts. It's a debate conducted in the absence of facts that specific parties could publish and don't. The critical move isn't picking a side. It's asking who benefits from not knowing.</p>
+  </div>
+
+  <h3 class="sub"><span>2.5</span> Right-sizing and the waste factor: the lever, and who holds it</h3>
+  <p>If the multiplication is the problem, where's the lever? Mostly not in personal guilt. Your yearly chatbot use plausibly costs less energy than a few hot showers, and the lab will show you that number. The decisions that move gigawatts are made somewhere else.</p>
+  <p><strong>Right-sizing</strong> means matching the model to the task. A small model answering a simple question can use a tenth or less of the energy of a frontier model answering the same question just as well; the same estimates that put a reasoning reply in the tens of watt-hours put a lean model's reply well under one. The <strong>waste factor</strong> is everything we run that we didn't need: the answer regenerated and never read, the giant model summoned to fix a comma, the AI summary bolted onto a search you didn't want summarized. Both levers are real. And notice who's holding them. You choose which model you open. A product team chooses which model runs by default for a hundred million users, and whether the AI fires on every keystroke. A regulator chooses whether anyone has to publish the number. One of those three moves gigawatts.</p>
+  <div class="concept">
+    <div class="term">Right-sizing and the waste factor</div>
+    <p>Right-sizing: the smallest model that does the job well. Waste factor: compute spent on outputs nobody needed. What people get wrong: they treat this as a personal virtue, like turning off lights. It's mostly a product decision. The default model in a product used by a hundred million people is the single biggest efficiency setting in the building, and the user never sees the dial.</p>
+  </div>
+
+  <div class="callout tryit">
+    <div class="label">Try it · practice for Friday's quiz. Five situations, none from this chapter's case. For each, name the concept: training, inference, externality, disclosure gap, or right-sizing. Decide, then click.</div>
+    <details><summary>1. A company spends four months and $300 million running 50,000 chips to build its next model.</summary><p><strong>Training.</strong> One big cost, paid once, then spread across everything the model ever does. The number sounds scary and it's the smaller story.</p></details>
+    <details><summary>2. An email app adds a "summarize this thread" button that runs automatically on every email you open.</summary><p><strong>Inference, and the invisible kind.</strong> Nobody typed a prompt. It fires on every open, for every user, forever. This is where the multiplication lives, and it's why prompt-counting undercounts.</p></details>
+    <details><summary>3. A county approves a data center; two years later, households in the next county see a capacity charge on their bills.</summary><p><strong>Externality.</strong> A cost landing on people who weren't part of the deal. Notice it's the next county: the one that got the tax revenue isn't the one paying.</p></details>
+    <details><summary>4. Two respected research groups estimate the footprint of the same chatbot and differ by ten times. Neither has the company's data.</summary><p><strong>Disclosure gap.</strong> The disagreement isn't a scientific controversy. It's a missing number that one party has and hasn't published.</p></details>
+    <details><summary>5. A university's help desk routes password resets to a small model and only sends complex questions to the large one.</summary><p><strong>Right-sizing, and the trap item.</strong> The same answer, a fraction of the energy, and notice who made the decision: not the students, the product team. That's the lever this chapter says matters most.</p></details>
   </div>
 </section>
 
 <section id="s3">
-  <div class="shead"><span class="num">3</span><h2>Two costs: training and inference</h2></div>
-  <p>To think clearly about AI's footprint, split it into its two very different pieces.</p>
-  <p><strong>Training</strong> is the one-time (per model) cost of teaching the system — weeks or months of enormous compute, an energy bill that for frontier models runs into the gigawatt-hours. It's a big number, but it's paid once and then amortized across everything the model ever does.</p>
-  <p><strong>Inference</strong> is the cost of answering — every single prompt, from every single user, forever. Each individual query is tiny: current public estimates put a typical text prompt on the order of a few tenths of a watt-hour, with a few drops of water for cooling. The number that matters isn't the query. It's the multiplication: hundreds of millions of daily users, dozens of queries each, every day, growing. Small × billions × forever is how inference quietly overtakes training as the real bill.</p>
+  <div class="shead"><span class="num">3</span><h2>The main case: the buildout</h2></div>
+  <p class="lead">On September 20, 2024, a power company called Constellation announced it would restart a nuclear reactor in Pennsylvania that had been shut down for five years because it lost money. The plant was Three Mile Island. Yes, that Three Mile Island: the site of the worst nuclear accident in American history, in 1979. The reactor being restarted, Unit 1, wasn't the one that failed. But the name was the point of the headline, and the customer was the point of the story. Microsoft had signed a twenty-year contract to buy the plant's entire output, 835 megawatts, to power its data centers.</p>
+  <p>Here's what happened around it. A month later Google announced a deal with a startup called Kairos Power to build a fleet of small nuclear reactors for the same purpose. Amazon bought a data center campus next to another Pennsylvania nuclear plant. Meta went looking for its own. Restarting Three Mile Island is a $1.6 billion project, backed by a $1 billion federal loan, now aiming to come online in 2027 under the plant's new name, the Crane Clean Energy Center. When software companies start commissioning nuclear plants, the machine has stopped being a metaphor.</p>
+  <p>And the reactor is a rounding error in the spending. The four largest cloud companies, Microsoft, Google, Amazon, and Meta, are each planning on the order of $80 billion to $180 billion in capital spending this year, most of it data centers, together well over $300 billion in a single year. McKinsey has projected $7 trillion in data-center construction worldwide by 2030. That's spending on the scale of national highway systems, by companies that a decade ago sold search ads and cloud storage.</p>
+  <p>The buildout also has neighbors, and by 2026 the neighbors had noticed. Polls found a majority of Americans expected their electricity bill to rise if a data center was built nearby, and local opposition was delaying or blocking projects across the country. Section 2.3 gave the PJM numbers. States started acting: New Jersey passed a law in July 2026 putting large data centers in their own rate class so they pay for their own grid upgrades. In March 2026, seven companies, Amazon, Google, Meta, Microsoft, OpenAI, Oracle, and xAI, signed a voluntary pledge to bring or buy the electricity their data centers need and cover the grid upgrades themselves rather than passing the cost to ratepayers. Voluntary is the word to sit on. It has no enforcement.</p>
+  <figure class="diagram">
+    <!-- Image slot: Three Mile Island / Crane Clean Energy Center. Insert a licensed photo (Constellation press image or a Creative Commons photo from Wikimedia Commons), add attribution to the caption, and uncomment.
+    <img src="three-mile-island.jpg" alt="The cooling towers of Three Mile Island beside the Susquehanna River in Pennsylvania." style="max-width:620px;width:100%;height:auto;display:block;margin:0 auto;border:1px solid var(--rule)">
+    -->
+    <figcaption>Three Mile Island, Pennsylvania. Unit 1, on the left in most photos, is being restarted for Microsoft; Unit 2, which partially melted down in 1979, never ran again. [Image pending: insert a licensed photo with attribution.]</figcaption>
+  </figure>
+  <p><strong>The five critical AI questions, run on this case:</strong></p>
+
+  <h3 class="sub"><span>Question 1:</span> What is the AI system, and what does it do?</h3>
+  <p>This week the "system" isn't one model. It's the substrate every model runs on: the chips, the buildings, the power, and the water behind both training and inference, owned by a handful of companies. Let's run the AI systems model on the buildout itself:</p>
+  <ul class="ideas">
+    <li><strong>Data:</strong> the demand forecast. Every reactor, every transmission line, and every capacity auction rests on a guess about how much AI people will use in 2030, and the guess is made by the companies selling the AI.</li>
+    <li><strong>Model:</strong> not one model but all of them, from the lean ones that answer in a fraction of a watt-hour to the reasoning ones that don't publish a number, plus the invisible AI wired into search, email, and code.</li>
+    <li><strong>Output:</strong> answers, images, code, and a physical footprint: hundreds of megawatts per campus, and a demand curve that utilities are now building to.</li>
+    <li><strong>Feedback loop:</strong> more users justify more buildings, more buildings lower the cost per answer, cheaper answers get wired into more products, which brings more use. Efficiency per prompt fell 33 times in a year at Google and total demand rose. That loop has a name in economics, and Chapter 9 gives it.</li>
+    <li><strong>Humans:</strong> the product teams setting the default model, the utilities forecasting the load, the regulators deciding who pays for the wires, the county boards approving the permits, and the families two counties over who see the capacity charge and never sent a prompt.</li>
+  </ul>
+
+  <h3 class="sub"><span>Question 2:</span> Why does it exist, and who benefits?</h3>
+  <p>The buildout exists because the companies expect the models to pay for it many times over, and because they believe the company with the most compute wins. Who benefits: shareholders first, if the bet pays. The construction trades and chip makers, immediately, whether it pays or not. The towns that host the buildings get tax revenue and a few hundred permanent jobs; the county next door gets the capacity charge. And the nuclear industry, which spent a decade closing plants for lack of customers, suddenly has one with a twenty-year contract and a federal loan. If you want to know why Three Mile Island is coming back, don't ask about safety or climate. Ask who needed 835 megawatts, every hour, for twenty years, and could pay for it.</p>
+
+  <h3 class="sub"><span>Question 3:</span> What happens when it fails, and who finds out?</h3>
+  <p>Two failures, in opposite directions, and both are slow. The first: demand shows up, the grid wasn't ready, and the cost shows up on residential bills as capacity charges that arrive years after the ribbon-cutting, with no line item that says "data center." Who finds out? The market monitor, in an annual report most people never read, and the families, on a bill they can't decode. The second: demand doesn't show up. The grid built for a boom that fizzled, and the fixed costs get spread over fewer kilowatt-hours, which is the EPRI paper's warning turned real; the investor Mark Cuban's phrase for the empty buildings was pickleball courts. Who finds out? Everyone, late, on the same bill. Either way the failure arrives in a utility rate case, not a headline, and because nobody publishes per-prompt costs, even then nobody can say for sure which prompt, which product, or which company put it there. This is the book's clearest case of a failure designed to be hard to see.</p>
+
+  <h3 class="sub"><span>Question 4:</span> Who's saying that, and how would we know?</h3>
+  <p>Three claims, three sources, each with something to gain. "Data centers are raising your bill" is said by PJM's market monitor, whose job is to find problems, and by consumer advocates, who exist to say it; the $9.3 billion figure is theirs. "Data centers lowered your bill for a decade" is said in a working paper from a research institute funded by the electric industry; their finding is real and it stops in 2024. "It's not AI, it's bad market design" is said by SemiAnalysis, an industry research firm whose customers build data centers, and they argue the PJM price spike came from the auction's rules more than the load. Every one of those is checkable, and here's what would settle it: a per-product energy disclosure from the companies, and a per-customer cost allocation from the grid. One of those the companies could publish tomorrow. The other is what New Jersey's law is trying to force. Watch both. By December, either more companies will have published a number, or they won't, and that outcome is itself the answer to Question 4.</p>
+
+  <h3 class="sub"><span>Question 5:</span> Keep it, fix it, or drop it, and what does that cost?</h3>
+  <ul class="decide">
+    <li><strong>Keep building:</strong> the benefits are real (Chapter 3 just showed you one), and the alternative to building here is building on someone else's grid with worse rules. The cost is that every unpriced externality in this chapter keeps landing where it lands, and the demand forecast that justifies the reactor is written by the people selling the AI.</li>
+    <li><strong>Fix it:</strong> three fixes, each with a price. Require disclosure of energy and water per product, which costs the companies a number they can then be held to. Put large data centers in their own rate class, as New Jersey did, which costs the companies the subsidy they've been getting and may send some buildings to other states. Put the town in the room before the permit, which costs speed, and speed is what the race rewards. The voluntary pledge is the companies offering fix two without the enforcement.</li>
+    <li><strong>Drop it:</strong> a moratorium on new data centers, which several counties have effectively passed. The cost is honest and has to be said out loud: the tax revenue and jobs the town would have had, the cures and tools that run on the compute, and a buildout that moves to a place with fewer rules and a dirtier grid. Dropping it locally doesn't drop it. It relocates it.</li>
+  </ul>
   <div class="concept">
-    <div class="term">Training vs. inference · right-sizing · waste factor</div>
-    <p>Training: the one-time cost of building the model. Inference: the recurring cost of every answer. <b>Right-sizing</b> means matching the model to the task — a small model for simple jobs costs a fraction of a frontier model. <b>Waste factor</b> is everything we run that we didn't need: the regenerated answer we didn't read, the giant model summoned to fix a comma.</p>
+    <div class="term">The takeaway from the case</div>
+    <p>Notice where the argument actually lives. Not in the reactor; a restarted nuclear plant is one of the cleaner ways to feed a building like this. Not in your prompt; yours is a few tenths of a watt-hour. The argument lives in the multiplication, in the bill two counties over, and in the fact that the one number that would settle it is a number the companies have and mostly won't publish. Run the five questions and the environmental debate stops being "AI is boiling the oceans" versus "a prompt is nothing," and becomes: which building, whose grid, who pays, who published, and what would it cost to fix. (As of September 15, 2026. The capacity auctions, the disclosures, and the reactor's restart date will all move.)</p>
   </div>
-  <p>This framing also tells us where the real leverage is — and it mostly isn't personal guilt. An individual's yearly chatbot use plausibly costs less energy than a few hot showers. The decisions that move gigawatts are made elsewhere: which model a company deploys by default, whether products are designed to invoke AI on every keystroke, where the data centers get built and what feeds them. We'll still audit our own use in the lab — but as evidence for judging the system, not as a shame exercise.</p>
 </section>
 
 <section id="s4">
-  <div class="shead"><span class="num">4</span><h2>The disclosure gap</h2></div>
-  <p>Now the part of this chapter that trains the skill we keep sharpening. Try to find the actual per-query energy cost of the AI product you use most. Go ahead — the lab will send you looking. What you'll find is a fog: a couple of companies have published carefully framed per-prompt estimates, researchers publish independent estimates that differ from the companies' and from each other, and for most products there is simply no number at all. Estimates for the same basic question can differ by an order of magnitude.</p>
-  <p>Why? Because disclosure is voluntary, the accounting rules are unsettled, and the companies hold the data. What counts — just the chips, or the cooling too? The idle servers waiting for peak load? Measured on which model, at what length of prompt? Every one of those choices moves the number, and the parties making the choices have preferences about what the number should look like. This is the <em>disclosure gap</em>, and it should feel familiar: in Chapter 3 we saw that a graph can only predict what research recorded. Here, the public can only judge what companies disclose — and the record has a shape someone chose.</p>
-  <div class="callout">
-    <div class="label">The sentence to carry out of this chapter</div>
-    <p>The environmental debate about AI is not mostly a debate about facts. It's a debate conducted in the absence of facts that specific parties could publish and don't. When we see wildly conflicting claims — "AI is boiling the oceans" vs. "a prompt is nothing" — the critical move isn't picking a side. It's asking who benefits from the fog.</p>
-  </div>
+  <div class="shead"><span class="num">4</span><h2>Decide: right-size what we control, demand disclosure for what we don't</h2></div>
+  <p>Deciding here means resisting the two easy exits. Exit one: "AI is an environmental catastrophe, log off." That doesn't survive the per-prompt numbers, or an honest comparison to the rest of a digital life; your streaming habit is the bigger bill. Exit two: "a prompt is a rounding error, nothing to see." That doesn't survive the multiplication, the buildout, or the capacity charge in Ohio. The defensible position lives between them and has two parts, and the lab makes both concrete: right-size what we control, and demand disclosure for what we don't. Say both halves. Then say what each costs you, because "the companies should publish their numbers" is free to say and "I'll use the small model by default" is not.</p>
+  <h3 class="sub"><span>4.1</span> Three takeaways</h3>
+  <h3>Argue about the multiplication, not the query</h3>
+  <p>Whoever is arguing about a single prompt, on either side, is arguing about the wrong number. The per-prompt figure is small and published. The total is large and growing, and it's driven by product defaults and invisible use, not by your questions. From now on, when someone quotes a per-query number at you, the trained reflex is to ask: times how many, times how often, chosen by whom?</p>
+  <h3>Find the building, then find the bill</h3>
+  <p>Every AI system in this book has a street address. When the next data center is announced near you, and one will be, the questions are the same ones we ran this week: whose grid, whose water, who gets the tax revenue, who gets the capacity charge, and who was in the room when the permit was signed. The word for the cost that lands outside the room is externality, and you'll use it in five more chapters.</p>
+  <h3>The fog is the finding</h3>
+  <p>When the two sides of a debate differ by a factor of ten and neither has the company's data, don't pick a side. Ask who has the number and why they haven't published it. Chapter 3 said a graph can only predict what research recorded. This chapter says the public can only judge what companies disclose. The habit is the same: look at the shape of the record before you trust anything drawn from it.</p>
 </section>
 
 <section id="s5">
-  <div class="shead"><span class="num">5</span><h2>Question it &amp; decide</h2></div>
-  <div class="callout">
-    <div class="label">The five questions, applied</div>
-    <div class="fourq">
-      <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> Not one system but the substrate every kind runs on: the chips, the buildings, the power and water behind training and inference. Model size varies enormously, so the footprint of "AI" isn't one number.</p></div>
-      <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> The buildout exists because the companies expect the models to pay for it many times over, and because the towns that host the data centers were promised jobs and tax revenue. Who benefits: shareholders first; the town, sometimes; the neighbor on the same grid, rarely.</p></div>
-      <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> Slowly, in utility bills and water reports, long after the ribbon-cutting. And because no lab publishes per-query costs, even then the attribution is contestable. This is the book's clearest case of a failure designed to be hard to see.</p></div>
-      <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> "A query costs about as much as a Google search" is said by companies that publish no numbers. "AI will drink the rivers dry" is said by people quoting estimates built from other estimates. What would settle it is a disclosed figure, and no one who has it will publish it. The fog itself is the finding.</p></div>
-      <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Keep building: the benefits are real and the alternative is someone else's grid. Fix it: require disclosure, right-size models, put the town in the room before the permit; each costs the companies something they'd rather not pay. Drop it, and say honestly what the town loses along with what it's spared.</p></div>
-    </div>
+  <div class="shead"><span class="num">5</span><h2>Key terms</h2></div>
+  <div class="terms">
+    <div class="term-card"><div class="t">Data center</div><p>The physical building where AI runs: chips, power, cooling, and a street address with neighbors. "The cloud" is a marketing word for it.</p></div>
+    <div class="term-card"><div class="t">Training</div><p>The one-time cost of building a model: thousands of chips, weeks or months, an energy bill in the gigawatt-hours. Paid once, then spread across everything the model does.</p></div>
+    <div class="term-card"><div class="t">Inference</div><p>The recurring cost of every answer, forever. Tiny per prompt, enormous in total, and growing with every product that wires AI in by default.</p></div>
+    <div class="term-card"><div class="t">The multiplication</div><p>Small, times billions, times forever. The reason the query is never the story, and the reason Google's total went up while its per-prompt number fell 33 times.</p></div>
+    <div class="term-card"><div class="t">Externality</div><p>A cost or benefit that falls on someone outside the transaction. The neighboring county's capacity charge; also the cheaper bill from a grid that spread its fixed costs. This course's most reusable economics concept.</p></div>
+    <div class="term-card"><div class="t">Capacity market</div><p>PJM's yearly auction where power plants are paid to promise future supply. Its cost goes on every bill in thirteen states, and it's where data center demand showed up first.</p></div>
+    <div class="term-card"><div class="t">Disclosure gap</div><p>The absence of standardized, published footprint data for AI products. A fog with beneficiaries on every side, and the reason honest estimates disagree by ten times.</p></div>
+    <div class="term-card"><div class="t">Right-sizing</div><p>Matching model size to task. The biggest efficiency lever in the building, and the product team holds it, not the user.</p></div>
+    <div class="term-card"><div class="t">Waste factor</div><p>Compute spent on outputs nobody needed: unread regenerations, oversized models on trivial tasks, AI summaries nobody asked for.</p></div>
+    <div class="term-card"><div class="t">The buildout</div><p>The 2024 to 2030 spending spree on AI data centers, on the order of hundreds of billions of dollars a year, restarting nuclear plants and reshaping grids. The main case.</p></div>
   </div>
-  <p><strong>Deciding</strong> here means resisting the two easy exits. Exit one: "AI is an environmental catastrophe, log off" — which doesn't survive the actual per-query numbers or an honest comparison to the rest of our digital lives. Exit two: "a prompt is a rounding error, nothing to see" — which doesn't survive the multiplication, the buildout, or the neighbors' power bills. The defensible position lives in the middle and has two parts: right-size what we control, and demand disclosure for what we don't. The lab makes both concrete.</p>
 </section>
 
 <section id="s6">
-  <div class="shead"><span class="num">6</span><h2>Key terms</h2></div>
-  <div class="terms">
-    <div class="term-card"><div class="t">Data center</div><p>The physical building where AI runs: chips, power, cooling, and a street address with neighbors.</p></div>
-    <div class="term-card"><div class="t">Training vs. inference</div><p>The one-time cost of building a model vs. the forever cost of every answer. Inference wins the long game through multiplication.</p></div>
-    <div class="term-card"><div class="t">Externality</div><p>A cost that lands on someone outside the transaction — the course's most reusable economics concept.</p></div>
-    <div class="term-card"><div class="t">Right-sizing</div><p>Matching model size to task. The biggest efficiency lever that product designers — and users — actually hold.</p></div>
-    <div class="term-card"><div class="t">Waste factor</div><p>Compute spent on outputs nobody needed: unread regenerations, oversized models on trivial tasks.</p></div>
-    <div class="term-card"><div class="t">Disclosure gap</div><p>The absence of standardized, published footprint data — a fog with beneficiaries. The reason honest estimates disagree by 10×.</p></div>
-  </div>
-</section>
-
-<section id="s7">
-  <div class="shead"><span class="num">7</span><h2>Discussion questions</h2></div>
+  <div class="shead"><span class="num">6</span><h2>Discussion questions</h2></div>
   <div class="ticket">
     <div class="label">For Monday's discussion</div>
     <ol>
-      <li>Microsoft is restarting a Three Mile Island reactor to power AI. Give one reading of that fact as good news and one as alarming news — both honest.</li>
-      <li>Explain training vs. inference to a roommate in two sentences, then answer: which one should regulators care about more, and why?</li>
-      <li>Find one externality in your own life this week that has nothing to do with AI — a cost you paid that someone else's choice created, or one you created for someone else. Name it. (This is practice for seeing them.)</li>
-      <li>Spend ten minutes trying to find the per-query energy cost of the AI product you use most. Report exactly what you found, where, and how much the sources disagreed. Empty-handed is a valid finding — say so.</li>
-      <li>Who benefits from the disclosure gap? Name at least two distinct parties and what each gains from the fog.</li>
+      <li><strong>The building.</strong> Microsoft is restarting a Three Mile Island reactor to power AI. Give one reading of that fact as good news and one as alarming news, both honest, and say which reading the company would prefer you hold and why.</li>
+      <li><strong>The two costs.</strong> Explain training versus inference to a roommate in two sentences. Then answer: which one should a regulator care about more, and what's the one thing a product team could change tonight that would move it?</li>
+      <li><strong>The externality.</strong> Find one externality in your own life this week that has nothing to do with AI: a cost you paid that someone else's choice created, or one you created for someone else. Name it, name who paid, and say whether they agreed to. This is practice for seeing them.</li>
+      <li><strong>The disclosure gap.</strong> Spend ten minutes trying to find the per-prompt energy cost of the AI product you use most. Report exactly what you found, where, and how much the sources disagreed. Empty-handed is a valid finding; say so, then say who benefits from your coming back empty-handed.</li>
+      <li><strong>Your stance on the buildout.</strong> A data center is proposed for Whatcom County. In three sentences: keep it, fix it, or drop it, what condition you'd attach if you were on the county council, and what that condition costs the county. Keep this one. Chapter 7 puts you on a city council for real, and Chapter 9 asks whether the buildout paid off.</li>
     </ol>
   </div>
 </section>
+
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <p>Per-prompt figures: Google's median Gemini Apps text prompt (0.24 Wh, 0.26 mL water, 0.03 gCO2e, and the 33x one-year reduction) is from Google's August 2025 technical paper and blog post (linked; Elsworth et al., arXiv 2508.15734), and is Google's own measurement; the on-site-only water critique is as reported in coverage of the paper (implicator.ai and others, August 2025). The 0.34 Wh ChatGPT figure is from Sam Altman's June 2025 blog post; the roughly 0.3 Wh figure is Epoch AI's February 2025 estimate; Mistral's life-cycle disclosure is July 2025; "tens of watt-hours" for reasoning replies is a range of independent estimates as of mid-2026, not a company figure, and no first-party number exists for current OpenAI, Anthropic, or xAI flagships. Table 1 is arithmetic on 0.3 Wh; the household equivalent uses about 10,800 kWh per US home per year. Totals: IEA, Energy and AI (April 2025), 415 TWh in 2024 to about 945 TWh in 2030; Lawrence Berkeley National Laboratory, 2024 United States Data Center Energy Usage Report (December 2024), 4.4 percent in 2023 and 6.7 to 12 percent by 2028. The buildout: Constellation's September 20, 2024 announcement (835 MW, 20-year Microsoft agreement, Crane Clean Energy Center; restart target and $1.6 billion / $1 billion DOE loan as reported in 2026 coverage, and the date has already moved once, from 2028 to 2027); Google and Kairos Power, October 2024; Amazon's Susquehanna campus, March 2024; 2026 capital-spending figures are the companies' own guidance as reported (roughly $80 billion Microsoft, $80 to 100 billion Meta, $175 to 185 billion Alphabet), and the "well over $300 billion" total is a sum of reported guidance; McKinsey's $7 trillion by 2030 is via Fortune (linked). Rates: PJM's independent market monitor (Monitoring Analytics) on the 2025/26 capacity auction, 63 percent and $9.3 billion, via IEEFA and New Jersey reporting (linked); PJM's July 2026 $6.3 billion projection, Virginia's 13 percent, and the EPRI working paper (Watten et al., 2026, 3.5 percent per doubling, 2015 to 2024) via Fortune, July 26, 2026 (linked); SemiAnalysis, March 2026, on market design; New Jersey's Data Center Fair Share Act, signed July 7, 2026; the Ratepayer Protection Pledge of March 4, 2026 (seven companies, voluntary) as reported in August 2026 coverage, unconfirmed link, verify against the companies' own statement; the Harvard Salata Institute YouGov poll via Fortune. Mark Cuban's "pickleball courts" is from the All-In podcast, July 2026, via Fortune. Verified 15 September 2026; the auctions, disclosures, and restart date will move. Found an error? Tell your instructor; corrections are course content.</p>
+</details>
 
 <div class="nextbar">
   <a href="chapter-03-medicine.html"><span class="dir">← Back</span>Chapter 3 · Medicine</a>
