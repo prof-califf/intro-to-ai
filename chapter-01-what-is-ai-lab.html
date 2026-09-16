@@ -207,7 +207,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .mn-cell.x{color:var(--ink)}.mn-cell.o{color:var(--pinktext)}
 .mn-strip{display:flex;gap:3px;margin-top:8px;flex-wrap:wrap}
 .mn-strip span{display:inline-block;width:14px;height:14px;border-radius:2px;background:#E7E7E2}
-.mn-strip .w{background:var(--pink)}.mn-strip .d{background:#9AA1AB}.mn-strip .l{background:var(--ink)}
+.mn-strip .w{background:var(--ink)}.mn-strip .d{background:#9AA1AB}.mn-strip .l{background:var(--pink)}
 @media (max-width:640px){.mn-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -318,11 +318,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
   <div class="ticket">
-    <div class="label">Section 1 · answer these questions for submission</div>
-    <ol>
-      <li><strong>Break it.</strong> You drew something that was neither a smiley nor a house and the model guessed anyway, with a confidence number. Why can't it say "I don't know," and what does that tell you about where its answers come from?</li>
-      <li><strong>Bias it.</strong> After training on three smileys and one house drawn in a corner, what happened when you drew a house somewhere else? In one sentence: what did the training data's shape do to the model?</li>
-    </ol>
+    <div class="label">Section 1 · answer this question for submission</div>
+    <p>You drew something that was neither a smiley nor a house and the model guessed anyway, with a confidence number. Then you trained it on three smileys and one house in a corner, and it missed a house drawn anywhere else. In a few sentences: why can't it say "I don't know," and what did the shape of your training data do to it?</p>
   </div>
 
 <section id="menace">
@@ -331,7 +328,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
   <div class="steps">
     <div class="step"><span class="sn">1</span><p><strong>Beat it.</strong> Play five games. It has never played before, so it is choosing moves at random, and you should win most of them. Look at the small numbers on the empty squares before each move: those are the beads in the box for this exact position. Watch what happens to them after you win.</p></div>
-    <div class="step"><span class="sn">2</span><p><strong>Let it practice.</strong> Press "Simulate 300 games vs. a careful player." This is AlphaGo's self-play trick: the computer plays both sides, fast. That opponent blocks your wins and takes its own, which is roughly you. Now play it five more games. It should be drawing you, or beating you when you slip. Nobody told it a strategy. The beads moved.</p></div>
+    <div class="step"><span class="sn">2</span><p><strong>Let it practice.</strong> Press "Let it practice: 500 games vs. a careful player." This is AlphaGo's self-play trick: the computer plays both sides, fast. That opponent blocks your wins and takes its own, which is roughly you. Now play it five more games. It should be drawing you, or beating you when you slip. Nobody told it a strategy. The beads moved.</p></div>
     <div class="step"><span class="sn">3</span><p><strong>Give it the wrong data</strong> (if time is short, do this one at home). Press "Forget everything," then "Simulate 300 games vs. a random player" twice. Its record will look wonderful. Now play it yourself. It learned to beat a player who never blocks, so it never learned to block. Same machine, same learning rule, different data, and its confidence is exactly as high. Notice whether it beat you after practice; the writeup asks for it. You'll meet this in Chapter 3 (the record has a shape) and Chapter 6 (it learned who got hired, not who deserved it).</p></div>
   </div>
 
@@ -349,13 +346,14 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       <div>
         <div class="label">Mini-AlphaGo's record</div>
         <p class="tis-counts" id="mn-score">Games 0 · Mini-AlphaGo won 0 · draws 0 · human won 0</p>
-        <div class="mn-strip" id="mn-strip" aria-label="Last twenty results"></div>
+        <div class="mn-strip" id="mn-strip" aria-label="Last twenty results: pink is a human win, black is a Mini-AlphaGo win, gray is a draw"></div>
+        <p class="tis-note" style="margin-top:4px">Last twenty games: <span style="color:var(--pinktext);font-weight:600">pink</span> you won, <span style="font-weight:600">black</span> it won, gray a draw.</p>
         <div class="label" style="margin-top:16px">Let it practice (simulated games, played in a second)</div>
         <div class="chips">
           <button class="chip" type="button" id="mn-rand">Simulate 300 games vs. a random player</button>
-          <button class="chip" type="button" id="mn-block">Simulate 300 games vs. a careful player</button>
+          <button class="chip" type="button" id="mn-block">Let it practice: 500 games vs. a careful player</button>
         </div>
-        <p class="tis-note" id="mn-note">These are simulations: the computer plays both sides, 300 games in about a second, the way AlphaGo played itself millions of times. They count in the record too. Pink is a Mini-AlphaGo win, gray a draw, black a human win.</p>
+        <p class="tis-note" id="mn-note">These are simulations: the computer plays both sides, hundreds of games in about a second, the way AlphaGo played itself millions of times. They count in the record too. Pink is a Mini-AlphaGo win, gray a draw, black a human win.</p>
       </div>
     </div>
   </div>
@@ -363,11 +361,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
   <div class="ticket">
-    <div class="label">Section 2 · answer these questions for submission</div>
-    <ol>
-      <li><strong>What it learned from.</strong> Nobody gave Mini-AlphaGo a strategy. After 300 games against a careful player it stopped losing to you. Say in your own words what actually changed inside it, using the bead numbers you watched.</li>
-      <li><strong>The wrong data.</strong> After training against a random player, its record looked wonderful and it played badly against you. What does that tell you about a system that reports its own success?</li>
-    </ol>
+    <div class="label">Section 2 · answer this question for submission</div>
+    <p>Nobody gave Mini-AlphaGo a strategy, and after 500 practice games it stopped losing to you. In a few sentences: what actually changed inside it, using the bead numbers you watched, and why did a wonderful record against a random player not mean it could beat you?</p>
   </div>
 
 <section>
@@ -647,7 +642,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   if(!$('mn')) return;
   var LINES=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
   var boxes={}, board, hist, over, human=true, rec={g:0,w:0,d:0,l:0}, strip=[];
-  var INIT=[4,3,2,1];
+  var INIT=[2,2,1,1];
   function key(b){return b.join('');}
   function xCount(b){return b.filter(function(c){return c==='X';}).length;}
   function getBox(b){var k=key(b); if(!boxes[k]){var n=INIT[Math.min(xCount(b),3)]; boxes[k]=b.map(function(c){return c===''?n:0;});} return boxes[k];}
@@ -655,7 +650,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   function menaceMove(b){var box=getBox(b); var tot=box.reduce(function(a,c){return a+c;},0);
     if(tot===0){var n=INIT[Math.min(xCount(b),3)]; b.forEach(function(c,i){box[i]=c===''?n:0;}); tot=box.reduce(function(a,c){return a+c;},0);}
     var r=Math.random()*tot; for(var i=0;i<9;i++){r-=box[i]; if(r<0)return i;} return b.indexOf('');}
-  function learn(result){hist.forEach(function(h){var box=boxes[h.k]; if(result==='X')box[h.m]+=3; else if(result==='draw')box[h.m]+=1; else box[h.m]=Math.max(0,box[h.m]-1);});}
+  function learn(result){hist.forEach(function(h){var box=boxes[h.k]; if(result==='X')box[h.m]+=3; else if(result==='draw')box[h.m]+=2; else box[h.m]=Math.max(0,box[h.m]-2);});}
   function careful(b){ // win if possible, block if possible, else random
     var me='O',you='X'; function tryFor(p){for(var i=0;i<LINES.length;i++){var L=LINES[i],vals=L.map(function(j){return b[j];}); if(vals.filter(function(v){return v===p;}).length===2&&vals.indexOf('')>=0)return L[vals.indexOf('')];} return -1;}
     var w=tryFor(me); if(w>=0)return w; var bl=tryFor(you); if(bl>=0)return bl; var e=[]; b.forEach(function(c,i){if(c==='')e.push(i);}); return e[Math.floor(Math.random()*e.length)];}
@@ -670,14 +665,14 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       if(!c&&!over&&box){var bd=document.createElement('span'); bd.className='bd'; bd.textContent=box[i]; btn.appendChild(bd);}
       btn.addEventListener('click',function(){humanMove(i);}); el.appendChild(btn);});}
   function finish(res){over=true; learn(res); record(res); render();
-    $('mn-msg').textContent=res==='X'?'Mini-AlphaGo won. Every move it made just gained three beads.':res==='draw'?'A draw. Its moves each gained one bead.':'Human won. Every move Mini-AlphaGo made just lost a bead. Press New game and beat it again.';}
+    $('mn-msg').textContent=res==='X'?'Mini-AlphaGo won. Every move it made just gained three beads.':res==='draw'?'A draw. Its moves each gained two beads.':'Human won. Every move Mini-AlphaGo made just lost two beads. Press New game and beat it again.';}
   function menaceTurn(){var m=menaceMove(board); hist.push({k:key(board),m:m}); board[m]='X'; var res=winner(board); if(res){finish(res);return;} human=true; render(); $('mn-msg').textContent='Your move. The numbers are the beads for each of its possible replies from here.';}
   function humanMove(i){if(over||!human||board[i])return; board[i]='O'; human=false; var res=winner(board); if(res){finish(res);return;} render(); setTimeout(menaceTurn,250);}
   function newGame(){board=['','','','','','','','','']; hist=[]; over=false; human=false; render(); $('mn-msg').textContent='It goes first.'; setTimeout(menaceTurn,200);}
   $('mn-new').addEventListener('click',newGame);
   $('mn-reset').addEventListener('click',function(){boxes={}; rec={g:0,w:0,d:0,l:0}; strip=[]; $('mn-score').textContent='Games 0 · Mini-AlphaGo won 0 · draws 0 · human won 0'; $('mn-strip').innerHTML=''; $('mn-note').textContent='All beads reset. It knows nothing again.'; newGame();});
   $('mn-rand').addEventListener('click',function(){playAuto(randomMove,300); $('mn-note').textContent='Simulated 300 games against a player who moves at random.';});
-  $('mn-block').addEventListener('click',function(){playAuto(careful,300); $('mn-note').textContent='Simulated 300 games against a player who takes wins and blocks yours.';});
+  $('mn-block').addEventListener('click',function(){playAuto(careful,500); $('mn-note').textContent='It just played 500 games against a player who takes wins and blocks yours. Now play it.';});
   newGame();
 })();
 </script>
