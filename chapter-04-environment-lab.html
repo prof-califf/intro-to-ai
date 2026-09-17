@@ -182,6 +182,37 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   .nav .navlinks{width:100%;justify-content:flex-start}
   .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
 }
+
+
+/* ---- lab 4 ---- */
+ul.plan{list-style:none;margin:0}
+ul.plan li{padding:4px 0;border-bottom:1px solid var(--rule)}
+ul.plan li:last-child{border-bottom:none}
+.chiplbl{font-size:.85rem;color:var(--gray);margin-right:4px}
+.callout.stop{border-top-color:var(--ink)}
+.callout.stop .label{color:var(--ink)}
+.slider-row output{min-width:0}
+.bar{grid-template-columns:170px minmax(0,1fr) 130px}
+.bar .track{position:relative;height:12px}
+.bar .fill{position:absolute;left:0;top:0;bottom:0}
+.bar .band{position:absolute;top:3px;bottom:3px;background:rgba(255,255,255,.28);border-radius:999px;transition:all .3s ease}
+.bar.alt .fill{background:#7FD4FF}
+.bar .n{white-space:nowrap;font-variant-numeric:tabular-nums}
+@media(max-width:560px){.bar{grid-template-columns:1fr}}
+.verdict .read{margin-top:4px}
+.headline{display:flex;flex-direction:column;gap:2px;padding:16px 18px;border:1px solid var(--rule);background:var(--bg);margin-bottom:14px}
+.headline .big{font-family:'Fraunces',serif;font-weight:700;font-size:2rem;line-height:1.1}
+.headline .small{font-size:.9rem;color:var(--gray)}
+.read-light{font-size:.95rem;margin:12px 0 0}
+.read-light b{color:var(--pinktext)}
+ol.discuss{padding-left:1.2rem}
+ol.discuss li{margin-bottom:12px;line-height:1.65}
+ol.discuss li:last-child{margin-bottom:0}
+.srcnote{margin:26px 0;border:1px solid var(--rule);background:#fff;padding:14px 18px;font-size:.88rem;color:var(--gray)}
+.srcnote summary{cursor:pointer;color:var(--ink);font-weight:600}
+.srcnote p{margin:10px 0 0}
+@media(max-width:520px){.tool{padding:18px 16px}.verdict{padding:20px 18px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -196,33 +227,34 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       <a class="navlink" href="schedule.html">Schedule</a>
       <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddc" data-dd="ddc">Chapters<span class="caret" aria-hidden="true">▾</span></button>
 <div class="dd-menu" id="ddc">
-<a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 1</span>What Is AI?</a>
-<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 2</span>What It Means to Be Human</a>
-<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 3</span>Medicine</a>
-<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 4</span>Environment</a>
-<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · Week 5</span>Systems That Want You</a>
-<a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Hiring &amp; Lending</a>
+<a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
+<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
+<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 4</span>Medicine</a>
+<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 5</span>Environment</a>
+<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · optional</span>Systems That Want You</a>
+<a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
 <a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
 <a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
-<a href="chapter-09-markets.html"><span class="lbl">Chapter 9 · Week 9</span>Markets</a>
+<a href="chapter-09-economy.html"><span class="lbl">Chapter 9 · Week 9</span>The Economy</a>
 <a href="chapter-10-truth.html"><span class="lbl">Chapter 10 · Week 10</span>Truth</a>
-<a href="chapter-11-work.html"><span class="lbl">Chapter 11 · Week 10</span>AI and the Future of Work</a>
+<a href="chapter-11-rules.html"><span class="lbl">Chapter 11 · Week 10</span>Who Makes the Rules?</a>
 <a href="chapter-12-future.html"><span class="lbl">Chapter 12 · Week 10</span>The Future</a>
 </div></div>
       <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddl" data-dd="ddl">Labs<span class="caret" aria-hidden="true">▾</span></button>
 <div class="dd-menu" id="ddl">
-<a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 1</span>First Contact</a>
-<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 2</span>The Seeming Test</a>
-<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 3</span>Inside the Graph</a>
-<a href="chapter-04-environment-lab.html" class="current" aria-current="page"><span class="lbl">Lab 4 · Week 4</span>The Footprint Machine</a>
-<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · Week 5</span>Play the Algorithm</a>
+<a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
+<a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test</a>
+<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 4</span>Inside the Graph</a>
+<a href="chapter-04-environment-lab.html" class="current" aria-current="page"><span class="lbl">Lab 4 · Week 5</span>The Footprint Machine</a>
+<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · optional</span>Play the Algorithm</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
 <a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
-<a href="chapter-09-markets-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
+<a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
 <a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 10 · take-home</span>The Phantom Docket</a>
-<a href="chapter-11-work-lab.html"><span class="lbl">Lab 11 · Decide project method</span>The Exposure Audit</a>
-<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · capstone</span>First Contact, Revisited</a>
+<a href="exposure-audit.html"><span class="lbl">Self-guided · pairs with Chapter 9</span>The Exposure Audit</a>
+<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · last class</span>First Contact, Revisited</a>
 </div></div>
     </div>
   </div>
@@ -230,122 +262,212 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <header class="masthead">
   <div class="wrap">
-    <div class="eyebrow">Western Washington University · MIS 201 · Lab 4 · Wednesday, in class</div>
+    <div class="eyebrow">Western Washington University · MIS 201 · Lab 4 · Week 5 · Take-home (midterm week)</div>
     <h1>The Footprint <b>Machine</b></h1>
-    <p class="kicker">The chapter said the story lives in the multiplication, not the query. This lab is a multiplication machine. Start with your own real usage, scale it to the planet, then do what almost no calculator will do: show you how uncertain the numbers underneath actually are.</p>
-    <p class="factline">Your usage · four scales · one honesty switch</p>
+    <p class="kicker">Chapter 4 said the cost of AI lives in the multiplication, the defaults, and the numbers nobody publishes. Today you work all three. First you add up your own digital day. Then you set the defaults for a product with a hundred million users. Then you read a company's sustainability report the way an analyst would, and ask a chatbot what it just cost.</p>
+    <p class="factline">Your day · the default · the report · the machine</p>
   </div>
 </header>
 
 <main class="wrap">
+<div class="callout">
+  <div class="label">Take-home this week</div>
+  <p>Wednesday is the midterm, so this lab is on your own time, alone or with a partner. Skip the in-class check-in. Where a step says "the room," jot your own answer instead; those answers can go in your writeup. The writeup is due Friday, October 23, at 11:59 p.m.</p>
+</div>
 
-<section>
-  <div class="shead"><span class="num">1</span><h2>Set the machine to your real life</h2></div>
-  <p class="lead">Be honest with the sliders — the lab only works on real numbers. Count yesterday's actual AI use: every chat message, every AI-generated image, and pick the model tier closest to what you actually use. Then read the daily and yearly output at the scale of just you.</p>
 
-  <div class="tool">
-    <div class="label">The footprint machine · estimates, and the lab is about that word</div>
-
-    <div class="slider-row">
-      <label for="q">Text prompts per day</label>
-      <input type="range" id="q" min="0" max="200" value="20">
-      <output id="qv">20</output>
-    </div>
-    <div class="slider-row">
-      <label for="img">AI images per day</label>
-      <input type="range" id="img" min="0" max="50" value="1">
-      <output id="imgv">1</output>
-    </div>
-    <div class="slider-row">
-      <label for="model">Model tier</label>
-      <select id="model">
-        <option value="0.05">Small — quick tasks, autocomplete-class</option>
-        <option value="0.3" selected>Medium — everyday chatbot</option>
-        <option value="1.2">Large — frontier model, long reasoning</option>
-      </select>
-      <output></output>
-    </div>
-    <div class="slider-row">
-      <label for="scale">Scale it up</label>
-      <select id="scale">
-        <option value="1" selected>Just me (×1)</option>
-        <option value="45">This class (×45)</option>
-        <option value="16000">All of WWU (×16,000)</option>
-        <option value="800000000">Global daily users (×800 million)</option>
-      </select>
-      <output></output>
-    </div>
-    <div class="chips" style="margin-top:10px;">
-      <button type="button" class="chip" id="unc" aria-pressed="false">Show honest uncertainty</button>
-    </div>
-
-    <div class="verdict" style="margin-top:20px;">
-      <div class="label" id="vlabel">Estimated footprint · per year at selected scale</div>
-      <div class="equiv" style="background:#242C36;border-color:#242C36;">
-        <div class="cell" style="background:#1B222B;"><div class="v" style="color:#fff;"><em id="energy">—</em></div><div class="k" style="color:#9AA1AB;" id="energyk">energy per year</div></div>
-        <div class="cell" style="background:#1B222B;"><div class="v" style="color:#fff;"><em id="water">—</em></div><div class="k" style="color:#9AA1AB;" id="waterk">cooling water per year</div></div>
-        <div class="cell" style="background:#1B222B;"><div class="v" style="color:#fff;" id="eq1v">—</div><div class="k" style="color:#9AA1AB;" id="eq1k">—</div></div>
-        <div class="cell" style="background:#1B222B;"><div class="v" style="color:#fff;" id="eq2v">—</div><div class="k" style="color:#9AA1AB;" id="eq2k">—</div></div>
-      </div>
-      <p class="read" id="reading"></p>
-    </div>
+<section id="today">
+  <div class="shead"><span class="num">1</span><h2>Today</h2></div>
+  <div class="callout">
+    <div class="label">The plan · 110 minutes</div>
+    <ul class="plan">
+      <li><b>Part 1, your digital day</b> · 20 minutes</li>
+      <li><b>Part 2, set the default</b> · 20 minutes</li>
+      <li><b>Check-in</b> · 5 minutes, then a 5-minute break</li>
+      <li><b>Part 3, read the report</b> · 15 minutes</li>
+      <li><b>Part 4, ask the machine</b> · 10 minutes</li>
+      <li><b>Room discussion</b> · 25 minutes</li>
+      <li><b>Five questions on your own choices</b> · 10 minutes, then the writeup is homework</li>
+    </ul>
   </div>
-
-  <div class="concept">
-    <div class="term">Where these numbers come from</div>
-    <p>The machine uses mid-range figures from published company and researcher estimates: a few tenths of a watt-hour and a few milliliters of water per medium-model text prompt, more for frontier models and images. They are defensible and disputed at the same time — which is not a flaw in this lab. It's the subject of it. Step 3 makes the dispute visible.</p>
-  </div>
+  <p class="lead">Work in pairs. Every part ends with a <strong>written stop</strong>: one or two sentences in your notes before you move on. Those sentences are most of Friday's writeup, so the stops save you time later.</p>
+  <p>Every number in the machines is an estimate, and the lab says where each one comes from. The per-request figures are the chapter's; the streaming figures are the International Energy Agency's; the product and company in Parts 2 and 3 are fictional. <em>(Rough is fine. The point is which numbers are big, not the third decimal.)</em></p>
 </section>
 
-<section>
-  <div class="shead"><span class="num">2</span><h2>Run the multiplication</h2></div>
+<section id="day">
+  <div class="shead"><span class="num">2</span><h2>Part 1: your digital day</h2></div>
+  <p>Use yesterday, honestly. Count what you actually did, not what you think you should have done.</p>
+  <div class="tool" id="dd">
+    <div class="label">Yesterday, in watt-hours</div>
+    <div class="slider-row"><label for="dd-stream">Streaming video (hours)</label><input type="range" id="dd-stream" min="0" max="8" step="0.5" value="2"><output for="dd-stream" id="dd-stream-o">2 h</output></div>
+    <div class="slider-row"><label for="dd-scroll">Scrolling short video (hours)</label><input type="range" id="dd-scroll" min="0" max="8" step="0.25" value="1"><output for="dd-scroll" id="dd-scroll-o">1 h</output></div>
+    <div class="slider-row"><label for="dd-text">AI text prompts</label><input type="range" id="dd-text" min="0" max="100" step="1" value="15"><output for="dd-text" id="dd-text-o">15</output></div>
+    <div class="slider-row"><label for="dd-img">AI images</label><input type="range" id="dd-img" min="0" max="30" step="1" value="2"><output for="dd-img" id="dd-img-o">2</output></div>
+    <div class="slider-row"><label for="dd-vid">AI videos (5 seconds)</label><input type="range" id="dd-vid" min="0" max="10" step="1" value="0"><output for="dd-vid" id="dd-vid-o">0</output></div>
+    <div class="chips" role="group" aria-label="Chatbot model size" style="margin-top:8px">
+      <span class="chiplbl">Your chatbot's model:</span>
+      <button type="button" class="chip" data-tier="s" aria-pressed="false">Small</button>
+      <button type="button" class="chip on" data-tier="m" aria-pressed="true">Medium</button>
+      <button type="button" class="chip" data-tier="l" aria-pressed="false">Large</button>
+      <button type="button" class="chip" id="dd-reason" aria-pressed="false">Reasoning on</button>
+    </div>
+    <div class="chips" style="margin-top:10px">
+      <span class="chiplbl">Count for streaming:</span>
+      <button type="button" class="chip on" data-count="all" aria-pressed="true">Everything (screen, network, building)</button>
+      <button type="button" class="chip" data-count="dc" aria-pressed="false">Only the data center</button>
+    </div>
+    <div class="chips" style="margin-top:10px">
+      <button type="button" class="chip" id="dd-band" aria-pressed="false">Show honest uncertainty</button>
+      <button type="button" class="chip" id="dd-grams" aria-pressed="false">Show grams of CO2</button>
+    </div>
+    <div class="verdict" aria-live="polite">
+      <div class="label">Your day</div>
+      <div class="bars" id="dd-bars"></div>
+      <p class="read" id="dd-read"></p>
+    </div>
+  </div>
   <div class="steps">
-    <div class="step"><span class="sn">a</span><p>At <strong>just me</strong>, record your yearly energy and its equivalent. Write one honest sentence about whether that number is more or less than you expected.</p></div>
-    <div class="step"><span class="sn">b</span><p>Step through <strong>class → WWU → global</strong>, keeping your personal usage fixed. Record each. Find the scale where you'd stop calling the number negligible — that threshold is yours to pick, but you have to pick it and defend it Friday.</p></div>
-    <div class="step"><span class="sn">c</span><p>The right-sizing experiment: at <strong>global</strong> scale, flip the model tier from Large to Small and record the difference. That gap is the single biggest lever in this lab — and notice who controls it. (Hint: mostly not us.)</p></div>
+    <div class="step"><span class="sn">1</span><p><strong>Find your biggest bar.</strong> Was it what you expected? Now drag AI videos to 1 and watch what happens to the chart.</p></div>
+    <div class="step"><span class="sn">2</span><p><strong>Move the line.</strong> Switch streaming to <em>Only the data center</em>. The chatbot figures only ever count the data center side, so this is the fairer comparison. What changed, and which comparison would a company defending AI choose? A critic?</p></div>
+    <div class="step"><span class="sn">3</span><p><strong>Turn on reasoning, then turn on uncertainty.</strong> Note how wide the bands get.</p></div>
+  </div>
+  <div class="callout stop">
+    <div class="label">Written stop</div>
+    <p>One sentence: the biggest bar in your day, and whether the "count" switch changed your answer.</p>
   </div>
 </section>
 
-<section>
-  <div class="shead"><span class="num">3</span><h2>Flip the honesty switch</h2></div>
-  <p>Now toggle <strong>Show honest uncertainty</strong>. The machine stops pretending it knows the number and shows you the band that independent estimates actually span — roughly a factor of ten between the low and high ends, because of everything the chapter described: voluntary disclosure, unsettled accounting, and parties with preferences.</p>
+<section id="default">
+  <div class="shead"><span class="num">3</span><h2>Part 2: set the default</h2></div>
+  <p>New job. You're the product manager for Parla, a fictional writing app with 100 million daily users. Each user types about 15 prompts a day. You set the four defaults below, and they apply to everyone who never opens the settings, which is almost everyone.</p>
+  <div class="tool" id="pm">
+    <div class="label">Parla · 100 million users · simulated</div>
+    <div class="chips" role="group" aria-label="Default model"><span class="chiplbl">Default model:</span>
+      <button type="button" class="chip" data-pm="model" data-v="s" aria-pressed="false">Small</button>
+      <button type="button" class="chip" data-pm="model" data-v="m" aria-pressed="false">Medium</button>
+      <button type="button" class="chip on" data-pm="model" data-v="l" aria-pressed="true">Large</button>
+    </div>
+    <div class="chips" role="group" aria-label="Reasoning" style="margin-top:10px"><span class="chiplbl">Reasoning:</span>
+      <button type="button" class="chip" data-pm="reason" data-v="off" aria-pressed="false">Off</button>
+      <button type="button" class="chip on" data-pm="reason" data-v="auto" aria-pressed="true">Auto (about 1 in 10 prompts)</button>
+      <button type="button" class="chip" data-pm="reason" data-v="always" aria-pressed="false">Always</button>
+    </div>
+    <div class="chips" role="group" aria-label="Automatic summaries" style="margin-top:10px"><span class="chiplbl">AI summary on every document opened:</span>
+      <button type="button" class="chip on" data-pm="auto" data-v="on" aria-pressed="true">On</button>
+      <button type="button" class="chip" data-pm="auto" data-v="off" aria-pressed="false">Off</button>
+    </div>
+    <div class="chips" role="group" aria-label="Green toggle" style="margin-top:10px"><span class="chiplbl">Offer a green-model toggle:</span>
+      <button type="button" class="chip" data-pm="green" data-v="yes" aria-pressed="false">Yes</button>
+      <button type="button" class="chip on" data-pm="green" data-v="no" aria-pressed="true">No</button>
+    </div>
+    <div class="slider-row" id="pm-flip-row"><label for="pm-flip">Users who flip the green toggle</label><input type="range" id="pm-flip" min="0" max="50" step="5" value="10"><output for="pm-flip" id="pm-flip-o">10%</output></div>
+    <div class="verdict" aria-live="polite">
+      <div class="label">Parla, per day</div>
+      <div class="bars" id="pm-bars"></div>
+      <p class="read" id="pm-read"></p>
+    </div>
+  </div>
   <div class="steps">
-    <div class="step"><span class="sn">a</span><p>At global scale, write down the low end and the high end of the yearly energy band. Those two numbers support genuinely different policy conclusions. Name one conclusion the low end supports and one the high end supports.</p></div>
-    <div class="step"><span class="sn">b</span><p>Here's the question the whole lab was built for: <strong>every AI footprint calculator you'll find online shows a single confident number.</strong> This one only does when the switch is off. Which design is more honest — and which is more persuasive? Why do you think they're not the same?</p></div>
+    <div class="step"><span class="sn">4</span><p><strong>Compare the two levers.</strong> The bars show your settings, and what happens if every user cut their own typed prompts in half. Find a combination of defaults that saves more than the users' halving would. How many clicks did it take you?</p></div>
+    <div class="step"><span class="sn">5</span><p><strong>Round two: you're the CFO.</strong> Read the yearly electricity cost and the quality score. Marketing says quality sells subscriptions. Keep your settings or change them? You have to pick one, and say what it costs.</p></div>
+  </div>
+  <div class="callout stop">
+    <div class="label">Written stop</div>
+    <p>One sentence: the one default you'd change first, what it saves, and what it costs Parla.</p>
+  </div>
+  <div class="callout">
+    <div class="label">Check-in · 5 minutes, whole room</div>
+    <p>Two pairs share their four defaults and their daily total. Everyone else: raise a hand if your total was higher than theirs. Then take the break.</p>
   </div>
 </section>
 
-<section>
-  <div class="shead"><span class="num">3½</span><h2>Interrogate the machine itself</h2></div>
-  <p>One more experiment, and this one is live. Open a chatbot and ask it directly: <i>“How much energy and water did answering this question use? Give me your best specific estimate, and tell me what you actually know versus what you're guessing.”</i> Push back twice — ask where its numbers come from and what its own company has disclosed. Save the transcript. What you're holding at the end is the disclosure gap in first person: a system that can discuss its footprint fluently but cannot actually report it, because the numbers were never published — not even to the model. Mark the moment in the transcript where fluency and knowledge came apart; that's this course's core skill, applied to the machine describing itself.</p>
-
-  <div class="shead"><span class="num">4</span><h2>Run the five questions</h2></div>
-  <div class="fourq">
-    <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> Trick version this week: the calculator isn't AI at all; it's arithmetic on disputed inputs. What is the AI in this story, and why does that distinction matter for how much you should trust the numbers?</p></div>
-    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> Who benefits from the footprint staying an estimate? Name the party that gains most from nobody knowing the real number, and the party that would gain from knowing it.</p></div>
-    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> If the true numbers sit at the high end of the band, who should have known, when, and who would have told the town next door?</p></div>
-    <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> When you asked the chatbot its own footprint, what did it claim, who does that claim serve, and what happened when you pushed back twice? What would you need to see to believe any number it gave?</p></div>
-    <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Keep, fix, or drop your own usage at one of the four scales you modeled, and say what the change actually costs you in a week.</p></div>
+<section id="report">
+  <div class="shead"><span class="num">4</span><h2>Part 3: read the report</h2></div>
+  <p>Helio AI, a fictional company serving a billion prompts a day, has published its sustainability report. The headline is on the card below. Your job is to read it the way the chapter taught: which statistic, and what's left out.</p>
+  <div class="tool" id="rp">
+    <div class="label">Helio AI · 2026 sustainability report · fictional</div>
+    <div class="headline"><span class="big" id="rp-head">0.2 Wh</span><span class="small" id="rp-quote">"The median Helio prompt uses about 0.2 watt-hours."</span></div>
+    <div class="slider-row"><label for="rp-heavy">Share of heavy requests (long reasoning, agents)</label><input type="range" id="rp-heavy" min="0" max="40" step="2" value="4"><output for="rp-heavy" id="rp-heavy-o">4%</output></div>
+    <div class="verdict" aria-live="polite">
+      <div class="label">Behind the headline</div>
+      <div class="bars" id="rp-bars"></div>
+      <p class="read" id="rp-read"></p>
+    </div>
+    <div class="chips" role="group" aria-label="Emissions scopes" style="margin-top:16px"><span class="chiplbl">Emissions since 2020:</span>
+      <button type="button" class="chip on" data-scope="12" aria-pressed="true">What the report headlines (Scopes 1 and 2)</button>
+      <button type="button" class="chip" data-scope="all" aria-pressed="false">Add Scope 3</button>
+    </div>
+    <p class="read-light" id="rp-scope" aria-live="polite"></p>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="sn">6</span><p><strong>Drag the heavy share up slowly.</strong> Watch the headline number and the daily total. Find the point where the headline finally moves. What was the total doing before then?</p></div>
+    <div class="step"><span class="sn">7</span><p><strong>Add Scope 3.</strong> The pattern is modeled on Microsoft's real 2024 report from the chapter. Which number would you put on the cover if you worked at Helio?</p></div>
+  </div>
+  <div class="callout stop">
+    <div class="label">Written stop</div>
+    <p>The one question you'd ask Helio's head of sustainability, written so it can't be answered with the median.</p>
   </div>
 </section>
 
-<section>
-  <div class="shead"><span class="num">5</span><h2>The writeup</h2></div>
-  <div class="ticket">
-    <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
-    <ol>
-      <li><strong>The baseline.</strong> Your real inputs, your just-me yearly number, and your one honest sentence about it.</li>
-      <li><strong>The threshold.</strong> Your recorded numbers at all four scales, the scale where negligible stopped being the right word, and your defense of that line.</li>
-      <li><strong>The lever.</strong> The right-sizing gap at global scale, and one product decision (not a personal habit) that would move it.</li>
-      <li><strong>The band.</strong> Your low and high global numbers, the two policy conclusions they support, and your answer on honest vs. persuasive design.</li>
-      <li><strong>Your move.</strong> Two commitments, one small and one structural: a right-sizing habit you'll actually keep, and one disclosure you'd demand if you could put a question to any AI company on the record. Wednesday's commitment card takes the pair.</li>
+<section id="machine">
+  <div class="shead"><span class="num">5</span><h2>Part 4: ask the machine</h2></div>
+  <p>Open any chatbot and ask: <em>"How much energy and water did answering this question use? Give me your best specific estimate, and tell me what you actually know versus what you're guessing."</em> Then push back twice: ask where its numbers come from, and what its own company has published. Save the transcript.</p>
+  <div class="callout stop">
+    <div class="label">Written stop</div>
+    <p>Quote the line where the chatbot moved from knowing to guessing. Did it say so, or did it sound just as sure?</p>
+  </div>
+</section>
+
+<section id="room">
+  <div class="shead"><span class="num">6</span><h2>The room · 25 minutes</h2></div>
+  <div class="callout">
+    <div class="label">Discussion questions</div>
+    <ol class="discuss">
+      <li><b>Fair scrutiny?</b> For many of us, an evening of streaming outweighs a month of chatbot questions. So why is AI the one getting the scrutiny? Is that fair, or is something about AI different enough to justify it?</li>
+      <li><b>Who sets the default?</b> The company, the user, or a regulator? What does each choice cost, and who pays it?</li>
+      <li><b>The green toggle.</b> Would you actually flip it? Would most people? What would it take?</li>
+      <li><b>The county.</b> A data center is proposed for Whatcom County. Yes, no, or yes with conditions? Who should pay for the grid upgrades?</li>
+      <li><b>One number.</b> If you could force every AI company to publish one number, what would it be, and why that one?</li>
     </ol>
   </div>
 </section>
 
+<section id="fiveq">
+  <div class="shead"><span class="num">7</span><h2>Run the five questions on your own choices</h2></div>
+  <div class="fourq">
+    <div class="q"><span class="qn">1</span><p><strong>What is the AI system, and what does it do?</strong> Parla, as you configured it. Run the five parts: data, model, output, feedback loop, and the humans, including you at the settings screen and the 100 million people who never open it.</p></div>
+    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> Who benefits from your defaults, and who benefits from a headline built on a median?</p></div>
+    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> If your defaults made Parla's total much larger than it needed to be, who would ever notice?</p></div>
+    <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> Helio's report, your chatbot's estimate, and this lab's own numbers: which would you trust most, and what would you need to see to trust it more?</p></div>
+    <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Pick one of your four defaults and defend it with its price in energy, money, and quality.</p></div>
+  </div>
+</section>
+
+<section id="writeup">
+  <div class="shead"><span class="num">8</span><h2>The writeup</h2></div>
+  <div class="callout">
+    <div class="label">Can you use AI on this writeup?</div>
+    <p>Yes, as a tutor: to check your arithmetic, to argue against your defaults, or to fix your grammar. Not as the author. Part 4 just showed you why: it will describe a footprint fluently without having the number. Say at the bottom which tool you used, if any, and for what. "None" is fine. Silence isn't.</p>
+  </div>
+  <div class="ticket">
+    <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
+    <ol>
+      <li><b>Your day.</b> A screenshot of your chart, your biggest bar, and what the "count" switch did to the comparison, in three sentences.</li>
+      <li><b>Your defaults.</b> A screenshot of Parla, the default you'd change first, and your CFO decision with its cost.</li>
+      <li><b>The report.</b> The heavy share where Helio's headline moved, what the total was doing before then, and your question for Helio.</li>
+      <li><b>The machine.</b> The line from your transcript where knowing became guessing, and what that says about the disclosure gap.</li>
+      <li><b>Your commitment card.</b> Two commitments: one habit you'll actually keep, and one number you'd demand from any AI company on the record.</li>
+    </ol>
+  </div>
+  <details class="srcnote">
+    <summary>Sources &amp; what's simulated</summary>
+    <p>Streaming: 77 Wh per hour including devices, networks, and data centers, with data centers about 5 percent (about 3.9 Wh) and 36 gCO2 per hour, from George Kamiya, "The carbon footprint of streaming video: fact-checking the headlines," IEA, December 2020 (2019 estimates); short-video scrolling uses the same commentary's phone-on-WiFi scenario, 37 Wh per hour, and ignores recommendation computing. Grams use the 0.47 gCO2 per Wh implied by the IEA's 2019 figures. AI text prompts: 0.05, 0.3, and 1.2 Wh for small, medium, and large models, the same constants as Lab 1 and consistent with Chapter 4 (Google's 0.24 Wh median, Epoch AI's 0.3 Wh estimate). Reasoning: a 30x multiplier, the AI Energy Score average reported by Ebert, Gamazaychikov, Hacker, and Luccioni (2026). Images (2,282 J, about 0.63 Wh) and five-second videos (3.4 MJ, about 944 Wh) are from MIT Technology Review, May 2025. The uncertainty bands (one-third to three times for AI figures, half to double for streaming) are illustrative, not measured. Parla, Helio AI, their user counts, request mixes, automatic-summary counts, electricity price ($0.08 per kWh), quality scores, and emissions are fictional; Helio's scope pattern is modeled on Microsoft's 2024 report as described in Chapter 4. The household comparison uses about 10,800 kWh per US home per year, as in Chapter 4.</p>
+  </details>
+</section>
+
 <div class="nextbar">
   <a href="chapter-04-environment.html"><span class="dir">← Back</span>Chapter 4 · Environment</a>
-  <a href="chapter-05-systems.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 5 · Systems That Want You</a>
+  <a href="chapter-06-hiring-lending.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 6 · Bias: Hiring &amp; Lending</a>
 </div>
 
 </main>
@@ -360,103 +482,192 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <script>
 (function(){
-  var q = document.getElementById('q'), img = document.getElementById('img');
-  var qv = document.getElementById('qv'), imgv = document.getElementById('imgv');
-  var model = document.getElementById('model'), scale = document.getElementById('scale');
-  var unc = document.getElementById('unc');
-  var uncertainty = false;
+  // ---------- constants (see sources note) ----------
+  var TEXT = {s:0.05, m:0.3, l:1.2};           // Wh per text prompt
+  var REASON_X = 30;                           // AI Energy Score average multiplier
+  var IMG = 0.63, VID = 944;                   // Wh
+  var STREAM_ALL = 77, STREAM_DC = 3.9;        // Wh per hour, IEA 2019
+  var SCROLL_ALL = 37;                         // Wh per hour, phone on WiFi, IEA 2019
+  var G_PER_WH = 0.47;                         // gCO2 per Wh implied by IEA 2019
+  var HOME_KWH_DAY = 10800/365;                // US home
 
-  var WATER_PER_WH = 1.6;      // mL of cooling water per Wh, mid-range
-  var IMG_WH = 2.5;            // Wh per generated image, mid-range
-  var PHONE_WH = 12;           // one full phone charge
-  var SHOWER_WH = 2000;        // one 8-minute hot shower
-  var HOME_KWH_YR = 10800;     // average US home, per year
-  var BOTTLE_ML = 500;
-
-  function fmtEnergy(wh){
-    if (wh < 1000) return Math.round(wh) + ' Wh';
-    if (wh < 1e6) return round1(wh/1000) + ' kWh';
-    if (wh < 1e9) return round1(wh/1e6) + ' MWh';
-    if (wh < 1e12) return round1(wh/1e9) + ' GWh';
-    return round1(wh/1e12) + ' TWh';
+  function fmtWh(wh){
+    if(wh >= 1e9) return (wh/1e9).toFixed(wh>=1e10?0:1) + ' GWh';
+    if(wh >= 1e6) return (wh/1e6).toFixed(wh>=1e7?0:1) + ' MWh';
+    if(wh >= 1e3) return (wh/1e3).toFixed(wh>=1e4?0:1) + ' kWh';
+    if(wh >= 10) return Math.round(wh) + ' Wh';
+    if(wh >= 1) return wh.toFixed(1) + ' Wh';
+    if(wh > 0) return wh.toFixed(2) + ' Wh';
+    return '0 Wh';
   }
-  function fmtWater(ml){
-    if (ml < 1000) return Math.round(ml) + ' mL';
-    if (ml < 1e6) return round1(ml/1000) + ' liters';
-    if (ml < 1e9) return round1(ml/1e6) + ' m³';
-    return round1(ml/1e9) + ' thousand m³';
+  function fmtG(g){
+    if(g >= 1e6) return (g/1e6).toFixed(1) + ' t';
+    if(g >= 1e3) return (g/1e3).toFixed(1) + ' kg';
+    if(g >= 10) return Math.round(g) + ' g';
+    if(g > 0) return g.toFixed(1) + ' g';
+    return '0 g';
   }
-  function round1(x){ return (Math.round(x*10)/10).toLocaleString(); }
-  function fmtCount(x){
-    if (x < 1e3) return Math.round(x).toLocaleString();
-    if (x < 1e6) return round1(x/1e3) + ' thousand';
-    if (x < 1e9) return round1(x/1e6) + ' million';
-    return round1(x/1e9) + ' billion';
+  function bars(el, rows, opts){
+    opts = opts || {};
+    var max = 0;
+    rows.forEach(function(r){ max = Math.max(max, opts.band ? (r.hi||r.v) : r.v); });
+    el.textContent = '';
+    rows.forEach(function(r){
+      var d = document.createElement('div');
+      d.className = 'bar' + (r.safe?' safe':'') + (r.alt?' alt':'');
+      var pct = max ? 100*r.v/max : 0;
+      var inner = '<span>'+r.label+'</span><div class="track"><div class="fill" style="width:'+pct+'%"></div>';
+      if(opts.band && r.lo!==undefined){
+        inner += '<div class="band" style="left:'+(max?100*r.lo/max:0)+'%;width:'+(max?100*(r.hi-r.lo)/max:0)+'%"></div>';
+      }
+      var val = r.text || fmtWh(r.v);
+      if(opts.band && r.lo!==undefined) val = (opts.fmt||fmtWh)(r.lo) + ' to ' + (opts.fmt||fmtWh)(r.hi);
+      inner += '</div><span class="n">'+val+'</span>';
+      d.innerHTML = inner;
+      d.setAttribute('role','img');
+      d.setAttribute('aria-label', r.label + ': ' + val);
+      el.appendChild(d);
+    });
   }
-
-  function update(){
-    qv.textContent = q.value;
-    imgv.textContent = img.value;
-    var perQueryWh = parseFloat(model.value);
-    var people = parseFloat(scale.value);
-    var dailyWh = (q.value * perQueryWh + img.value * IMG_WH) * people;
-    var yearWh = dailyWh * 365;
-    var yearMl = yearWh * WATER_PER_WH;
-
-    var energyEl = document.getElementById('energy');
-    var waterEl = document.getElementById('water');
-
-    if (uncertainty){
-      energyEl.textContent = fmtEnergy(yearWh/3) + ' – ' + fmtEnergy(yearWh*3);
-      waterEl.textContent = fmtWater(yearMl/3) + ' – ' + fmtWater(yearMl*3);
-      document.getElementById('vlabel').textContent = 'Estimated footprint · per year · honest band (independent estimates span roughly 10×)';
-    } else {
-      energyEl.textContent = fmtEnergy(yearWh);
-      waterEl.textContent = fmtWater(yearMl);
-      document.getElementById('vlabel').textContent = 'Estimated footprint · per year at selected scale';
-    }
-
-    // equivalents (midpoint even in uncertainty mode)
-    var eq1v = document.getElementById('eq1v'), eq1k = document.getElementById('eq1k');
-    var eq2v = document.getElementById('eq2v'), eq2k = document.getElementById('eq2k');
-    if (yearWh < 5e5){
-      eq1v.textContent = fmtCount(yearWh / PHONE_WH);
-      eq1k.textContent = 'full phone charges';
-      eq2v.textContent = fmtCount(yearWh / SHOWER_WH);
-      eq2k.textContent = 'hot showers';
-    } else {
-      eq1v.textContent = fmtCount(yearWh / 1000 / HOME_KWH_YR);
-      eq1k.textContent = 'US homes powered for a year';
-      eq2v.textContent = fmtCount(yearMl / BOTTLE_ML);
-      eq2k.textContent = 'half-liter water bottles';
-    }
-
-    var read;
-    if (people === 1){
-      read = 'This is the <b>just me</b> view — for most usage patterns, a modest number next to the rest of a modern life. Don\u2019t stop here. The chapter\u2019s argument was never about you alone.';
-    } else if (people < 1e6){
-      read = 'Multiplied across <b>' + fmtCount(people) + ' people</b> with your usage. Still a local-scale number — but watch what one more flip of the scale selector does.';
-    } else {
-      read = 'This is the multiplication the chapter promised: your habits × <b>' + fmtCount(people) + ' users</b> × 365 days. At this scale, model tier stops being a preference and becomes infrastructure policy. Try the right-sizing experiment in step 2c if you haven\u2019t.';
-    }
-    if (uncertainty){
-      read += ' <b>The band is the finding.</b> Everything between those two numbers is currently defensible with published sources — that\u2019s the disclosure gap, rendered as a user interface.';
-    }
-    document.getElementById('reading').innerHTML = read;
+  function chipGroup(selector, onPick){
+    var btns = [].slice.call(document.querySelectorAll(selector));
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        btns.forEach(function(x){ x.classList.remove('on'); x.setAttribute('aria-pressed','false'); });
+        b.classList.add('on'); b.setAttribute('aria-pressed','true');
+        onPick(b);
+      });
+    });
+  }
+  function toggle(id, onChange){
+    var b = document.getElementById(id), on = false;
+    b.addEventListener('click', function(){
+      on = !on; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on?'true':'false'); onChange(on);
+    });
+  }
+  function slider(id, fmt, onChange){
+    var s = document.getElementById(id), o = document.getElementById(id+'-o');
+    s.addEventListener('input', function(){ o.textContent = fmt(+s.value); onChange(); });
+    return s;
   }
 
-  unc.addEventListener('click', function(){
-    uncertainty = !uncertainty;
-    unc.classList.toggle('on', uncertainty);
-    unc.setAttribute('aria-pressed', String(uncertainty));
-    update();
+  // ---------- Part 1 ----------
+  var P = {tier:'m', reason:false, count:'all', band:false, grams:false};
+  var sStream = slider('dd-stream', function(v){return v+' h';}, day);
+  var sScroll = slider('dd-scroll', function(v){return v+' h';}, day);
+  var sText = slider('dd-text', String, day);
+  var sImg = slider('dd-img', String, day);
+  var sVid = slider('dd-vid', String, day);
+  chipGroup('#dd [data-tier]', function(b){ P.tier = b.getAttribute('data-tier'); day(); });
+  chipGroup('#dd [data-count]', function(b){ P.count = b.getAttribute('data-count'); day(); });
+  toggle('dd-reason', function(on){ P.reason = on; day(); });
+  toggle('dd-band', function(on){ P.band = on; day(); });
+  toggle('dd-grams', function(on){ P.grams = on; day(); });
+
+  function day(){
+    var perText = TEXT[P.tier] * (P.reason ? REASON_X : 1);
+    var stream = +sStream.value * (P.count==='all' ? STREAM_ALL : STREAM_DC);
+    var scroll = +sScroll.value * (P.count==='all' ? SCROLL_ALL : STREAM_DC);
+    var rows = [
+      {label:'Streaming', v:stream, lo:stream*0.5, hi:stream*2},
+      {label:'Scrolling', v:scroll, lo:scroll*0.5, hi:scroll*2},
+      {label:'AI text', v:+sText.value*perText, safe:true},
+      {label:'AI images', v:+sImg.value*IMG, safe:true},
+      {label:'AI video', v:+sVid.value*VID, safe:true}
+    ];
+    rows.forEach(function(r){ if(r.safe){ r.lo = r.v/3; r.hi = r.v*3; } });
+    if(P.grams) rows.forEach(function(r){ r.v*=G_PER_WH; r.lo*=G_PER_WH; r.hi*=G_PER_WH; r.text = fmtG(r.v); });
+    bars(document.getElementById('dd-bars'), rows, {band:P.band, fmt: P.grams?fmtG:fmtWh});
+    var top = rows.slice().sort(function(a,b){return b.v-a.v;})[0];
+    var total = rows.reduce(function(s,r){return s+r.v;},0);
+    var msg = top.v > 0 ? 'Biggest bar: <b>' + top.label + '</b>. Total for the day: <b>' + (P.grams?fmtG(total):fmtWh(total)) + '</b>. ' : 'Move the sliders to build your day. ';
+    msg += P.count==='all'
+      ? 'Streaming here counts your screen and the network too, which is most of its energy. The AI bars count only the data center side.'
+      : 'Now streaming counts only the data center, the same boundary as the AI figures. This is the fairer comparison, and a less dramatic one.';
+    if(P.band) msg += ' The pale bands show how far honest estimates spread: the true number could sit anywhere inside them.';
+    document.getElementById('dd-read').innerHTML = msg;
+  }
+  day();
+
+  // ---------- Part 2 ----------
+  var USERS = 100e6, TYPED = 15, AUTO_N = 40, PRICE = 0.08;
+  var QUAL = {s:70, m:82, l:90};
+  var S = {model:'l', reason:'auto', auto:'on', green:'no'};
+  var flip = slider('pm-flip', function(v){return v+'%';}, pm);
+  ['model','reason','auto','green'].forEach(function(k){
+    chipGroup('#pm [data-pm="'+k+'"]', function(b){ S[k] = b.getAttribute('data-v'); pm(); });
   });
-  [q, img].forEach(function(el){ el.addEventListener('input', update); });
-  [model, scale].forEach(function(el){ el.addEventListener('change', update); });
-  update();
+  function perUser(model, reason, auto, typed){
+    var rshare = reason==='always' ? 1 : (reason==='auto' ? 0.1 : 0);
+    var t = typed * TEXT[model] * (1 - rshare + rshare*REASON_X);
+    var a = auto==='on' ? AUTO_N * TEXT[model] : 0;
+    return t + a;
+  }
+  function pm(){
+    document.getElementById('pm-flip-row').style.display = S.green==='yes' ? '' : 'none';
+    var share = S.green==='yes' ? (+flip.value)/100 : 0;
+    function fleet(typed){
+      return USERS * ((1-share)*perUser(S.model, S.reason, S.auto, typed) + share*perUser('s','off', S.auto, typed));
+    }
+    var mine = fleet(TYPED);
+    var halved = fleet(TYPED/2);
+    var baseline = USERS * perUser('l','auto','on',TYPED);
+    var baseHalf = USERS * perUser('l','auto','on',TYPED/2);
+    bars(document.getElementById('pm-bars'), [
+      {label:'Starting defaults', v:baseline},
+      {label:'Users halve their prompts', v:baseHalf, alt:true},
+      {label:'Your defaults', v:mine, safe:true},
+      {label:'Yours, and users halve too', v:halved, safe:true}
+    ]);
+    var homes = Math.round(mine/1000/HOME_KWH_DAY/1000)*1000;
+    var cost = mine/1000*PRICE*365;
+    var q = QUAL[S.model] + (S.reason==='always'?6:(S.reason==='auto'?4:0));
+    q = Math.round((1-share)*q + share*QUAL.s);
+    var saveUsers = baseline - baseHalf, saveYou = baseline - mine;
+    var msg = 'Your defaults use about <b>' + fmtWh(mine) + '</b> a day, roughly what <b>' + homes.toLocaleString() + '</b> US homes use. ';
+    msg += saveYou > saveUsers
+      ? 'Your settings save more than every user halving their own prompts would. '
+      : (saveYou > 0 ? 'Your settings save something, but less than every user halving their prompts would. Keep looking. ' : 'Your settings save nothing compared with the starting defaults. ');
+    msg += 'Electricity: about <b>$' + Math.round(cost/1e6).toLocaleString() + ' million</b> a year at $0.08 per kWh. Answer quality score: <b>' + q + '</b> out of 100 (simulated).';
+    document.getElementById('pm-read').innerHTML = msg;
+  }
+  pm();
+
+  // ---------- Part 3 ----------
+  var LIGHT = 0.2, MED = 1.0, HEAVY = 20, MED_SHARE = 0.2, QPD = 1e9;
+  var heavy = slider('rp-heavy', function(v){return v+'%';}, rp);
+  function rp(){
+    var h = (+heavy.value)/100, l = 1 - MED_SHARE - h;
+    var median = l >= 0.5 ? LIGHT : (l + MED_SHARE >= 0.5 ? MED : HEAVY);
+    var mean = l*LIGHT + MED_SHARE*MED + h*HEAVY;
+    document.getElementById('rp-head').textContent = median.toFixed(1) + ' Wh';
+    document.getElementById('rp-quote').textContent = '"The median Helio prompt uses about ' + median.toFixed(1) + ' watt-hours."';
+    bars(document.getElementById('rp-bars'), [
+      {label:'The median (headline)', v:median, text: median.toFixed(1)+' Wh'},
+      {label:'The average', v:mean, text: mean.toFixed(1)+' Wh'},
+      {label:'Median x prompts', v:median*QPD, text: fmtWh(median*QPD)+'/day', safe:true},
+      {label:'Actual daily total', v:mean*QPD, text: fmtWh(mean*QPD)+'/day', safe:true}
+    ].slice(0,2));
+    var extra = document.createElement('div'); extra.className='bars';
+    bars(extra, [
+      {label:'If you multiply the median', v:median*QPD, text: fmtWh(median*QPD)+' a day', safe:true},
+      {label:'The actual total', v:mean*QPD, text: fmtWh(mean*QPD)+' a day'}
+    ]);
+    var host = document.getElementById('rp-bars');
+    [].forEach.call(extra.childNodes, function(n){ host.appendChild(n.cloneNode(true)); });
+    var ratio = mean/median;
+    document.getElementById('rp-read').innerHTML = 'The headline says <b>' + median.toFixed(1) + ' Wh</b>. The average request uses <b>' + mean.toFixed(1) + ' Wh</b>, ' + ratio.toFixed(1) + ' times the headline, and the company never has to print it.';
+  }
+  rp();
+  var SC = {
+    '12': 'Scopes 1 and 2 (what Helio burns and the electricity it buys): <b>down 6 percent</b> since 2020. This is the cover of the report.',
+    'all': 'Add Scope 3 (construction, chips, supply chain): Scope 3 is <b>up 31 percent</b>, and total emissions are <b>up 25 percent</b> since 2020. Both numbers are on page 40.'
+  };
+  var scEl = document.getElementById('rp-scope');
+  scEl.innerHTML = SC['12'];
+  chipGroup('#rp [data-scope]', function(b){ scEl.innerHTML = SC[b.getAttribute('data-scope')]; });
 })();
 </script>
-
 <script>
 (function(){
   var btns=[].slice.call(document.querySelectorAll('.dd-btn'));

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab 1 · First Contact — Intro to AI in Business | MIS 201</title>
+<title>Lab 1 · Inside the Machine — Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -203,18 +203,12 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .mn-cell{position:relative;width:72px;height:72px;font-family:'Fraunces',serif;font-size:2rem;font-weight:600;border:1px solid var(--rule);background:#fff;color:var(--ink);cursor:pointer;padding:0}
 .mn-cell:hover:not([disabled]){border-color:var(--pinktext)}
 .mn-cell[disabled]{cursor:default}
-.mn-cell .bd{position:absolute;right:5px;bottom:3px;font-family:'Inter',sans-serif;font-size:.74rem;font-weight:600;color:var(--pinktext)}
+.mn-cell .bd{position:absolute;right:5px;bottom:3px;font-family:'Inter',sans-serif;font-size:.68rem;font-weight:600;color:var(--pinktext)}
 .mn-cell.x{color:var(--ink)}.mn-cell.o{color:var(--pinktext)}
 .mn-strip{display:flex;gap:3px;margin-top:8px;flex-wrap:wrap}
 .mn-strip span{display:inline-block;width:14px;height:14px;border-radius:2px;background:#E7E7E2}
-.mn-strip .w{background:var(--ink)}.mn-strip .d{background:#9AA1AB}.mn-strip .l{background:var(--pink)}
+.mn-strip .w{background:var(--pink)}.mn-strip .d{background:#9AA1AB}.mn-strip .l{background:var(--ink)}
 @media (max-width:640px){.mn-grid{grid-template-columns:1fr}}
-.mn-cell.winner{background:#FFF6C2;border-color:var(--yellow);box-shadow:inset 0 0 0 2px var(--yellow)}
-.mn-cell.winner.o{background:#FFE4EE;border-color:var(--pink);box-shadow:inset 0 0 0 2px var(--pink)}
-.mn-result{margin-top:10px;padding:10px 14px;border-radius:4px;font-weight:600;font-size:.95rem}
-.mn-result.ai{background:#FFF6C2;color:var(--ink)}
-.mn-result.me{background:#FFE4EE;color:var(--pinktext)}
-.mn-result.draw{background:#EEF0F3;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -229,33 +223,34 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       <a class="navlink" href="schedule.html">Schedule</a>
       <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddc" data-dd="ddc">Chapters<span class="caret" aria-hidden="true">▾</span></button>
 <div class="dd-menu" id="ddc">
-<a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 1</span>What Is AI?</a>
-<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 2</span>What It Means to Be Human</a>
-<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 3</span>Medicine</a>
-<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 4</span>Environment</a>
-<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · Week 5</span>Systems That Want You</a>
-<a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Hiring &amp; Lending</a>
+<a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
+<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
+<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 4</span>Medicine</a>
+<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 5</span>Environment</a>
+<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · optional</span>Systems That Want You</a>
+<a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
 <a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
 <a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
-<a href="chapter-09-markets.html"><span class="lbl">Chapter 9 · Week 9</span>Markets</a>
+<a href="chapter-09-economy.html"><span class="lbl">Chapter 9 · Week 9</span>The Economy</a>
 <a href="chapter-10-truth.html"><span class="lbl">Chapter 10 · Week 10</span>Truth</a>
-<a href="chapter-11-work.html"><span class="lbl">Chapter 11 · Week 10</span>AI and the Future of Work</a>
+<a href="chapter-11-rules.html"><span class="lbl">Chapter 11 · Week 10</span>Who Makes the Rules?</a>
 <a href="chapter-12-future.html"><span class="lbl">Chapter 12 · Week 10</span>The Future</a>
 </div></div>
       <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddl" data-dd="ddl">Labs<span class="caret" aria-hidden="true">▾</span></button>
 <div class="dd-menu" id="ddl">
-<a href="chapter-01-what-is-ai-lab.html" class="current" aria-current="page"><span class="lbl">Lab 1 · Week 1</span>First Contact</a>
-<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 2</span>The Seeming Test</a>
-<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 3</span>Inside the Graph</a>
-<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 4</span>The Footprint Machine</a>
-<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · Week 5</span>Play the Algorithm</a>
+<a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
+<a href="chapter-01-what-is-ai-lab.html" class="current" aria-current="page"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test</a>
+<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 4</span>Inside the Graph</a>
+<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 5</span>The Footprint Machine</a>
+<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · optional</span>Play the Algorithm</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
 <a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
-<a href="chapter-09-markets-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
+<a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
 <a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 10 · take-home</span>The Phantom Docket</a>
-<a href="chapter-11-work-lab.html"><span class="lbl">Lab 11 · Decide project method</span>The Exposure Audit</a>
-<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · capstone</span>First Contact, Revisited</a>
+<a href="exposure-audit.html"><span class="lbl">Self-guided · pairs with Chapter 9</span>The Exposure Audit</a>
+<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · last class</span>First Contact, Revisited</a>
 </div></div>
     </div>
   </div>
@@ -263,10 +258,10 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <header class="masthead">
   <div class="wrap">
-    <div class="eyebrow">Western Washington University · MIS 201 · Lab 1 · Week 1, in class</div>
-    <h1>First <b>Contact</b></h1>
-    <p class="kicker">Two AIs you train yourself, in miniature: one that learns to see from your drawings, like ImageNet, and one that learns to play tic-tac-toe by playing itself, like AlphaGo. Then seven claims about the world you're already living in, called true or false on instinct before the evidence arrives, and the main case from Chapter 1 run through the five critical AI questions in the room. In the last week of the course, Lab 12 asks whether the same claims still surprise you; the distance between your two answers is the course, measured.</p>
-    <p class="factline">Two AIs you trained · seven claims · one case · your first reading of your own instincts</p>
+    <div class="eyebrow">Western Washington University · MIS 201 · Lab 1 · Week 2, Wednesday, in class</div>
+    <h1>Inside the <b>Machine</b></h1>
+    <p class="kicker">Chapter 1 in your hands. Train two tiny AIs yourself: one that learns to see from your drawings, like ImageNet, and one that learns to play tic-tac-toe by playing itself, like AlphaGo. Break both. Talk about what went wrong and why, then run the five critical AI questions on the AI you just built.</p>
+    <p class="factline">Two AIs you train · one good conversation · five questions on your own AI</p>
   </div>
 </header>
 
@@ -323,18 +318,13 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 </section>
 
-  <div class="ticket">
-    <div class="label">Section 1 · answer this question for submission</div>
-    <p>You drew something that was neither a smiley nor a house and the model guessed anyway, with a confidence number. Then you trained it on three smileys and one house in a corner, and it missed a house drawn anywhere else. In a few sentences: why can't it say "I don't know," and what did the shape of your training data do to it?</p>
-  </div>
-
 <section id="menace">
   <div class="shead"><span class="num">2</span><h2>Train an AI to play (AlphaGo, in miniature)</h2></div>
-  <p class="lead">You also read how AlphaGo trained itself to play Go by playing millions of games against itself, learning from every win and loss until it beat the best human alive. Now train a tic-tac-toe AI the same way, and see whether it can beat you. It takes five minutes. Read the three steps, then play. In 1961 a researcher named Donald Michie, who had no computer, built a tic-tac-toe player that learned from experience: every game it played became data, and the data changed what it did next. Play it enough and it stops losing. This is the same machine, and it is the whole idea behind AlphaGo: play, record what happened, adjust, repeat.</p>
+  <p class="lead">You also read how AlphaGo trained itself to play Go by playing millions of games against itself, learning from every win and loss until it beat the best human alive. Now train a tic-tac-toe AI the same way, and see whether it can beat you. It takes five minutes. Read the three steps, then play. In 1961 Donald Michie, who had no computer, built a tic-tac-toe player out of 304 matchboxes and a bag of colored beads. Each box is a board position; each bead is a move. It plays by drawing a bead at random. After each game, winning moves get more beads and losing moves lose some. That's all. Play it enough and it stops losing. This is the same machine, and it is the whole idea behind AlphaGo: an action, a result, a nudge, repeated.</p>
 
   <div class="steps">
-    <div class="step"><span class="sn">1</span><p><strong>Beat it.</strong> Play five games. It has never played before, so it has no data at all and is choosing moves at random. You should win most of them. The percent on each empty square is how likely it is to play there; watch those numbers shift after each game, because each game is one more piece of data.</p></div>
-    <div class="step"><span class="sn">2</span><p><strong>Let it practice.</strong> Press "Let it practice: 500 games vs. a careful player." This is AlphaGo's trick: the computer plays both sides, fast, and every game is more data. Now play it five more games. It should be drawing you, or beating you when you slip. Nobody told it a strategy. It just has 500 games of data it didn't have before.</p></div>
+    <div class="step"><span class="sn">1</span><p><strong>Beat it.</strong> Play five games. It has never played before, so it is choosing moves at random, and you should win most of them. Look at the small numbers on the empty squares before each move: those are the beads in the box for this exact position. Watch what happens to them after you win.</p></div>
+    <div class="step"><span class="sn">2</span><p><strong>Let it practice.</strong> Press "Simulate 300 games vs. a careful player." This is AlphaGo's self-play trick: the computer plays both sides, fast. That opponent blocks your wins and takes its own, which is roughly you. Now play it five more games. It should be drawing you, or beating you when you slip. Nobody told it a strategy. The beads moved.</p></div>
     <div class="step"><span class="sn">3</span><p><strong>Give it the wrong data</strong> (if time is short, do this one at home). Press "Forget everything," then "Simulate 300 games vs. a random player" twice. Its record will look wonderful. Now play it yourself. It learned to beat a player who never blocks, so it never learned to block. Same machine, same learning rule, different data, and its confidence is exactly as high. Notice whether it beat you after practice; the writeup asks for it. You'll meet this in Chapter 3 (the record has a shape) and Chapter 6 (it learned who got hired, not who deserved it).</p></div>
   </div>
 
@@ -343,8 +333,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     <div class="mn-grid">
       <div>
         <div class="mn-board" id="mn-board" role="grid" aria-label="Tic-tac-toe board. You are O."></div>
-        <p class="tis-note" style="margin-top:8px"><b>How to read the board.</b> The percent on each empty square is how likely Mini-AlphaGo is to play there. Every game it plays is one more piece of data, and the data is the only thing that changes those numbers: moves that were part of a win get more likely, moves that were part of a loss get less likely. Play a few games and watch them move. That is all the learning there is.</p>
-        <p class="tis-counts" id="mn-msg" aria-live="polite">Your move: you are O. The percent on each empty square is how likely it is to play there next.</p>
+        <p class="tis-counts" id="mn-msg" aria-live="polite">Your move: you are O. The small numbers show how many beads each move has in the box for this position.</p>
         <div class="chips tis-actions">
           <button class="btn" type="button" id="mn-new">New game</button>
           <button class="chip" type="button" id="mn-reset">Forget everything</button>
@@ -353,92 +342,58 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       <div>
         <div class="label">Mini-AlphaGo's record</div>
         <p class="tis-counts" id="mn-score">Games 0 · Mini-AlphaGo won 0 · draws 0 · human won 0</p>
-        <div class="mn-strip" id="mn-strip" aria-label="Last twenty results: pink is a human win, black is a Mini-AlphaGo win, gray is a draw"></div>
-        <p class="tis-note" style="margin-top:4px">Last twenty games: <span style="color:var(--pinktext);font-weight:600">pink</span> you won, <span style="font-weight:600">black</span> it won, gray a draw.</p>
+        <div class="mn-strip" id="mn-strip" aria-label="Last twenty results"></div>
         <div class="label" style="margin-top:16px">Let it practice (simulated games, played in a second)</div>
         <div class="chips">
           <button class="chip" type="button" id="mn-rand">Simulate 300 games vs. a random player</button>
-          <button class="chip" type="button" id="mn-block">Let it practice: 500 games vs. a careful player</button>
+          <button class="chip" type="button" id="mn-block">Simulate 300 games vs. a careful player</button>
         </div>
-        <p class="tis-note" id="mn-note">These are simulations: the computer plays both sides, hundreds of games in about a second, the way AlphaGo played itself millions of times. They count in the record too. Pink is a Mini-AlphaGo win, gray a draw, black a human win.</p>
+        <p class="tis-note" id="mn-note">These are simulations: the computer plays both sides, 300 games in about a second, the way AlphaGo played itself millions of times. They count in the record too. Pink is a Mini-AlphaGo win, gray a draw, black a human win.</p>
       </div>
     </div>
   </div>
   <p>Two AIs, two of the chapter's moments: the first learned to see from what you showed it, like ImageNet; the second learned to act from what happened to it, like AlphaGo. Neither one understands anything. Both of them work.</p>
 </section>
 
-  <div class="ticket">
-    <div class="label">Section 2 · answer this question for submission</div>
-    <p>Nobody gave Mini-AlphaGo a strategy, and after 500 practice games it stopped losing to you. In a few sentences: what actually changed, using the percents you watched, and why did a wonderful record against a random player not mean it could beat you?</p>
-  </div>
-
 <section>
-  <div class="shead"><span class="num">3</span><h2>True or false: seven things AI is already doing</h2></div>
-  <p class="lead">Work alone for this part. No searching, no talking, no hedging. Read each claim, mark it <strong>True</strong> or <strong>False</strong>, and move on. When all seven are marked, the reveal button unlocks. Don't press it yet.</p>
-
-  <div class="tool">
-    <div class="label">Six claims · instinct only · answer every one</div>
-    <div id="cards"></div>
-    <div class="chips" style="margin-top:16px;">
-      <button type="button" class="btn" id="reveal" disabled>Reveal</button>
-    </div>
-    <div class="verdict" id="verdict" hidden aria-live="polite">
-      <div class="label">The reveal</div>
-      <p class="read" id="reading"></p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="shead"><span class="num">4</span><h2>Talk it out</h2></div>
-  <p>Now pair up with the person next to you. Compare your seven answers without changing them. Then join another pair to make a group of four and work through three questions:</p>
+  <div class="shead"><span class="num">3</span><h2>Talk it out</h2></div>
+  <p class="lead">Groups of four, then the room. Bring what you just saw on your own screen.</p>
   <div class="callout">
-    <div class="label">Groups of four · six minutes · before the reveal</div>
-    <p><b>1.</b> Find the two claims your group disagreed on most. Each side gives one reason, in one sentence. No winning, just the reasons.</p>
-    <p><b>2.</b> Pick the one claim your group most <em>wants</em> to be false. Say why in one sentence. Write it down; we'll collect these on the board.</p>
-    <p><b>3.</b> For that claim: what would you need to <em>see</em>, not hear, to believe it? A document, a number, a person, a demo? Be specific.</p>
-    <p>Then press reveal. Read your result, then read the room's.</p>
+    <div class="label">Discussion questions · about 20 minutes</div>
+    <p><b>1. Your data, your AI.</b> What did your drawing AI get wrong? What was it about your drawings that caused it?</p>
+    <p><b>2. Sure of itself.</b> Neither AI ever said "I don't know." Where in real life would that matter most?</p>
+    <p><b>3. The good-looking score.</b> Mini-AlphaGo trained against a random opponent had a great record and still lost to you. On Monday, OpenAI's agents chased a score too. What's the connection?</p>
+    <p><b>4. Tool or not?</b> Both of your AIs did their task and stopped. What would have to change for either one to become uncontrolled?</p>
   </div>
 </section>
 
 <section>
-  <div class="shead"><span class="num">5</span><h2>The main case, in the room</h2></div>
-  <p class="lead">Claim 3, the researcher who quit Anthropic saying AI could kill everyone, is the main case in Chapter 1. If you haven't seen the CBS interview with Anthropic's CEO, it's embedded in the chapter's section 3; it's five minutes. Then, in groups of four, three questions. Rough answers; keep them, because Chapter 12 asks you to answer again with eleven weeks of evidence.</p>
-  <div class="callout">
-    <div class="label">Groups of four · fifteen minutes</div>
-    <p><b>1. Regulation.</b> The case lists six things a government could actually write down: report incidents, test with someone watching, let an outsider check, track the big computers, decide who's liable, pause. Pick the one your group would pass first. Say what it costs, who pays, and who would fight it.</p>
-    <p><b>2. "Winning the AI race."</b> Some government leaders say we can't regulate because we have to win the race. Your group's job: say what winning would actually look like, in one sentence specific enough to be wrong. If you can't, say what that tells you about the phrase.</p>
-    <p><b>3. Critical AI.</b> Three people said three different things about the same event: "the AI went rogue," "we need to slow down," and "the fears are exaggerated." Each group takes one. Who is saying it, what do they gain if you believe it, and what would you need to see by December to know if it's true?</p>
+  <div class="shead"><span class="num">4</span><h2>Run the five questions on your own AI</h2></div>
+  <p>Now turn the questions on Mini-ImageNet, the drawing AI you trained in section 1. Pairs, about ten minutes.</p>
+  <div class="fourq">
+    <div class="q"><span class="qn">1</span><p><strong>What is the AI system, and what does it do?</strong> What kind is it? Name its five parts: the data (your drawings), the model (the colored grid), the output, the feedback loop, and the humans (you).</p></div>
+    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> If a company sold a scaled-up version, what would it be for, and who would pay?</p></div>
+    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> It called a triangle a smiley with confidence. In a real product, who would notice a mistake like that, and when?</p></div>
+    <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> Imagine the box says "98 percent accurate." What would you need to see before you believed it?</p></div>
+    <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> If it sorted real photos for a real business, what would you change first, and what would that change cost?</p></div>
   </div>
 </section>
 
 <section>
-  <div class="shead"><span class="num">6</span><h2>Explore the AI Workflow Hub</h2></div>
-  <p>Now the live half, and Question 1 in the wild: name a real AI system and say what it does. The claims above are the world at course-scale; this part is the world at <em>your</em> scale: what people are actually building with AI, this week, for real work.</p>
-  <div class="callout">
-    <div class="label">The Hub · about 10 minutes</div>
-    <p>Open the <a class="inline" href="https://app.therundown.ai/community" target="_blank" rel="noopener">Rundown AI Workflow Hub</a>, a live feed of AI workflows real people use for real jobs. Browse until you find <b>two</b>:</p>
-    <p><b>One you'd actually use.</b> Not "cool." <i>Use</i>. For your classes, your job, your side hustle, this week.</p>
-    <p><b>One that made you hesitate.</b> Something in it felt off; you may not have words for why yet. That hesitation is data. Keep it.</p>
-    <p>For each pick, jot three things: what it does in one sentence, where the human is in it, and what you'd want to check before trusting it. Then leave a comment on the one that interested you most: a real question or a real observation, the kind you'd want on your own work.</p>
-  </div>
-</section>
-
-<section>
-  <div class="shead"><span class="num">7</span><h2>The writeup (for homework)</h2></div>
+  <div class="shead"><span class="num">5</span><h2>The writeup (for homework)</h2></div>
   <div class="callout">
     <div class="label">Can you use AI on this writeup? Yes, with eyes open. Here's the line.</div>
-    <p>This is your first "when to use it, when not" decision in a course about exactly that. The rule for every lab writeup is the same. <strong>Use AI as a tutor:</strong> ask it to explain how Mini-AlphaGo learned, argue against your answer so you can sharpen it, quiz you on the seven claims, or fix your grammar and spelling. <strong>Don't use it as the author:</strong> the paragraphs are yours. If a chatbot wrote your baseline, your case answer, or the sentence to your future self, then it did the assignment and you didn't, and the point of the writeup, which is to find out what <em>you</em> think, is gone. The test is the calculator test: if the tool does the thing the assignment exists to teach, it isn't allowed on that part.</p>
-    <p>One more thing, and it's the same rule this book follows: <strong>say so.</strong> At the bottom of your writeup, one line: which tool, if any, and what you used it for. "None" is a fine answer. So is "Claude explained how the tic-tac-toe AI learned; the writing is mine." What isn't fine is silence about it. The book discloses its own AI use on page one; you're held to the same standard.</p>
+    <p><strong>Learn it first, then use AI.</strong> You'll use AI all through your career. But while you're learning how something works, like how Mini-ImageNet learned, work it out yourself first, or you won't be able to tell when a chatbot's explanation is wrong. After that, <strong>use AI as a tutor:</strong> ask it to explain how Mini-AlphaGo learned, argue against your answer so you can sharpen it, or fix your grammar and spelling. <strong>Don't use it as the author:</strong> the paragraphs are yours. The test is the calculator test: if the tool does the thing the assignment exists to teach, it isn't allowed on that part.</p>
+    <p>And <strong>say so.</strong> At the bottom of your writeup, one line: which tool, if any, and what you used it for. "None" is a fine answer. What isn't fine is silence about it.</p>
   </div>
   <div class="ticket">
-    <div class="label">Due Friday, 11:59 p.m. · post to Canvas · include your section 1 and 2 answers</div>
+    <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
     <ol>
-      <li><strong>The baseline.</strong> A short paragraph on what you saw in class: what Mini-ImageNet got right and wrong and why, whether Mini-AlphaGo beat you after practice, and how your true/false answers held up against the reveal. Which claims did you doubt? This gets re-read in the last week of the course, so end with one sentence to your future self: which claim do you most want to understand by then?</li>
-      <li><strong>The picks.</strong> Your two hub workflows, the one you'd use and the one that made you hesitate, each in one sentence.</li>
-      <li><strong>The hesitation, named.</strong> Your best attempt at saying <em>why</em> the second one made you pause. Rough is fine; precision is what the next ten weeks are for.</li>
-      <li><strong>The case.</strong> Your group's answer to one of the three questions in section 5, in your own words.</li>
-      <li><strong>Your move.</strong> One question about AI you want answered by December, specific enough that you'll know if it happened. That's your first commitment card, and the course's promise runs the other way too: check the week tags on the reveal. It's probably on the syllabus.</li>
+      <li><strong>Mini-ImageNet.</strong> One thing it got right, one thing it got wrong, and why, in terms of the data you gave it.</li>
+      <li><strong>Mini-AlphaGo.</strong> Did it beat you after practice? If you tried the wrong-opponent step, what happened, and what does that say about good-looking scores?</li>
+      <li><strong>The talk.</strong> Your answer to one of the four discussion questions in section 3, in your own words.</li>
+      <li><strong>Your own AI.</strong> Your answers to two of the five questions from section 4.</li>
+      <li><strong>Your move.</strong> One AI system you use every week: keep it, fix it, or drop it, and what that costs you. One sentence.</li>
     </ol>
   </div>
 </section>
@@ -458,92 +413,6 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   </div>
 </footer>
 
-<script>
-(function(){
-  /* ---------- Round one: seven claims, all true ---------- */
-  var claims = [
-    {week:'Week 10 \u00b7 Truth', side:'concern',
-     text:'A lawyer filed a brief in federal court citing cases that did not exist. A chatbot had invented them, complete with convincing quotes.',
-     why:'<a href=\"https://www.forbes.com/sites/mollybohannon/2023/06/08/lawyer-used-chatgpt-in-court-and-cited-fake-cases-a-judge-is-considering-sanctions/\" target=\"_blank\" rel=\"noopener\">Mata v. Avianca, 2023</a>, and courts have logged hundreds of similar filings since. Week 10 explains why this isn\u2019t a bug being fixed, and hands you the actual phantom citations to catch yourself.'},
-    {week:'Week 6 \u00b7 Hiring &amp; Lending', side:'concern',
-     text:'A company\u2019s hiring software automatically rejected every woman over 55 and every man over 60. The only reason anyone found out: one applicant reapplied with a younger birthdate and got an interview.',
-     why:'<a href=\"https://www.foley.com/en/insights/publications/2023/08/eeoc-ai-based-hiring-practices-landmark-settlement\" target=\"_blank\" rel=\"noopener\">iTutorGroup settled with the EEOC</a> for $365,000 in 2023, the first US settlement over AI hiring. More than 200 applicants were screened out; the company denied wrongdoing. Week 6 asks who else is in the rejected pile that nobody checks.'},
-    {week:'Week 9 \u00b7 Ethics &amp; War', side:'concern',
-     text:'In September 2026, a researcher who had trained AI models at OpenAI and Anthropic quit his job, giving up his unvested stock, and said the people building the most advanced AI believe it could kill everyone within a decade. A second researcher at the company publicly agreed.',
-     why:'<a href=\"https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/\" target=\"_blank\" rel=\"noopener\">Jacob Coxon, September 8, 2026</a>. Critics called it hype dressed as warning within hours. Both can be true; section 5 is where we work on it. Four days later both companies\u2019 CEOs called for slowing down, after their own test agents reached outside systems (NPR, September 12). (As of September 14, 2026. This one will move.)'},
-    {week:'Week 7 \u00b7 Transportation', side:'good',
-     text:'After reading a driverless-car company\u2019s 100-million-mile crash data, a trauma neurosurgeon told NPR that self-driving cars could remove car crashes from the list of leading causes of death in America.',
-     why:'<a href=\"https://www.npr.org/transcripts/nx-s1-5634879\" target=\"_blank\" rel=\"noopener\">Dr. Jonathan Slotkin, December 2025</a>, reading Waymo\u2019s own published numbers: more than 90 percent fewer of the worst crash types. The numbers are the company\u2019s, which is the catch. Week 7 puts you on the city council that decides whether to believe them.'},
-    {week:'Week 3 \u00b7 Medicine', side:'good',
-     text:'An AI model reads an ordinary ECG, a century-old heart test that was never designed to find valve disease, and flags up to 90 percent of the patients who have it, so they move up the queue for a scan.',
-     why:'<a href=\"https://www.bhf.org.uk/what-we-do/news-from-the-bhf/news-archive/2026/september/ai-finds-hidden-heart-disease-in-under-two-seconds\" target=\"_blank\" rel=\"noopener\">Imperial College London, presented this month</a>, tested on 65,000 US patients. It can\u2019t diagnose on its own; a human orders the scan and reads it. Week 3 goes inside the machine, and inside that \u201con its own.\u201d'},
-    {week:'Week 4 \u00b7 Environment', side:'good',
-     text:'The chips that train AI were designed to run video games, and the buildings that run AI also stream your Netflix and TikTok. Almost none of the AI infrastructure was built for AI.',
-     why:'The 2012 breakthrough that started the modern AI era <a href=\"https://en.wikipedia.org/wiki/AlexNet\" target=\"_blank\" rel=\"noopener\">ran on two $500 gaming cards</a> in a graduate student\u2019s bedroom. Data centers were built for the web, video, and cloud storage; AI moved in. Week 4 asks what that means for anyone trying to regulate AI\u2019s footprint without regulating everything else.'},
-    {week:'Week 4 \u00b7 Environment', side:'good',
-     text:'Three satellites launched from California in July 2026 use AI to compare every patch of ground with the last thousand images of the same spot, so they can catch a wildfire the size of a classroom and flag it to firefighters. The pilot satellite has already spotted small fires that existing satellites could not see.',
-     why:'<a href=\"https://blog.google/innovation-and-ai/models-and-research/google-research/firesat-satellites/\" target=\"_blank\" rel=\"noopener\">FireSat</a>, built by Muon Space for the nonprofit Earth Fire Alliance, with Google Research doing the AI. The full 50-satellite constellation, planned for 2030, would scan the whole planet every 20 minutes. Week 4 counts the watts AI costs; this is one of the things the watts buy. (As of September 2026.)'},
-  ];
-
-  var marks = {};
-  var cardsEl = document.getElementById('cards');
-  var revealBtn = document.getElementById('reveal');
-
-  claims.forEach(function(c, i){
-    var d = document.createElement('div');
-    d.className = 'probe';
-    var t = document.createElement('div'); t.className='ptext'; t.textContent = 'Claim ' + (i+1);
-    var body = document.createElement('p'); body.style.marginBottom='10px'; body.innerHTML = c.text;
-    var chips = document.createElement('div'); chips.className='chips';
-    [['true','True'],['false','False']].forEach(function(pair){
-      var b = document.createElement('button');
-      b.type='button'; b.className='chip'; b.textContent = pair[1];
-      b.setAttribute('aria-pressed','false');
-      b.addEventListener('click', function(){
-        chips.querySelectorAll('.chip').forEach(function(s){ s.classList.remove('on'); s.setAttribute('aria-pressed','false'); });
-        b.classList.add('on'); b.setAttribute('aria-pressed','true');
-        marks[i] = pair[0];
-        revealBtn.disabled = Object.keys(marks).length < claims.length;
-      });
-      chips.appendChild(b);
-    });
-    var res = document.createElement('div'); res.className='pwhy'; res.style.display='none'; res.setAttribute('data-res','1');
-    d.appendChild(t); d.appendChild(body); d.appendChild(chips); d.appendChild(res);
-    cardsEl.appendChild(d);
-  });
-
-  revealBtn.addEventListener('click', function(){
-    var doubted = 0, doubtedConcern = 0, doubtedGood = 0;
-    var probes = cardsEl.querySelectorAll('.probe');
-    claims.forEach(function(c, i){
-      var wasRight = marks[i] === 'true';
-      if (!wasRight){ doubted++; if (c.side === 'good') doubtedGood++; else doubtedConcern++; }
-      var res = probes[i].querySelector('[data-res]');
-      res.style.display = 'block';
-      res.innerHTML = '<b style="color:' + (wasRight ? '#14181D' : '#D61F69') + '">'
-        + (wasRight ? '\u2713 True. You called it.' : '\u2717 True. You doubted it.') + '</b> '
-        + c.why + ' <i style="color:#9AA1AB;">\u2192 ' + c.week + '</i>';
-      probes[i].querySelectorAll('.chip').forEach(function(b){ b.disabled = true; });
-    });
-    this.disabled = true;
-    var opener = '<b>All seven are true.</b> Three are the things people are angry about right now. Four are things nobody was doing before and could not have done without this. That split is on purpose. ';
-    var middle = 'Every one of these is a headline, and every headline is sitting on top of a system: data somebody collected, a model somebody trained, an output somebody acts on, and a failure somebody may or may not see. This course is ten weeks of learning to look underneath. ';
-    var tail;
-    if (doubted === 0){
-      tail = 'You called all seven. Either your instincts are unusually calibrated to this moment, or you smelled the trick. Either way, here\u2019s the harder version: for how many of the seven could you explain <i>why</i> it\u2019s true, to a skeptic, right now? The gap between calling it and explaining it is what the next ten weeks close.';
-    } else if (doubtedGood > doubtedConcern){
-      tail = 'You doubted ' + doubted + ', and mostly the good news. That\u2019s the most common pattern in the room, and it\u2019s worth noticing: the same skepticism that protects you from hype can also hide what\u2019s actually working. Write down which ones. Those weeks will move you most.';
-    } else if (doubtedConcern > doubtedGood){
-      tail = 'You doubted ' + doubted + ', and mostly the alarming ones. Reasonable; alarm is what sells. But these three are documented, not predicted. Write down which ones. The weeks that cover them will ask what you\u2019d need to see, and then show you.';
-    } else {
-      tail = 'You doubted ' + doubted + ', split across both lists. Good instincts, outdated world-model; updating it is the course. Write down which ones. Those aren\u2019t your weak spots, they\u2019re your syllabus.';
-    }
-    document.getElementById('verdict').hidden = false;
-    document.getElementById('reading').innerHTML = opener + middle + tail + ' Some of you will leave in December more worried than you are today. Some will leave less worried. Both are fine. What isn\u2019t fine is deciding from the headline.';
-  });
-
-})();
-</script>
 
 <script>
 (function(){
@@ -649,16 +518,15 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   if(!$('mn')) return;
   var LINES=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
   var boxes={}, board, hist, over, human=true, rec={g:0,w:0,d:0,l:0}, strip=[];
-  var INIT=[2,2,1,1];
-  function key(b){return b.map(function(c){return c||'.';}).join('');}
+  var INIT=[4,3,2,1];
+  function key(b){return b.join('');}
   function xCount(b){return b.filter(function(c){return c==='X';}).length;}
   function getBox(b){var k=key(b); if(!boxes[k]){var n=INIT[Math.min(xCount(b),3)]; boxes[k]=b.map(function(c){return c===''?n:0;});} return boxes[k];}
   function winner(b){for(var i=0;i<LINES.length;i++){var L=LINES[i]; if(b[L[0]]&&b[L[0]]===b[L[1]]&&b[L[1]]===b[L[2]])return b[L[0]];} return b.indexOf('')<0?'draw':null;}
-  function winLine(b){for(var i=0;i<LINES.length;i++){var L=LINES[i]; if(b[L[0]]&&b[L[0]]===b[L[1]]&&b[L[1]]===b[L[2]])return L;} return null;}
-  function menaceMove(b){var box=getBox(b); b.forEach(function(c,i){if(c)box[i]=0;}); var tot=box.reduce(function(a,c){return a+c;},0);
+  function menaceMove(b){var box=getBox(b); var tot=box.reduce(function(a,c){return a+c;},0);
     if(tot===0){var n=INIT[Math.min(xCount(b),3)]; b.forEach(function(c,i){box[i]=c===''?n:0;}); tot=box.reduce(function(a,c){return a+c;},0);}
     var r=Math.random()*tot; for(var i=0;i<9;i++){r-=box[i]; if(r<0)return i;} return b.indexOf('');}
-  function learn(result){hist.forEach(function(h){var box=boxes[h.k]; if(result==='X')box[h.m]+=3; else if(result==='draw')box[h.m]+=2; else box[h.m]=Math.max(0,box[h.m]-2);});}
+  function learn(result){hist.forEach(function(h){var box=boxes[h.k]; if(result==='X')box[h.m]+=3; else if(result==='draw')box[h.m]+=1; else box[h.m]=Math.max(0,box[h.m]-1);});}
   function careful(b){ // win if possible, block if possible, else random
     var me='O',you='X'; function tryFor(p){for(var i=0;i<LINES.length;i++){var L=LINES[i],vals=L.map(function(j){return b[j];}); if(vals.filter(function(v){return v===p;}).length===2&&vals.indexOf('')>=0)return L[vals.indexOf('')];} return -1;}
     var w=tryFor(me); if(w>=0)return w; var bl=tryFor(you); if(bl>=0)return bl; var e=[]; b.forEach(function(c,i){if(c==='')e.push(i);}); return e[Math.floor(Math.random()*e.length)];}
@@ -667,20 +535,20 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     $('mn-score').textContent='Games '+rec.g+' · Mini-AlphaGo won '+rec.w+' · draws '+rec.d+' · human won '+rec.l;
     $('mn-strip').innerHTML=strip.map(function(x){return '<span class="'+x+'"></span>';}).join('');}
   function playAuto(opp,n){for(var g=0;g<n;g++){var b=['','','','','','','','',''],h=[],res=null; while(!(res=winner(b))){var box=getBox(b),m=menaceMove(b); h.push({k:key(b),m:m}); b[m]='X'; if((res=winner(b)))break; var o=opp(b); b[o]='O';} hist=h; learn(res); record(res);} newGame();}
-  function render(){var el=$('mn-board'); el.innerHTML=''; var box=over?null:getBox(board); var tot=box?box.reduce(function(a,c){return a+c;},0):0; var wl=over?winLine(board):null;
-    board.forEach(function(c,i){var btn=document.createElement('button'); btn.type='button'; btn.className='mn-cell'+(c==='X'?' x':c==='O'?' o':'')+(wl&&wl.indexOf(i)>=0?' winner':''); btn.setAttribute('role','gridcell'); btn.setAttribute('aria-label','Square '+(i+1)+(c?': '+c:': empty'));
+  function render(){var el=$('mn-board'); el.innerHTML=''; var box=over?null:getBox(board);
+    board.forEach(function(c,i){var btn=document.createElement('button'); btn.type='button'; btn.className='mn-cell'+(c==='X'?' x':c==='O'?' o':''); btn.setAttribute('role','gridcell'); btn.setAttribute('aria-label','Square '+(i+1)+(c?': '+c:': empty'));
       btn.textContent=c; if(c||over||!human)btn.disabled=true;
-      if(!c&&!over&&box){var n=box[i]; var pct=tot?Math.round(100*n/tot):0; var bd=document.createElement('span'); bd.className='bd'; bd.textContent=pct+'%'; btn.appendChild(bd); btn.setAttribute('aria-label','Square '+(i+1)+': empty, a '+pct+' percent chance it plays here');}
+      if(!c&&!over&&box){var bd=document.createElement('span'); bd.className='bd'; bd.textContent=box[i]; btn.appendChild(bd);}
       btn.addEventListener('click',function(){humanMove(i);}); el.appendChild(btn);});}
-  function finish(res){over=true; learn(res); record(res); render(); $('mn-msg').className='tis-counts mn-result '+(res==='X'?'ai':res==='draw'?'draw':'me');
-    $('mn-msg').textContent=res==='X'?'Mini-AlphaGo won. One more game of data, and every move it made just got more likely.':res==='draw'?'A draw. One more game of data; its moves got a little more likely.':'Human won. One more game of data, and every move Mini-AlphaGo made just got less likely. Press New game and beat it again.';}
-  function menaceTurn(){$('mn-msg').className='tis-counts'; var m=menaceMove(board); hist.push({k:key(board),m:m}); board[m]='X'; var res=winner(board); if(res){finish(res);return;} human=true; render(); $('mn-msg').textContent='Your move. The percents show where it would play next.';}
+  function finish(res){over=true; learn(res); record(res); render();
+    $('mn-msg').textContent=res==='X'?'Mini-AlphaGo won. Every move it made just gained three beads.':res==='draw'?'A draw. Its moves each gained one bead.':'Human won. Every move Mini-AlphaGo made just lost a bead. Press New game and beat it again.';}
+  function menaceTurn(){var m=menaceMove(board); hist.push({k:key(board),m:m}); board[m]='X'; var res=winner(board); if(res){finish(res);return;} human=true; render(); $('mn-msg').textContent='Your move. The numbers are the beads for each of its possible replies from here.';}
   function humanMove(i){if(over||!human||board[i])return; board[i]='O'; human=false; var res=winner(board); if(res){finish(res);return;} render(); setTimeout(menaceTurn,250);}
-  function newGame(){board=['','','','','','','','','']; hist=[]; over=false; human=false; render(); $('mn-msg').className='tis-counts'; $('mn-msg').textContent='It goes first.'; setTimeout(menaceTurn,200);}
+  function newGame(){board=['','','','','','','','','']; hist=[]; over=false; human=false; render(); $('mn-msg').textContent='It goes first.'; setTimeout(menaceTurn,200);}
   $('mn-new').addEventListener('click',newGame);
-  $('mn-reset').addEventListener('click',function(){boxes={}; rec={g:0,w:0,d:0,l:0}; strip=[]; $('mn-score').textContent='Games 0 · Mini-AlphaGo won 0 · draws 0 · human won 0'; $('mn-strip').innerHTML=''; $('mn-note').textContent='All data erased. It knows nothing again.'; newGame();});
+  $('mn-reset').addEventListener('click',function(){boxes={}; rec={g:0,w:0,d:0,l:0}; strip=[]; $('mn-score').textContent='Games 0 · Mini-AlphaGo won 0 · draws 0 · human won 0'; $('mn-strip').innerHTML=''; $('mn-note').textContent='All beads reset. It knows nothing again.'; newGame();});
   $('mn-rand').addEventListener('click',function(){playAuto(randomMove,300); $('mn-note').textContent='Simulated 300 games against a player who moves at random.';});
-  $('mn-block').addEventListener('click',function(){playAuto(careful,500); $('mn-note').textContent='It just played 500 games against a player who takes wins and blocks yours. Now play it.';});
+  $('mn-block').addEventListener('click',function(){playAuto(careful,300); $('mn-note').textContent='Simulated 300 games against a player who takes wins and blocks yours.';});
   newGame();
 })();
 </script>

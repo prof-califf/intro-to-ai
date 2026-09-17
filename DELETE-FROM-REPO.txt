@@ -1,0 +1,9 @@
+Delete these files from the repo (renamed, merged, or stale):
+chapter-08-markets-lab.html
+chapter-08-markets.html
+chapter-09-ethics-war-lab.html
+chapter-09-ethics-war.html
+chapter-09-markets-lab.html
+chapter-09-markets.html
+chapter-11-work-lab.html
+chapter-11-work.html

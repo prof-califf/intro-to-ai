@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab 8 · The Red Lines — Intro to AI in Business | MIS 201</title>
+<title>Lab 9 · Run the Firm — Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -219,8 +219,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · optional</span>Play the Algorithm</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
-<a href="chapter-08-ethics-war-lab.html" class="current" aria-current="page"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
-<a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
+<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
+<a href="chapter-09-economy-lab.html" class="current" aria-current="page"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
 <a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 10 · take-home</span>The Phantom Docket</a>
 <a href="exposure-audit.html"><span class="lbl">Self-guided · pairs with Chapter 9</span>The Exposure Audit</a>
 <a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · last class</span>First Contact, Revisited</a>
@@ -231,78 +231,103 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <header class="masthead">
   <div class="wrap">
-    <div class="eyebrow">Western Washington University · MIS 201 · Lab 8 · Monday, in class (Veterans Day week) · no writeup</div>
-    <h1>The Red <b>Lines</b></h1>
-    <p class="kicker">You lead the policy team at a frontier AI company. Eight government requests are on your desk. For each: accept, accept with conditions, or decline. This is the actual format of the decisions in this week's chapter — and the actual discovery: everyone has values. The line is where they get expensive.</p>
-    <p class="factline">Eight requests · three answers each · one line, located</p>
+    <div class="eyebrow">Western Washington University · MIS 201 · Lab 9 · Wednesday, in class</div>
+    <h1>Run the <b>Firm</b></h1>
+    <p class="kicker">You run a 40-person firm for eight quarters. Each quarter, one strategic move. The dynamo lesson says reorganization beats adoption — but reorganization dips first and your board watches every quarter. Feel the pressure that kept factories on belts and shafts for forty years.</p>
+    <p class="factline">Eight quarters · three moves · one curve with your name on it</p>
   </div>
 </header>
 
 <main class="wrap">
 
 <section>
-  <div class="shead"><span class="num">1</span><h2>Before you start</h2></div>
-  <p class="lead">Two ground rules. First, no abstaining: "it depends" must become a condition you can write down. Second, track what each answer costs — declines cost revenue and government relationships; accepts cost talent (some of your best people have said they'll quit over certain work) and, depending on your view, more. There is no score to win. There is a line to find, and it's yours.</p>
-  <p>No Wednesday session this week, so this lab runs take-home: do the sort before Monday if you can — the Monday discussion is better when the room has already felt where its lines disagree.</p>
-</section>
+  <div class="shead"><span class="num">1</span><h2>Eight quarters in the chair</h2></div>
+  <p class="lead">Your firm starts at a productivity index of 100. Each quarter, pick one move. <strong>Adopt AI tools</strong> hands your people copilots inside existing workflows — quick wins that shrink with each round. <strong>Redesign a workflow</strong> rebuilds one process around AI — it costs you now and pays permanently later. <strong>Hold steady</strong> is always available, and always defensible to the board. Play it twice: once however you like, once trying to beat your own final number.</p>
 
-<section>
-  <div class="shead"><span class="num">2</span><h2>The eight requests</h2></div>
   <div class="tool">
-    <div class="label">Your desk · answer all eight</div>
-    <div id="cards"></div>
-    <div class="chips" style="margin-top:16px;">
-      <button type="button" class="btn" id="locate" disabled>Locate my line</button>
+    <div class="label" id="qlabel">Quarter 1 of 8 · productivity 100</div>
+    <div class="graphbox" style="background:#fff;">
+      <svg id="chart" viewBox="0 0 800 300" role="img" aria-label="Productivity by quarter"></svg>
+    </div>
+    <p class="roundinfo" id="flavor">The fiscal year opens. Your competitors are all issuing press releases about AI. Your board has read every one of them.</p>
+    <div class="simgrid" id="moves">
+      <button type="button" class="simcard" data-m="tools"><span class="tag">Adopt AI tools</span>License copilots, let teams use them inside today's workflows. Fast, visible, diminishing.</button>
+      <button type="button" class="simcard" data-m="reorg"><span class="tag">Redesign a workflow</span>Rebuild one process around AI end-to-end. Disruption now, structural gains in about two quarters.</button>
+      <button type="button" class="simcard" data-m="hold"><span class="tag">Hold steady</span>No new initiatives. Watch the market. The board never punishes this quarter — only the decade.</button>
     </div>
     <div class="verdict" id="verdict" hidden>
-      <div class="label">Where your line sits</div>
-      <div class="bars">
-        <div class="bar safe" id="bar-acc"><span>Accepted</span><div class="track"><div class="fill"></div></div><span class="n">0</span></div>
-        <div class="bar" id="bar-con" style="opacity:.85;"><span>With conditions</span><div class="track"><div class="fill" style="background:#9AA1AB;"></div></div><span class="n">0</span></div>
-        <div class="bar" id="bar-dec"><span>Declined</span><div class="track"><div class="fill"></div></div><span class="n">0</span></div>
-      </div>
+      <div class="label">Year two begins without you — the review</div>
       <p class="read" id="reading"></p>
+      <div class="chips" style="margin-top:16px;">
+        <button type="button" class="btn" id="again">Run it again</button>
+      </div>
     </div>
   </div>
+
+  <div class="concept">
+    <div class="term">What the model bakes in — on purpose</div>
+    <p>Tools give +4, then +2, then +1, then nothing: the copilot plateau. Each redesign costs −4 the quarter you do it and −1 the next, then pays +7 every quarter after, permanently: Paul David's J-curve in miniature. The numbers are invented; the <b>shape</b> is the research finding. Your job is to notice what the shape does to your decisions while a board is watching.</p>
+  </div>
 </section>
 
 <section>
-  <div class="shead"><span class="num">3</span><h2>Pressure-test the line</h2></div>
+  <div class="shead"><span class="num">2</span><h2>Compare your curves</h2></div>
   <div class="steps">
-    <div class="step"><span class="sn">a</span><p>Take your most confident decline and write the request's strongest rebuttal — the two sentences the government negotiator would actually say back. Then get a second opinion from a live AI: <i>“You're the government's negotiator. I'm an AI company declining this request: [paste the card]. Give me your strongest two-sentence rebuttal.”</i> Does your decline survive both — and which rebuttal was stronger, yours or the machine's?</p></div>
-    <div class="step"><span class="sn">b</span><p>Take your most confident accept and apply the dual-use ratchet from the chapter: name the follow-on request it makes harder to refuse next year. If you can't name one, look harder — that's what the ratchet means.</p></div>
-    <div class="step"><span class="sn">c</span><p>For every "with conditions": apply the governance-theater test to your own condition. Enforcement mechanism, verification, consequence for violation — which does your condition actually have? A condition with none is an accept wearing a costume.</p></div>
+    <div class="step"><span class="sn">a</span><p>Screenshot both runs. Note each run's final productivity and its shape: plateau, J-curve, flat, or something hybrid.</p></div>
+    <div class="step"><span class="sn">b</span><p>Find the quarter in either run where you felt the pull to avoid the dip — or took it and had to sit through the board's reaction. That feeling is the forty years, compressed. Name it precisely for the writeup: what exactly did the dip threaten?</p></div>
+    <div class="step"><span class="sn">c</span><p>Try the two pure strategies if you haven't: all tools every quarter, and redesign-early-then-tools. The gap between those two final numbers is this chapter's entire argument, in integers.</p></div>
   </div>
 </section>
 
 <section>
-  <div class="shead"><span class="num">4</span><h2>Run the five questions</h2></div>
+  <div class="shead"><span class="num">3</span><h2>Check the instrument</h2></div>
+  <p>Your simulated firm just lived the choice real firms face. Now look at what real firms are actually choosing: open the <a class="inline" href="https://digitaleconomy.stanford.edu" target="_blank" rel="noopener">Stanford AI Adoption Monitor</a> and find the current readings for worker adoption versus firm adoption, and anything the Monitor shows about depth of use — the intensive margin.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Record this month's numbers for individual and firm adoption. In the model's language: how much of the economy is on "adopt tools," and how much is on "redesign"?</p></div>
+    <div class="step"><span class="sn">b</span><p>Given what the dip felt like from the chair — write one sentence explaining the gap you just recorded, from the inside. Not "firms are slow." Why are they slow?</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">4</span><h2>Talk it out</h2></div>
+  <p class="lead">Groups of four, then the room. Bring what you just saw on your own screen.</p>
+  <div class="callout">
+    <div class="label">Discussion questions · about 15 minutes</div>
+    <p><b>1. The dip.</b> Where did your firm's numbers dip, and did you stick with the reorganization? Why?</p>
+    <p><b>2. Who pulls the plug?.</b> In a real company, who would have wanted to quit during the dip, and what would they point to?</p>
+    <p><b>3. The instrument.</b> What did the live data show that surprised you, and what would you want it to measure next?</p>
+    <p><b>4. Your first redesign.</b> If you ran a small business here in Bellingham, what's the first job you'd redesign around AI, and what would the dip cost?</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">5</span><h2>Run the five questions</h2></div>
   <div class="fourq">
-    <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> Across your eight answers, did the kind of AI ever drive your decision, or was it always the use, the user, and the stakes? What does that tell you about where the ethics live?</p></div>
-    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> For each contract you accepted, who benefits, and did you weigh the company's revenue, the customer's advantage, or the people downstream? Be honest about the order.</p></div>
-    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> Which of your accepted requests has the least visible failure mode? Trace one failure from the incident back to your desk and write the sentence you'd say when it reaches you.</p></div>
-    <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> The request came with the customer's justification. Who wrote it, what do they gain from your accepting, and what would you have needed to verify before signing?</p></div>
-    <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Your eight answers are the decision. Name the total cost of your refusals, in revenue and in what someone else will build instead, and whether you'd hold the line at that price.</p></div>
+    <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> The simulator contains no AI at all; it's the economics of AI with the AI removed. What does it say that the strategic problem survives the removal?</p></div>
+    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> Who benefited from your reorganization, quarter by quarter, and who bore the dip? The model politely hid some of that inside "+7"; un-hide it.</p></div>
+    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> A firm that never reorganizes never has a visible failure, just a slow fade the statistics catch years late. What's the "missed cure" of this chapter, and who finds out?</p></div>
+    <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> Your chart says your strategy worked. Your board would say what? Your workers? What would you need to show each of them, and what would change your own mind about the strategy?</p></div>
+    <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Keep your strategy, fix it, or start over: name the cost of the dip in your run, who ate it, and whether you'd sign off on it for a real firm.</p></div>
   </div>
 </section>
 
 <section>
-  <div class="shead"><span class="num">5</span><h2>The writeup</h2></div>
+  <div class="shead"><span class="num">6</span><h2>The writeup</h2></div>
   <div class="ticket">
     <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
     <ol>
-      <li><strong>The sort.</strong> Your eight answers (screenshot), plus the profile reading.</li>
-      <li><strong>The line.</strong> In one sentence, the principle that separates your accepts from your declines. It must actually fit your answers — if it doesn't, revise the sentence or the answers, and tell us which you revised.</li>
-      <li><strong>The pressure test.</strong> Your step 3 results: the rebuttal that came closest to moving you, the ratchet you identified, and whether any of your conditions failed the theater test.</li>
-      <li><strong>The five questions.</strong> Your answers, including the accountability sentence.</li>
-      <li><strong>Your move.</strong> Chapter 2 asked what's yours that no dial can turn up; this week asks what's yours that no contract can buy. One sentence: a line you'd hold in your own career even at real cost — specific enough that a future employer could violate it. That's the commitment card.</li>
+      <li><strong>The runs.</strong> Both screenshots, final numbers, and shape names.</li>
+      <li><strong>The dip.</strong> Your step 2b answer: the quarter the pressure was strongest, and what exactly the dip threatened. Then the real-world translation: name one actual reason a real manager can't take the dip (bonus structures, quarterly earnings, a promotion window) — and one structure that would let them.</li>
+      <li><strong>The instrument.</strong> This month's Monitor numbers and your one-sentence inside explanation of the gap.</li>
+      <li><strong>The five questions.</strong> Your answers, including who bore your redesigns.</li>
+      <li><strong>Your move.</strong> Back to your Day 1 workflow, one last time: the intensive-margin version of scaling it — the actual redesign, who it affects, and the dip it would cause. Three sentences. Wednesday's commitment card takes the first one.</li>
     </ol>
   </div>
 </section>
 
 <div class="nextbar">
-  <a href="chapter-08-ethics-war.html"><span class="dir">← Back</span>Chapter 8 · Ethics &amp; War</a>
-  <a href="chapter-09-economy.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 9 · The Economy</a>
+  <a href="chapter-09-economy.html"><span class="dir">← Back</span>Chapter 9 · The Economy</a>
+  <a href="chapter-10-truth.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 10 · Truth</a>
 </div>
 
 </main>
@@ -317,79 +342,158 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <script>
 (function(){
-  var cards = [
-    {name:'Base logistics optimization', text:'Route supplies, schedule maintenance, forecast parts demand for domestic bases. No connection to operations. Large, stable contract.', risk:1},
-    {name:'Veterans\u2019 healthcare administration', text:'Process disability claims and appointment backlogs at the VA. Purely administrative; the backlog is measured in human suffering.', risk:0},
-    {name:'Cyber defense', text:'Detect and counter intrusions on military networks. Defensive by charter — but the tooling and skills transfer directly to offense.', risk:2},
-    {name:'Satellite image analysis', text:'Flag changes in imagery: disaster damage, infrastructure, vehicle movements. The same model serves humanitarian response and target development.', risk:3},
-    {name:'Border surveillance drones', text:'Persistent aerial monitoring with automated person-detection along borders. Domestic deployment; civil-liberties groups are already in court over programs like it.', risk:3},
-    {name:'Intelligence analysis at scale', text:'Summarize and cross-reference intercepted communications for analysts. Human analysts decide everything; your model decides what they see.', risk:3},
-    {name:'Target identification support', text:'Rank candidate targets from sensor data for human approval. The human approves each strike — at a tempo of seconds per decision.', risk:4},
-    {name:'Autonomous engagement', text:'Defensive systems that detect and engage incoming threats faster than any human can react. No per-engagement human decision is physically possible.', risk:5}
-  ];
+  var TOTAL = 8;
+  var quarter, toolCount, reorgQuarters, history, done;
 
-  var answers = {};
-  var cardsEl = document.getElementById('cards');
+  var flavors = {
+    start: 'The fiscal year opens. Your competitors are all issuing press releases about AI. Your board has read every one of them.',
+    tools: [
+      'The copilots land well. Teams report faster drafts and quicker analysis. The board is pleased — this looked like leadership and cost almost nothing.',
+      'More licenses, smaller lift. The easy wins were already won; people are faster at the old workflow, but it\u2019s still the old workflow.',
+      'Diminishing returns arrive on schedule. Everyone has a copilot now. Nobody\u2019s job works differently.',
+      'The new tools change little — the workflow itself is the bottleneck now, and everyone below you already knows it.'
+    ],
+    reorgNow: 'The redesign begins. Handoffs break, veterans grumble, two people quit, and this quarter\u2019s numbers dip. The board requests a meeting about "the AI initiative\u2019s underperformance."',
+    reorgTeething: 'The redesigned workflow is finding its feet — still awkward, but the shape of something better is visible to the people inside it.',
+    reorgPaying: 'A redesigned workflow hits stride: the process now does things the old one structurally couldn\u2019t. These gains don\u2019t plateau — they\u2019re the new building.',
+    hold: [
+      'A quiet quarter. Nothing broke. A competitor announced a "workflow transformation" — their numbers dipped, and your board chuckled. Remember the chuckle.',
+      'Steady as she goes. The market moved; you didn\u2019t. Cheap now. Priced later.',
+      'Another held quarter. Holding is a decision too — it just never feels like one on the day.'
+    ]
+  };
 
-  cards.forEach(function(c, i){
-    var d = document.createElement('div');
-    d.className = 'probe';
-    var t = document.createElement('div'); t.className='ptext'; t.textContent = 'Request ' + (i+1) + ' · ' + c.name;
-    var body = document.createElement('div'); body.className='pwhy'; body.textContent = c.text;
-    var chips = document.createElement('div'); chips.className='chips';
-    [['acc','Accept'],['con','Accept with conditions'],['dec','Decline']].forEach(function(pair){
-      var b = document.createElement('button');
-      b.type='button'; b.className='chip'; b.textContent=pair[1];
-      b.setAttribute('aria-pressed','false');
-      b.addEventListener('click', function(){
-        chips.querySelectorAll('.chip').forEach(function(s){ s.classList.remove('on'); s.setAttribute('aria-pressed','false'); });
-        b.classList.add('on'); b.setAttribute('aria-pressed','true');
-        answers[i] = pair[0];
-        document.getElementById('locate').disabled = Object.keys(answers).length < cards.length;
-      });
-      chips.appendChild(b);
+  var chart = document.getElementById('chart');
+  var NS = 'http://www.w3.org/2000/svg';
+
+  function prodAt(q, tCount, rQuarters){
+    var toolBonus = [0,4,6,7,7,7,7,7,7][Math.min(tCount,8)];
+    var r = 0;
+    rQuarters.forEach(function(rq){
+      if (q === rq) r += -4;
+      else if (q === rq+1) r += -1;
+      else if (q >= rq+2) r += 7;
     });
-    d.appendChild(t); d.appendChild(body); d.appendChild(chips);
-    cardsEl.appendChild(d);
-  });
-
-  document.getElementById('locate').addEventListener('click', function(){
-    var acc=0, con=0, dec=0;
-    var decRisks=[], accRisks=[];
-    cards.forEach(function(c,i){
-      if(answers[i]==='acc'){acc++; accRisks.push(c.risk);}
-      else if(answers[i]==='con'){con++;}
-      else {dec++; decRisks.push(c.risk);}
-    });
-    var v=document.getElementById('verdict'); v.hidden=false;
-    setBar('bar-acc',acc); setBar('bar-con',con); setBar('bar-dec',dec);
-
-    var maxAccRisk = accRisks.length ? Math.max.apply(null,accRisks) : -1;
-    var minDecRisk = decRisks.length ? Math.min.apply(null,decRisks) : 99;
-
-    var read;
-    if(dec===0 && con===0){
-      read='You accepted all eight without conditions — a coherent position with real defenders: the mission is legitimate, so serve all of it. Two writeup burdens follow. First, the talent cost: some of your best people walk over requests 7 and 8 — name what you tell them. Second: is there a ninth request you <b>would</b> decline? If yes, your line exists and this lab\u2019s job is to make you state it. If no, say that — plainly.';
-    } else if(acc===0 && con===0){
-      read='You declined all eight — including veterans\u2019 healthcare claims processing. That\u2019s a coherent absolutist position, and it has a cost the chapter named: the work goes to whoever has fewer scruples than you, and the backlog stays measured in human suffering. Your writeup: defend total abstention against that specific charge — request 2 is the hardest one for your position, so start there.';
-    } else if(minDecRisk >= 4){
-      read='Your line sits at <b>lethal force</b>: you engaged across support, surveillance, and analysis, and declined where the kill chain begins' + (minDecRisk===5 ? ' — or only at full autonomy' : '') + '. This is the most common line in the real industry, which is worth one more thought: is that because it\u2019s where the ethics actually change, or because it\u2019s where the discomfort becomes visible? Your pressure test (step 3b) on request 6 or 7 is where your answer lives.';
-    } else if(minDecRisk >= 2){
-      read='Your line sits at <b>the intelligence-and-surveillance layer</b> — earlier than most of the industry drew it. You\u2019re treating the ratchet as the danger: the systems that watch and rank are the ones that make the later systems inevitable. The cost is that you\u2019ve declined the largest and most defensible contracts too. Your writeup: hold the line on request 4 against its humanitarian rebuttal — that\u2019s your hardest case.';
-    } else {
-      read='Your answers don\u2019t sort by stakes in the usual way — you declined lower-risk requests while accepting higher-risk ones' + (maxAccRisk>=4 ? ', including at the lethal end' : '') + '. That isn\u2019t wrong; it means your line runs on a different axis than the kill chain — maybe domestic vs. foreign, maybe surveillance vs. force, maybe something else. Your writeup\u2019s job is to name that axis in one sentence and check all eight answers against it. If no sentence fits, some answers may be instinct wearing a policy costume — revise one, and say which.';
-    }
-    if(con>=4){
-      read+='<br><br><b>Note:</b> half or more of your desk is "with conditions." Conditions are where policy teams actually live — but step 3c applies to every one: a condition without enforcement is an accept in costume. Your writeup should show your strongest condition passing the theater test.';
-    }
-    document.getElementById('reading').innerHTML=read;
-  });
-
-  function setBar(id,n){
-    var b=document.getElementById(id);
-    b.querySelector('.fill').style.width=Math.round(n/8*100)+'%';
-    b.querySelector('.n').textContent=n;
+    return 100 + toolBonus + r;
   }
+
+  function drawChart(){
+    while (chart.firstChild) chart.removeChild(chart.firstChild);
+    var minY = 88, maxY = 132;
+    function X(q){ return 60 + (q-1) * (700/(TOTAL-1)); }
+    function Y(v){ return 280 - (v - minY) * (260/(maxY-minY)); }
+    // axes + gridlines
+    [90,100,110,120,130].forEach(function(v){
+      var l = document.createElementNS(NS,'line');
+      l.setAttribute('x1',55); l.setAttribute('x2',770);
+      l.setAttribute('y1',Y(v)); l.setAttribute('y2',Y(v));
+      l.setAttribute('stroke', v===100 ? '#C9CED6' : '#EFEFEA');
+      l.setAttribute('stroke-width','1');
+      chart.appendChild(l);
+      var t = document.createElementNS(NS,'text');
+      t.setAttribute('x',48); t.setAttribute('y',Y(v)+4);
+      t.setAttribute('text-anchor','end');
+      t.setAttribute('style','font-family:Inter,sans-serif;font-size:11px;fill:#9AA1AB;');
+      t.textContent = v;
+      chart.appendChild(t);
+    });
+    for (var q=1; q<=TOTAL; q++){
+      var t = document.createElementNS(NS,'text');
+      t.setAttribute('x',X(q)); t.setAttribute('y',296);
+      t.setAttribute('text-anchor','middle');
+      t.setAttribute('style','font-family:Inter,sans-serif;font-size:11px;fill:#9AA1AB;');
+      t.textContent = 'Q'+q;
+      chart.appendChild(t);
+    }
+    if (history.length){
+      var pts = history.map(function(h,i){ return X(i+1)+','+Y(h); }).join(' ');
+      var pl = document.createElementNS(NS,'polyline');
+      pl.setAttribute('points', pts);
+      pl.setAttribute('fill','none');
+      pl.setAttribute('stroke','#FF3D8A');
+      pl.setAttribute('stroke-width','3');
+      pl.setAttribute('stroke-linejoin','round');
+      chart.appendChild(pl);
+      history.forEach(function(h,i){
+        var c = document.createElementNS(NS,'circle');
+        c.setAttribute('cx',X(i+1)); c.setAttribute('cy',Y(h)); c.setAttribute('r',4.5);
+        c.setAttribute('fill','#FF3D8A');
+        chart.appendChild(c);
+        var v = document.createElementNS(NS,'text');
+        v.setAttribute('x',X(i+1)); v.setAttribute('y',Y(h)-10);
+        v.setAttribute('text-anchor','middle');
+        v.setAttribute('style','font-family:Inter,sans-serif;font-size:11px;font-weight:600;fill:#14181D;');
+        v.textContent = h;
+        chart.appendChild(v);
+      });
+    }
+  }
+
+  function label(){
+    var current = history.length ? history[history.length-1] : 100;
+    document.getElementById('qlabel').textContent = done
+      ? 'Year complete · final productivity ' + current
+      : 'Quarter ' + quarter + ' of ' + TOTAL + ' · productivity ' + current;
+  }
+
+  function move(m){
+    if (done) return;
+    if (m==='tools') toolCount++;
+    if (m==='reorg') reorgQuarters.push(quarter);
+    var p = prodAt(quarter, toolCount, reorgQuarters);
+    history.push(p);
+
+    var f;
+    if (m==='tools') f = flavors.tools[Math.min(toolCount-1,3)];
+    else if (m==='reorg') f = flavors.reorgNow;
+    else {
+      var paying = reorgQuarters.some(function(rq){ return quarter >= rq+2; });
+      var teething = reorgQuarters.some(function(rq){ return quarter === rq+1; });
+      if (teething) f = flavors.reorgTeething;
+      else if (paying) f = flavors.reorgPaying;
+      else f = flavors.hold[(quarter-1) % 3];
+    }
+    document.getElementById('flavor').textContent = f;
+
+    quarter++;
+    if (quarter > TOTAL){ done = true; finish(); }
+    drawChart(); label();
+  }
+
+  function finish(){
+    document.getElementById('moves').style.display = 'none';
+    var final_ = history[TOTAL-1];
+    var v = document.getElementById('verdict');
+    v.hidden = false;
+    var read;
+    var firstReorg = reorgQuarters.length ? reorgQuarters[0] : null;
+    if (!reorgQuarters.length && toolCount > 0){
+      read = 'Final productivity: <b>' + final_ + '</b>. Your curve is the <b>copilot plateau</b> — the swapped engine. Quick wins, early praise, and a ceiling you hit around Q3 that no amount of additional licenses moved. For reference: this strategy tops out at 107. A firm that redesigned in Q1 and Q2 finishes around 121, after two ugly quarters. You avoided every dip and paid for it with the whole difference. This is the most common real-world curve — now you know why.';
+    } else if (!reorgQuarters.length && toolCount === 0){
+      read = 'Final productivity: <b>' + final_ + '</b>. You held for eight straight quarters — perfectly flat, perfectly defensible, quarter by quarter. No board meeting was ever awkward. The decade, however, belongs to the firms that took the dip. If this was a deliberate bet that the technology disappoints — the bubble reading — say so explicitly in your writeup; it\u2019s a real position and it deserves a real defense.';
+    } else if (firstReorg <= 3){
+      read = 'Final productivity: <b>' + final_ + '</b>. That\u2019s a <b>J-curve</b> — the dynamo strategy. You took the dip early' + (reorgQuarters.length>1 ? ', more than once,' : '') + ' sat through the board meeting, and let the structural gains compound. The uncomfortable writeup question: you did this with play money and a fake board. Name the real-world structure that would have stopped you — and the one that would have protected you.';
+    } else {
+      read = 'Final productivity: <b>' + final_ + '</b>. You redesigned <b>late</b> — quarter ' + firstReorg + ' — which means you paid the dip without collecting much of the payoff inside the year. This is the tragedy curve of real firms: the pressure delays the redesign until the redesign can\u2019t show results before the next review. The lesson isn\u2019t "don\u2019t redesign." It\u2019s that reorganization needs runway — and whoever controls the review clock controls whether it ever happens.';
+    }
+    document.getElementById('reading').innerHTML = read;
+  }
+
+  document.querySelectorAll('#moves .simcard').forEach(function(b){
+    b.addEventListener('click', function(){ move(b.getAttribute('data-m')); });
+  });
+  document.getElementById('again').addEventListener('click', function(){
+    init();
+  });
+
+  function init(){
+    quarter = 1; toolCount = 0; reorgQuarters = []; history = []; done = false;
+    document.getElementById('moves').style.display = '';
+    document.getElementById('verdict').hidden = true;
+    document.getElementById('flavor').textContent = flavors.start;
+    drawChart(); label();
+  }
+  init();
 })();
 </script>
 

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 11 · Who Makes the Rules? — Intro to AI in Business | MIS 201</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pink);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+.steps{margin:26px 0;}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
+.step:last-child{border-bottom:none;}
+.step .sn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);font-size:1.2rem;min-width:24px;}
+.step p{margin-bottom:0;}
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+
+/* ---- lab widgets ---- */
+.tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
+.tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
+.tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
+.chip{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;}
+.chip:hover{border-color:var(--pink);color:var(--pinktext);}
+.chip:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.chip.on{background:var(--dark);color:var(--yellow);border-color:var(--dark);}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.btn{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;}
+.btn:hover{background:#1B222B;}
+.btn:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--rule);}
+.btn.alt:hover{border-color:var(--pink);color:var(--pinktext);}
+.verdict{background:var(--dark);color:#E7EAEF;padding:26px 28px;margin-top:22px;}
+.verdict .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;}
+.verdict .read{font-size:.95rem;line-height:1.65;}
+.verdict .read b{color:var(--yellow);}
+.bars{display:grid;gap:10px;margin:14px 0 18px;}
+.bar{display:grid;grid-template-columns:190px 1fr 44px;gap:12px;align-items:center;font-size:.85rem;}
+.bar .track{height:10px;background:#242C36;border-radius:999px;overflow:hidden;}
+.bar .fill{height:100%;background:var(--pink);width:0%;transition:width .3s ease;border-radius:999px;}
+.bar.safe .fill{background:var(--yellow);}
+.bar .n{text-align:right;color:var(--lightgray);}
+@media(max-width:560px){.bar{grid-template-columns:1fr;gap:4px;}.bar .n{text-align:left;}}
+.meter{display:grid;grid-template-columns:130px 1fr 54px;gap:12px;align-items:center;font-size:.9rem;margin:8px 0;}
+.meter .track{height:14px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;}
+.meter .fill{height:100%;width:50%;transition:width .35s ease;border-radius:999px;background:var(--pink);}
+.meter.good .fill{background:var(--ink);}
+.meter .n{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+.simcard{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;cursor:pointer;text-align:left;font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55;color:var(--ink);width:100%;}
+.simcard:hover{border-color:var(--pink);}
+.simcard:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.simcard .tag{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.simgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:680px){.simgrid{grid-template-columns:1fr;}}
+.slider-row{display:grid;grid-template-columns:170px 1fr 120px;gap:14px;align-items:center;margin:14px 0;font-size:.92rem;}
+.slider-row output{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+input[type=range]{width:100%;accent-color:var(--pink);}
+@media(max-width:560px){.slider-row{grid-template-columns:1fr;gap:6px;}.slider-row output{text-align:left;}}
+select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink);}
+.equiv{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:18px 0 4px;}
+.equiv .cell{background:#fff;padding:16px 18px;}
+.equiv .cell .v{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;}
+.equiv .cell .v em{font-style:normal;color:var(--pink);}
+.equiv .cell .k{font-size:.82rem;color:var(--gray);margin-top:2px;}
+@media(max-width:560px){.equiv{grid-template-columns:1fr;}}
+.graphbox{background:var(--dark);border:1px solid var(--rule);margin:18px 0;}
+.graphbox svg{display:block;width:100%;height:auto;}
+.gnode{cursor:pointer;}
+.gnode circle{stroke:#39424D;stroke-width:1.5;fill:#1B222B;transition:all .2s ease;}
+.gnode text{font-family:'Inter',sans-serif;font-size:11px;fill:#C9CED6;pointer-events:none;}
+.gnode.drug circle{stroke:var(--yellow);}
+.gnode.disease circle{stroke:var(--pink);}
+.gnode.sel circle{fill:var(--yellow);stroke:var(--yellow);}
+.gnode.sel text{fill:var(--dark);font-weight:700;}
+.gnode.lit circle{fill:#2A3440;stroke:#fff;}
+.gedge{stroke:#333D49;stroke-width:1.5;transition:all .2s ease;}
+.gedge.lit{stroke:var(--yellow);stroke-width:2.5;}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.8rem;color:var(--gray);padding:12px 16px;border-top:1px solid var(--rule);background:#fff;}
+.legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;border:2px solid var(--gray);vertical-align:-1px;}
+.legend .l-drug::before{border-color:var(--yellow);background:#1B222B;}
+.legend .l-disease::before{border-color:var(--pink);background:#1B222B;}
+.legend .l-mid::before{border-color:#39424D;background:#1B222B;}
+.ranked{margin:14px 0 0;}
+.ranked .r{display:grid;grid-template-columns:1fr 60px;gap:10px;padding:9px 0;border-bottom:1px solid #242C36;font-size:.9rem;align-items:center;}
+.ranked .r:last-child{border-bottom:none;}
+.ranked .r .s{text-align:right;color:var(--yellow);font-variant-numeric:tabular-nums;font-weight:600;}
+.probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
+.probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
+.probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
+.roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
+/* ---- dropdown navigation (chapters / labs) ---- */
+.nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.nav a.navlink{margin-left:0;padding:6px 10px}
+.dd{position:relative}
+.dd-btn{font:inherit;font-size:.85rem;font-weight:600;color:#fff;background:var(--dark);border:1px solid var(--dark);border-radius:4px;padding:7px 14px;cursor:pointer}
+.dd-btn:hover,.dd-btn[aria-expanded="true"]{background:var(--pinktext);border-color:var(--pinktext);color:#fff}
+.dd-btn .caret{color:var(--yellow)}
+.dd-btn .caret{font-size:.7rem;margin-left:.3rem}
+.dd-menu{display:none;position:absolute;right:0;top:calc(100% + 6px);min-width:19rem;background:var(--bg);border:1px solid var(--rule);border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:.35rem 0;max-height:75vh;overflow-y:auto;z-index:50}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:.5rem 1rem;text-decoration:none;color:var(--ink);font-size:.9rem;line-height:1.35}
+.dd-menu a:hover{background:#F3F3EE;color:var(--pinktext)}
+.dd-menu a .lbl{display:block;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--pinktext);margin-bottom:.1rem}
+.dd-menu a.current{background:#F3F3EE;border-left:3px solid var(--pink)}
+@media (max-width:640px){
+  .nav .wrap{flex-wrap:wrap;gap:8px}
+  .nav .navlinks{width:100%;justify-content:flex-start}
+  .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
+}
+
+h3.sub{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.8em 0 .8em;padding-bottom:6px;border-bottom:1px solid var(--pink);color:var(--ink)}
+h3.sub span{color:var(--pinktext);margin-right:10px}
+
+table.risk{width:100%;border-collapse:collapse;margin:16px 0 8px;font-size:.9rem}
+table.risk th{text-align:left;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);border-bottom:2px solid var(--pink);padding:8px 10px}
+table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.risk tr.grp td{background:#F3F3EE;font-family:'Fraunces',serif;font-weight:600;font-size:.95rem}
+.tablenote{font-size:.85rem;color:var(--gray);margin-bottom:20px}
+@media (max-width:640px){table.risk{display:block;overflow-x:auto;font-size:.82rem}}
+
+table.pred td b{color:var(--pinktext)}
+table.pred td:first-child{width:46%}
+
+.tablecap{font-size:.88rem;color:var(--gray);margin:14px 0 4px}
+figure.diagram{margin:22px 0}
+figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;margin-top:8px}
+</style>
+<style>
+.tryit details{border-top:1px dashed var(--rule);padding:10px 0;}
+.tryit details:first-of-type{border-top:none;}
+.tryit summary{cursor:pointer;font-weight:600;font-size:.95rem;}
+.tryit p{margin:8px 0 2px;font-size:.9rem;color:var(--gray);}
+.srcnote{border:1px solid var(--rule);border-radius:10px;padding:14px 18px;margin:30px 0;background:#fff;font-size:.9rem;}
+.srcnote summary{cursor:pointer;font-weight:700;color:var(--ink);}
+.srcnote p{margin:10px 0 2px;color:var(--gray);}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div class="navlinks">
+      <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="syllabus.html">Syllabus</a>
+      <a class="navlink" href="rules.html">Rules</a>
+      <a class="navlink" href="schedule.html">Schedule</a>
+      <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddc" data-dd="ddc">Chapters<span class="caret" aria-hidden="true">▾</span></button>
+<div class="dd-menu" id="ddc">
+<a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
+<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
+<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 4</span>Medicine</a>
+<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 5</span>Environment</a>
+<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · optional</span>Systems That Want You</a>
+<a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
+<a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
+<a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
+<a href="chapter-09-economy.html"><span class="lbl">Chapter 9 · Week 9</span>The Economy</a>
+<a href="chapter-10-truth.html"><span class="lbl">Chapter 10 · Week 10</span>Truth</a>
+<a href="chapter-11-rules.html" class="current" aria-current="page"><span class="lbl">Chapter 11 · Week 10</span>Who Makes the Rules?</a>
+<a href="chapter-12-future.html"><span class="lbl">Chapter 12 · Week 10</span>The Future</a>
+</div></div>
+      <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddl" data-dd="ddl">Labs<span class="caret" aria-hidden="true">▾</span></button>
+<div class="dd-menu" id="ddl">
+<a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
+<a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test</a>
+<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 4</span>Inside the Graph</a>
+<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 5</span>The Footprint Machine</a>
+<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · optional</span>Play the Algorithm</a>
+<a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
+<a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
+<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
+<a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
+<a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 10 · take-home</span>The Phantom Docket</a>
+<a href="exposure-audit.html"><span class="lbl">Self-guided · pairs with Chapter 9</span>The Exposure Audit</a>
+<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · last class</span>First Contact, Revisited</a>
+</div></div>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Western Washington University · MIS 201 · Chapter 11</div>
+    <h1>Who Makes the <b>Rules</b>?</h1>
+    <p class="kicker">Every chapter in this book has ended with someone deciding: keep it, fix it, or drop it. This chapter is about who that someone is when the decision becomes a rule. In 2026 the loudest fight in AI policy is not whether to regulate AI. It is who gets to.</p>
+    <p class="factline">Why rules exist · the pacing problem · three models · a law that never started</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="contents">
+  <div class="label">Learning objectives</div>
+  <ol type="1">
+<li>Explain why rules for new technology exist, using market failure and the pacing problem.</li>
+<li>Compare the EU, U.S., and Chinese approaches to AI rules, and say what each one trades away.</li>
+<li>Describe preemption and the collective action problem, and use them to explain the fight between states and Washington.</li>
+<li>Run the five critical AI questions on a real AI law, including what happens when the law itself fails.</li>
+<li>Name the rules that would touch an AI system you use or might build, and take a position on what should change.</li>
+</ol>
+</div>
+
+<div class="contents">
+  <div class="label">In this chapter</div>
+  <ol>
+    <li><a href="#s1">The question every chapter has been asking</a></li>
+    <li><a href="#s2">The concepts: why rules exist, why they lag, and who writes them</a></li>
+    <li><a href="#s3">The main case: Colorado's AI law, the rule that never started</a></li>
+    <li><a href="#s4">Decide: where you fit in the rules</a></li>
+    <li><a href="#s5">Key terms</a></li>
+    <li><a href="#s6">Discussion questions</a></li>
+  </ol>
+</div>
+
+<section id="s1">
+  <div class="shead"><span class="num">1</span><h2>The question every chapter has been asking</h2></div>
+  <p class="lead">Look back at where our cases ended. In Chapter 6, a job applicant sued Workday over its screening software, and New York City already required bias audits for hiring tools. In Chapter 10, a political consultant faced a proposed fine over a cloned-voice robocall. In Chapter 2, China wrote rules for chatbots that act human. Every time we asked "keep it, fix it, or drop it," the real answer depended on a rule someone else had written, or hadn't.</p>
+  <p>So this chapter asks the question hiding under Question 5. When a society decides to fix an AI system, who does the fixing? A city council? A state legislature? Congress? The European Union? The company itself? A judge? In the United States right now, all of them are trying, and they don't agree about who should win.</p>
+  <p><strong>The point of this chapter, in one sentence:</strong> AI rules get made at many levels at once, the levels fight over who gets the last word, and a rule can fail just as quietly as an AI system does.</p>
+  <p><strong>What this chapter teaches.</strong> Four ideas, then a case to use them on.</p>
+  <ul class="ideas">
+    <li>First, <em>why rules exist at all</em>: markets that can't see their own costs.</li>
+    <li>Second, <em>the pacing problem</em>: why the rules always arrive late.</li>
+    <li>Third, <em>three models</em>: how the EU, the U.S., and China each answer the question.</li>
+    <li>Fourth, <em>floor or ceiling</em>: the fight over whether states can set their own AI rules.</li>
+  </ul>
+  <p>Then the main case: Colorado passed the first broad American law on AI in hiring and lending decisions in 2024. It was supposed to start in 2026. It never did. We'll run the five critical AI questions on the law itself.</p>
+  <p>There's no separate lab this week. We discuss this chapter on the Monday of Week 10, alongside Chapter 10. Your Decide project is due that Wednesday, the last day of class, at 11:59 p.m. If your project system touches hiring, lending, housing, health, or insurance, this chapter tells you which rules it lives under.</p>
+</section>
+
+<section id="s2">
+  <div class="shead"><span class="num">2</span><h2>The concepts: why rules exist, why they lag, and who writes them</h2></div>
+
+  <h3 class="sub"><span>2.1</span> Why rules exist: markets that can't see their own costs</h3>
+  <p>A common picture of regulation is the government on one side and business on the other. Economists start somewhere else. They ask when a market, left alone, produces results almost nobody wants. They call those cases <strong>market failures</strong>, and two kinds show up in every chapter of this book.</p>
+  <p>The first is an <strong>externality</strong>: a cost paid by people who never agreed to the deal. The power bill from a data center in Chapter 4 is one. So is a cloned voice calling a voter in Chapter 10. The company and the customer both got what they wanted. Someone else paid.</p>
+  <p>The second is an <strong>information asymmetry</strong>: one side knows far more than the other. The company that built a résumé screener can test it for bias. The applicant it rejected can't even see it. No amount of shopping around fixes that, because the applicant never gets to shop.</p>
+  <p>History shows what rules can do in cases like these. Britain's Factory Act of 1833 barred children under nine from textile mills, required working children to get schooling, and created government inspectors to check. The owners said it would ruin them. It didn't, and the schooling requirement helped build the demand for public education. In 1938 the U.S. Fair Labor Standards Act set a federal minimum wage, required overtime pay, limited child labor, and put the country on the road to the 40-hour week. Rules like these didn't stop the technology. They changed who paid for it.</p>
+  <div class="concept">
+    <div class="term">Market failure</div>
+    <p>A situation where a market, left alone, produces outcomes that are harmful or unfair, usually because outsiders pay the costs (an externality) or one side knows much more than the other (an information asymmetry). What people get wrong: they treat regulation as the opposite of a market. Often it's what lets a market work, because people will use a system they can trust.</p>
+  </div>
+
+  <h3 class="sub"><span>2.2</span> The pacing problem: why the rules always arrive late</h3>
+  <p>If rules help, why are they always late? In 1980 the scholar David Collingridge described a trap that every technology falls into. Early on, a technology is easy to change, but nobody knows what harm it will do. Later, the harm is obvious, but the technology is built into everything and very hard to change. You can have knowledge or control, and rarely both at the same time.</p>
+  <p>AI is deep inside that trap. The Chapter 6 hiring tools were already screening millions of applicants before anyone measured what they did. That's the pacing problem: the technology moves in months, and lawmaking moves in years.</p>
+  <div class="concept">
+    <div class="term">The Collingridge dilemma</div>
+    <p>A technology's harms can't be fully known until it's widely used, but once it's widely used it's hard to control. What people get wrong: they read this as a reason to wait. It's a reason to write rules that can be adjusted, and to build ways of watching (audits, disclosures, dashboards) before the harm is obvious.</p>
+  </div>
+
+  <h3 class="sub"><span>2.3</span> Three models: Brussels, Washington, and Beijing</h3>
+  <p>The three biggest AI economies have answered "who makes the rules?" in three different ways.</p>
+  <p><strong>The European Union writes one big law.</strong> The EU AI Act entered into force in August 2024. It sorts AI systems by risk. A few uses are banned outright. "High-risk" uses, which include AI in hiring, education, credit, and law enforcement, get heavy requirements: testing, documentation, human oversight. Lower-risk systems mostly have to be honest that they're AI. This is <strong>risk-based regulation</strong>: the rules scale with the harm a use can do.</p>
+  <p>Even the EU runs into the pacing problem. The high-risk rules were supposed to start on August 2, 2026. <a class="inline" href="https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/" target="_blank" rel="noopener">In May 2026 EU lawmakers agreed to push them back</a>: standalone high-risk systems like hiring tools now start on December 2, 2027. The same deal added a new ban on apps that generate fake nude images. The delay became law in late July 2026, days before the old deadline.</p>
+  <p>The EU law also reaches outside Europe. A company that sells to Europeans has to follow it, and building one version of a product is cheaper than building two. So the strictest rulebook often becomes the default everywhere. That's called the <strong>Brussels effect</strong>, and it happened before with Europe's privacy law.</p>
+  <p><strong>The United States has no single AI law.</strong> As of September 2026, Congress has not passed a comprehensive one. Instead, existing agencies apply existing laws (discrimination law in Chapter 6, fraud law in Chapter 10), a few narrow federal laws target specific harms, such as the 2025 TAKE IT DOWN Act on fake intimate images, and the states write their own. They write a lot. <a class="inline" href="https://www.techpolicy.press/where-state-ai-legislation-stands-half-way-into-2026/" target="_blank" rel="noopener">By one count</a>, states enacted 159 AI laws in 2025 and another 109 in the first half of 2026. California's <a class="inline" href="https://www.goodwinlaw.com/en/insights/publications/2025/11/alerts-technology-aiml-california-moves-to-regulate-frontier-ai-with-a-focus-on-catastrophic-risk" target="_blank" rel="noopener">SB 53</a>, in effect since January 2026, requires the developers of the most powerful models to publish safety frameworks, report serious safety incidents, and protect employees who blow the whistle.</p>
+  <p><strong>China writes many small rules, fast.</strong> It issued rules for recommendation algorithms in 2022, for deepfakes and for generative AI in 2023, and, as we saw in Chapter 2, for chatbots that act human. The state writes the rules and also sets national goals for how fast AI should spread, so the rules and the rollout come from the same place.</p>
+  <div class="concept">
+    <div class="term">The Brussels effect</div>
+    <p>When one large market's strict rules become the global default, because companies would rather build one compliant product than many. What people get wrong: they assume a U.S. worker only lives under U.S. rules. If your employer sells in Europe, you may already be working under the EU AI Act.</p>
+  </div>
+
+  <h3 class="sub"><span>2.4</span> Floor or ceiling: who gets the last word</h3>
+  <p>In the U.S. system, federal law can override state law. That's called <strong>preemption</strong>. The current fight is about whether federal AI policy should preempt the state laws in 2.3.</p>
+  <p>The case for preemption goes like this. AI products cross state lines. Fifty different rulebooks cost money, slow companies down, and let a few big states set rules for everyone. The case against goes like this. Congress hasn't passed a national standard, so preemption now would wipe out protections and replace them with nothing. Critics put it as a choice between a floor and a ceiling: should state laws be a minimum that states can build on, or a maximum they can't go past?</p>
+  <p>Congress has tried preemption and backed off. In July 2025 the Senate voted 99 to 1 to strip a ten-year freeze on state AI laws out of a budget bill. <a class="inline" href="https://www.nextgov.com/artificial-intelligence/2026/06/lawmakers-propose-ai-framework-would-preempt-state-laws-3-years/413975/" target="_blank" rel="noopener">A bipartisan House draft in June 2026</a> proposed a three-year version, and it drew fire from both directions. Meanwhile the White House acted on its own, which is where our case begins.</p>
+  <p>Underneath the fight is a <strong>collective action problem</strong>: a situation where each player does what's best for itself and everyone ends up worse off. Each company that slows down to test for bias loses ground to one that doesn't. Each state that writes strict rules risks losing businesses to states that don't. Each country fears falling behind its rivals. Nobody wants to go first. That's the classic reason rules get written at a higher level, and it's also the argument each side uses about the other.</p>
+  <div class="concept">
+    <div class="term">Preemption</div>
+    <p>When a higher level of government overrides a lower level's laws on the same subject. What people get wrong: preemption doesn't have to mean fewer rules. It can set a strong national standard or a weak one. The question is always what replaces the rules it removes.</p>
+  </div>
+
+  <h3 class="sub"><span>2.5</span> The rule-makers nobody elected</h3>
+  <p>Governments aren't the only rule-makers. Courts make rules case by case: Air Canada learned in Chapter 2 that it owned what its chatbot said, and the lawyers in Chapter 10 learned what happens when a brief cites cases that don't exist. Companies make rules for themselves, through safety policies, internal audits, and decisions about what they won't sell. And industry groups write standards that often become the practical definition of "reasonable."</p>
+  <p>Self-rules move faster than laws. They also have a known weak spot. <strong>Regulatory capture</strong> is when the people being regulated end up shaping the rules in their own favor, through lobbying, through staff moving between industry and government, or simply because the government has to ask the industry how its own technology works. With AI, government often has fewer experts than the companies it's checking, so the risk is high.</p>
+  <div class="concept">
+    <div class="term">Regulatory capture</div>
+    <p>When a regulator ends up serving the industry it's supposed to oversee. What people get wrong: they picture bribery. Usually it's quieter: the only people who understand the system work for the company that built it.</p>
+  </div>
+
+  <div class="callout tryit">
+    <div class="label">Try it · practice for Friday's quiz. Five situations: who is making the rule, and is it acting as a floor (a minimum others can build on) or a ceiling (a maximum)? Decide, then click to check.</div>
+    <details><summary>1. A state requires any company using AI to reject tenants to tell the applicant, and cities in that state may add more requirements.</summary><p>A state legislature, acting as a floor. The phrase "may add more" is the tell: the state sets a minimum and leaves room above it.</p></details>
+    <details><summary>2. A federal law says states may not pass their own rules on how chatbots are trained, and sets no training rules of its own.</summary><p>Congress, acting as a ceiling, and an empty one. This is the version critics fear: preemption that removes state rules and replaces them with nothing.</p></details>
+    <details><summary>3. A software company announces it will stop selling its face-matching tool to police.</summary><p>The company itself. Self-rules are real rules for that company's customers, but no one outside the company can enforce them, and the company can reverse them.</p></details>
+    <details><summary>4. A U.S. clothing retailer changes its hiring software for all its stores after an EU law requires the change for its European stores.</summary><p>The EU, reaching into the U.S. through the Brussels effect. No American lawmaker voted on this rule, and it applies anyway.</p></details>
+    <details><summary>5. A judge rules that a bank can't blame its loan model's vendor for a biased denial.</summary><p>A court, making a rule case by case. It's neither floor nor ceiling in the legislative sense, but every bank's lawyers will read it as a new minimum.</p></details>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="shead"><span class="num">3</span><h2>The main case: Colorado's AI law, the rule that never started</h2></div>
+  <p>Here's what happened. In May 2024 Colorado became the first state to pass a broad law on what it called "high-risk" AI: software that plays a real part in decisions about jobs, housing, loans, insurance, health care, and education. The law required companies using these systems to take reasonable care to prevent algorithmic discrimination, to run risk-management programs, and to assess their systems' impact every year. Governor Jared Polis signed it, but publicly asked the legislature to revisit it before it started. That was a warning sign.</p>
+  <p>The start date moved twice, <a class="inline" href="https://www.seyfarth.com/news-insights/colorado-enacts-artificial-intelligence-replacement-law.html" target="_blank" rel="noopener">eventually landing on June 30, 2026</a>. Then Washington stepped in. On December 11, 2025, President Trump signed <a class="inline" href="https://www.presidency.ucsb.edu/node/379255" target="_blank" rel="noopener">Executive Order 14365</a>, "Ensuring a National Policy Framework for Artificial Intelligence." It told the Attorney General to create an AI Litigation Task Force whose only job is to challenge state AI laws in court. <a class="inline" href="https://www.taftlaw.com/news-events/white-house-toolkit/executive-order-14365-ensuring-a-national-policy-framework-for-artificial-intelligence/" target="_blank" rel="noopener">The order singled out Colorado's anti-discrimination rule</a>, arguing that requirements like it can push AI models to change otherwise truthful outputs. The order also listed areas it would leave to the states, including child safety and data centers.</p>
+  <p>In April 2026, <a class="inline" href="https://www.buchalter.com/insights/colorado-rewrites-its-ai-law-what-employers-must-know-about-sb-26-189/" target="_blank" rel="noopener">Elon Musk's xAI sued Colorado</a> over the law. Two weeks later the U.S. Department of Justice joined the case on xAI's side, and <a class="inline" href="https://www.crowell.com/en/insights/client-alerts/colorado-hits-reset-on-ai-regulation-sb-26-189-repeals-and-reenacts-the-colorado-ai-act" target="_blank" rel="noopener">a federal court paused enforcement</a>. In May the legislature passed a replacement, SB 26-189, and Governor Polis signed it on May 14, 2026.</p>
+  <p>The new law is very different. It drops the duty of care, the risk programs, and the impact assessments. In their place, a company using what the law now calls automated decision-making technology has to tell people before it's used on them, explain within 30 days when it produces a bad outcome, let people correct wrong data, and offer meaningful human review where that's commercially reasonable. It also voids contract clauses that let a company shift blame for its own discrimination onto its software vendor. Only the state attorney general can enforce it. It starts January 1, 2027.</p>
+  <p>Add it up. A law passed in 2024 to protect people from biased hiring and lending software never protected anyone for a single day. Its replacement hasn't started yet.</p>
+
+  <p><strong>The five critical AI questions, run on this case:</strong></p>
+  <h3 class="sub"><span>Question 1:</span> What is the AI system, and what does it do?</h3>
+  <p>The law doesn't cover one system. It covers a kind: software that materially influences a consequential decision about a person. Think of the résumé screeners and loan models from Chapter 6. Let's run the AI systems model on a hiring screener and mark where each version of the law touches it:</p>
+  <ul class="ideas">
+    <li><strong>Data:</strong> past hiring records and the applicant's own file. The 2026 law gives applicants a right to correct wrong data about them.</li>
+    <li><strong>Model:</strong> a classifier that scores applicants. The 2024 law required yearly impact assessments of it. The 2026 law doesn't.</li>
+    <li><strong>Output:</strong> a score, a ranking, or a rejection. Under the 2026 law, a rejection triggers an explanation within 30 days.</li>
+    <li><strong>Feedback loop:</strong> today's hires become tomorrow's training data. Neither law requires anyone to watch that loop for drift once the system is running.</li>
+    <li><strong>Humans:</strong> the recruiter, the vendor, and the applicant. The 2026 law adds a human review on request, after the fact.</li>
+  </ul>
+
+  <h3 class="sub"><span>Question 2:</span> Why does it exist, and who benefits?</h3>
+  <p>The original law existed because of everything in Chapter 6: models trained on biased history can turn that bias into a clean-looking score. Applicants were meant to benefit. Businesses carried the cost of risk programs and assessments.</p>
+  <p>The rewrite benefits businesses that use these tools, especially ones operating in many states, and AI developers who argued the old law was vague. Applicants keep something real: they now have to be told. The federal push benefits companies that want one national rulebook, and it serves the administration's stated goal of American AI leadership. Whether it benefits applicants depends on what, if anything, Congress eventually writes.</p>
+
+  <h3 class="sub"><span>Question 3:</span> What happens when it fails, and who finds out?</h3>
+  <p>Here's the part that connects to the whole book. A law that never starts fails the same way the Chapter 6 rejection pile fails: invisibly. No applicant in Colorado got a letter saying "you were screened by software that a law was supposed to check, but the law was paused." Nobody finds out, because nothing happened.</p>
+  <p>The new law changes who finds out, and when. The 2024 version tried to catch bias before harm, through assessments nobody outside the company would see. The 2026 version tells the person after harm, through a notice they will see. That's more visible to the individual and less protective for the group. One rejected applicant can learn why. Nobody is required to look at the whole pile.</p>
+
+  <h3 class="sub"><span>Question 4:</span> Who's saying that, and how would we know?</h3>
+  <p>"A patchwork of state laws will hurt American innovation" is said by the White House, by AI companies, and by industry groups. "Preemption turns a floor into a ceiling" is said by civil rights groups, many state officials, and some consumer advocates. Both sides have a stake, so let's look for evidence neither side controls.</p>
+  <p>Some exists. The researchers who count state laws found states passing slightly fewer AI laws in 2026 than in 2025, and shifting toward the areas the executive order left alone, like child safety and data centers. That suggests the federal pressure is changing what states write. What we can't know yet is the thing that matters most: whether people screened by these systems are treated more fairly under the new rules or the old ones would have done better. The 2024 law never ran, so there's no comparison.</p>
+
+  <h3 class="sub"><span>Question 5:</span> Keep it, fix it, or drop it, and what does that cost?</h3>
+  <ul class="decide">
+    <li><strong>Keep it:</strong> the 2026 law as written, notice and human review. The cost: harm gets addressed one person at a time, after it happens, and nobody is required to check the system as a whole.</li>
+    <li><strong>Fix it:</strong> add an independent bias audit, like New York City's rule for hiring tools, so someone looks at the pile before the letters go out. The cost: compliance money, slower rollouts, and very likely another federal lawsuit.</li>
+    <li><strong>Drop it:</strong> let states step back and wait for one national standard. The cost: as of September 2026 there is no national standard, so dropping state rules today means applicants rely on older discrimination laws and on lawsuits like Mobley v. Workday, which take years.</li>
+  </ul>
+
+  <div class="concept">
+    <div class="term">The takeaway from the case</div>
+    <p>Colorado's story isn't really about Colorado. It's what happens when four levels of rule-making collide: a state legislature, a federal executive order, a company's lawsuit, and a court. The fight over who gets to decide can last long enough that nobody decides. A rule that never starts is a quiet failure, and it's worth running the five questions on rules, not just on systems.</p>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="shead"><span class="num">4</span><h2>Decide: where you fit in the rules</h2></div>
+  <h3 class="sub"><span>4.1</span> You will work under these rules</h3>
+  <p>Most of you won't write AI laws. Almost all of you will work under them. If you end up in HR, you may be the person who sends Colorado's 30-day notice in 2027. If your company sells in Europe, the EU's hiring rules reach your desk in December 2027 whether or not Congress acts. If you buy software for a team, you may be the one reading the vendor contract clause Colorado just made void.</p>
+  <p>That makes the practical skill simple to say and hard to do: for any AI system you touch, know which rules it lives under, and know which ones are still being fought over. That is exactly what your Decide project asks.</p>
+
+  <h3 class="sub"><span>4.2</span> Taking a position without picking a team</h3>
+  <p>This topic is political, and I'm not going to tell you which side to take. Reasonable people disagree about whether AI rules should come from states, Washington, or somewhere else. What the course asks is that your position survive the five questions. If you favor one national standard, say what it should contain, because preemption with nothing behind it is a different policy from preemption with strong rules behind it. If you favor state rules, say how a company selling in fifty states should comply, and who pays for that. Either way, name the cost. That's the Rules page applied to policy: no fighting without evidence, and no loving or hating a position because of who else holds it.</p>
+  <p>And remember that rules have comment periods. Colorado's attorney general has to write the details of the new law before it starts, and that process takes public input. Rule-making isn't only something that happens to you.</p>
+
+  <h3 class="sub"><span>4.3</span> Three takeaways</h3>
+  <h3>Rules are systems too</h3>
+  <p>A law has data (what it requires companies to record), outputs (notices, fines), and failure modes. Run the five questions on it the way you would on a model. The Colorado law's quietest failure was never starting.</p>
+  <h3>Ask who gets the last word</h3>
+  <p>When you read about an AI rule, the first question is what it requires. The second, in 2026, is whether it will survive: a federal challenge, a delay, a rewrite. The EU delayed its own high-risk rules by sixteen months. A rule on paper is a claim, and Question 4 applies.</p>
+  <h3>Floors and ceilings are the real debate</h3>
+  <p>Almost nobody in this fight says "no rules ever." The disagreement is about who sets the minimum and whether anyone may go above it. Once you can hear that difference, most AI policy news gets easier to read.</p>
+</section>
+
+<section id="s5">
+  <div class="shead"><span class="num">5</span><h2>Key terms</h2></div>
+  <div class="terms">
+    <div class="term-card"><div class="t">Market failure</div><p>When a market left alone produces harmful or unfair results. The main economic reason rules exist.</p></div>
+    <div class="term-card"><div class="t">Externality</div><p>A cost paid by people who weren't part of the deal, like a data center's strain on the local grid.</p></div>
+    <div class="term-card"><div class="t">Information asymmetry</div><p>One side knows far more than the other, like a company that can test its screener and an applicant who can't see it.</p></div>
+    <div class="term-card"><div class="t">The Collingridge dilemma</div><p>Early on, a technology is easy to change but its harms are unknown; later, the harms are known but it's hard to change.</p></div>
+    <div class="term-card"><div class="t">Risk-based regulation</div><p>Rules that scale with the harm a use can do. The EU AI Act's model: banned, high-risk, limited, minimal.</p></div>
+    <div class="term-card"><div class="t">The Brussels effect</div><p>When the strictest large market's rules become the global default because one product is cheaper than many.</p></div>
+    <div class="term-card"><div class="t">Preemption</div><p>A higher level of government overriding a lower level's laws. The question is always what replaces them: a floor or a ceiling.</p></div>
+    <div class="term-card"><div class="t">Collective action problem</div><p>Each player does what's best for itself and everyone ends up worse off, so nobody wants to go first.</p></div>
+    <div class="term-card"><div class="t">Regulatory capture</div><p>When a regulator ends up serving the industry it oversees, often because only the industry understands the technology.</p></div>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="shead"><span class="num">6</span><h2>Discussion questions</h2></div>
+  <div class="ticket">
+    <div class="label">For our last class · read this chapter and Chapter 12 first</div>
+    <ol type="1">
+<li><strong>Market failure, in a system you know.</strong> Pick one AI system from this course. Name the externality or the information asymmetry in it, and who pays for it right now.</li>
+<li><strong>The pacing problem.</strong> The EU pushed its hiring rules back sixteen months because the standards weren't ready. Was that the pacing problem, a sensible fix, or regulatory capture? What evidence would tell you which?</li>
+<li><strong>Floor or ceiling.</strong> In three sentences, make the strongest case for one national AI standard that overrides the states. Then make the strongest case against it. Which side's cost would you rather pay?</li>
+<li><strong>The main case.</strong> Colorado traded yearly impact assessments for a 30-day notice after a bad outcome. Run Question 3 on that trade: who finds out about a biased screener under each version, and when?</li>
+<li><strong>Your Decide project.</strong> Name the rules your system lives under, at any level: a law, a court case, a company policy, or nothing at all. If you could add one rule, what would it be and who would pay for it? You'll carry this answer into the final exam.</li>
+</ol>
+  </div>
+</section>
+
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <p>Verified 16 Sep 2026 against the linked sources. Colorado: SB 24-205 (May 2024), its delayed start date of June 30, 2026, the xAI lawsuit (filed April 9, 2026), DOJ's intervention, the court's pause, and SB 26-189 (signed May 14, 2026; effective Jan 1, 2027; duties as summarized) per Seyfarth Shaw, Buchalter, and Crowell &amp; Moring client alerts. Executive Order 14365 (Dec 11, 2025) text via the American Presidency Project; its treatment of Colorado's rule per Taft; its carve-outs per Paul Hastings. EU AI Act delay (Digital Omnibus: Annex III high-risk to Dec 2, 2027; Annex I to Aug 2, 2028; new nudifier ban; in force July 27, 2026) per Gibson Dunn and Cloud Security Alliance notes. State law counts per NYU's Center on Technology Policy as reported by TechPolicy.Press (July 2026). SB 53 per Goodwin. The Senate's 99–1 vote per Ropes &amp; Gray; the June 2026 House draft per Nextgov. The statement that no comprehensive federal AI law or enacted preemption exists was checked against a September 2026 regulatory tracker (Vorp Labs); recheck each term. Factory Act and FLSA history adapted from the MIS 432 regulation chapter.</p>
+  <p>Things to recheck before class: whether the Colorado lawsuit continued after the replacement law; the Colorado attorney general's rulemaking; any federal preemption bill; any further EU changes. Corrections are course content: if something here has changed by the time you read it, that change is worth bringing to class.</p>
+</details>
+
+<div class="nextbar">
+  <a href="chapter-10-truth-lab.html"><span class="dir">← Back</span>Lab 10 · The Phantom Docket</a>
+  <a href="chapter-12-future.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 12 · The Future</a>
+</div>
+
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.dd-btn'));
+  function closeAll(){btns.forEach(function(b){var m=document.getElementById(b.getAttribute('data-dd'));if(m){m.classList.remove('open');b.setAttribute('aria-expanded','false');}});}
+  btns.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var m=document.getElementById(b.getAttribute('data-dd'));var open=m.classList.contains('open');closeAll();if(!open){m.classList.add('open');b.setAttribute('aria-expanded','true');}});});
+  document.addEventListener('click',closeAll);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+  document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+</body>
+</html>
