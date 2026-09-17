@@ -286,7 +286,7 @@ ul.gilman span{color:var(--gray)}
 
 <div class="toc">
   <div class="label">Contents</div>
-  <p><a href="#s1">Your team</a> · <a href="#s2">Get inspired</a> · <a href="#s3">Write the spec</a> · <a href="#s4">Question your own design</a> · <a href="#s5">Build it, if you want to</a> · <a href="#s6">What a writeup looks like</a> · <a href="#s7">The pitch</a> · <a href="#s8">What I look for</a> · <a href="#s9">Using AI on this project</a></p>
+  <p><a href="#s1">Your team</a> · <a href="#s2">Get inspired</a> · <a href="#s3">Write the spec</a> · <a href="#s4">Question your own design</a> · <a href="#s5">Build it, if you want to</a> · <a href="#s6">How to write it up</a> · <a href="#s7">The pitch</a> · <a href="#s8">What I look for</a> · <a href="#s9">Using AI on this project</a></p>
 </div>
 
 <section id="s1">
@@ -346,23 +346,21 @@ ul.gilman span{color:var(--gray)}
 </section>
 
 <section id="s6">
-  <div class="shead"><span class="num">6</span><h2>What a writeup looks like</h2></div>
-  <p>Here's a short example, made up for this page, so you can see the shape. Your team's paper should be about this detailed, and it's fine to use the same headings.</p>
-  <div class="callout">
-    <div class="label">Example · SwapBot, a shift-swap helper for a campus coffee shop</div>
-    <p><strong>The problem and the user.</strong> A campus coffee shop has 25 student workers, and shift swaps happen in a messy group chat. The manager spends hours finding coverage, and shifts still get missed. SwapBot helps the manager find who can cover a shift. <strong>Kind:</strong> mostly predictive (it ranks who's likely to say yes), with a generative piece (it drafts the ask).</p>
-    <p><strong>Data.</strong> The schedule, each worker's availability form, and a year of past swaps. Workers shared availability when they were hired, but swap history was never collected for this, so I'd ask permission first. <em>Gap:</em> new hires have no history, so SwapBot knows nothing about them.</p>
-    <p><strong>Model.</strong> A general chatbot, like Claude or ChatGPT, given the schedule and one rule: only suggest people who are available and under 20 hours that week.</p>
-    <p><strong>Output.</strong> A ranked list of three workers and a drafted text. The manager picks one and sends it.</p>
-    <p><strong>Feedback loop.</strong> Every accepted swap becomes new history. <em>Risk:</em> people who said yes before get asked more and more.</p>
-    <p><strong>Humans.</strong> The manager is in the loop: nothing is sent without approval. Workers can opt out.</p>
-    <p><strong>Who benefits?</strong> The manager saves time and the shop misses fewer shifts. Workers who always say yes could end up with more hours than they want.</p>
-    <p><strong>How it fails, and who finds out.</strong> It keeps suggesting the same three reliable people until they burn out. That's a quiet failure: nobody sees it until someone quits, unless the manager checks who covered what.</p>
-    <p><strong>A claim, and the evidence it needs.</strong> "SwapBot saves the manager two hours a week." I'd need to time a month of swaps with it and a month without.</p>
-    <p><strong>Keep, fix, drop.</strong> <em>Keep</em> the manager approving every message. <em>Fix</em> the burnout problem by capping requests per person each week; the cost is more "no match found" results. <em>Drop</em> automatic texting without approval; the cost is speed, but a wrong text to the wrong person is worse.</p>
-    <p><strong>Prototype (optional).</strong> I built a custom chatbot in Claude with a made-up schedule for eight workers. Two screenshots are attached: the instructions I gave it and one ranked list it produced. What worked: it respected availability. What didn't: it ignored the 20-hour limit twice until I repeated the rule. My test: I asked for coverage twice, changing only one worker's name, and the ranking didn't change.</p>
-    <p><strong>AI use.</strong> I used Claude to build the prototype and to ask what I'd missed in my data section. The writing is mine.</p>
-  </div>
+  <div class="shead"><span class="num">6</span><h2>How to write it up: the pitch paper</h2></div>
+  <p>Write your paper like a business pitch: you're convincing a manager or an investor that this system is worth building, and showing you've thought hard about how it could go wrong. Use these nine headings, in this order. The whole paper runs about three pages, roughly 1,200 to 1,500 words.</p>
+  <table class="syl">
+    <tr><th>Section</th><th>What goes in it</th></tr>
+    <tr><td><strong>1. Executive summary</strong><br><span style="color:var(--gray)">About 100 words</span></td><td>In one paragraph: the problem, your solution, who pays for it, and what you're asking for. Write it last, put it first. Someone who reads only this should get the whole idea.</td></tr>
+    <tr><td><strong>2. The problem and the customer</strong><br><span style="color:var(--gray)">About 200 words</span></td><td>Who has this problem? How do they handle it today? What does it cost them in time, money, or mistakes? Give a number, even an estimate, and say where it came from. Why does this need solving now?</td></tr>
+    <tr><td><strong>3. The solution: how it works</strong><br><span style="color:var(--gray)">About 300 words</span></td><td>Start with a one-sentence pitch. Name the kind of AI (predictive, generative, or agentic). Then lay out the five parts: data, model, output, feedback loop, and humans, with a simple diagram. Finish by walking through one customer using it, step by step.</td></tr>
+    <tr><td><strong>4. The business case</strong><br><span style="color:var(--gray)">About 200 words</span></td><td>Who pays, and how: a subscription, a fee per use, or savings inside a company? Who benefits? Who could lose out? What does it replace, and what are the alternatives, including doing nothing?</td></tr>
+    <tr><td><strong>5. Risks: how it could fail</strong><br><span style="color:var(--gray)">About 250 words</span></td><td>Describe one realistic failure. Is it loud or quiet? Who finds out, and how fast? Then the data risks: did people agree to share it, what's missing, and who does that leave out? What could go wrong as the system learns?</td></tr>
+    <tr><td><strong>6. Proof: what you'd need to show</strong><br><span style="color:var(--gray)">About 150 words</span></td><td>Write the claim you'd put on your first slide ("cuts wait times in half"). What evidence would make an investor or a manager believe it? Describe a small pilot or test that would prove it or prove you wrong.</td></tr>
+    <tr><td><strong>7. Design decisions: keep, fix, drop</strong><br><span style="color:var(--gray)">About 200 words</span></td><td>Name at least one feature you'd keep, one you'd fix, and one you'd drop or never build. For each, say what it costs and who pays.</td></tr>
+    <tr><td><strong>8. The ask and next steps</strong><br><span style="color:var(--gray)">About 100 words</span></td><td>What do you need to get started: money, access to data, a pilot partner? What are your first three steps? What result would make you stop?</td></tr>
+    <tr><td><strong>9. Prototype (optional) and AI use</strong><br><span style="color:var(--gray)">A few sentences</span></td><td>If you built something, describe it using the checklist below. End with one line on which tools your team used, if any, and for what.</td></tr>
+  </table>
+  <p class="note">Your four pitch slides follow the same order: slide 1 is the problem and the customer, slide 2 is how it works, slide 3 is the risks and your design decisions, and slide 4 is the proof and the ask.</p>
   <h3>If you build a prototype, include</h3>
   <table class="syl">
     <tr><th>What</th><th>For example</th></tr>
@@ -380,10 +378,10 @@ ul.gilman span{color:var(--gray)}
   <div class="shead"><span class="num">7</span><h2>The pitch</h2></div>
   <p>On Wednesday, December 2, each team gets <strong>five minutes to pitch, then two minutes of questions</strong> from the room. Everyone on the team should speak. Four slides at most:</p>
   <div class="fourq">
-    <div class="q"><span class="qn">1</span><p><strong>The problem.</strong> Who it's for, and what goes wrong for them today.</p></div>
+    <div class="q"><span class="qn">1</span><p><strong>The problem.</strong> Who the customer is, what goes wrong for them today, and what it costs them.</p></div>
     <div class="q"><span class="qn">2</span><p><strong>How it works.</strong> Your five parts, as a simple diagram.</p></div>
-    <div class="q"><span class="qn">3</span><p><strong>How it could fail.</strong> The failure you worry about most, and what you decided to fix or drop because of it.</p></div>
-    <div class="q"><span class="qn">4</span><p><strong>The ask.</strong> Why it should be built, and the one piece of evidence you'd gather first.</p></div>
+    <div class="q"><span class="qn">3</span><p><strong>Risks and decisions.</strong> The failure you worry about most, and what you decided to keep, fix, or drop because of it.</p></div>
+    <div class="q"><span class="qn">4</span><p><strong>Proof and the ask.</strong> The claim, the test that would prove it, and what you need to get started.</p></div>
   </div>
   <p>While other teams pitch, yours has a job. Each team is assigned one pitch to question first, and after every pitch the room votes: would you fund it? If you built a prototype, a quick demo fits inside your five minutes.</p>
 </section>
@@ -393,7 +391,8 @@ ul.gilman span{color:var(--gray)}
   <p>The question behind the grade is whether your design survives the five questions.</p>
   <table class="syl">
     <tr><th>Strong</th><th>Weak</th></tr>
-    <tr><td>A specific problem and a specific user</td><td>A vague problem, or no user in mind</td></tr>
+    <tr><td>A specific problem and a specific customer, with a sense of what the problem costs them</td><td>A vague problem, or no customer in mind</td></tr>
+    <tr><td>A believable business case: who pays, who benefits, and who could lose out</td><td>No idea who would pay, or no one who could be harmed</td></tr>
     <tr><td>All five parts, including honest answers about the data's gaps and where people sit</td><td>Parts left out, or a system with no humans in it and no explanation why</td></tr>
     <tr><td>A realistic failure, and who would notice it</td><td>"It won't fail" or a failure that could never happen</td></tr>
     <tr><td>A claim with the evidence it would need</td><td>Claims stated as facts</td></tr>
