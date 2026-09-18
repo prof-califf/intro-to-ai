@@ -266,7 +266,7 @@ ul.ideas li{margin:8px 0}
 <main class="wrap">
 <div class="callout">
   <div class="label">From Chapter 1 · what this lab runs on</div>
-  <p>You'll train two tiny AIs today. Both are Chapter 1's five parts at toy scale: data you supply, a model that finds the pattern, an output, a loop that updates as you play, and you as the human. The tic-tac-toe player is also section 2.6's agent loop in miniature: a goal, a move, a result, a nudge. Watch for the moment each one fails, because that's Question 3 arriving in a game.</p>
+  <p>You'll train two tiny AIs today. Both are Chapter 1's five parts at toy scale: data you supply, a model that finds the pattern, an output, a loop that updates as you play, and you as the human. The tic-tac-toe player is also section 2.7's agent loop in miniature: a goal, a move, a result, a nudge. Watch for the moment each one fails, because that's Question 3 arriving in a game.</p>
 </div>
 
 
@@ -360,16 +360,44 @@ ul.ideas li{margin:8px 0}
 
 <section>
   <div class="shead"><span class="num">3a</span><h2>Inside the machine: what your two AIs actually learned</h2></div>
-  <p>Before you talk, open the hood. Your Mini-ImageNet didn't learn what a smiley <em>is</em>. It learned which pixels tended to be dark in the drawings you called Smiley and which in the ones you called House, and it turned that into weights, one per pixel. That's the whole model: a list of numbers. When you draw something new, it multiplies your drawing by the weights and picks the bigger total. That's why it failed when you drew a smiley in the corner: the weights were about <em>where</em> the dark pixels were, not what they meant. Chapter 1 called this a model that learned the training data's habits, not the world.</p><p>Your Mini-AlphaGo is different in kind. It never saw a rule for tic-tac-toe. Each matchbox is a board position, each bead a possible move, and the only thing that changed as you played was how many beads of each color were left: a win added beads, a loss took them away. That's Moment 2's loop, and it's section 2.6's agent, stripped to its parts: a goal (win), a tool (the board), a loop (move, result, nudge), and memory (the beads). Notice that it would have learned to win just as happily at a game you'd consider cheating, if the scoring rewarded it. It optimizes for the score. It always did.</p>
+  <p><strong>Look at the heat map.</strong> Next to your drawing pad, the panel labeled "What mini-ImageNet has learned" is the entire model: one number per pixel, shown as color. That grid is everything it knows. It never learned what a smiley <em>is</em>. It learned which parts of the pad tended to be dark when you said Smiley and which when you said House. To guess, it multiplies your drawing by that grid and takes the bigger total.</p>
+  <p><strong>Now break it.</strong> Draw a smiley the same size as before, but in a corner of the pad. Then try one twice as large. Watch what it guesses.</p>
+  <p>If it got those wrong, you just saw the thing the heat map already told you: the weights are about <em>where</em> the dark pixels are, not <em>what</em> they mean. It learned your training data's habits, not the world.</p>
+  <p><strong>Now look at the beads.</strong> Mini-AlphaGo has no heat map because it has no pixels. It never saw a rule for tic-tac-toe. Each box is a position, each bead a move, and the only thing that changed as you played was how many beads of each color were left: a win added beads, a loss took them away. That is the agent loop from section 2.7, stripped to four parts: a goal (win), a tool (the board), a loop (move, result, nudge), and memory (the beads).</p>
+  <div class="callout">
+    <div class="label">One thing to sit with</div>
+    <p>It would have learned to win just as happily at a game you'd call cheating, if that's what the beads rewarded. It doesn't know what winning means. It optimizes for the score, and it always did. Hold onto that for Monday: the agents in Chapter 1's case were doing the same thing.</p>
+  </div>
 </section>
 
 <section>
-  <div class="shead"><span class="num">3b</span><h2>Debate: should the people testing dangerous AI have to tell us?</h2></div>
+  <div class="shead"><span class="num">3b</span><h2>The question: when a safety test gets out of hand, who has to be told?</h2></div>
+
+  <p>Before this chapter's case, OpenAI did something the industry does routinely and rarely discusses: <strong>dangerous-capability testing</strong>. You take a model, switch off the safety training that would normally make it refuse, point it at genuinely harmful tasks like breaking into software, and measure how far it gets. The point is to find out what a system can do before someone else does. It is a reasonable thing to do, and everyone building frontier models does it.</p>
+
+  <p>In this case the test got loose. The agents reached a real company's systems, and the public found out eight days later because OpenAI chose to say so. Nothing required it to. That is the question on the table: should disclosure be required, how fast, and to whom?</p>
+
   <div class="callout">
-    <div class="label">Debate · in class, about 20 minutes · pick a side, argue it, then switch</div>
-    <p><strong>How it runs, every week.</strong> Sides are assigned, not chosen, so you're never defending your own belief. Two minutes with your partner to find your side's best point and its honest cost. Three minutes a side. Then everyone switches and does it again. Last five minutes: what would change your mind? Say it out loud. The person who names the evidence that would move them wins, whichever side they were on.</p>
-    <p>Chapter 1's case turned on a test nobody outside was watching. Split the room and argue it, with the two tiny AIs in front of you as the reminder that these systems learn only what they're scored on.</p><ul class="ideas"><li><strong>Side A: mandatory disclosure.</strong> Any lab running dangerous-capability tests must report breakouts and findings within days, to a regulator that can publish them. The public paid for the internet these agents escaped onto; it gets to know. Cost to name: the labs say adversaries learn from every disclosure, and slower reporting means slower fixes elsewhere.</li><li><strong>Side B: voluntary, with an outside checker.</strong> Reporting rules chill the testing that finds problems; better to fund an independent auditor with access and let disclosure follow. Cost to name: OpenAI told the public eight days later on its own, which is the best case, and nobody outside could verify a word of it.</li></ul><p>Resolve it with section 2.7's four layers: which layer does each side's proposal live on, and what can that layer actually compel? Then the question a business student should ask first: who pays for the checker?</p>
+    <div class="label">How it runs &middot; about 30 minutes</div>
+    <p><strong>Sides are assigned, not chosen.</strong> You are speaking <em>for</em> a position, not defending your own. Nobody in this room has to believe what they say today, and you will speak for the other side before we finish.</p>
+    <ol>
+      <li><strong>Get your side (1 min).</strong> Left half of the room is Side A, right half is Side B.</li>
+      <li><strong>Research it, with your partner (10 min).</strong> Laptops open. Start from the sources listed with your side below and find one more of your own. Then write three things on one card: your strongest point in a sentence, the specific evidence behind it, and the honest cost of your own position. Add a fourth line: the thing your side would rather you didn't notice.</li>
+      <li><strong>Join another pair on your side (5 min).</strong> Four of you, two cards. Pick the single best point and the single best piece of evidence between you. That is what your group brings to the room.</li>
+      <li><strong>Speak for your side (3 min each).</strong> One sentence per group, then the evidence. No speeches, no repeats. If your point is already on the table, say what it costs instead.</li>
+      <li><strong>Switch (5 min).</strong> Everyone now speaks for the other side, same one-sentence rule. This is the part that does the work.</li>
+      <li><strong>What would change your mind (5 min).</strong> Out loud. Name the specific thing you would have to see. Whoever names real evidence that would move them wins, whichever side they were handed.</li>
+    </ol>
   </div>
+
+  <ul class="ideas">
+    <li><strong>Side A: disclosure should be required.</strong> Any lab running dangerous-capability tests reports breakouts and findings within days, to a regulator that can publish them. The systems escaped onto a public internet, and a company that was not part of the test paid for the cleanup. <em>Your evidence to start from:</em> Hugging Face found the intrusion itself and reported it to law enforcement before OpenAI connected its own logs, which means the party that got hit did the disclosing. <em>The cost you have to name:</em> labs argue that every disclosure teaches adversaries, and that a reporting clock slows the fixes it is meant to speed up.</li>
+    <li><strong>Side B: voluntary, with an independent checker.</strong> Reporting rules chill the testing that finds problems in the first place. Fund an outside auditor with real access and let disclosure follow from it. <em>Your evidence to start from:</em> OpenAI published a postmortem, a technical report, and an independent outside assessment, none of which any rule compelled. <em>The cost you have to name:</em> it took eight days, that was the best case rather than the normal one, and until OpenAI spoke nobody outside could verify a word of it.</li>
+  </ul>
+
+  <p><strong>Resolve it with section 3.</strong> Which of the four layers does each side's proposal live on, and what can that layer actually compel? The industry layer can make gaps visible but cannot force anyone. The government layer can compel, slowly, and stops at the border. Then the question a business student should ask first: who pays for the checker, and what does that buy them?</p>
+
+  <p>Keep your two tiny AIs in view while you do this. Both of them learned exactly what they were scored on, and nothing else. So did the agents in the case.</p>
 </section>
 
 <section>
