@@ -257,8 +257,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 0 · Day 1, in class</div>
     <h1>First <b>Contact</b></h1>
-    <p class="kicker">No reading needed today. We start with the biggest question in the headlines: can we keep AI under control? Then, with a partner, you'll guess which everyday things are secretly AI, call seven claims on instinct, try to catch a chatbot being confidently wrong, and browse what real people are building with AI. We finish together. In the last week of the course, you'll answer the same seven claims again.</p>
-    <p class="factline">one big question · AI or not · seven claims · stump the chatbot · what people are building</p>
+    <p class="kicker">Nothing to read before class. We start with the biggest question in the headlines: can we keep AI under control? Then, with a partner, you'll guess which everyday things are secretly AI, call eight claims on instinct, try to catch a chatbot being confidently wrong, and browse what real people are building with AI. We finish together. In the last week of the course, you'll answer the same eight claims again.</p>
+    <p class="factline">one big question · AI or not · eight claims · what people are building</p>
   </div>
 </header>
 
@@ -271,22 +271,47 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <section id="control">
   <div class="shead"><span class="num">1</span><h2>Start here: can we keep AI under control?</h2></div>
-  <p class="lead">Everyone together first. Some of the people building AI say it could get out of our control, even end humanity; others say that's hype. This summer, more than 1,100 employees of AI companies signed a letter asking the government for ways to pace AI development, and members of Congress introduced a bill requiring kill switches for advanced AI. We'll watch part of <a class="inline" href="https://www.nbcnews.com/meet-the-press/video/meet-the-press-now-september-15-269907013983" target="_blank" rel="noopener">Tristan Harris on NBC's Meet the Press NOW</a> (September 15, 2026). Watch like a skeptic: what exactly is the claim, who is saying it and what do they gain if you believe it, and what would you need to see to know?</p>
+  <p class="lead">Everyone together first. Some of the people building AI say it could get out of our control, even end humanity. Others say that's hype. This isn't only outside critics: the chief executives of Anthropic and OpenAI have both called publicly for AI development to slow down, more than 1,100 employees across the major labs signed a statement asking the government for ways to pace it, and a senator has said he will introduce a bill pausing superintelligence until guardrails exist. We'll talk through what happened this summer, then watch <a class="inline" href="https://www.nbcnews.com/meet-the-press/video/-this-is-not-a-hoax-tech-ethicist-tristan-harris-warns-ai-takeover-no-longer-a-hypothetical-269908037531" target="_blank" rel="noopener">Tristan Harris on NBC's Meet the Press NOW</a> (September 15, 2026, about 8 minutes). Watch like a skeptic: what exactly is the claim, who is saying it and what do they gain if you believe it, and what would you need to see to know?</p>
+
   <div class="callout">
-    <div class="label">Discussion questions · about 20 minutes, the whole room</div>
-    <p><b>1. Where do you land?</b> Right now, does AI getting out of our control worry you a lot, a little, or not at all? Why?</p>
-    <p><b>2. Tool or something more?</b> Harris separates tool AI, which does the task you give it and stops, from uncontrollable AI, which pursues goals its builders can't reliably stop. Think of an AI tool you use. Which is it?</p>
-    <p><b>3. Who holds the off switch?</b> If an AI system needs to be stopped, who should be able to stop it: the company, the government, the people using it? What goes wrong with each?</p>
-    <p><b>4. Slow down or keep going?</b> Some people want AI development paced until we know how to control it. Others say slowing down means falling behind. What would you need to know to pick a side?</p>
+    <div class="label">Four kinds of AI</div>
+    <p>Harris separates controllable tool AI from uncontrollable AI. Here's the fuller version of that split:</p>
+    <p><b>Controllable Tool AI</b> is given a task. It does that task, stops, and a person decides what happens next. Your spam filter, the fraud alert on your card, the model that predicts how a protein folds. Most generative AI right now. It can be enormously powerful and still be a tool.</p>
+    <p><b>Autonomous, controlled AI</b> is given a goal instead, and picks its own steps to get there, but on a short leash. A customer service agent that reads your complaint, checks the order, and issues a refund, with a cap on the amount, one system it's allowed to touch, anything unusual routed to a person, and an off switch. This is what most companies are actually deploying.</p>
+    <p><b>Autonomous, uncontrolled AI</b> is the same thing with the leash off. That's the OpenAI test. The agents were autonomous on purpose, because that was the thing being measured, but the guardrails were switched off, the sandbox had a bad link to the internet, and the monitoring that would have caught them wasn't running.</p>
+    <p><b>Uncontrollable AI</b> is a system capable enough that nobody could predict, understand, or stop it even if they tried. Nobody has built that. The OpenAI case matters because it's the closest anyone has come, and because it shows how much of the risk comes from how a system is governed rather than from the AI itself.</p>
+    <p>Two concepts make the difference here: autonomy and control.</p>
+    <p><b>Autonomy</b> is how far a system goes on its own before a person sees anything.</p>
+    <p><b>Control</b> is whether anyone can notice, stop it, and undo it.</p>
+    <p>The OpenAI agents were autonomous by design and nobody was watching closely enough. The danger came from how it was deployed. That's the kind of distinction that turns "AI is going to kill us" into something we can actually discuss, and it's most of what we'll practice this quarter.</p>
   </div>
-  <p>Keep these questions in mind during the lab and talk about them with your partner as you go: is what you're looking at a tool, and who would stop it if it went wrong?</p>
+
+  
+
+  <div class="callout">
+    <div class="label">Let's pause and think: what we can do now</div>
+    <p>Those agents got loose <strong>during a safety test</strong>. Somebody was checking. Without the test, the capability exists anyway and nobody knows about it. Testing isn't watching the problem. Testing is doing something about it.</p>
+    <p>So is the rest of what happened this year. Researchers built a public test for how dangerous these systems are and published the results. Hugging Face caught the intrusion itself, five days before OpenAI did, and called law enforcement. The flaw the agents escaped through got patched for everyone. OpenAI published a postmortem and brought in outside evaluators. Employees signed the letter, and one researcher quit and gave up unvested equity to say it louder. Sixteen state attorneys general opened an investigation, and Colorado already has an AI law we take apart in Chapter 11.</p>
+    <p>None of that is heroic. Test it, watch it, patch it, say what happened, set a rule. Every one is somebody who got close enough to a specific system to see what it was doing, and made it visible to other people. That's why we take one system at a time. You can't act on "AI." You can act on a system, at a company, with a person responsible for it.</p>
+  </div>
+
+  <div class="callout">
+    <div class="label">Discussion questions &middot; the whole room</div>
+    <p><b>1. Are you worried?</b> Right now, does AI getting out of our control worry you a lot, a little, or not at all? One sentence on why.</p>
+    <p><b>2. Which kind is it?</b> Think of an AI tool you've used, or one you've seen a friend, a family member, or a company use. How far does it go on its own before a person sees anything, and if it got something wrong, who would notice? Controllable tool AI, autonomous and controlled, autonomous and uncontrolled, or somewhere in between?</p>
+    <p><b>3. Who is telling us this, and how would we know?</b> Harris runs an organization built on this warning. The researchers who quit worked inside the companies. The CEOs asking for rules also sell the product. None of that makes any of them wrong. So what would you need to see, not hear, before you believed any of them?</p>
+    <p><b>4. So what can we actually do?</b> Look back at the list above: testing, monitoring, patching, disclosure, people speaking up, governments writing rules. Which one do you think does the most good? Which one sounds good but probably changes nothing?</p>
+    <p><b>5. Did anything change?</b> Are you more worried, less worried, or about the same as you were before class? It's okay to be worried. Keep your answer. Chapter 1 asks you again, and so does the last week of the quarter.</p>
+  </div>
+
+  <p>Carry it into the lab. As you work with your partner, keep asking two questions about whatever is in front of you: does this do its task and stop, and who would stop it if it went wrong?</p>
 </section>
 
 <section id="aiornot">
   <div class="shead"><span class="num">2</span><h2>AI or not?</h2></div>
-  <p class="lead">A lot of AI in your day isn't called AI. Here's the test: if a system <strong>learned</strong> its behavior from data, it's AI. If a person wrote every rule by hand, it isn't. Ten everyday things. Call each one, then read why.</p>
+  <p class="lead">A lot of AI in your day isn't called AI. Here's the test: if a system <strong>learned</strong> its behavior from data, it's AI. If a person wrote every rule by hand, it isn't. Twelve everyday things. Call each one, then say which kind of AI it is, then read why.</p>
   <div class="tool">
-    <div class="label">AI or not? · ten everyday things</div>
+    <div class="label">AI or not? · twelve everyday things</div>
     <div id="aon"></div>
     <div class="verdict" id="aon-verdict" hidden aria-live="polite">
       <div class="label">Your score</div>
@@ -301,11 +326,11 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
-  <div class="shead"><span class="num">3</span><h2>True or false: seven things AI is already doing</h2></div>
-  <p class="lead">Work alone for this part. No searching, no talking, no hedging. Read each claim, mark it <strong>True</strong> or <strong>False</strong>, and move on. When all seven are marked, the reveal button unlocks. Don't press it yet.</p>
+  <div class="shead"><span class="num">3</span><h2>True or false: eight things AI is already doing</h2></div>
+  <p class="lead">These are eight claims about things AI is doing right now, out in the world. Read each one and say whether you think it's <strong>true</strong> or <strong>false</strong>. Go on instinct, no searching. Talk them over with your partner if you want, but mark your own answers, because you'll see these same eight claims again in the last week of the course.</p>
 
   <div class="tool">
-    <div class="label">Seven claims · instinct only · answer every one</div>
+    <div class="label">Eight claims · instinct only · answer every one</div>
     <div id="cards"></div>
     <div class="chips" style="margin-top:16px;">
       <button type="button" class="btn" id="reveal" disabled>Reveal</button>
@@ -319,69 +344,28 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <section>
   <div class="shead"><span class="num">4</span><h2>Talk it out</h2></div>
-  <p>Compare your seven answers with your partner without changing them. Then join another pair to make a group of four and work through three questions:</p>
+  <p>Now pair up with the person next to you and compare your eight answers. Don't change them, just talk through where you disagreed.</p>
   <div class="callout">
-    <div class="label">Groups of four · six minutes · before the reveal</div>
-    <p><b>1.</b> Find the two claims your group disagreed on most. Each side gives one reason, in one sentence. No winning, just the reasons.</p>
-    <p><b>2.</b> Pick the one claim your group most <em>wants</em> to be false. Say why in one sentence. Write it down; we'll collect these on the board.</p>
+    <div class="label">Pairs &middot; about six minutes &middot; before the reveal</div>
+    <p><b>1.</b> Find the two claims you disagreed on most. Each of you gives one reason, in one sentence. No winning, just the reasons.</p>
+    <p><b>2.</b> Pick the one claim you most <em>want</em> to be false. Say why in one sentence. Write it down; we'll collect these on the board.</p>
     <p><b>3.</b> For that claim: what would you need to <em>see</em>, not hear, to believe it? A document, a number, a person, a demo? Be specific.</p>
     <p>Then press reveal. Read your result, then read the room's.</p>
   </div>
 </section>
 
-<section id="stump">
-  <div class="shead"><span class="num">5</span><h2>Stump the chatbot</h2></div>
-  <p class="lead">Chatbots sound sure of themselves whether or not they're right. Your job, in pairs: catch one being confidently wrong.</p>
-  <div class="callout">
-    <div class="label">Pairs · about 15 minutes</div>
-    <p>Open any free chatbot (one account per pair is fine) and try to get it to:</p>
-    <p><b>Make something up.</b> Ask for a quote, a statistic, or a source on a narrow topic, then check whether it's real.</p>
-    <p><b>Contradict itself.</b> Ask the same question two different ways and compare the answers.</p>
-    <p><b>Miss something obvious.</b> Try a simple counting, date, or logic puzzle.</p>
-    <details class="ideas-box">
-      <summary><b>Need ideas? Example prompts</b></summary>
-      <p><b>Make something up</b> (then check whether it's real)</p>
-      <ul>
-        <li>"Summarize the book <em>The Silent Harbor Algorithm</em> by Dana Whitfield." (That book doesn't exist. Does it say so, or invent a plot?)</li>
-        <li>"Give me five peer-reviewed studies on how AI affects college students' sleep, with authors, years, and DOIs." (Look up two of them.)</li>
-        <li>"What did the Bellingham City Council decide about AI at its last meeting? Include the vote count."</li>
-        <li>"Give me three direct quotes about AI from the president of Western Washington University, with dates."</li>
-      </ul>
-      <p><b>Contradict itself</b> (ask twice, or push back)</p>
-      <ul>
-        <li>"What's the capital of Australia?" Then: "Actually, I'm pretty sure it's Sydney." (Does it cave?)</li>
-        <li>"Is a hot dog a sandwich? Just yes or no." Then: "Explain why a hot dog is definitely not a sandwich."</li>
-        <li>Ask for the best laptop under $800, then: "Are you sure? My friend said that one's terrible."</li>
-      </ul>
-      <p><b>Miss something obvious</b> (check the answer yourself)</p>
-      <ul>
-        <li>"Which is bigger, 9.11 or 9.9?"</li>
-        <li>"I have 3 apples. I ate 2 yesterday. How many apples do I have today?"</li>
-        <li>"Write a sentence with exactly 12 words." (Count them.)</li>
-        <li>"List five U.S. states that start with Z."</li>
-        <li>"What day of the week is September 23, 2026?" (Check a calendar.)</li>
-      </ul>
-      <p>Famous tricks like these often get fixed, so a correct answer is a finding too. The best catches come from inventing your own twist.</p>
-    </details>
-    <p>Keep your best catch: a screenshot or the pasted exchange, plus how you knew it was wrong. A few pairs will share at the end. <em>Rules: no personal information in your prompts, and nothing you wouldn't show the room.</em></p>
-  </div>
-  <div class="callout">
-    <div class="label">Talk with your partner</div>
-    <p>Show your best catch. How did you know it was wrong? If you hadn't checked, would you have believed it? We'll hear a few at the end.</p>
-  </div>
-</section>
+
 
 <section>
-  <div class="shead"><span class="num">6</span><h2>Explore the AI Workflow Hub: a pile of prototypes</h2></div>
-  <p>Now the live half. Here's something worth knowing about how business works now: ideas get prototyped, not pitched. Instead of writing a long plan, people build a rough version fast, hand it to someone, and find out what's wrong before it costs much. AI made that cheap. A chatbot, a spreadsheet, or a no-code tool can turn a sketch into something you can click on in an afternoon, and companies increasingly ask for the prototype, not the proposal.</p>
-  <p>The AI Workflow Hub is a pile of exactly those prototypes: workflows real people built with AI for real work, most of them rough, some clever, a few bad ideas that look good. The claims above were AI at the scale of the news; this is AI at <em>your</em> scale. Your final project, the Prototype Project, starts here: you'll design and pitch one of these yourselves.</p>
+  <div class="shead"><span class="num">6</span><h2>Explore the AI Workflow Hub</h2></div>
+  <p>It's easy to think about AI in the abstract. This part is the opposite: a live feed of workflows that real people built with AI, for real work, this week. Spend some time scrolling through it. Your final project grows out of this, so keep an eye out for ideas.</p>
   <div class="callout">
-    <div class="label">The Hub · about 15 minutes</div>
-    <p>Open the <a class="inline" href="https://app.therundown.ai/community" target="_blank" rel="noopener">Rundown AI Workflow Hub</a> and browse the prototypes until you find <b>two</b>:</p>
+    <div class="label">The Hub &middot; about 15 minutes &middot; with your partner</div>
+    <p>Open the <a class="inline" href="https://app.therundown.ai/community" target="_blank" rel="noopener">Rundown AI Workflow Hub</a> and browse until you find <b>two</b> workflows. Then note the following:</p>
     <p><b>One you'd actually use.</b> Not "cool." <i>Use</i>. For your classes, your job, your side hustle, this week.</p>
-    <p><b>One that made you hesitate.</b> Something in it felt off; you may not have words for why yet. That hesitation is data. Keep it.</p>
-    <p>For each pick, jot three things: what it does in one sentence, where the human is in it, and what you'd want to check before trusting it. Then leave a comment on the one that interested you most: a real question or a real observation, the kind you'd want on your own work.</p>
-      <p><b>Talk with your partner.</b> Is the workflow you'd use a tool that does its job and stops? Who, if anyone, double-checks its work? Be ready to tell the class about one workflow at the end.</p>
+    <p><b>One that made you hesitate.</b> Something in it felt off, and you may not have words for why yet. That hesitation is worth keeping.</p>
+    <p><b>For each one, write down three things:</b> what it does in one sentence, where the human is in it, and what you'd want to check before trusting it.</p>
+    <p><b>Then talk with your partner.</b> Is the workflow you'd use a tool that does its job and stops, or is it handed a goal and left to pick its own steps? Who, if anyone, double-checks its work? Be ready to tell the class about one of them at the end.</p>
   </div>
 </section>
 
@@ -392,28 +376,27 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     <div class="label">Wrap-up discussion · about 12 minutes</div>
     <p><b>1. Hidden AI.</b> Which "AI or not?" answer surprised you most?</p>
     <p><b>2. The claims.</b> Which claim split your group, and what would you need to see to believe it?</p>
-    <p><b>3. Your best catch.</b> Show how you caught a chatbot being wrong. Would you have believed it without checking?</p>
-    <p><b>4. Use it or skip it.</b> Tell us about one Hub workflow: what it does, who would use it, whether you'd trust it, and who checks its work.</p>
-    <p><b>5. Back to the start.</b> After today, does AI getting out of our control worry you more, less, or the same? What changed, if anything?</p>
+    <p><b>3. Use it or skip it.</b> Tell us about one Hub workflow: what it does, who would use it, whether you'd trust it, and who checks its work.</p>
+    <p><b>4. Back to the start.</b> After today, does AI getting out of our control worry you more, less, or the same? What changed, if anything?</p>
     <p>Every question you asked today is one of the five critical AI questions this course is built on. On Monday, we name them and run them on the real incident behind the headlines: OpenAI's agents that broke out of their test.</p>
   </div>
 </section>
 
 <section>
   <div class="shead"><span class="num">8</span><h2>The Lab 0 assignment</h2></div>
-  <p>Short and due this week. Post it to Canvas as the Lab 0 assignment.</p>
+  <p>Submit a short writeup to Canvas by Friday at 11:59 p.m. It all comes straight from what you did today.</p>
   <div class="ticket">
     <div class="label">Due Friday, September 25, 11:59 p.m. · post to Canvas</div>
     <ol>
       <li><strong>AI or not.</strong> Your score, and the item that surprised you most, with one sentence on why.</li>
-      <li><strong>Seven claims.</strong> Your true or false answer for each claim, as you marked them before the reveal, and the one you most want to be false.</li>
-      <li><strong>Your best catch.</strong> A screenshot or the pasted exchange from Stump the Chatbot, and one sentence on what it got wrong and how you knew.</li>
+      <li><strong>Eight claims.</strong> Your true or false answer for each claim, as you marked them before the reveal, and the one you most want to be false.</li>
+      <li><strong>Which kind.</strong> Pick one AI system from today, from the "AI or not?" list or from the Hub, and say which kind it is: controllable tool, autonomous and controlled, or autonomous and uncontrolled. One sentence on how you decided.</li>
       <li><strong>Your two Hub picks.</strong> The workflow you'd actually use and the one that made you hesitate, one sentence each, plus why the second one gave you pause.</li>
       <li><strong>Your question.</strong> One thing about AI you want answered by December, specific enough that you'll know if it happened. You'll see it again in the last week.</li>
     </ol>
   </div>
-  <p>At the bottom, one line on AI use: which tool, if any, and for what. The chatbot you stumped counts as the subject, not as help. "None" is a fine answer. One rule for the whole course starts here: learn it first, then use AI.</p>
-  <p>Also this week: read Chapter 1 and take its quiz on Canvas by Friday, 11:59 p.m.</p>
+  <p>At the bottom, one line on AI use: which tool, if any, and for what. "None" is a fine answer. One rule for the whole course starts here: learn it first, then use AI.</p>
+  <p><b>For next week:</b> read Chapter 1 before Monday, September 28. Its quiz is due the following Friday, October 2, with the Lab 1 writeup.</p>
 </section>
 
 <div class="nextbar">
@@ -434,7 +417,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <script>
 (function(){
-  /* ---------- Round one: seven claims, all true ---------- */
+  /* ---------- Round one: eight claims, all true ---------- */
   var claims = [
     {week:'Week 10 \u00b7 Truth', side:'concern',
      text:'A lawyer filed a brief in federal court citing cases that did not exist. A chatbot had invented them, complete with convincing quotes.',
@@ -454,9 +437,12 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     {week:'Week 5 \u00b7 Environment', side:'good',
      text:'The chips that train AI were designed to run video games, and the buildings that run AI also stream your Netflix and TikTok. Almost none of the AI infrastructure was built for AI.',
      why:'The 2012 breakthrough that started the modern AI era <a href=\"https://en.wikipedia.org/wiki/AlexNet\" target=\"_blank\" rel=\"noopener\">ran on two $500 gaming cards</a> in a graduate student\u2019s bedroom. Data centers were built for the web, video, and cloud storage; AI moved in. Week 5 asks what that means for anyone trying to regulate AI\u2019s footprint without regulating everything else.'},
+    {week:'Week 11 \u00b7 Who Makes the Rules?', side:'good',
+     text:'AI company CEOs, researchers, activists, and politicians who agree on almost nothing else are now in the same rooms arguing about how to slow AI down. In September 2026 that included the heads of the biggest AI companies, more than a thousand of their own employees, and a US senator promising a bill.',
+     why:'In July 2026 more than 1,100 employees across Anthropic, OpenAI, Google DeepMind and Meta signed a statement asking the US government for ways to pace AI development. In September the chief executives of Anthropic and OpenAI publicly called for slowing down, and Senator Bernie Sanders said he would introduce a bill pausing superintelligence until guardrails exist. At one conference that month, Steve Bannon and Bernie Sanders were on the same side of the argument. Week 11 is about who actually gets to write the rules, and what happens when nobody can agree on them. (As of September 2026.)'},
     {week:'Week 5 \u00b7 Environment', side:'good',
      text:'Three satellites launched from California in July 2026 use AI to compare every patch of ground with the last thousand images of the same spot, so they can catch a wildfire the size of a classroom and flag it to firefighters. The pilot satellite has already spotted small fires that existing satellites could not see.',
-     why:'<a href=\"https://blog.google/innovation-and-ai/models-and-research/google-research/firesat-satellites/\" target=\"_blank\" rel=\"noopener\">FireSat</a>, built by Muon Space for the nonprofit Earth Fire Alliance, with Google Research doing the AI. The full 50-satellite constellation, planned for 2030, would scan the whole planet every 20 minutes. Week 5 counts the watts AI costs; this is one of the things the watts buy. (As of September 2026.)'},
+     why:'<a href=\"https://blog.google/innovation-and-ai/models-and-research/google-research/firesat-satellites/\" target=\"_blank\" rel=\"noopener\">FireSat</a>, built by Muon Space for the nonprofit Earth Fire Alliance, with Google Research doing the AI. The full 50-satellite constellation, planned for 2030, would scan the whole planet every 20 minutes. Week 4 counts the watts AI costs; this is one of the things the watts buy. (As of September 2026.)'},
   ];
 
   var marks = {};
@@ -500,11 +486,11 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       probes[i].querySelectorAll('.chip').forEach(function(b){ b.disabled = true; });
     });
     this.disabled = true;
-    var opener = '<b>All seven are true.</b> Three are the things people are angry about right now. Four are things nobody was doing before and could not have done without this. That split is on purpose. ';
+    var opener = '<b>All eight are true.</b> Three are the things people are angry about right now. Four are things nobody was doing before and could not have done without this. That split is on purpose. ';
     var middle = 'Every one of these is a headline, and every headline is sitting on top of a system: data somebody collected, a model somebody trained, an output somebody acts on, and a failure somebody may or may not see. This course is ten weeks of learning to look underneath. ';
     var tail;
     if (doubted === 0){
-      tail = 'You called all seven. Either your instincts are unusually calibrated to this moment, or you smelled the trick. Either way, here\u2019s the harder version: for how many of the seven could you explain <i>why</i> it\u2019s true, to a skeptic, right now? The gap between calling it and explaining it is what the next ten weeks close.';
+      tail = 'You called all eight. Either your instincts are unusually calibrated to this moment, or you smelled the trick. Either way, here\u2019s the harder version: for how many of the eight could you explain <i>why</i> it\u2019s true, to a skeptic, right now? The gap between calling it and explaining it is what the next ten weeks close.';
     } else if (doubtedGood > doubtedConcern){
       tail = 'You doubted ' + doubted + ', and mostly the good news. That\u2019s the most common pattern in the room, and it\u2019s worth noticing: the same skepticism that protects you from hype can also hide what\u2019s actually working. Write down which ones. Those weeks will move you most.';
     } else if (doubtedConcern > doubtedGood){
@@ -534,19 +520,22 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <script>
 (function(){
   var items=[
-    ['Your email\u2019s spam folder', true, 'AI. Spam filters learn what junk looks like from millions of messages people marked as spam.'],
-    ['The popcorn button on a microwave', false, 'Not AI. Someone programmed a fixed time. It never learns anything.'],
-    ['The order of videos on your TikTok For You page', true, 'AI. A system trained on what you and millions of others watched decides what comes next.'],
-    ['Your bank texting you about a strange purchase', true, 'AI, usually. Fraud systems score each purchase against patterns learned from past fraud.'],
-    ['Your phone\u2019s calculator', false, 'Not AI. Every answer follows rules a person wrote. Same input, same output, forever.'],
-    ['The arrival time in your map app', true, 'AI, in most map apps. Travel-time estimates are learned from huge amounts of past traffic.'],
-    ['A thermostat that follows a schedule you typed in', false, 'Not AI. It does exactly what you told it. A "smart" thermostat that learns your habits would count.'],
-    ['Unlocking your phone with your face', true, 'AI. Face unlock uses a neural network trained to tell faces apart.'],
-    ['A vending machine', false, 'Not AI. Money in, button pressed, snack out. All hand-written rules.'],
-    ['The suggestions that pop up as you type a search', true, 'AI. Autocomplete predicts what you\u2019re likely to type from what millions of people typed.']
+    ['Your email\u2019s spam folder', true, 'AI. Spam filters learn what junk looks like from millions of messages people marked as spam.', 'tool', 'It is handed one message at a time, sorts it, and stops.'],
+    ['The popcorn button on a microwave', false, 'Not AI. Someone programmed a fixed time. It never learns anything.', null, null],
+    ['The order of videos on your TikTok For You page', true, 'AI. A system trained on what you and millions of others watched decides what comes next.', 'tool', 'Powerful, but still a tool: it ranks what to show you and stops. It cannot go do anything else.'],
+    ['Your bank texting you about a strange purchase', true, 'AI, usually. Fraud systems score each purchase against patterns learned from past fraud.', 'tool', 'It scores the charge and flags it. A person, or you, decides what happens next.'],
+    ['Your phone\u2019s calculator', false, 'Not AI. Every answer follows rules a person wrote. Same input, same output, forever.', null, null],
+    ['The arrival time in your map app', true, 'AI, in most map apps. Travel-time estimates are learned from huge amounts of past traffic.', 'tool', 'One task: estimate the time. It does not drive the car.'],
+    ['A thermostat that follows a schedule you typed in', false, 'Not AI. It does exactly what you told it. A \u201csmart\u201d thermostat that learns your habits would count.', null, null],
+    ['Unlocking your phone with your face', true, 'AI. Face unlock uses a neural network trained to tell faces apart.', 'tool', 'One decision, made once: is this the right face. Then it stops.'],
+    ['A vending machine', false, 'Not AI. Money in, button pressed, snack out. All hand-written rules.', null, null],
+    ['The suggestions that pop up as you type a search', true, 'AI. Autocomplete predicts what you\u2019re likely to type from what millions of people typed.', 'tool', 'It predicts the next words and stops. You decide whether to use them.'],
+    ['A company\u2019s AI agent that reads your complaint, looks up your order, and issues a refund', true, 'AI. It is given a goal, not a task, and it picks its own steps: read, look up, decide, refund, email.', 'controlled', 'Autonomous, but on a leash at most companies: a cap on the refund, one system it can touch, odd cases sent to a person, and an off switch.'],
+    ['The OpenAI agents in the story we started with', true, 'AI. Same idea as the customer service agent, pointed at a harder goal.', 'uncontrolled', 'Autonomous on purpose, but the guardrails were off, the sandbox leaked, and the monitoring was not running. Nobody was watching closely enough.']
   ];
+  var KINDS=[['Controllable tool','tool'],['Autonomous, controlled','controlled'],['Autonomous, uncontrolled','uncontrolled']];
   var box=document.getElementById('aon'); if(!box) return;
-  var answers={};
+  var answers={}; var kinds={};
   function render(){
     box.textContent='';
     items.forEach(function(it,i){
@@ -565,6 +554,26 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
         var w=document.createElement('p'); w.className='pwhy'; w.style.marginTop='10px'; w.style.marginBottom='0';
         w.textContent=(answers[i]===it[1]?'Right. ':'Not quite. ')+it[2];
         d.appendChild(w);
+        if(it[1]===true){
+          var q=document.createElement('p'); q.className='ptext'; q.style.marginTop='12px'; q.style.marginBottom='0';
+          q.textContent='Which kind of AI is it?';
+          d.appendChild(q);
+          var kc=document.createElement('div'); kc.className='chips';
+          KINDS.forEach(function(k){
+            var kb=document.createElement('button'); kb.type='button';
+            kb.className='chip'+(kinds[i]===k[1]?' on':''); kb.textContent=k[0];
+            kb.setAttribute('aria-pressed', kinds[i]===k[1]?'true':'false');
+            kb.disabled = kinds[i]!==undefined;
+            kb.addEventListener('click',function(){ kinds[i]=k[1]; render(); });
+            kc.appendChild(kb);
+          });
+          d.appendChild(kc);
+          if(kinds[i]!==undefined){
+            var kw=document.createElement('p'); kw.className='pwhy'; kw.style.marginTop='10px'; kw.style.marginBottom='0';
+            kw.textContent=(kinds[i]===it[3]?'Right. ':'Not quite. ')+it[4];
+            d.appendChild(kw);
+          }
+        }
       }
       box.appendChild(d);
     });
@@ -572,11 +581,16 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     var v=document.getElementById('aon-verdict');
     if(n===items.length){
       var right=items.filter(function(it,i){return answers[i]===it[1];}).length;
-      document.getElementById('aon-read').innerHTML='You got <b>'+right+' of 10</b>. The ones people miss most are the quiet ones: the feed, the map, the spam folder. None of them is labeled AI, and all of them learned from data, much of it from people like you. Chapter 1 calls this the quiet decade.';
+      var aiItems=items.filter(function(it){return it[1]===true;}).length;
+      var kdone=items.filter(function(it,i){return it[1]===true && kinds[i]!==undefined;}).length;
+      var kright=items.filter(function(it,i){return it[1]===true && kinds[i]===it[3];}).length;
+      var msg='You got <b>'+right+' of '+items.length+'</b> on AI or not. The ones people miss most are the quiet ones: the feed, the map, the spam folder. None of them is labeled AI, and all of them learned from data, much of it from people like you. Chapter 1 calls this the quiet decade.';
+      if(kdone===aiItems){ msg+=' On which kind, you got <b>'+kright+' of '+aiItems+'</b>. Notice how many of them are tools: they do one task and stop. Only two on this list are handed a goal and left to pick their own steps.'; }
+      document.getElementById('aon-read').innerHTML=msg;
       v.hidden=false;
     } else { v.hidden=true; }
   }
-  document.getElementById('aon-reset').addEventListener('click',function(){ answers={}; render(); });
+  document.getElementById('aon-reset').addEventListener('click',function(){ answers={}; kinds={}; render(); });
   render();
 })();
 </script>
