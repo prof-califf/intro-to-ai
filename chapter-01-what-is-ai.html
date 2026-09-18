@@ -346,7 +346,7 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
   <div class="shead"><span class="num">2</span><h2>What AI actually is, in five moments</h2></div>
   <p>Strip away the marketing and AI is this: <strong>software that learns from a huge amount of data, then uses what it learned to make decisions or to make things</strong>. For most of computing's history, programmers wrote the rules by hand. Think of the ghosts in Pac-Man: if the player is to the left, the software rules say go left; if a ghost is scared, the software rules say go in other directions. Every digital behavior was a line somebody typed. Over time, technologists found that software could learn the rules from data instead.</p>
   <figure class="diagram">
-    <img src="pacman.png" alt="A screen from the original Pac-Man: a blue maze, small pink dots, three ghosts, and the yellow Pac-Man near the top." style="max-width:360px;width:100%;height:auto;display:block;margin:0 auto;border:1px solid var(--rule)">
+    <img src="pacman.png" alt="A screen from the original Pac-Man: a blue maze, small pink dots, three ghosts, and the yellow Pac-Man near the top." style="max-width:250px;width:100%;height:auto;display:block;margin:0 auto;border:1px solid var(--rule)">
     <figcaption>Pac-Man, 1980. Every ghost's move was a rule a programmer typed. Gameplay frame from Bandai Namco's official video, released under a <a class="inline" href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">Creative Commons Attribution 3.0</a> license, via Wikimedia Commons.</figcaption>
   </figure>
   <p>Nowadays you can show a model a million examples and software finds the pattern itself: what spam looks like, what a stop sign looks like, which résumés got hired last time, what word plausibly comes next in a sentence. Then that model applies those patterns to something new. Sometimes the result is a judgment: fraud or not, hire or not. Sometimes it's a thing that didn't exist a second ago: a paragraph, an image, a voice, a line of code.</p>
@@ -415,7 +415,7 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
     </svg>
     <p class="gostat" id="gostat" aria-live="polite">Black to play &middot; 81 legal moves</p>
     <div class="chips" style="justify-content:center;margin-top:10px"><button type="button" class="chip" id="goreset">Clear the board</button></div>
-    <p>Notice what just happened. You learned the rules in one paragraph, and after two moves there were already thousands of games ahead of you. That gap, tiny rulebook and enormous tree, is exactly why nobody could write the rules for playing Go well, and why DeepMind had to build something that learned them instead.</p>
+    <p>Here is the problem that board creates. The rules fit in a paragraph, but the choices do not. On an empty 9 by 9 board you have 81 options. After one stone, 80. After two, 79, and the number of possible games is already in the millions. A full 19 by 19 board has more possible positions than there are atoms in the universe. A programmer can easily write the rules of Go, because there are about four of them. Nobody can write the rules for playing Go <em>well</em>, because that would mean writing down the right answer for more situations than could ever be listed. That is why DeepMind stopped trying to write the instructions and built something that could work them out for itself.</p>
   </div>
 
   <p>AlphaGo was deep learning software built by DeepMind, a London AI lab owned by Google, whose goal was to build an AI that could strategize. The company chose Go as the test. AlphaGo was trained first to read a Go board the way the ImageNet network reads a photo. What was new came next: DeepMind had it play itself millions of times, so its own games became its training data. Most experts thought a machine beating a top professional was still a decade away. In March 2016 DeepMind put AlphaGo against Lee Sedol, a South Korean professional and one of the best players alive, in a match watched by two hundred million people. Lee Sedol predicted he'd win easily. AlphaGo won four games to one.</p>
@@ -442,32 +442,44 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
   <p>The clearest case for AI becoming ordinary and used by millions of people (if not billions) is the social media feed. Early social media showed you posts in the order they were posted (yes, Prof. Califf was there). Then the AI arrived. In 2012 YouTube switched its recommendations from what people clicked to what people kept watching, and the whole site changed shape. In 2016 Instagram and Twitter both replaced the chronological timeline with a ranked one, trained on what each user had lingered on, liked, and returned to; users complained for a month and then stayed longer than before. In 2018 TikTok arrived with a feed that was nothing but an AI model: no friends, no following, just a prediction of what would keep you, refined by every swipe. By 2020 most of what most people saw on their phones each day had been chosen by a system trained on their own past behavior. None of it was called AI. It was "the algorithm," and it was the first AI most people ever lived inside.</p>
   <p>The lesson of the quiet decade is that a lot of software everyone uses actually is AI but it isn't called that. The test isn't the name. The test is the recipe, data-model-output: massive amounts of data go into making a recommendation for TikTok and Instagram, an AI model sorts out that data on its own, and a decision about what it wants you to see comes out. The fraud alert, the credit decision, the ranked résumés, the home screen, the turn-by-turn directions, and the social media feed all pass that test, and they were making decisions about most people's money, jobs, and attention for a decade before ChatGPT made "AI" a household word.</p>
   <figure class="diagram">
-    <svg viewBox="0 0 760 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="qdt qdd" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
-      <title id="qdt">An ordinary day, with the AI marked</title>
-      <desc id="qdd">A timeline of one day from 7am to 11pm. Seven ordinary moments are marked along it: the alarm and the feed, the spam folder, the route to campus, the card that was declined, the autocomplete in an email, the playlist, and the show recommended at night. Each is labeled with what most people call it, and underneath, what it actually is.</desc>
-      <line x1="30" y1="86" x2="730" y2="86" stroke="#14181D" stroke-width="2"/>
-      <g font-family="Inter,Arial,sans-serif">
-        <g><circle cx="60" cy="86" r="6" fill="#FF3D8A"/><text x="60" y="66" text-anchor="middle" font-size="11.5" fill="#14181D">7am</text><text x="60" y="112" text-anchor="middle" font-size="11" fill="#5A626C">the feed</text></g>
-        <g><circle cx="168" cy="86" r="6" fill="#FF3D8A"/><text x="168" y="66" text-anchor="middle" font-size="11.5" fill="#14181D">8am</text><text x="168" y="112" text-anchor="middle" font-size="11" fill="#5A626C">spam folder</text></g>
-        <g><circle cx="276" cy="86" r="6" fill="#FF3D8A"/><text x="276" y="66" text-anchor="middle" font-size="11.5" fill="#14181D">9am</text><text x="276" y="112" text-anchor="middle" font-size="11" fill="#5A626C">the route</text></g>
-        <g><circle cx="384" cy="86" r="6" fill="#FF3D8A"/><text x="384" y="66" text-anchor="middle" font-size="11.5" fill="#14181D">noon</text><text x="384" y="112" text-anchor="middle" font-size="11" fill="#5A626C">card declined</text></g>
-        <g><circle cx="492" cy="86" r="6" fill="#FF3D8A"/><text x="492" y="66" text-anchor="middle" font-size="11.5" fill="#14181D">3pm</text><text x="492" y="112" text-anchor="middle" font-size="11" fill="#5A626C">autocomplete</text></g>
-        <g><circle cx="600" cy="86" r="6" fill="#FF3D8A"/><text x="600" y="66" text-anchor="middle" font-size="11.5" fill="#14181D">6pm</text><text x="600" y="112" text-anchor="middle" font-size="11" fill="#5A626C">the playlist</text></g>
-        <g><circle cx="708" cy="86" r="6" fill="#FF3D8A"/><text x="708" y="66" text-anchor="middle" font-size="11.5" fill="#14181D">11pm</text><text x="708" y="112" text-anchor="middle" font-size="11" fill="#5A626C">what to watch</text></g>
+    <svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="algt algd" style="width:100%;max-width:560px;height:auto;display:block;margin:0 auto">
+      <title id="algt">What people call "the algorithm"</title>
+      <desc id="algd">A phone screen showing a feed. On the left, the posts in the order they were published. On the right, the same posts reordered by a predicted score: the one you are most likely to watch is moved to the top, and one is pushed far down. A caption notes that nobody called this AI.</desc>
+
+      <text x="118" y="24" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12.5" font-weight="600" fill="#5A626C">What was posted</text>
+      <rect x="28" y="36" width="180" height="252" rx="16" fill="#0E1116"/>
+      <g font-family="Inter,Arial,sans-serif" font-size="11" fill="#C9CED6">
+        <rect x="40" y="52" width="156" height="44" rx="5" fill="#1B2129"/><text x="52" y="78">a friend's photo</text>
+        <rect x="40" y="104" width="156" height="44" rx="5" fill="#1B2129"/><text x="52" y="130">a news headline</text>
+        <rect x="40" y="156" width="156" height="44" rx="5" fill="#1B2129"/><text x="52" y="182">someone's dog video</text>
+        <rect x="40" y="208" width="156" height="44" rx="5" fill="#1B2129"/><text x="52" y="234">an ad</text>
       </g>
-      <rect x="30" y="140" width="700" height="46" rx="4" fill="#0E1116"/>
-      <text x="380" y="162" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="14" font-weight="700" fill="#E4FF32">Seven systems that learned from data. None of them called AI at the time.</text>
-      <text x="380" y="179" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#C9CED6">It was "the algorithm," and it arrived without a launch, a debate, or a name.</text>
+
+      <g>
+        <rect x="236" y="120" width="128" height="84" rx="6" fill="#FF3D8A"/>
+        <text x="300" y="150" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="15" font-weight="700" fill="#14181D">a model</text>
+        <text x="300" y="170" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D">trained on what you</text>
+        <text x="300" y="185" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D">watched last time</text>
+        <path d="M212,162 L232,162" stroke="#14181D" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M368,162 L392,162" stroke="#14181D" stroke-width="2" marker-end="url(#ah)"/>
+      </g>
+
+      <text x="510" y="24" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12.5" font-weight="600" fill="#5A626C">What you saw</text>
+      <rect x="420" y="36" width="180" height="252" rx="16" fill="#0E1116"/>
+      <g font-family="Inter,Arial,sans-serif" font-size="11" fill="#C9CED6">
+        <rect x="432" y="52" width="156" height="44" rx="5" fill="#1B2129" stroke="#E4FF32" stroke-width="1.5"/><text x="444" y="72">someone's dog video</text><text x="444" y="88" font-size="9.5" fill="#E4FF32">predicted watch time: high</text>
+        <rect x="432" y="104" width="156" height="44" rx="5" fill="#1B2129"/><text x="444" y="130">an ad</text>
+        <rect x="432" y="156" width="156" height="44" rx="5" fill="#1B2129"/><text x="444" y="182">a friend's photo</text>
+        <rect x="432" y="208" width="156" height="44" rx="5" fill="#1B2129"/><text x="444" y="228">a news headline</text><text x="444" y="243" font-size="9.5" fill="#8A929C">you never scrolled this far</text>
+      </g>
+
+      <rect x="28" y="300" width="572" height="22" rx="4" fill="#F3F3EE" stroke="#E7E7E2"/>
+      <text x="314" y="315" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#3E454E">Nobody called this AI. Everyone called it "the algorithm."</text>
     </svg>
-    <figcaption>The quiet decade, in one day. The systems that reached the most people were the ones nobody announced.</figcaption>
+    <figcaption>The quiet decade in one picture. A model learned from what you watched, reordered what you saw, and arrived with no launch, no debate, and no name.</figcaption>
   </figure>
 
   <h3 class="sub"><span>2.4</span> Moment 4. 2017 to 2022, the transformer and ChatGPT: learning to talk</h3>
-  <p>In 2017 a team at Google published a paper describing a new model design called the <strong>transformer</strong>. Its trick was that it could learn from text at enormous scale: if you feed it text, it learns to predict the next word, and the more text you feed it, the better it gets.</p>
-  <p>What nobody fully expected was what came out of this finding: the model could produce grammar, tone, facts, jokes, code, the shape of an apology, the shape of an argument. Not because the model understood any of it, but because all of it is patterns in what people have written, and the model had eventually read more of what people had written than any person ever could.</p>
-  <p>Then a company called OpenAI built a series of these transformer models, each larger than the last. On November 30, 2022, it released a model to the public and called it ChatGPT (GPT stands for Generative Pre-trained Transformer). Within two months an estimated hundred million people had used it, faster than any software product had ever spread. This is <strong>generative AI</strong>: it produces new text, images, audio, and code by predicting what plausibly comes next.</p>
-  <p>Two things changed that week. First, AI became something you could talk to. The AI systems of the quiet decade decided things about you silently; this generative version answered you, in your language, instantly, about anything. For most people, this was the first time "AI" meant something they could point at.</p>
-  <p>Second, its superpower and its flaw turned out to be the same thing. The transformer model turned out to be fluent whether or not it's right, because fluent is what it was trained to be. For example, it will describe a court case that doesn't exist in the same confident paragraph it uses for one that does, and there is no signal in the text to tell you which is which. This is the era we are living in, and the fifth moment is happening right now. It's the main case, and it gets its own section.</p>
   <figure class="diagram">
     <svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="nwt nwd" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
       <title id="nwt">How a language model writes a sentence</title>
@@ -490,6 +502,13 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
     </svg>
     <figcaption>A language model writes by ranking what plausibly comes next, choosing one, and starting over. Fluency is the goal it was trained on; truth is not.</figcaption>
   </figure>
+
+  <p>In 2017 a team at Google published a paper describing a new model design called the <strong>transformer</strong>. Its trick was that it could learn from text at enormous scale: if you feed it text, it learns to predict the next word, and the more text you feed it, the better it gets.</p>
+  <p>What nobody fully expected was what came out of this finding: the model could produce grammar, tone, facts, jokes, code, the shape of an apology, the shape of an argument. Not because the model understood any of it, but because all of it is patterns in what people have written, and the model had eventually read more of what people had written than any person ever could.</p>
+  <p>Then a company called OpenAI built a series of these transformer models, each larger than the last. On November 30, 2022, it released a model to the public and called it ChatGPT (GPT stands for Generative Pre-trained Transformer). Within two months an estimated hundred million people had used it, faster than any software product had ever spread. This is <strong>generative AI</strong>: it produces new text, images, audio, and code by predicting what plausibly comes next.</p>
+  <p>Two things changed that week. First, AI became something you could talk to. The AI systems of the quiet decade decided things about you silently; this generative version answered you, in your language, instantly, about anything. For most people, this was the first time "AI" meant something they could point at.</p>
+  <p>Second, its superpower and its flaw turned out to be the same thing. The transformer model turned out to be fluent whether or not it's right, because fluent is what it was trained to be. For example, it will describe a court case that doesn't exist in the same confident paragraph it uses for one that does, and there is no signal in the text to tell you which is which. This is the era we are living in, and the fifth moment is happening right now. It's the main case, and it gets its own section.</p>
+  
 
   <h3 class="sub"><span>2.5</span> So: three kinds of AI</h3>
   <p>Four moments, three kinds, and telling them apart is the first skill of the course, because they fail differently.</p>
@@ -518,7 +537,6 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
   </div>
 
   <h3 class="sub"><span>2.7</span> What an agent is: the loop that acts</h3>
-  <p>The two autonomous rows in that list deserve a closer look, because an agent is the thing everyone is building right now, and it is what this chapter's case is about. Both rows run on the same small loop; the only difference between them is the leash. An <strong>agent</strong> is an AI system that pursues a goal by taking actions, checking the result, and taking the next action, without a person prompting each step. Strip any agent down and you find the same loop, which is Moment 2's loop (an action, a result, a nudge) running on Moment 4's machine (a model that can read and write anything):</p>
   <figure class="diagram">
     <svg viewBox="0 0 760 286" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="agt agd" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
       <title id="agt">What an agent is: goal, tools, loop, memory</title>
@@ -548,6 +566,9 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
     <figcaption>Every agent in this book is this shape: a goal, a set of tools it is allowed to touch, a loop, and a memory of what it already tried. The danger is never the loop. It is how wide the tool box is and how rarely a person looks.</figcaption>
   </figure>
 
+  <p>The two autonomous rows in that list deserve a closer look, because an agent is the thing everyone is building right now, and it is what this chapter's case is about. Both rows run on the same small loop; the only difference between them is the leash. An <strong>agent</strong> is an AI system that pursues a goal by taking actions, checking the result, and taking the next action, without a person prompting each step. Strip any agent down and you find the same loop, which is Moment 2's loop (an action, a result, a nudge) running on Moment 4's machine (a model that can read and write anything):</p>
+  
+
   
   <ul class="ideas">
     <li><strong>A goal.</strong> "Fix this bug." "Book me the cheapest flight to Denver on Friday." "Raise the score." Someone gives it, and the agent keeps going until it thinks the goal is met or it runs out of tries.</li>
@@ -569,13 +590,10 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
 
 <section id="s3">
   <div class="shead"><span class="num">3</span><h2>AI safety and regulation, plainly</h2></div>
-  <p>Two phrases will follow us through the case and the whole quarter, and both are usually said as slogans. Here's what they mean when they mean something.</p>
+  <p>You have heard both of these words a hundred times this month, usually shouted past each other: <em>AI safety</em> and <em>AI regulation</em>. People use them as if they were the same complaint, and as if wanting either one meant being against AI. They are not the same thing, and neither is a position on whether AI is good. One is about what engineers do before a system ships. The other is about what the rest of us can require of them afterward. Here is what each actually means, so that when someone uses one on the news you know which they are talking about.</p>
   <h3 class="sub"><span>3.1</span> AI safety: the work inside the lab</h3>
   <p><strong>AI safety</strong> is the technical work of keeping a system from doing harm its builders didn't intend, and it happens inside the lab. It has four ordinary parts. <em>Testing</em>: before a model ships, run it against dangerous tasks, including cyberattacks, to find out what it can do. <em>Containment</em>: run those tests in a sandbox, a sealed environment the model can't reach out of. <em>Monitoring</em>: a person reads what the model does while it runs. <em>An off switch</em>: a way to stop it, that has been tried before it's needed. Behind those is a harder research problem the field calls <em>alignment</em>: making a system's goals match what its builders meant, which Chapter 12 takes up. None of this is exotic. It's the same discipline any engineer applies to a bridge, done on something that can act.</p>
   <h3 class="sub"><span>3.2</span> Regulation: the layers outside it</h3>
-  <p><strong>Regulation</strong> is everything outside the lab: the layers that can check, require, or forbid what the lab does. The industry layer is voluntary: companies' public commitments, a safety index that grades them, and outside auditors, when they're allowed in. The government layer can compel: require incident reports the way airlines report near-misses, set a standard for how dangerous tests are run, decide who's liable when a model attacks a third party, track who owns the biggest computers, or, in the strongest version, pause development until a regulator exists. The international layer is a treaty, the only thing that reaches every lab in every country, and the least likely.</p>
-  <p>Each layer can do one thing and can't do another. The lab's own tests are fast and technical, and self-graded. The industry's index makes gaps visible, and can't compel anyone. A government can compel, and moves in years, and stops at its border. A treaty reaches everyone, and takes longer than anything. That's why "regulate AI" and "let the companies handle it" are both incomplete answers: the question is always which layer, doing what, at what cost in speed and in ground ceded to a rival who doesn't follow it.</p>
-  
   <figure class="diagram">
     <svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ls-t ls-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
       <title id="ls-t">Four layers of control, and what each can and can't do</title>
@@ -589,6 +607,11 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
     </svg>
     <figcaption>Four layers of control. Every proposal you'll hear this quarter, from a company's "we test our models" to a senator's "pause," sits on one of these rows, and each row has a thing it can do and a thing it can't.</figcaption>
   </figure>
+
+  <p><strong>Regulation</strong> is everything outside the lab: the layers that can check, require, or forbid what the lab does. The industry layer is voluntary: companies' public commitments, a safety index that grades them, and outside auditors, when they're allowed in. The government layer can compel: require incident reports the way airlines report near-misses, set a standard for how dangerous tests are run, decide who's liable when a model attacks a third party, track who owns the biggest computers, or, in the strongest version, pause development until a regulator exists. The international layer is a treaty, the only thing that reaches every lab in every country, and the least likely.</p>
+  <p>Each layer can do one thing and can't do another. The lab's own tests are fast and technical, and self-graded. The industry's index makes gaps visible, and can't compel anyone. A government can compel, and moves in years, and stops at its border. A treaty reaches everyone, and takes longer than anything. That's why "regulate AI" and "let the companies handle it" are both incomplete answers: the question is always which layer, doing what, at what cost in speed and in ground ceded to a rival who doesn't follow it.</p>
+  
+  
 
   <div class="concept">
     <div class="term">AI safety vs. regulation</div>
