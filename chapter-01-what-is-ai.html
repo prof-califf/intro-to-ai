@@ -325,6 +325,7 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
     <div class="term">Slogan vs. claim</div>
     <p>A <strong>slogan</strong> is a short, memorable line that asks you to feel something: "AI will take all the jobs," "AI will cure cancer," "we have to win the AI race." A <strong>claim</strong> is a statement specific enough to be wrong: "Waymo's cars in Phoenix have fewer injury crashes per mile than the human drivers around them, by Waymo's own count." Every slogan has a claim buried somewhere inside it, and the skill this course teaches is digging it out. What people get wrong: they treat a slogan's confidence as evidence. Confidence is free. A claim tells you what to look at; a slogan tells you how to feel while you're not looking.</p>
   </div>
+  <p>Tristan Harris, a technology ethicist who runs the Center for Humane Technology, calls this same stance the <strong>narrow path</strong>. He describes two easy positions on either side of it: let it rip, meaning few rules and everyone gets everything, and lock it down, meaning a handful of companies or governments hold the power. The narrow path is the harder one in between, where power gets matched with responsibility one system at a time. Not automatically for AI, not automatically against it, but clear-eyed about the specific system in front of you. That is where this course lives, and it is why we spend eleven weeks on twelve systems instead of one week on AI in general.</p>
   <p>And one other thing to note. This book is not pro-AI. It is not anti-AI. It is pro-thinking critically about AI. Plenty of people who think carefully about AI also use it every day. Thinking and using aren't opposites; that's the whole point of "eyes open."</p>
   <p>So, where do we start? Let's start by trying to understand what AI actually is in 2026.</p>
 </section>
@@ -339,29 +340,32 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
   <p>Nowadays you can show a model a million examples and software finds the pattern itself: what spam looks like, what a stop sign looks like, which résumés got hired last time, what word plausibly comes next in a sentence. Then that model applies those patterns to something new. Sometimes the result is a judgment: fraud or not, hire or not. Sometimes it's a thing that didn't exist a second ago: a paragraph, an image, a voice, a line of code.</p>
   <p>Put simply, AI is this: lots of <strong>data</strong> goes into a <strong>model</strong>; out comes an <strong>output</strong>, which is either a judgment (fraud or not, hire or not) or a creation (a paragraph, an image); and whatever happens next feeds back in as more data. That loop is not new. Three things follow from it, and most of this book's cases come down to one of them:</p>
   <figure class="diagram">
-    <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="lpt lpd" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+    <svg viewBox="0 0 860 306" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="lpt lpd" style="width:100%;max-width:860px;height:auto;display:block;margin:0 auto">
   <title id="lpt">What every AI system is: the loop</title>
-  <desc id="lpd">Three boxes in a row, data, model, output, joined by arrows left to right. The output splits into a judgment or a creation. A curved arrow runs from the output back to the data, labeled feedback loop. Below, a band labeled humans lists where people sit: they collect and label the data, build and tune the model, act on the output, and decide whether anyone checks.</desc>
+  <desc id="lpd">Three boxes in a row, data, model, output, joined by arrows left to right. The output splits into a judgment or a creation. A curved arrow runs from the output back to the data, labeled feedback loop. Below, a band labeled humans lists where people sit: they collect and label the data, build and tune the model, act on the output, and govern the whole system, deciding who checks it, what the rules are, and who answers for it.</desc>
   <defs><marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker></defs>
-  <rect x="30" y="70" width="170" height="80" rx="6" fill="#0E1116"/>
-  <text x="115" y="104" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="22" font-weight="700" fill="#E4FF32">Data</text>
-  <text x="115" y="128" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" fill="#C9CED6">lots of it, collected from people</text>
-  <line x1="200" y1="110" x2="268" y2="110" stroke="#14181D" stroke-width="2" marker-end="url(#ah)"/>
-  <rect x="275" y="70" width="170" height="80" rx="6" fill="#0E1116"/>
-  <text x="360" y="104" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="22" font-weight="700" fill="#E4FF32">Model</text>
-  <text x="360" y="128" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" fill="#C9CED6">finds the pattern; billions of numbers</text>
-  <line x1="445" y1="110" x2="513" y2="110" stroke="#14181D" stroke-width="2" marker-end="url(#ah)"/>
-  <rect x="520" y="70" width="210" height="80" rx="6" fill="#0E1116"/>
-  <text x="625" y="100" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="22" font-weight="700" fill="#E4FF32">Output</text>
-  <text x="625" y="122" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" fill="#C9CED6">a judgment (fraud or not, hire or not)</text>
-  <text x="625" y="138" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" fill="#C9CED6">or a creation (a paragraph, an image)</text>
-  <path d="M625,150 C625,215 115,215 115,152" fill="none" stroke="#FF3D8A" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#ah)"/>
-  <rect x="300" y="186" width="160" height="26" rx="4" fill="#FCFCFA"/>
-  <text x="380" y="204" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="600" fill="#D61F69">feedback loop</text>
-  <text x="380" y="245" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">what happens next becomes tomorrow's data</text>
-  <rect x="30" y="262" width="700" height="30" rx="4" fill="#F3F3EE" stroke="#E7E7E2"/>
-  <text x="44" y="282" font-family="Fraunces,Georgia,serif" font-size="14" font-weight="700" fill="#14181D">Humans</text>
-  <text x="112" y="282" font-family="Inter,Arial,sans-serif" font-size="12" fill="#3E454E">collect and label the data · build and tune the model · act on the output · decide whether anyone checks</text>
+  <rect x="20" y="66" width="235" height="88" rx="6" fill="#0E1116"/>
+  <text x="137" y="102" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="22" font-weight="700" fill="#E4FF32">Data</text>
+  <text x="137" y="126" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" fill="#C9CED6">lots of it, collected</text>
+  <text x="137" y="142" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" fill="#C9CED6">from people</text>
+  <line x1="255" y1="110" x2="298" y2="110" stroke="#14181D" stroke-width="2" marker-end="url(#ah)"/>
+  <rect x="305" y="66" width="235" height="88" rx="6" fill="#0E1116"/>
+  <text x="422" y="102" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="22" font-weight="700" fill="#E4FF32">Model</text>
+  <text x="422" y="126" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" fill="#C9CED6">finds the pattern;</text>
+  <text x="422" y="142" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" fill="#C9CED6">billions of numbers</text>
+  <line x1="540" y1="110" x2="583" y2="110" stroke="#14181D" stroke-width="2" marker-end="url(#ah)"/>
+  <rect x="590" y="66" width="250" height="88" rx="6" fill="#0E1116"/>
+  <text x="715" y="98" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="22" font-weight="700" fill="#E4FF32">Output</text>
+  <text x="715" y="122" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#C9CED6">a judgment (fraud or not, hire or not)</text>
+  <text x="715" y="140" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#C9CED6">or a creation (a paragraph, an image)</text>
+  <path d="M715,154 C715,218 137,218 137,156" fill="none" stroke="#FF3D8A" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#ah)"/>
+  <rect x="350" y="188" width="160" height="26" rx="4" fill="#FCFCFA"/>
+  <text x="430" y="206" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="600" fill="#D61F69">feedback loop</text>
+  <text x="430" y="246" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">what happens next becomes tomorrow's data</text>
+  <rect x="20" y="250" width="820" height="46" rx="4" fill="#F3F3EE" stroke="#E7E7E2"/>
+  <text x="34" y="278" font-family="Fraunces,Georgia,serif" font-size="14" font-weight="700" fill="#14181D">Humans</text>
+  <text x="102" y="270" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#3E454E">collect and label the data · build and tune the model · act on the output</text>
+  <text x="102" y="286" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#3E454E">govern the whole thing: who checks it, what the rules are, and who answers for it</text>
 </svg>
     <figcaption>Every AI system in this book, drawn once. Data in, a model, an output, and the arrow back. The gray band is the part the marketing leaves off. Section 4 gives the five parts names.</figcaption>
   </figure>
@@ -633,8 +637,9 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
 <footer class="foot">
   <div class="wrap">
     <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
-    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
-    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+    <p class="fine">A free, critical field guide to AI, for the people who'll live with it, not just build it.</p>
+    <p class="fine"><a class="inline" href="https://cbe.wwu.edu/dsci/management-information-systems" target="_blank" rel="noopener">Management Information Systems</a> · <a class="inline" href="https://cbe.wwu.edu/dsci" target="_blank" rel="noopener">Department of Decision Sciences</a> · <a class="inline" href="https://cbe.wwu.edu" target="_blank" rel="noopener">College of Business &amp; Economics</a></p>
+    <p class="fine">MIS 201 · Free to use for educational purposes</p>
   </div>
 </footer>
 
