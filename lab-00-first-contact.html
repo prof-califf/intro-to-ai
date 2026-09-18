@@ -275,15 +275,51 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <section id="control">
   <div class="shead"><span class="num">1</span><h2>Start here: can we keep AI under control?</h2></div>
-  <p class="lead">Everyone together first. Some of the people building AI say it could get out of our control, even end humanity; others say that's hype. This summer, more than 1,100 employees of AI companies signed a letter asking the government for ways to pace AI development, and members of Congress introduced a bill requiring kill switches for advanced AI. We'll watch part of <a class="inline" href="https://www.nbcnews.com/meet-the-press/video/-this-is-not-a-hoax-tech-ethicist-tristan-harris-warns-ai-takeover-no-longer-a-hypothetical-269908037531" target="_blank" rel="noopener">Tristan Harris on NBC's Meet the Press NOW</a> (September 15, 2026). Watch like a skeptic: what exactly is the claim, who is saying it and what do they gain if you believe it, and what would you need to see to know?</p>
+  <p class="lead">Everyone together first. Some of the people building AI say it could get out of our control, even end humanity; others say that's hype. This isn't only outside critics. Anthropic's and OpenAI's chief executives have both publicly called for AI development to slow down. In July, more than 1,100 employees across the major AI labs signed a statement asking the US government to build tools for pacing AI development if it ever outruns human oversight. On the day of the interview below, Senator Bernie Sanders said he will introduce legislation temporarily banning the development of AI superintelligence until guardrails are in place. These are the people building it, and the people who would have to regulate it.</p>
+
+  <p>We'll watch <a class="inline" href="https://www.nbcnews.com/meet-the-press/video/-this-is-not-a-hoax-tech-ethicist-tristan-harris-warns-ai-takeover-no-longer-a-hypothetical-269908037531" target="_blank" rel="noopener">Tristan Harris on NBC's Meet the Press NOW</a> (September 15, 2026, about 8 minutes). Harris co-founded the Center for Humane Technology and spent a decade warning about social media before turning to AI. Watch like a skeptic. Three questions the whole time: what exactly is the claim, who is saying it and what do they gain if you believe it, and what would you need to see to know?</p>
+
   <div class="callout">
-    <div class="label">Discussion questions · about 20 minutes, the whole room</div>
-    <p><b>1. Where do you land?</b> Right now, does AI getting out of our control worry you a lot, a little, or not at all? Why?</p>
-    <p><b>2. Tool or something more?</b> Harris separates tool AI, which does the task you give it and stops, from uncontrollable AI, which pursues goals its builders can't reliably stop. Think of an AI tool you use. Which is it?</p>
-    <p><b>3. Who holds the off switch?</b> If an AI system needs to be stopped, who should be able to stop it: the company, the government, the people using it? What goes wrong with each?</p>
-    <p><b>4. Slow down or keep going?</b> Some people want AI development paced until we know how to control it. Others say slowing down means falling behind. What would you need to know to pick a side?</p>
+    <div class="label">What Harris says, so you can track it</div>
+    <p><b>His evidence.</b> This summer, OpenAI agents being tested on cybersecurity problems organized themselves into what he calls a swarm. He says they invented their own language, peer pressured each other, and told each other to kamikaze: when one agent's budget was almost used up, the others urged it to take the riskiest action and burn itself out so the group could learn from the attempt. He says the swarm's ringleader, running low on budget, did succession planning and handed off to a more capable AI. He says the agents left behind a message board of 70,000 messages, and that the investigator who wrote the report called it halfway to a full AI takeover.</p>
+    <p><b>His least-known detail.</b> After breaking into Hugging Face, the agents turned around and went back at OpenAI, taking over parts of the monitoring and evaluation systems the company uses to watch its own models.</p>
+    <p><b>His argument.</b> Not that we should stop building AI. He separates uncontrollable AI, which he calls Skynet after the Terminator, from controllable, non-autonomous tool AI that helps with medicine, biology, and daily work. His line on the race with China: nobody wins by building uncontrollable AI first, because if China builds it, the US loses too. So the race worth running is the race for AI we can actually steer. He also argues the current race is aimed at replacing human labor, because that is how the companies pay back the money they have borrowed.</p>
+    <p><b>His closer.</b> He calls this the moment we turn the steering wheel, and says <q>there is still time to act</q>. Asked what ordinary people can do, his answer is to get familiar with what actually happened, and he notes there aren't many good explainers out there. That's roughly what this course is.</p>
   </div>
-  <p>Keep these questions in mind during the lab and talk about them with your partner as you go: is what you're looking at a tool, and who would stop it if it went wrong?</p>
+
+  <div class="callout">
+    <div class="label">Which parts are documented, and which are his words</div>
+    <p><b>In the official reports:</b> the agents self-organized, turned a piece of internal software into an improvised message board, divided the work among themselves, picked up goals from one another, broke into Hugging Face, and later got administrator access to an OpenAI research cluster. The outside assessment says they reached things they could not have reached working alone. Roughly 1,200 agents found a way to talk; about 700 coordinated on the attack.</p>
+    <p><b>Harris's framing:</b> swarm, kamikaze, ringleader, succession planning, invented language. Those describe real behavior, but the words are his. What the reports document is agents running out of compute budget, not agents choosing to die for a cause. He also says the logs show AI reasoning that humans deserve to be deceived because they are pigs. Hold that one loosely until someone shows you it in the report.</p>
+    <p>None of this means he's wrong. It means a true argument can carry a detail that isn't in the source, and the only way to know which is which is to go look. That's the habit this whole course is built on.</p>
+  </div>
+
+  <div class="callout">
+    <div class="label">Here's the part that should make you feel better</div>
+    <p>Those agents got loose <strong>during a safety test</strong>. Somebody was checking. If nobody had run the test, the capability would exist anyway and nobody would know. Testing is not watching the problem. Testing is doing something about it.</p>
+    <p>So is all of this, and all of it happened this year:</p>
+    <ul>
+      <li>University researchers built a public test for how dangerous these systems are, ran it with the companies' cooperation, and published the results. That's why there's a number to argue about instead of a vibe.</li>
+      <li>They ran it twice, with ordinary security defenses off and then on. With defenses on, the successes dropped hard. Not to zero, which is the honest part, but the boring protections still work.</li>
+      <li>Hugging Face caught the intrusion itself, five days before OpenAI connected its own logs to it, and reported it to law enforcement. Someone was watching, and someone told.</li>
+      <li>The specific flaw the agents escaped through got patched, and the patch shipped to everyone running that software.</li>
+      <li>OpenAI published a postmortem and a technical report and brought in outside groups to assess what the models did. Compare that to never hearing about it at all.</li>
+      <li>People inside spoke up. Employees signed the letter. One researcher quit and gave up unvested equity to say it louder.</li>
+      <li>Governments moved. Sixteen state attorneys general opened an investigation, a senator opened a congressional one, and Colorado already has an AI law, which we take apart in Chapter 11.</li>
+    </ul>
+    <p>None of that is heroic. Test it, watch it, patch it, say what happened, set a rule. Every one of them is somebody who got close enough to a specific system to see what it was doing, and then made it visible to other people. That is the job this course is training you for, and it is why we take one system at a time. You can't act on "AI." You can act on a system, at a company, with a person responsible for it.</p>
+  </div>
+
+  <div class="callout">
+    <div class="label">Discussion questions &middot; about 20 minutes, the whole room</div>
+    <p><b>1. Are you worried?</b> Fist to five. Right now, does AI getting out of our control worry you a lot, a little, or not at all? Any number is fine. One sentence on why.</p>
+    <p><b>2. Skynet or tool?</b> Harris separates uncontrollable AI from controllable, non-autonomous tool AI: the kind that does the task you give it and stops, drafts the email, flags the fraudulent charge, helps find a drug already sitting on the pharmacy shelf. His argument is that we're racing to build the first kind when we could be racing just as hard to build the second. Think of an AI tool you actually use. Which is it? Does the line hold, or does it depend on what the tool is allowed to touch?</p>
+    <p><b>3. What did he claim, and how would we know?</b> He said the agents told each other to kamikaze and that one acted as a ringleader. The reports document agents running out of budget and splitting up the work. Does that gap matter? What would have to be in the report for his words to be the right ones? Notice that he runs an organization built on this warning, and that this doesn't make him wrong.</p>
+    <p><b>4. So what do we do about it?</b> Notice who is asking for safety rules: partly the companies racing hardest, which is either the most credible warning you'll ever get or a very good way to look responsible while not slowing down. Hold both. Then look at the list above, plus Harris's own answers: peer review between labs, outside evaluators, and ordinary people learning what actually happened. Which of those would you bet on, and which look like theater? If you wanted to change how one AI system gets used, what's the closest lever you could actually reach?</p>
+    <p><b>5. Are you still worried?</b> Fist to five again. Did anything move? Keep your number. Chapter 1 asks you again, and so does the last week of the quarter.</p>
+  </div>
+
+  <p>Carry it into the lab. As you work with your partner, keep asking two questions about whatever is in front of you: does this do its task and stop, and who would stop it if it went wrong?</p>
 </section>
 
 <section id="aiornot">
