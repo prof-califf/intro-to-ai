@@ -204,6 +204,31 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .rhythm b{color:#fff;}
 .note{border-left:3px solid var(--pink);padding:4px 0 4px 16px;color:var(--gray);font-size:.92rem;margin:18px 0;}
 </style>
+
+<style>
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
+  .legend span{display:inline-block;list-style:none;font-size:.78rem;border:1px solid var(--rule);background:#fff;border-radius:999px;padding:5px 12px;color:var(--gray)}
+  .legend span::before{content:none !important;display:none}
+  .legend span::marker{content:''}
+  .wk{border:1px solid var(--rule);background:#fff;border-radius:10px;padding:0;margin:0 0 20px;overflow:hidden}
+  .whead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;padding:16px 20px;background:var(--dark);color:#fff}
+  .whead h3{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;margin-top:4px;color:#fff}
+  .whead .wnum{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow)}
+  .whead .dates{font-size:.84rem;color:#9AA1AB}
+  .slot{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:16px 20px;border-top:1px solid var(--rule)}
+  .slot .when{font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--gray);padding-top:2px}
+  .slot h4{font-family:'Fraunces',serif;font-size:1rem;font-weight:600;margin:0 0 4px}
+  .slot h4 a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--pink)}
+  .slot h4 a:hover{color:var(--pinktext)}
+  .slot p{font-size:.92rem;color:var(--gray);margin:0}
+  .slot.quiet h4{color:var(--gray);font-style:italic;font-weight:500}
+  .tag{display:inline-block;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;background:var(--yellow);color:var(--ink);border-radius:3px;padding:2px 7px;margin-left:8px;vertical-align:2px}
+  .worth{border:1px solid var(--rule);background:#fff;border-radius:10px;padding:22px 24px;margin:34px 0}
+  .worth h3{font-family:'Fraunces',serif;font-size:1.05rem;margin-bottom:10px}
+  .worth li{margin-bottom:.6em;font-size:.93rem;color:var(--gray)}
+  .worth strong{color:var(--ink)}
+  @media(max-width:620px){.slot{grid-template-columns:1fr;gap:6px}}
+</style>
 </head>
 <body>
 
@@ -268,98 +293,198 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <section>
   <div class="shead"><span class="num">→</span><h2>Week by week</h2></div>
 
-  <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 1</span><h3>First Contact</h3></div><div class="dates">Sept 23 · first class</div></div>
-    <div class="day"><b>Mon 9/21</b><span class="off">No class — quarter begins Wednesday.</span></div>
-    <div class="day"><b>Wed 9/23</b><span>First class. No reading due. In class: welcome, then Lab 0 · First Contact (guess which everyday things are AI and which kind, call eight claims, browse the Rundown AI Workflow Hub), with discussion built in.</span></div>
-    <div class="day"><b>Fri 9/25</b><span>Lab 0 assignment, on Canvas. Read Chapter 1 before Monday.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="lab-00-first-contact.html">Lab 0</a><a href="chapter-01-what-is-ai.html">Chapter 1</a></div>
-  </div>
+    <div class="legend"><span>Read the chapter before Monday</span><span>Labs run Wednesday in class</span><span>Writeup and quiz due Friday, 11:59 p.m.</span><span>Midterm: Wed Oct 21</span><span>Final: Thu Dec 10</span><span>No class Nov 11 or Thanksgiving week</span></div>
 
   <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 2</span><h3>What Is AI?</h3></div><div class="dates">Sept 28 – Oct 2</div></div>
-    <div class="day"><b>Mon 9/28</b><span>Chapter 1's case, the OpenAI agents and Hugging Face, through the five questions, then discussion.</span></div>
-    <div class="day"><b>Wed 9/30</b><span>Recap, then Lab 1 · Inside the Machine, then the debate.</span></div>
-    <div class="day"><b>Fri 10/2</b><span>Lab 1 writeup and Chapter 1 quiz.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-01-what-is-ai.html">Chapter 1</a><a href="chapter-01-what-is-ai-lab.html">Lab 1</a></div>
-  </div>
-
-  <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 3</span><h3>Seemingly Human, and Systems That Know You</h3></div><div class="dates">Oct 5 – Oct 9</div></div>
-    <div class="day"><b>Mon 10/5</b><span>Chapter 2's case, Therabot, then discussion. Read Chapter 2 before class.</span></div>
-    <div class="day"><b>Wed 10/7</b><span>Chapter 3's case, Spotify Wrapped, then Lab 2 · The Seeming Test and the Feed, which covers both chapters: the matchbox model, the probes, and the feed's first run in class, then the debate. Read Chapter 3 before class; finish the rest of the lab at home.</span></div>
-    <div class="day"><b>Fri 10/9</b><span>Lab 2 writeup, and a quiz on Chapters 2 and 3.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-02-human.html">Chapter 2</a><a href="chapter-02-human-lab.html">Lab 2</a><a href="chapter-03-systems.html">Chapter 3</a></div>
+    <div class="whead"><div><span class="wnum">Week 1</span><h3>First Contact</h3></div><div class="dates">Sept 23 &ndash; 25</div></div>
+    <div class="slot quiet">
+      <div class="when">Monday</div>
+      <div><h4>No class</h4><p>The quarter begins Wednesday.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Wednesday</div>
+      <div><h4><a href="lab-00-first-contact.html">Lab 0 &middot; First Contact</a></h4><p>Welcome and how the course works, then the question in the headlines: can we keep AI under control? Then the lab, in pairs: which everyday things are secretly AI and which kind, eight claims about what AI is already doing, and a browse through what people are building with it.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Friday &middot; 11:59</div>
+      <div><h4>Lab 0 assignment<span class="tag">due</span></h4><p>The only thing due this week. Read Chapter 1 before Monday.</p></div>
+    </div>
   </div>
 
   <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 4</span><h3>Medicine</h3></div><div class="dates">Oct 12 – Oct 16</div></div>
-    <div class="day"><b>Mon 10/12</b><span>The case, then discussion. Read Chapter 4 before class.</span></div>
-    <div class="day"><b>Wed 10/14</b><span>Recap, then Lab 4 · Inside the Graph, then the debate.</span></div>
-    <div class="day"><b>Fri 10/16</b><span>Lab 4 writeup and Chapter 4 quiz.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-04-medicine.html">Chapter 4</a><a href="chapter-04-medicine-lab.html">Lab 4</a></div>
+    <div class="whead"><div><span class="wnum">Week 2</span><h3>What Is AI?</h3></div><div class="dates">Sept 28 &ndash; Oct 2</div></div>
+    <div class="slot">
+      <div class="when">Monday &middot; case</div>
+      <div><h4><a href="chapter-01-what-is-ai.html">Chapter 1: What Is AI?</a></h4><p>The five moments that got us here, the four kinds of AI, safety and regulation, then the main case: OpenAI's agents that broke out of a test and hacked Hugging Face. Run through the five critical AI questions, then discussion.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Wednesday &middot; lab</div>
+      <div><h4><a href="chapter-01-what-is-ai-lab.html">Lab 1 &middot; Inside the Machine</a></h4><p>Short recap, then train two tiny AIs yourself, then the debate.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Friday &middot; 11:59</div>
+      <div><h4>Lab 1 writeup and Chapter 1 quiz<span class="tag">due</span></h4><p></p></div>
+    </div>
   </div>
 
   <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 5</span><h3>Environment, then the midterm</h3></div><div class="dates">Oct 19 – Oct 23</div></div>
-    <div class="day"><b>Mon 10/19</b><span>Chapter 5's case, then discussion (read Chapter 5 before class), then about 30 minutes of midterm review.</span></div>
-    <div class="day"><b>Wed 10/21</b><span><strong>Midterm.</strong> Chapters 1 through 4 and Labs 0 through 4, in class, closed book.</span></div>
-    <div class="day"><b>Fri 10/23</b><span>Lab 5 · The Footprint Machine (take-home this week) writeup and Chapter 5 quiz.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-05-environment.html">Chapter 5</a><a href="chapter-05-environment-lab.html">Lab 5</a></div>
+    <div class="whead"><div><span class="wnum">Week 3</span><h3>Seemingly Human, and Systems That Know You</h3></div><div class="dates">Oct 5 &ndash; 9</div></div>
+    <div class="slot">
+      <div class="when">Monday &middot; case</div>
+      <div><h4><a href="chapter-02-human.html">Chapter 2: Seemingly Human</a></h4><p>Therabot, the therapy chatbot that worked, and what "seems conscious" is actually a decision about. Read Chapter 2 before class.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Wednesday &middot; case + lab</div>
+      <div><h4><a href="chapter-03-systems.html">Chapter 3: Systems That Know You</a></h4><p>Spotify Wrapped, then Lab 2, which covers both chapters: the matchbox model, the probes, and the feed's first run in class, then the debate. Read Chapter 3 before class and finish the lab at home.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Friday &middot; 11:59</div>
+      <div><h4>Lab 2 writeup and a quiz on Chapters 2 and 3<span class="tag">due</span></h4><p></p></div>
+    </div>
   </div>
 
   <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 6</span><h3>Hiring &amp; Lending</h3></div><div class="dates">Oct 26 – Oct 30</div></div>
-    <div class="day"><b>Mon 10/26</b><span>The case, then discussion. Read Chapter 6 before class.</span></div>
-    <div class="day"><b>Wed 10/28</b><span>Recap, then Lab 6 · You Are the Auditor, then the debate.</span></div>
-    <div class="day"><b>Fri 10/30</b><span>Lab 6 writeup, Chapter 6 quiz, and Prototype project team sign-up: the four names and a one-paragraph rough idea.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-06-hiring-lending.html">Chapter 6</a><a href="chapter-06-hiring-lending-lab.html">Lab 6</a></div>
+    <div class="whead"><div><span class="wnum">Week 4</span><h3>Medicine</h3></div><div class="dates">Oct 12 &ndash; 16</div></div>
+    <div class="slot">
+      <div class="when">Monday &middot; case</div>
+      <div><h4><a href="chapter-04-medicine.html">Chapter 4: Medicine</a></h4><p>Every Cure and a drug that was already on the shelf. Read Chapter 4 before class.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Wednesday &middot; lab</div>
+      <div><h4><a href="chapter-04-medicine-lab.html">Lab 4 &middot; Inside the Graph</a></h4><p>Recap, then the lab, then the debate.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Friday &middot; 11:59</div>
+      <div><h4>Lab 4 writeup and Chapter 4 quiz<span class="tag">due</span></h4><p></p></div>
+    </div>
   </div>
 
   <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 7</span><h3>Transportation</h3></div><div class="dates">Nov 2 – Nov 6</div></div>
-    <div class="day"><b>Mon 11/2</b><span>The case, then discussion. Read Chapter 7 and listen to both NPR pieces before class.</span></div>
-    <div class="day"><b>Wed 11/4</b><span>Recap, then Lab 7 · You Are the City Council, then the debate.</span></div>
-    <div class="day"><b>Fri 11/6</b><span>Lab 7 writeup and Chapter 7 quiz.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-07-transportation.html">Chapter 7</a><a href="chapter-07-transportation-lab.html">Lab 7</a></div>
-  </div>
-
-  <div class="wk holiday">
-    <div class="whead"><div><span class="wnum">Week 8</span><h3>Ethics &amp; War · Veterans Day week</h3></div><div class="dates">Nov 9 – Nov 13</div></div>
-    <div class="day"><b>Mon 11/9</b><span>The case, then discussion, then Lab 8 · The Red Lines: the sort in class, the rest at home (the sorted contracts are the discussion and the debate). Read Chapter 8 and the two assigned pieces before class.</span></div>
-    <div class="day"><b>Wed 11/11</b><span class="off">No class. Veterans Day.</span></div>
-    <div class="day"><b>Fri 11/13</b><span>Lab 8 writeup and Chapter 8 quiz.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-08-ethics-war.html">Chapter 8</a><a href="chapter-08-ethics-war-lab.html">Lab 8</a></div>
-  </div>
-
-  <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 9</span><h3>The Economy</h3></div><div class="dates">Nov 16 – Nov 20</div></div>
-    <div class="day"><b>Mon 11/16</b><span>The case, then discussion. Read Chapter 9, the Krugman essay, and listen to the NPR story on recent grads before class.</span></div>
-    <div class="day"><b>Wed 11/18</b><span>Recap, then Lab 9 · Run the Firm, then the debate.</span></div>
-    <div class="day"><b>Fri 11/20</b><span>Lab 9 writeup and Chapter 9 quiz.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-09-economy.html">Chapter 9</a><a href="chapter-09-economy-lab.html">Lab 9</a></div>
-  </div>
-
-  <div class="wk holiday">
-    <div class="whead"><div><span class="wnum">Break</span><h3>Thanksgiving Break</h3></div><div class="dates">Nov 23 – Nov 27</div></div>
-    <div class="day"><b>All week</b><span class="off">No class. Nothing due. Go be a human — it's the subject of the course.</span></div>
+    <div class="whead"><div><span class="wnum">Week 5</span><h3>Environment, then the midterm</h3></div><div class="dates">Oct 19 &ndash; 23</div></div>
+    <div class="slot">
+      <div class="when">Monday &middot; case + review</div>
+      <div><h4><a href="chapter-05-environment.html">Chapter 5: Environment</a></h4><p>The case and discussion, then about 30 minutes of midterm review. Read Chapter 5 before class.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Wednesday</div>
+      <div><h4>Midterm</h4><p>Chapters 1 through 4 and Labs 0 through 4. In class, on Canvas.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Friday &middot; 11:59</div>
+      <div><h4>Lab 5 writeup and Chapter 5 quiz<span class="tag">due</span></h4><p>Lab 5, The Footprint Machine, is take-home this week.</p></div>
+    </div>
   </div>
 
   <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 10</span><h3>Truth and the rules, then the last class</h3></div><div class="dates">Nov 30 – Dec 4</div></div>
-    <div class="day"><b>Mon 11/30</b><span>Half and half: the cases from Chapters 10 and 11, Truth and Who Makes the Rules?, then discussion (about 55 minutes; read both before class), then Prototype project pitches, the first five teams.</span></div>
-    <div class="day"><b>Wed 12/2</b><span><b>Last class.</b> Half and half: Prototype project pitches, the last five teams, then Chapter 12, The Future (read it before class), and the closing conversation: your Week 1 claims, re-answered. No lab this week; the project is the work.</span></div>
-    <div class="day"><b>Fri 12/4</b><span>The Prototype project paper, slides, and individual reflection, and a quiz on Chapters 10 and 11. Last day anything can be turned in.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-10-truth.html">Chapter 10</a><a href="chapter-11-rules.html">Chapter 11</a><a href="chapter-12-future.html">Chapter 12</a></div>
+    <div class="whead"><div><span class="wnum">Week 6</span><h3>Bias in Hiring and Lending</h3></div><div class="dates">Oct 26 &ndash; 30</div></div>
+    <div class="slot">
+      <div class="when">Monday &middot; case</div>
+      <div><h4><a href="chapter-06-hiring-lending.html">Chapter 6: Bias in Hiring &amp; Lending</a></h4><p>When AI decides who gets the job or the loan. Read Chapter 6 before class.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Wednesday &middot; lab</div>
+      <div><h4><a href="chapter-06-hiring-lending-lab.html">Lab 6 &middot; You Are the Auditor</a></h4><p>Recap, then the lab, then the debate.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Friday &middot; 11:59</div>
+      <div><h4>Lab 6 writeup, Chapter 6 quiz, project teams<span class="tag">due</span></h4><p>Prototype project team sign-up: four names and a one-paragraph rough idea.</p></div>
+    </div>
   </div>
 
   <div class="wk">
-    <div class="whead"><div><span class="wnum">Finals</span><h3>Final exam</h3></div><div class="dates">Thu Dec 10</div></div>
-    <div class="day"><b>Thu 12/10</b><span><b>Final exam</b>, 10:30 a.m., our classroom, cumulative: Chapters 5 through 12 in full, plus the five moments, the five parts, the five questions, and every case at the level of its main idea.</span></div>
+    <div class="whead"><div><span class="wnum">Week 7</span><h3>Transportation</h3></div><div class="dates">Nov 2 &ndash; 6</div></div>
+    <div class="slot">
+      <div class="when">Monday &middot; case</div>
+      <div><h4><a href="chapter-07-transportation.html">Chapter 7: Transportation</a></h4><p>Robotaxis, and who keeps the track record. Read Chapter 7 and listen to both NPR pieces before class.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Wednesday &middot; lab</div>
+      <div><h4><a href="chapter-07-transportation-lab.html">Lab 7 &middot; You Are the City Council</a></h4><p>Recap, then the lab, then the debate.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Friday &middot; 11:59</div>
+      <div><h4>Lab 7 writeup and Chapter 7 quiz<span class="tag">due</span></h4><p></p></div>
+    </div>
   </div>
 
-  <p class="note">Chapter 8, Ethics &amp; War, falls on Veterans Day week on purpose: a Monday-only week, with the lab done in class that day and the holiday held with the respect it deserves.</p>
-</section>
+  <div class="wk">
+    <div class="whead"><div><span class="wnum">Week 8</span><h3>Ethics and War &middot; Veterans Day week</h3></div><div class="dates">Nov 9 &ndash; 13</div></div>
+    <div class="slot">
+      <div class="when">Monday &middot; case + lab</div>
+      <div><h4><a href="chapter-08-ethics-war.html">Chapter 8: Ethics &amp; War</a></h4><p>The case and discussion, then Lab 8, The Red Lines: the sort happens in class and the rest is finished at home. Read Chapter 8 and the two assigned pieces before class.</p></div>
+    </div>
+    <div class="slot quiet">
+      <div class="when">Wednesday &middot; Nov 11</div>
+      <div><h4>No class</h4><p>Veterans Day. The week is Monday only, on purpose.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Friday &middot; 11:59</div>
+      <div><h4>Lab 8 writeup and Chapter 8 quiz<span class="tag">due</span></h4><p></p></div>
+    </div>
+  </div>
+
+  <div class="wk">
+    <div class="whead"><div><span class="wnum">Week 9</span><h3>The Economy</h3></div><div class="dates">Nov 16 &ndash; 20</div></div>
+    <div class="slot">
+      <div class="when">Monday &middot; case</div>
+      <div><h4><a href="chapter-09-economy.html">Chapter 9: The Economy</a></h4><p>Where the AI boom is, and what it is doing to jobs. Read Chapter 9, the Krugman essay, and listen to the NPR story on recent graduates before class.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Wednesday &middot; lab</div>
+      <div><h4><a href="chapter-09-economy-lab.html">Lab 9 &middot; Run the Firm</a></h4><p>Recap, then the lab, then the debate.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Friday &middot; 11:59</div>
+      <div><h4>Lab 9 writeup and Chapter 9 quiz<span class="tag">due</span></h4><p></p></div>
+    </div>
+  </div>
+
+  <div class="wk">
+    <div class="whead"><div><span class="wnum">Break</span><h3>Thanksgiving</h3></div><div class="dates">Nov 23 &ndash; 27</div></div>
+    <div class="slot quiet">
+      <div class="when">All week</div>
+      <div><h4>No class, nothing due</h4><p>Go be a human. It is the subject of the course.</p></div>
+    </div>
+  </div>
+
+  <div class="wk">
+    <div class="whead"><div><span class="wnum">Week 10</span><h3>Truth and the rules, then the last class</h3></div><div class="dates">Nov 30 &ndash; Dec 4</div></div>
+    <div class="slot">
+      <div class="when">Monday &middot; cases + pitches</div>
+      <div><h4><a href="chapter-10-truth.html">Chapters 10 and 11</a></h4><p>Truth, and Who Makes the Rules? Both cases and discussion, about 55 minutes, then the first five Prototype project pitches. Read both chapters before class.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Wednesday &middot; last class</div>
+      <div><h4><a href="chapter-12-future.html">Chapter 12: The Future</a></h4><p>The last five pitches, then Chapter 12 and the closing conversation: your Week 1 claims, re-answered. No lab this week; the project is the work.</p></div>
+    </div>
+    <div class="slot">
+      <div class="when">Friday &middot; 11:59</div>
+      <div><h4>Project paper, slides, reflection, and the Chapters 10 and 11 quiz<span class="tag">due</span></h4><p>The last day anything can be turned in this quarter.</p></div>
+    </div>
+  </div>
+
+  <div class="wk">
+    <div class="whead"><div><span class="wnum">Finals</span><h3>Final exam</h3></div><div class="dates">Dec 7 &ndash; 11</div></div>
+    <div class="slot">
+      <div class="when">Thursday &middot; Dec 10</div>
+      <div><h4>Final exam &middot; 10:30 a.m.</h4><p>Our classroom, cumulative: Chapters 5 through 12 in full, plus the five moments, the five parts, the five questions, and every case at the level of its main idea.</p></div>
+    </div>
+  </div>
+
+  <div class="worth">
+    <h3>Things worth knowing</h3>
+    <ul>
+      <li><strong>Read the chapter over the weekend.</strong> Monday is the case and the discussion, and it assumes you have read it. Nothing is ever due on a weekend.</li>
+      <li><strong>Labs are done in pairs, writeups are your own.</strong> Same work, your own words, five items, due Friday at 11:59 p.m. on Canvas.</li>
+      <li><strong>You are never required to use an AI tool</strong> to complete a lab, a chapter, or the Prototype project.</li>
+      <li><strong>Lowest lab writeup and lowest quiz are dropped.</strong> One bad week costs nothing and needs no explanation.</li>
+      <li><strong>Chapter 8, Ethics and War, sits in Veterans Day week on purpose.</strong> It is a Monday-only week, with the lab started in class that day and the holiday held with the respect it deserves.</li>
+      <li><strong>The book will change during the quarter.</strong> AI moves fast enough that some of it will be out of date by December. When that happens I update the chapter and say what changed.</li>
+      <li>Dates can shift. Canvas is the authority if anything here disagrees with it.</li>
+    </ul>
+  </div>
+
+  </section>
 
 <div class="nextbar">
   <a href="index.html"><span class="dir">← Back</span>Contents</a>
