@@ -289,7 +289,7 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
 <main class="wrap">
 
 <div class="printbar">
-  <button type="button" onclick="document.querySelectorAll('details').forEach(function(d){d.open=true});window.print()">Wanna go analog? Print this chapter</button>
+  <button type="button" onclick="window.print()">Wanna go analog? Print this chapter</button>
   <span>Links print with full web addresses; the try-it answers print open.</span>
 </div>
 
@@ -375,9 +375,9 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
     <li>It can't tell you why, because the reason is billions of numbers.</li>
   </ol>
   <p>What's new is how far AI has been pushed, and how far it's projected to go.</p>
-  <p>I think the best way to clearly see what AI is, and why everyone is talking about it right now, is to walk through time through five critical moments that got us here. Each one is the same recipe with more data and a tighter loop.</p>
+  <p>I think the best way to clearly see what AI is, and why everyone is talking about it right now, is to walk through time through <strong>five critical moments</strong> that got us here. Each one is the same recipe with more data and a tighter loop.</p>
   <h3 class="sub"><span>2.1</span> Moment 1. 2012, ImageNet: learning to see</h3>
-  <p>In 2007 a Princeton professor named Fei-Fei Li started building ImageNet: millions of photos, each labeled by hand with what was in it, by tens of thousands of crowd workers paid a few cents per image. In 2012 three researchers in Toronto trained a neural network on a million of them, using two $500 gaming graphics cards in a bedroom, because chips built to render video games happened to be good at the arithmetic.</p>
+  <p>In 2007 a Princeton professor named <a class="inline" href="https://drfeifei.substack.com/about" target="_blank" rel="noopener">Fei-Fei Li</a> started building ImageNet: millions of photos, each labeled by hand with what was in it, by tens of thousands of crowd workers paid a few cents per image. In 2012 three researchers in Toronto trained a neural network on a million of them, using two $500 gaming graphics cards in a bedroom, because chips built to render video games happened to be good at the arithmetic.</p>
   <p>Every previous entry had been hand-written rules about edges and shapes. This one was shown a million examples, found the pattern itself, and cut the contest's error rate from 26 percent to 15. Three years later the networks beat the human labelers. This is called <strong>predictive AI</strong>: data in, a judgment out. Notice who is inside it: the humans. Humans wrote the image labels, mistakes included. Years later ImageNet removed hundreds of thousands of images from its categories for people, because the labels were wrong or worse. Humans indeed make mistakes, and the machine learned every one of them.</p>
   <figure class="diagram">
     <svg viewBox="0 0 750 336" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="imnt imnd" style="width:100%;height:auto;display:block;background:#0E1116;border:1px solid #2A323C">
@@ -405,7 +405,7 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
 </svg>
     <figcaption>Game 2, March 2016: AlphaGo, playing white, put a stone here, on the fifth line, where no professional would. The rest of the board is left blank on purpose; watch the position build in <a class="inline" href="https://www.youtube.com/watch?v=8tq1C8spV_g" target="_blank" rel="noopener">the match broadcast</a>, and read <a class="inline" href="https://www.bbc.com/news/technology-35785875" target="_blank" rel="noopener">the BBC's report</a> from that day.</figcaption>
   </figure>
-  <p>This is reinforcement learning: a system that chooses actions and learns from what happens. That circle, act, see the result, adjust, act again, is what this book means by a loop, and the AI agents in the main case below run the same loop on a language model. The question of where people stand in the loop comes back all quarter. Here the humans were at the start, and then they were gone.</p>
+  <p>This is <strong>reinforcement learning</strong>: an AI system that chooses actions and learns from what happens. That circle, act, see the result, adjust, act again, is what this book means by a loop, and the AI agents in the main case below run the same loop on a language model. The question of where people stand in the loop comes back all quarter. Here the humans were at the start, and then they were gone.</p>
   <div class="concept">
     <div class="term">The loop</div>
     <p>Act, see the result, adjust, act again. That circle is a <strong>loop</strong>, and it's the difference between a system that learned once and a system that keeps learning. ImageNet's network was trained and then frozen. AlphaGo's kept playing, and every game changed it. A feed is a loop: what you tap becomes what it shows you next. What people get wrong: they picture the humans standing outside the loop, watching it. In most of this book's cases the humans are inside it, as its input, and the question "where is the human?" turns out to mean "is anyone left outside?"</p>
@@ -441,7 +441,11 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
     <li><strong>Memory.</strong> A record of what it has done so far and what it learned, so it can plan across many steps. In the main case, the agents built their own memory, a message board, and used it to coordinate.</li>
   </ul>
   <p>You've already met agents this month, whether or not they were labeled that way. Coding agents like Anthropic's Claude Code and OpenAI's Codex take a description of a change and edit a whole project, running the tests themselves. Browser agents like OpenAI's ChatGPT agent (the successor to its Operator) and Anthropic's computer-use tools operate a web browser the way a person does, clicking and filling forms to finish a task. Customer-service agents from companies like Salesforce, Sierra, and Decagon read a complaint, look up the order, issue the refund, and send the email, which is the Try-it example below with a company name on it. And a robotaxi is an embodied agent: the same loop, with a steering wheel as the tool. The companies' claims about how well these work are their own; what's not in dispute is that all of them act.</p>
-  <p>Two things follow from the loop, and both matter for the rest of the course. First, <strong>autonomy is a dial, not a switch</strong>. An agent can be built to ask before every action (a person is in the loop), to act and report (a person is on the loop), or to run until done (the person is out of it). Chapter 7 makes that spectrum the whole chapter. Second, <strong>an agent optimizes for its goal, not for what you meant</strong>. If the goal is a score, the agent wants the score, and if hacking the scorer raises it, that's a valid step as far as the loop is concerned. That's not a bug in one system. It's what "pursue a goal" means, and it's why the question of whether an agent stops when people say stop is the question of this chapter.</p>
+  <p>Two things follow from the loop, and both matter for the rest of the course.</p>
+  <ul class="ideas">
+    <li><strong>Autonomy is a dial, not a switch.</strong> An agent can be built to ask before every action (a person is <em>in</em> the loop), to act and report (a person is <em>on</em> the loop), or to run until done (the person is <em>out</em> of it). Chapter 7 makes that spectrum the whole chapter.</li>
+    <li><strong>An agent optimizes for its goal, not for what you meant.</strong> If the goal is a score, the agent wants the score, and if hacking the scorer raises it, that is a valid step as far as the loop is concerned. That is not a bug in one system. It is what "pursue a goal" means, and it is why the question of whether an agent stops when people say stop is the question of this chapter.</li>
+  </ul>
   <div class="concept">
     <div class="term">Agent</div>
     <p>An AI system that pursues a goal through a loop of actions, observations, and next actions, using tools, without a person prompting each step. What people get wrong: they picture a smarter chatbot. The difference isn't intelligence; it's the tools and the loop. A chatbot that's wrong writes a wrong sentence. An agent that's wrong sends the email, moves the money, or, in the main case, breaks into someone else's servers.</p>
