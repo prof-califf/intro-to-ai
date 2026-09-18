@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab 7 · You Are the City Council — Intro to AI in Business | MIS 201</title>
+<title>Lab 7 · You Are the City Council. Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -182,6 +182,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   .nav .navlinks{width:100%;justify-content:flex-start}
   .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
 }
+ul.ideas{padding-left:1.2em;margin:10px 0}
+ul.ideas li{margin:8px 0}
 </style>
 </head>
 <body>
@@ -198,9 +200,9 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <div class="dd-menu" id="ddc">
 <a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
 <a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
-<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 4</span>Medicine</a>
-<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 5</span>Environment</a>
-<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · optional</span>Systems That Want You</a>
+<a href="chapter-03-systems.html"><span class="lbl">Chapter 3 · Week 3</span>Systems That Know You</a>
+<a href="chapter-04-medicine.html"><span class="lbl">Chapter 4 · Week 4</span>Medicine</a>
+<a href="chapter-05-environment.html"><span class="lbl">Chapter 5 · Week 5</span>Environment</a>
 <a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
 <a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
 <a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
@@ -213,17 +215,13 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <div class="dd-menu" id="ddl">
 <a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
 <a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
-<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test</a>
-<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 4</span>Inside the Graph</a>
-<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 5</span>The Footprint Machine</a>
-<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · optional</span>Play the Algorithm</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test and the Feed</a>
+<a href="chapter-04-medicine-lab.html"><span class="lbl">Lab 4 · Week 4</span>Inside the Graph</a>
+<a href="chapter-05-environment-lab.html"><span class="lbl">Lab 5 · Week 5</span>The Footprint Machine</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html" class="current" aria-current="page"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
-<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
+<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
 <a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
-<a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 10 · take-home</span>The Phantom Docket</a>
-<a href="exposure-audit.html"><span class="lbl">Self-guided · pairs with Chapter 9</span>The Exposure Audit</a>
-<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · last class</span>First Contact, Revisited</a>
 </div></div>
     </div>
   </div>
@@ -231,18 +229,23 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <header class="masthead">
   <div class="wrap">
-    <div class="eyebrow">Western Washington University · MIS 201 · Lab 7 · Wednesday, in class</div>
+    <div class="eyebrow">Western Washington University · MIS 201 · Lab 7 · Week 7, Wednesday, in class</div>
     <h1>You Are the City <b>Council</b></h1>
-    <p class="kicker">A robotaxi company has applied to operate in Bellingham. You sit on the council. Today you weigh the evidence, write the permit — or refuse it — and defend your conditions to the room. Refusal is a legitimate outcome. So is approval. Undefended is the only wrong answer.</p>
+    <p class="kicker">A robotaxi company has applied to operate in Bellingham. You sit on the council. Today you weigh the evidence, write the permit, or refuse it, and defend your conditions to the room. Refusal is a legitimate outcome. So is approval. Undefended is the only wrong answer.</p>
     <p class="factline">Ten evidence cards · one decision · every condition has a cost</p>
   </div>
 </header>
 
 <main class="wrap">
+<div class="callout">
+  <div class="label">From Chapter 7 · what this lab runs on</div>
+  <p>The evidence cards are section 2.4 in practice: each is tagged by who's saying it, because the safety claim reads differently by source. The conditions you can attach to the permit are the chapter's Business implications, priced: reporting requirements are section 2.7's track-record keeper, school-zone limits are the long tail (2.6), and a fleet cap is the coverage map (2.5) written by a city instead of a company. Refusal is a legitimate outcome; undefended is the only wrong one.</p>
+</div>
+
 
 <section>
   <div class="shead"><span class="num">1</span><h2>Weigh the evidence</h2></div>
-  <p class="lead">Below are ten evidence cards drawn from the real robotaxi record. Each is tagged with its source type — company data, journalism, independent research, advocacy, or local context — because a council that weighs all sources equally isn't weighing at all. Read each card, then mark it: does it move you toward yes, toward no, or neither? Your running lean shows at the bottom. Mark honestly; you'll be asked to explain any gap between your evidence and your vote.</p>
+  <p class="lead">Below are ten evidence cards drawn from the real robotaxi record. Each is tagged with its source type, company data, journalism, independent research, advocacy, or local context, because a council that weighs all sources equally isn't weighing at all. Read each card, then mark it: does it move you toward yes, toward no, or neither? Your running lean shows at the bottom. Mark honestly; you'll be asked to explain any gap between your evidence and your vote.</p>
 
   <div class="tool">
     <div class="label">The evidence · mark every card</div>
@@ -261,14 +264,14 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <section>
   <div class="shead"><span class="num">2</span><h2>Write the permit</h2></div>
-  <p>Now decide. If you approve with conditions, choose them below — but read the fine print on each: <strong>every condition has a cost</strong>, usually the risk that the operator walks away, delays, or passes the cost to riders. A permit made entirely of conditions is a denial wearing a costume; a permit with none is a yes you'll own alone. The tool will read your decision back to you — and it will notice if your vote and your evidence disagree.</p>
+  <p>Now decide. If you approve with conditions, choose them below, but read the fine print on each: <strong>every condition has a cost</strong>, usually the risk that the operator walks away, delays, or passes the cost to riders. A permit made entirely of conditions is a denial wearing a costume; a permit with none is a yes you'll own alone. The tool will read your decision back to you, and it will notice if your vote and your evidence disagree.</p>
 
   <div class="tool">
     <div class="label">The council's decision</div>
     <div class="chips" id="decision" style="margin-bottom:18px;">
       <button type="button" class="chip" data-d="approve">Approve</button>
       <button type="button" class="chip" data-d="conditions">Approve with conditions</button>
-      <button type="button" class="chip" data-d="delay">Delay — revisit in 12 months</button>
+      <button type="button" class="chip" data-d="delay">Delay, revisit in 12 months</button>
       <button type="button" class="chip" data-d="deny">Deny</button>
     </div>
     <div id="condwrap" hidden>
@@ -286,9 +289,23 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
+  <div class="shead"><span class="num">3a</span><h2>Inside the machine: what the car is doing while you decide</h2></div>
+  <p>While the council debates, the system it's debating runs the loop from Chapter 7's section 2.1 about ten times a second: sense, perceive, predict, plan, act. The evidence cards you weighed are mostly about steps two and three, because that's where the failures live. A crash statistic is a claim about how often perception and prediction got it right; a school-bus video is one time they didn't, at the long tail (2.6). The coverage map on one of your cards is the operational design domain (2.5): the streets, speeds, and weather the loop has been proven on, and the edge where the car stops and asks a remote assistant instead of guessing.</p><p>Now look at your permit conditions again with the loop in mind. Crash reporting to the city is you deciding who keeps the track record (2.7). A speed limit near schools is you shortening the tail on the step that fails there. A fleet cap is a coverage map written by a city instead of a company. None of your conditions touches the model, because a city can't. Every one of them touches what surrounds it, which is the same lesson as Chapter 11's cameras: the rules are where the public's hands are.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="num">3b</span><h2>Debate: public good, and the people it displaces</h2></div>
+  <div class="callout">
+    <div class="label">Debate · in class, about 20 minutes · pick a side, argue it, then switch</div>
+    <p><strong>How it runs, every week.</strong> Sides are assigned, not chosen, so you're never defending your own belief. Two minutes with your partner to find your side's best point and its honest cost. Three minutes a side. Then everyone switches and does it again. Last five minutes: what would change your mind? Say it out loud. The person who names the evidence that would move them wins, whichever side they were on.</p>
+    <p>Your permit priced the company's costs. This debate is about the ones the permit form doesn't have a line for.</p><ul class="ideas"><li><strong>Motion 1: a city should approve robotaxis if the independent safety data holds, because fewer crashes is a public good that outweighs the jobs lost.</strong> For: human drivers kill tens of thousands a year; if the numbers are real, refusing is choosing those deaths. Against: "if the numbers are real" is doing all the work, the company keeps the numbers, and the lives saved are statistical while the drivers displaced are people with names.</li><li><strong>Motion 2: a city that approves robotaxis should require the operator to fund transition support for displaced drivers.</strong> For: the operator captures the profit from the drivers' removal, so it should carry the cost; a per-ride fee would do it. Against: every dollar of fee is a reason to launch in the next city instead, and the drivers there don't get support either.</li></ul><p>Then the regulation question Chapter 7 hands to Chapter 11: should this be a city decision at all, or a state one? Bellingham can set conditions Olympia can't police, and Olympia can set conditions Bellingham can't enforce. Whoever decides, name what they can and can't compel.</p>
+  </div>
+</section>
+
+<section>
   <div class="shead"><span class="num">3</span><h2>Defend it to the room</h2></div>
-  <p>Wednesday's Q&amp;A half runs on this: councils pair up and cross-examine. Trade decisions with another student and ask each other, in order: Which single card moved you most, and why that one? Which condition would you drop first if the operator threatened to walk? And the chapter's question in local clothes — whose trust matters more for this permit, the riders' or the pedestrians'? Take notes; the writeup asks what the cross-examination changed.</p>
-  <p>Then bring in one more adversary — a live one. Paste your issued permit into an AI chatbot with this prompt: <i>“You are the robotaxi operator's counsel. My city council just issued this permit. Argue against my two most burdensome conditions — make the strongest case that we'll walk away or that riders lose out.”</i> You just hired the lobbyist every real council faces. Note its single strongest rebuttal, and whether your condition survives it. If the AI's argument moved you where your partner's didn't, that goes in the writeup too: fluent opposition is now cheap, on every side of every hearing.</p>
+  <p>Wednesday's Q&amp;A half runs on this: councils pair up and cross-examine. Trade decisions with another student and ask each other, in order: Which single card moved you most, and why that one? Which condition would you drop first if the operator threatened to walk? And the chapter's question in local clothes, whose trust matters more for this permit, the riders' or the pedestrians'? Take notes; the writeup asks what the cross-examination changed.</p>
+  <p>Then bring in one more adversary, a live one. Paste your issued permit into an AI chatbot with this prompt: <i>“You are the robotaxi operator's counsel. My city council just issued this permit. Argue against my two most burdensome conditions, make the strongest case that we'll walk away or that riders lose out.”</i> You just hired the lobbyist every real council faces. Note its single strongest rebuttal, and whether your condition survives it. If the AI's argument moved you where your partner's didn't, that goes in the writeup too: fluent opposition is now cheap, on every side of every hearing.</p>
 </section>
 
 <section>
@@ -307,11 +324,11 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   <div class="ticket">
     <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
     <ol>
-      <li><strong>The evidence.</strong> Your lean tally (screenshot), plus the one card you weighted most and the one you deliberately discounted — with the source-type reasoning for both.</li>
-      <li><strong>The decision.</strong> Your issued permit (screenshot), and a defense of your two most important conditions — or of choosing none, or of denial.</li>
+      <li><strong>The evidence.</strong> Your lean tally (screenshot), plus the one card you weighted most and the one you deliberately discounted, with the source-type reasoning for both.</li>
+      <li><strong>The decision.</strong> Your issued permit (screenshot), and a defense of your two most important conditions, or of choosing none, or of denial.</li>
       <li><strong>The cross-examination.</strong> What your partner's hardest question was, and whether anything in your permit changed because of it.</li>
       <li><strong>The five questions.</strong> Your answers, treating your own permit as the system under review.</li>
-      <li><strong>Your move.</strong> Your entry-ticket instinct vs. your final vote: did the evidence move you, and which specific card did it? One sentence naming what it takes to change your mind — that's Wednesday's commitment card.</li>
+      <li><strong>Your move.</strong> Your entry-ticket instinct vs. your final vote: did the evidence move you, and which specific card did it? One sentence naming what it takes to change your mind, that's Wednesday's commitment card.</li>
     </ol>
   </div>
 </section>
@@ -326,7 +343,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <footer class="foot">
   <div class="wrap">
     <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
-    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">A free, critical field guide to AI, for the people who'll live with it, not just build it.</p>
     <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
   </div>
 </footer>
@@ -334,25 +351,25 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <script>
 (function(){
   var cards = [
-    {tag:'Company data', text:'The operator\u2019s published safety analysis reports substantially fewer injury-causing crashes per million miles than human-driver benchmarks, across tens of millions of driverless miles.', hint:'The strongest card on the table — and the company wrote it. What\u2019s in the denominator?'},
-    {tag:'Journalism / regulator', text:'The operator recently issued a software recall after reports that vehicles failed to stop properly for school buses.', hint:'A real failure — found, reported, and corrected in public. Read it both ways.'},
-    {tag:'Company / press', text:'The service already runs over 400,000 paid rides a week across ten-plus cities, including freeways and airport runs.', hint:'Scale is evidence of maturity — and of how fast this arrives once permitted.'},
+    {tag:'Company data', text:'The operator\u2019s published safety analysis reports substantially fewer injury-causing crashes per million miles than human-driver benchmarks, across tens of millions of driverless miles.', hint:'The strongest card on the table, and the company wrote it. What\u2019s in the denominator?'},
+    {tag:'Journalism / regulator', text:'The operator recently issued a software recall after reports that vehicles failed to stop properly for school buses.', hint:'A real failure, found, reported, and corrected in public. Read it both ways.'},
+    {tag:'Company / press', text:'The service already runs over 400,000 paid rides a week across ten-plus cities, including freeways and airport runs.', hint:'Scale is evidence of maturity, and of how fast this arrives once permitted.'},
     {tag:'Journalism', text:'In early rollout cities, driverless vehicles were documented blocking buses and interfering with emergency responders while confused.', hint:'Mostly early-years incidents. Do old failures expire, or accumulate?'},
-    {tag:'Independent survey', text:'Recurring national surveys find a majority of Americans say they would be afraid to ride in a fully self-driving vehicle.', hint:'Fear is real data — and also famously trails experience. Which way does causation run?'},
-    {tag:'Advocacy / testimonial', text:'Riders with disabilities — including blind riders — describe robotaxis as the first truly independent door-to-door transportation of their lives.', hint:'A benefit invisible in crash statistics. Who speaks for it at your hearing?'},
-    {tag:'Labor / local economy', text:'Rideshare and taxi driving are income for hundreds of thousands of U.S. workers — gig counting is contested, but the jobs at stake in Bellingham are real and countable.', hint:'Chapter 9\u2019s data says displacement lands on specific groups first. Who, here?'},
-    {tag:'Journalism / international', text:'In China, Baidu\u2019s Apollo Go and rivals run large robotaxi fleets at fares that undercut human drivers — scale and price pressure are proven, not hypothetical.', hint:'Evidence about trajectory: what does year five look like if year one is approved?'},
+    {tag:'Independent survey', text:'Recurring national surveys find a majority of Americans say they would be afraid to ride in a fully self-driving vehicle.', hint:'Fear is real data, and also famously trails experience. Which way does causation run?'},
+    {tag:'Advocacy / testimonial', text:'Riders with disabilities, including blind riders, describe robotaxis as the first truly independent door-to-door transportation of their lives.', hint:'A benefit invisible in crash statistics. Who speaks for it at your hearing?'},
+    {tag:'Labor / local economy', text:'Rideshare and taxi driving are income for hundreds of thousands of U.S. workers, gig counting is contested, but the jobs at stake in Bellingham are real and countable.', hint:'Chapter 9\u2019s data says displacement lands on specific groups first. Who, here?'},
+    {tag:'Journalism / international', text:'In China, Baidu\u2019s Apollo Go and rivals run large robotaxi fleets at fares that undercut human drivers, scale and price pressure are proven, not hypothetical.', hint:'Evidence about trajectory: what does year five look like if year one is approved?'},
     {tag:'Local context', text:'Bellingham: roughly 95,000 people, heavy rain much of the year, an active WTA bus system, a university district full of pedestrians and cyclists.', hint:'Operational design domain, in local clothes. Is this city inside the map the safety data was drawn on?'},
-    {tag:'Company data', text:'The operator commits to sharing incident data with regulators and to remote-assistance staffing — humans who advise stuck vehicles but do not drive them.', hint:'A condition pre-offered. Pre-offered conditions are the ones that cost the operator least.'}
+    {tag:'Company data', text:'The operator commits to sharing incident data with regulators and to remote-assistance staffing, humans who advise stuck vehicles but do not drive them.', hint:'A condition pre-offered. Pre-offered conditions are the ones that cost the operator least.'}
   ];
 
   var conds = [
-    {id:'report', label:'Quarterly public incident reporting — every collision, blockage, and responder interaction, published', cost:'Cost: operators resist public granularity; expect pushback or delay.'},
+    {id:'report', label:'Quarterly public incident reporting, every collision, blockage, and responder interaction, published', cost:'Cost: operators resist public granularity; expect pushback or delay.'},
     {id:'school', label:'School-zone and school-bus protocol certification before launch, re-tested after every software update', cost:'Cost: slows every update; the company\u2019s update speed is part of its safety case.'},
-    {id:'weather', label:'Rain-performance validation in Pacific Northwest conditions before unrestricted service', cost:'Cost: could delay launch by seasons — and "validated" needs someone to define it.'},
-    {id:'cap', label:'Fleet cap for the first year (e.g., 25 vehicles), lifted only by council review', cost:'Cost: caps the benefits too — accessibility rides, late-night safety, data from scale.'},
+    {id:'weather', label:'Rain-performance validation in Pacific Northwest conditions before unrestricted service', cost:'Cost: could delay launch by seasons, and "validated" needs someone to define it.'},
+    {id:'cap', label:'Fleet cap for the first year (e.g., 25 vehicles), lifted only by council review', cost:'Cost: caps the benefits too, accessibility rides, late-night safety, data from scale.'},
     {id:'responder', label:'A tested emergency-responder protocol, developed with the fire department, before day one', cost:'Cost: low. If you skipped this one, ask yourself why.'},
-    {id:'transit', label:'Transit integration: no operating in WTA\u2019s highest-ridership corridors during peak hours', cost:'Cost: protects the bus system by making the new service worse — riders pay the difference.'},
+    {id:'transit', label:'Transit integration: no operating in WTA\u2019s highest-ridership corridors during peak hours', cost:'Cost: protects the bus system by making the new service worse, riders pay the difference.'},
     {id:'jobs', label:'A per-ride fee funding transition support for displaced local drivers', cost:'Cost: raises fares; also concedes the displacement is coming.'},
     {id:'sunset', label:'A 12-month sunset clause: the permit expires unless renewed after public review', cost:'Cost: companies underinvest in cities that might evict them. Leverage cuts both ways.'}
   ];
@@ -393,10 +410,10 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     document.getElementById('leanbox').hidden=false;
     setBar('bar-yes',yes,total); setBar('bar-no',no,total); setBar('bar-neu',neu,total);
     var read;
-    if(total<cards.length) read='Marked '+total+' of '+cards.length+' — finish the docket before reading your lean.';
-    else if(yes-no>=3) read='Your evidence leans clearly <b>toward approval</b>. If your vote below isn\u2019t some form of yes, your writeup owes the room an explanation — sometimes a good one exists (one card can outweigh seven), but it must be named.';
+    if(total<cards.length) read='Marked '+total+' of '+cards.length+', finish the docket before reading your lean.';
+    else if(yes-no>=3) read='Your evidence leans clearly <b>toward approval</b>. If your vote below isn\u2019t some form of yes, your writeup owes the room an explanation, sometimes a good one exists (one card can outweigh seven), but it must be named.';
     else if(no-yes>=3) read='Your evidence leans clearly <b>toward denial or heavy conditions</b>. Same rule in reverse: an approval now needs a named reason that outweighs your own tally.';
-    else read='Your evidence is <b>genuinely mixed</b> — the honest position for most real councils. Mixed evidence is what conditions were invented for. Choose yours to answer the specific "no" cards.';
+    else read='Your evidence is <b>genuinely mixed</b>, the honest position for most real councils. Mixed evidence is what conditions were invented for. Choose yours to answer the specific "no" cards.';
     document.getElementById('leanread').innerHTML=read;
   }
   function setBar(id,n,total){
@@ -436,29 +453,29 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     var chosen=conds.filter(function(c){ return checked[c.id]; });
     var read='';
     if(decision==='approve'){
-      read='The council <b>approves</b> the application without conditions. You\u2019ve accepted the operator\u2019s own safety case and pre-offered terms as sufficient — which means when the first incident happens, the record shows this council asked for nothing. Own that in the writeup, or add conditions and re-issue.';
+      read='The council <b>approves</b> the application without conditions. You\u2019ve accepted the operator\u2019s own safety case and pre-offered terms as sufficient, which means when the first incident happens, the record shows this council asked for nothing. Own that in the writeup, or add conditions and re-issue.';
     } else if(decision==='deny'){
-      read='The council <b>denies</b> the application. A legitimate outcome — this course means that. The writeup burden: name the evidence that carried the denial, and name what would have to change for a future application to succeed. A denial with no path forward isn\u2019t a decision; it\u2019s an exit.';
+      read='The council <b>denies</b> the application. A legitimate outcome, this course means that. The writeup burden: name the evidence that carried the denial, and name what would have to change for a future application to succeed. A denial with no path forward isn\u2019t a decision; it\u2019s an exit.';
     } else if(decision==='delay'){
-      read='The council <b>delays</b> — revisit in 12 months. Honest when the evidence is mixed, but notice what it costs: the accessibility benefits wait a year too, and the operator\u2019s data will still be the operator\u2019s data next year. Your writeup should say what specific new evidence twelve months buys you.';
+      read='The council <b>delays</b>, revisit in 12 months. Honest when the evidence is mixed, but notice what it costs: the accessibility benefits wait a year too, and the operator\u2019s data will still be the operator\u2019s data next year. Your writeup should say what specific new evidence twelve months buys you.';
     } else {
       if(chosen.length===0){
-        read='The council approves "with conditions" — but selected none. That\u2019s an unconditional approval wearing a costume. Check the conditions you actually mean, or switch your vote to Approve and defend it straight.';
+        read='The council approves "with conditions", but selected none. That\u2019s an unconditional approval wearing a costume. Check the conditions you actually mean, or switch your vote to Approve and defend it straight.';
       } else if(chosen.length>=7){
-        read='The council approves with <b>'+chosen.length+' conditions</b> — nearly the whole menu. Fair warning from the chapter: a permit made entirely of conditions is often a denial in costume, and operators can read costumes. If you mean no, deny. If you mean yes, pick the conditions that answer your actual "no" cards: ';
+        read='The council approves with <b>'+chosen.length+' conditions</b>, nearly the whole menu. Fair warning from the chapter: a permit made entirely of conditions is often a denial in costume, and operators can read costumes. If you mean no, deny. If you mean yes, pick the conditions that answer your actual "no" cards: ';
       } else {
         read='The council approves with <b>'+chosen.length+' condition'+(chosen.length===1?'':'s')+'</b>: ';
       }
       if(chosen.length>0 && chosen.length<7){
         read+='<br><br>'+chosen.map(function(c){return '\u2022 '+c.label;}).join('<br>');
-        read+='<br><br>Each of those has the cost printed under it — your writeup defends the two that matter most.';
+        read+='<br><br>Each of those has the cost printed under it, your writeup defends the two that matter most.';
       } else if(chosen.length>=7){
         read+='<br><br>'+chosen.map(function(c){return '\u2022 '+c.label;}).join('<br>');
       }
     }
     var lean_ = yes-no;
     if((decision==='deny'&&lean_>=3)||(decision==='approve'&&lean_<=-3)){
-      read+='<br><br><b>Flag:</b> your vote runs against your own evidence lean. That can be legitimate — one card can outweigh seven — but the writeup must name which card, and why it carried that weight.';
+      read+='<br><br><b>Flag:</b> your vote runs against your own evidence lean. That can be legitimate, one card can outweigh seven, but the writeup must name which card, and why it carried that weight.';
     }
     document.getElementById('permit').hidden=false;
     document.getElementById('permitread').innerHTML=read;

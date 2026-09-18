@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chapter 7 · Transportation — Intro to AI in Business | MIS 201</title>
+<title>Chapter 7 · Transportation. Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -182,6 +182,30 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   .nav .navlinks{width:100%;justify-content:flex-start}
   .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
 }
+figure.diagram{margin:22px 0}
+figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;margin-top:8px}
+
+/* print */
+.printbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 6px;font-size:.9rem;color:var(--gray)}
+.printbar button{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border:none;border-radius:6px;cursor:pointer}
+.printbar button:hover{background:#242C36}
+@media print{
+  nav,.topnav,.printbar,.nextbar,footer.foot{display:none !important}
+  body{background:#fff;color:#000}
+  main.wrap{max-width:none;padding:0}
+  header.masthead{background:#fff !important;color:#000 !important;padding:0 0 12px}
+  header.masthead h1,header.masthead .kicker,header.masthead .eyebrow{color:#000 !important}
+  header.masthead h1 b{color:#000 !important}
+  a{color:#000;text-decoration:none}
+  a.inline::after{content:" (" attr(href) ")";font-size:.75em;color:#555;word-break:break-all}
+  details{display:block}
+  details>summary{list-style:none}
+  details:not([open])>*:not(summary){display:block}
+  .concept,.callout,.term-card,.ticket,figure.diagram{break-inside:avoid;page-break-inside:avoid}
+  .concept{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  h2,h3{break-after:avoid;page-break-after:avoid}
+  svg{max-width:100% !important}
+}
 </style>
 </head>
 <body>
@@ -198,9 +222,9 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <div class="dd-menu" id="ddc">
 <a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
 <a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
-<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 4</span>Medicine</a>
-<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 5</span>Environment</a>
-<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · optional</span>Systems That Want You</a>
+<a href="chapter-03-systems.html"><span class="lbl">Chapter 3 · Week 3</span>Systems That Know You</a>
+<a href="chapter-04-medicine.html"><span class="lbl">Chapter 4 · Week 4</span>Medicine</a>
+<a href="chapter-05-environment.html"><span class="lbl">Chapter 5 · Week 5</span>Environment</a>
 <a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
 <a href="chapter-07-transportation.html" class="current" aria-current="page"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
 <a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
@@ -213,17 +237,13 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <div class="dd-menu" id="ddl">
 <a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
 <a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
-<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test</a>
-<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 4</span>Inside the Graph</a>
-<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 5</span>The Footprint Machine</a>
-<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · optional</span>Play the Algorithm</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test and the Feed</a>
+<a href="chapter-04-medicine-lab.html"><span class="lbl">Lab 4 · Week 4</span>Inside the Graph</a>
+<a href="chapter-05-environment-lab.html"><span class="lbl">Lab 5 · Week 5</span>The Footprint Machine</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
-<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
+<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
 <a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
-<a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 10 · take-home</span>The Phantom Docket</a>
-<a href="exposure-audit.html"><span class="lbl">Self-guided · pairs with Chapter 9</span>The Exposure Audit</a>
-<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · last class</span>First Contact, Revisited</a>
 </div></div>
     </div>
   </div>
@@ -232,110 +252,310 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <header class="masthead">
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Chapter 7</div>
-    <h1>Transportation: Two Answers to One <b>Question</b></h1>
-    <p class="kicker">This week we look at the same industry giving two opposite answers to our second Monday question. In an airline's dispatch center, AI advises and a human decides. On the streets of ten American cities, the human is gone from the driver's seat entirely. Both are running, at scale, right now.</p>
-    <p class="factline">Alaska Airlines' Flyways · Waymo's 400,000 rides a week · where is the human?</p>
+    <h1>Transportation: The Empty <b>Driver's</b> Seat</h1>
+    <p class="kicker">This chapter is about AI that acts in the physical world, where a wrong answer has mass and momentum, and about the one question that decides whether we trust it: where is the human? We'll learn how a robotaxi actually drives, the three places a person can stand relative to a machine, why the middle one is a trap, and how to read a safety claim. Then the case: Waymo, the driverless taxi that arrived city by city while everyone was still saying it was five years away.</p>
+    <p class="factline">How a robotaxi drives · in, on, and out of the loop · the handoff problem · reading a safety claim · Waymo</p>
   </div>
 </header>
 
 <main class="wrap">
 
+<div class="printbar">
+  <button type="button" onclick="document.querySelectorAll('details').forEach(function(d){d.open=true});window.print()">Wanna go analog? Print this chapter</button>
+  <span>Links print with their web addresses; the try-it answers print open.</span>
+</div>
+
 <div class="contents">
-  <div class="label">In this chapter</div>
-  <ol>
-    <li><a href="#s1">Two rides</a></li>
-    <li><a href="#s2">Case one: the advisor in the dispatch center</a></li>
-    <li><a href="#s3">Case two: the empty driver's seat</a></li>
-    <li><a href="#s4">The spectrum: in, on, and out of the loop</a></li>
-    <li><a href="#s5">Question it &amp; decide</a></li>
-    <li><a href="#s6">Key terms</a></li>
-    <li><a href="#s7">Discussion questions</a></li>
+  <div class="label">Learning objectives</div>
+  <ol type="1">
+<li>Walk through the loop a robotaxi runs every fraction of a second, and name which steps are predictive AI and which make it embodied.</li>
+<li>Place any AI system on the in, on, or out-of-the-loop spectrum, and explain why the middle position is often the most dangerous.</li>
+<li>Explain results-based trust, and why whoever keeps the track record holds the power.</li>
+<li>Take apart a per-mile safety claim: what it compares, what it leaves out, and who counted.</li>
+<li>Explain the operational design domain and the long tail, and why together they make the coverage map the safety design rather than a limitation.</li>
+<li>Run the five critical AI questions on Waymo and turn a position into permit conditions with costs attached.</li>
   </ol>
 </div>
 
 <section id="s1">
   <div class="shead"><span class="num">1</span><h2>Two rides</h2></div>
   <p class="lead">Ride one: you're on an Alaska Airlines flight. Somewhere in a Seattle operations center, an AI system called Flyways has studied the weather, the traffic, and thousands of past flights, and suggested a better route for your plane. A human dispatcher looked at the suggestion and decided whether to take it. You never knew any of this happened.</p>
-  <p class="lead">Ride two: you're in Phoenix, or San Francisco, or Austin, and you hail a taxi. It arrives with no one in it. The steering wheel turns by itself. There is no human to look at anything, decide anything, or grab anything. You know exactly what's happening — that's the product.</p>
-  <p>Same industry. Same safety-critical stakes. Opposite designs. This chapter is a controlled experiment that reality ran for us: hold the domain constant, move the human, and watch what changes — in trust, in accountability, and in what failure looks like. By Friday, the lab hands the whole question to you, wearing a city council member's badge.</p>
+  <p class="lead">Ride two: you're in Phoenix, or San Francisco, or Austin, and you hail a taxi. It arrives with no one in it. The steering wheel turns by itself. There is no human to look at anything, decide anything, or grab anything. You know exactly what's happening; that's the product.</p>
+  <p>Same industry. Same safety-critical stakes. Opposite designs. This chapter is a controlled experiment that reality ran for us: hold the domain constant, move the human, and watch what changes in trust, in accountability, and in what failure looks like. By Wednesday, the lab hands the whole question to you, wearing a city council member's badge.</p>
 </section>
 
 <section id="s2">
-  <div class="shead"><span class="num">2</span><h2>Case one: the advisor in the dispatch center</h2></div>
-  <p>Airlines route flights through some of the most complicated conditions in business: shifting weather, congested airspace, fuel costs, connection times. Alaska Airlines worked with a company called Air Space Intelligence to build <em>Flyways</em>, an AI system that continuously evaluates routes and flags better options to the airline's human dispatchers — a few minutes saved here, a smoother ride there, fuel not burned. Multiplied across an airline's schedule, small percentages become real money and real emissions — Alaska says <a class="inline" href="https://www.npr.org/2026/08/10/nx-s1-5872752/airspace-reboot-alaska-airlines-flyways" target="_blank" rel="noopener">tens of thousands of flight hours and roughly a million gallons of fuel a year</a>. And the model just scaled: the FAA recently awarded Air Space Intelligence an $875 million contract to help modernize the nation's entire airspace — the dispatcher's advisor, promoted to the national level, with the same design question riding along.</p>
-  <p>Notice the design decision, because it's the whole case: Flyways <em>recommends</em>. Licensed human dispatchers accept or reject every suggestion, and the legal responsibility for each flight plan stays with humans. This is predictive AI in the advisor's seat — the same species of system as EveryCure's, pointed at airspace instead of medicine.</p>
-  <p>And the human story inside it is the honest part. Dispatchers are experienced professionals; when the system first arrived, many didn't trust it, and some suggestions got rejected simply because a machine made them. What changed minds wasn't an explanation of the algorithm — dispatchers can't see inside it any more than we can. What changed minds was a track record. The suggestions kept being good. Trust arrived through results, not understanding. Hold that distinction; it's about to matter enormously.</p>
+  <div class="shead"><span class="num">2</span><h2>The concepts: the loop that drives, and where the human stands</h2></div>
+
+  <h3 class="sub"><span>2.1</span> How a robotaxi drives</h3>
+  <p>Start with what's actually happening in that empty driver's seat, because most of the public argument skips it. A robotaxi runs the loop from Chapter 1's agent section, about ten times a second, for the whole ride. Sensors first: cameras, lidar (a spinning laser that measures distance), and radar, producing a firehose of pixels and points. Then <strong>perception</strong>: models trained on millions of labeled scenes turn that firehose into objects with names, a pedestrian here, a cyclist there, a school bus, a lane line. Then <strong>prediction</strong>: for every object, the car estimates what it will do over the next few seconds, a fan of possible futures with weights on them. Then <strong>planning</strong>: pick a path and a speed that keeps a safe margin from all of those futures. Then <strong>act</strong>: steer, brake, throttle. And again.</p>
+  <p>Two things to notice. Steps two and three are predictive AI, Chapter 1's Moment 1 at highway speed, and they're where almost every hard problem lives: a bus that looks like a truck, a child who might step off the curb, a construction cone in a spot the map didn't expect. Step five is what makes the system <strong>embodied</strong>: a wrong label in step two becomes a wrong turn of the wheel in step five, with the car's mass behind it. A chatbot that mislabels something writes a wrong sentence. A car that mislabels something has momentum.</p>
+  <p>And notice what isn't there: a step where a person is asked. Waymo does have remote assistants, but they answer a stuck car's questions ("is this construction zone passable?"); they don't drive it. That's a design choice, and the rest of this chapter is about it.</p>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tra-t tra-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="tra-t">How a robotaxi drives: sense, perceive, predict, plan, act, many times a second</title>
+      <desc id="tra-d">Five boxes in a row. Sense: cameras, lidar, and radar produce a stream of raw data. Perceive: models label what is around the car, such as a pedestrian, a cyclist, a school bus, a lane line. Predict: for each of them, the car estimates what it will do in the next few seconds. Plan: the car picks a path and speed that keeps a safe margin from all of those predictions. Act: steering, brake, and throttle. An arrow loops from Act back to Sense, labeled about ten times a second. A note says there is no step where a person is asked.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">1 · SENSE</text>
+      <rect x="14" y="32" width="132" height="150" rx="6" fill="#0E1116"/><text x="80" y="62" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#FFFFFF" text-anchor="middle">cameras</text><text x="80" y="80" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#FFFFFF" text-anchor="middle">lidar</text><text x="80" y="98" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#FFFFFF" text-anchor="middle">radar</text><text x="80" y="130" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#9AA1AB" text-anchor="middle">a firehose of</text><text x="80" y="144" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#9AA1AB" text-anchor="middle">raw points and</text><text x="80" y="158" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#9AA1AB" text-anchor="middle">pixels</text>
+      <path d="M150,107 L172,107" stroke="#14181D" stroke-width="1.5" marker-end="url(#tra-ar)"/><defs><marker id="tra-ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#14181D"/></marker></defs>
+      <text x="176" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">2 · PERCEIVE</text>
+      <rect x="176" y="32" width="132" height="150" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="242" y="62" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" text-anchor="middle">models label</text><text x="242" y="80" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" text-anchor="middle">what's there:</text><text x="242" y="106" font-family="Inter,Arial,sans-serif" font-size="11" fill="#D61F69" text-anchor="middle">pedestrian</text><text x="242" y="122" font-family="Inter,Arial,sans-serif" font-size="11" fill="#D61F69" text-anchor="middle">cyclist</text><text x="242" y="138" font-family="Inter,Arial,sans-serif" font-size="11" fill="#D61F69" text-anchor="middle">school bus</text><text x="242" y="154" font-family="Inter,Arial,sans-serif" font-size="11" fill="#D61F69" text-anchor="middle">lane line</text>
+      <path d="M312,107 L334,107" stroke="#14181D" stroke-width="1.5" marker-end="url(#tra-ar)"/>
+      <text x="338" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">3 · PREDICT</text>
+      <rect x="338" y="32" width="132" height="150" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="404" y="62" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" text-anchor="middle">for each one:</text><text x="404" y="80" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" text-anchor="middle">what will it do</text><text x="404" y="96" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" text-anchor="middle">in the next</text><text x="404" y="112" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" text-anchor="middle">few seconds?</text><text x="404" y="144" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle" font-style="italic">a fan of possible</text><text x="404" y="158" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle" font-style="italic">futures, weighted</text>
+      <path d="M474,107 L496,107" stroke="#14181D" stroke-width="1.5" marker-end="url(#tra-ar)"/>
+      <text x="500" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">4 · PLAN</text>
+      <rect x="500" y="32" width="132" height="150" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="566" y="62" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" text-anchor="middle">pick a path and</text><text x="566" y="80" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" text-anchor="middle">speed that keeps</text><text x="566" y="96" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" text-anchor="middle">a safe margin</text><text x="566" y="112" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" text-anchor="middle">from all of them</text><text x="566" y="144" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle" font-style="italic">rules plus learned</text><text x="566" y="158" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle" font-style="italic">driving behavior</text>
+      <path d="M636,107 L658,107" stroke="#14181D" stroke-width="1.5" marker-end="url(#tra-ar)"/>
+      <text x="662" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">5 · ACT</text>
+      <rect x="662" y="32" width="84" height="150" rx="6" fill="#FF3D8A"/><text x="704" y="78" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#FFFFFF" text-anchor="middle">steer</text><text x="704" y="98" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#FFFFFF" text-anchor="middle">brake</text><text x="704" y="118" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#FFFFFF" text-anchor="middle">throttle</text>
+      <path d="M704,186 L704,222 L80,222 L80,188" fill="none" stroke="#FF3D8A" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#tra-ar2)"/><defs><marker id="tra-ar2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#FF3D8A"/></marker></defs>
+      <text x="392" y="240" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#D61F69" text-anchor="middle" font-style="italic">and again, roughly ten times every second, for the whole ride</text>
+      <text x="14" y="272" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">Steps 2 and 3 are predictive AI, Chapter 1's Moment 1 at highway speed. Step 5 is what makes it embodied: a wrong label in step 2</text><text x="14" y="288" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">becomes a wrong turn of the wheel in step 5. There is no step where a person is asked.</text>
+      <text x="14" y="310" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" font-style="italic">Remote assistants can answer a stuck car's question (&quot;is this construction zone passable?&quot;); they don't drive it.</text>
+    </svg>
+    <figcaption>How a robotaxi drives. The loop from Chapter 1's agent section, with sensors for eyes and a steering wheel for hands. Everything hard about the case lives in steps 2 and 3: a bus that looks like a truck, a child who might step off the curb.</figcaption>
+  </figure>
+
   <div class="concept">
-    <div class="term">Results-based vs. understanding-based trust</div>
-    <p>We trust some things because we understand how they work, and others because they keep working. Almost all trust in AI systems — including the dispatchers', including ours — is results-based. The question this chapter keeps asking: how many good results should it take, and who's keeping the count?</p>
+    <div class="term">Embodied AI</div>
+    <p>AI that acts in the physical world through sensors and actuators. What people get wrong: they think the hard part is the driving. The hard part is perception and prediction, the same pattern-matching as every other predictive system, with the difference that a mistake here has mass and momentum.</p>
+  </div>
+
+  <h3 class="sub"><span>2.2</span> Where the human stands: in, on, and out of the loop</h3>
+  <p>Our second question, <em>where is the human?</em>, has been binary so far. This chapter upgrades it to a spectrum with three positions.</p>
+  <p><strong>In the loop:</strong> the AI proposes, a human disposes, and nothing happens without sign-off. Every Cure's doctors. And the first ride in this chapter: Alaska Airlines worked with a company called Air Space Intelligence to build <em>Flyways</em>, an AI system that evaluates routes and flags better options to the airline's human dispatchers. Alaska says it saves <a class="inline" href="https://www.npr.org/2026/08/10/nx-s1-5872752/airspace-reboot-alaska-airlines-flyways" target="_blank" rel="noopener">tens of thousands of flight hours and roughly a million gallons of fuel a year</a>, and the FAA has since hired the same company, on an $875 million contract, to help modernize the national airspace. The design decision is the whole point: Flyways <em>recommends</em>. Licensed dispatchers accept or reject every suggestion, and responsibility for each flight plan stays with humans.</p>
+  <p><strong>On the loop:</strong> the AI acts on its own, and a human supervises, ready to intervene. This sounds like the best of both worlds. It's often the worst seat in the house, because humans are famously bad at staying vigilant while monitoring a system that's almost always right. Attention decays. The takeover comes precisely at the hardest moment. Ask anyone who has studied a driver "supervising" a car that mostly drives itself.</p>
+  <p><strong>Out of the loop:</strong> the AI acts, and no human is positioned to intervene in the moment. Waymo, deliberately. The design bet is that removing the unreliable human beats keeping a badly positioned one.</p>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="trb-t trb-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="trb-t">Three places a human can stand: in, on, or out of the loop</title>
+      <desc id="trb-d">Three panels. In the loop: the AI proposes, a person approves, then the action happens; example, Flyways and its dispatchers. On the loop: the AI acts, a person watches, ready to grab control; example, a driver supervising a car that mostly drives itself. Out of the loop: the AI acts, no person is positioned to intervene in the moment; example, Waymo. A note under the middle panel says this seat looks safest and is often the most dangerous.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">IN THE LOOP</text>
+      <rect x="14" y="32" width="230" height="200" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <rect x="34" y="56" width="90" height="34" rx="5" fill="#0E1116"/><text x="79" y="77" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle">AI proposes</text>
+      <path d="M124,73 L142,73" stroke="#14181D" stroke-width="1.5" marker-end="url(#trb-ar)"/><defs><marker id="trb-ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#14181D"/></marker></defs>
+      <rect x="146" y="56" width="78" height="34" rx="5" fill="#E4FF32"/><text x="185" y="77" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" font-weight="700" text-anchor="middle">person</text>
+      <path d="M185,92 L185,112" stroke="#14181D" stroke-width="1.5" marker-end="url(#trb-ar)"/>
+      <rect x="140" y="116" width="90" height="34" rx="5" fill="#FFFFFF" stroke="#14181D"/><text x="185" y="137" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">action</text>
+      <text x="129" y="178" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle">nothing happens without sign-off</text><text x="129" y="196" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">Flyways. Every Cure. The human is the gate.</text><text x="129" y="218" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle" font-style="italic">slow, and it holds</text>
+      <text x="265" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">ON THE LOOP</text>
+      <rect x="265" y="32" width="230" height="200" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <rect x="285" y="56" width="90" height="34" rx="5" fill="#0E1116"/><text x="330" y="77" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle">AI acts</text>
+      <path d="M375,73 L393,73" stroke="#14181D" stroke-width="1.5" marker-end="url(#trb-ar)"/>
+      <rect x="397" y="56" width="78" height="34" rx="5" fill="#FFFFFF" stroke="#14181D"/><text x="436" y="77" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">action</text>
+      <rect x="341" y="112" width="78" height="34" rx="5" fill="#E4FF32"/><text x="380" y="133" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" font-weight="700" text-anchor="middle">person</text>
+      <path d="M380,110 L380,96" stroke="#9AA1AB" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#trb-ar3)"/><defs><marker id="trb-ar3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#9AA1AB"/></marker></defs>
+      <text x="380" y="164" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle">watches, ready to grab control</text><text x="380" y="182" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">a driver &quot;supervising&quot; a car that mostly drives itself</text>
+      <text x="380" y="208" font-family="Inter,Arial,sans-serif" font-size="10" fill="#D61F69" text-anchor="middle" font-style="italic">looks safest. often the worst seat:</text><text x="380" y="222" font-family="Inter,Arial,sans-serif" font-size="10" fill="#D61F69" text-anchor="middle" font-style="italic">attention decays, the handoff comes mid-crisis</text>
+      <text x="516" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">OUT OF THE LOOP</text>
+      <rect x="516" y="32" width="230" height="200" rx="6" fill="#0E1116"/>
+      <rect x="536" y="56" width="90" height="34" rx="5" fill="#FF3D8A"/><text x="581" y="77" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle">AI acts</text>
+      <path d="M626,73 L644,73" stroke="#C9CED6" stroke-width="1.5" marker-end="url(#trb-ar4)"/><defs><marker id="trb-ar4" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#C9CED6"/></marker></defs>
+      <rect x="648" y="56" width="78" height="34" rx="5" fill="none" stroke="#C9CED6"/><text x="687" y="77" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#C9CED6" text-anchor="middle">action</text>
+      <text x="631" y="130" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#C9CED6" text-anchor="middle">no person positioned to</text><text x="631" y="146" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#C9CED6" text-anchor="middle">intervene in the moment</text><text x="631" y="176" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#E4FF32" text-anchor="middle">Waymo, on purpose</text>
+      <text x="631" y="204" font-family="Inter,Arial,sans-serif" font-size="10" fill="#9AA1AB" text-anchor="middle" font-style="italic">the bet: removing the unreliable human</text><text x="631" y="218" font-family="Inter,Arial,sans-serif" font-size="10" fill="#9AA1AB" text-anchor="middle" font-style="italic">beats keeping a badly placed one</text>
+      <text x="14" y="270" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">Same question as always, where is the human, but now it has three answers, and the middle one is a trap.</text>
+    </svg>
+    <figcaption>In, on, and out of the loop. The middle panel is the one that sounds like common sense and fails in practice, which is why the safest and least safe designs both skip it.</figcaption>
+  </figure>
+
+  <div class="concept">
+    <div class="term">In, on, and out of the loop</div>
+    <p>The three human positions: gatekeeper, supervisor, absent. What people get wrong: they assume more human involvement is always safer. The supervisor seat can be the least safe of the three, because it asks a person to do the one thing people are worst at: pay full attention to something that almost never needs it.</p>
+  </div>
+
+  <h3 class="sub"><span>2.3</span> The handoff problem</h3>
+  <p>The middle of the spectrum hides a trap with a name. A system that's reliable enough to lull its supervisor but not reliable enough to be left alone produces the <strong>handoff problem</strong>: the moment the machine gives up and hands control to a person is, by definition, the hardest moment of the drive, and the person has had nothing to do for the last forty minutes. Reaction time, situational awareness, and the sense of what the car was about to do are all at their lowest exactly when they're needed most.</p>
+  <p>This is why Waymo skipped the middle rather than passing through it. It's also why "a human is always monitoring" is not the reassurance it sounds like. The question to ask about any on-the-loop design is not whether a person is watching but what happens in the three seconds after the machine says "your turn."</p>
+  <div class="concept">
+    <div class="term">The handoff problem</div>
+    <p>Machine-to-human transfers under pressure fail exactly when they matter most. What people get wrong: they picture the handoff as a safety net. It's a cliff edge, and the person standing at it has been asleep.</p>
+  </div>
+
+  <h3 class="sub"><span>2.4</span> Results-based trust, and how to read a safety claim</h3>
+  <p>When Flyways arrived, many dispatchers didn't trust it. What changed their minds wasn't an explanation of the algorithm, which they can't see inside any more than we can. It was a track record. The suggestions kept being good. That's <strong>results-based trust</strong>: we trust some things because we understand how they work, and others because they keep working, and almost all trust in AI, including ours, is the second kind. Hold that, because it has a consequence: if trust comes from the track record, then whoever keeps the track record holds the power.</p>
+  <p>Now scale it up. Flyways had to earn the trust of a few hundred professionals who could check its work personally. Waymo has to earn the trust of everyone: riders, other drivers, pedestrians, parents at bus stops, most of whom will never read a safety report. The company's argument is statistical, and it deserves to be read carefully rather than accepted or dismissed. "Fewer crashes per mile than human drivers" compares the robotaxi's crashes, on the roads it chose, in the weather it handles, counted by the company, against a human average that includes drunk, distracted, and exhausted drivers, counted by regulators. Every clause in that sentence is a Question 4. None of it makes the claim false. All of it makes the claim smaller than the headline.</p>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="trc-t trc-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="trc-t">Why per-mile crash comparisons are hard to read</title>
+      <desc id="trc-d">Two bars side by side, drawn without numbers. A short bar labeled robotaxi, crashes per million miles, its own data. A taller bar labeled human drivers, crashes per million miles. Three callouts point at the comparison: the human bar includes drunk, distracted, and exhausted drivers; the robotaxi drove only in mapped cities and good weather; and the robotaxi number was counted by the company. A note says the honest version of the claim is: fewer crashes than the average human, on the roads it chose, by its own count.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">THE CLAIM: &quot;fewer crashes per mile than humans&quot;</text>
+      <line x1="70" y1="200" x2="380" y2="200" stroke="#E3E3DD"/>
+      <rect x="100" y="140" width="90" height="60" fill="#0E1116"/><text x="145" y="222" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" text-anchor="middle">robotaxi</text><text x="145" y="236" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">company's own count</text>
+      <rect x="240" y="70" width="90" height="130" fill="#9AA1AB"/><text x="285" y="222" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" text-anchor="middle">human drivers</text><text x="285" y="236" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">everyone, everywhere</text>
+      <text x="92" y="128" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="end">crashes per</text><text x="92" y="140" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="end">million miles</text>
+      <rect x="420" y="40" width="326" height="52" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="432" y="60" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D">the human bar includes drunk, distracted,</text><text x="432" y="76" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D">and exhausted drivers: a low bar to clear</text>
+      <rect x="420" y="102" width="326" height="52" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="432" y="122" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D">the robotaxi drove only in mapped cities,</text><text x="432" y="138" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D">on chosen routes, in weather it handles</text>
+      <rect x="420" y="164" width="326" height="52" rx="6" fill="#FF3D8A"/><text x="432" y="184" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#FFFFFF">the robotaxi number was counted by the company</text><text x="432" y="200" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#FFFFFF">that sells the rides; the human number by regulators</text>
+      <path d="M418,66 L336,110" stroke="#9AA1AB" stroke-width="1" stroke-dasharray="3 3"/><path d="M418,128 L192,150" stroke="#9AA1AB" stroke-width="1" stroke-dasharray="3 3"/><path d="M418,190 L192,175" stroke="#9AA1AB" stroke-width="1" stroke-dasharray="3 3"/>
+      <text x="14" y="252" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">The honest version: fewer crashes than the average human, on the roads it chose, by its own count. Each clause is a Question 4.</text>
+    </svg>
+    <figcaption>Reading the safety claim. The bars aren't fake, and neither are the callouts. What would settle it is independent crash data on matched roads, which is what regulators' reports are slowly building.</figcaption>
+  </figure>
+
+  <p>Surveys still find a majority of Americans say they'd be afraid to ride in a self-driving car. The technology's coverage map is expanding faster than the trust map, and which one decides how this goes isn't a technical question. It's Wednesday's.</p>
+  <div class="concept">
+    <div class="term">Results-based trust</div>
+    <p>Trust earned by track record rather than understanding. What people get wrong: they treat "it's been safe so far" as the end of the argument. It's the start: safe compared to what, where, and according to whom?</p>
+  </div>
+
+
+  <h3 class="sub"><span>2.5</span> The coverage map: operational design domain</h3>
+  <p>Chapter 9 will say that a general-purpose technology arrives through reorganization, not a switch. Here's what that looks like on the ground: a robotaxi company doesn't launch everywhere. It defines an <strong>operational design domain</strong>, the set of conditions the system is approved to handle, and earns it one piece at a time. Which roads: mapped in detail, to the centimeter, and updated constantly, which is why a service launches in one city and not the next one over. Which speeds: surface streets first; freeways came years later. Which weather: rain, mostly yes; fog and snow, mostly not yet. Which hours, expanded as the track record grows.</p>
+  <p>At the edge of the domain the car does something people find either reassuring or maddening: it stops, or it asks. This is where remote assistance actually lives. A car that meets a construction zone its map doesn't know can pull over and put a question to a person in an operations center, "is this passable?" The person answers; the car drives. That's a human on the loop for one decision, not a human driving, and the distinction matters for Chapter 6's accountability question: the remote assistant is not a driver, and the company has said so in court and in filings.</p>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="odd-t odd-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="odd-t">The operational design domain: the future arrives with a coverage map</title>
+      <desc id="odd-d">Left, a stylized city map with a shaded service area and an unshaded rest; inside the shaded area, labels: mapped in detail, tested weather, known speeds, freeway added later, airport added later. Outside: unmapped, snow, unmarked roads. Right, a checklist of what defines the domain: roads, speeds, weather, time of day, and what the car does at the edge: it stops or hands off. A note says expansion is a series of permits, one domain at a time.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">ONE CITY'S SERVICE AREA</text>
+      <rect x="14" y="32" width="380" height="230" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <path d="M70,80 L250,60 L340,120 L330,220 L180,240 L60,190 Z" fill="#FFE1EC" stroke="#FF3D8A" stroke-width="2"/>
+      <line x1="30" y1="150" x2="380" y2="150" stroke="#E3E3DD"/><line x1="200" y1="40" x2="200" y2="255" stroke="#E3E3DD"/><line x1="30" y1="100" x2="380" y2="100" stroke="#E3E3DD"/><line x1="120" y1="40" x2="120" y2="255" stroke="#E3E3DD"/><line x1="290" y1="40" x2="290" y2="255" stroke="#E3E3DD"/>
+      <text x="200" y="130" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" font-weight="700" text-anchor="middle">mapped in detail</text><text x="200" y="146" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">tested weather · known speeds</text><text x="200" y="176" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#D61F69" text-anchor="middle" font-style="italic">freeway: added later</text><text x="200" y="190" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#D61F69" text-anchor="middle" font-style="italic">airport: added later</text>
+      <text x="50" y="60" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#9AA1AB" font-style="italic">unmapped</text><text x="360" y="240" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#9AA1AB" text-anchor="end" font-style="italic">snow</text><text x="50" y="240" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#9AA1AB" font-style="italic">unmarked roads</text>
+      <text x="414" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">WHAT DEFINES THE DOMAIN</text>
+      <rect x="414" y="32" width="332" height="230" rx="6" fill="#0E1116"/>
+      <text x="430" y="60" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" font-weight="700">which roads</text><text x="430" y="76" font-family="Inter,Arial,sans-serif" font-size="10" fill="#C9CED6">mapped to the centimeter, updated constantly</text>
+      <text x="430" y="104" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" font-weight="700">which speeds</text><text x="430" y="120" font-family="Inter,Arial,sans-serif" font-size="10" fill="#C9CED6">surface streets first, freeways years later</text>
+      <text x="430" y="148" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" font-weight="700">which weather</text><text x="430" y="164" font-family="Inter,Arial,sans-serif" font-size="10" fill="#C9CED6">rain yes, fog and snow mostly no, so far</text>
+      <text x="430" y="192" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" font-weight="700">which hours</text><text x="430" y="208" font-family="Inter,Arial,sans-serif" font-size="10" fill="#C9CED6">expanded as the track record grows</text>
+      <text x="430" y="240" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#E4FF32" font-style="italic">at the edge: the car stops, or asks for help</text>
+      <text x="14" y="290" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">The company doesn't ship everywhere; it earns one domain at a time, and each expansion is a permit. That's why the future has a coverage map.</text>
+    </svg>
+    <figcaption>The operational design domain. What looks like caution from outside is the product: a car that knows exactly where it is allowed to be confident, and stops where it isn't.</figcaption>
+  </figure>
+
+  <p>The coverage map is also why the case can't be settled by a single statistic. Waymo's crash rate is a crash rate inside its domain, on roads it chose, in weather it handles. That's not cheating; it's what the domain means. But it's why "safer than humans" and "safer than humans on these streets, in this weather, by this count" are different sentences, and section 2.4 is about the difference.</p>
+  <div class="concept">
+    <div class="term">Operational design domain</div>
+    <p>The mapped conditions, cities, streets, weather, hours, that a driverless system is approved to handle, with defined behavior at the edge. What people get wrong: they read a small domain as a failure. It's the safety design. The failure would be a domain the car doesn't know it's left.</p>
+  </div>
+
+  <h3 class="sub"><span>2.6</span> The long tail: why the last few percent is the hard part</h3>
+  <p>If the system is excellent at lanes, lights, and pedestrians, what's left? The <strong>long tail</strong>: the rare situations that make up almost none of the miles and almost all of the failures. A school bus with its stop arm out at an odd angle. A person in a costume that no training image looked like. A flooded street that reads as pavement. A police officer directing traffic by hand, contradicting the light. Each is rare. Together, at hundreds of thousands of rides a week, they happen every day.</p>
+  <p>The school-bus recall is a tail event, worked. Perception, step two of section 2.1, has to recognize a bus, read whether its stop arm is out, and understand that the rule is different for that vehicle than for any other: you stop, in both directions, no matter what the light says. The system had seen many buses. It had not handled every angle and every partial view of a stop arm the way a human driver who grew up riding buses does without thinking. Reports came in, the company found the gap, and the fix was a software update that added the case to the left side of the curve. That's how the tail gets shorter: one filmed failure at a time.</p>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="lt-t lt-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="lt-t">The long tail: why the last few percent of driving is the hard part</title>
+      <desc id="lt-d">A curve that starts very high on the left and falls to a long, nearly flat tail on the right. The left, labeled common situations: lanes, lights, stopped cars, pedestrians at crossings, is where almost all miles are and where the system is excellent. The tail, labeled rare situations: a school bus with its stop arm out at an odd angle, a person in a costume, a flooded street, a hand signal from a police officer, is where almost no miles are and where the failures live. A note says a system can be right 99.99 percent of the time and still fail every day at scale.</desc>
+      <line x1="60" y1="210" x2="720" y2="210" stroke="#E3E3DD"/><line x1="60" y1="210" x2="60" y2="40" stroke="#E3E3DD"/>
+      <path d="M60,50 C120,60 160,150 260,190 C400,208 600,209 720,210" fill="none" stroke="#0E1116" stroke-width="3"/>
+      <text x="52" y="46" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="end">how often</text><text x="120" y="232" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">common situations</text><text x="560" y="232" font-family="Inter,Arial,sans-serif" font-size="10" fill="#D61F69" text-anchor="middle">rare situations: the long tail</text>
+      <text x="200" y="90" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D">lanes, lights, stopped cars,</text><text x="200" y="106" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D">pedestrians at crossings</text><text x="200" y="126" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" font-style="italic">almost all the miles. the system is</text><text x="200" y="140" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" font-style="italic">excellent here, better than most people</text>
+      <text x="430" y="120" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#D61F69">a school bus with its stop arm out</text><text x="430" y="136" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#D61F69">at an odd angle · a person in a costume</text><text x="430" y="152" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#D61F69">a flooded street · a police officer's hand signal</text>
+      <text x="430" y="176" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" font-style="italic">almost none of the miles. every failure lives here,</text><text x="430" y="190" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" font-style="italic">and there is always another one</text>
+      <text x="14" y="262" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">Right 99.99 percent of the time sounds like done. At hundreds of thousands of rides a week, it means something goes wrong every day, on camera.</text>
+    </svg>
+    <figcaption>The long tail. The school-bus recall was a tail event: rare, filmed, and fixed with a software update that adds one more case to the left side of the curve. The tail doesn't end; it gets shorter.</figcaption>
+  </figure>
+
+  <p>Two things follow. First, "99.99 percent" is not a finish line for embodied AI, because the remaining fraction is multiplied by every mile, and every failure is public. Second, this is the strongest argument for the coverage map and against on-the-loop designs: the tail is exactly where the handoff would happen, and exactly where the supervising human, lulled by ten thousand ordinary miles, is least ready.</p>
+  <div class="concept">
+    <div class="term">The long tail</div>
+    <p>The rare situations that hold almost none of the miles and almost all of the failures. What people get wrong: they judge a system by the common case, where it's excellent. Ask what it does with the costume, the flood, and the hand signal, because that's where the recall comes from.</p>
+  </div>
+
+  <h3 class="sub"><span>2.7</span> Who's counting: the track record's keeper</h3>
+  <p>Put sections 2.4 through 2.6 together and one question is left over: who keeps the count? Right now, mostly the company. It logs every mile, every disengagement, every contact. Some of that goes to regulators, who publish crash reports on a schedule; some goes into the company's own safety analyses, which compare its rates to human benchmarks; and some stays inside. Independent researchers work with what's published, which is why the public argument runs on a mix of company statistics and bystander video, neither of which is the dataset you'd want.</p>
+  <p>This is Chapter 11's question arriving early: whether the keeper of the track record should be the company, the state, or a third party with access to the raw data. It's also the most concrete permit condition a city can write, and Wednesday's lab prices it: require crash and disengagement reporting to the city, on the city's schedule, in a format someone can check. It costs the company privacy about its failures. It buys the city the only thing that turns "trust us" into a track record.</p>
+
+  <div class="callout tryit">
+    <div class="label">Try it · practice for Friday's quiz. Five systems: is the human in, on, or out of the loop? Decide, then click to check.</div>
+    <details><summary>1. A radiologist reads every scan; software highlights spots she might have missed.</summary><p>In the loop. The software proposes, the radiologist disposes. Nothing leaves the room without her sign-off.</p></details>
+    <details><summary>2. A warehouse robot moves pallets on its own; a technician on the floor can hit a stop button.</summary><p>Out of the loop in the moment, with a person on the loop for emergencies. The robot decides each move; the stop button is the handoff, and it works only if someone is looking.</p></details>
+    <details><summary>3. Highway driving mode steers and brakes; the manual says to keep your hands on the wheel and eyes on the road.</summary><p>On the loop, and the textbook handoff problem. The car does the work until it can't, and then it's yours, mid-crisis.</p></details>
+    <details><summary>4. A spam filter moves messages to a folder; you never see them unless you go looking.</summary><p>Out of the loop. Low stakes, so nobody minds. Notice that "out of the loop" isn't scary by itself; it's scary when the action has mass.</p></details>
+    <details><summary>5. An AI drafts replies to customer emails; an agent clicks send on each one.</summary><p>In the loop, on paper. In practice, if the agent clicks send 400 times a day without reading, it's out of the loop with a human-shaped rubber stamp. The position is where the attention is, not where the button is.</p></details>
   </div>
 </section>
 
 <section id="s3">
-  <div class="shead"><span class="num">3</span><h2>Case two: the empty driver's seat</h2></div>
-  <p>For years, fully self-driving taxis were the technology that was always five years away. Quietly, that stopped being true. <a class="inline" href="https://www.npr.org/2026/08/15/nx-s1-5918065/are-robotaxis-finally-here" target="_blank" rel="noopener">Waymo</a> — born as Google's self-driving car project — now operates paid robotaxi service in more than ten U.S. cities, from Phoenix and San Francisco to Austin, Atlanta, Miami, and across Texas, with Denver, Washington D.C., and London announced next. At last count the company reported over 400,000 paid rides <em>per week</em>, on freeways in some cities, to and from major airports. In China, Baidu's Apollo Go and rivals like Pony.ai run their own large fleets. The future arrived on a rolling basis, city by city — which is itself a lesson: transformative technology doesn't switch on everywhere at once. It has a coverage map.</p>
-  <p>Here the human is <em>out of the loop</em> by design. No safety driver, no remote joystick pilot steering your car (remote operators can give high-level guidance when a vehicle gets confused, but no one is driving). The company's safety argument is statistical: its published data compares its crash rates favorably against human-driver benchmarks over tens of millions of miles. Critics answer that the company grades its own homework, that its cities and routes are chosen carefully, and that human-driver statistics include drunk, distracted, and exhausted drivers — a low bar to clear.</p>
-  <p>And failure, when it comes, is public in a way Flyways' could never be. Waymo recently issued a software recall after reports that its vehicles failed to stop properly for school buses — the kind of error that is rare, visible, filmed, and instantly national news. A dispatcher rejecting a bad route suggestion is invisible. A driverless car doing the wrong thing near a school bus is a headline. Same industry; completely different failure economics.</p>
+  <div class="shead"><span class="num">3</span><h2>The case: the empty driver's seat</h2></div>
+  <h3 class="sub"><span>Background</span> The future arrived city by city</h3>
+  <p>For years, fully self-driving taxis were the technology that was always five years away. Quietly, that stopped being true. <a class="inline" href="https://www.npr.org/2026/08/15/nx-s1-5918065/are-robotaxis-finally-here" target="_blank" rel="noopener">Waymo</a>, born as Google's self-driving car project, now operates paid robotaxi service in more than ten U.S. cities, from Phoenix and San Francisco to Austin, Atlanta, Miami, and across Texas, with Denver, Washington D.C. and London announced next. At last count the company reported over 400,000 paid rides <em>per week</em>, on freeways in some cities, to and from major airports. In China, Baidu's Apollo Go and rivals like Pony.ai run their own large fleets. The future arrived on a rolling basis, city by city, which is itself a lesson: transformative technology doesn't switch on everywhere at once. It has a coverage map.</p>
+  <p>Here the human is <em>out of the loop</em> by design. No safety driver, no remote joystick pilot steering your car (remote operators can give high-level guidance when a vehicle gets confused, but no one is driving). The company's safety argument is statistical: its published data compares its crash rates favorably against human-driver benchmarks over tens of millions of miles. Critics answer that the company grades its own homework, that its cities and routes are chosen carefully, and that human-driver statistics include drunk, distracted, and exhausted drivers, a low bar to clear.</p>
+  <p>And failure, when it comes, is public in a way Flyways' could never be. Waymo recently issued a software recall after reports that its vehicles failed to stop properly for school buses, the kind of error that is rare, visible, filmed, and instantly national news. A dispatcher rejecting a bad route suggestion is invisible. A driverless car doing the wrong thing near a school bus is a headline. Same industry; completely different failure economics.</p>
   <div class="facts">
-    <div class="fact"><div class="big"><em>400K+</em></div><div class="small">Paid driverless rides per week Waymo last reported — likely higher now</div></div>
+    <div class="fact"><div class="big"><em>400K+</em></div><div class="small">Paid driverless rides per week Waymo last reported, likely higher now</div></div>
     <div class="fact"><div class="big"><em>10+</em></div><div class="small">U.S. cities with public Waymo service, with more announced, plus London</div></div>
-    <div class="fact"><div class="big"><em>1</em></div><div class="small">Software recall after reports of failing to stop for school buses — visible failure, public correction</div></div>
+    <div class="fact"><div class="big"><em>1</em></div><div class="small">Software recall after reports of failing to stop for school buses, visible failure, public correction</div></div>
+  </div>
+
+  <p><strong>The five critical AI questions, run on this case:</strong></p>
+  <h3 class="sub"><span>What this AI is, and how it works</span> Question 1: what is the AI system, and what does it do?</h3>
+  <p>An embodied, agentic system: the sense-perceive-predict-plan-act loop from section 2.1, running on a fleet. The five parts: <strong>data</strong>, millions of miles of driving plus hand-labeled scenes; <strong>model</strong>, perception and prediction networks, plus a planner that mixes rules with learned behavior; <strong>output</strong>, a steering angle and a speed, ten times a second; <strong>feedback loop</strong>, every mile driven becomes training data, and every recall becomes a rule; <strong>humans</strong>, the riders, the remote assistants who answer questions but don't drive, the engineers, and everyone else on the road, who never agreed to be part of the test. It isn't a chatbot; it couldn't hallucinate a citation. Its failures have mass. Compare Flyways, which only recommends, and where the human stays the gate.</p>
+
+  <h3 class="sub"><span>Who benefits, and who doesn't</span> Question 2: why does it exist, and who benefits?</h3>
+  <p>Waymo exists to sell rides without paying drivers and, by its own account, to crash less than people do. Who benefits: riders, the company, and, if the numbers hold, everyone on the road. Who doesn't: the drivers it replaces, whose jobs don't come back; the city that absorbs the surprises, from blocked intersections to the school-bus recall; and the pedestrians and cyclists who are part of the experiment without having signed up for it. The drivers deserve one more sentence, because the case usually skips them: ride-hail driving is one of the largest sources of flexible income in American cities, and every city a robotaxi enters is a city where that income shrinks for people who had few other options. The benefit is real, and so is the bill, and they land on different people.</p>
+
+  <h3 class="sub"><span>When it fails, who finds out</span> Question 3: what happens when it fails, and who finds out?</h3>
+  <p>Waymo's failures are filmed, recalled, and reported to regulators, because the failure is a car doing something wrong in public. Flyways' failures would be invisible: a worse route, a rejected good suggestion, nobody outside ever knows. The twist worth arguing: the visible-failure system may improve faster precisely because it can't hide. The school-bus recall was a bad week for the company and a public correction for everyone else.</p>
+
+  <h3 class="sub"><span>Business implications</span> What this means for a company that puts AI in the physical world</h3>
+  <p>Most businesses won't build a car, but a growing number are putting AI where it can act: warehouse robots, delivery drones, automated forklifts, kitchen equipment, farm machinery. The case gives them three lessons. First, choose the loop position on purpose. The default many companies drift into, "the machine does it and someone keeps an eye on it," is the handoff problem with a payroll line, and it fails at the worst moment. Either keep a person as a real gate, or engineer the system to be safe without one, and know which you chose. Second, the track record is the product. A robotaxi company sells safety statistics as much as rides, and whoever counts them, and how, is a business decision that customers, regulators, and juries will read. Third, the coverage map is the rollout plan. Waymo didn't switch on everywhere; it expanded one operational design domain at a time, which is slower and much cheaper than one national mistake. The costs: slower launches, independent auditing you don't control, and a person on the floor even when the robot rarely needs one. The alternative cost is the video.</p>
+
+  <h3 class="sub"><span>Societal implications</span> Question 4: who's saying that, and how would we know?</h3>
+  <p>"Fewer injury crashes per mile than humans" is Waymo's own analysis of its own data. "A robot ran into a school bus" is a video. Which is evidence, and of what? Both are, and both are partial: one is a statistic without an outside auditor, the other is an anecdote with a camera. What would settle it is independent crash data on matched roads, and regulators' reports are the closest thing we have. Underneath the numbers is a question no dataset answers: who gets to decide whether the experiment runs on a given street? Right now the answer is a company's expansion plan plus a state permit, and the people at the bus stop aren't consulted. That's Chapter 11's question arriving early.</p>
+
+  <h3 class="sub"><span>How to make it beneficial</span> Question 5: keep it, fix it, or drop it, and what does that cost?</h3>
+  <ul class="decide">
+    <li><strong>Keep it</strong> where its track record is long and independently checked. The cost: you're trusting a count someone else keeps.</li>
+    <li><strong>Fix it</strong> with a permit whose conditions you can price: crash reporting to the city, speed limits near schools, a cap on fleet size until the numbers are audited, a plan for the drivers it replaces. Each costs the company money and the city staff time, and each is Wednesday's lab.</li>
+    <li><strong>Drop it</strong> from your city, and the cost is the crashes humans will keep causing, which is a real number too.</li>
+  </ul>
+  <p>Whoever keeps the track record holds the power. Decide who that should be.</p>
+
+  <div class="concept">
+    <div class="term">How to make it good</div>
+    <p><em>Keep</em> robotaxis where the track record is long and someone independent keeps the count. <em>Fix</em> the permit so its conditions can be priced: crash and disengagement reporting to the city, limits where the long tail lives (school zones, weather the car hasn't proven), a fleet cap until the numbers are audited, and a plan for the drivers it replaces. <em>Drop</em> the on-the-loop design that asks a person to stay alert for a handoff that comes mid-crisis. The cost is slower expansion for the company, staff time for the city, and trusting a count that someone other than the company now has to keep.</p>
+  </div>
+  <h3 class="sub"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
+  <div class="ticket">
+    <div class="label">Thinking critically · for Monday's discussion · listen to both NPR pieces first: the Flyways story and the robotaxi story (about 12 minutes total) · one question each, answered by you, not by the chapter</div>
+    <ol>
+      <li><strong>Q1 · What is it, and what does it do?</strong> Place three systems you've used this month on the in, on, out spectrum, and for each say what the human's actual attention is, not where the button is. Then name one you'd move to a different seat, and why.</li>
+      <li><strong>Q2 · Why does it exist, and who benefits?</strong> A driverless car and a human-driven car cause identical minor crashes on the same street. Walk through who benefits from each design and who is accountable in each case, and name one way the driverless version is an improvement and one way it's worse.</li>
+      <li><strong>Q3 · What happens when it fails, and who finds out?</strong> The school-bus recall happened because the failure was filmed. Name a failure a robotaxi could have that nobody would film, say who would find out and how, and say whether the coverage map makes it more or less likely.</li>
+      <li><strong>Q4 · Who's saying that, and how would we know?</strong> Waymo's safety numbers are Waymo's numbers. What specific, independent evidence would you want before letting a robotaxi drive your younger sibling to school? Be concrete: name the data, who would keep it, and why they don't now.</li>
+      <li><strong>Q5 · Keep it, fix it, or drop it, and what does that cost?</strong> If robotaxis applied to operate in Bellingham next year: approve, deny, or approve with conditions? Write one condition with its cost to the company and its cost to the city. Keep it; Wednesday you'll find out whether the evidence moves you.</li>
+    </ol>
+  </div>
+  <div class="concept">
+    <div class="term">The takeaway from the case</div>
+    <p>Same industry, two designs, opposite failure economics. The dispatcher's invisible mistake and the robotaxi's filmed one are both real; only one of them gets fixed in public. The question the case leaves you with isn't whether driverless cars are safe. It's who gets to say so, and what you'd need to see to believe them.</p>
   </div>
 </section>
 
 <section id="s4">
-  <div class="shead"><span class="num">4</span><h2>The spectrum: in, on, and out of the loop</h2></div>
-  <p>Our second Monday question — <em>where is the human?</em> — has been binary so far. This chapter upgrades it to a spectrum with three main positions.</p>
-  <p><strong>In the loop:</strong> the AI proposes, a human disposes, nothing happens without human sign-off. Flyways. EveryCure. The human is the gate.</p>
-  <p><strong>On the loop:</strong> the AI acts on its own, and a human supervises, ready to intervene. This sounds like the best of both worlds. It's often the worst seat in the house — humans are famously bad at staying vigilant while monitoring a system that's almost always right. Attention decays; the takeover comes precisely at the hardest moment. Ask anyone who has studied a driver "supervising" a car that mostly drives itself.</p>
-  <p><strong>Out of the loop:</strong> the AI acts; no human is positioned to intervene in the moment. Waymo, deliberately. The design bet is that removing the unreliable human beats keeping a badly-positioned one.</p>
-  <div class="concept">
-    <div class="term">The handoff problem</div>
-    <p>The middle of the spectrum hides a trap: systems reliable enough to lull their supervisors but not reliable enough to be left alone. The handoff — machine to human, mid-crisis, no warning — is where "on the loop" designs break. It's a major reason Waymo skipped the middle entirely rather than a step it hasn't reached yet.</p>
-  </div>
-  <p>Now run trust across the spectrum. Flyways had to earn the trust of a few hundred professional dispatchers with a track record they could personally verify. Waymo has to earn the trust of <em>everyone</em> — riders, other drivers, pedestrians, parents at bus stops — most of whom will never read a safety report. Surveys still find a majority of Americans say they'd be afraid to ride in a self-driving car. The technology's coverage map is expanding faster than the trust map. Which one decides how this goes? That's not a technical question. That's Wednesday's lab.</p>
+  <div class="shead"><span class="num">4</span><h2>Decide: the badge is real</h2></div>
+  <p>Deciding, this week, is literal: cities and states actually vote on this. Robotaxis need permits, and communities set conditions, or refuse. That means the question "should driverless cars operate here?" belongs to city councils, not just companies, and refusal or conditional approval are live options, not obstruction. Wednesday's lab seats you on that council for a city you know: Bellingham. Bring your Monday positions; you'll have to convert them into permit conditions with costs attached.</p>
 </section>
 
 <section id="s5">
-  <div class="shead"><span class="num">5</span><h2>Question it &amp; decide</h2></div>
-  <div class="callout">
-    <div class="label">The five questions, applied to both cases at once</div>
-    <div class="fourq">
-      <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> Two systems. Flyways: predictive AI recommending routes to a licensed dispatcher at Alaska Airlines. Waymo: a stack of perception, prediction, and control acting in the physical world, embodied AI. Neither is a chatbot; neither could hallucinate a citation.</p></div>
-      <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> Flyways exists to save fuel and minutes; the airline benefits, and so does anyone who breathes. Waymo exists to sell rides without paying drivers and, by its own account, to crash less than people do. Who benefits: riders, the company, and, if the numbers hold, everyone on the road.</p></div>
-      <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> Flyways' failures are invisible: a worse route, a rejected good one, nobody outside ever knows. Waymo's are filmed, recalled, and reported to regulators. The twist worth arguing: the visible-failure system may improve faster precisely because it can't hide.</p></div>
-      <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> "Fewer injury crashes per mile than humans" is Waymo's own analysis of its own data. "A robot ran into a school bus" is a video. Which is evidence, and of what? What would settle it is independent crash data, and the NHTSA reports are the closest thing we have.</p></div>
-      <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Keep the dispatcher in the loop at Alaska: cheap, and it works. Fix Waymo's permit with conditions you can price (Wednesday's lab). Drop driverless cars from your city and the cost is the crashes humans will keep causing. Whoever keeps the track record holds the power; decide who that should be.</p></div>
-    </div>
-  </div>
-  <p><strong>Deciding</strong>, this week, is literal: cities and states actually vote on this. Robotaxis need permits, and communities set conditions — or refuse. That means the question "should driverless cars operate here?" belongs to city councils, not just companies, and refusal or conditional approval are live options, not obstruction. Wednesday's lab seats you on that council for a city you know: Bellingham. Bring your Monday positions; you'll have to convert them into permit conditions with costs attached.</p>
-</section>
-
-<section id="s6">
-  <div class="shead"><span class="num">6</span><h2>Key terms</h2></div>
+  <div class="shead"><span class="num">5</span><h2>Key terms</h2></div>
   <div class="terms">
+    <div class="term-card"><div class="t">Embodied AI</div><p>AI that acts in the physical world through sensors and actuators, where failure has mass and momentum.</p></div>
+    <div class="term-card"><div class="t">Perception and prediction</div><p>The two predictive steps inside a robotaxi: name what's around the car, then guess what each thing will do next. Where the hard problems live.</p></div>
     <div class="term-card"><div class="t">Advisory (decision-support) AI</div><p>AI that recommends while humans retain the decision and the responsibility. Flyways' design.</p></div>
-    <div class="term-card"><div class="t">Embodied AI</div><p>AI that acts in the physical world through sensors and actuators — where failure has mass and momentum.</p></div>
     <div class="term-card"><div class="t">In / on / out of the loop</div><p>The three human positions: gatekeeper, supervisor, absent. The middle seat is harder than it sounds.</p></div>
-    <div class="term-card"><div class="t">The handoff problem</div><p>Machine-to-human transfers under pressure fail exactly when they matter most — the case against "on the loop."</p></div>
-    <div class="term-card"><div class="t">Results-based trust</div><p>Trust earned by track record rather than understanding — the only kind most of us can have in AI, which makes the track record's keeper powerful.</p></div>
-    <div class="term-card"><div class="t">Operational design domain</div><p>The mapped conditions — cities, streets, weather — a driverless system is approved to handle. The future arrives with a coverage map.</p></div>
+    <div class="term-card"><div class="t">The handoff problem</div><p>Machine-to-human transfers under pressure fail exactly when they matter most, the case against "on the loop."</p></div>
+    <div class="term-card"><div class="t">Results-based trust</div><p>Trust earned by track record rather than understanding, the only kind most of us can have in AI, which makes the track record's keeper powerful.</p></div>
+    <div class="term-card"><div class="t">Operational design domain</div><p>The mapped conditions, cities, streets, weather, hours, a driverless system is approved to handle, with defined behavior at the edge. The future arrives with a coverage map.</p></div>
+    <div class="term-card"><div class="t">The long tail</div><p>The rare situations that hold almost none of the miles and almost all of the failures. Where every recall comes from.</p></div>
+    <div class="term-card"><div class="t">Remote assistance</div><p>A person in an operations center who answers a stuck car's question. On the loop for one decision, not driving, and the company says so in court.</p></div>
   </div>
 </section>
 
-<section id="s7">
-  <div class="shead"><span class="num">7</span><h2>Discussion questions</h2></div>
-  <div class="ticket">
-    <div class="label">For Monday's discussion · listen to both NPR pieces first: <a class="inline" href="https://www.npr.org/2026/08/10/nx-s1-5872752/airspace-reboot-alaska-airlines-flyways" target="_blank" rel="noopener">the Flyways story</a> and <a class="inline" href="https://www.npr.org/2026/08/15/nx-s1-5918065/are-robotaxis-finally-here" target="_blank" rel="noopener">the robotaxi story</a> (about 12 minutes total)</div>
-    <ol>
-      <li>The Flyways dispatchers came to trust a system they don't understand because it kept being right. Name one thing you trust the same way — and what it would take to lose that trust. How many bad results?</li>
-      <li>Waymo skipped "human supervises the robot" and went straight to "no human." Using the handoff problem, explain why the middle seat might genuinely be the most dangerous of the three.</li>
-      <li>A driverless car and a human-driven car cause identical minor crashes on the same street. Walk through who is accountable in each case — and name one way the driverless version is actually an improvement, and one way it's worse.</li>
-      <li>Waymo's safety numbers are Waymo's numbers. What specific, independent evidence would you want before letting a robotaxi drive your younger sibling to school? Be concrete — name the data, not the vibe.</li>
-      <li>If robotaxis applied to operate in Bellingham next year: your instinct right now — approve, deny, or approve with conditions? One sentence. Keep it; Wednesday you'll find out whether the evidence moves you.</li>
-    </ol>
-  </div>
-</section>
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <p>Verified 17 Sep 2026. Flyways: NPR (August 10, 2026, linked) for Alaska Airlines' reported savings and the FAA contract with Air Space Intelligence. Waymo's city count, weekly ride figure, and the school-bus recall are as reported in the linked coverage and the company's own statements at the time of writing; they move quickly, so the figures carry an as-of date. The description of the sense-perceive-predict-plan-act loop and of remote assistance is a general account of how driverless systems are built, drawn from the companies' public technical descriptions, not a claim about any one proprietary system. The comparison caveats in section 2.4 (route selection, weather, benchmark composition, self-reported counts) are standard critiques from independent safety researchers. Found an error? Tell your instructor; corrections are course content.</p>
+</details>
 
 <div class="nextbar">
   <a href="chapter-06-hiring-lending-lab.html"><span class="dir">← Back</span>Lab 6 · You Are the Auditor</a>
@@ -347,7 +567,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <footer class="foot">
   <div class="wrap">
     <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
-    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">A free, critical field guide to AI, for the people who'll live with it, not just build it.</p>
     <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
   </div>
 </footer>

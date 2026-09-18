@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab 8 · The Red Lines — Intro to AI in Business | MIS 201</title>
+<title>Lab 8 · The Red Lines. Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -182,6 +182,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   .nav .navlinks{width:100%;justify-content:flex-start}
   .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
 }
+ul.ideas{padding-left:1.2em;margin:10px 0}
+ul.ideas li{margin:8px 0}
 </style>
 </head>
 <body>
@@ -198,9 +200,9 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <div class="dd-menu" id="ddc">
 <a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
 <a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
-<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 4</span>Medicine</a>
-<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 5</span>Environment</a>
-<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · optional</span>Systems That Want You</a>
+<a href="chapter-03-systems.html"><span class="lbl">Chapter 3 · Week 3</span>Systems That Know You</a>
+<a href="chapter-04-medicine.html"><span class="lbl">Chapter 4 · Week 4</span>Medicine</a>
+<a href="chapter-05-environment.html"><span class="lbl">Chapter 5 · Week 5</span>Environment</a>
 <a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
 <a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
 <a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
@@ -213,17 +215,13 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <div class="dd-menu" id="ddl">
 <a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
 <a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
-<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test</a>
-<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 4</span>Inside the Graph</a>
-<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 5</span>The Footprint Machine</a>
-<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · optional</span>Play the Algorithm</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test and the Feed</a>
+<a href="chapter-04-medicine-lab.html"><span class="lbl">Lab 4 · Week 4</span>Inside the Graph</a>
+<a href="chapter-05-environment-lab.html"><span class="lbl">Lab 5 · Week 5</span>The Footprint Machine</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
-<a href="chapter-08-ethics-war-lab.html" class="current" aria-current="page"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
+<a href="chapter-08-ethics-war-lab.html" class="current" aria-current="page"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
 <a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
-<a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 10 · take-home</span>The Phantom Docket</a>
-<a href="exposure-audit.html"><span class="lbl">Self-guided · pairs with Chapter 9</span>The Exposure Audit</a>
-<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · last class</span>First Contact, Revisited</a>
 </div></div>
     </div>
   </div>
@@ -231,19 +229,29 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <header class="masthead">
   <div class="wrap">
-    <div class="eyebrow">Western Washington University · MIS 201 · Lab 8 · Monday, in class (Veterans Day week) · no writeup</div>
+    <div class="eyebrow">Western Washington University · MIS 201 · Lab 8 · Week 8, Monday in class, finished at home (Veterans Day week)</div>
     <h1>The Red <b>Lines</b></h1>
-    <p class="kicker">You lead the policy team at a frontier AI company. Eight government requests are on your desk. For each: accept, accept with conditions, or decline. This is the actual format of the decisions in this week's chapter — and the actual discovery: everyone has values. The line is where they get expensive.</p>
+    <p class="kicker">You lead the policy team at a frontier AI company. Eight government requests are on your desk. For each: accept, accept with conditions, or decline. This is the actual format of the decisions in this week's chapter, and the actual discovery: everyone has values. The line is where they get expensive.</p>
     <p class="factline">Eight requests · three answers each · one line, located</p>
   </div>
 </header>
 
 <main class="wrap">
+<div class="callout">
+  <div class="label">This week: Monday in class, the rest at home</div>
+  <p>Veterans Day is Wednesday, so this lab starts on Monday, right after Chapter 8's case: you sort the eight requests in class, and the sorted contracts are the discussion and the debate. Finish the pressure test and the five questions on your own time. The writeup is due Friday, November 13, at 11:59 p.m., with the Chapter 8 quiz.</p>
+</div>
+
+<div class="callout">
+  <div class="label">From Chapter 8 · what this lab runs on</div>
+  <p>The eight contracts sit at different points on the kill chain (2.1), from logistics on the left to targeting on the right. As you sort them, watch the ratchet (2.2): each accept makes the next one easier to accept. For any contract that puts a person in a decision, test it against the three conditions for meaningful human control (2.3): understanding, time, authority. Read your line aloud with a veteran in the room.</p>
+</div>
+
 
 <section>
   <div class="shead"><span class="num">1</span><h2>Before you start</h2></div>
-  <p class="lead">Two ground rules. First, no abstaining: "it depends" must become a condition you can write down. Second, track what each answer costs — declines cost revenue and government relationships; accepts cost talent (some of your best people have said they'll quit over certain work) and, depending on your view, more. There is no score to win. There is a line to find, and it's yours.</p>
-  <p>No Wednesday session this week, so this lab runs take-home: do the sort before Monday if you can — the Monday discussion is better when the room has already felt where its lines disagree.</p>
+  <p class="lead">Two ground rules. First, no abstaining: "it depends" must become a condition you can write down. Second, track what each answer costs, declines cost revenue and government relationships; accepts cost talent (some of your best people have said they'll quit over certain work) and, depending on your view, more. There is no score to win. There is a line to find, and it's yours.</p>
+  <p>No Wednesday session this week, so this lab runs take-home: do the sort before Monday if you can, the Monday discussion is better when the room has already felt where its lines disagree.</p>
 </section>
 
 <section>
@@ -267,11 +275,25 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
+  <div class="shead"><span class="num">3a</span><h2>Inside the machine: what "AI" means in each of the eight requests</h2></div>
+  <p>The eight requests aren't the same kind of AI, and your line should notice. Place each on Chapter 8's kill chain (2.1). The logistics and translation requests are predictive and generative AI at the far left: the same pattern-matching as Chapter 6's screener, the same summarizing as Chapter 3's language model, pointed at supply and text. The target-recognition request is Chapter 7's perception step on a satellite image. The decision-support request is generative AI drafting the recommendation a person signs, which is where the three conditions for meaningful human control (2.3) start to matter: does the person get a reason, time, and real authority, or a label, seconds, and a checkbox? And the autonomous-engagement request is embodied and agentic: the loop from Chapter 1 with a weapon as the tool and no human in it.</p><p>The technology doesn't change at any of those steps; the stakes and the loop do. That's why the chapter says the same model can be a logistics tool and a targeting aid, and why the ratchet (2.2) works: each accept builds the team and the pipeline the next request inherits. When you pressure-test your line, ask which step of the chain it sits on, and whether the request after it is a small move or a large one.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="num">3b</span><h2>Debate: should a company be allowed to pick its own line?</h2></div>
+  <div class="callout">
+    <div class="label">Debate · in class, about 20 minutes · pick a side, argue it, then switch</div>
+    <p><strong>How it runs, every week.</strong> Sides are assigned, not chosen, so you're never defending your own belief. Two minutes with your partner to find your side's best point and its honest cost. Three minutes a side. Then everyone switches and does it again. Last five minutes: what would change your mind? Say it out loud. The person who names the evidence that would move them wins, whichever side they were on.</p>
+    <p>The labs in Chapter 8's case each decided, on a policy team's desk, which of these requests to accept. Argue whether that's where the decision belongs.</p><ul class="ideas"><li><strong>Side A: companies should draw the line, publicly, and be held to it.</strong> They know the systems best, they can move faster than law, and a public commitment that a safety index grades is real accountability. Cost: the case shows every company moving the line the same direction the same year, quietly, which is what a market does.</li><li><strong>Side B: the line should be law, written by people who don't sell the product.</strong> Meaningful human control as a rule with a test, a named person who can say no, an audit of every case where they didn't. Cost: it moves in years, stops at the border, and an adversary doesn't sign it, which is the argument for a treaty and the reason treaties are slow.</li></ul><p>Apply the theater test (2.5) to whichever side you pick: does your proposal have enforcement, a budget, and a deadline? If not, it's the summit with the robot dogs.</p>
+  </div>
+</section>
+
+<section>
   <div class="shead"><span class="num">3</span><h2>Pressure-test the line</h2></div>
   <div class="steps">
-    <div class="step"><span class="sn">a</span><p>Take your most confident decline and write the request's strongest rebuttal — the two sentences the government negotiator would actually say back. Then get a second opinion from a live AI: <i>“You're the government's negotiator. I'm an AI company declining this request: [paste the card]. Give me your strongest two-sentence rebuttal.”</i> Does your decline survive both — and which rebuttal was stronger, yours or the machine's?</p></div>
-    <div class="step"><span class="sn">b</span><p>Take your most confident accept and apply the dual-use ratchet from the chapter: name the follow-on request it makes harder to refuse next year. If you can't name one, look harder — that's what the ratchet means.</p></div>
-    <div class="step"><span class="sn">c</span><p>For every "with conditions": apply the governance-theater test to your own condition. Enforcement mechanism, verification, consequence for violation — which does your condition actually have? A condition with none is an accept wearing a costume.</p></div>
+    <div class="step"><span class="sn">a</span><p>Take your most confident decline and write the request's strongest rebuttal, the two sentences the government negotiator would actually say back. Then get a second opinion from a live AI: <i>“You're the government's negotiator. I'm an AI company declining this request: [paste the card]. Give me your strongest two-sentence rebuttal.”</i> Does your decline survive both, and which rebuttal was stronger, yours or the machine's?</p></div>
+    <div class="step"><span class="sn">b</span><p>Take your most confident accept and apply the dual-use ratchet from the chapter: name the follow-on request it makes harder to refuse next year. If you can't name one, look harder, that's what the ratchet means.</p></div>
+    <div class="step"><span class="sn">c</span><p>For every "with conditions": apply the governance-theater test to your own condition. Enforcement mechanism, verification, consequence for violation, which does your condition actually have? A condition with none is an accept wearing a costume.</p></div>
   </div>
 </section>
 
@@ -289,13 +311,13 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <section>
   <div class="shead"><span class="num">5</span><h2>The writeup</h2></div>
   <div class="ticket">
-    <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
+    <div class="label">Due Friday, November 13, 11:59 p.m. · post to Canvas</div>
     <ol>
       <li><strong>The sort.</strong> Your eight answers (screenshot), plus the profile reading.</li>
-      <li><strong>The line.</strong> In one sentence, the principle that separates your accepts from your declines. It must actually fit your answers — if it doesn't, revise the sentence or the answers, and tell us which you revised.</li>
+      <li><strong>The line.</strong> In one sentence, the principle that separates your accepts from your declines. It must actually fit your answers, if it doesn't, revise the sentence or the answers, and tell us which you revised.</li>
       <li><strong>The pressure test.</strong> Your step 3 results: the rebuttal that came closest to moving you, the ratchet you identified, and whether any of your conditions failed the theater test.</li>
       <li><strong>The five questions.</strong> Your answers, including the accountability sentence.</li>
-      <li><strong>Your move.</strong> Chapter 2 asked what's yours that no dial can turn up; this week asks what's yours that no contract can buy. One sentence: a line you'd hold in your own career even at real cost — specific enough that a future employer could violate it. That's the commitment card.</li>
+      <li><strong>Your move.</strong> Chapter 2 asked what's yours that no dial can turn up; this week asks what's yours that no contract can buy. One sentence: a line you'd hold in your own career even at real cost, specific enough that a future employer could violate it. That's the commitment card.</li>
     </ol>
   </div>
 </section>
@@ -310,7 +332,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <footer class="foot">
   <div class="wrap">
     <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
-    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">A free, critical field guide to AI, for the people who'll live with it, not just build it.</p>
     <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
   </div>
 </footer>
@@ -320,11 +342,11 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   var cards = [
     {name:'Base logistics optimization', text:'Route supplies, schedule maintenance, forecast parts demand for domestic bases. No connection to operations. Large, stable contract.', risk:1},
     {name:'Veterans\u2019 healthcare administration', text:'Process disability claims and appointment backlogs at the VA. Purely administrative; the backlog is measured in human suffering.', risk:0},
-    {name:'Cyber defense', text:'Detect and counter intrusions on military networks. Defensive by charter — but the tooling and skills transfer directly to offense.', risk:2},
+    {name:'Cyber defense', text:'Detect and counter intrusions on military networks. Defensive by charter, but the tooling and skills transfer directly to offense.', risk:2},
     {name:'Satellite image analysis', text:'Flag changes in imagery: disaster damage, infrastructure, vehicle movements. The same model serves humanitarian response and target development.', risk:3},
     {name:'Border surveillance drones', text:'Persistent aerial monitoring with automated person-detection along borders. Domestic deployment; civil-liberties groups are already in court over programs like it.', risk:3},
     {name:'Intelligence analysis at scale', text:'Summarize and cross-reference intercepted communications for analysts. Human analysts decide everything; your model decides what they see.', risk:3},
-    {name:'Target identification support', text:'Rank candidate targets from sensor data for human approval. The human approves each strike — at a tempo of seconds per decision.', risk:4},
+    {name:'Target identification support', text:'Rank candidate targets from sensor data for human approval. The human approves each strike, at a tempo of seconds per decision.', risk:4},
     {name:'Autonomous engagement', text:'Defensive systems that detect and engage incoming threats faster than any human can react. No per-engagement human decision is physically possible.', risk:5}
   ];
 
@@ -369,18 +391,18 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
     var read;
     if(dec===0 && con===0){
-      read='You accepted all eight without conditions — a coherent position with real defenders: the mission is legitimate, so serve all of it. Two writeup burdens follow. First, the talent cost: some of your best people walk over requests 7 and 8 — name what you tell them. Second: is there a ninth request you <b>would</b> decline? If yes, your line exists and this lab\u2019s job is to make you state it. If no, say that — plainly.';
+      read='You accepted all eight without conditions, a coherent position with real defenders: the mission is legitimate, so serve all of it. Two writeup burdens follow. First, the talent cost: some of your best people walk over requests 7 and 8, name what you tell them. Second: is there a ninth request you <b>would</b> decline? If yes, your line exists and this lab\u2019s job is to make you state it. If no, say that, plainly.';
     } else if(acc===0 && con===0){
-      read='You declined all eight — including veterans\u2019 healthcare claims processing. That\u2019s a coherent absolutist position, and it has a cost the chapter named: the work goes to whoever has fewer scruples than you, and the backlog stays measured in human suffering. Your writeup: defend total abstention against that specific charge — request 2 is the hardest one for your position, so start there.';
+      read='You declined all eight, including veterans\u2019 healthcare claims processing. That\u2019s a coherent absolutist position, and it has a cost the chapter named: the work goes to whoever has fewer scruples than you, and the backlog stays measured in human suffering. Your writeup: defend total abstention against that specific charge, request 2 is the hardest one for your position, so start there.';
     } else if(minDecRisk >= 4){
-      read='Your line sits at <b>lethal force</b>: you engaged across support, surveillance, and analysis, and declined where the kill chain begins' + (minDecRisk===5 ? ' — or only at full autonomy' : '') + '. This is the most common line in the real industry, which is worth one more thought: is that because it\u2019s where the ethics actually change, or because it\u2019s where the discomfort becomes visible? Your pressure test (step 3b) on request 6 or 7 is where your answer lives.';
+      read='Your line sits at <b>lethal force</b>: you engaged across support, surveillance, and analysis, and declined where the kill chain begins' + (minDecRisk===5 ? ', or only at full autonomy' : '') + '. This is the most common line in the real industry, which is worth one more thought: is that because it\u2019s where the ethics actually change, or because it\u2019s where the discomfort becomes visible? Your pressure test (step 3b) on request 6 or 7 is where your answer lives.';
     } else if(minDecRisk >= 2){
-      read='Your line sits at <b>the intelligence-and-surveillance layer</b> — earlier than most of the industry drew it. You\u2019re treating the ratchet as the danger: the systems that watch and rank are the ones that make the later systems inevitable. The cost is that you\u2019ve declined the largest and most defensible contracts too. Your writeup: hold the line on request 4 against its humanitarian rebuttal — that\u2019s your hardest case.';
+      read='Your line sits at <b>the intelligence-and-surveillance layer</b>, earlier than most of the industry drew it. You\u2019re treating the ratchet as the danger: the systems that watch and rank are the ones that make the later systems inevitable. The cost is that you\u2019ve declined the largest and most defensible contracts too. Your writeup: hold the line on request 4 against its humanitarian rebuttal, that\u2019s your hardest case.';
     } else {
-      read='Your answers don\u2019t sort by stakes in the usual way — you declined lower-risk requests while accepting higher-risk ones' + (maxAccRisk>=4 ? ', including at the lethal end' : '') + '. That isn\u2019t wrong; it means your line runs on a different axis than the kill chain — maybe domestic vs. foreign, maybe surveillance vs. force, maybe something else. Your writeup\u2019s job is to name that axis in one sentence and check all eight answers against it. If no sentence fits, some answers may be instinct wearing a policy costume — revise one, and say which.';
+      read='Your answers don\u2019t sort by stakes in the usual way, you declined lower-risk requests while accepting higher-risk ones' + (maxAccRisk>=4 ? ', including at the lethal end' : '') + '. That isn\u2019t wrong; it means your line runs on a different axis than the kill chain, maybe domestic vs. foreign, maybe surveillance vs. force, maybe something else. Your writeup\u2019s job is to name that axis in one sentence and check all eight answers against it. If no sentence fits, some answers may be instinct wearing a policy costume, revise one, and say which.';
     }
     if(con>=4){
-      read+='<br><br><b>Note:</b> half or more of your desk is "with conditions." Conditions are where policy teams actually live — but step 3c applies to every one: a condition without enforcement is an accept in costume. Your writeup should show your strongest condition passing the theater test.';
+      read+='<br><br><b>Note:</b> half or more of your desk is "with conditions." Conditions are where policy teams actually live, but step 3c applies to every one: a condition without enforcement is an accept in costume. Your writeup should show your strongest condition passing the theater test.';
     }
     document.getElementById('reading').innerHTML=read;
   });

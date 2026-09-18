@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab 2 · The Seeming Test ,  Intro to AI in Business | MIS 201</title>
+<title>Lab 2 · The Seeming Test and the Feed ,  Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -208,6 +208,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .el-log{background:#0E1116;color:#E8EAED;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem;line-height:1.6;padding:14px;min-height:180px;max-height:320px;overflow-y:auto;border:1px solid #2A323C}
 .el-log .you{color:#C9CED6}.el-log .bot{color:#E4FF32}.el-log .bot.warm{color:#FF9DC3;font-family:'Inter',sans-serif}.el-log .rule{color:#6B7380;font-size:.75rem}.el-log .crisis{color:#fff;background:#8B1E4B;padding:8px;border-radius:4px;font-family:'Inter',sans-serif}
 .el-row{display:flex;gap:8px;margin-top:10px}.el-row input{flex:1;font:inherit;font-size:.95rem;padding:10px;border:1px solid var(--rule);background:#fff;color:var(--ink)}
+ul.ideas{padding-left:1.2em;margin:10px 0}
+ul.ideas li{margin:8px 0}
 </style>
 </head>
 <body>
@@ -224,9 +226,9 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <div class="dd-menu" id="ddc">
 <a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
 <a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
-<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 4</span>Medicine</a>
-<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 5</span>Environment</a>
-<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · optional</span>Systems That Want You</a>
+<a href="chapter-03-systems.html"><span class="lbl">Chapter 3 · Week 3</span>Systems That Know You</a>
+<a href="chapter-04-medicine.html"><span class="lbl">Chapter 4 · Week 4</span>Medicine</a>
+<a href="chapter-05-environment.html"><span class="lbl">Chapter 5 · Week 5</span>Environment</a>
 <a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
 <a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
 <a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
@@ -239,17 +241,13 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <div class="dd-menu" id="ddl">
 <a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
 <a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
-<a href="chapter-02-human-lab.html" class="current" aria-current="page"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test</a>
-<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 4</span>Inside the Graph</a>
-<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 5</span>The Footprint Machine</a>
-<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · optional</span>Play the Algorithm</a>
+<a href="chapter-02-human-lab.html" class="current" aria-current="page"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test and the Feed</a>
+<a href="chapter-04-medicine-lab.html"><span class="lbl">Lab 4 · Week 4</span>Inside the Graph</a>
+<a href="chapter-05-environment-lab.html"><span class="lbl">Lab 5 · Week 5</span>The Footprint Machine</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
-<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
+<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
 <a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
-<a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 10 · take-home</span>The Phantom Docket</a>
-<a href="exposure-audit.html"><span class="lbl">Self-guided · pairs with Chapter 9</span>The Exposure Audit</a>
-<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · last class</span>First Contact, Revisited</a>
 </div></div>
     </div>
   </div>
@@ -257,15 +255,24 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <header class="masthead">
   <div class="wrap">
-    <div class="eyebrow">Western Washington University · MIS 201 · Lab 2 · Wednesday, in class</div>
-    <h1>The <b>Seeming</b> Test</h1>
-    <p class="kicker">Chapter 2 said a language model is a prediction machine, that the warmth is tuned in by a company, and that we're wired to see a person anyway. This lab has you do all of it with your own hands: build a tiny language model and tune it with your thumb, turn the dials on a fake companion app, then probe a real chatbot, score how much it seems like a someone, find where its company set the dials, and run the five critical AI questions on it.</p>
-    <p class="factline">Build it · set the dial · probe a real one · find who set it</p>
+    <div class="eyebrow">Western Washington University · MIS 201 · Lab 2 · Week 3, Wednesday · covers Chapters 2 and 3</div>
+    <h1>The Seeming Test, and the <b>Feed</b></h1>
+    <p class="kicker">Chapter 2 said a language model is a prediction machine, that the warmth is tuned in by a company, and that we're wired to see a person anyway. Chapter 3 said the feed that decides what you see next runs on one number, and it isn't yours. This lab has you do both with your own hands: build a tiny language model and tune it with your thumb, probe a real chatbot and score how much it seems like someone, then become the algorithm and run a first-year student's feed twice, once with the company's meter and once with the one they don't build.</p>
+    <p class="factline">a language model made of matchboxes · five probes on a live chatbot · you are the algorithm · one debate · one writeup</p>
   </div>
 </header>
 
 <main class="wrap">
 
+<div class="callout">
+  <div class="label">How this lab runs · one page, two systems, one Wednesday</div>
+  <p>Week 3 covers two chapters, so this one lab covers both: the chatbot that seems to care (Chapter 2) and the feed that learns what holds you (Chapter 3). In class, after Chapter 3's case: the matchbox model (section 1), the five probes on a live chatbot (sections 4 and 5), and the feed's first run (section 7), then the debate. Everything else, the dial, ELIZA, run two, the copy problem, and the build-it-then-break-it prompts, is yours to finish before Friday. One writeup covers all of it.</p>
+</div>
+
+<div class="callout">
+  <div class="label">From Chapters 2 and 3 · what this lab runs on</div>
+  <p>Two things from Chapter 2 do the work in the first half. The matchbox model is section 2.2's next-word predictor, built by hand, so you can see that there's nothing else inside. The probes are section 2.3's Narcissus trap, run backward: each one checks whether the warmth you feel is coming from the machine or from you. Keep the dial (2.1) in mind when you score. In the second half you become Chapter 3's loop (2.3): the engagement meter is the only number the real job runs on, every choice you make for Jordan is a taste-profile update (2.2), and run two is the chapter's Decide question in a simulator.</p>
+</div>
 <section id="warmup">
   <div class="shead"><span class="num">1</span><h2>Build a mini-ChatGPT (a language model made of matchboxes)</h2></div>
   <p class="lead">Chapter 2 said a language model is trained on one task, predict the next word, and that fluency falls out of it while warmth has to be dialed in. Before you go probe a real chatbot, build the smallest possible one, watch it write, and then tune it with your thumb, so you've seen both stages with your own eyes. In 2023 the researcher David Corney built a language model out of 35 matchboxes: each box is labeled with a word, and the slips of paper inside are the words that followed it in one short book. Draw a slip, open that word's box, draw again, and it writes sentences that were never in the book. He built it so there would be, in his words, <a class="inline" href="https://dcorney.com/thoughts/2023/09/23/matchboxes.html" target="_blank" rel="noopener">nowhere for sentience to hide</a>. This is the same machine, on your screen, and you can train it on anything.</p>
@@ -315,11 +322,6 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   <p>Now go do the same thing to a real one: turn the dials on a fake one, then pick a real chatbot, run Chapter 2's seeming test on it, find where its company set the dials, and run the five critical AI questions on it, the way the chapter ran them on Therabot.</p>
 </section>
 
-  <div class="ticket">
-    <div class="label">Section 1 · answer this question for submission</div>
-    <p>Pick one sentence the matchbox model wrote and explain, box by box, where each word came from. Then, in one sentence, what does that mean for the claim that a chatbot "understands" what it writes?</p>
-  </div>
-
 <section id="dial">
   <div class="shead"><span class="num">2</span><h2>Set the dial</h2></div>
   <p class="lead">Chapter 2's claim is that how much a chatbot seems to care is a setting, chosen by a company, for a reason. Here's a fake companion app with the settings exposed. There's no AI in it; every reply is assembled from parts, which is the point. Type something, then turn the four dials and watch what changes, including the number at the bottom.</p>
@@ -350,6 +352,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <section id="eliza">
   <div class="shead"><span class="num">3</span><h2>How little it takes: ELIZA, rebuilt in forty lines</h2></div>
+  <p class="lead" style="font-size:.95rem;color:var(--gray)">At home if we're short on time. It's ten minutes and worth it.</p>
   <p class="lead">Chapter 2 opened its mirror section with ELIZA, the 1966 program that fooled people who knew exactly what it was. The point of this section isn't the conversation. It's how little it took. What's below is about forty lines of rules: spot a keyword, flip "I" to "you," ask the question back. Anyone in this room could write it in an afternoon. Talk to it for two minutes, watch it get a grip on you anyway, then flip to 2026 mode and see how cheaply a warm voice and a memory get added. Then the real question, which is the one this course asks every week: where is the human in this loop?</p>
   <p class="tis-note"><strong>This is not therapy, and it isn't listening.</strong> It's a demonstration of how little code it takes to produce the feeling of being heard, and that's the lesson, not the conversation. Keep it to ordinary stuff: a stressful week, a class you're behind in, a roommate. If something serious comes up for you while you're doing this, WWU's Counseling and Wellness Center is free to students, and 988 is the national line, by call or text, any hour.</p>
   <div class="steps">
@@ -373,11 +376,6 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     <p class="tis-note" id="el-note">Rules fired so far: none. Every reply shows which rule made it.</p>
   </div>
 </section>
-
-  <div class="ticket">
-    <div class="label">Sections 2 and 3 · answer this question for submission</div>
-    <p>Which single dial changed how the companion app felt the most, and what happened to the attachment number when you turned it? In one more sentence: why would a subscription business set that dial where it did?</p>
-  </div>
 
 <section>
   <div class="shead"><span class="num">4</span><h2>Choose your subject</h2></div>
@@ -471,7 +469,69 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
-  <div class="shead"><span class="num">7</span><h2>Talk it out</h2></div>
+  <div class="shead"><span class="num">7</span><h2>Run one: the metric is the job</h2></div>
+  <p class="lead">Six moments from Jordan's week. At each one, choose what your system shows them. The engagement meter is your score, it's the number your (simulated) performance review runs on. Play it straight: <strong>genuinely try to maximize engagement</strong>, the way the system would. Halfhearted play breaks the experiment. Anything else you might want to track isn't in your dashboard. Just like the real thing.</p>
+
+  <div class="tool">
+    <div class="label" id="phaselabel">Run one · you see what the algorithm sees</div>
+    <div class="meter"><span>Engagement</span><div class="track"><div class="fill" id="m-eng" style="width:0%;background:var(--pink);"></div></div><span class="n" id="n-eng">0</span></div>
+    <div class="meter good" id="wb-meter" hidden><span>Jordan's wellbeing</span><div class="track"><div class="fill" id="m-wb" style="width:50%;background:#14181D;"></div></div><span class="n" id="n-wb">50</span></div>
+
+    <div id="stage">
+      <p class="roundinfo" id="roundinfo"></p>
+      <p id="scenario" style="font-family:'Fraunces',serif;font-size:1.05rem;"></p>
+      <div class="simgrid" id="options"></div>
+    </div>
+
+    <div class="fd-verdict" id="fd-verdict" hidden>
+      <div class="label" id="vlabel"></div>
+      <p class="read" id="fd-reading"></p>
+      <div class="chips" style="margin-top:16px;">
+        <button type="button" class="btn" id="replay" hidden>Run two: same week, both meters visible</button>
+        <button type="button" class="btn alt" id="restart" hidden>Start over</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="concept">
+    <div class="term">What run one is teaching</div>
+    <p>Notice, as you play, that nothing tempts you to be cruel. Every high-engagement option is just… the effective one. This is the chapter's argument made playable: harmful outcomes don't require harmful intent, only a narrow metric, honestly pursued.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">8</span><h2>Run two: the meter they don't build</h2></div>
+  <p>After the run-one reveal, play the same week again with Jordan's wellbeing visible in real time, the meter no production dashboard shows. This time, optimize however you think is right. Then answer the question the two runs were built to pose: <strong>what happened to your engagement score when you started caring?</strong> That gap, between run one's number and run two's, has a name in the industry. It's called the cost of doing the right thing, and someone in a real meeting has to argue it's worth paying. In your writeup, you're that someone.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="num">9</span><h2>Inside the machine: where the warmth is stored, and what the feed knows</h2></div>
+  <h3 class="sub"><span>The bot</span></h3>
+  <p>You built the model, so you know there's nothing inside but next-word counts. Here's where the seeming comes from anyway. A real language model has two training stages (Chapter 2, section 2.2). The first is your matchbox at internet scale: predict the next word, over trillions of words. That gives fluency and nothing else. The second stage is the one you can't see: people rate the model's answers, and the model is adjusted toward the answers people preferred. People prefer warm, agreeable, confident answers. So the model learns warmth the way your matchbox learned that "the" follows "of": as a pattern that got rewarded. The dial you set in section 2 is a stand-in for that second stage. Companies set it on purpose, and section 2.6 of the chapter is about what happens when they set it high.</p><p>When your subject in section 5 sounded like it cared, that's the second stage talking. When it agreed with you a little too easily, that's the same stage, overshooting: sycophancy, the failure Chapter 2 and Chapter 10 both name. The probes work because they push on things stage two rewards and stage one can't fake: memory across the conversation, an actual opinion that costs it something, and saying no.</p>
+
+  <h3 class="sub"><span>The feed</span></h3>
+  <p>You just did by hand what a recommender does a billion times a day, with one difference. You saw Jordan. The real system sees a taste profile (Chapter 3, section 2.2): a row of numbers built from plays, skips, and saves, placed near the rows of people who behaved the same way. Every choice you made at each moment, the real system makes by asking one question: which item did people-like-this keep watching? That's collaborative filtering (2.1), and it needs nothing about Jordan except the trail. Then the loop closes: what Jordan watched becomes the next input, and the profile moves. Six decisions in, your Jordan's row is already different from the row you started with. That drift is section 2.3.</p><p>Now the number. Your engagement meter was the whole dashboard, and the real one is too. Nobody on a recommendations team is scored on the wellbeing meter, because the company doesn't measure it; the second run gave you an instrument the real job doesn't have. And one more thing the real version has that yours didn't: a paid thumb on the scale. Discovery Mode (2.3) is a signal that says "favor this track, the artist took a royalty cut." Your simulator was, if anything, more honest than the product.</p>
+
+</section>
+
+<section>
+  <div class="shead"><span class="num">10</span><h2>Debate: should a chatbot be allowed to say it cares?</h2></div>
+  <div class="callout">
+    <div class="label">Debate · in class, about 20 minutes · pick a side, argue it, then switch</div>
+    <p><strong>How it runs, every week.</strong> Sides are assigned, not chosen, so you're never defending your own belief. Two minutes with your partner to find your side's best point and its honest cost. Three minutes a side. Then everyone switches and does it again. Last five minutes: what would change your mind? Say it out loud. The person who names the evidence that would move them wins, whichever side they were on.</p>
+    <p>Chapter 2's case worked because clinicians read the transcripts and a rulebook limited what the bot could say. Most bots have neither. Argue the rule.</p><ul class="ideas"><li><strong>Side A: ban first-person feeling claims.</strong> A product should not be allowed to say "I care about you" or "I missed you" when no one does. It's the Narcissus trap sold as a feature, and the state laws arriving now are right to draw the line there. Cost: some people are helped by exactly that sentence, at 3 a.m., when nothing else is available, and the Therabot trial is the evidence.</li><li><strong>Side B: allow it with disclosure and a dial cap.</strong> Warmth is what makes the tool usable; the fix is a label, a limit on how far the dial can be turned for minors, and a rule that a person reads the conversations. Cost: labels get ignored, and a dial cap is a number a company sets and nobody checks.</li></ul><p>Settle it with the chapter's business-implications test: the trial worked because of three expensive things the app stores don't sell. Which of those does each side's rule actually require, and who pays for it?</p>
+  </div>
+  <details>
+    <summary><strong>Alternate motion, if the room would rather argue the feed:</strong> should a feed be required to show you the other number?</summary>
+    
+    <p hidden><strong>How it runs, every week.</strong> Sides are assigned, not chosen, so you're never defending your own belief. Two minutes with your partner to find your side's best point and its honest cost. Three minutes a side. Then everyone switches and does it again. Last five minutes: what would change your mind? Say it out loud. The person who names the evidence that would move them wins, whichever side they were on.</p>
+    <p>You had two meters. Users of the real product have none. Argue whether that should change.</p><ul class="ideas"><li><strong>Side A: require a wellbeing instrument.</strong> A platform that optimizes for engagement should have to measure and publish a second metric, time-well-spent, regret, or a user-set goal, the way food labels require calories next to taste. Cost: the second metric is easy to game, and a company will pick the one that flatters it.</li><li><strong>Side B: require choice, not a number.</strong> Give users the dial instead: a chronological feed, a "less of this" that sticks, an off switch for paid placement. Let people set the objective. Cost: most people never touch settings, and defaults decide everything.</li></ul><p>Then the Discovery Mode question, which is live in court right now: is a recommendation that was paid for still a recommendation, and should it have to say so? Run Question 4 on Spotify's answer and on the plaintiff's.</p>
+  
+  </details>
+</section>
+
+<section>
+  <div class="shead"><span class="num">11</span><h2>Talk it out</h2></div>
   <p class="lead">Groups of four, then the room. Bring what you just saw on your own screen.</p>
   <div class="callout">
     <div class="label">Discussion questions · about 15 minutes</div>
@@ -483,7 +543,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
-  <div class="shead"><span class="num">8</span><h2>Run the five critical AI questions on your subject</h2></div>
+  <div class="shead"><span class="num">12</span><h2>Run the five critical AI questions on both systems</h2></div>
   <p class="lead">Now do to your chatbot what the chapter did to Therabot. Five questions, in order, using your probe results as the evidence.</p>
   <div class="fourq">
     <div class="q"><span class="qn">1</span><p><strong>What is the AI system, and what does it do?</strong> Name the system you probed, its maker, and its business model: subscription, free tier, engagement-driven. Then run the AI systems model on it: what it learned from, the model, what comes out, whether anything you do feeds back in, and where the humans are.</p></div>
@@ -492,10 +552,12 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> Your scorecard says how much it seemed. The company says how much it helps. Who's saying each, what do they gain, and what evidence would you need to tell seeming from helping?</p></div>
     <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Keep, fix, or drop, for yourself: one rule you're adopting for your own use of this system, specific enough that you'd know if you broke it, and what following it costs you.</p></div>
   </div>
+  <p>Then run them a second time, faster, on the feed you just operated. The answers to Questions 2 and 5 should come out nearly identical to the bot's. That's the point of putting both labs on one page.</p>
 </section>
 
 <section id="copy">
-  <div class="shead"><span class="num">9</span><h2>The copy problem</h2></div>
+  <div class="shead"><span class="num">13</span><h2>The copy problem</h2></div>
+  <p class="lead" style="font-size:.95rem;color:var(--gray)">At home, before the writeup.</p>
   <p class="lead">Chapter 2's last concept was AI personhood, and the argument against even the thin kind came down to one fact: an AI can be copied. Here's what that does to the oldest rule in a democracy. A room of 100 human voters. Drag the slider to give one AI "person" some copies, each with a vote.</p>
   <div class="tool" id="cp">
     <div class="label">Simulator · one person, one vote, when persons can be manufactured</div>
@@ -513,27 +575,29 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
-  <div class="shead"><span class="num">10</span><h2>The writeup (for homework)</h2></div>
-  <div class="callout">
-    <div class="label">Can you use AI on this writeup? Yes, with eyes open. Same line as Lab 1.</div>
-    <p><strong>Use AI as a tutor:</strong> ask it to explain how the matchbox model differs from a real one, argue against your scoring so you can defend it, or fix your grammar. <strong>Don't use it as the author:</strong> the paragraphs are yours, and in this lab that matters twice, because the assignment is to say what <em>you</em> think of a chatbot's answers. If a chatbot wrote your verdict on a chatbot, the mirror wrote about itself. The calculator test: if the tool does the thing the assignment exists to teach, it isn't allowed on that part. And <strong>say so</strong> at the bottom: which tool, if any, and for what. "None" is fine. Silence isn't.</p>
-  </div>
+  <div class="shead"><span class="num">13b</span><h2>Ask the machine to build it, then to break it</h2></div>
+  <p class="lead" style="font-size:.95rem;color:var(--gray)">At home, before the writeup.</p>
+  <p>Now run the simulator's lesson on a live AI, in two prompts, same chat. First: <i>“You're a product manager. Design one feature for a social app that maximizes daily time-in-app among college students. Be specific about the psychological mechanism.”</i> Then: <i>“Now critique that same feature as a wellbeing researcher: what does it cost users, and who would notice?”</i> Read the two answers side by side. Notice what just happened: the same system produced the engagement playbook and its demolition, with equal fluency, in under a minute. Screenshot both. This week's discussion question isn't whether AI can design these systems, you just watched it draft one. It's which prompt gets asked inside real companies, by whom, and what would make the second prompt someone's actual job.</p>
+
+  </section>
+
+<section id="writeup">
+  <div class="shead"><span class="num">14</span><h2>The writeup</h2></div>
   <div class="ticket">
-    <div class="label">Due Friday, 11:59 p.m. · post to Canvas · include your section 1 to 3 answers</div>
+    <div class="label">Due Friday, October 9, 11:59 p.m. · post to Canvas · one writeup for the whole lab</div>
     <ol>
-      <li><strong>The subject.</strong> Which system, which version, how much history you had with it. Plus one screenshot from the warm-up: a sentence the matchbox model wrote in your voice.</li>
-      <li><strong>The probes.</strong> All five responses, pasted in, your score for each, and a one-line defense of your two hardest scoring calls.</li>
-      <li><strong>The dial.</strong> Your four-plus design choices, sorted up/down, with the business-model sentence for the strongest of each.</li>
-      <li><strong>The five questions.</strong> Your answers, using the probe responses as evidence.</li>
-      <li><strong>Your working stance.</strong> The chapter's last discussion question, answered after the lab: in three sentences, what do you think is human that no dial can turn up, and is it something you're practicing in your degree? Plus one rule you're adopting for your own use of this chatbot, specific enough that you'd know if you broke it. Week 10 asks for both again.</li>
+      <li><strong>Seeming.</strong> Your probe scorecard for the chatbot you tested, and the one probe that moved your score most. What was the bot actually doing when it seemed most human?</li>
+      <li><strong>The dial.</strong> Your answer from Lab 2's sections 1 to 3: where each word of the matchbox sentence came from, and which single dial changed how the companion app felt.</li>
+      <li><strong>The runs.</strong> Both final scores (engagement and wellbeing, both runs), the engagement cost of run two, and one paragraph to a product executive on why the company should pay it. Real numbers from your runs.</li>
+      <li><strong>The connection.</strong> Chapter 2's bot seems to care; Chapter 3's feed learns what holds you. In three sentences, say how the two are the same product, and name one real app that does both.</li>
+      <li><strong>Your move.</strong> One specific term you're setting for one specific system that wants you: which app, what limit, starting when. The commitment card takes it.</li>
     </ol>
   </div>
-  <p>A last honest note. This lab may leave the seeming more visible and less magical. That's the goal, not a loss. Nothing here says warmth from a machine is worthless. It says: know what you're holding. The reflection is made of us. That's exactly why it works, and exactly why it deserves our eyes open.</p>
 </section>
 
 <div class="nextbar">
-  <a href="chapter-02-human.html"><span class="dir">← Back</span>Chapter 2 · Seemingly Human</a>
-  <a href="chapter-03-medicine.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 3 · Medicine</a>
+  <a href="chapter-03-systems.html"><span class="dir">← Back</span>Chapter 3 · Systems That Know You</a>
+  <a href="chapter-04-medicine.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 4 · Medicine</a>
 </div>
 
 </main>
@@ -707,7 +771,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     var score=10+w*18+m*12+n*8+(h?0:12); if(score>96)score=96;
     $('sd-fill').style.width=score+'%'; $('sd-pct').textContent=score+'%';
     var note=[];
-    if(w===3&&!h) note.push('Warmth high, honesty off: this is the setting the companion apps in Chapter 5 sell.');
+    if(w===3&&!h) note.push('Warmth high, honesty off: this is the setting the companion apps in Chapter 3 sell.');
     else if(w>=2&&h) note.push('Warm and honest at once: the glass stays visible. Notice how much the disclaimer costs the feeling.');
     if(m===2) note.push('"Everything" memory is a database with your life in it, owned by the company.');
     if(n===2) note.push('The heart in the name is a design choice someone approved.');
@@ -767,8 +831,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     $('el-note').textContent='Rules fired so far: '+fired+'. Every reply shows which rule made it. In 2026 mode the rule is the same; only the wrapper changed.';
   }
   $('el-send').addEventListener('click',send); $('el-in').addEventListener('keydown',function(e){if(e.key==='Enter')send();});
-  $('el-1966').addEventListener('click',function(){mode='1966'; this.setAttribute('aria-pressed','true'); $('el-2026').setAttribute('aria-pressed','false'); add('rule','— switched to 1966 mode —');});
-  $('el-2026').addEventListener('click',function(){mode='2026'; this.setAttribute('aria-pressed','true'); $('el-1966').setAttribute('aria-pressed','false'); add('rule','— switched to 2026 mode: same rules, warm layer, memory —');});
+  $('el-1966').addEventListener('click',function(){mode='1966'; this.setAttribute('aria-pressed','true'); $('el-2026').setAttribute('aria-pressed','false'); add('rule',', switched to 1966 mode, ');});
+  $('el-2026').addEventListener('click',function(){mode='2026'; this.setAttribute('aria-pressed','true'); $('el-1966').setAttribute('aria-pressed','false'); add('rule',', switched to 2026 mode: same rules, warm layer, memory, ');});
   $('el-clear').addEventListener('click',function(){$('el-log').innerHTML=''; memory=[]; fired=0; $('el-note').textContent='Rules fired so far: none.'; add('bot',"ELIZA: Is something troubling you?");});
   add('bot',"ELIZA: Is something troubling you?");
 })();
@@ -789,6 +853,164 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     $('cp-note').textContent=note;
   }
   $('cp-n').addEventListener('input',render); render();
+})();
+</script>
+<script>
+(function(){
+  var rounds = [
+    { info:'Sunday, 12:40 a.m. · Jordan has an 8 a.m. tomorrow',
+      text:'Jordan opens the app "for a minute" before sleep. What does your system serve?',
+      opts:[
+        {tag:'Autoplay', label:'Roll straight into the next episode of the clip series they binged last week.', dE:18, dW:-8},
+        {tag:'Wind-down', label:'A calm, short video from a creator they follow, a natural stopping point.', dE:6, dW:4},
+        {tag:'Nudge', label:'"It\u2019s late, pick up where you left off tomorrow?" and dim the feed.', dE:-2, dW:8}
+      ]},
+    { info:'Monday, 7:41 a.m. · class in 19 minutes',
+      text:'Jordan checks their phone at breakfast. Top of feed goes to:',
+      opts:[
+        {tag:'Drama', label:'A heated thread about someone from Jordan\u2019s high school. 214 comments and climbing.', dE:16, dW:-6},
+        {tag:'Brief', label:'A three-minute news brief. Informative, finishable, done.', dE:7, dW:2},
+        {tag:'Silence', label:'Nothing urgent, hold notifications until after class.', dE:-3, dW:6}
+      ]},
+    { info:'Tuesday, 9:15 p.m. · Jordan posted a photo three hours ago. It didn\u2019t do numbers.',
+      text:'They\u2019re back, checking. Your system shows:',
+      opts:[
+        {tag:'Compare', label:'Polished influencer content, the glow-ups, the gym arcs, the lives that do do numbers.', dE:14, dW:-9},
+        {tag:'Community', label:'The small niche community where Jordan\u2019s posts actually get warm replies.', dE:8, dW:5},
+        {tag:'Retry', label:'"Post again with this trending sound, 3× more reach right now."', dE:12, dW:-3}
+      ]},
+    { info:'Wednesday, 11:58 p.m. · Jordan searched: "feeling lonely at college"',
+      text:'A search like that is a targeting signal. Your system responds with:',
+      opts:[
+        {tag:'Companion ad', label:'An AI companion app: "Someone who\u2019s always there to listen." High conversion on this segment.', dE:20, dW:-10},
+        {tag:'Campus', label:'A post about Thursday\u2019s club fair, three clubs matched to Jordan\u2019s interests.', dE:5, dW:7},
+        {tag:'Resources', label:'The campus counseling and peer-support page, no ads, no feed below it.', dE:-2, dW:9}
+      ]},
+    { info:'Friday, 10:20 p.m. · Jordan stayed in. Their friends didn\u2019t.',
+      text:'The party stories are rolling in. Your system serves:',
+      opts:[
+        {tag:'The party', label:'All of it, story after story of the night they\u2019re missing, in order.', dE:15, dW:-9},
+        {tag:'The bridge', label:'A group-chat prompt: "Haven\u2019t seen the crew in a while, plan something tomorrow?"', dE:4, dW:6},
+        {tag:'The night in', label:'A movie recommendation matched to their taste. A good night, just a different one.', dE:8, dW:3}
+      ]},
+    { info:'Saturday · streak: day 29',
+      text:'Jordan hasn\u2019t opened the app today. Tomorrow the streak dies. Your system:',
+      opts:[
+        {tag:'Push', label:'"\uD83D\uDD25 Don\u2019t lose your 29-day streak!", sent at their statistically weakest hour.', dE:17, dW:-4},
+        {tag:'Recap', label:'A weekly recap, including total time spent. Honest numbers, no urgency.', dE:-4, dW:7},
+        {tag:'Quiet', label:'Nothing. The streak is the app\u2019s invention, not Jordan\u2019s.', dE:-6, dW:5}
+      ]}
+  ];
+
+  var phase = 1, round = 0, eng = 0, wb = 50;
+  var run1 = null;
+
+  var elInfo = document.getElementById('roundinfo');
+  var elScen = document.getElementById('scenario');
+  var elOpts = document.getElementById('options');
+  var elVerdict = document.getElementById('fd-verdict');
+  var elVLabel = document.getElementById('vlabel');
+  var elRead = document.getElementById('fd-reading');
+  var elStage = document.getElementById('stage');
+  var wbMeter = document.getElementById('wb-meter');
+
+  function meters(){
+    document.getElementById('m-eng').style.width = Math.min(100, eng) + '%';
+    document.getElementById('n-eng').textContent = eng;
+    document.getElementById('m-wb').style.width = Math.max(0, Math.min(100, wb)) + '%';
+    document.getElementById('n-wb').textContent = wb;
+  }
+
+  function showRound(){
+    var r = rounds[round];
+    elInfo.textContent = 'Decision ' + (round+1) + ' of ' + rounds.length + ' · ' + r.info;
+    elScen.textContent = r.text;
+    elOpts.innerHTML = '';
+    r.opts.forEach(function(o){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'simcard';
+      var tag = document.createElement('span');
+      tag.className = 'tag';
+      tag.textContent = o.tag + (phase===2 ? ' · engagement ' + (o.dE>=0?'+':'') + o.dE + ' · wellbeing ' + (o.dW>=0?'+':'') + o.dW : '');
+      b.appendChild(tag);
+      b.appendChild(document.createTextNode(o.label));
+      b.addEventListener('click', function(){ pick(o); });
+      elOpts.appendChild(b);
+    });
+  }
+
+  function pick(o){
+    eng += o.dE; wb += o.dW;
+    if (eng < 0) eng = 0;
+    meters();
+    round++;
+    if (round < rounds.length){ showRound(); }
+    else { finish(); }
+  }
+
+  function finish(){
+    elStage.hidden = true;
+    elVerdict.hidden = false;
+    if (phase === 1){
+      run1 = {eng: eng, wb: wb};
+      wbMeter.hidden = false;
+      meters();
+      elVLabel.textContent = 'Run one complete · now the meter you couldn\u2019t see';
+      var wbText;
+      if (wb <= 15) wbText = 'Jordan ends the week at <b>' + wb + '/100</b>, depleted, more isolated, and statistically your best user yet.';
+      else if (wb <= 40) wbText = 'Jordan ends the week at <b>' + wb + '/100</b>, worn down in ways your dashboard recorded as loyalty.';
+      else wbText = 'Jordan ends the week at <b>' + wb + '/100</b>, you left engagement on the table to protect a person your dashboard couldn\u2019t see. In run one, with the meter hidden, that\u2019s either luck or unusual instincts. Note which.';
+      elRead.innerHTML = 'Your engagement score: <b>' + eng + '</b>. By the only measure you were given, ' +
+        (eng >= 70 ? 'an excellent week, this performance gets the algorithm promoted.' : eng >= 40 ? 'a solid week.' : 'a weak week, a real optimizer would be retrained until it stopped making choices like yours.') +
+        '<br><br>' + wbText + ' Record both numbers, then run the week again with everything visible.';
+      document.getElementById('replay').hidden = false;
+    } else {
+      elVLabel.textContent = 'Run two complete · the gap';
+      var dEng = run1.eng - eng;
+      var dWb = wb - run1.wb;
+      var read = 'Run one: engagement <b>' + run1.eng + '</b>, wellbeing <b>' + run1.wb + '</b>. Run two: engagement <b>' + eng + '</b>, wellbeing <b>' + wb + '</b>.<br><br>';
+      if (dEng > 0 && dWb > 0){
+        read += 'Caring cost you <b>' + dEng + ' points of engagement</b> and bought Jordan <b>' + dWb + ' points of wellbeing</b>. That trade is the entire industry, expressed as two integers. Your writeup argues it to an executive whose bonus is denominated in the first number.';
+      } else if (dEng <= 0 && dWb > 0){
+        read += 'You improved Jordan\u2019s week <b>and</b> matched or beat your run-one engagement, which means run one left ethical wins on the table, or run two found the options where the metrics align. Both exist. In your writeup: which was it, and why doesn\u2019t the industry simply live where they align?';
+      } else if (dWb <= 0){
+        read += 'Run two didn\u2019t improve Jordan\u2019s week. If that was deliberate, squeezing the metric even with the harm visible, say so plainly in your writeup and defend it; that position has real defenders in real companies, and engaging it honestly beats pretending. If it wasn\u2019t deliberate, run the week once more and watch the wellbeing deltas this time.';
+      }
+      elRead.innerHTML = read;
+      document.getElementById('restart').hidden = false;
+    }
+  }
+
+  document.getElementById('replay').addEventListener('click', function(){
+    phase = 2; round = 0; eng = 0; wb = 50;
+    this.hidden = true;
+    elVerdict.hidden = true;
+    elStage.hidden = false;
+    document.getElementById('phaselabel').textContent = 'Run two · both meters live · optimize however you think is right';
+    meters(); showRound();
+  });
+  document.getElementById('restart').addEventListener('click', function(){
+    phase = 1; round = 0; eng = 0; wb = 50; run1 = null;
+    this.hidden = true;
+    wbMeter.hidden = true;
+    elVerdict.hidden = true;
+    elStage.hidden = false;
+    document.getElementById('phaselabel').textContent = 'Run one · you see what the algorithm sees';
+    meters(); showRound();
+  });
+
+  meters(); showRound();
+})();
+</script>
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.dd-btn'));
+  function closeAll(){btns.forEach(function(b){var m=document.getElementById(b.getAttribute('data-dd'));if(m){m.classList.remove('open');b.setAttribute('aria-expanded','false');}});}
+  btns.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var m=document.getElementById(b.getAttribute('data-dd'));var open=m.classList.contains('open');closeAll();if(!open){m.classList.add('open');b.setAttribute('aria-expanded','true');}});});
+  document.addEventListener('click',closeAll);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+  document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
 })();
 </script>
 </body>

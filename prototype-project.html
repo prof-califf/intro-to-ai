@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Schedule — Intro to AI in Business | MIS 201</title>
+<title>Prototype Project — Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -182,6 +182,24 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   .nav .navlinks{width:100%;justify-content:flex-start}
   .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
 }
+
+/* ---- syllabus ---- */
+.toc{border:1px solid var(--rule);background:#fff;padding:18px 22px;margin:22px 0;font-size:.92rem;line-height:1.9}
+.toc .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:6px}
+.toc a{color:var(--ink);text-decoration:none}.toc a:hover{color:var(--pinktext)}
+table.syl{width:100%;border-collapse:collapse;margin:16px 0 22px;font-size:.93rem}
+table.syl th{text-align:left;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);border-bottom:2px solid var(--pink);padding:8px 10px}
+table.syl td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.syl.scale td:nth-child(odd){font-weight:600}
+.fill{background:#FFF7C2;padding:0 4px}
+section ol li{margin-bottom:.5em}
+@media (max-width:640px){table.syl{font-size:.82rem;display:block;overflow-x:auto}table.syl th,table.syl td{padding:6px}}
+
+ul.gilman{list-style:none;padding:0;margin:14px 0 18px;border:1px solid var(--rule);background:#fff}
+ul.gilman li{padding:10px 16px;border-bottom:1px solid var(--rule);font-size:.95rem}
+ul.gilman li:last-child{border-bottom:none}
+ul.gilman b{font-family:'Fraunces',serif;font-weight:700;letter-spacing:.04em;color:var(--ink);margin-right:10px}
+ul.gilman span{color:var(--gray)}
 </style>
 <style>
 .wk{border:1px solid var(--rule);border-radius:12px;padding:22px 24px;margin-bottom:18px;background:#fff;}
@@ -249,124 +267,148 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <header class="masthead">
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Fall 2026</div>
-    <h1>The <b>Schedule</b></h1>
-    <p class="kicker">One chapter a week, one rhythm all quarter. Read the chapter over the weekend. Discussion Monday. Lab Wednesday. Writeup and quiz Friday night. Eleven weeks, eleven systems, one question the whole way through.</p>
-    <p class="factline">First class Wed Sept 23 · midterm Wed Oct 21 · Prototype project due Wed Dec 2 · final exam Thu Dec 10</p>
+    <h1>The <b>Prototype</b> Project</h1>
+    <p class="kicker">In a team of four, design your own AI system and pitch it. Your spec is the prototype on paper; building a working version is up to you. Find a problem worth solving, lay out how your system would work using the model we use every week, question your own design as hard as we question everyone else's, and pitch it to the class.</p>
+    <p class="factline">10 percent of your grade · teams of four · a three-page paper · a pitch of four slides or fewer · pitches in class Mon, Nov 30 and Wed, Dec 2 · paper and slides due Fri, Dec 4, 11:59 p.m.</p>
   </div>
 </header>
 
 <main class="wrap">
 
 <div class="rhythm">
-  <div class="label">The weekly rhythm · every week unless marked</div>
-  <p><b>Weekend:</b> read the chapter. Nothing is due.</p>
-  <p><b>Monday:</b> the chapter's case, how it works, and the five questions, then discussion.</p>
-  <p><b>Wednesday:</b> a short recap of Monday, then the lab, in class, in pairs, then a debate on the question the lab raises. The lab ends with a commitment card.</p>
-  <p><b>Friday, 11:59 p.m.:</b> the five-item lab writeup and the five-question chapter quiz, both on Canvas.</p>
+  <div class="label">In one paragraph</div>
+  <p>Form a team of four by <b>Friday, October 30</b>. Browse the Rundown AI Workflow Hub for inspiration and pick a real problem you'd like an AI system to help with. Design that system as a spec: what it's for, who uses it, and its five parts (data, model, output, feedback loop, humans). Run the five critical AI questions on your own design and decide what to keep, fix, or drop, with the cost of each choice. Building a working version is up to your team; you can use Claude, ChatGPT, any other tool, or no AI at all. On <b>Monday, November 30, or Wednesday, December 2</b>, your team gives a five-minute pitch with four slides or fewer. By <b>11:59 p.m. Friday, December 4</b>, your team submits the paper and slides, and each of you submits a short reflection. You are graded on whether your design survives the questions, not on whether you built it.</p>
 </div>
 
-<section>
-  <div class="shead"><span class="num">→</span><h2>Week by week</h2></div>
+<div class="toc">
+  <div class="label">Contents</div>
+  <p><a href="#s1">Your team</a> · <a href="#s2">Get inspired</a> · <a href="#s3">Write the spec</a> · <a href="#s4">Question your own design</a> · <a href="#s5">Build it, if you want to</a> · <a href="#s6">How to write it up</a> · <a href="#s7">The pitch</a> · <a href="#s8">What I look for</a> · <a href="#s9">Using AI on this project</a></p>
+</div>
 
-  <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 1</span><h3>First Contact</h3></div><div class="dates">Sept 23 · first class</div></div>
-    <div class="day"><b>Mon 9/21</b><span class="off">No class — quarter begins Wednesday.</span></div>
-    <div class="day"><b>Wed 9/23</b><span>First class. No reading due. In class: welcome, then Lab 0 · First Contact (guess which everyday things are AI, call seven claims, stump a chatbot, browse the Rundown AI Workflow Hub), with discussion built in.</span></div>
-    <div class="day"><b>Fri 9/25</b><span>Lab 0 assignment and Chapter 1 quiz (read Chapter 1 this week), on Canvas.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="lab-00-first-contact.html">Lab 0</a><a href="chapter-01-what-is-ai.html">Chapter 1</a></div>
-  </div>
-
-  <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 2</span><h3>What Is AI?</h3></div><div class="dates">Sept 28 – Oct 2</div></div>
-    <div class="day"><b>Mon 9/28</b><span>Chapter 1's case, the OpenAI agents and Hugging Face, through the five questions, then discussion.</span></div>
-    <div class="day"><b>Wed 9/30</b><span>Recap, then Lab 1 · Inside the Machine, then the debate.</span></div>
-    <div class="day"><b>Fri 10/2</b><span>Lab 1 writeup.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-01-what-is-ai.html">Chapter 1</a><a href="chapter-01-what-is-ai-lab.html">Lab 1</a></div>
-  </div>
-
-  <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 3</span><h3>Seemingly Human, and Systems That Know You</h3></div><div class="dates">Oct 5 – Oct 9</div></div>
-    <div class="day"><b>Mon 10/5</b><span>Chapter 2's case, Therabot, then discussion. Read Chapter 2 before class.</span></div>
-    <div class="day"><b>Wed 10/7</b><span>Chapter 3's case, Spotify Wrapped, then Lab 2 · The Seeming Test and the Feed, which covers both chapters: the matchbox model, the probes, and the feed's first run in class, then the debate. Read Chapter 3 before class; finish the rest of the lab at home.</span></div>
-    <div class="day"><b>Fri 10/9</b><span>Lab 2 writeup, and a quiz on Chapters 2 and 3.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-02-human.html">Chapter 2</a><a href="chapter-02-human-lab.html">Lab 2</a><a href="chapter-03-systems.html">Chapter 3</a></div>
-  </div>
-
-  <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 4</span><h3>Medicine</h3></div><div class="dates">Oct 12 – Oct 16</div></div>
-    <div class="day"><b>Mon 10/12</b><span>The case, then discussion. Read Chapter 4 before class.</span></div>
-    <div class="day"><b>Wed 10/14</b><span>Recap, then Lab 4 · Inside the Graph, then the debate.</span></div>
-    <div class="day"><b>Fri 10/16</b><span>Lab 4 writeup and Chapter 4 quiz.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-04-medicine.html">Chapter 4</a><a href="chapter-04-medicine-lab.html">Lab 4</a></div>
-  </div>
-
-  <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 5</span><h3>Environment, then the midterm</h3></div><div class="dates">Oct 19 – Oct 23</div></div>
-    <div class="day"><b>Mon 10/19</b><span>Chapter 5's case, then discussion (read Chapter 5 before class), then about 30 minutes of midterm review.</span></div>
-    <div class="day"><b>Wed 10/21</b><span><strong>Midterm.</strong> Chapters 1 through 4 and Labs 0 through 4, in class, closed book.</span></div>
-    <div class="day"><b>Fri 10/23</b><span>Lab 5 · The Footprint Machine (take-home this week) writeup and Chapter 5 quiz.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-05-environment.html">Chapter 5</a><a href="chapter-05-environment-lab.html">Lab 5</a></div>
-  </div>
-
-  <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 6</span><h3>Hiring &amp; Lending</h3></div><div class="dates">Oct 26 – Oct 30</div></div>
-    <div class="day"><b>Mon 10/26</b><span>The case, then discussion. Read Chapter 6 before class.</span></div>
-    <div class="day"><b>Wed 10/28</b><span>Recap, then Lab 6 · You Are the Auditor, then the debate.</span></div>
-    <div class="day"><b>Fri 10/30</b><span>Lab 6 writeup, Chapter 6 quiz, and Prototype project team sign-up (teams of four).<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-06-hiring-lending.html">Chapter 6</a><a href="chapter-06-hiring-lending-lab.html">Lab 6</a></div>
-  </div>
-
-  <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 7</span><h3>Transportation</h3></div><div class="dates">Nov 2 – Nov 6</div></div>
-    <div class="day"><b>Mon 11/2</b><span>The case, then discussion. Read Chapter 7 and listen to both NPR pieces before class.</span></div>
-    <div class="day"><b>Wed 11/4</b><span>Recap, then Lab 7 · You Are the City Council, then the debate.</span></div>
-    <div class="day"><b>Fri 11/6</b><span>Lab 7 writeup and Chapter 7 quiz.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-07-transportation.html">Chapter 7</a><a href="chapter-07-transportation-lab.html">Lab 7</a></div>
-  </div>
-
-  <div class="wk holiday">
-    <div class="whead"><div><span class="wnum">Week 8</span><h3>Ethics &amp; War · Veterans Day week</h3></div><div class="dates">Nov 9 – Nov 13</div></div>
-    <div class="day"><b>Mon 11/9</b><span>The case, then discussion, then Lab 8 · The Red Lines: the sort in class, the rest at home (the sorted contracts are the discussion and the debate). Read Chapter 8 and the two assigned pieces before class.</span></div>
-    <div class="day"><b>Wed 11/11</b><span class="off">No class. Veterans Day.</span></div>
-    <div class="day"><b>Fri 11/13</b><span>Lab 8 writeup and Chapter 8 quiz.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-08-ethics-war.html">Chapter 8</a><a href="chapter-08-ethics-war-lab.html">Lab 8</a></div>
-  </div>
-
-  <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 9</span><h3>The Economy</h3></div><div class="dates">Nov 16 – Nov 20</div></div>
-    <div class="day"><b>Mon 11/16</b><span>The case, then discussion. Read Chapter 9, the Krugman essay, and listen to the NPR story on recent grads before class.</span></div>
-    <div class="day"><b>Wed 11/18</b><span>Recap, then Lab 9 · Run the Firm, then the debate.</span></div>
-    <div class="day"><b>Fri 11/20</b><span>Lab 9 writeup and Chapter 9 quiz.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-09-economy.html">Chapter 9</a><a href="chapter-09-economy-lab.html">Lab 9</a></div>
-  </div>
-
-  <div class="wk holiday">
-    <div class="whead"><div><span class="wnum">Break</span><h3>Thanksgiving Break</h3></div><div class="dates">Nov 23 – Nov 27</div></div>
-    <div class="day"><b>All week</b><span class="off">No class. Nothing due. Go be a human — it's the subject of the course.</span></div>
-  </div>
-
-  <div class="wk">
-    <div class="whead"><div><span class="wnum">Week 10</span><h3>Truth and the rules, then the last class</h3></div><div class="dates">Nov 30 – Dec 4</div></div>
-    <div class="day"><b>Mon 11/30</b><span>Half and half: the cases from Chapters 10 and 11, Truth and Who Makes the Rules?, then discussion (about 55 minutes; read both before class), then Prototype project pitches, the first five teams.</span></div>
-    <div class="day"><b>Wed 12/2</b><span><b>Last class.</b> Half and half: Prototype project pitches, the last five teams, then Chapter 12, The Future (read it before class), and the closing conversation: your Week 1 claims, re-answered. No lab this week; the project is the work.</span></div>
-    <div class="day"><b>Fri 12/4</b><span>The Prototype project paper, slides, and individual reflection, and a quiz on Chapters 10 and 11. Last day anything can be turned in.<span class="due">due</span></span></div>
-    <div class="wlinks"><a href="chapter-10-truth.html">Chapter 10</a><a href="chapter-11-rules.html">Chapter 11</a><a href="chapter-12-future.html">Chapter 12</a></div>
-  </div>
-
-  <div class="wk">
-    <div class="whead"><div><span class="wnum">Finals</span><h3>Final exam</h3></div><div class="dates">Thu Dec 10</div></div>
-    <div class="day"><b>Thu 12/10</b><span><b>Final exam</b>, 10:30 a.m., our classroom, cumulative: Chapters 5 through 12 in full, plus the five moments, the five parts, the five questions, and every case at the level of its main idea.</span></div>
-  </div>
-
-  <p class="note">Chapter 8, Ethics &amp; War, falls on Veterans Day week on purpose: a Monday-only week, with the lab done in class that day and the holiday held with the respect it deserves.</p>
+<section id="s1">
+  <div class="shead"><span class="num">1</span><h2>Your team</h2></div>
+  <p>Teams of four, formed by Friday, October 30, at 11:59 p.m. on Canvas. Pick your own team or ask to be placed; anyone without a team by then gets placed. Your team designs one system and turns in one paper and one pitch.</p>
+  <table class="syl">
+    <tr><th>What</th><th>Who</th><th>Due</th></tr>
+    <tr><td>Team sign-up</td><td>Team</td><td>Fri, Oct 30, 11:59 p.m.</td></tr>
+    <tr><td>The pitch, five minutes plus two minutes of questions</td><td>Team</td><td>In class, Mon, Nov 30 or Wed, Dec 2 (order announced in Week 9; slides ready by Monday)</td></tr>
+    <tr><td>The paper (about three pages) and the pitch slides (four or fewer)</td><td>Team</td><td>Fri, Dec 4, 11:59 p.m.</td></tr>
+    <tr><td>Your reflection: what you did, and what you'd change. One paragraph. Plus a quick rating of each teammate's contribution.</td><td>Each of you</td><td>Fri, Dec 4, 11:59 p.m.</td></tr>
+  </table>
+  <p class="note">The team grade comes from the paper and the pitch. Your reflection and your teammates' ratings can move your own grade up or down, so nobody carries the team alone and nobody coasts.</p>
 </section>
 
-<div class="nextbar">
-  <a href="index.html"><span class="dir">← Back</span>Contents</a>
-  <a href="chapter-01-what-is-ai.html" style="text-align:right;"><span class="dir">Start →</span>Chapter 1 · What Is AI?</a>
-</div>
+<section id="s2">
+  <div class="shead"><span class="num">2</span><h2>Get inspired</h2></div>
+  <p>Prototyping is how ideas get tested in business now. Instead of writing a long plan and hoping, people build a rough working version fast, put it in front of someone, and learn what's wrong before it costs much. AI has made that much cheaper: a chatbot, a spreadsheet, or a no-code tool can turn a sketch into something you can click on in an afternoon. Companies increasingly ask for a prototype, not a proposal.</p>
+  <p>The <a class="inline" href="https://app.therundown.ai/community" target="_blank" rel="noopener">Rundown AI Workflow Hub</a>, where Day 1 left off, is a live feed of exactly those prototypes: workflows real people built with AI for real work, most of them rough, some of them clever, a few of them bad ideas that look good. Browse it for the shape of what's possible, then pick a problem of your own. It can come from your job, your classes, a club, a business you know, or your family.</p>
+  <table class="syl">
+    <tr><th>A good problem</th><th>A weak problem</th></tr>
+    <tr><td>Has a specific user: "the front desk at my gym," "first-year students choosing classes"</td><td>Has no one in particular in mind: "people," "businesses"</td></tr>
+    <tr><td>Is a real task someone does now, slowly or badly</td><td>Is a task nobody actually needs done</td></tr>
+    <tr><td>Has data that exists or could be collected</td><td>Depends on data nobody has or could ethically get</td></tr>
+    <tr><td>Is small enough to describe in one sentence</td><td>Is "use AI to fix education" or "an app that does everything"</td></tr>
+  </table>
+</section>
+
+<section id="s3">
+  <div class="shead"><span class="num">3</span><h2>Write the spec</h2></div>
+  <p>Describe your system clearly enough that someone could build it. Start with one sentence each: what problem it solves, who uses it, and what kind of AI it is (predictive, generative, or agentic). Then lay out its five parts.</p>
+  <table class="syl">
+    <tr><th>Part</th><th>Answer these</th></tr>
+    <tr><td>Data</td><td>What does it learn from or look at? Where does that data come from, and did the people in it agree? What's missing from it, and who does that leave out?</td></tr>
+    <tr><td>Model</td><td>What would it run on? Name an existing model or tool (you don't need to build one or write code) and say why that one.</td></tr>
+    <tr><td>Output</td><td>What does it produce: a judgment (a score, a flag, a ranking) or a creation (a draft, an image, a plan)? What does a person do with it next?</td></tr>
+    <tr><td>Feedback loop</td><td>How does it get better over time? What could go wrong as it does?</td></tr>
+    <tr><td>Humans</td><td>Where do people sit: in the loop (approving every output), on the loop (watching and able to step in), or out of it? Who checks the work, and who answers when it's wrong?</td></tr>
+  </table>
+  <p class="note">A simple diagram of your five parts is welcome. Boxes and arrows, like the one in Chapter 1, are plenty.</p>
+</section>
+
+<section id="s4">
+  <div class="shead"><span class="num">4</span><h2>Question your own design</h2></div>
+  <p>Now do to your system what we do to every system in class.</p>
+  <div class="fourq">
+    <div class="q"><span class="qn">1</span><p><strong>What is the AI system, and what does it do?</strong> Your spec answers this one.</p></div>
+    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> Who gains if it works? Who pays for it? Is there anyone it could quietly work against?</p></div>
+    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> Describe one realistic failure. Who would notice, and how fast? Is it a loud failure or a quiet one?</p></div>
+    <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> Write the one claim you'd want to make about your system ("it saves an hour a day," "it's fair to every applicant"). What evidence would you need before anyone should believe it?</p></div>
+    <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Look back at your own design. Name at least one feature you'd keep, one you'd fix, and one you'd drop or never build, with what each choice costs and who pays.</p></div>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="shead"><span class="num">5</span><h2>Build it, if you want to</h2></div>
+  <p>Building is optional. Some of you will want to make a working version, and some won't; both are fine, and the grade is the same either way. A prototype can be a custom chatbot in Claude or ChatGPT, a no-code app, a spreadsheet, or a clickable mockup. If you build one, you can test it with something you tried in a lab, like giving it two inputs that differ in one detail and comparing the results, and put what you found under question 3.</p>
+</section>
+
+<section id="s6">
+  <div class="shead"><span class="num">6</span><h2>How to write it up: the pitch paper</h2></div>
+  <p>Write your paper like a business pitch: you're convincing a manager or an investor that this system is worth building, and showing you've thought hard about how it could go wrong. Use these nine headings, in this order. The whole paper runs about three pages, roughly 1,200 to 1,500 words.</p>
+  <table class="syl">
+    <tr><th>Section</th><th>What goes in it</th></tr>
+    <tr><td><strong>1. Executive summary</strong><br><span style="color:var(--gray)">About 100 words</span></td><td>In one paragraph: the problem, your solution, who pays for it, and what you're asking for. Write it last, put it first. Someone who reads only this should get the whole idea.</td></tr>
+    <tr><td><strong>2. The problem and the customer</strong><br><span style="color:var(--gray)">About 200 words</span></td><td>Who has this problem? How do they handle it today? What does it cost them in time, money, or mistakes? Give a number, even an estimate, and say where it came from. Why does this need solving now?</td></tr>
+    <tr><td><strong>3. The solution: how it works</strong><br><span style="color:var(--gray)">About 300 words</span></td><td>Start with a one-sentence pitch. Name the kind of AI (predictive, generative, or agentic). Then lay out the five parts: data, model, output, feedback loop, and humans, with a simple diagram. Finish by walking through one customer using it, step by step.</td></tr>
+    <tr><td><strong>4. The business case</strong><br><span style="color:var(--gray)">About 200 words</span></td><td>Who pays, and how: a subscription, a fee per use, or savings inside a company? Who benefits? Who could lose out? What does it replace, and what are the alternatives, including doing nothing?</td></tr>
+    <tr><td><strong>5. Risks: how it could fail</strong><br><span style="color:var(--gray)">About 250 words</span></td><td>Describe one realistic failure. Is it loud or quiet? Who finds out, and how fast? Then the data risks: did people agree to share it, what's missing, and who does that leave out? What could go wrong as the system learns?</td></tr>
+    <tr><td><strong>6. Proof: what you'd need to show</strong><br><span style="color:var(--gray)">About 150 words</span></td><td>Write the claim you'd put on your first slide ("cuts wait times in half"). What evidence would make an investor or a manager believe it? Describe a small pilot or test that would prove it or prove you wrong.</td></tr>
+    <tr><td><strong>7. Design decisions: keep, fix, drop</strong><br><span style="color:var(--gray)">About 200 words</span></td><td>Name at least one feature you'd keep, one you'd fix, and one you'd drop or never build. For each, say what it costs and who pays.</td></tr>
+    <tr><td><strong>8. The ask and next steps</strong><br><span style="color:var(--gray)">About 100 words</span></td><td>What do you need to get started: money, access to data, a pilot partner? What are your first three steps? What result would make you stop?</td></tr>
+    <tr><td><strong>9. Prototype (optional) and AI use</strong><br><span style="color:var(--gray)">A few sentences</span></td><td>If you built something, describe it using the checklist below. End with one line on which tools your team used, if any, and for what.</td></tr>
+  </table>
+  <p class="note">Your four pitch slides follow the same order: slide 1 is the problem and the customer, slide 2 is how it works, slide 3 is the risks and your design decisions, and slide 4 is the proof and the ask.</p>
+  <h3>If you build a prototype, include</h3>
+  <table class="syl">
+    <tr><th>What</th><th>For example</th></tr>
+    <tr><td>The tool you used</td><td>"A custom chatbot in Claude," "a Google Sheet," "a clickable mockup in Canva"</td></tr>
+    <tr><td>What you gave it</td><td>The instructions or prompt, and the sample data. Use made-up data, never real people's private information.</td></tr>
+    <tr><td>One to three screenshots</td><td>Your setup, and one or two outputs</td></tr>
+    <tr><td>What worked and what didn't</td><td>One or two sentences each</td></tr>
+    <tr><td>One test and its result</td><td>Two inputs that differ in one detail; a tricky question; a case it should refuse</td></tr>
+    <tr><td>A link, if it's shareable</td><td>Optional</td></tr>
+  </table>
+  <p class="note">No prototype? Skip that part. A clear spec with honest answers earns full credit on its own.</p>
+</section>
+
+<section id="s7">
+  <div class="shead"><span class="num">7</span><h2>The pitch</h2></div>
+  <p>In the last week, half the teams pitch on Monday, November 30, after the Chapter 10 and 11 cases, and half on Wednesday, December 2. Each team gets <strong>five minutes to pitch, then two minutes of questions</strong> from the room. Everyone on the team should speak. Four slides at most:</p>
+  <div class="fourq">
+    <div class="q"><span class="qn">1</span><p><strong>The problem.</strong> Who the customer is, what goes wrong for them today, and what it costs them.</p></div>
+    <div class="q"><span class="qn">2</span><p><strong>How it works.</strong> Your five parts, as a simple diagram.</p></div>
+    <div class="q"><span class="qn">3</span><p><strong>Risks and decisions.</strong> The failure you worry about most, and what you decided to keep, fix, or drop because of it.</p></div>
+    <div class="q"><span class="qn">4</span><p><strong>Proof and the ask.</strong> The claim, the test that would prove it, and what you need to get started.</p></div>
+  </div>
+  <p>While other teams pitch, yours has a job. Each team is assigned one pitch to question first, and after every pitch the room votes: would you fund it? If you built a prototype, a quick demo fits inside your five minutes.</p>
+</section>
+
+<section id="s8">
+  <div class="shead"><span class="num">8</span><h2>What I look for</h2></div>
+  <p>The question behind the grade is whether your design survives the five questions.</p>
+  <table class="syl">
+    <tr><th>Strong</th><th>Weak</th></tr>
+    <tr><td>A specific problem and a specific customer, with a sense of what the problem costs them</td><td>A vague problem, or no customer in mind</td></tr>
+    <tr><td>A believable business case: who pays, who benefits, and who could lose out</td><td>No idea who would pay, or no one who could be harmed</td></tr>
+    <tr><td>All five parts, including honest answers about the data's gaps and where people sit</td><td>Parts left out, or a system with no humans in it and no explanation why</td></tr>
+    <tr><td>A realistic failure, and who would notice it</td><td>"It won't fail" or a failure that could never happen</td></tr>
+    <tr><td>A claim with the evidence it would need</td><td>Claims stated as facts</td></tr>
+    <tr><td>Real keep, fix, and drop decisions about your own design, each with a cost</td><td>Everything kept, nothing questioned</td></tr>
+    <tr><td>A clear pitch that fits in five minutes and four slides, with everyone speaking</td><td>Reading slides aloud, or running long</td></tr>
+    <tr><td>Your own reasoning and words, and an honest AI-use line</td><td>A spec a chatbot wrote, or no disclosure</td></tr>
+  </table>
+</section>
+
+<section id="s9">
+  <div class="shead"><span class="num">9</span><h2>Using AI on this project</h2></div>
+  <p><strong>Learn it first, then use AI.</strong> In your career you'll use AI all the time, and you should. But this project is where you prove you understand the five parts and the five questions. Work those out as a team first. If you hand them to a chatbot before you understand them, you won't be able to tell when it's wrong.</p>
+  <p><strong>Building:</strong> use any tool you like, or none. <strong>The spec, the questions, and the pitch:</strong> AI can be your tutor once you've done your own thinking. It can poke holes in your design or suggest what you missed. The reasoning and the words you submit are yours.</p>
+  <p>At the end of the paper, one line: which tools your team used, if any, and for what. "None" is a fine answer. When in doubt, just tell me what you did.</p>
+  <p class="note">Questions? Office hours are Mondays and Wednesdays, 11:30 a.m. to 1:50 p.m., in Parks Hall 039, or email <a class="inline" href="mailto:califfc@wwu.edu">califfc@wwu.edu</a>. Full course policies are on <a class="inline" href="syllabus.html">the syllabus</a>. Where this page and Canvas disagree on a deadline, Canvas wins.</p>
+</section>
 
 </main>
+
 
 <footer class="foot">
   <div class="wrap">

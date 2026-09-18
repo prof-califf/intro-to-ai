@@ -199,6 +199,28 @@ table.pred td:first-child{width:46%}
 .tablecap{font-size:.88rem;color:var(--gray);margin:14px 0 4px}
 figure.diagram{margin:22px 0}
 figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;margin-top:8px}
+
+/* print */
+.printbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 6px;font-size:.9rem;color:var(--gray)}
+.printbar button{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border:none;border-radius:6px;cursor:pointer}
+.printbar button:hover{background:#242C36}
+@media print{
+  nav,.topnav,.printbar,.nextbar,footer.foot{display:none !important}
+  body{background:#fff;color:#000}
+  main.wrap{max-width:none;padding:0}
+  header.masthead{background:#fff !important;color:#000 !important;padding:0 0 12px}
+  header.masthead h1,header.masthead .kicker,header.masthead .eyebrow{color:#000 !important}
+  header.masthead h1 b{color:#000 !important}
+  a{color:#000;text-decoration:none}
+  a.inline::after{content:" (" attr(href) ")";font-size:.75em;color:#555;word-break:break-all}
+  details{display:block}
+  details>summary{list-style:none}
+  details:not([open])>*:not(summary){display:block}
+  .concept,.callout,.term-card,.ticket,figure.diagram{break-inside:avoid;page-break-inside:avoid}
+  .concept{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  h2,h3{break-after:avoid;page-break-after:avoid}
+  svg{max-width:100% !important}
+}
 </style>
 <style>
 .tryit details{border-top:1px dashed var(--rule);padding:10px 0;}
@@ -225,9 +247,9 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <div class="dd-menu" id="ddc">
 <a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
 <a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
-<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 4</span>Medicine</a>
-<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 5</span>Environment</a>
-<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · optional</span>Systems That Want You</a>
+<a href="chapter-03-systems.html"><span class="lbl">Chapter 3 · Week 3</span>Systems That Know You</a>
+<a href="chapter-04-medicine.html"><span class="lbl">Chapter 4 · Week 4</span>Medicine</a>
+<a href="chapter-05-environment.html"><span class="lbl">Chapter 5 · Week 5</span>Environment</a>
 <a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
 <a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
 <a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
@@ -240,17 +262,13 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <div class="dd-menu" id="ddl">
 <a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
 <a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
-<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test</a>
-<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 4</span>Inside the Graph</a>
-<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 5</span>The Footprint Machine</a>
-<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · optional</span>Play the Algorithm</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test and the Feed</a>
+<a href="chapter-04-medicine-lab.html"><span class="lbl">Lab 4 · Week 4</span>Inside the Graph</a>
+<a href="chapter-05-environment-lab.html"><span class="lbl">Lab 5 · Week 5</span>The Footprint Machine</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
-<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
+<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
 <a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
-<a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 10 · take-home</span>The Phantom Docket</a>
-<a href="exposure-audit.html"><span class="lbl">Self-guided · pairs with Chapter 9</span>The Exposure Audit</a>
-<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · last class</span>First Contact, Revisited</a>
 </div></div>
     </div>
   </div>
@@ -267,6 +285,11 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 
 <main class="wrap">
 
+<div class="printbar">
+  <button type="button" onclick="document.querySelectorAll('details').forEach(function(d){d.open=true});window.print()">Wanna go analog? Print this chapter</button>
+  <span>Links print with their web addresses; the try-it answers print open.</span>
+</div>
+
 <div class="contents">
   <div class="label">Learning objectives</div>
   <ol type="1">
@@ -278,34 +301,46 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 </ol>
 </div>
 
-<div class="contents">
-  <div class="label">In this chapter</div>
-  <ol>
-    <li><a href="#s1">The paradox on the receipt</a></li>
-    <li><a href="#s2">The case: the dynamo's forty years</a></li>
-    <li><a href="#s3">The data: everyone's using it, firms aren't changing</a></li>
-    <li><a href="#s4">The second case: canaries in the coal mine</a></li>
-    <li><a href="#s5">The other readings: a bubble, and a different cause</a></li>
-    <li><a href="#s6">Question it &amp; decide</a></li>
-    <li><a href="#s7">Key terms</a></li>
-    <li><a href="#s8">Discussion questions</a></li>
-  </ol>
-</div>
 
 <section id="s1">
   <div class="shead"><span class="num">1</span><h2>The paradox on the receipt</h2></div>
-  <p class="lead">Here's the puzzle this chapter lives in. By any adoption measure, generative AI is one of the fastest-spreading technologies in history, with hundreds of millions of weekly users within a few years of launch. By investment measures, it's a once-in-a-generation buildout; we saw the data centers and nuclear deals in Chapter 4. And by the measure economists care about most, productivity, the needle has barely moved.</p>
+  <p class="lead">Here's the puzzle this chapter lives in. By any adoption measure, generative AI is one of the fastest-spreading technologies in history, with hundreds of millions of weekly users within a few years of launch. By investment measures, it's a once-in-a-generation buildout; we saw the data centers and nuclear deals in Chapter 5. And by the measure economists care about most, productivity, the needle has barely moved.</p>
   <p>This isn't a new kind of embarrassment. In 1987 the economist Robert Solow joked that the computer age was visible everywhere except in the productivity statistics. The economist Paul Krugman, whose essay <a class="inline" href="https://paulkrugman.substack.com/p/ai-and-the-pitfalls-of-innovation" target="_blank" rel="noopener">"AI and the Pitfalls of Innovation"</a> anchors this week, calls it a recurring pitfall: a transformative technology and a transformed economy are two different events, sometimes decades apart.</p>
   <p>There's a second question in the room, and most of us walked in carrying it: what does all this mean for the jobs we're about to go get? This chapter treats the two questions as one. If AI's payoff depends on how work gets reorganized, then who gets hired is part of that reorganization, and the first place to look is the entry level.</p>
   <div class="concept">
     <div class="term">Productivity (and why economists obsess over it)</div>
     <p>Output per hour worked. In the long run it's close to everything: wages, living standards, and whether the next generation lives better than the last all ride on it. What people get wrong: they judge a technology by how many people use it or what its stock is worth. Economists judge it by this number, and this number is slow.</p>
   </div>
+
 </section>
 
 <section id="s2">
-  <div class="shead"><span class="num">2</span><h2>The case: the dynamo's forty years</h2></div>
-  <p>The best case study for this moment is a hundred years old, and Krugman's essay leans on it for good reason. The economic historian Paul David studied what happened when American factories got electricity, and found that for decades, almost nothing happened.</p>
+  <div class="shead"><span class="num">2</span><h2>The concepts: why a technology pays late, and who feels it first</h2></div>
+
+  <h3 class="sub"><span>2.1</span> Productivity, and the paradox</h3>
+  <p>Economists judge a technology by one number, and it isn't users or market value. <strong>Productivity</strong> is output per hour worked, and in the long run it's close to everything: wages, living standards, whether the next generation lives better than the last. The paradox in section 1 is that AI is racing on every measure except this one. That's not new. In 1987 Robert Solow said the computer age was visible everywhere except in the productivity statistics, and he was right for roughly a decade before the number moved. The question this chapter asks is whether we're in that decade again, or in something else.</p>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ecp-t ecp-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="ecp-t">The paradox: three curves since late 2022</title>
+      <desc id="ecp-d">A sketch chart, not to scale, from late 2022 to now. A steep pink curve labeled people using AI rises fast. A steep dark curve labeled money invested rises fast. A nearly flat gray line labeled productivity per hour barely moves. A note says the gap between the first two and the third is the chapter.</desc>
+      <line x1="60" y1="220" x2="720" y2="220" stroke="#E3E3DD"/><line x1="60" y1="220" x2="60" y2="40" stroke="#E3E3DD"/>
+      <text x="60" y="240" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">late 2022</text><text x="720" y="240" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">now</text><text x="390" y="262" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle" font-style="italic">sketch, not to scale</text>
+      <path d="M60,215 C300,205 420,80 720,50" fill="none" stroke="#FF3D8A" stroke-width="3"/><text x="470" y="128" font-family="Inter,Arial,sans-serif" font-size="11" fill="#D61F69" font-weight="700">people using AI</text>
+      <path d="M60,216 C340,212 480,110 720,75" fill="none" stroke="#0E1116" stroke-width="3"/><text x="560" y="150" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" font-weight="700">money invested</text>
+      <path d="M60,205 C300,203 500,200 720,196" fill="none" stroke="#9AA1AB" stroke-width="3"/><text x="600" y="190" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="700">productivity per hour</text>
+      <text x="390" y="30" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" text-anchor="middle" font-style="italic">&quot;visible everywhere except in the productivity statistics&quot;</text>
+    </svg>
+    <figcaption>The paradox on the receipt. Adoption and investment look like a revolution; the number economists trust looks like nothing happened. Solow said the same about computers in 1987, and he was right for a decade.</figcaption>
+  </figure>
+
+  <div class="concept">
+    <div class="term">Productivity paradox</div>
+    <p>Transformative technology, flat statistics. What people get wrong: they resolve it too early, in either direction. "It's coming" and "it's a bubble" are both predictions about the same flat line, and the line hasn't told us yet.</p>
+  </div>
+
+  <h3 class="sub"><span>2.2</span> General-purpose technologies, and the dynamo's forty years</h3>
+  <p>The best history lesson for this moment is a hundred years old, and Krugman's essay leans on it for good reason. The economic historian Paul David studied what happened when American factories got electricity, and found that for decades, almost nothing happened.</p>
   <p>Here's why. A steam-powered factory was built vertically around one giant engine, with power carried by belts and shafts through the whole building. When electric motors arrived, owners did the obvious thing: swapped the steam engine for a big electric one and kept everything else. Same building, same layout, same workflow, new power source. The gain was small, and it stayed small for about a generation.</p>
   <p>The payoff came only when a new generation of managers stopped <em>retrofitting</em> and started <em>redesigning</em>: small motors on each machine, single-story factories laid out around the flow of work instead of the flow of power, assembly lines that were impossible in the old buildings. The technology hadn't improved much. The <em>organization</em> had finally been rebuilt around it, and productivity took off, forty years after the dynamo arrived.</p>
   <div class="callout">
@@ -316,10 +351,37 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <div class="term">General-purpose technology (the older GPT)</div>
     <p>A technology that transforms nearly every industry rather than one: steam, electricity, computing. Economists used the term decades before it became a chatbot's initials. What people get wrong: they expect the payoff at installation. General-purpose technologies share a signature of enormous promise, long delays, and payoffs that arrive through reorganization.</p>
   </div>
-</section>
 
-<section id="s3">
-  <div class="shead"><span class="num">3</span><h2>The data: everyone's using it, firms aren't changing</h2></div>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ecd-t ecd-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="ecd-t">Swapping the engine versus redesigning the factory</title>
+      <desc id="ecd-d">Three factory sketches. Left, a steam factory: several stories stacked around one big engine at the bottom, with belts and shafts running up through every floor. Middle, the same building with the steam engine replaced by one big electric motor; everything else unchanged, labeled small gain. Right, a single-story factory laid out in a line, with a small motor on each machine, labeled the redesign, and a note that productivity took off here, about forty years after the dynamo arrived.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">1 · STEAM, 1880s</text>
+      <rect x="14" y="32" width="220" height="200" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <rect x="40" y="60" width="168" height="40" fill="#F4F5F2" stroke="#E3E3DD"/><rect x="40" y="104" width="168" height="40" fill="#F4F5F2" stroke="#E3E3DD"/><rect x="40" y="148" width="168" height="40" fill="#F4F5F2" stroke="#E3E3DD"/>
+      <rect x="86" y="194" width="76" height="26" rx="3" fill="#0E1116"/><text x="124" y="211" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#FFFFFF" text-anchor="middle">steam engine</text>
+      <line x1="124" y1="60" x2="124" y2="194" stroke="#9AA1AB" stroke-width="3"/><line x1="48" y1="80" x2="200" y2="80" stroke="#9AA1AB" stroke-width="2"/><line x1="48" y1="124" x2="200" y2="124" stroke="#9AA1AB" stroke-width="2"/><line x1="48" y1="168" x2="200" y2="168" stroke="#9AA1AB" stroke-width="2"/>
+      <text x="124" y="252" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">one engine, belts and shafts</text><text x="124" y="268" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">through every floor</text>
+      <text x="270" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">2 · SWAP THE ENGINE, 1900</text>
+      <rect x="270" y="32" width="220" height="200" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <rect x="296" y="60" width="168" height="40" fill="#F4F5F2" stroke="#E3E3DD"/><rect x="296" y="104" width="168" height="40" fill="#F4F5F2" stroke="#E3E3DD"/><rect x="296" y="148" width="168" height="40" fill="#F4F5F2" stroke="#E3E3DD"/>
+      <rect x="342" y="194" width="76" height="26" rx="3" fill="#FF3D8A"/><text x="380" y="211" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#FFFFFF" text-anchor="middle">electric motor</text>
+      <line x1="380" y1="60" x2="380" y2="194" stroke="#9AA1AB" stroke-width="3"/><line x1="304" y1="80" x2="456" y2="80" stroke="#9AA1AB" stroke-width="2"/><line x1="304" y1="124" x2="456" y2="124" stroke="#9AA1AB" stroke-width="2"/><line x1="304" y1="168" x2="456" y2="168" stroke="#9AA1AB" stroke-width="2"/>
+      <text x="380" y="252" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">same building, same belts.</text><text x="380" y="268" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#D61F69" text-anchor="middle">small gain, for a generation</text>
+      <text x="526" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">3 · REDESIGN, 1920s</text>
+      <rect x="526" y="32" width="220" height="200" rx="6" fill="#0E1116"/>
+      <rect x="546" y="110" width="40" height="40" fill="#F4F5F2"/><rect x="596" y="110" width="40" height="40" fill="#F4F5F2"/><rect x="646" y="110" width="40" height="40" fill="#F4F5F2"/><rect x="696" y="110" width="40" height="40" fill="#F4F5F2"/>
+      <circle cx="566" cy="104" r="5" fill="#FF3D8A"/><circle cx="616" cy="104" r="5" fill="#FF3D8A"/><circle cx="666" cy="104" r="5" fill="#FF3D8A"/><circle cx="716" cy="104" r="5" fill="#FF3D8A"/>
+      <path d="M546,170 L736,170" stroke="#E4FF32" stroke-width="2" marker-end="url(#ecd-ar)"/><defs><marker id="ecd-ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#E4FF32"/></marker></defs>
+      <text x="636" y="190" font-family="Inter,Arial,sans-serif" font-size="10" fill="#C9CED6" text-anchor="middle">laid out around the flow of work</text>
+      <text x="636" y="252" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">a small motor on every machine.</text><text x="636" y="268" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#D61F69" text-anchor="middle">productivity takes off, 40 years later</text>
+    </svg>
+    <figcaption>The dynamo's forty years. Panel two is where most companies are with AI right now: a new motor bolted where the old engine sat, everything else unchanged.</figcaption>
+  </figure>
+
+
+  <h3 class="sub"><span>2.3</span> The two margins: everyone's using it, firms aren't changing</h3>
   <p>If David's story is the right map, we should be able to locate ourselves on it. The Stanford Digital Economy Lab's <a class="inline" href="https://digitaleconomy.stanford.edu/project/indicators/" target="_blank" rel="noopener">AI Adoption Monitor</a> tracks the two numbers that matter, and they're moving at very different speeds.</p>
   <p><strong>Individual adoption is fast.</strong> Surveys tracked by the Monitor find a large share of American workers already using generative AI, at rates that rival or beat the early PC and internet eras. Much of this use is informal: personal accounts, no permission asked.</p>
   <p><strong>Firm adoption is slow.</strong> The share of companies that have formally woven AI into how they produce things is a small fraction of workers' personal adoption, and much of what exists is shallow: a chatbot license, a pilot program, an engine swapped into an unchanged factory.</p>
@@ -329,26 +391,63 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <div class="fact"><div class="big"><em>Slow</em></div><div class="small">Deep firm adoption: formal, workflow-level integration remains the small minority</div></div>
     <div class="fact"><div class="big"><em>?</em></div><div class="small">The gap between them. The lab checks the live numbers.</div></div>
   </div>
-</section>
 
-<section id="s4">
-  <div class="shead"><span class="num">4</span><h2>The second case: canaries in the coal mine</h2></div>
-  <p>Coal miners used to carry canaries underground. The birds were more sensitive to dangerous gas than the miners were, so if the canary stopped singing, you got out. The same Stanford lab borrowed the image for a study called <a class="inline" href="https://digitaleconomy.stanford.edu/news/canariesaug26/" target="_blank" rel="noopener">"Canaries in the Coal Mine? Six Facts About the Recent Employment Effects of Artificial Intelligence."</a> The question: if AI is starting to change the job market, who feels it first?</p>
-  <p>The data source matters. Instead of surveys or predictions, the researchers, Erik Brynjolfsson, Bharat Chandar, and Ruyu Chen, used payroll records from ADP, a company that processes paychecks for millions of American workers. Real hires, real paychecks, month by month, since ChatGPT launched in late 2022. The August 2026 revision says two things at once, and we need to hold both.</p>
-  <p><strong>First: there is no widespread, economy-wide job displacement from AI.</strong> Across the whole workforce, employment looks broadly normal.</p>
-  <p><strong>Second: workers ages 22 to 25 in the jobs most exposed to AI are falling behind.</strong> Their employment now sits about 19% below where it would be if it had kept pace with less-exposed peers of the same age. Experienced workers in the same occupations show no comparable gap. A year earlier the number was 15%. It is widening. That second finding is about this room: the age group entering the job market in the next few years, in exactly the white-collar roles a business degree points toward.</p>
-  <div class="facts">
-    <div class="fact"><div class="big"><em>19%</em></div><div class="small">Employment gap for workers 22–25 in highly AI-exposed jobs, vs. less-exposed peers (June 2026)</div></div>
-    <div class="fact"><div class="big"><em>15%</em> → 19%</div><div class="small">The same gap one year earlier. The divergence has widened steadily.</div></div>
-    <div class="fact"><div class="big"><em>0</em></div><div class="small">Comparable gap for experienced workers in the same occupations.</div></div>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ecm-t ecm-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="ecm-t">Two margins of adoption</title>
+      <desc id="ecm-d">Left panel, the extensive margin: a grid of many small person icons, most shaded, labeled how many use it, with a note that this looks like a revolution and is nearly free. Right panel, the intensive margin: one workflow drawn as a chain of boxes, with AI woven into two of them and the other boxes redrawn, labeled how deeply it's woven in, with a note that this is where the money is and it's slow.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">EXTENSIVE MARGIN · how many use it</text>
+      <rect x="14" y="32" width="350" height="180" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <circle cx="40" cy="62" r="9" fill="#FF3D8A"/><circle cx="66" cy="62" r="9" fill="#E3E3DD"/><circle cx="92" cy="62" r="9" fill="#FF3D8A"/><circle cx="118" cy="62" r="9" fill="#FF3D8A"/><circle cx="144" cy="62" r="9" fill="#E3E3DD"/><circle cx="170" cy="62" r="9" fill="#FF3D8A"/><circle cx="196" cy="62" r="9" fill="#FF3D8A"/><circle cx="222" cy="62" r="9" fill="#E3E3DD"/><circle cx="248" cy="62" r="9" fill="#FF3D8A"/><circle cx="274" cy="62" r="9" fill="#FF3D8A"/><circle cx="300" cy="62" r="9" fill="#FF3D8A"/><circle cx="326" cy="62" r="9" fill="#E3E3DD"/><circle cx="40" cy="92" r="9" fill="#FF3D8A"/><circle cx="66" cy="92" r="9" fill="#FF3D8A"/><circle cx="92" cy="92" r="9" fill="#E3E3DD"/><circle cx="118" cy="92" r="9" fill="#FF3D8A"/><circle cx="144" cy="92" r="9" fill="#FF3D8A"/><circle cx="170" cy="92" r="9" fill="#E3E3DD"/><circle cx="196" cy="92" r="9" fill="#FF3D8A"/><circle cx="222" cy="92" r="9" fill="#FF3D8A"/><circle cx="248" cy="92" r="9" fill="#FF3D8A"/><circle cx="274" cy="92" r="9" fill="#E3E3DD"/><circle cx="300" cy="92" r="9" fill="#FF3D8A"/><circle cx="326" cy="92" r="9" fill="#FF3D8A"/><circle cx="40" cy="122" r="9" fill="#E3E3DD"/><circle cx="66" cy="122" r="9" fill="#FF3D8A"/><circle cx="92" cy="122" r="9" fill="#FF3D8A"/><circle cx="118" cy="122" r="9" fill="#E3E3DD"/><circle cx="144" cy="122" r="9" fill="#FF3D8A"/><circle cx="170" cy="122" r="9" fill="#FF3D8A"/><circle cx="196" cy="122" r="9" fill="#FF3D8A"/><circle cx="222" cy="122" r="9" fill="#E3E3DD"/><circle cx="248" cy="122" r="9" fill="#FF3D8A"/><circle cx="274" cy="122" r="9" fill="#FF3D8A"/><circle cx="300" cy="122" r="9" fill="#E3E3DD"/><circle cx="326" cy="122" r="9" fill="#FF3D8A"/><circle cx="40" cy="152" r="9" fill="#FF3D8A"/><circle cx="66" cy="152" r="9" fill="#E3E3DD"/><circle cx="92" cy="152" r="9" fill="#FF3D8A"/><circle cx="118" cy="152" r="9" fill="#FF3D8A"/><circle cx="144" cy="152" r="9" fill="#FF3D8A"/><circle cx="170" cy="152" r="9" fill="#E3E3DD"/><circle cx="196" cy="152" r="9" fill="#FF3D8A"/><circle cx="222" cy="152" r="9" fill="#FF3D8A"/><circle cx="248" cy="152" r="9" fill="#E3E3DD"/><circle cx="274" cy="152" r="9" fill="#FF3D8A"/><circle cx="300" cy="152" r="9" fill="#FF3D8A"/><circle cx="326" cy="152" r="9" fill="#E3E3DD"/>
+      <text x="189" y="196" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle" font-style="italic">looks like a revolution. nearly free. mostly informal.</text>
+      <text x="392" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">INTENSIVE MARGIN · how deeply it's woven in</text>
+      <rect x="392" y="32" width="354" height="180" rx="6" fill="#0E1116"/>
+      <rect x="410" y="70" width="60" height="34" rx="4" fill="#F4F5F2"/><rect x="480" y="70" width="60" height="34" rx="4" fill="#FF3D8A"/><rect x="550" y="70" width="60" height="34" rx="4" fill="#F4F5F2"/><rect x="620" y="70" width="60" height="34" rx="4" fill="#FF3D8A"/>
+      <text x="440" y="91" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#14181D" text-anchor="middle">intake</text><text x="510" y="91" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#FFFFFF" text-anchor="middle">AI draft</text><text x="580" y="91" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#14181D" text-anchor="middle">review</text><text x="650" y="91" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#FFFFFF" text-anchor="middle">AI check</text>
+      <text x="569" y="130" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#C9CED6" text-anchor="middle">a workflow rebuilt so the tool changes</text><text x="569" y="146" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#C9CED6" text-anchor="middle">what the organization can do</text>
+      <text x="569" y="196" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#E4FF32" text-anchor="middle" font-style="italic">where the money is. slow, expensive, disruptive.</text>
+      <text x="380" y="240" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" text-anchor="middle">The Adoption Monitor tracks both. The first is racing; the second looks like 1900.</text>
+    </svg>
+    <figcaption>Two margins. A million people opening a chatbot is the left panel. One team redesigning how work flows through it is the right. Only the right panel shows up in productivity.</figcaption>
+  </figure>
+
+  <div class="concept">
+    <div class="term">Extensive vs. intensive margin</div>
+    <p>How many use it versus how deeply it's woven in. What people get wrong: they read the first as the second. A company where everyone has a chatbot license has adopted AI on the extensive margin only, which is the swapped engine.</p>
   </div>
+
+  <h3 class="sub"><span>2.4</span> Exposure, and the two ways to build a job</h3>
+  <p>Now bring the dynamo down to the size of one job. Economists measure a job's <strong>AI exposure</strong> by asking how much of its tasks current systems could plausibly perform: low for electricians, nurses, and chefs; high for customer service, basic accounting, and entry-level software work. Exposure measures overlap, not destiny, because the same exposed job can be rebuilt two ways.</p>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ecj-t ecj-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="ecj-t">Same job, built two ways: automating versus complementing</title>
+      <desc id="ecj-d">A job drawn as a stack of six task blocks, such as gather data, draft the memo, check the numbers, present to the client, read the room, decide. Left, the automating build: AI does the first three tasks and the person only reviews; the person's box shrinks and is labeled entry-level role disappears. Right, the complementing build: AI drafts and the person edits, judges, presents, and decides; the person's box grows and is labeled the role expands. A note says employment fell in the first and held in the second.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">THE SAME JOB · six tasks</text>
+      <rect x="14" y="32" width="150" height="230" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="89" y="60" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">gather the data</text><text x="89" y="94" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">draft the memo</text><text x="89" y="128" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">check the numbers</text><text x="89" y="162" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">present to the client</text><text x="89" y="196" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">read the room</text><text x="89" y="230" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">decide</text>
+      <text x="220" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">AUTOMATING BUILD</text>
+      <rect x="220" y="32" width="250" height="230" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <rect x="236" y="48" width="218" height="96" rx="5" fill="#0E1116"/><text x="345" y="80" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" font-weight="700" text-anchor="middle">AI does the task</text><text x="345" y="98" font-family="Inter,Arial,sans-serif" font-size="10" fill="#C9CED6" text-anchor="middle">gather · draft · check</text><text x="345" y="126" font-family="Inter,Arial,sans-serif" font-size="10" fill="#9AA1AB" text-anchor="middle" font-style="italic">and the person at most reviews</text>
+      <rect x="236" y="154" width="218" height="34" rx="5" fill="#F4F5F2" stroke="#E3E3DD"/><text x="345" y="175" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">person: review the output</text>
+      <text x="345" y="220" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#D61F69" font-weight="700" text-anchor="middle">the junior role shrinks toward a checkbox</text><text x="345" y="238" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">employment fell here for workers 22 to 25</text>
+      <text x="496" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">COMPLEMENTING BUILD</text>
+      <rect x="496" y="32" width="250" height="230" rx="6" fill="#0E1116"/>
+      <rect x="512" y="48" width="218" height="34" rx="5" fill="#FF3D8A"/><text x="621" y="69" font-family="Inter,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">AI drafts and gathers, fast</text>
+      <rect x="512" y="92" width="218" height="96" rx="5" fill="#E4FF32"/><text x="621" y="120" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" font-weight="700" text-anchor="middle">person edits, judges,</text><text x="621" y="138" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">presents, reads the room, decides</text><text x="621" y="166" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle" font-style="italic">the tool extends the person</text>
+      <text x="621" y="220" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#E4FF32" font-weight="700" text-anchor="middle">the role expands</text><text x="621" y="238" font-family="Inter,Arial,sans-serif" font-size="10" fill="#C9CED6" text-anchor="middle">employment flat or rising here</text>
+      <text x="380" y="290" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" text-anchor="middle">Same technology, opposite outcomes. The difference is how the employer built the job around it.</text>
+    </svg>
+    <figcaption>Automating versus complementing. Exposure measures how much of the left column AI could do. What happens to the person depends on which right-hand panel the employer chose.</figcaption>
+  </figure>
+
   <div class="concept">
     <div class="term">AI exposure</div>
     <p>How much of a job's tasks current AI systems can plausibly perform, scored from low (electricians, nurses, chefs) to high (customer service, basic accounting, entry-level software work). What people get wrong: exposure is not destiny. It measures overlap between a job and the technology, not what employers will actually do.</p>
   </div>
-  <p>One more detail: the gap doesn't come from firing. It comes from <em>hiring</em>. Companies aren't laying young workers off in large numbers. They're not opening the door in the first place. A wave of layoffs makes news. A hiring slowdown makes silence: fewer postings, longer searches, more "we went with another candidate." The canary doesn't drop. It just stops getting invited into the mine.</p>
 
-  <h3>Automating vs. complementing</h3>
+<h3>Automating vs. complementing</h3>
   <p>The declines are concentrated where AI is used to <em>automate</em> tasks, where the system does the work and a person at most checks it. Where AI is used to <em>complement</em> workers, extending what a person can do, employment is flat or rising, especially for experienced workers. Same technology, opposite outcomes. The difference is how the job is built around it, which is the dynamo lesson again, seen from the worker's side.</p>
   <div class="concept">
     <div class="term">Automating vs. complementing use</div>
@@ -361,10 +460,67 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <div class="label">The uncomfortable sentence</div>
     <p>A college degree is largely a certificate of codified knowledge, and codified knowledge is what AI reproduces best. That doesn't make the degree worthless. It means the degree alone is no longer the differentiator it was. The differentiator is what we layer on top: judgment, experience, and the tacit knowledge no model trained on.</p>
   </div>
+
+  <div class="callout tryit">
+    <div class="label">Try it · practice for Friday's quiz. Five situations: extensive or intensive margin, automating or complementing, codified or tacit? Decide, then click to check.</div>
+    <details><summary>1. A law firm gives every associate a chatbot subscription and changes nothing else.</summary><p>Extensive margin. Everyone has the tool; no workflow moved. The swapped engine.</p></details>
+    <details><summary>2. A marketing team cuts its first-draft step entirely: the model writes, a senior editor approves, and the junior copywriter position isn't refilled.</summary><p>Automating build, on the intensive margin. The workflow really did change, and the entry-level role is the thing that changed.</p></details>
+    <details><summary>3. An analyst uses AI to pull and chart the data in minutes, then spends the afternoon in the client meeting explaining what it means.</summary><p>Complementing build. The tool extended the person; the tacit part, the room, is where the job now lives.</p></details>
+    <details><summary>4. A new hire can recite the whole procedures manual but can't tell which client is about to walk.</summary><p>Codified knowledge without tacit. The manual is what the model trained on; the sense of the client is what it didn't.</p></details>
+    <details><summary>5. A company reports 80 percent of employees use AI weekly and no change in output per employee.</summary><p>The paradox in one company: extensive adoption, no intensive change, flat productivity. Section 2.3, in miniature.</p></details>
+  </div>
 </section>
 
-<section id="s5">
-  <div class="shead"><span class="num">5</span><h2>The other readings: a bubble, and a different cause</h2></div>
+<section id="s3">
+  <div class="shead"><span class="num">3</span><h2>The case: canaries in the coal mine</h2></div>
+  <h3 class="sub"><span>Background</span> A lab, a payroll company, and a bird</h3>
+  <p>Coal miners used to carry canaries underground. The birds were more sensitive to dangerous gas than the miners were, so if the canary stopped singing, you got out. The same Stanford lab borrowed the image for a study called <a class="inline" href="https://digitaleconomy.stanford.edu/news/canariesaug26/" target="_blank" rel="noopener">"Canaries in the Coal Mine? Six Facts About the Recent Employment Effects of Artificial Intelligence."</a> The question: if AI is starting to change the job market, who feels it first?</p>
+  <p>The data source matters. Instead of surveys or predictions, the researchers, Erik Brynjolfsson, Bharat Chandar, and Ruyu Chen, used payroll records from ADP, a company that processes paychecks for millions of American workers. Real hires, real paychecks, month by month, since ChatGPT launched in late 2022. The August 2026 revision says two things at once, and we need to hold both.</p>
+  <p><strong>First: there is no widespread, economy-wide job displacement from AI.</strong> Across the whole workforce, employment looks broadly normal.</p>
+  <p><strong>Second: workers ages 22 to 25 in the jobs most exposed to AI are falling behind.</strong> Their employment now sits about 19% below where it would be if it had kept pace with less-exposed peers of the same age. Experienced workers in the same occupations show no comparable gap. A year earlier the number was 15%. It is widening. That second finding is about this room: the age group entering the job market in the next few years, in exactly the white-collar roles a business degree points toward.</p>
+  <div class="facts">
+    <div class="fact"><div class="big"><em>19%</em></div><div class="small">Employment gap for workers 22–25 in highly AI-exposed jobs, vs. less-exposed peers (June 2026)</div></div>
+    <div class="fact"><div class="big"><em>15%</em> → 19%</div><div class="small">The same gap one year earlier. The divergence has widened steadily.</div></div>
+    <div class="fact"><div class="big"><em>0</em></div><div class="small">Comparable gap for experienced workers in the same occupations.</div></div>
+  </div>
+  
+  <h3 class="sub"><span>What this AI is, and how it works</span> Question 1: what is the AI system, and what does it do?</h3>
+  <p>This week "AI" is an economic object rather than one product: a candidate general-purpose technology, like the dynamo, doing the tasks that used to fill someone's first job. The chatbot on your phone, the capital spending on Microsoft's books, and the missing entry-level posting are the same story at three scales. The system under the microscope, though, is the study itself, and it's worth seeing how it works, because a finding is only as good as its machinery.</p>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ecs-t ecs-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="ecs-t">How the Canaries study works</title>
+      <desc id="ecs-d">A pipeline. Data: payroll records from ADP for millions of workers, month by month since late 2022. Then each job is scored for AI exposure. Then workers are split by age and exposure. Then the study compares employment of workers 22 to 25 in highly exposed jobs against less exposed peers of the same age and against experienced workers in the same jobs. The result box shows a gap of about 19 percent for the young, exposed group, and no comparable gap for experienced workers. A note says the finding is descriptive, and the researchers say so.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">1 · DATA</text>
+      <rect x="14" y="32" width="160" height="150" rx="6" fill="#0E1116"/><text x="94" y="60" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">ADP payroll records</text><text x="94" y="78" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#C9CED6" text-anchor="middle">millions of workers</text><text x="94" y="94" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#C9CED6" text-anchor="middle">real hires, real paychecks</text><text x="94" y="110" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#C9CED6" text-anchor="middle">month by month</text><text x="94" y="126" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#C9CED6" text-anchor="middle">since late 2022</text><text x="94" y="160" font-family="Inter,Arial,sans-serif" font-size="10" fill="#9AA1AB" text-anchor="middle" font-style="italic">not a survey, not a forecast</text>
+      <path d="M180,107 L200,107" stroke="#14181D" stroke-width="1.5" marker-end="url(#ecs-ar)"/><defs><marker id="ecs-ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#14181D"/></marker></defs>
+      <text x="204" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">2 · SCORE EXPOSURE</text>
+      <rect x="204" y="32" width="160" height="150" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="284" y="60" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" text-anchor="middle">each job scored:</text><text x="284" y="78" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle">how much of its tasks</text><text x="284" y="94" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle">could current AI do?</text><text x="284" y="124" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">low: electrician, nurse</text><text x="284" y="140" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">high: customer service,</text><text x="284" y="156" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">basic accounting</text>
+      <path d="M370,107 L390,107" stroke="#14181D" stroke-width="1.5" marker-end="url(#ecs-ar)"/>
+      <text x="394" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">3 · COMPARE</text>
+      <rect x="394" y="32" width="160" height="150" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="474" y="60" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" font-weight="700" text-anchor="middle">ages 22 to 25 in</text><text x="474" y="76" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" font-weight="700" text-anchor="middle">high-exposure jobs</text><text x="474" y="100" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle" font-style="italic">versus</text><text x="474" y="120" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">same-age peers in</text><text x="474" y="136" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">less-exposed jobs, and</text><text x="474" y="152" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">older workers in the</text><text x="474" y="168" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">same jobs</text>
+      <path d="M560,107 L580,107" stroke="#14181D" stroke-width="1.5" marker-end="url(#ecs-ar)"/>
+      <text x="584" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">4 · RESULT</text>
+      <rect x="584" y="32" width="162" height="150" rx="6" fill="#FF3D8A"/><text x="665" y="76" font-family="Inter,Arial,sans-serif" font-size="22" fill="#FFFFFF" font-weight="700" text-anchor="middle">about 19%</text><text x="665" y="98" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle">below where they'd be</text><text x="665" y="114" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle">if they'd kept pace</text><text x="665" y="146" font-family="Inter,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">experienced workers,</text><text x="665" y="162" font-family="Inter,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">same jobs: no gap</text>
+      <text x="14" y="222" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">The gap comes through hiring, not firing: the door doesn't open. And the finding is descriptive: it shows the pattern exists and is widening,</text><text x="14" y="238" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">not by itself that AI caused it. The researchers say so, publish their doubts, and update a dashboard every month.</text>
+      <text x="14" y="268" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" font-style="italic">June 2026 figure; a year earlier it was 15 percent. Check the dashboard for the current number.</text>
+    </svg>
+    <figcaption>How the Canaries study works. Payroll records instead of surveys, an exposure score for every job, and a comparison built to isolate the youngest workers in the most exposed roles. Read the result with the last line in mind.</figcaption>
+  </figure>
+
+  <p>One more detail: the gap doesn't come from firing. It comes from <em>hiring</em>. Companies aren't laying young workers off in large numbers. They're not opening the door in the first place. A wave of layoffs makes news. A hiring slowdown makes silence: fewer postings, longer searches, more "we went with another candidate." The canary doesn't drop. It just stops getting invited into the mine.</p>
+
+  
+  <h3 class="sub"><span>Who benefits, and who doesn't</span> Question 2: why does it exist, and who benefits?</h3>
+  <p>AI exists in workplaces to make work more productive, which pays the firm only when the work is reorganized around the tool. Who benefits: firms that reorganize, eventually; investors, if the boom arrives; experienced workers whose output multiplies, because the tacit layer they built is now the scarce thing. Who doesn't: the cohort that never gets the door opened, which is the study's darker point, and the towns and investors who built around a boom if the boom turns out to be a bubble. Notice who is missing from both lists: the companies selling the tools, who do fine either way. Sellers of shovels profit in every gold rush, real or imagined.</p>
+
+  <h3 class="sub"><span>When it fails, who finds out</span> Question 3: what happens when it fails, and who finds out?</h3>
+  <p>Both failures here are absences. A productivity boom that never arrives shows up only in statistics years later, like the missed cure in Chapter 4. A job that never opens makes no news, because nobody was laid off. The canary doesn't drop; it stops getting invited into the mine. That's why the Adoption Monitor and the Canaries Dashboard matter more than any single headline: they make absences visible on a schedule, and they're the reason this chapter can be checked rather than believed.</p>
+
+  <h3 class="sub"><span>Business implications</span> What this means for a company deciding what to do with AI</h3>
+  <p>The dynamo story is a warning to executives, and the Canaries study is its human cost. Three implications. First, a chatbot license is not a strategy. Buying the tool puts a firm on the extensive margin, which is nearly free and nearly worthless; the gains are in the redesign, which is slow, expensive, and punished by quarterly incentives, which is exactly why most firms haven't done it. Second, how a firm builds a job decides what happens to the people in it. The automating build is cheaper this quarter and hollows out the pipeline of people who will run the company in ten years; the complementing build costs more now and keeps the tacit knowledge that AI didn't train on. Third, the entry-level role was never just cheap labor. It was the company's training system, the way tacit knowledge got transferred, and firms that close the door are canceling their own apprenticeship program without noticing. The costs of doing this well: hiring the junior anyway and paying for training that used to happen by accident, and living through the dip while the redesign takes hold. The cost of doing it badly shows up in a decade, which is why almost nobody is measuring it.</p>
+
+  <h3 class="sub"><span>Societal implications</span> Question 4: who's saying that, and how would we know?</h3>
   <h3>What if the bet is wrong?</h3>
   <p>The dynamo story says: be patient, the reorganization is coming, the boom follows. The same facts support a darker reading. The hundreds of billions flowing into data centers are a bet that reorganization will happen <em>and</em> that the gains will be enormous. If either half disappoints, the word for what we're in isn't "early." It's "bubble." Krugman's essay is about exactly this: innovation booms have repeatedly outrun the payoff, and the correction hits investors, workers, and towns that built around the boom.</p>
   <p>Nobody knows which reading is right, and this book won't pretend otherwise. What we can do is name the evidence that would tell them apart. Watch the intensive margin: if firms deeply reorganize and productivity still doesn't move, the dynamo story weakens. Watch who profits in the meantime: sellers of shovels do fine in every gold rush, real or imagined.</p>
@@ -373,32 +529,48 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <p>The Canaries researchers are careful: their findings are <em>descriptive patterns, not causal estimates</em>. The data shows the gap exists and is widening. It can't prove, on its own, that AI caused it. Interest rates, post-pandemic corrections, and remote work hit the same job market at the same time.</p>
   <p>This is a live scientific fight. In <a class="inline" href="https://www.npr.org/2026/08/18/nx-s1-5910677/many-recent-grads-say-ai-is-making-it-harder-to-get-a-job-economists-arent-so-sure" target="_blank" rel="noopener">an NPR story on struggling recent grads</a>, one applicant describes 450 applications, 19 interviews, and no offers, and economists look at the same struggle and disagree about the cause. A New York Fed analysis found AI didn't explain the rise in young-grad unemployment; remote work fit better. Harvard's David Deming supplies a mechanism: training a junior hire from afar is costly, so remote work tilts hiring toward experienced people with no algorithm involved. Chicago's Anders Humlum offers a test: if AI were the cause, the firms adopting it fastest should be cutting entry-level roles fastest, and he doesn't see that. On the other side is Brynjolfsson, the Canaries study's lead author, defending the AI signal while agreeing a major shift is underway either way.</p>
   <p>The researchers stress-tested their own finding. The gap survives when they exclude tech companies and computer jobs, and when they control for interest-rate exposure and remote work. It kept widening after interest rates peaked, and it concentrates in automating occupations with a clear age pattern, which interest rates alone wouldn't naturally produce. They also publish their reasons for doubt: the gap shrinks when education is accounted for, some trends predate generative AI, and their estimates run larger than national survey benchmarks. Their own conclusion is that no single study, including theirs, settles it. So they built a <a class="inline" href="https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/" target="_blank" rel="noopener">Canaries Dashboard</a> that updates every month. Two rigorous readings of the same numbers, unresolved, in public. That's not a flaw in the science. That is the science, mid-stride, and you can watch it settle.</p>
+
+  <p>"AI will add trillions to GDP" is said by the companies selling it and the analysts who cover them. "It's a bubble" is said by people who remember 2000. "AI is closing the entry-level door" is said by the Stanford team, who publish their doubts; "it's remote work and the economy" is said by the economists NPR interviewed, with their own evidence. What would settle both disputes is the same thing: the two dashboards over the next twelve months. That is the rare case in this book where the evidence that would change your mind is scheduled.</p>
+
+  <h3 class="sub"><span>How to make it beneficial</span> Question 5: keep it, fix it, or drop it, and what does that cost?</h3>
+  <ul class="decide">
+    <li><strong>Keep</strong> buying tools without reorganizing, and the cost is paying for a dynamo bolted to a steam layout.</li>
+    <li><strong>Fix it</strong> by reorganizing through the dip, which quarterly incentives punish, and by hiring the junior anyway and paying for the training AI used to provide by accident. The cost is money now for a payoff later, which is the dynamo's whole lesson.</li>
+    <li><strong>Drop it</strong> and wait, which is what many firms are doing, and the cost is being late when the redesign finally pays.</li>
+  </ul>
+  <div class="concept">
+    <div class="term">How to keep it good</div>
+    <p>The good version of this chapter exists: it's the complementing build, at scale. <em>Keep</em> AI where it extends people. <em>Fix</em> the hiring gap by treating entry-level roles as the training system they always were, and budgeting for them as such. <em>Drop</em> the assumption that a job that AI can do is a job that should be done by AI alone; the evidence says the firms that made that assumption cut the wrong people. The cost is a slower, more expensive first few years. The payoff is the forty years.</p>
+  </div>
+
+  <h3 class="sub"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
+  <div class="ticket">
+    <div class="label">Thinking critically · for Monday's discussion · read the Krugman essay and listen to the NPR story on recent grads (about 4 minutes) first · one question each, answered by you, not by the chapter</div>
+    <ol>
+      <li><strong>Q1 · What is it, and what does it do?</strong> Find the belts and shafts in a job you've actually held: one workflow that exists only because of how things used to work. Say whether AI there would be automating or complementing, and what redesigning it around AI would mean.</li>
+      <li><strong>Q2 · Why does it exist, and who benefits?</strong> The Canaries gap comes from reduced hiring, not firing. Name who benefits from a company closing the entry-level door this quarter, who pays for it in ten years, and why the two groups are the same company.</li>
+      <li><strong>Q3 · What happens when it fails, and who finds out?</strong> A job that never opens makes no news. Say who noticed the gap, what data they needed to notice it, and what would have happened if that data were private. Then name one absence in your own field that nobody's dashboard is measuring.</li>
+      <li><strong>Q4 · Who's saying that, and how would we know?</strong> Steelman one skeptical reading in three sentences: the bubble reading, or "it's remote work, not AI." Say who's making it and what they gain, then name the single instrument reading over the next twelve months that would most change your mind.</li>
+      <li><strong>Q5 · Keep it, fix it, or drop it, and what does that cost?</strong> Day 1 you flagged a workflow and we asked "could this scale?" Answer it now: what's the extensive-margin version, what's the intensive-margin version, which did you mean back then, and what would the intensive version cost the organization in the first year?</li>
+    </ol>
+  </div>
 </section>
 
-<section id="s6">
-  <div class="shead"><span class="num">6</span><h2>Question it &amp; decide</h2></div>
-  <div class="callout">
-    <div class="label">The five questions, applied</div>
-    <div class="fourq">
-      <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> This week "AI" is an economic object: a candidate general-purpose technology, like the dynamo, doing the tasks that used to fill someone's first job. The chatbot on your phone, the capital spending on Microsoft's books, and the missing entry-level posting are the same story at three scales.</p></div>
-      <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> To make work more productive, which pays the firm only when the work is reorganized around the tool. Who benefits: firms that reorganize, eventually; investors, if the boom arrives; experienced workers whose output multiplies. The study's darker point is who doesn't: the cohort that never gets the door opened.</p></div>
-      <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> Both failures here are absences. A productivity boom that never arrives shows up only in statistics years later, like the missed cure in Chapter 3. A job that never opens makes no news, because nobody was laid off. That's why the Adoption Monitor and the Canaries Dashboard matter: they make absences visible on a schedule.</p></div>
-      <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> "AI will add trillions to GDP" is said by the companies selling it and the analysts who cover them. "It's a bubble" is said by people who remember 2000. "AI is closing the entry-level door" is said by the Stanford team, who publish their doubts; "it's remote work and the economy" is said by the economists NPR interviewed, with their own evidence. What would settle both disputes is the same: the two dashboards over the next twelve months.</p></div>
-      <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Keep buying tools without reorganizing and the cost is paying for a dynamo bolted to a steam layout. Fix it by reorganizing through the dip, which quarterly incentives punish, and by hiring the junior anyway and paying for the training AI used to provide by accident. Drop it and wait, which is what many firms are doing, and the cost is being late.</p></div>
-    </div>
-  </div>
+<section id="s4">
+  <div class="shead"><span class="num">4</span><h2>Decide: your own first job</h2></div>
   <p><strong>Deciding</strong> lands close to home. On Day 1 we asked a question about the workflows you found: <em>could this scale?</em> Now you have the machinery. Scaling isn't more people using the tool; that's the extensive margin, and it's nearly free. Scaling is a workflow rebuilt so the tool changes what the organization can do; that's the intensive margin, and it's the forty years.</p>
-  <p>For your career, the two cases point the same way. The person who merely uses AI is the swapped engine, and the swapped engine is the entry-level role that's quietly disappearing. The person who can judge the output and redesign how a team works around it is the new factory. Three moves follow from what the researchers actually documented:</p>
+  <p>For your career, the history and the case point the same way. The person who merely uses AI is the swapped engine, and the swapped engine is the entry-level role that's quietly disappearing. The person who can judge the output and redesign how a team works around it is the new factory. Three moves follow from what the researchers actually documented:</p>
   <ul class="decide">
     <li><strong>Build tacit knowledge on purpose.</strong> Internships, jobs, and projects with real stakes are the layer AI didn't train on. The degree gets you considered; the tacit layer gets you kept. The cost is time you'd otherwise spend elsewhere, now, while you're still here.</li>
     <li><strong>Look for complement work.</strong> When you consider a role, ask whether the AI does the task while a person checks it, or extends what the person can do. You can ask that in an interview, and asking it well is itself a signal. The cost: complement roles often ask for experience you're still building.</li>
     <li><strong>Treat a long search as the mechanism, not a verdict.</strong> The gap works through hiring, so the first step is the steepest. Knowing that doesn't make it easy. It makes it navigable, and it's a reason to start earlier.</li>
   </ul>
-  <p>Wednesday, you run a firm and feel why the redesign is rare. If you want to aim the same tools at your own future, the Exposure Audit is one of the methods for your Decide project.</p>
+  <p>Wednesday, you run a firm and feel why the redesign is rare.</p>
+
 </section>
 
-<section id="s7">
-  <div class="shead"><span class="num">7</span><h2>Key terms</h2></div>
+<section id="s5">
+  <div class="shead"><span class="num">5</span><h2>Key terms</h2></div>
   <div class="terms">
     <div class="term-card"><div class="t">Productivity</div><p>Output per hour worked: the scoreboard economists trust over user counts and stock prices.</p></div>
     <div class="term-card"><div class="t">Productivity paradox</div><p>Transformative technology, flat statistics. Solow's computers, and possibly AI's current moment.</p></div>
@@ -411,23 +583,9 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   </div>
 </section>
 
-<section id="s8">
-  <div class="shead"><span class="num">8</span><h2>Discussion questions</h2></div>
-  <div class="ticket">
-    <div class="label">For Monday's discussion · read <a class="inline" href="https://paulkrugman.substack.com/p/ai-and-the-pitfalls-of-innovation" target="_blank" rel="noopener">the Krugman essay</a> and listen to <a class="inline" href="https://www.npr.org/2026/08/18/nx-s1-5910677/many-recent-grads-say-ai-is-making-it-harder-to-get-a-job-economists-arent-so-sure" target="_blank" rel="noopener">the NPR story on recent grads</a> (about 4 minutes) first</div>
-    <ol>
-      <li>Explain the dynamo story to someone who's never taken economics, in four sentences, ending with what it predicts about AI. No course vocabulary allowed.</li>
-      <li>Find the belts and shafts in a job you've actually held: one workflow that exists only because of how things used to work. What would redesigning it around AI mean, and why hasn't anyone done it?</li>
-      <li>The Canaries gap comes from reduced hiring, not firing. What does that change about who notices the problem, and when? Then think about the job you want after graduation: is the AI in it more likely automating tasks or complementing the person? What's your evidence?</li>
-      <li>Steelman one skeptical reading in three sentences: either the bubble reading, or the "it's remote work, not AI" reading. Then name the single piece of future evidence that would most change your mind.</li>
-      <li>Day 1 you flagged a workflow and we asked "could this scale?" Answer it now: what's the extensive-margin version of your workflow scaling, what's the intensive-margin version, and which one did you actually mean back then?</li>
-    </ol>
-  </div>
-</section>
-
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
-  <p>This chapter merges the former Chapter 9 (Markets) and Chapter 11 (Work), 16 Sep 2026. No facts were changed in the merge; wording was tightened and em dashes removed. Carried-over verification: Krugman essay and Stanford AI Adoption Monitor (verified 3 Sep 2026); Canaries study, August 2026 revision, 19% and 15% figures, and the NPR story (verified 3 Sep 2026). The NPR link was built from a verified mirror's path because NPR blocks automated fetching: click-check it before class.</p>
+  <p>This chapter combines the book's earlier markets and work material, 16 Sep 2026. No facts were changed in the merge; wording was tightened and em dashes removed. Carried-over verification: Krugman essay and Stanford AI Adoption Monitor (verified 3 Sep 2026); Canaries study, August 2026 revision, 19% and 15% figures, and the NPR story (verified 3 Sep 2026). The NPR link was built from a verified mirror's path because NPR blocks automated fetching: click-check it before class.</p>
   <p>Things to recheck before Week 9: the Canaries Dashboard's latest gap figure, and the Adoption Monitor's latest adoption numbers. Corrections are course content: if a number here has moved by the time you read it, that change is worth bringing to class.</p>
 </details>
 

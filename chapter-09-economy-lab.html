@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab 9 · Run the Firm — Intro to AI in Business | MIS 201</title>
+<title>Lab 9 · Run the Firm. Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -182,6 +182,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   .nav .navlinks{width:100%;justify-content:flex-start}
   .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
 }
+ul.ideas{padding-left:1.2em;margin:10px 0}
+ul.ideas li{margin:8px 0}
 </style>
 </head>
 <body>
@@ -198,9 +200,9 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <div class="dd-menu" id="ddc">
 <a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
 <a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
-<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 4</span>Medicine</a>
-<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 5</span>Environment</a>
-<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · optional</span>Systems That Want You</a>
+<a href="chapter-03-systems.html"><span class="lbl">Chapter 3 · Week 3</span>Systems That Know You</a>
+<a href="chapter-04-medicine.html"><span class="lbl">Chapter 4 · Week 4</span>Medicine</a>
+<a href="chapter-05-environment.html"><span class="lbl">Chapter 5 · Week 5</span>Environment</a>
 <a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
 <a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
 <a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
@@ -213,17 +215,13 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <div class="dd-menu" id="ddl">
 <a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
 <a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
-<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test</a>
-<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 4</span>Inside the Graph</a>
-<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 5</span>The Footprint Machine</a>
-<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · optional</span>Play the Algorithm</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test and the Feed</a>
+<a href="chapter-04-medicine-lab.html"><span class="lbl">Lab 4 · Week 4</span>Inside the Graph</a>
+<a href="chapter-05-environment-lab.html"><span class="lbl">Lab 5 · Week 5</span>The Footprint Machine</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
-<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
+<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
 <a href="chapter-09-economy-lab.html" class="current" aria-current="page"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
-<a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 10 · take-home</span>The Phantom Docket</a>
-<a href="exposure-audit.html"><span class="lbl">Self-guided · pairs with Chapter 9</span>The Exposure Audit</a>
-<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · last class</span>First Contact, Revisited</a>
 </div></div>
     </div>
   </div>
@@ -231,18 +229,23 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <header class="masthead">
   <div class="wrap">
-    <div class="eyebrow">Western Washington University · MIS 201 · Lab 9 · Wednesday, in class</div>
+    <div class="eyebrow">Western Washington University · MIS 201 · Lab 9 · Week 9, Wednesday, in class</div>
     <h1>Run the <b>Firm</b></h1>
-    <p class="kicker">You run a 40-person firm for eight quarters. Each quarter, one strategic move. The dynamo lesson says reorganization beats adoption — but reorganization dips first and your board watches every quarter. Feel the pressure that kept factories on belts and shafts for forty years.</p>
+    <p class="kicker">You run a 40-person firm for eight quarters. Each quarter, one strategic move. The dynamo lesson says reorganization beats adoption, but reorganization dips first and your board watches every quarter. Feel the pressure that kept factories on belts and shafts for forty years.</p>
     <p class="factline">Eight quarters · three moves · one curve with your name on it</p>
   </div>
 </header>
 
 <main class="wrap">
+<div class="callout">
+  <div class="label">From Chapter 9 · what this lab runs on</div>
+  <p>Running the firm for eight quarters is the dynamo (2.2) with you as the manager. Buying the tool is the extensive margin; redesigning the workflow is the intensive margin (2.3), and the dip you'll feel is why quarterly incentives punish the redesign. Every hiring choice is section 2.4's automating-versus-complementing decision, and the chart you'll watch is the J-curve the chapter warns about.</p>
+</div>
+
 
 <section>
   <div class="shead"><span class="num">1</span><h2>Eight quarters in the chair</h2></div>
-  <p class="lead">Your firm starts at a productivity index of 100. Each quarter, pick one move. <strong>Adopt AI tools</strong> hands your people copilots inside existing workflows — quick wins that shrink with each round. <strong>Redesign a workflow</strong> rebuilds one process around AI — it costs you now and pays permanently later. <strong>Hold steady</strong> is always available, and always defensible to the board. Play it twice: once however you like, once trying to beat your own final number.</p>
+  <p class="lead">Your firm starts at a productivity index of 100. Each quarter, pick one move. <strong>Adopt AI tools</strong> hands your people copilots inside existing workflows, quick wins that shrink with each round. <strong>Redesign a workflow</strong> rebuilds one process around AI, it costs you now and pays permanently later. <strong>Hold steady</strong> is always available, and always defensible to the board. Play it twice: once however you like, once trying to beat your own final number.</p>
 
   <div class="tool">
     <div class="label" id="qlabel">Quarter 1 of 8 · productivity 100</div>
@@ -253,10 +256,10 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     <div class="simgrid" id="moves">
       <button type="button" class="simcard" data-m="tools"><span class="tag">Adopt AI tools</span>License copilots, let teams use them inside today's workflows. Fast, visible, diminishing.</button>
       <button type="button" class="simcard" data-m="reorg"><span class="tag">Redesign a workflow</span>Rebuild one process around AI end-to-end. Disruption now, structural gains in about two quarters.</button>
-      <button type="button" class="simcard" data-m="hold"><span class="tag">Hold steady</span>No new initiatives. Watch the market. The board never punishes this quarter — only the decade.</button>
+      <button type="button" class="simcard" data-m="hold"><span class="tag">Hold steady</span>No new initiatives. Watch the market. The board never punishes this quarter, only the decade.</button>
     </div>
     <div class="verdict" id="verdict" hidden>
-      <div class="label">Year two begins without you — the review</div>
+      <div class="label">Year two begins without you, the review</div>
       <p class="read" id="reading"></p>
       <div class="chips" style="margin-top:16px;">
         <button type="button" class="btn" id="again">Run it again</button>
@@ -265,7 +268,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   </div>
 
   <div class="concept">
-    <div class="term">What the model bakes in — on purpose</div>
+    <div class="term">What the model bakes in, on purpose</div>
     <p>Tools give +4, then +2, then +1, then nothing: the copilot plateau. Each redesign costs −4 the quarter you do it and −1 the next, then pays +7 every quarter after, permanently: Paul David's J-curve in miniature. The numbers are invented; the <b>shape</b> is the research finding. Your job is to notice what the shape does to your decisions while a board is watching.</p>
   </div>
 </section>
@@ -274,17 +277,31 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   <div class="shead"><span class="num">2</span><h2>Compare your curves</h2></div>
   <div class="steps">
     <div class="step"><span class="sn">a</span><p>Screenshot both runs. Note each run's final productivity and its shape: plateau, J-curve, flat, or something hybrid.</p></div>
-    <div class="step"><span class="sn">b</span><p>Find the quarter in either run where you felt the pull to avoid the dip — or took it and had to sit through the board's reaction. That feeling is the forty years, compressed. Name it precisely for the writeup: what exactly did the dip threaten?</p></div>
+    <div class="step"><span class="sn">b</span><p>Find the quarter in either run where you felt the pull to avoid the dip, or took it and had to sit through the board's reaction. That feeling is the forty years, compressed. Name it precisely for the writeup: what exactly did the dip threaten?</p></div>
     <div class="step"><span class="sn">c</span><p>Try the two pure strategies if you haven't: all tools every quarter, and redesign-early-then-tools. The gap between those two final numbers is this chapter's entire argument, in integers.</p></div>
   </div>
 </section>
 
 <section>
   <div class="shead"><span class="num">3</span><h2>Check the instrument</h2></div>
-  <p>Your simulated firm just lived the choice real firms face. Now look at what real firms are actually choosing: open the <a class="inline" href="https://digitaleconomy.stanford.edu" target="_blank" rel="noopener">Stanford AI Adoption Monitor</a> and find the current readings for worker adoption versus firm adoption, and anything the Monitor shows about depth of use — the intensive margin.</p>
+  <p>Your simulated firm just lived the choice real firms face. Now look at what real firms are actually choosing: open the <a class="inline" href="https://digitaleconomy.stanford.edu" target="_blank" rel="noopener">Stanford AI Adoption Monitor</a> and find the current readings for worker adoption versus firm adoption, and anything the Monitor shows about depth of use, the intensive margin.</p>
   <div class="steps">
     <div class="step"><span class="sn">a</span><p>Record this month's numbers for individual and firm adoption. In the model's language: how much of the economy is on "adopt tools," and how much is on "redesign"?</p></div>
-    <div class="step"><span class="sn">b</span><p>Given what the dip felt like from the chair — write one sentence explaining the gap you just recorded, from the inside. Not "firms are slow." Why are they slow?</p></div>
+    <div class="step"><span class="sn">b</span><p>Given what the dip felt like from the chair, write one sentence explaining the gap you just recorded, from the inside. Not "firms are slow." Why are they slow?</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">4a</span><h2>Inside the machine: what the simulator was actually computing</h2></div>
+  <p>The firm you ran is a small model of Chapter 9's dynamo (2.2). Under the hood, three things move your curve. Adoption alone raised output a little and cost money, because a tool bolted onto an unchanged workflow is the swapped engine: that's the extensive margin (2.3). Redesign cost more and made output fall for several quarters, because reorganizing work is disruptive; that's the dip. And only after the dip did the redesigned firm's output climb past the adopter's, because the workflow now let the tool change what the firm could do: the intensive margin. The reference curves the lab shows are the same model run with fixed choices, so your gap from them is your choices, not luck.</p><p>The hiring lever is section 2.4. Each time you chose to automate a role rather than complement it, the model cut a junior position's cost this quarter and, quietly, reduced the tacit knowledge available in later quarters, which is why the automate-heavy firms plateau. That's the Canaries study's finding as a rule in a simulator: the entry-level role was the training system, and cutting it is a loan against the future.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="num">4b</span><h2>Debate: who pays for the dip?</h2></div>
+  <div class="callout">
+    <div class="label">Debate · in class, about 20 minutes · pick a side, argue it, then switch</div>
+    <p><strong>How it runs, every week.</strong> Sides are assigned, not chosen, so you're never defending your own belief. Two minutes with your partner to find your side's best point and its honest cost. Three minutes a side. Then everyone switches and does it again. Last five minutes: what would change your mind? Say it out loud. The person who names the evidence that would move them wins, whichever side they were on.</p>
+    <p>You felt why the redesign is rare: it costs now and pays later, and someone has to eat the quarters in between. Argue who should.</p><ul class="ideas"><li><strong>Side A: firms, and the market will sort it.</strong> Companies that reorganize through the dip win the forty years; the ones that don't lose. Shareholders who punish the dip are pricing in the risk, and that's their right. Cost: the dynamo's payoff took a generation, and a manager's tenure is three years, so the market rewards exactly the behavior the chapter says fails.</li><li><strong>Side B: the public, through the workers.</strong> The cost of the dip lands hardest on the entry-level cohort that never gets hired; subsidize apprenticeships, first jobs, and training so the tacit layer survives the transition. Cost: taxpayers funding a company's reorganization, and no guarantee the company keeps the junior after the subsidy ends.</li></ul><p>Then the causal question the chapter refuses to settle: if the gap is remote work and interest rates and not AI, does either side's policy change? Name the instrument reading that would tell you.</p>
   </div>
 </section>
 
@@ -317,10 +334,10 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
     <ol>
       <li><strong>The runs.</strong> Both screenshots, final numbers, and shape names.</li>
-      <li><strong>The dip.</strong> Your step 2b answer: the quarter the pressure was strongest, and what exactly the dip threatened. Then the real-world translation: name one actual reason a real manager can't take the dip (bonus structures, quarterly earnings, a promotion window) — and one structure that would let them.</li>
+      <li><strong>The dip.</strong> Your step 2b answer: the quarter the pressure was strongest, and what exactly the dip threatened. Then the real-world translation: name one actual reason a real manager can't take the dip (bonus structures, quarterly earnings, a promotion window), and one structure that would let them.</li>
       <li><strong>The instrument.</strong> This month's Monitor numbers and your one-sentence inside explanation of the gap.</li>
       <li><strong>The five questions.</strong> Your answers, including who bore your redesigns.</li>
-      <li><strong>Your move.</strong> Back to your Day 1 workflow, one last time: the intensive-margin version of scaling it — the actual redesign, who it affects, and the dip it would cause. Three sentences. Wednesday's commitment card takes the first one.</li>
+      <li><strong>Your move.</strong> Back to your Day 1 workflow, one last time: the intensive-margin version of scaling it, the actual redesign, who it affects, and the dip it would cause. Three sentences. Wednesday's commitment card takes the first one.</li>
     </ol>
   </div>
 </section>
@@ -335,7 +352,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <footer class="foot">
   <div class="wrap">
     <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
-    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">A free, critical field guide to AI, for the people who'll live with it, not just build it.</p>
     <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
   </div>
 </footer>
@@ -348,18 +365,18 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   var flavors = {
     start: 'The fiscal year opens. Your competitors are all issuing press releases about AI. Your board has read every one of them.',
     tools: [
-      'The copilots land well. Teams report faster drafts and quicker analysis. The board is pleased — this looked like leadership and cost almost nothing.',
+      'The copilots land well. Teams report faster drafts and quicker analysis. The board is pleased, this looked like leadership and cost almost nothing.',
       'More licenses, smaller lift. The easy wins were already won; people are faster at the old workflow, but it\u2019s still the old workflow.',
       'Diminishing returns arrive on schedule. Everyone has a copilot now. Nobody\u2019s job works differently.',
-      'The new tools change little — the workflow itself is the bottleneck now, and everyone below you already knows it.'
+      'The new tools change little, the workflow itself is the bottleneck now, and everyone below you already knows it.'
     ],
     reorgNow: 'The redesign begins. Handoffs break, veterans grumble, two people quit, and this quarter\u2019s numbers dip. The board requests a meeting about "the AI initiative\u2019s underperformance."',
-    reorgTeething: 'The redesigned workflow is finding its feet — still awkward, but the shape of something better is visible to the people inside it.',
-    reorgPaying: 'A redesigned workflow hits stride: the process now does things the old one structurally couldn\u2019t. These gains don\u2019t plateau — they\u2019re the new building.',
+    reorgTeething: 'The redesigned workflow is finding its feet, still awkward, but the shape of something better is visible to the people inside it.',
+    reorgPaying: 'A redesigned workflow hits stride: the process now does things the old one structurally couldn\u2019t. These gains don\u2019t plateau, they\u2019re the new building.',
     hold: [
-      'A quiet quarter. Nothing broke. A competitor announced a "workflow transformation" — their numbers dipped, and your board chuckled. Remember the chuckle.',
+      'A quiet quarter. Nothing broke. A competitor announced a "workflow transformation", their numbers dipped, and your board chuckled. Remember the chuckle.',
       'Steady as she goes. The market moved; you didn\u2019t. Cheap now. Priced later.',
-      'Another held quarter. Holding is a decision too — it just never feels like one on the day.'
+      'Another held quarter. Holding is a decision too, it just never feels like one on the day.'
     ]
   };
 
@@ -468,13 +485,13 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     var read;
     var firstReorg = reorgQuarters.length ? reorgQuarters[0] : null;
     if (!reorgQuarters.length && toolCount > 0){
-      read = 'Final productivity: <b>' + final_ + '</b>. Your curve is the <b>copilot plateau</b> — the swapped engine. Quick wins, early praise, and a ceiling you hit around Q3 that no amount of additional licenses moved. For reference: this strategy tops out at 107. A firm that redesigned in Q1 and Q2 finishes around 121, after two ugly quarters. You avoided every dip and paid for it with the whole difference. This is the most common real-world curve — now you know why.';
+      read = 'Final productivity: <b>' + final_ + '</b>. Your curve is the <b>copilot plateau</b>, the swapped engine. Quick wins, early praise, and a ceiling you hit around Q3 that no amount of additional licenses moved. For reference: this strategy tops out at 107. A firm that redesigned in Q1 and Q2 finishes around 121, after two ugly quarters. You avoided every dip and paid for it with the whole difference. This is the most common real-world curve, now you know why.';
     } else if (!reorgQuarters.length && toolCount === 0){
-      read = 'Final productivity: <b>' + final_ + '</b>. You held for eight straight quarters — perfectly flat, perfectly defensible, quarter by quarter. No board meeting was ever awkward. The decade, however, belongs to the firms that took the dip. If this was a deliberate bet that the technology disappoints — the bubble reading — say so explicitly in your writeup; it\u2019s a real position and it deserves a real defense.';
+      read = 'Final productivity: <b>' + final_ + '</b>. You held for eight straight quarters, perfectly flat, perfectly defensible, quarter by quarter. No board meeting was ever awkward. The decade, however, belongs to the firms that took the dip. If this was a deliberate bet that the technology disappoints, the bubble reading, say so explicitly in your writeup; it\u2019s a real position and it deserves a real defense.';
     } else if (firstReorg <= 3){
-      read = 'Final productivity: <b>' + final_ + '</b>. That\u2019s a <b>J-curve</b> — the dynamo strategy. You took the dip early' + (reorgQuarters.length>1 ? ', more than once,' : '') + ' sat through the board meeting, and let the structural gains compound. The uncomfortable writeup question: you did this with play money and a fake board. Name the real-world structure that would have stopped you — and the one that would have protected you.';
+      read = 'Final productivity: <b>' + final_ + '</b>. That\u2019s a <b>J-curve</b>, the dynamo strategy. You took the dip early' + (reorgQuarters.length>1 ? ', more than once,' : '') + ' sat through the board meeting, and let the structural gains compound. The uncomfortable writeup question: you did this with play money and a fake board. Name the real-world structure that would have stopped you, and the one that would have protected you.';
     } else {
-      read = 'Final productivity: <b>' + final_ + '</b>. You redesigned <b>late</b> — quarter ' + firstReorg + ' — which means you paid the dip without collecting much of the payoff inside the year. This is the tragedy curve of real firms: the pressure delays the redesign until the redesign can\u2019t show results before the next review. The lesson isn\u2019t "don\u2019t redesign." It\u2019s that reorganization needs runway — and whoever controls the review clock controls whether it ever happens.';
+      read = 'Final productivity: <b>' + final_ + '</b>. You redesigned <b>late</b>, quarter ' + firstReorg + ', which means you paid the dip without collecting much of the payoff inside the year. This is the tragedy curve of real firms: the pressure delays the redesign until the redesign can\u2019t show results before the next review. The lesson isn\u2019t "don\u2019t redesign." It\u2019s that reorganization needs runway, and whoever controls the review clock controls whether it ever happens.';
     }
     document.getElementById('reading').innerHTML = read;
   }

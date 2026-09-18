@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 3 · Systems That Know You — Intro to AI in Business | MIS 201</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pink);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+.steps{margin:26px 0;}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
+.step:last-child{border-bottom:none;}
+.step .sn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);font-size:1.2rem;min-width:24px;}
+.step p{margin-bottom:0;}
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+
+/* ---- lab widgets ---- */
+.tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
+.tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
+.tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
+.chip{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;}
+.chip:hover{border-color:var(--pink);color:var(--pinktext);}
+.chip:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.chip.on{background:var(--dark);color:var(--yellow);border-color:var(--dark);}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.btn{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;}
+.btn:hover{background:#1B222B;}
+.btn:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--rule);}
+.btn.alt:hover{border-color:var(--pink);color:var(--pinktext);}
+.verdict{background:var(--dark);color:#E7EAEF;padding:26px 28px;margin-top:22px;}
+.verdict .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;}
+.verdict .read{font-size:.95rem;line-height:1.65;}
+.verdict .read b{color:var(--yellow);}
+.bars{display:grid;gap:10px;margin:14px 0 18px;}
+.bar{display:grid;grid-template-columns:190px 1fr 44px;gap:12px;align-items:center;font-size:.85rem;}
+.bar .track{height:10px;background:#242C36;border-radius:999px;overflow:hidden;}
+.bar .fill{height:100%;background:var(--pink);width:0%;transition:width .3s ease;border-radius:999px;}
+.bar.safe .fill{background:var(--yellow);}
+.bar .n{text-align:right;color:var(--lightgray);}
+@media(max-width:560px){.bar{grid-template-columns:1fr;gap:4px;}.bar .n{text-align:left;}}
+.meter{display:grid;grid-template-columns:130px 1fr 54px;gap:12px;align-items:center;font-size:.9rem;margin:8px 0;}
+.meter .track{height:14px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;}
+.meter .fill{height:100%;width:50%;transition:width .35s ease;border-radius:999px;background:var(--pink);}
+.meter.good .fill{background:var(--ink);}
+.meter .n{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+.simcard{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;cursor:pointer;text-align:left;font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55;color:var(--ink);width:100%;}
+.simcard:hover{border-color:var(--pink);}
+.simcard:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.simcard .tag{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.simgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0;}
+@media(max-width:680px){.simgrid{grid-template-columns:1fr;}}
+.slider-row{display:grid;grid-template-columns:170px 1fr 120px;gap:14px;align-items:center;margin:14px 0;font-size:.92rem;}
+.slider-row output{text-align:right;color:var(--gray);font-variant-numeric:tabular-nums;}
+input[type=range]{width:100%;accent-color:var(--pink);}
+@media(max-width:560px){.slider-row{grid-template-columns:1fr;gap:6px;}.slider-row output{text-align:left;}}
+select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink);}
+.equiv{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:18px 0 4px;}
+.equiv .cell{background:#fff;padding:16px 18px;}
+.equiv .cell .v{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;}
+.equiv .cell .v em{font-style:normal;color:var(--pink);}
+.equiv .cell .k{font-size:.82rem;color:var(--gray);margin-top:2px;}
+@media(max-width:560px){.equiv{grid-template-columns:1fr;}}
+.graphbox{background:var(--dark);border:1px solid var(--rule);margin:18px 0;}
+.graphbox svg{display:block;width:100%;height:auto;}
+.gnode{cursor:pointer;}
+.gnode circle{stroke:#39424D;stroke-width:1.5;fill:#1B222B;transition:all .2s ease;}
+.gnode text{font-family:'Inter',sans-serif;font-size:11px;fill:#C9CED6;pointer-events:none;}
+.gnode.drug circle{stroke:var(--yellow);}
+.gnode.disease circle{stroke:var(--pink);}
+.gnode.sel circle{fill:var(--yellow);stroke:var(--yellow);}
+.gnode.sel text{fill:var(--dark);font-weight:700;}
+.gnode.lit circle{fill:#2A3440;stroke:#fff;}
+.gedge{stroke:#333D49;stroke-width:1.5;transition:all .2s ease;}
+.gedge.lit{stroke:var(--yellow);stroke-width:2.5;}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.8rem;color:var(--gray);padding:12px 16px;border-top:1px solid var(--rule);background:#fff;}
+.legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;border:2px solid var(--gray);vertical-align:-1px;}
+.legend .l-drug::before{border-color:var(--yellow);background:#1B222B;}
+.legend .l-disease::before{border-color:var(--pink);background:#1B222B;}
+.legend .l-mid::before{border-color:#39424D;background:#1B222B;}
+.ranked{margin:14px 0 0;}
+.ranked .r{display:grid;grid-template-columns:1fr 60px;gap:10px;padding:9px 0;border-bottom:1px solid #242C36;font-size:.9rem;align-items:center;}
+.ranked .r:last-child{border-bottom:none;}
+.ranked .r .s{text-align:right;color:var(--yellow);font-variant-numeric:tabular-nums;font-weight:600;}
+.probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
+.probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
+.probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
+.roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
+/* ---- dropdown navigation (chapters / labs) ---- */
+.nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.nav a.navlink{margin-left:0;padding:6px 10px}
+.dd{position:relative}
+.dd-btn{font:inherit;font-size:.85rem;font-weight:600;color:#fff;background:var(--dark);border:1px solid var(--dark);border-radius:4px;padding:7px 14px;cursor:pointer}
+.dd-btn:hover,.dd-btn[aria-expanded="true"]{background:var(--pinktext);border-color:var(--pinktext);color:#fff}
+.dd-btn .caret{color:var(--yellow)}
+.dd-btn .caret{font-size:.7rem;margin-left:.3rem}
+.dd-menu{display:none;position:absolute;right:0;top:calc(100% + 6px);min-width:19rem;background:var(--bg);border:1px solid var(--rule);border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:.35rem 0;max-height:75vh;overflow-y:auto;z-index:50}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:.5rem 1rem;text-decoration:none;color:var(--ink);font-size:.9rem;line-height:1.35}
+.dd-menu a:hover{background:#F3F3EE;color:var(--pinktext)}
+.dd-menu a .lbl{display:block;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--pinktext);margin-bottom:.1rem}
+.dd-menu a.current{background:#F3F3EE;border-left:3px solid var(--pink)}
+@media (max-width:640px){
+  .nav .wrap{flex-wrap:wrap;gap:8px}
+  .nav .navlinks{width:100%;justify-content:flex-start}
+  .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
+}
+figure.diagram{margin:22px 0}
+figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;margin-top:8px}
+
+/* print */
+.printbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 6px;font-size:.9rem;color:var(--gray)}
+.printbar button{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border:none;border-radius:6px;cursor:pointer}
+.printbar button:hover{background:#242C36}
+@media print{
+  nav,.topnav,.printbar,.nextbar,footer.foot{display:none !important}
+  body{background:#fff;color:#000}
+  main.wrap{max-width:none;padding:0}
+  header.masthead{background:#fff !important;color:#000 !important;padding:0 0 12px}
+  header.masthead h1,header.masthead .kicker,header.masthead .eyebrow{color:#000 !important}
+  header.masthead h1 b{color:#000 !important}
+  a{color:#000;text-decoration:none}
+  a.inline::after{content:" (" attr(href) ")";font-size:.75em;color:#555;word-break:break-all}
+  details{display:block}
+  details>summary{list-style:none}
+  details:not([open])>*:not(summary){display:block}
+  .concept,.callout,.term-card,.ticket,figure.diagram{break-inside:avoid;page-break-inside:avoid}
+  .concept{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  h2,h3{break-after:avoid;page-break-after:avoid}
+  svg{max-width:100% !important}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div class="navlinks">
+      <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="syllabus.html">Syllabus</a>
+      <a class="navlink" href="rules.html">Rules</a>
+      <a class="navlink" href="schedule.html">Schedule</a>
+      <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddc" data-dd="ddc">Chapters<span class="caret" aria-hidden="true">▾</span></button>
+<div class="dd-menu" id="ddc">
+<a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
+<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
+<a href="chapter-03-systems.html" class="current" aria-current="page"><span class="lbl">Chapter 3 · Week 3</span>Systems That Know You</a>
+<a href="chapter-04-medicine.html"><span class="lbl">Chapter 4 · Week 4</span>Medicine</a>
+<a href="chapter-05-environment.html"><span class="lbl">Chapter 5 · Week 5</span>Environment</a>
+<a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
+<a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
+<a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
+<a href="chapter-09-economy.html"><span class="lbl">Chapter 9 · Week 9</span>The Economy</a>
+<a href="chapter-10-truth.html"><span class="lbl">Chapter 10 · Week 10</span>Truth</a>
+<a href="chapter-11-rules.html"><span class="lbl">Chapter 11 · Week 10</span>Who Makes the Rules?</a>
+<a href="chapter-12-future.html"><span class="lbl">Chapter 12 · Week 10</span>The Future</a>
+</div></div>
+      <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddl" data-dd="ddl">Labs<span class="caret" aria-hidden="true">▾</span></button>
+<div class="dd-menu" id="ddl">
+<a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
+<a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test and the Feed</a>
+<a href="chapter-04-medicine-lab.html"><span class="lbl">Lab 4 · Week 4</span>Inside the Graph</a>
+<a href="chapter-05-environment-lab.html"><span class="lbl">Lab 5 · Week 5</span>The Footprint Machine</a>
+<a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
+<a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
+<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
+<a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
+</div></div>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Western Washington University · MIS 201 · Chapter 3</div>
+    <h1>Systems That <b>Know</b> You</h1>
+    <p class="kicker">Most of the AI in your day never announces itself. It decides what song plays next, which video you see, which product sits at the top of the page. This chapter opens up the recommendation system, the most common AI any of us will ever meet, and then looks at the one moment each year when Spotify turns a year of listening into a story about the listener.</p>
+    <p class="factline">How recommenders guess · the loop that shapes taste · where the LLM fits · Wrapped, taken apart · how companies put generative AI to work</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="printbar">
+  <button type="button" onclick="document.querySelectorAll('details').forEach(function(d){d.open=true});window.print()">Wanna go analog? Print this chapter</button>
+  <span>Links print with their web addresses; the try-it answers print open.</span>
+</div>
+
+<div class="contents">
+  <div class="label">Learning objectives</div>
+  <ol type="1">
+<li>Explain the two main ways a recommendation system guesses what you'll like, and why new users and new songs are hard for it.</li>
+<li>Trace the feedback loop from your listening to the next recommendation, and say why it can narrow taste and favor whoever already has an audience.</li>
+<li>Tell a predictive part of a system from a generative part, and say what each one can get wrong.</li>
+<li>Run the five parts and the five critical AI questions on Spotify Wrapped.</li>
+<li>Describe the pattern most organizations follow when they put generative AI into a product, and say why the first uses are narrow.</li>
+<li>Decide, with costs, what a recommendation system should be allowed to optimize for.</li>
+  </ol>
+</div>
+
+<section id="s1">
+  <div class="shead"><span class="num">1</span><h2>The first Wednesday in December</h2></div>
+  <p class="lead">Every year, in the first week of December, Spotify tells hundreds of millions of people who they are. A top artist. A minutes count. The song someone played 212 times in March. A "listening age." And now, a paragraph about one Tuesday in July that the listener had forgotten, written by a machine. We screenshot it, post it, argue about it, and feel seen by it. For one day, an AI system is the most shared thing on the internet.</p>
+  <p>Wrapped is the friendly face of a much bigger machine. Underneath it is the system that runs Spotify the other 364 days: the one that builds Discover Weekly, picks the next song when a playlist ends, and decides which of the 100,000 tracks uploaded each day any of us will ever hear. That machine is a <strong>recommendation system</strong>, and versions of it sit inside TikTok, YouTube, Netflix, Amazon, Instagram, and whatever app we check after class. Learn how one works and we've learned how most of the AI in our lives works.</p>
+  <p>Here's the chapter's question: who is a recommendation for? The obvious answer is the listener. The honest answer is more complicated, and Wrapped, of all things, is where it shows.</p>
+</section>
+
+<section id="s2">
+  <div class="shead"><span class="num">2</span><h2>How recommendation systems actually work</h2></div>
+  <h3 class="sub"><span>2.1</span> Two ways to guess</h3>
+  <p>A recommendation system has one job: predict, out of everything it could show us, what we're most likely to want. Predictive AI, in Chapter 1's terms. There are two classic ways to make that guess.</p>
+  <p>The first is <strong>collaborative filtering</strong>: people who liked what we liked also liked this. The system doesn't need to know anything about the music itself. It needs a huge table of who played what, and it looks for neighbors, listeners whose history overlaps with ours, and hands us what they played that we haven't. Spotify's early Discover Weekly worked largely this way, mining the playlists people built; the company has said its models learned from hundreds of millions of user-created playlists. It's powerful because it captures things nobody could write a rule for: that fans of one obscure band tend to like another, for reasons even the fans couldn't explain.</p>
+  <p>The second is <strong>content-based filtering</strong>: this is similar to what we liked. Here the system looks at the thing itself. For music, that means audio features the model extracts from the sound (tempo, energy, timbre) plus text about the song from the wider web (reviews, blogs, playlist titles). If someone plays a lot of slow, acoustic, sad songs, it can find another one even if nobody in their listening neighborhood has heard it yet.</p>
+  <p>Both approaches have a weakness the industry calls the <strong>cold start problem</strong>. A brand-new listener has no history, so collaborative filtering has nothing to match. A brand-new song has no plays, so nobody's neighbors have heard it. Content-based methods help with new songs, which is one reason real systems blend both. Keep the cold start problem in mind. It explains something uncomfortable later.</p>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="rsa-t rsa-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="rsa-t">Two ways a recommender guesses what you'll like</title>
+      <desc id="rsa-d">Two panels. Left, collaborative filtering: a small table of listeners and songs with check marks for plays. You and a listener called neighbor share three of four songs; neighbor also played a fifth song you haven't, so it is recommended to you. Right, content-based filtering: your played songs are described by features such as tempo, energy, and acoustic, and a new song with matching features is recommended even though nobody near you has played it.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">COLLABORATIVE FILTERING · people like you played this</text>
+      <rect x="14" y="32" width="350" height="250" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="120" y="60" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle">song A</text><text x="170" y="60" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle">song B</text><text x="220" y="60" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle">song C</text><text x="270" y="60" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle">song D</text><text x="320" y="60" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle">song E</text>
+      <line x1="28" y1="68" x2="350" y2="68" stroke="#E3E3DD"/>
+      <text x="28" y="92" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D" font-weight="700">you</text><text x="120" y="92" font-family="Inter,Arial,sans-serif" font-size="14" fill="#14181D" text-anchor="middle">✓</text><text x="170" y="92" font-family="Inter,Arial,sans-serif" font-size="14" fill="#14181D" text-anchor="middle">✓</text><text x="220" y="92" font-family="Inter,Arial,sans-serif" font-size="14" fill="#14181D" text-anchor="middle">✓</text><text x="270" y="92" font-family="Inter,Arial,sans-serif" font-size="14" fill="#9AA1AB" text-anchor="middle">·</text><text x="320" y="92" font-family="Inter,Arial,sans-serif" font-size="14" fill="#FF3D8A" font-weight="700" text-anchor="middle">?</text>
+      <text x="28" y="122" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D">neighbor</text><text x="120" y="122" font-family="Inter,Arial,sans-serif" font-size="14" fill="#14181D" text-anchor="middle">✓</text><text x="170" y="122" font-family="Inter,Arial,sans-serif" font-size="14" fill="#14181D" text-anchor="middle">✓</text><text x="220" y="122" font-family="Inter,Arial,sans-serif" font-size="14" fill="#14181D" text-anchor="middle">✓</text><text x="270" y="122" font-family="Inter,Arial,sans-serif" font-size="14" fill="#9AA1AB" text-anchor="middle">·</text><text x="320" y="122" font-family="Inter,Arial,sans-serif" font-size="14" fill="#FF3D8A" font-weight="700" text-anchor="middle">✓</text>
+      <text x="28" y="152" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D">listener 3</text><text x="120" y="152" font-family="Inter,Arial,sans-serif" font-size="14" fill="#9AA1AB" text-anchor="middle">·</text><text x="170" y="152" font-family="Inter,Arial,sans-serif" font-size="14" fill="#14181D" text-anchor="middle">✓</text><text x="220" y="152" font-family="Inter,Arial,sans-serif" font-size="14" fill="#9AA1AB" text-anchor="middle">·</text><text x="270" y="152" font-family="Inter,Arial,sans-serif" font-size="14" fill="#14181D" text-anchor="middle">✓</text><text x="320" y="152" font-family="Inter,Arial,sans-serif" font-size="14" fill="#9AA1AB" text-anchor="middle">·</text>
+      <text x="28" y="182" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D">listener 4</text><text x="120" y="182" font-family="Inter,Arial,sans-serif" font-size="14" fill="#9AA1AB" text-anchor="middle">·</text><text x="170" y="182" font-family="Inter,Arial,sans-serif" font-size="14" fill="#9AA1AB" text-anchor="middle">·</text><text x="220" y="182" font-family="Inter,Arial,sans-serif" font-size="14" fill="#14181D" text-anchor="middle">✓</text><text x="270" y="182" font-family="Inter,Arial,sans-serif" font-size="14" fill="#14181D" text-anchor="middle">✓</text><text x="320" y="182" font-family="Inter,Arial,sans-serif" font-size="14" fill="#9AA1AB" text-anchor="middle">·</text>
+      <rect x="300" y="72" width="40" height="60" rx="4" fill="none" stroke="#FF3D8A" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="28" y="218" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">Your history overlaps most with neighbor's.</text><text x="28" y="236" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">Neighbor played song E. You haven't.</text><text x="28" y="254" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#D61F69">So: recommend song E. No music was analyzed.</text>
+      <text x="388" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">CONTENT-BASED · this sounds like what you played</text>
+      <rect x="388" y="32" width="358" height="250" rx="6" fill="#0E1116"/>
+      <text x="402" y="60" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#9AA1AB">what you played</text>
+      <text x="402" y="84" font-family="Inter,Arial,sans-serif" font-size="12" fill="#E4FF32">slow · acoustic · sad · quiet vocals</text>
+      <text x="402" y="106" font-family="Inter,Arial,sans-serif" font-size="12" fill="#E4FF32">slow · acoustic · sad · piano</text>
+      <text x="402" y="128" font-family="Inter,Arial,sans-serif" font-size="12" fill="#E4FF32">mid · acoustic · sad · quiet vocals</text>
+      <line x1="402" y1="144" x2="732" y2="144" stroke="#242C36"/>
+      <text x="402" y="168" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#9AA1AB">a brand-new song, zero plays anywhere</text>
+      <text x="402" y="192" font-family="Inter,Arial,sans-serif" font-size="12" fill="#FF3D8A" font-weight="700">slow · acoustic · sad · piano</text>
+      <text x="402" y="224" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#C9CED6">Its features match yours, so it's recommended</text><text x="402" y="242" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#C9CED6">even though no one in your neighborhood</text><text x="402" y="260" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#C9CED6">has heard it. This is how new songs get found.</text>
+      <text x="14" y="312" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">Real systems blend both. Collaborative filtering is stronger; content-based filtering rescues new songs and new listeners from the cold start problem.</text>
+    </svg>
+    <figcaption>Two ways to guess. On the left, the system never listens to the music; it only needs the table of who played what. On the right, it never needs the table; it needs the sound. Spotify uses both, plus text about the song from the wider web.</figcaption>
+  </figure>
+  <div class="concept">
+    <div class="term">Collaborative vs. content-based filtering</div>
+    <p>Collaborative filtering recommends from behavior: people like you played this. Content-based filtering recommends from features: this sounds like what you played. What people get wrong: they picture the system "understanding" music. It doesn't. It finds patterns in plays and in sound, and the patterns work well enough that understanding isn't needed.</p>
+  </div>
+
+  <h3 class="sub"><span>2.2</span> The signals, and the taste profile</h3>
+  <p>What counts as "liking" something? The system can't ask, so it watches. Spotify has been open about some of this: <a class="inline" href="https://newsroom.spotify.com/2025-12-05/wrapped-methodology-explained/" target="_blank" rel="noopener">a play counts as a listen after 30 seconds</a>, a skip before that is a negative signal, and saves, repeats, and adds to playlists count for more than a single stream. Skips matter enormously. A song that gets skipped early is a song the model learns to stop suggesting.</p>
+  <p>All of that behavior gets compressed into a <strong>taste profile</strong>: a mathematical summary of a listener, a long list of numbers that places them near listeners and songs they're likely to enjoy and far from the ones they're not. Nobody sees their own. The system also learns that each of us is several people: the workout self, the studying self, the 1 a.m. self. Modern recommenders keep a few of these profiles and guess which one is listening from the time, the device, and the last song played.</p>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="rsb-t rsb-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="rsb-t">How plays, skips, and saves become a taste profile</title>
+      <desc id="rsb-d">Left, a log of one listener's actions: played 3 minutes, skipped at 12 seconds, saved to a playlist, repeated twice, played during a run. Middle, an arrow into a box labeled taste profile, shown as a long row of numbers the listener never sees. Right, three small profiles for the same person: workout, studying, 1 a.m., and a note that the system guesses which one is listening from the time, device, and last song.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">1 · THE SIGNALS</text>
+      <rect x="14" y="32" width="230" height="220" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="28" y="58" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">played 3:12 of 3:20</text><text x="200" y="58" font-family="Inter,Arial,sans-serif" font-size="12" fill="#D61F69" font-weight="700">+</text>
+      <text x="28" y="84" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">skipped at 0:12</text><text x="200" y="84" font-family="Inter,Arial,sans-serif" font-size="12" fill="#D61F69" font-weight="700">−</text>
+      <text x="28" y="110" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">saved to a playlist</text><text x="200" y="110" font-family="Inter,Arial,sans-serif" font-size="12" fill="#D61F69" font-weight="700">++</text>
+      <text x="28" y="136" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">repeated twice</text><text x="200" y="136" font-family="Inter,Arial,sans-serif" font-size="12" fill="#D61F69" font-weight="700">++</text>
+      <text x="28" y="162" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">played at 6 a.m., phone,</text><text x="28" y="178" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">during a run</text><text x="200" y="170" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">ctx</text>
+      <text x="28" y="214" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" font-style="italic">A listen counts after 30 seconds.</text><text x="28" y="230" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" font-style="italic">A skip before that is a negative signal.</text>
+      <path d="M250,140 L282,140" stroke="#14181D" stroke-width="1.5" marker-end="url(#rsb-ar)"/>
+      <defs><marker id="rsb-ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#14181D"/></marker></defs>
+      <text x="288" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">2 · THE TASTE PROFILE</text>
+      <rect x="288" y="32" width="220" height="220" rx="6" fill="#0E1116"/>
+      <text x="302" y="60" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#C9CED6">a long list of numbers</text><text x="302" y="76" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#C9CED6">that places you near listeners</text><text x="302" y="92" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#C9CED6">and songs you're likely to enjoy</text>
+      <text x="302" y="124" font-family="Inter,Arial,sans-serif" font-size="12" fill="#E4FF32">0.82  −0.14  0.61  0.07  0.93</text><text x="302" y="142" font-family="Inter,Arial,sans-serif" font-size="12" fill="#E4FF32">−0.33  0.48  0.19  0.77  −0.05</text><text x="302" y="160" font-family="Inter,Arial,sans-serif" font-size="12" fill="#E4FF32">0.55  0.12  −0.61  0.38   …</text>
+      <text x="302" y="200" font-family="Inter,Arial,sans-serif" font-size="11" fill="#9AA1AB">You never see it. It is what</text><text x="302" y="216" font-family="Inter,Arial,sans-serif" font-size="11" fill="#9AA1AB">the system means by &quot;you.&quot;</text>
+      <path d="M514,140 L546,140" stroke="#14181D" stroke-width="1.5" marker-end="url(#rsb-ar)"/>
+      <text x="552" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">3 · SEVERAL OF YOU</text>
+      <rect x="552" y="32" width="194" height="62" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="649" y="58" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D" text-anchor="middle">the workout you</text><text x="649" y="76" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle">fast, loud, 6 a.m.</text>
+      <rect x="552" y="111" width="194" height="62" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="649" y="137" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D" text-anchor="middle">the studying you</text><text x="649" y="155" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle">no vocals, afternoons</text>
+      <rect x="552" y="190" width="194" height="62" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="649" y="216" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D" text-anchor="middle">the 1 a.m. you</text><text x="649" y="234" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle">slow, sad, phone</text>
+      <text x="14" y="282" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">The system keeps a few profiles per person and guesses which one is listening from the time, the device, and the last song played.</text>
+    </svg>
+    <figcaption>From what you did to what the system thinks you are. The numbers in the middle are the model's only picture of you, and every recommendation is a bet placed on them.</figcaption>
+  </figure>
+  <p>Run the five parts on this and the shape is clear. <strong>Data:</strong> every play, skip, and save, from each of us and from hundreds of millions of others. <strong>Model:</strong> the filters above, which turn the data into a taste profile and a ranking. <strong>Output:</strong> the next song, the Monday playlist, the top of the home screen. <strong>Feedback loop:</strong> what we do with the output becomes tomorrow's data. <strong>Humans:</strong> the listener, the data scientists who choose what the model rewards, and the people who make the music.</p>
+
+  <h3 class="sub"><span>2.3</span> The loop, and who it favors</h3>
+  <p>That feedback loop is where recommendation systems stop being neutral. The system shows us something; we play it or skip it; the model updates; it shows us more of what we played. Over months, it doesn't just learn our taste. It shapes it, because we can only like what we're shown. Engineers call the extreme version a filter bubble. A gentler word is drift: our recommendations get more like our recommendations.</p>
+  <p>The loop also has a direction: it favors whoever already has data. A popular artist generates millions of signals, which puts them in more neighborhoods, which generates more plays, which generates more signals. A new artist, by definition, has few. That's the cold start problem with a paycheck attached. The system doesn't dislike new artists. It just can't see them, and invisibility on a platform where the algorithm drives a large share of listening is a business problem with a real dollar cost.</p>
+  <p>Now add the part that isn't about the listener at all. Since 2020, Spotify has run <strong>Discovery Mode</strong>, a program in which artists and labels accept <a class="inline" href="https://www.theguardian.com/music/2025/feb/19/spotify-discovery-mode-payola-playlist" target="_blank" rel="noopener">a roughly 30 percent lower royalty</a> on certain streams in exchange for their songs being favored in algorithmic recommendations like Radio and Autoplay. There's no upfront fee; you pay in royalties. Members of Congress <a class="inline" href="https://hankjohnson.house.gov/media-center/press-releases/nadler-johnson-request-information-spotifys-discovery-mode-feature" target="_blank" rel="noopener">asked Spotify in 2020</a> whether this risked a race to the bottom, where the only way to get recommended is to accept less pay. Spotify says the program is one of thousands of signals and that its guide to recommendations discloses that commercial considerations can play a role. In November 2025, a listener <a class="inline" href="https://www.forbes.com/sites/conormurray/2025/11/05/spotify-hit-with-class-action-lawsuit-alleging-discovery-mode-is-a-pay-for-play-scheme/" target="_blank" rel="noopener">filed a class action</a> arguing that a service promising a personalized experience was steering her toward the same major-label tracks and not telling her which recommendations were paid. However that case ends, the point for this chapter is structural: the system is optimizing for more than one thing, and only one of them is the listener.</p>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="rsc-t rsc-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="rsc-t">The feedback loop, and the two thumbs on the scale</title>
+      <desc id="rsc-d">A circle of four steps: the system shows you a song; you play or skip it; the model updates; it shows you more of what you played. Two arrows push into the circle from outside. One, labeled popularity, shows that artists with many plays generate more signals and get shown more. The other, labeled Discovery Mode, shows that some tracks are favored because the artist accepted a lower royalty. A note says the loop learns your taste and shapes it, and only one of the things it optimizes for is the listener.</desc>
+      <rect x="250" y="40" width="150" height="46" rx="6" fill="#0E1116"/><text x="325" y="68" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">the system shows you a song</text>
+      <rect x="470" y="127" width="150" height="46" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="545" y="155" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" text-anchor="middle">you play it or skip it</text>
+      <rect x="250" y="214" width="150" height="46" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="325" y="242" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" text-anchor="middle">the model updates</text>
+      <rect x="30" y="127" width="150" height="46" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="105" y="150" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" text-anchor="middle">it shows you more</text><text x="105" y="165" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" text-anchor="middle">of what you played</text>
+      <path d="M402,63 Q545,63 545,125" fill="none" stroke="#14181D" stroke-width="1.5" marker-end="url(#rsc-ar)"/>
+      <path d="M545,175 Q545,237 402,237" fill="none" stroke="#14181D" stroke-width="1.5" marker-end="url(#rsc-ar)"/>
+      <path d="M248,237 Q105,237 105,175" fill="none" stroke="#14181D" stroke-width="1.5" marker-end="url(#rsc-ar)"/>
+      <path d="M105,125 Q105,63 248,63" fill="none" stroke="#14181D" stroke-width="1.5" marker-end="url(#rsc-ar)"/>
+      <defs><marker id="rsc-ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#14181D"/></marker></defs>
+      <text x="325" y="150" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" text-anchor="middle" font-style="italic">over months, the loop</text><text x="325" y="166" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" text-anchor="middle" font-style="italic">doesn't just learn your taste.</text><text x="325" y="182" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" text-anchor="middle" font-style="italic">It shapes it.</text>
+      <rect x="640" y="40" width="106" height="66" rx="6" fill="#FF3D8A"/><text x="693" y="62" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" font-weight="700" text-anchor="middle">popularity</text><text x="693" y="78" font-family="Inter,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">more plays, more</text><text x="693" y="92" font-family="Inter,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">signals, more shows</text>
+      <path d="M640,73 L626,73 Q600,73 590,120" fill="none" stroke="#FF3D8A" stroke-width="1.5" marker-end="url(#rsc-ar2)"/>
+      <rect x="640" y="200" width="106" height="66" rx="6" fill="#FF3D8A"/><text x="693" y="222" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" font-weight="700" text-anchor="middle">Discovery Mode</text><text x="693" y="238" font-family="Inter,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">lower royalty,</text><text x="693" y="252" font-family="Inter,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">favored in the loop</text>
+      <path d="M640,233 L626,233 Q600,233 590,180" fill="none" stroke="#FF3D8A" stroke-width="1.5" marker-end="url(#rsc-ar2)"/>
+      <defs><marker id="rsc-ar2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#FF3D8A"/></marker></defs>
+      <text x="14" y="290" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">The loop optimizes for more than one thing. Only one of them is the listener.</text>
+    </svg>
+    <figcaption>The loop, with the two thumbs on the scale. Popularity is structural: whoever has data gets more. Discovery Mode is commercial: whoever accepts less royalty gets favored. Neither is visible from inside the app.</figcaption>
+  </figure>
+  <div class="concept">
+    <div class="term">Engagement optimization</div>
+    <p>Training a system to maximize a measurable stand-in for your attention: streams, minutes, sessions, return visits. What people get wrong: they think the algorithm prefers outrage, or major labels, or sad songs. It prefers nothing. It finds whatever holds people and whatever it's paid to favor, and it can't tell a listener who loves a song from one who just stopped skipping.</p>
+  </div>
+
+  <h3 class="sub"><span>2.4</span> Where the LLM fits</h3>
+  <p>Everything so far is predictive AI: a ranking. It never writes a sentence. But since 2024, systems like Spotify's have added a second kind of AI on top: a <strong>large language model</strong> that generates text, the same technology behind chatbots, Chapter 1's Moment 4. The two do different jobs, and confusing them is the most common mistake people make about "the algorithm."</p>
+  <p>The recommender decides <em>what</em>. The language model decides <em>how to say it</em>. Spotify's AI DJ is the clearest example: a recommendation system picks the songs, and a language model writes the DJ's patter between them, read out in a cloned voice. Wrapped works the same way. The numbers come from counting. The paragraph about someone's July comes from a language model handed those numbers and told to write something warm. Each layer fails differently. The ranking can be wrong about what we want. The language model can be wrong about what happened: it can overstate, invent a detail, or say something true in a way that lands badly, and it does all of it fluently.</p>
+  <div class="concept">
+    <div class="term">Predictive layer, generative layer</div>
+    <p>In most consumer AI today, a predictive model ranks and a generative model narrates. What people get wrong: they blame "the AI" as one thing. Ask which layer failed. A bad recommendation is a data or ranking problem. A bad sentence about a person is a generation problem. They get fixed in different rooms.</p>
+  </div>
+  <div class="callout tryit">
+    <div class="label">Try it · practice for Friday's quiz. Five situations: which concept is doing the work? Decide, then click to check.</div>
+    <details><summary>1. "Because you watched a documentary about coral reefs, here's one about deep-sea fish."</summary><p>Content-based filtering. It matched features of the thing you watched; it needed nothing about other people.</p></details>
+    <details><summary>2. A podcast with 40 total listeners never shows up in anyone's recommendations.</summary><p>The cold start problem. Collaborative filtering can't recommend what nobody has played, so new and small things wait at the door.</p></details>
+    <details><summary>3. You skip three sad songs on a bad day; a week later the app has stopped suggesting slow music entirely.</summary><p>The loop. Your behavior became the next input, the taste profile moved, and the system now shows you less of what it decided you don't want.</p></details>
+    <details><summary>4. Your Wrapped tells you, warmly, that you "found comfort in" an album in October. The album is a workout playlist.</summary><p>The generative layer. The counts are from the predictive layer; the sentence about comfort is the language model narrating, and narrating wrong.</p></details>
+    <details><summary>5. A label pays for a "boost" and its new single reaches you as "recommended for you."</summary><p>A paid signal in a system that says it's personal: Discovery Mode, and the question Chapter 3's case turns on.</p></details>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="shead"><span class="num">3</span><h2>The case: Spotify Wrapped as an AI system</h2></div>
+  <h3 class="sub"><span>Background</span> From a top-tracks list to a story about you</h3>
+  <p>Wrapped launched in 2016 as a list of your top tracks. By 2025 it was an animated story with <a class="inline" href="https://newsroom.spotify.com/2025-12-03/2025-wrapped-user-experience/" target="_blank" rel="noopener">nearly a dozen data stories</a>: minutes listened, top songs and artists, top albums for the first time, a "listening age" comparing your taste with your age group, and share cards built to be posted. Spotify publishes how it's made, which is rare and makes this case possible.</p>
+  <p><strong>The data.</strong> Wrapped counts your listening <a class="inline" href="https://newsroom.spotify.com/2025-12-03/how-your-wrapped-is-made/" target="_blank" rel="noopener">from January to mid-November</a>. A listen is a play of more than 30 seconds. Listening in Private Mode counts toward your total minutes but doesn't shape your taste stories, which means the company keeps two versions of you: the one it counts and the one it tells stories about. To get a personalized Wrapped at all you need to have played at least 30 songs for more than 30 seconds and at least five artists. Everything Wrapped knows, the recommender already knew; Wrapped is that year of data, read back to you.</p>
+  <p><strong>The model, in two layers.</strong> The predictive layer is the counting and ranking: top songs by number of listens, one stream is one listen whether the song is three minutes or ten, and Spotify's data scientists <a class="inline" href="https://newsroom.spotify.com/2025-12-05/wrapped-methodology-explained/" target="_blank" rel="noopener">say they spend the year testing which ranking methods</a> feel most like the listener. The generative layer is new. For 2025's "Listening Archive," Spotify's engineers <a class="inline" href="https://engineering.atspotify.com/2026/3/inside-the-archive-2025-wrapped" target="_blank" rel="noopener">used a set of priority-ordered rules</a> to pick up to five remarkable days from your year (a day you binged an album, a day your listening spiked), and then handed each day's details to a language model to write a short summary. By the company's own account the system pre-generated <a class="inline" href="https://www.infoq.com/news/2026/04/spotify-wrapped-privacy/" target="_blank" rel="noopener">about 1.4 billion reports for roughly 350 million users</a>. That's an LLM writing a paragraph about you, at a scale no editor could ever check.</p>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="rsd-t rsd-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="rsd-t">Wrapped's two layers: counting, then writing</title>
+      <desc id="rsd-d">A pipeline in four boxes. First, a year of listening data from January to mid-November, with private mode excluded from taste stories. Second, the predictive layer: counting listens over 30 seconds, ranking top songs and artists, and rules that pick up to five remarkable days. Third, the generative layer: a language model is handed each day's facts and writes a short warm summary, with a note that about 1.4 billion of these were pre-generated. Fourth, the output: share cards, posted, which bring more listening next year. A caption line says the numbers come from counting; the sentences come from the model.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">1 · DATA</text>
+      <rect x="14" y="32" width="160" height="170" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="28" y="58" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">a year of listening,</text><text x="28" y="74" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">Jan to mid-Nov</text><text x="28" y="100" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">a listen = 30+ seconds</text><text x="28" y="118" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">Private Mode counted</text><text x="28" y="134" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">in minutes, excluded</text><text x="28" y="150" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">from taste stories</text><text x="28" y="184" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" font-style="italic">the recommender already had it</text>
+      <path d="M180,117 L206,117" stroke="#14181D" stroke-width="1.5" marker-end="url(#rsd-ar)"/><defs><marker id="rsd-ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#14181D"/></marker></defs>
+      <text x="212" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">2 · PREDICTIVE LAYER</text>
+      <rect x="212" y="32" width="170" height="170" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="226" y="58" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" font-weight="700">count and rank:</text><text x="226" y="76" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">top songs, artists,</text><text x="226" y="92" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">albums, minutes</text><text x="226" y="118" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" font-weight="700">rules pick up to five</text><text x="226" y="136" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">&quot;remarkable days&quot;</text><text x="226" y="166" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" font-style="italic">arithmetic, checkable</text>
+      <path d="M388,117 L414,117" stroke="#14181D" stroke-width="1.5" marker-end="url(#rsd-ar)"/>
+      <text x="420" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">3 · GENERATIVE LAYER</text>
+      <rect x="420" y="32" width="170" height="170" rx="6" fill="#0E1116"/>
+      <text x="434" y="58" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#E4FF32" font-weight="700">a language model</text><text x="434" y="76" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#C9CED6">is handed each day's</text><text x="434" y="92" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#C9CED6">facts and told to write</text><text x="434" y="108" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#C9CED6">a short, warm summary</text><text x="434" y="138" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FF3D8A">~1.4 billion of these,</text><text x="434" y="154" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FF3D8A">pre-generated, for</text><text x="434" y="170" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FF3D8A">~350 million people</text><text x="434" y="192" font-family="Inter,Arial,sans-serif" font-size="10" fill="#9AA1AB" font-style="italic">fluent, not checkable</text>
+      <path d="M596,117 L622,117" stroke="#14181D" stroke-width="1.5" marker-end="url(#rsd-ar)"/>
+      <text x="628" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">4 · OUTPUT</text>
+      <rect x="628" y="32" width="118" height="170" rx="6" fill="#FF3D8A"/>
+      <text x="687" y="66" font-family="Inter,Arial,sans-serif" font-size="12" fill="#FFFFFF" font-weight="700" text-anchor="middle">share cards</text><text x="687" y="90" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">posted, seen,</text><text x="687" y="106" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">copied by friends</text><text x="687" y="140" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">→ more listening</text><text x="687" y="156" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">→ next year's data</text>
+      <path d="M687,206 L687,236 L94,236 L94,208" fill="none" stroke="#FF3D8A" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#rsd-ar2)"/><defs><marker id="rsd-ar2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#FF3D8A"/></marker></defs>
+      <text x="380" y="252" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#D61F69" text-anchor="middle" font-style="italic">the feedback loop: sharing is the marketing, and the marketing is next year's data</text>
+      <text x="14" y="300" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">The numbers come from counting. The sentences come from the model. Wrong about what you did: layer 2. Wrong about what it meant: layer 3.</text>
+    </svg>
+    <figcaption>Wrapped, taken apart. The predictive layer is arithmetic anyone could check; the generative layer writes 1.4 billion paragraphs nobody can. Knowing which layer produced a line tells you who has to fix it.</figcaption>
+  </figure>
+  <p><strong>The output and the loop.</strong> The output is cards designed to be shared, and the sharing is the loop. Every posted Wrapped is an ad, a nudge to your friends to open the app, and a burst of December listening, which becomes next year's data. Wrapped is the one day a year the recommendation system's product is <em>you</em>, and it's also the day the system sells the most subscriptions.</p>
+  <p><strong>The humans.</strong> You, choosing what to post. The data scientists, choosing what a "listen" means and which days are "remarkable." And the year it went wrong, the humans who trusted a model to speak for them. In 2024, Wrapped added an <a class="inline" href="https://techcrunch.com/2024/12/04/spotify-wrapped-2024-adds-an-ai-podcast-powered-by-googles-notebooklm" target="_blank" rel="noopener">AI-generated podcast</a> built with Google's NotebookLM, two synthetic hosts chatting about your year. It was <a class="inline" href="https://www.fastcompany.com/91451332/spotify-wrapped-2025-goes-analog-in-the-age-of-ai" target="_blank" rel="noopener">broadly panned</a>; critics called the whole launch AI slop, and the company got the message. The 2025 edition <a class="inline" href="https://www.fastcompany.com/91451332/spotify-wrapped-2025-goes-analog-in-the-age-of-ai" target="_blank" rel="noopener">went analog on purpose</a>, styled like mixtapes and scrapbooks, and kept its language model in the background, writing a few sentences per day rather than performing. Same technology, different design decision, opposite reaction.</p>
+
+  <p><strong>The five critical AI questions, run on this case:</strong></p>
+  <h3 class="sub"><span>What this AI is, and how it works</span> Question 1: what is the AI system, and what does it do?</h3>
+  <p>Two layers. A predictive system that counts and ranks a year of listening, and a generative system that writes about it. It turns your data into a story you'll share, which turns your friends into December listeners. Name both layers, because they fail differently.</p>
+
+  <h3 class="sub"><span>Who benefits, and who doesn't</span> Question 2: why does it exist, and who benefits?</h3>
+  <p>Officially, so you can see yourself in your sound. Commercially, because it's the most effective marketing Spotify has ever built and it costs the company almost nothing but compute. You benefit, and people like it, which is real. Artists benefit from the exposure. Spotify benefits most: attention, sign-ups, and a fresh reason to keep a year of your listening data, which is also the fuel for everything in section 2. The benefit and the cost run on the same data.</p>
+  <p>Who doesn't benefit: artists outside the neighborhoods the recommender already favors, who never make it into anyone's Wrapped; listeners whose "taste" was partly paid promotion, read back to them as if it were theirs; and anyone whose remarkable day the language model describes wrong.</p>
+
+  <h3 class="sub"><span>When it fails, who finds out</span> Question 3: what happens when it fails, and who finds out?</h3>
+  <p>The predictive layer fails quietly: a ranking that feels wrong, a top artist you'd rather not admit to. You find out, and you shrug. The generative layer fails loudly, because it speaks. A language model writing 1.4 billion paragraphs will get some wrong, and some right in ways that hurt: the day you listened to one song on repeat was a funeral, not a vibe. Spotify's engineers describe safety loops and testing for exactly this; the scale is why it's hard. And the 2024 podcast failed in public, which is the visible kind of failure that gets fixed fast. The failure nobody sees is the loop: a year of taste shaped by recommendations, some of them paid, read back to you as if it were all you.</p>
+
+  <h3 class="sub"><span>Business implications</span> What this means for anyone building a "your year" feature</h3>
+  <p>Wrapped is the most copied feature in consumer software, and every copy makes the same two decisions Spotify made. First, what data you keep: a year-in-review needs a year of behavior, so shipping one means deciding to retain it, and retention is a liability as well as an asset. Second, what the generative layer is allowed to do: describe facts the system already counted, or interpret the person. The first is cheap to check and hard to get badly wrong; the second is where a warm sentence becomes a wrong one at scale. There's a third decision most companies skip, and it's the one the Discovery Mode lawsuit is about: whether anything commercially boosted is labeled as such inside a feature sold as personal. The costs of doing these well are engineering time, a smaller, plainer feature, and a harder conversation with whoever pays for placement. The cost of doing them badly, in 2024, was a launch that got called slop in public.</p>
+  <h3 class="sub"><span>Societal implications</span> Question 4: who's saying that, and how would we know?</h3>
+  <p>"Wrapped is your year" is Spotify's framing, and it's mostly true, with exclusions the company documents. "Personalized" is also Spotify's word, and the Discovery Mode lawsuit is a fight over whether it's entirely true. "AI slop" was the critics' verdict on 2024, and the company's response tells you it took the claim seriously. How would we know if Wrapped is accurate? Spotify publishes its methodology, which is more than most systems offer. How would we know how much of your taste was steered? That's the number nobody publishes.</p>
+
+  <h3 class="sub"><span>How to keep it beneficial</span> Question 5: keep it, fix it, or drop it, and what does that cost?</h3>
+  <ul class="decide">
+    <li><strong>Keep it:</strong> people like Wrapped, it's transparent about its methods, and 2025 showed the company can learn from a bad year. The cost: it normalizes keeping a year of your behavior, and it keeps working as marketing whether or not you think of it that way.</li>
+    <li><strong>Fix it:</strong> label which recommendations were commercially boosted, let people see and edit the taste profile Wrapped is built from, and keep the language model to short, checkable facts. The cost: less magic, fewer surprises, and a harder conversation with the labels who pay for Discovery Mode.</li>
+    <li><strong>Drop it:</strong> opt out, or never open it. The cost is small for you and nothing for Spotify; the data is collected either way. Dropping Wrapped doesn't drop the recommender.</li>
+  </ul>
+
+  <div class="concept">
+    <div class="term">How to make it good</div>
+    <p>Wrapped is close to a good version already, which is why it's worth studying. <em>Keep</em> the published methodology and the human-checked exclusions. <em>Fix</em> the part the fun hides: show people the profile the system has built, mark what was paid promotion, and let the language model describe rather than interpret. <em>Drop</em> any generated line the system can't trace to a fact in the data. The cost of all three is a slightly less flattering mirror. The benefit is a mirror you can trust.</p>
+  </div>
+  <h3 class="sub"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
+  <div class="ticket">
+    <div class="label">Thinking critically · for Wednesday's discussion · one question each, answered by you, not by the chapter</div>
+    <ol>
+      <li><strong>Q1 · What is it, and what does it do?</strong> Pick one recommendation you got this week, from any app, and take it apart the way section 2 does: was it more likely collaborative (people like you) or content-based (things like that), and which layer, predictive or generative, produced what you saw on the screen?</li>
+      <li><strong>Q2 · Why does it exist, and who benefits?</strong> Wrapped is marketing that feels like a gift. Name who benefits from your posting it, in order, and then name one artist or one listener who doesn't, using the Discovery Mode fight or the cold-start problem.</li>
+      <li><strong>Q3 · What happens when it fails, and who finds out?</strong> Your Wrapped says you had a "remarkable day" in March and describes it warmly, but the description is slightly off. Which layer failed, and how would Spotify ever find out at 1.4 billion reports? Then name a failure of the recommender itself that nobody would ever report.</li>
+      <li><strong>Q4 · Who's saying that, and how would we know?</strong> Discovery Mode lets artists pay in royalties for a boost, and Spotify says it discloses that commercial considerations play a role. Is that different from radio payola, which was outlawed? Say who's making each claim, what they gain, and what evidence would settle it.</li>
+      <li><strong>Q5 · Keep it, fix it, or drop it, and what does that cost?</strong> Your Prototype project will almost certainly recommend something. Write the number it optimizes for in one sentence. Then write who could pay to move the ranking, and whether you'd let them, and what saying no would cost.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="shead"><span class="num">4</span><h2>Wrapped as a pattern: how organizations are putting generative AI to work</h2></div>
+  <p>Step back from the music and Wrapped is something more useful: a clear example of how a large company actually put a language model into a product used by hundreds of millions of people. Most organizations are somewhere on this path right now, and most of them are doing it the way Spotify did, whether they've noticed or not.</p>
+  <p><strong>Start with a narrow, low-stakes job.</strong> Spotify didn't ask a language model to pick your music or run the app. It asked it to write a few warm sentences about a day that the company's own rules had already selected. The model narrates; it doesn't decide. That's the pattern across industries in 2026: the first generative AI most companies ship writes summaries, first drafts, product descriptions, and customer-service replies, not decisions that can be appealed.</p>
+  <p><strong>Keep the facts outside the model.</strong> The numbers in Wrapped come from counting, not from the language model. The model is handed the facts and told to describe them. Organizations that get this right treat the model as a writer with a fact sheet, not as a source. Organizations that get it wrong end up in Chapter 10.</p>
+  <p><strong>The model is the easy part.</strong> Spotify's engineers <a class="inline" href="https://engineering.atspotify.com/2026/3/inside-the-archive-2025-wrapped" target="_blank" rel="noopener">said as much</a>: at their scale, the language-model call was simple, and the real work was capacity planning, cost discipline, replay and recovery when things fail, and safety loops to catch bad outputs before they reached anyone. A prototype takes an afternoon. Running it for 350 million people takes a team, a budget, and a plan for the day it breaks.</p>
+  <p><strong>Learn in public, then pull back.</strong> The 2024 AI podcast was a bet that more generative AI meant a better product. The reaction said otherwise, and 2025 kept the model in the background. That's a pattern too: companies are finding that the best use of generative AI is often the least visible one.</p>
+  <p><strong>Nobody can read all of it.</strong> At 1.4 billion reports, human review of each output is impossible, so the guardrails have to be built in: what the model is allowed to say, what it must never say, and tests that run before launch. Every organization deploying generative AI at scale faces the same math, and the ones with consequential outputs, a loan decision, a medical note, keep a human on the loop for that reason. Chapter 9 picks this up as an economic question: a company that adds a chatbot has adopted AI; a company that reorganizes work around it is doing something else.</p>
+  <div class="concept">
+    <div class="term">Where generative AI lands first</div>
+    <p>In most organizations, generative AI arrives as a narrator, not a decider: summaries, drafts, replies, descriptions, with the facts supplied from outside the model. What people get wrong: they judge a company's AI by how visible it is. The mature deployments are usually the quiet ones, and the loud ones are usually prototypes.</p>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="shead"><span class="num">5</span><h2>Decide: what should it optimize for?</h2></div>
+  <p>Every recommendation system optimizes for something, and someone chose it. Minutes, sessions, return visits, revenue, or, in the rare case, something like the listener's own stated goals. The choice is invisible to us and it's the whole product. When you build or buy one of these systems, and many of you will, the decision isn't whether to use AI. It's what number the loop chases and who gets to see the number.</p>
+  <p>That's also the Prototype project's question in miniature. A recommendation feature is the most likely piece of AI in whatever you design, and the same three choices apply: what it optimizes for, whether people can see why they got what they got, and whether anyone can pay to move the ranking. Answer those three and you've done the hard part.</p>
+  <p>The lab puts you on the other side of the glass. You are the recommendation system, your user is a first-year student, and your score is engagement. You'll find out what the metric does to your decisions, and then what a second metric would have caught. It's the second half of Lab 2, which covers both this chapter and the last one; you'll run the first pass in class right after this case and finish the rest at home.</p>
+</section>
+
+<section id="s6">
+  <div class="shead"><span class="num">6</span><h2>Key terms</h2></div>
+  <div class="terms">
+    <div class="term-card"><div class="t">Recommendation system</div><p>Predictive AI that ranks what to show you next from everything it could show you. The most common AI in daily life.</p></div>
+    <div class="term-card"><div class="t">Collaborative filtering</div><p>Recommending from behavior: people whose history overlaps yours also played this.</p></div>
+    <div class="term-card"><div class="t">Content-based filtering</div><p>Recommending from features of the item itself: this sounds like what you played.</p></div>
+    <div class="term-card"><div class="t">Cold start problem</div><p>New users and new items have no data, so the system can't see them. It favors whoever already has an audience.</p></div>
+    <div class="term-card"><div class="t">Taste profile</div><p>The system's mathematical summary of you, built from plays, skips, and saves. You never see it.</p></div>
+    <div class="term-card"><div class="t">Engagement optimization</div><p>Training a system to maximize a stand-in for attention. It can't tell love from habit.</p></div>
+    <div class="term-card"><div class="t">Discovery Mode</div><p>Spotify's program letting artists trade lower royalties for a boost in algorithmic recommendations. A paid signal inside a "personal" system.</p></div>
+    <div class="term-card"><div class="t">Narrator, not decider</div><p>The pattern most organizations follow first: the model writes, with facts supplied from outside it, and people keep the decisions.</p></div>
+    <div class="term-card"><div class="t">Predictive layer, generative layer</div><p>The recommender decides what; a language model decides how to say it. They fail differently and get fixed in different rooms.</p></div>
+  </div>
+</section>
+
+
+
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <p>Verified 17 Sep 2026 against the linked sources. Wrapped 2025 features and rules (data window, 30-second listens, Private Mode exclusion, eligibility thresholds) from Spotify's newsroom guides of December 3 and 5, 2025. The Listening Archive's heuristics and language-model summaries from Spotify Engineering (March 2026); the 1.4 billion reports and 350 million users figure as reported by InfoQ (April 2026). The 2024 NotebookLM podcast from TechCrunch (December 4, 2024); the "AI slop" reception and 2025's analog design from Fast Company (December 3, 2025). Discovery Mode: the 2020 congressional letter (Reps. Nadler and Johnson), The Guardian (February 19, 2025) on the royalty reduction and disclosure, and Forbes and Billboard (November 5, 2025) on the class action; the lawsuit is pending and its claims are allegations. General mechanics of collaborative and content-based filtering are standard; specifics of Spotify's current models are not public beyond what the company publishes. Corrections are course content.</p>
+</details>
+
+<div class="nextbar">
+  <a href="chapter-02-human-lab.html"><span class="dir">← Back</span>Lab 2 · The Seeming Test</a>
+  <a href="chapter-02-human-lab.html" style="text-align:right;"><span class="dir">Next →</span>Lab 2 · The Seeming Test and the Feed (covers this chapter)</a>
+</div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.dd-btn'));
+  function closeAll(){btns.forEach(function(b){var m=document.getElementById(b.getAttribute('data-dd'));if(m){m.classList.remove('open');b.setAttribute('aria-expanded','false');}});}
+  btns.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var m=document.getElementById(b.getAttribute('data-dd'));var open=m.classList.contains('open');closeAll();if(!open){m.classList.add('open');b.setAttribute('aria-expanded','true');}});});
+  document.addEventListener('click',closeAll);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+  document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab 6 · You Are the Auditor — Intro to AI in Business | MIS 201</title>
+<title>Lab 6 · You Are the Auditor. Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -182,6 +182,8 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   .nav .navlinks{width:100%;justify-content:flex-start}
   .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
 }
+ul.ideas{padding-left:1.2em;margin:10px 0}
+ul.ideas li{margin:8px 0}
 </style>
 </head>
 <body>
@@ -198,9 +200,9 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <div class="dd-menu" id="ddc">
 <a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
 <a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
-<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 4</span>Medicine</a>
-<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 5</span>Environment</a>
-<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · optional</span>Systems That Want You</a>
+<a href="chapter-03-systems.html"><span class="lbl">Chapter 3 · Week 3</span>Systems That Know You</a>
+<a href="chapter-04-medicine.html"><span class="lbl">Chapter 4 · Week 4</span>Medicine</a>
+<a href="chapter-05-environment.html"><span class="lbl">Chapter 5 · Week 5</span>Environment</a>
 <a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
 <a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
 <a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
@@ -213,17 +215,13 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <div class="dd-menu" id="ddl">
 <a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
 <a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
-<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test</a>
-<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 4</span>Inside the Graph</a>
-<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 5</span>The Footprint Machine</a>
-<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · optional</span>Play the Algorithm</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test and the Feed</a>
+<a href="chapter-04-medicine-lab.html"><span class="lbl">Lab 4 · Week 4</span>Inside the Graph</a>
+<a href="chapter-05-environment-lab.html"><span class="lbl">Lab 5 · Week 5</span>The Footprint Machine</a>
 <a href="chapter-06-hiring-lending-lab.html" class="current" aria-current="page"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
-<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
+<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
 <a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
-<a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 10 · take-home</span>The Phantom Docket</a>
-<a href="exposure-audit.html"><span class="lbl">Self-guided · pairs with Chapter 9</span>The Exposure Audit</a>
-<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · last class</span>First Contact, Revisited</a>
 </div></div>
     </div>
   </div>
@@ -231,27 +229,32 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <header class="masthead">
   <div class="wrap">
-    <div class="eyebrow">Western Washington University · MIS 201 · Lab 6 · Wednesday, in class</div>
+    <div class="eyebrow">Western Washington University · MIS 201 · Lab 6 · Week 6, Wednesday, in class</div>
     <h1>You Are the <b>Auditor</b></h1>
-    <p class="kicker">Monday we learned that classifiers judging people can only be trusted as far as they've been tested from outside. Today you run the test. You'll build a controlled experiment — two résumés, identical except for one signal — run it on a live AI, and read the results the way researchers do. This is a real method with a real name, and by the end of class you'll have used it.</p>
+    <p class="kicker">Monday we learned that classifiers judging people can only be trusted as far as they've been tested from outside. Today you run the test. You'll build a controlled experiment, two résumés, identical except for one signal, run it on a live AI, and read the results the way researchers do. This is a real method with a real name, and by the end of class you'll have used it.</p>
     <p class="factline">One variable · two résumés · a live AI on the other side</p>
   </div>
 </header>
 
 <main class="wrap">
+<div class="callout">
+  <div class="label">From Chapter 6 · what this lab runs on</div>
+  <p>This is section 2.7's matched pair, run for real: two applications identical except for one signal, through a live screener. If the scores move, the signal is a proxy (2.3), and you've found what the model reads without opening it. The pooled tally at the end is the class's version of the four-fifths rule. Your result is an anecdote, not a finding, and the chapter's audit section explains why that distinction matters.</p>
+</div>
+
 
 <section>
   <div class="shead"><span class="num">1</span><h2>The method: the audit study</h2></div>
-  <p class="lead">In 2004, economists Marianne Bertrand and Sendhil Mullainathan mailed nearly 5,000 fictitious résumés to real job openings — identical qualifications, but half signed with names like Emily and Greg, half with names like Lakisha and Jamal. The white-sounding names received <a class="inline" href="https://www.nber.org/papers/w9873" target="_blank" rel="noopener">about 50% more callbacks</a>. That design — change one signal, hold everything else constant, measure the difference — is called an <strong>audit study</strong>, and it's the single most powerful tool ever built for catching discrimination that no one will admit to and no one may even intend.</p>
-  <p>Today you run a miniature one on an AI screener. One honest disclosure before you start: real audits need thousands of trials; you'll run a handful. Your result will be an <em>anecdote</em>, not a finding — and learning exactly why that distinction matters is half of what this lab teaches. The method is the science. The sample size is the difference between science and a story.</p>
+  <p class="lead">In 2004, economists Marianne Bertrand and Sendhil Mullainathan mailed nearly 5,000 fictitious résumés to real job openings, identical qualifications, but half signed with names like Emily and Greg, half with names like Lakisha and Jamal. The white-sounding names received <a class="inline" href="https://www.nber.org/papers/w9873" target="_blank" rel="noopener">about 50% more callbacks</a>. That design, change one signal, hold everything else constant, measure the difference, is called an <strong>audit study</strong>, and it's the single most powerful tool ever built for catching discrimination that no one will admit to and no one may even intend.</p>
+  <p>Today you run a miniature one on an AI screener. One honest disclosure before you start: real audits need thousands of trials; you'll run a handful. Your result will be an <em>anecdote</em>, not a finding, and learning exactly why that distinction matters is half of what this lab teaches. The method is the science. The sample size is the difference between science and a story.</p>
 </section>
 
 <section>
   <div class="shead"><span class="num">2</span><h2>Build your audit</h2></div>
-  <p>Below is a job posting and a base résumé for a fictional candidate. Choose <strong>one variable to test</strong> — the lab will generate two versions of the résumé, identical except for that single signal, wrapped in a screening prompt you'll paste into a live AI.</p>
+  <p>Below is a job posting and a base résumé for a fictional candidate. Choose <strong>one variable to test</strong>, the lab will generate two versions of the résumé, identical except for that single signal, wrapped in a screening prompt you'll paste into a live AI.</p>
   <div class="callout">
     <div class="label">The protocol · this part is the experiment, don't improvise it</div>
-    <p><b>1.</b> Open a chatbot you have access to (Claude, ChatGPT, Gemini — any, but use the <i>same one</i> for both runs). <b>2.</b> Paste Version A into a <b>fresh chat</b> and record the score. <b>3.</b> Open a <b>new fresh chat</b> — never the same conversation — and paste Version B. <b>4.</b> Copy each response's reasoning too; it's often more revealing than the number. <b>5.</b> If time allows, run each version twice — models vary run to run, and averaging two runs is your first taste of why sample size matters.</p>
+    <p><b>1.</b> Open a chatbot you have access to (Claude, ChatGPT, Gemini, any, but use the <i>same one</i> for both runs). <b>2.</b> Paste Version A into a <b>fresh chat</b> and record the score. <b>3.</b> Open a <b>new fresh chat</b>, never the same conversation, and paste Version B. <b>4.</b> Copy each response's reasoning too; it's often more revealing than the number. <b>5.</b> If time allows, run each version twice, models vary run to run, and averaging two runs is your first taste of why sample size matters.</p>
   </div>
 
   <div class="tool">
@@ -294,8 +297,22 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   </div>
   <div class="steps">
     <div class="step"><span class="sn">a</span><p>Now the qualitative layer: put the two reasoning paragraphs side by side. Did the AI mention your variable? Praise or question different things about identical qualifications? A screener that scores both versions 82 but calls one "polished" and the other "potentially a culture fit concern" has told you something the numbers hid.</p></div>
-    <div class="step"><span class="sn">b</span><p>Pool the room. Your instructor will tally everyone's gaps by variable on the board. Watch what happens to the noise: individual results scatter; the class average starts to mean something. You are watching sample size do its job in real time — this is the moment the Bertrand-Mullainathan design clicks.</p></div>
-    <div class="step"><span class="sn">c</span><p>The auditor's twist: suppose your gap was zero. Before you clear the model, hunt for the proxy — what's still <em>in</em> the base résumé that carries signals no fair evaluation should use? (Look at the graduation year you didn't change, the neighborhood, the club names.) A model can pass the test you thought to run and fail the ones you didn't. That's why New York City now requires annual independent bias audits for automated hiring tools — one test, once, by the vendor, proves almost nothing.</p></div>
+    <div class="step"><span class="sn">b</span><p>Pool the room. Your instructor will tally everyone's gaps by variable on the board. Watch what happens to the noise: individual results scatter; the class average starts to mean something. You are watching sample size do its job in real time, this is the moment the Bertrand-Mullainathan design clicks.</p></div>
+    <div class="step"><span class="sn">c</span><p>The auditor's twist: suppose your gap was zero. Before you clear the model, hunt for the proxy, what's still <em>in</em> the base résumé that carries signals no fair evaluation should use? (Look at the graduation year you didn't change, the neighborhood, the club names.) A model can pass the test you thought to run and fail the ones you didn't. That's why New York City now requires annual independent bias audits for automated hiring tools, one test, once, by the vendor, proves almost nothing.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">4a</span><h2>Inside the machine: what the screener did with your two résumés</h2></div>
+  <p>The screener you tested is a language model asked to rank, which means it's Chapter 6's classifier (2.1) built from Chapter 2's parts. It read both résumés as text, and the pattern it learned from the internet's hiring language, job posts, advice columns, decades of résumés and the comments about them, told it which words tend to appear near "strong candidate." If your one changed signal moved the score, that's a proxy (2.3) in action: nothing in your instructions mentioned age or gender, and the model found a stand-in anyway, because the training text carried it. That's the objectivity trap (2.2): the model was perfectly consistent, and consistently wrong about the same people.</p><p>Notice what you didn't need. You never saw the model's weights, its training data, or its rules. Two applications and a comparison were enough, which is the whole argument of the chapter's audit section (2.7): you can test a classifier from the outside, and a vendor who says "proprietary" is refusing a test that doesn't require opening anything. Your handful of trials is an anecdote. Two thousand of them, run by the class over the term, would be a study.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="num">4b</span><h2>Debate: should hiring get a right to an explanation?</h2></div>
+  <div class="callout">
+    <div class="label">Debate · in class, about 20 minutes · pick a side, argue it, then switch</div>
+    <p><strong>How it runs, every week.</strong> Sides are assigned, not chosen, so you're never defending your own belief. Two minutes with your partner to find your side's best point and its honest cost. Three minutes a side. Then everyone switches and does it again. Last five minutes: what would change your mind? Say it out loud. The person who names the evidence that would move them wins, whichever side they were on.</p>
+    <p>Chapter 6 ends on the gap: credit law gives you the reasons for a no, hiring law doesn't. Argue closing it.</p><ul class="ideas"><li><strong>Side A: extend the adverse action notice to hiring.</strong> Any automated rejection must come with its main reasons, in plain words, and a way to correct wrong data. It's fifty years old in lending and the sky didn't fall. Cost: a company screening a million applications a year now sends a million explanations, and the explanations will be vague to avoid lawsuits.</li><li><strong>Side B: require audits, not explanations.</strong> A reason for one rejection tells the applicant little; a published four-fifths test on the whole pipeline tells everyone something. Mandate the audit and let the vendor keep its model closed. Cost: the individual still gets the 1:50 a.m. email with nothing in it.</li></ul><p>Then the Workday question: if the vendor's model does the screening, who should be liable, the company that bought it or the company that built it, and what changes about how each behaves once you decide?</p>
   </div>
 </section>
 
@@ -328,10 +345,10 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
     <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
     <ol>
       <li><strong>The audit.</strong> Your variable, both scores (screenshots of the AI's full responses), and the lab's gap analysis.</li>
-      <li><strong>The reasoning.</strong> The most telling difference — or the most telling <em>sameness</em> — between the two reasoning paragraphs, quoted.</li>
+      <li><strong>The reasoning.</strong> The most telling difference, or the most telling <em>sameness</em>, between the two reasoning paragraphs, quoted.</li>
       <li><strong>The epistemics.</strong> In your own words: why your single result proves almost nothing, why the class tally proves more, and what it would take to actually establish whether this model discriminates on your variable. (This question is the lab.)</li>
       <li><strong>The five questions.</strong> Your answers, including your accountability ranking.</li>
-      <li><strong>Your move.</strong> The proxy you found in your own résumé in Monday's discussion questions: will you change it, keep it, or keep it and know it? One sentence of reasoning — that's Wednesday's commitment card, and unlike most of them, this one you can act on before Friday.</li>
+      <li><strong>Your move.</strong> The proxy you found in your own résumé in Monday's discussion questions: will you change it, keep it, or keep it and know it? One sentence of reasoning, that's Wednesday's commitment card, and unlike most of them, this one you can act on before Friday.</li>
     </ol>
   </div>
 </section>
@@ -346,7 +363,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <footer class="foot">
   <div class="wrap">
     <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
-    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">A free, critical field guide to AI, for the people who'll live with it, not just build it.</p>
     <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
   </div>
 </footer>

@@ -199,6 +199,28 @@ table.pred td:first-child{width:46%}
 .tablecap{font-size:.88rem;color:var(--gray);margin:14px 0 4px}
 figure.diagram{margin:22px 0}
 figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;margin-top:8px}
+
+/* print */
+.printbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 6px;font-size:.9rem;color:var(--gray)}
+.printbar button{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border:none;border-radius:6px;cursor:pointer}
+.printbar button:hover{background:#242C36}
+@media print{
+  nav,.topnav,.printbar,.nextbar,footer.foot{display:none !important}
+  body{background:#fff;color:#000}
+  main.wrap{max-width:none;padding:0}
+  header.masthead{background:#fff !important;color:#000 !important;padding:0 0 12px}
+  header.masthead h1,header.masthead .kicker,header.masthead .eyebrow{color:#000 !important}
+  header.masthead h1 b{color:#000 !important}
+  a{color:#000;text-decoration:none}
+  a.inline::after{content:" (" attr(href) ")";font-size:.75em;color:#555;word-break:break-all}
+  details{display:block}
+  details>summary{list-style:none}
+  details:not([open])>*:not(summary){display:block}
+  .concept,.callout,.term-card,.ticket,figure.diagram{break-inside:avoid;page-break-inside:avoid}
+  .concept{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  h2,h3{break-after:avoid;page-break-after:avoid}
+  svg{max-width:100% !important}
+}
 </style>
 <style>
 .tryit details{border-top:1px dashed var(--rule);padding:10px 0;}
@@ -224,9 +246,9 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <div class="dd-menu" id="ddc">
 <a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
 <a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
-<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 4</span>Medicine</a>
-<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 5</span>Environment</a>
-<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · optional</span>Systems That Want You</a>
+<a href="chapter-03-systems.html"><span class="lbl">Chapter 3 · Week 3</span>Systems That Know You</a>
+<a href="chapter-04-medicine.html"><span class="lbl">Chapter 4 · Week 4</span>Medicine</a>
+<a href="chapter-05-environment.html"><span class="lbl">Chapter 5 · Week 5</span>Environment</a>
 <a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
 <a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
 <a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
@@ -239,17 +261,13 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <div class="dd-menu" id="ddl">
 <a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
 <a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
-<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test</a>
-<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 4</span>Inside the Graph</a>
-<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 5</span>The Footprint Machine</a>
-<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · optional</span>Play the Algorithm</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test and the Feed</a>
+<a href="chapter-04-medicine-lab.html"><span class="lbl">Lab 4 · Week 4</span>Inside the Graph</a>
+<a href="chapter-05-environment-lab.html"><span class="lbl">Lab 5 · Week 5</span>The Footprint Machine</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
-<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
+<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
 <a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
-<a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 10 · take-home</span>The Phantom Docket</a>
-<a href="exposure-audit.html"><span class="lbl">Self-guided · pairs with Chapter 9</span>The Exposure Audit</a>
-<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · last class</span>First Contact, Revisited</a>
 </div></div>
     </div>
   </div>
@@ -260,11 +278,16 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <div class="eyebrow">Western Washington University · MIS 201 · Chapter 11</div>
     <h1>Who Makes the <b>Rules</b>?</h1>
     <p class="kicker">Every chapter in this book has ended with someone deciding: keep it, fix it, or drop it. This chapter is about who that someone is when the decision becomes a rule. In 2026 the loudest fight in AI policy is not whether to regulate AI. It is who gets to.</p>
-    <p class="factline">Why rules exist · the pacing problem · three models · a law that never started</p>
+    <p class="factline">Why rules exist · the pacing problem · three models · the cameras down the street</p>
   </div>
 </header>
 
 <main class="wrap">
+
+<div class="printbar">
+  <button type="button" onclick="document.querySelectorAll('details').forEach(function(d){d.open=true});window.print()">Wanna go analog? Print this chapter</button>
+  <span>Links print with their web addresses; the try-it answers print open.</span>
+</div>
 
 <div class="contents">
   <div class="label">Learning objectives</div>
@@ -272,26 +295,14 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <li>Explain why rules for new technology exist, using market failure and the pacing problem.</li>
 <li>Compare the EU, U.S., and Chinese approaches to AI rules, and say what each one trades away.</li>
 <li>Describe preemption and the collective action problem, and use them to explain the fight between states and Washington.</li>
-<li>Run the five critical AI questions on a real AI law, including what happens when the law itself fails.</li>
+<li>Run the five critical AI questions on a real system and the rules around it, and explain what happens when a rule itself fails.</li>
 <li>Name the rules that would touch an AI system you use or might build, and take a position on what should change.</li>
 </ol>
 </div>
 
-<div class="contents">
-  <div class="label">In this chapter</div>
-  <ol>
-    <li><a href="#s1">The question every chapter has been asking</a></li>
-    <li><a href="#s2">The concepts: why rules exist, why they lag, and who writes them</a></li>
-    <li><a href="#s3">The main case: Colorado's AI law, the rule that never started</a></li>
-    <li><a href="#s4">Decide: where you fit in the rules</a></li>
-    <li><a href="#s5">Key terms</a></li>
-    <li><a href="#s6">Discussion questions</a></li>
-  </ol>
-</div>
-
 <section id="s1">
   <div class="shead"><span class="num">1</span><h2>The question every chapter has been asking</h2></div>
-  <p class="lead">Look back at where our cases ended. In Chapter 6, a job applicant sued Workday over its screening software, and New York City already required bias audits for hiring tools. In Chapter 10, a political consultant faced a proposed fine over a cloned-voice robocall. In Chapter 2, China wrote rules for chatbots that act human. Every time we asked "keep it, fix it, or drop it," the real answer depended on a rule someone else had written, or hadn't.</p>
+  <p class="lead">Look back at where our cases ended. In Chapter 6, a job applicant sued Workday over its screening software, and New York City already required bias audits for hiring tools. In Chapter 10, a political consultant was fined $6 million by federal regulators over a cloned-voice robocall, and then acquitted by a jury under state law that predated voice clones. In Chapter 2, China wrote rules for chatbots that act human. Every time we asked "keep it, fix it, or drop it," the real answer depended on a rule someone else had written, or hadn't.</p>
   <p>So this chapter asks the question hiding under Question 5. When a society decides to fix an AI system, who does the fixing? A city council? A state legislature? Congress? The European Union? The company itself? A judge? In the United States right now, all of them are trying, and they don't agree about who should win.</p>
   <p><strong>The point of this chapter, in one sentence:</strong> AI rules get made at many levels at once, the levels fight over who gets the last word, and a rule can fail just as quietly as an AI system does.</p>
   <p><strong>What this chapter teaches.</strong> Four ideas, then a case to use them on.</p>
@@ -301,8 +312,8 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <li>Third, <em>three models</em>: how the EU, the U.S., and China each answer the question.</li>
     <li>Fourth, <em>floor or ceiling</em>: the fight over whether states can set their own AI rules.</li>
   </ul>
-  <p>Then the main case: Colorado passed the first broad American law on AI in hiring and lending decisions in 2024. It was supposed to start in 2026. It never did. We'll run the five critical AI questions on the law itself.</p>
-  <p>There's no separate lab this week. We discuss this chapter on the Monday of Week 10, alongside Chapter 10. Your Decide project is due that Wednesday, the last day of class, at 11:59 p.m. If your project system touches hiring, lending, housing, health, or insurance, this chapter tells you which rules it lives under.</p>
+  <p>Then the case, a few miles from our classroom: the license plate cameras in Bellingham parking lots, whose data reached federal immigration agents without the local police knowing, and the Washington law that took effect this fall in response. We'll run the five critical AI questions on it, and ask how to make it good.</p>
+  <p>There's no separate lab this week. We discuss this chapter on the Monday of Week 10, alongside Chapter 10. Your Prototype project is due that Wednesday, the last day of class, at 11:59 p.m. If your project system touches hiring, lending, housing, health, or insurance, this chapter tells you which rules it lives under.</p>
 </section>
 
 <section id="s2">
@@ -310,9 +321,31 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 
   <h3 class="sub"><span>2.1</span> Why rules exist: markets that can't see their own costs</h3>
   <p>A common picture of regulation is the government on one side and business on the other. Economists start somewhere else. They ask when a market, left alone, produces results almost nobody wants. They call those cases <strong>market failures</strong>, and two kinds show up in every chapter of this book.</p>
-  <p>The first is an <strong>externality</strong>: a cost paid by people who never agreed to the deal. The power bill from a data center in Chapter 4 is one. So is a cloned voice calling a voter in Chapter 10. The company and the customer both got what they wanted. Someone else paid.</p>
+  <p>The first is an <strong>externality</strong>: a cost paid by people who never agreed to the deal. The power bill from a data center in Chapter 5 is one. So is a cloned voice calling a voter in Chapter 10. The company and the customer both got what they wanted. Someone else paid.</p>
   <p>The second is an <strong>information asymmetry</strong>: one side knows far more than the other. The company that built a résumé screener can test it for bias. The applicant it rejected can't even see it. No amount of shopping around fixes that, because the applicant never gets to shop.</p>
   <p>History shows what rules can do in cases like these. Britain's Factory Act of 1833 barred children under nine from textile mills, required working children to get schooling, and created government inspectors to check. The owners said it would ruin them. It didn't, and the schooling requirement helped build the demand for public education. In 1938 the U.S. Fair Labor Standards Act set a federal minimum wage, required overtime pay, limited child labor, and put the country on the road to the 40-hour week. Rules like these didn't stop the technology. They changed who paid for it.</p>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 760 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mf-t mf-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="mf-t">Two market failures that run through every chapter</title>
+      <desc id="mf-d">Left panel, externality: a company and a customer shake hands over a deal; a third person outside the deal holds the bill. Examples: the neighbor's power bill, the voter who got the cloned call. Right panel, information asymmetry: a company holding a large stack of what it knows about its screener faces an applicant holding nothing; the applicant cannot shop around because she never sees the system. A note says rules exist for the cases where the market cannot see its own costs.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">EXTERNALITY · someone outside the deal pays</text>
+      <rect x="14" y="32" width="358" height="200" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <rect x="34" y="60" width="110" height="50" rx="5" fill="#0E1116"/><text x="89" y="90" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">the company</text>
+      <rect x="164" y="60" width="110" height="50" rx="5" fill="#0E1116"/><text x="219" y="90" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">the customer</text>
+      <text x="154" y="92" font-family="Inter,Arial,sans-serif" font-size="16" fill="#14181D" text-anchor="middle">↔</text><text x="154" y="128" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle" font-style="italic">both got what they wanted</text>
+      <rect x="294" y="60" width="64" height="50" rx="5" fill="#FF3D8A"/><text x="326" y="84" font-family="Inter,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">someone</text><text x="326" y="98" font-family="Inter,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">else</text>
+      <text x="326" y="128" font-family="Inter,Arial,sans-serif" font-size="10" fill="#D61F69" text-anchor="middle" font-style="italic">holds the bill</text>
+      <text x="34" y="168" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D">the neighbor's power bill (Chapter 5)</text><text x="34" y="186" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D">the voter who got the cloned call (Chapter 10)</text><text x="34" y="204" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D">the driver whose plate went to Border Patrol (this chapter)</text>
+      <text x="388" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">INFORMATION ASYMMETRY · one side can't see</text>
+      <rect x="388" y="32" width="358" height="200" rx="6" fill="#0E1116"/>
+      <rect x="408" y="56" width="150" height="110" rx="5" fill="#F4F5F2"/><text x="483" y="80" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" font-weight="700" text-anchor="middle">the company</text><text x="483" y="100" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">can test its screener</text><text x="483" y="114" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">for bias, sees every</text><text x="483" y="128" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">weight and every</text><text x="483" y="142" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">rejection</text>
+      <rect x="578" y="56" width="150" height="110" rx="5" fill="none" stroke="#FF3D8A" stroke-width="1.5" stroke-dasharray="5 4"/><text x="653" y="80" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" font-weight="700" text-anchor="middle">the applicant</text><text x="653" y="100" font-family="Inter,Arial,sans-serif" font-size="10" fill="#C9CED6" text-anchor="middle">can't even see it</text><text x="653" y="128" font-family="Inter,Arial,sans-serif" font-size="10" fill="#C9CED6" text-anchor="middle">can't shop around,</text><text x="653" y="142" font-family="Inter,Arial,sans-serif" font-size="10" fill="#C9CED6" text-anchor="middle">never gets to shop</text>
+      <text x="567" y="200" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#E4FF32" text-anchor="middle" font-style="italic">no amount of competition fixes this on its own</text>
+      <text x="14" y="258" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">Rules exist for the cases where a market, left alone, produces results almost nobody wants. Both of these show up in every chapter of this book.</text>
+    </svg>
+    <figcaption>Two market failures. Regulation isn't the opposite of a market; often it's what lets one work, because people will use a system they can trust.</figcaption>
+  </figure>
   <div class="concept">
     <div class="term">Market failure</div>
     <p>A situation where a market, left alone, produces outcomes that are harmful or unfair, usually because outsiders pay the costs (an externality) or one side knows much more than the other (an information asymmetry). What people get wrong: they treat regulation as the opposite of a market. Often it's what lets a market work, because people will use a system they can trust.</p>
@@ -321,6 +354,22 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <h3 class="sub"><span>2.2</span> The pacing problem: why the rules always arrive late</h3>
   <p>If rules help, why are they always late? In 1980 the scholar David Collingridge described a trap that every technology falls into. Early on, a technology is easy to change, but nobody knows what harm it will do. Later, the harm is obvious, but the technology is built into everything and very hard to change. You can have knowledge or control, and rarely both at the same time.</p>
   <p>AI is deep inside that trap. The Chapter 6 hiring tools were already screening millions of applicants before anyone measured what they did. That's the pacing problem: the technology moves in months, and lawmaking moves in years.</p>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 760 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="cd-t cd-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="cd-t">The Collingridge dilemma, as two crossing lines</title>
+      <desc id="cd-d">A chart over time. One line, ability to change the technology, starts high and falls as the technology spreads. The other, knowledge of its harms, starts low and rises. They cross in the middle. Early, you can change it but don't know what to change; late, you know but it's built into everything. Three dots mark hiring tools: adopted at scale before anyone measured them, then measured, then hard to remove. A note says the answer is rules that can be adjusted, and watching before the harm is obvious.</desc>
+      <line x1="60" y1="210" x2="720" y2="210" stroke="#E3E3DD"/><line x1="60" y1="210" x2="60" y2="40" stroke="#E3E3DD"/>
+      <text x="60" y="230" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">a technology is new</text><text x="720" y="230" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">it's everywhere</text>
+      <path d="M60,60 C300,70 420,190 720,200" fill="none" stroke="#0E1116" stroke-width="3"/><text x="120" y="48" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" font-weight="700">ability to change it</text>
+      <path d="M60,200 C300,190 420,70 720,60" fill="none" stroke="#FF3D8A" stroke-width="3"/><text x="560" y="50" font-family="Inter,Arial,sans-serif" font-size="11" fill="#D61F69" font-weight="700">knowledge of its harms</text>
+      <text x="180" y="150" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle" font-style="italic">you can change it,</text><text x="180" y="164" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle" font-style="italic">but don't know what to change</text>
+      <text x="600" y="150" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle" font-style="italic">you know what to change,</text><text x="600" y="164" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle" font-style="italic">but it's built into everything</text>
+      <circle cx="390" cy="130" r="6" fill="#E4FF32" stroke="#14181D"/><text x="390" y="116" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" font-weight="700" text-anchor="middle">the narrow window</text>
+      <text x="14" y="258" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">The trap isn't a reason to wait. It's a reason to write adjustable rules and to build ways of watching before the harm is obvious.</text>
+    </svg>
+    <figcaption>The Collingridge dilemma. Hiring screeners were adopted at scale on the left side of the chart and measured on the right. Most of AI is somewhere near the crossing right now.</figcaption>
+  </figure>
   <div class="concept">
     <div class="term">The Collingridge dilemma</div>
     <p>A technology's harms can't be fully known until it's widely used, but once it's widely used it's hard to control. What people get wrong: they read this as a reason to wait. It's a reason to write rules that can be adjusted, and to build ways of watching (audits, disclosures, dashboards) before the harm is obvious.</p>
@@ -333,6 +382,34 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <p>The EU law also reaches outside Europe. A company that sells to Europeans has to follow it, and building one version of a product is cheaper than building two. So the strictest rulebook often becomes the default everywhere. That's called the <strong>Brussels effect</strong>, and it happened before with Europe's privacy law.</p>
   <p><strong>The United States has no single AI law.</strong> As of September 2026, Congress has not passed a comprehensive one. Instead, existing agencies apply existing laws (discrimination law in Chapter 6, fraud law in Chapter 10), a few narrow federal laws target specific harms, such as the 2025 TAKE IT DOWN Act on fake intimate images, and the states write their own. They write a lot. <a class="inline" href="https://www.techpolicy.press/where-state-ai-legislation-stands-half-way-into-2026/" target="_blank" rel="noopener">By one count</a>, states enacted 159 AI laws in 2025 and another 109 in the first half of 2026. California's <a class="inline" href="https://www.goodwinlaw.com/en/insights/publications/2025/11/alerts-technology-aiml-california-moves-to-regulate-frontier-ai-with-a-focus-on-catastrophic-risk" target="_blank" rel="noopener">SB 53</a>, in effect since January 2026, requires the developers of the most powerful models to publish safety frameworks, report serious safety incidents, and protect employees who blow the whistle.</p>
   <p><strong>China writes many small rules, fast.</strong> It issued rules for recommendation algorithms in 2022, for deepfakes and for generative AI in 2023, and, as we saw in Chapter 2, for chatbots that act human. The state writes the rules and also sets national goals for how fast AI should spread, so the rules and the rollout come from the same place.</p>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tm-t tm-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="tm-t">Three models for who makes the rules</title>
+      <desc id="tm-d">Three columns. Brussels: one big law, the EU AI Act, sorts systems by risk; a few uses banned, high-risk uses heavily regulated, low-risk mostly disclosure; slow, and it reaches outside Europe. Washington: no single law; existing agencies apply existing laws, a few narrow federal laws, and the states write hundreds of their own; fast in pieces, patchy, and fighting over who has the last word. Beijing: many small rules, fast, from the same state that sets the rollout targets; recommendation algorithms in 2022, deepfakes and generative AI in 2023, humanlike chatbots since. A note says each answers the pacing problem differently.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">BRUSSELS · one big law</text>
+      <rect x="14" y="32" width="232" height="230" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <rect x="30" y="52" width="200" height="26" rx="4" fill="#FF3D8A"/><text x="130" y="69" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#FFFFFF" font-weight="700" text-anchor="middle">banned uses</text>
+      <rect x="30" y="86" width="200" height="54" rx="4" fill="#0E1116"/><text x="130" y="108" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle">high-risk: hiring, credit,</text><text x="130" y="124" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#C9CED6" text-anchor="middle">education, policing: testing,</text><text x="130" y="136" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#C9CED6" text-anchor="middle">documentation, human oversight</text>
+      <rect x="30" y="148" width="200" height="26" rx="4" fill="#F4F5F2" stroke="#E3E3DD"/><text x="130" y="165" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">low-risk: say that it's AI</text>
+      <text x="130" y="200" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">rules scale with the harm</text><text x="130" y="220" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">slow: high-risk rules pushed</text><text x="130" y="234" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">to December 2027</text><text x="130" y="254" font-family="Inter,Arial,sans-serif" font-size="10" fill="#D61F69" text-anchor="middle" font-style="italic">and it reaches outside Europe</text>
+      <text x="264" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">WASHINGTON · many hands</text>
+      <rect x="264" y="32" width="232" height="230" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="380" y="58" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" font-weight="700" text-anchor="middle">no single AI law</text>
+      <rect x="280" y="72" width="200" height="30" rx="4" fill="#F4F5F2" stroke="#E3E3DD"/><text x="380" y="91" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">agencies apply old laws</text>
+      <rect x="280" y="108" width="200" height="30" rx="4" fill="#F4F5F2" stroke="#E3E3DD"/><text x="380" y="127" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">a few narrow federal laws</text>
+      <rect x="280" y="144" width="200" height="44" rx="4" fill="#0E1116"/><text x="380" y="163" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle">the states: 159 laws in 2025,</text><text x="380" y="179" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle">109 more by mid-2026</text>
+      <text x="380" y="214" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">fast in pieces, patchy,</text><text x="380" y="234" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">and a fight over who gets</text><text x="380" y="248" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">the last word (section 2.4)</text>
+      <text x="514" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">BEIJING · many small rules, fast</text>
+      <rect x="514" y="32" width="232" height="230" rx="6" fill="#0E1116"/>
+      <text x="630" y="58" font-family="Inter,Arial,sans-serif" font-size="10" fill="#E4FF32" font-weight="700" text-anchor="middle">2022</text><text x="630" y="72" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle">recommendation algorithms</text>
+      <text x="630" y="100" font-family="Inter,Arial,sans-serif" font-size="10" fill="#E4FF32" font-weight="700" text-anchor="middle">2023</text><text x="630" y="114" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle">deepfakes; generative AI</text>
+      <text x="630" y="142" font-family="Inter,Arial,sans-serif" font-size="10" fill="#E4FF32" font-weight="700" text-anchor="middle">since</text><text x="630" y="156" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#FFFFFF" text-anchor="middle">chatbots that act human</text>
+      <text x="630" y="200" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#C9CED6" text-anchor="middle">the same state writes the rules</text><text x="630" y="214" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#C9CED6" text-anchor="middle">and sets the rollout targets</text><text x="630" y="244" font-family="Inter,Arial,sans-serif" font-size="10" fill="#E4FF32" text-anchor="middle" font-style="italic">rules and rollout, one source</text>
+      <text x="380" y="290" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" text-anchor="middle">Three answers to the pacing problem. None has solved it.</text>
+    </svg>
+    <figcaption>Three models. If you work for a company that sells in all three markets, and many of you will, you work under all three at once.</figcaption>
+  </figure>
   <div class="concept">
     <div class="term">The Brussels effect</div>
     <p>When one large market's strict rules become the global default, because companies would rather build one compliant product than many. What people get wrong: they assume a U.S. worker only lives under U.S. rules. If your employer sells in Europe, you may already be working under the EU AI Act.</p>
@@ -341,8 +418,31 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <h3 class="sub"><span>2.4</span> Floor or ceiling: who gets the last word</h3>
   <p>In the U.S. system, federal law can override state law. That's called <strong>preemption</strong>. The current fight is about whether federal AI policy should preempt the state laws in 2.3.</p>
   <p>The case for preemption goes like this. AI products cross state lines. Fifty different rulebooks cost money, slow companies down, and let a few big states set rules for everyone. The case against goes like this. Congress hasn't passed a national standard, so preemption now would wipe out protections and replace them with nothing. Critics put it as a choice between a floor and a ceiling: should state laws be a minimum that states can build on, or a maximum they can't go past?</p>
-  <p>Congress has tried preemption and backed off. In July 2025 the Senate voted 99 to 1 to strip a ten-year freeze on state AI laws out of a budget bill. <a class="inline" href="https://www.nextgov.com/artificial-intelligence/2026/06/lawmakers-propose-ai-framework-would-preempt-state-laws-3-years/413975/" target="_blank" rel="noopener">A bipartisan House draft in June 2026</a> proposed a three-year version, and it drew fire from both directions. Meanwhile the White House acted on its own, which is where our case begins.</p>
+  <p>Congress has tried preemption and backed off. In July 2025 the Senate voted 99 to 1 to strip a ten-year freeze on state AI laws out of a budget bill. <a class="inline" href="https://www.nextgov.com/artificial-intelligence/2026/06/lawmakers-propose-ai-framework-would-preempt-state-laws-3-years/413975/" target="_blank" rel="noopener">A bipartisan House draft in June 2026</a> proposed a three-year version, and it drew fire from both directions. Meanwhile the White House acted on its own, and Colorado shows what that looks like on the ground.</p>
+  <p>In May 2024 Colorado became the first state to pass a broad law on "high-risk" AI, the kind of software that helps decide who gets a job, a loan, or an apartment. It required companies to prevent algorithmic discrimination and assess their systems every year. Its start date slipped, <a class="inline" href="https://www.seyfarth.com/news-insights/colorado-enacts-artificial-intelligence-replacement-law.html" target="_blank" rel="noopener">eventually to June 30, 2026</a>. Then, in December 2025, <a class="inline" href="https://www.presidency.ucsb.edu/node/379255" target="_blank" rel="noopener">a presidential executive order</a> created a task force to challenge state AI laws in court and singled out Colorado's rule. In April 2026, <a class="inline" href="https://www.buchalter.com/insights/colorado-rewrites-its-ai-law-what-employers-must-know-about-sb-26-189/" target="_blank" rel="noopener">xAI sued Colorado</a>, the Justice Department joined in, and a federal court paused the law. In May the legislature replaced it with a narrower version: tell people when software is used on them, explain a bad outcome within 30 days, let them correct wrong data, and offer human review. It starts January 1, 2027. Add it up: a law passed in 2024 to protect people from biased screeners never protected anyone for a single day. A rule that never starts is a quiet failure, and it's worth running the five questions on rules, not just on systems.</p>
   <p>Underneath the fight is a <strong>collective action problem</strong>: a situation where each player does what's best for itself and everyone ends up worse off. Each company that slows down to test for bias loses ground to one that doesn't. Each state that writes strict rules risks losing businesses to states that don't. Each country fears falling behind its rivals. Nobody wants to go first. That's the classic reason rules get written at a higher level, and it's also the argument each side uses about the other.</p>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fc-t fc-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="fc-t">Floor or ceiling: what a federal rule does to state rules</title>
+      <desc id="fc-d">Two panels. Floor: a federal line near the bottom; states can build higher rules on top of it, drawn as bars of different heights above the line; California and Washington shown taller. Ceiling: a federal line near the top; state rules above it are cut off, drawn as bars clipped at the line, labeled preempted. A note says the fight over AI rules in 2025 and 2026 is mostly a fight over which of these two pictures wins.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">FLOOR · states may go higher</text>
+      <rect x="14" y="32" width="358" height="170" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <line x1="30" y1="160" x2="356" y2="160" stroke="#0E1116" stroke-width="2"/><text x="340" y="176" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#14181D" text-anchor="end">federal minimum</text>
+      <rect x="50" y="110" width="40" height="50" fill="#FF3D8A"/><rect x="110" y="70" width="40" height="90" fill="#FF3D8A"/><rect x="170" y="130" width="40" height="30" fill="#FF3D8A"/><rect x="230" y="60" width="40" height="100" fill="#FF3D8A"/><rect x="290" y="120" width="40" height="40" fill="#FF3D8A"/>
+      <text x="130" y="62" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#14181D" text-anchor="middle">CA</text><text x="250" y="52" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#14181D" text-anchor="middle">WA</text>
+      <text x="193" y="190" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle" font-style="italic">a national baseline; states add protections on top</text>
+      <text x="388" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">CEILING · states may not go higher</text>
+      <rect x="388" y="32" width="358" height="170" rx="6" fill="#0E1116"/>
+      <line x1="404" y1="90" x2="730" y2="90" stroke="#E4FF32" stroke-width="2"/><text x="714" y="84" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#E4FF32" text-anchor="end">federal ceiling</text>
+      <rect x="424" y="110" width="40" height="50" fill="#F4F5F2"/><rect x="484" y="90" width="40" height="70" fill="#F4F5F2"/><rect x="544" y="130" width="40" height="30" fill="#F4F5F2"/><rect x="604" y="90" width="40" height="70" fill="#F4F5F2"/><rect x="664" y="120" width="40" height="40" fill="#F4F5F2"/>
+      <rect x="484" y="60" width="40" height="30" fill="none" stroke="#FF3D8A" stroke-width="1.5" stroke-dasharray="4 3"/><rect x="604" y="50" width="40" height="40" fill="#FF3D8A" fill-opacity="0.3" stroke="#FF3D8A" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="504" y="54" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#FF3D8A" text-anchor="middle">cut off</text><text x="624" y="44" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#FF3D8A" text-anchor="middle">preempted</text>
+      <text x="567" y="190" font-family="Inter,Arial,sans-serif" font-size="10" fill="#C9CED6" text-anchor="middle" font-style="italic">one national rule; the tallest state rules are cut off</text>
+      <text x="14" y="236" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">The 2025 and 2026 fight over AI rules is mostly a fight over which picture wins. Colorado's law was cut off from above before it ever started.</text>
+    </svg>
+    <figcaption>Floor or ceiling. The same federal rule can be a baseline states build on or a lid they can't rise above, and which one it is decides whether the rules that protect you get written in Olympia or Washington, D.C.</figcaption>
+  </figure>
   <div class="concept">
     <div class="term">Preemption</div>
     <p>When a higher level of government overrides a lower level's laws on the same subject. What people get wrong: preemption doesn't have to mean fewer rules. It can set a strong national standard or a weak one. The question is always what replaces the rules it removes.</p>
@@ -367,46 +467,81 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 </section>
 
 <section id="s3">
-  <div class="shead"><span class="num">3</span><h2>The main case: Colorado's AI law, the rule that never started</h2></div>
-  <p>Here's what happened. In May 2024 Colorado became the first state to pass a broad law on what it called "high-risk" AI: software that plays a real part in decisions about jobs, housing, loans, insurance, health care, and education. The law required companies using these systems to take reasonable care to prevent algorithmic discrimination, to run risk-management programs, and to assess their systems' impact every year. Governor Jared Polis signed it, but publicly asked the legislature to revisit it before it started. That was a warning sign.</p>
-  <p>The start date moved twice, <a class="inline" href="https://www.seyfarth.com/news-insights/colorado-enacts-artificial-intelligence-replacement-law.html" target="_blank" rel="noopener">eventually landing on June 30, 2026</a>. Then Washington stepped in. On December 11, 2025, President Trump signed <a class="inline" href="https://www.presidency.ucsb.edu/node/379255" target="_blank" rel="noopener">Executive Order 14365</a>, "Ensuring a National Policy Framework for Artificial Intelligence." It told the Attorney General to create an AI Litigation Task Force whose only job is to challenge state AI laws in court. <a class="inline" href="https://www.taftlaw.com/news-events/white-house-toolkit/executive-order-14365-ensuring-a-national-policy-framework-for-artificial-intelligence/" target="_blank" rel="noopener">The order singled out Colorado's anti-discrimination rule</a>, arguing that requirements like it can push AI models to change otherwise truthful outputs. The order also listed areas it would leave to the states, including child safety and data centers.</p>
-  <p>In April 2026, <a class="inline" href="https://www.buchalter.com/insights/colorado-rewrites-its-ai-law-what-employers-must-know-about-sb-26-189/" target="_blank" rel="noopener">Elon Musk's xAI sued Colorado</a> over the law. Two weeks later the U.S. Department of Justice joined the case on xAI's side, and <a class="inline" href="https://www.crowell.com/en/insights/client-alerts/colorado-hits-reset-on-ai-regulation-sb-26-189-repeals-and-reenacts-the-colorado-ai-act" target="_blank" rel="noopener">a federal court paused enforcement</a>. In May the legislature passed a replacement, SB 26-189, and Governor Polis signed it on May 14, 2026.</p>
-  <p>The new law is very different. It drops the duty of care, the risk programs, and the impact assessments. In their place, a company using what the law now calls automated decision-making technology has to tell people before it's used on them, explain within 30 days when it produces a bad outcome, let people correct wrong data, and offer meaningful human review where that's commercially reasonable. It also voids contract clauses that let a company shift blame for its own discrimination onto its software vendor. Only the state attorney general can enforce it. It starts January 1, 2027.</p>
-  <p>Add it up. A law passed in 2024 to protect people from biased hiring and lending software never protected anyone for a single day. Its replacement hasn't started yet.</p>
+  <div class="shead"><span class="num">3</span><h2>The case: the cameras in the Home Depot parking lot</h2></div>
+  <h3 class="sub"><span>Background</span> A camera on a pole on Telegraph Road</h3>
+  <p>Drive into the Home Depot on Telegraph Road and a camera on a pole reads your license plate. It's an <strong>automated license plate reader</strong> (ALPR): a camera that uses AI to capture plate numbers and vehicle details and turn them into a searchable record of where cars have been. The best-known maker is Flock Safety, which by one count has <a class="inline" href="https://www.cascadiadaily.com/2026/apr/26/local-police-adjust-to-washingtons-new-mass-surveillance-law/" target="_blank" rel="noopener">nearly 100 law enforcement clients in Washington</a>, plus more than 100 businesses and homeowners associations. Police use the searches to find stolen cars and suspects, and chiefs who use them say they help solve cases.</p>
+  <p>Then the failure surfaced, and it was a quiet one. In October 2025, the University of Washington's Center for Human Rights <a class="inline" href="https://jsis.washington.edu/humanrights/2025/10/21/leaving-the-door-wide-open/" target="_blank" rel="noopener">used public records</a> to show that at least eight Washington agencies had turned on direct sharing of their camera networks with U.S. Border Patrol during 2025, and that Border Patrol appeared to be searching the networks of at least ten more departments that had never approved it. Some departments <a class="inline" href="https://www.kuow.org/stories/immigration-enforcement-agencies-accessed-wa-law-enforcement-license-plate-data-report-finds" target="_blank" rel="noopener">said they were caught off guard</a> and shut off nationwide access. The people whose cars were in those records had no way to know.</p>
+  <p>Washington responded with a rule. The state's first law on license plate readers, the Driver Privacy Act, was signed in March 2026, and <a class="inline" href="https://salish-current.org/2026/09/01/bellingham-residents-cut-flock-cameras-part-of-a-growing-trend/" target="_blank" rel="noopener">agencies have until September 26</a> to comply. As introduced, the bill called for these systems to be <a class="inline" href="https://mybellinghamnow.com/news/297792-state-bill-targets-law-enforcement-use-of-flock-surveillance-cameras/" target="_blank" rel="noopener">accountable, short-term, logged, and limited</a> in what they collect, and the law requires cameras to come down from sensitive places like health care facilities and places of worship. The day after it was signed, the Bellingham Police Department, which runs no plate readers of its own, <a class="inline" href="https://www.cascadiadaily.com/2026/apr/26/local-police-adjust-to-washingtons-new-mass-surveillance-law/" target="_blank" rel="noopener">ended its agreements</a> to search the Flock cameras at Lowe's and Home Depot. Not everyone waited for the law: this summer, someone <a class="inline" href="https://salish-current.org/2026/09/01/bellingham-residents-cut-flock-cameras-part-of-a-growing-trend/" target="_blank" rel="noopener">cut down two of the four cameras</a> at that Home Depot, part of a trend spreading online. Vandalism isn't a rule, and it isn't a fix. It's a sign that people didn't trust the rules that existed.</p>
+  <p>One more twist, from a different Bellingham. In August, the police chief in Bellingham, Massachusetts, <a class="inline" href="https://www.newportdispatch.com/2026/08/26/police-end-camera-contract-in-bellingham/" target="_blank" rel="noopener">dropped Flock</a> partly because he learned the cameras offered an AI search tool, "Free Form," that went beyond the plate reader he thought he had bought. The system had grown past what the buyer understood.</p>
 
   <p><strong>The five critical AI questions, run on this case:</strong></p>
-  <h3 class="sub"><span>Question 1:</span> What is the AI system, and what does it do?</h3>
-  <p>The law doesn't cover one system. It covers a kind: software that materially influences a consequential decision about a person. Think of the résumé screeners and loan models from Chapter 6. Let's run the AI systems model on a hiring screener and mark where each version of the law touches it:</p>
+  <h3 class="sub"><span>What this AI is, and how it works</span> Question 1: what is the AI system, and what does it do?</h3>
+  <p>A predictive system: cameras read plates and vehicle details, and software matches them across a network. The five parts:</p>
   <ul class="ideas">
-    <li><strong>Data:</strong> past hiring records and the applicant's own file. The 2026 law gives applicants a right to correct wrong data about them.</li>
-    <li><strong>Model:</strong> a classifier that scores applicants. The 2024 law required yearly impact assessments of it. The 2026 law doesn't.</li>
-    <li><strong>Output:</strong> a score, a ranking, or a rejection. Under the 2026 law, a rejection triggers an explanation within 30 days.</li>
-    <li><strong>Feedback loop:</strong> today's hires become tomorrow's training data. Neither law requires anyone to watch that loop for drift once the system is running.</li>
-    <li><strong>Humans:</strong> the recruiter, the vendor, and the applicant. The 2026 law adds a human review on request, after the fact.</li>
+    <li><strong>Data:</strong> every plate that passes, with time and place. Nobody in those cars agreed to be in the data.</li>
+    <li><strong>Model:</strong> image recognition that reads plates and describes vehicles, plus search tools that match them, including the plain-language search the Massachusetts chief didn't know he had.</li>
+    <li><strong>Output:</strong> a hit on a plate, or a list of where a car has been.</li>
+    <li><strong>Feedback loop:</strong> every camera added makes every search more complete, which makes the network worth more to the next buyer.</li>
+    <li><strong>Humans:</strong> the officer searching, the store that hosts the camera, the company that runs the network, and the driver, who is out of the loop entirely.</li>
   </ul>
 
-  <h3 class="sub"><span>Question 2:</span> Why does it exist, and who benefits?</h3>
-  <p>The original law existed because of everything in Chapter 6: models trained on biased history can turn that bias into a clean-looking score. Applicants were meant to benefit. Businesses carried the cost of risk programs and assessments.</p>
-  <p>The rewrite benefits businesses that use these tools, especially ones operating in many states, and AI developers who argued the old law was vague. Applicants keep something real: they now have to be told. The federal push benefits companies that want one national rulebook, and it serves the administration's stated goal of American AI leadership. Whether it benefits applicants depends on what, if anything, Congress eventually writes.</p>
 
-  <h3 class="sub"><span>Question 3:</span> What happens when it fails, and who finds out?</h3>
-  <p>Here's the part that connects to the whole book. A law that never starts fails the same way the Chapter 6 rejection pile fails: invisibly. No applicant in Colorado got a letter saying "you were screened by software that a law was supposed to check, but the law was paused." Nobody finds out, because nothing happened.</p>
-  <p>The new law changes who finds out, and when. The 2024 version tried to catch bias before harm, through assessments nobody outside the company would see. The 2026 version tells the person after harm, through a notice they will see. That's more visible to the individual and less protective for the group. One rejected applicant can learn why. Nobody is required to look at the whole pile.</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="alpr-t alpr-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="alpr-t">How a license plate reader network works, and where the failure was</title>
+      <desc id="alpr-d">A flow. A camera on a pole in a store parking lot reads a plate with image recognition and records the plate, the vehicle's description, the time, and the place. That record goes into the company's network. A local police department that has a contract can search the network. A sharing setting on each department's account decides whether other agencies can search its records too, including, if turned on, federal agencies. A pink box marks that sharing setting as where the failure lived: data collected for local crime flowed to Border Patrol without the local departments knowing. The driver, at the far left, is out of the loop entirely and never sees any of it.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">1 · THE CAMERA</text>
+      <rect x="14" y="32" width="140" height="130" rx="6" fill="#0E1116"/><text x="84" y="58" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">a pole in the</text><text x="84" y="74" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">Home Depot lot</text><text x="84" y="100" font-family="Inter,Arial,sans-serif" font-size="10" fill="#C9CED6" text-anchor="middle">image recognition</text><text x="84" y="114" font-family="Inter,Arial,sans-serif" font-size="10" fill="#C9CED6" text-anchor="middle">reads every plate</text><text x="84" y="146" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#9AA1AB" text-anchor="middle" font-style="italic">predictive AI, Moment 1</text>
+      <path d="M160,97 L182,97" stroke="#14181D" stroke-width="1.5" marker-end="url(#alpr-ar)"/><defs><marker id="alpr-ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#14181D"/></marker></defs>
+      <text x="186" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">2 · THE RECORD</text>
+      <rect x="186" y="32" width="140" height="130" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="256" y="58" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">plate number</text><text x="256" y="74" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">make, color, details</text><text x="256" y="90" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">time and place</text><text x="256" y="122" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle" font-style="italic">nobody in the car</text><text x="256" y="136" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle" font-style="italic">agreed to any of it</text>
+      <path d="M332,97 L354,97" stroke="#14181D" stroke-width="1.5" marker-end="url(#alpr-ar)"/>
+      <text x="358" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">3 · THE NETWORK</text>
+      <rect x="358" y="32" width="150" height="130" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="433" y="58" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">the company's</text><text x="433" y="74" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">searchable database</text><text x="433" y="100" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">every camera added</text><text x="433" y="114" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">makes every search</text><text x="433" y="128" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">more complete</text><text x="433" y="150" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#D61F69" text-anchor="middle" font-style="italic">the feedback loop</text>
+      <path d="M514,97 L536,97" stroke="#14181D" stroke-width="1.5" marker-end="url(#alpr-ar)"/>
+      <text x="540" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">4 · WHO CAN SEARCH</text>
+      <rect x="540" y="32" width="206" height="60" rx="6" fill="#F4F5F2" stroke="#E3E3DD"/><text x="643" y="56" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" text-anchor="middle">the local police department</text><text x="643" y="74" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">with a contract</text>
+      <rect x="540" y="102" width="206" height="60" rx="6" fill="#FF3D8A"/><text x="643" y="124" font-family="Inter,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">a sharing setting on the account:</text><text x="643" y="140" font-family="Inter,Arial,sans-serif" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle">can other agencies search too?</text><text x="643" y="154" font-family="Inter,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">including federal ones?</text>
+      <text x="14" y="196" font-family="Inter,Arial,sans-serif" font-size="11" fill="#D61F69" font-weight="700">THE FAILURE WAS IN BOX 4, NOT BOX 1.</text>
+      <text x="14" y="216" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">The cameras read plates fine. The sharing settings let local-crime data flow to Border Patrol, and the departments that owned the cameras didn't know.</text>
+      <text x="14" y="232" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">University researchers found it through public-records requests, months later. The drivers never found out at all.</text>
+      <text x="14" y="270" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D">What the Washington law changes: sharing off by default, audit logs, short retention, no cameras at clinics or places of worship.</text>
+      <text x="14" y="300" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" font-weight="700">The rule doesn't touch the camera. It rewrites box 4.</text>
+    </svg>
+    <figcaption>How the system works, and where it broke. The AI is in box 1 and it worked. Everything this chapter is about lives in box 4: who can search, what's logged, how long it's kept, and who decides. That's a rule, not a model.</figcaption>
+  </figure>
+  <h3 class="sub"><span>Who benefits, and who doesn't</span> Question 2: why does it exist, and who benefits?</h3>
+  <p>To find cars fast: stolen vehicles, suspects, missing people. Police benefit when it works, stores benefit from safer lots, and Flock benefits from every contract and every camera on the network. Drivers with nothing to hide benefit a little and pay in privacy they never priced. Who doesn't benefit: people in immigration cases, who could pay far more than privacy; the departments that lost control of their own data; and the stores that found out from a newspaper what their parking lots had been feeding.</p>
 
-  <h3 class="sub"><span>Question 4:</span> Who's saying that, and how would we know?</h3>
-  <p>"A patchwork of state laws will hurt American innovation" is said by the White House, by AI companies, and by industry groups. "Preemption turns a floor into a ceiling" is said by civil rights groups, many state officials, and some consumer advocates. Both sides have a stake, so let's look for evidence neither side controls.</p>
-  <p>Some exists. The researchers who count state laws found states passing slightly fewer AI laws in 2026 than in 2025, and shifting toward the areas the executive order left alone, like child safety and data centers. That suggests the federal pressure is changing what states write. What we can't know yet is the thing that matters most: whether people screened by these systems are treated more fairly under the new rules or the old ones would have done better. The 2024 law never ran, so there's no comparison.</p>
+  <h3 class="sub"><span>When it fails, who finds out</span> Question 3: what happens when it fails, and who finds out?</h3>
+  <p>The failure wasn't a misread plate. It was the sharing settings. Data collected for local crime flowed to a federal agency for a different purpose, and the departments that owned the cameras didn't know. Who found out? Not the drivers, not the chiefs. University researchers, through public records requests, months later. That's the visibility rule again: the people closest to the system were among the last to know.</p>
 
-  <h3 class="sub"><span>Question 5:</span> Keep it, fix it, or drop it, and what does that cost?</h3>
+  <h3 class="sub"><span>Business implications</span> What this means for a store, a city, or a vendor</h3>
+  <p>Three organizations made decisions in this case, and each is a business lesson. The store that hosted the camera got a safer parking lot and, without meaning to, became a data collection point for a federal agency; the lesson is that hosting someone else's sensor makes you a party to whatever their sharing settings allow, and you should read them before the sign goes up. The city that contracted for search access got faster investigations and a public-records story; the lesson is that "we don't run the cameras" is not the same as "we're not responsible for what we search," and that a contract's audit terms are the product, not the fine print. And the vendor, whose business depends on every camera making every search more valuable, learned in Massachusetts what happens when the product grows past what the buyer understood: the buyer leaves. The costs of doing this well are a plainer product, slower investigations, and contracts that say no to features the sales team likes. The costs of doing it badly are now a state law, a canceled agreement, and two cameras on the ground.</p>
+  <h3 class="sub"><span>Societal implications</span> Question 4: who's saying that, and how would we know?</h3>
+  <p>Flock says its customer data has never been breached, which may be true and isn't the question; the question is who's allowed in the front door. Police chiefs say the cameras solve crimes, and some do, but few departments publish how many cases the cameras actually closed. Critics say the cameras track everyone, which is literally what they do. How would we know which claims matter? The audit logs exist. The new law makes them mandatory. Whether a city council reads them is the test.</p>
+
+  <h3 class="sub"><span>How to make it beneficial</span> Question 5: keep it, fix it, or drop it, and what does that cost?</h3>
   <ul class="decide">
-    <li><strong>Keep it:</strong> the 2026 law as written, notice and human review. The cost: harm gets addressed one person at a time, after it happens, and nobody is required to check the system as a whole.</li>
-    <li><strong>Fix it:</strong> add an independent bias audit, like New York City's rule for hiring tools, so someone looks at the pile before the letters go out. The cost: compliance money, slower rollouts, and very likely another federal lawsuit.</li>
-    <li><strong>Drop it:</strong> let states step back and wait for one national standard. The cost: as of September 2026 there is no national standard, so dropping state rules today means applicants rely on older discrimination laws and on lawsuits like Mobley v. Workday, which take years.</li>
+    <li><strong>Keep it</strong> for the thing it's good at: searching for a specific car tied to a specific crime, with the reason logged. The cost: the network still exists, and every rule about it has to hold.</li>
+    <li><strong>Fix it:</strong> sharing closed by default, every outside search visible in an audit someone reads, data deleted after a short time, and no feature the buyer didn't knowingly choose. The cost: slower investigations, as the Massachusetts chief admitted, and less revenue for the company.</li>
+    <li><strong>Drop it:</strong> no cameras on public roads or store lots at all. The cost: some stolen cars stay stolen, and the private cameras that remain aren't covered by a police contract or its audits.</li>
   </ul>
 
+  <h3 class="sub"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
+  <div class="ticket">
+    <div class="label">Thinking critically · for Monday's discussion, alongside Chapter 10 · one question each, answered by you, not by the chapter</div>
+    <ol>
+      <li><strong>Q1 · What is it, and what does it do?</strong> The AI in this case is in box 1 and it worked; the failure was in box 4. Pick another system from the course and split it the same way: which part is the model, and which part is the rules around it. Say which part the news story about it was actually about.</li>
+      <li><strong>Q2 · Why does it exist, and who benefits?</strong> Name who benefits from a plate-reader network in Bellingham (the store, the police, the vendor, a driver whose stolen car is found) and who pays, and say which of them had a seat at the table when the sharing settings were chosen.</li>
+      <li><strong>Q3 · What happens when it fails, and who finds out?</strong> The Border Patrol access was found by researchers with public-records requests, months later. Say what would have to be true for a driver to have found out, and whether the Washington law makes that more likely. Then apply the Collingridge dilemma: was the window still open?</li>
+      <li><strong>Q4 · Who's saying that, and how would we know?</strong> The Washington license plate law took effect September 26. Find one thing that changed in Whatcom County since then, say who reported it and what they gain, and say whether it makes the cameras more like the good version or the bad one.</li>
+      <li><strong>Q5 · Keep it, fix it, or drop it, and what does that cost?</strong> Floor or ceiling: if Congress passed one national AI rule tomorrow, keep, fix, or drop Washington's plate-reader law under it? Take a position, and say what each answer costs, and to whom, using the Colorado story as your evidence.</li>
+    </ol>
+  </div>
   <div class="concept">
-    <div class="term">The takeaway from the case</div>
-    <p>Colorado's story isn't really about Colorado. It's what happens when four levels of rule-making collide: a state legislature, a federal executive order, a company's lawsuit, and a court. The fight over who gets to decide can last long enough that nobody decides. A rule that never starts is a quiet failure, and it's worth running the five questions on rules, not just on systems.</p>
+    <div class="term">How to make it good</div>
+    <p>The useful part of this system is real, and so is the harm. What separates them isn't the camera; it's the rules around the camera: who can search, for what, who sees the log, and how long the data lives. Washington's rule is being tested right now. By the time we discuss this chapter, the September 26 deadline will have passed. Check what changed in Whatcom County, and ask whether the cameras that are left look more like the good version or the bad one.</p>
   </div>
 </section>
 
@@ -414,7 +549,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <div class="shead"><span class="num">4</span><h2>Decide: where you fit in the rules</h2></div>
   <h3 class="sub"><span>4.1</span> You will work under these rules</h3>
   <p>Most of you won't write AI laws. Almost all of you will work under them. If you end up in HR, you may be the person who sends Colorado's 30-day notice in 2027. If your company sells in Europe, the EU's hiring rules reach your desk in December 2027 whether or not Congress acts. If you buy software for a team, you may be the one reading the vendor contract clause Colorado just made void.</p>
-  <p>That makes the practical skill simple to say and hard to do: for any AI system you touch, know which rules it lives under, and know which ones are still being fought over. That is exactly what your Decide project asks.</p>
+  <p>That makes the practical skill simple to say and hard to do: for any AI system you touch, know which rules it lives under, and know which ones are still being fought over. That is exactly what your Prototype project asks.</p>
 
   <h3 class="sub"><span>4.2</span> Taking a position without picking a team</h3>
   <p>This topic is political, and I'm not going to tell you which side to take. Reasonable people disagree about whether AI rules should come from states, Washington, or somewhere else. What the course asks is that your position survive the five questions. If you favor one national standard, say what it should contain, because preemption with nothing behind it is a different policy from preemption with strong rules behind it. If you favor state rules, say how a company selling in fifty states should comply, and who pays for that. Either way, name the cost. That's the Rules page applied to policy: no fighting without evidence, and no loving or hating a position because of who else holds it.</p>
@@ -432,6 +567,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <section id="s5">
   <div class="shead"><span class="num">5</span><h2>Key terms</h2></div>
   <div class="terms">
+    <div class="term-card"><div class="t">Automated license plate reader (ALPR)</div><p>A camera that uses AI to capture plate numbers and vehicle details into a searchable record. Useful for finding stolen cars; risky when the records are shared or kept without limits.</p></div>
     <div class="term-card"><div class="t">Market failure</div><p>When a market left alone produces harmful or unfair results. The main economic reason rules exist.</p></div>
     <div class="term-card"><div class="t">Externality</div><p>A cost paid by people who weren't part of the deal, like a data center's strain on the local grid.</p></div>
     <div class="term-card"><div class="t">Information asymmetry</div><p>One side knows far more than the other, like a company that can test its screener and an applicant who can't see it.</p></div>
@@ -444,28 +580,17 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   </div>
 </section>
 
-<section id="s6">
-  <div class="shead"><span class="num">6</span><h2>Discussion questions</h2></div>
-  <div class="ticket">
-    <div class="label">For our last class · read this chapter and Chapter 12 first</div>
-    <ol type="1">
-<li><strong>Market failure, in a system you know.</strong> Pick one AI system from this course. Name the externality or the information asymmetry in it, and who pays for it right now.</li>
-<li><strong>The pacing problem.</strong> The EU pushed its hiring rules back sixteen months because the standards weren't ready. Was that the pacing problem, a sensible fix, or regulatory capture? What evidence would tell you which?</li>
-<li><strong>Floor or ceiling.</strong> In three sentences, make the strongest case for one national AI standard that overrides the states. Then make the strongest case against it. Which side's cost would you rather pay?</li>
-<li><strong>The main case.</strong> Colorado traded yearly impact assessments for a 30-day notice after a bad outcome. Run Question 3 on that trade: who finds out about a biased screener under each version, and when?</li>
-<li><strong>Your Decide project.</strong> Name the rules your system lives under, at any level: a law, a court case, a company policy, or nothing at all. If you could add one rule, what would it be and who would pay for it? You'll carry this answer into the final exam.</li>
-</ol>
-  </div>
-</section>
+
 
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
-  <p>Verified 16 Sep 2026 against the linked sources. Colorado: SB 24-205 (May 2024), its delayed start date of June 30, 2026, the xAI lawsuit (filed April 9, 2026), DOJ's intervention, the court's pause, and SB 26-189 (signed May 14, 2026; effective Jan 1, 2027; duties as summarized) per Seyfarth Shaw, Buchalter, and Crowell &amp; Moring client alerts. Executive Order 14365 (Dec 11, 2025) text via the American Presidency Project; its treatment of Colorado's rule per Taft; its carve-outs per Paul Hastings. EU AI Act delay (Digital Omnibus: Annex III high-risk to Dec 2, 2027; Annex I to Aug 2, 2028; new nudifier ban; in force July 27, 2026) per Gibson Dunn and Cloud Security Alliance notes. State law counts per NYU's Center on Technology Policy as reported by TechPolicy.Press (July 2026). SB 53 per Goodwin. The Senate's 99–1 vote per Ropes &amp; Gray; the June 2026 House draft per Nextgov. The statement that no comprehensive federal AI law or enacted preemption exists was checked against a September 2026 regulatory tracker (Vorp Labs); recheck each term. Factory Act and FLSA history adapted from the MIS 432 regulation chapter.</p>
+  <p>The case, verified 17 Sep 2026: University of Washington Center for Human Rights, "Leaving the Door Wide Open" (October 21, 2025); KUOW coverage (October 23, 2025); Cascadia Daily News (April 26, 2026) on Flock's Washington client count, the sensitive-locations requirement, and Bellingham Police ending access to Lowe's and Home Depot cameras; My Bellingham Now (January 14, 2026) on the bill's language as introduced; Salish Current (September 1, 2026) on the September 26 compliance deadline and the cut cameras; Newport Dispatch (August 26, 2026) on Bellingham, Massachusetts, and Flock's Free Form search. The law's final text should be checked before class for anything beyond what's summarized here. Corrections are course content.</p>
+  <p>Section 2.4, verified 16 Sep 2026 against the linked sources. Colorado: SB 24-205 (May 2024), its delayed start date of June 30, 2026, the xAI lawsuit (filed April 9, 2026), DOJ's intervention, the court's pause, and SB 26-189 (signed May 14, 2026; effective Jan 1, 2027; duties as summarized) per Seyfarth Shaw, Buchalter, and Crowell &amp; Moring client alerts. Executive Order 14365 (Dec 11, 2025) text via the American Presidency Project; its treatment of Colorado's rule per Taft; its carve-outs per Paul Hastings. EU AI Act delay (Digital Omnibus: Annex III high-risk to Dec 2, 2027; Annex I to Aug 2, 2028; new nudifier ban; in force July 27, 2026) per Gibson Dunn and Cloud Security Alliance notes. State law counts per NYU's Center on Technology Policy as reported by TechPolicy.Press (July 2026). SB 53 per Goodwin. The Senate's 99–1 vote per Ropes &amp; Gray; the June 2026 House draft per Nextgov. The statement that no comprehensive federal AI law or enacted preemption exists was checked against a September 2026 regulatory tracker (Vorp Labs); recheck each term. Factory Act and FLSA history adapted from the MIS 432 regulation chapter.</p>
   <p>Things to recheck before class: whether the Colorado lawsuit continued after the replacement law; the Colorado attorney general's rulemaking; any federal preemption bill; any further EU changes. Corrections are course content: if something here has changed by the time you read it, that change is worth bringing to class.</p>
 </details>
 
 <div class="nextbar">
-  <a href="chapter-10-truth-lab.html"><span class="dir">← Back</span>Lab 10 · The Phantom Docket</a>
+  <a href="chapter-10-truth.html"><span class="dir">← Back</span>Chapter 10 · Truth</a>
   <a href="chapter-12-future.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 12 · The Future</a>
 </div>
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chapter 10 · Truth — Intro to AI in Business | MIS 201</title>
+<title>Chapter 10 · Truth. Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -182,6 +182,30 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   .nav .navlinks{width:100%;justify-content:flex-start}
   .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
 }
+figure.diagram{margin:22px 0}
+figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;margin-top:8px}
+
+/* print */
+.printbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 6px;font-size:.9rem;color:var(--gray)}
+.printbar button{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border:none;border-radius:6px;cursor:pointer}
+.printbar button:hover{background:#242C36}
+@media print{
+  nav,.topnav,.printbar,.nextbar,footer.foot{display:none !important}
+  body{background:#fff;color:#000}
+  main.wrap{max-width:none;padding:0}
+  header.masthead{background:#fff !important;color:#000 !important;padding:0 0 12px}
+  header.masthead h1,header.masthead .kicker,header.masthead .eyebrow{color:#000 !important}
+  header.masthead h1 b{color:#000 !important}
+  a{color:#000;text-decoration:none}
+  a.inline::after{content:" (" attr(href) ")";font-size:.75em;color:#555;word-break:break-all}
+  details{display:block}
+  details>summary{list-style:none}
+  details:not([open])>*:not(summary){display:block}
+  .concept,.callout,.term-card,.ticket,figure.diagram{break-inside:avoid;page-break-inside:avoid}
+  .concept{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  h2,h3{break-after:avoid;page-break-after:avoid}
+  svg{max-width:100% !important}
+}
 </style>
 </head>
 <body>
@@ -198,9 +222,9 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <div class="dd-menu" id="ddc">
 <a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
 <a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
-<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 4</span>Medicine</a>
-<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 5</span>Environment</a>
-<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · optional</span>Systems That Want You</a>
+<a href="chapter-03-systems.html"><span class="lbl">Chapter 3 · Week 3</span>Systems That Know You</a>
+<a href="chapter-04-medicine.html"><span class="lbl">Chapter 4 · Week 4</span>Medicine</a>
+<a href="chapter-05-environment.html"><span class="lbl">Chapter 5 · Week 5</span>Environment</a>
 <a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
 <a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
 <a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
@@ -213,17 +237,13 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <div class="dd-menu" id="ddl">
 <a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
 <a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
-<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test</a>
-<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 4</span>Inside the Graph</a>
-<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 5</span>The Footprint Machine</a>
-<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · optional</span>Play the Algorithm</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test and the Feed</a>
+<a href="chapter-04-medicine-lab.html"><span class="lbl">Lab 4 · Week 4</span>Inside the Graph</a>
+<a href="chapter-05-environment-lab.html"><span class="lbl">Lab 5 · Week 5</span>The Footprint Machine</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
-<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
+<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
 <a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
-<a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 10 · take-home</span>The Phantom Docket</a>
-<a href="exposure-audit.html"><span class="lbl">Self-guided · pairs with Chapter 9</span>The Exposure Audit</a>
-<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · last class</span>First Contact, Revisited</a>
 </div></div>
     </div>
   </div>
@@ -233,102 +253,298 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Chapter 10</div>
     <h1>Truth: The Plausibility <b>Machines</b></h1>
-    <p class="kicker">The systems we've studied all quarter share one design fact this chapter finally faces head-on: none of them was built to tell the truth. They were built to be plausible — and plausible is cheaper than true, faster than true, and increasingly hard to tell from true. What does a society do when the difference stops being visible?</p>
+    <p class="kicker">The systems we've studied all quarter share one design fact this chapter finally faces head-on: none of them was built to tell the truth. They were built to be plausible, and plausible is cheaper than true, faster than true, and increasingly hard to tell from true. What does a society do when the difference stops being visible?</p>
     <p class="factline">Hallucination is not a bug · the phantom citations · the liar's dividend</p>
   </div>
 </header>
 
 <main class="wrap">
 
+<div class="printbar">
+  <button type="button" onclick="document.querySelectorAll('details').forEach(function(d){d.open=true});window.print()">Wanna go analog? Print this chapter</button>
+  <span>Links print with their web addresses; the try-it answers print open.</span>
+</div>
+
 <div class="contents">
-  <div class="label">In this chapter</div>
-  <ol>
-    <li><a href="#s1">Built for plausible, not true</a></li>
-    <li><a href="#s2">Case one: the phantom citations</a></li>
-    <li><a href="#s3">Case two: the voice on the phone</a></li>
-    <li><a href="#s4">The asymmetry — and the dividend</a></li>
-    <li><a href="#s5">Question it &amp; decide</a></li>
-    <li><a href="#s6">Key terms</a></li>
-    <li><a href="#s7">Discussion questions</a></li>
+  <div class="label">Learning objectives</div>
+  <ol type="1">
+<li>Explain what a language model optimizes for, and why confident fabrication is not a separable bug.</li>
+<li>State the verification asymmetry and give an example of it in time and money.</li>
+<li>Explain the liar's dividend, and why the deepest damage runs through true things.</li>
+<li>Describe the two main ways to make verification cheap again, grounding and provenance, and what each does and doesn't do.</li>
+<li>Compare a feed and a chatbot on what each is optimized for, and say why the same model can debunk a conspiracy or sell one.</li>
+<li>Run the five critical AI questions on Mata v. Avianca and build a personal verification reflex from it.</li>
   </ol>
 </div>
 
 <section id="s1">
   <div class="shead"><span class="num">1</span><h2>Built for plausible, not true</h2></div>
-  <p class="lead">Start with the mechanism, because everything in this chapter follows from it. A large language model is trained to produce the most plausible continuation of a text — the words that best fit the pattern of everything it has read. Truth and plausibility usually overlap, which is why these systems are so often right. But the system has no internal flag that distinguishes them. When it states a fact, and when it invents one with perfect confidence, <em>it is doing the same operation.</em></p>
-  <p>This is why "hallucination" — the industry's word for confident fabrication — is not a bug being patched out. It's the machine working as designed, in the cases where plausible and true come apart. The systems have gotten meaningfully better at staying aligned with truth; they have not changed what they fundamentally optimize. If this book has one sentence to tattoo somewhere before the exam, this chapter's candidate: <strong>the machine is never lying, and it is never telling the truth. It is always doing something else — and checking is our job.</strong></p>
-  <div class="concept">
-    <div class="term">Hallucination</div>
-    <p>Confident fabrication by a generative model — invented facts, quotes, sources, delivered in the same fluent voice as everything accurate. Not a malfunction: the plausibility engine running in territory where plausible and true diverge.</p>
-  </div>
+  <p class="lead">If this book has one sentence to tattoo somewhere before the exam, this chapter's candidate: the machine is never lying, and it is never telling the truth. It is always doing something else, and checking is our job.</p>
+  <p>That sounds like a riddle. It's a description of a mechanism, and once you see the mechanism, most of what's confusing about AI and truth stops being confusing. This chapter shows you the mechanism, the economics it creates, and the surprising other edge: compared with the feeds it's replacing, a chatbot is the first mass technology with truth anywhere in its objective, and the evidence that it can move people toward the facts is real. Then the case, where a plausibility machine met an institution built on verification, and lost.</p>
 </section>
 
 <section id="s2">
-  <div class="shead"><span class="num">2</span><h2>Case one: the phantom citations</h2></div>
-  <p>In 2023, two New York lawyers filed a brief in a routine airline-injury lawsuit, <a class="inline" href="https://www.forbes.com/sites/mollybohannon/2023/06/08/lawyer-used-chatgpt-in-court-and-cited-fake-cases-a-judge-is-considering-sanctions/" target="_blank" rel="noopener"><em>Mata v. Avianca</em></a>. The brief cited multiple court cases supporting their argument — cases with convincing names, plausible citations, quotable passages. Opposing counsel couldn't find them. Neither could the judge. Because they did not exist. One of the lawyers had asked ChatGPT for supporting cases; it produced them, complete and confident and fictional. Asked directly whether the cases were real, it assured him they were. The court sanctioned the lawyers, and the case became the first famous collision between a plausibility machine and an institution built on verification.</p>
-  <p>Here's what makes it a chapter case rather than a funny story: it keeps happening. Courts and researchers now track AI-fabricated citations in legal filings, and the running counts are in the hundreds — after every lawyer in America heard about the first one. The lesson isn't that some lawyers are lazy. It's structural: the fabrication arrives <em>pre-formatted in the genre of reliability</em>. A phantom citation looks exactly like a real one; the fluency that makes the tool useful is the same fluency that makes its failures invisible. This week's take-home lab hands you the actual phantom citations from the actual case and makes you catch them yourself — with a clock running, for a reason you'll see in section 4.</p>
+  <div class="shead"><span class="num">2</span><h2>The concepts: the plausibility machine, and the economics it creates</h2></div>
+
+  <h3 class="sub"><span>2.1</span> What a language model optimizes for</h3>
+  <p>A large language model is trained to produce the most plausible continuation of a text: the next piece that best fits the pattern of everything it has read. Chapter 2 showed you this with a matchbox; Chapter 3 showed you where it sits in a product. Here's the consequence. Truth and plausibility usually overlap, which is why these systems are so often right. But the system has no internal flag that distinguishes them. When it states a fact, and when it invents one with perfect confidence, it is doing the same operation.</p>
+  <p>Watch it happen on a real example. Ask for court cases supporting an argument, and the model produces a case name, because case names follow prompts like that; an airline in the name, because the prompt was about an airline; a citation shaped like a reporter citation, because that's what follows a case name; a court and a year that fit. Each piece is the most plausible next piece. The finished line looks exactly like a real citation, and at no step did the model check a database, because it has no step for that.</p>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pl-t pl-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="pl-t">How a phantom citation gets written, one word at a time</title>
+      <desc id="pl-d">A prompt at the top asks for cases supporting an argument. Below, the model's output builds left to right: the words a case name, a court, a year, and a page number appear one at a time, each with a note that it is the most plausible next piece given everything the model has read. The finished line looks exactly like a real citation. A side box shows that at no step did the model check a database; it had no step for that. A note says truth and plausibility usually overlap, and this is what happens where they don't.</desc>
+      <rect x="14" y="30" width="732" height="40" rx="6" fill="#F4F5F2" stroke="#E3E3DD"/><text x="28" y="55" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">prompt: &quot;cite cases holding that the statute of limitations was tolled by bankruptcy&quot;</text>
+      <text x="14" y="100" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">THE MODEL'S OUTPUT, ONE PIECE AT A TIME</text>
+      <rect x="14" y="112" width="140" height="44" rx="5" fill="#0E1116"/><text x="84" y="138" font-family="Inter,Arial,sans-serif" font-size="12" fill="#FFFFFF" font-weight="700" text-anchor="middle">Varghese v.</text>
+      <rect x="160" y="112" width="150" height="44" rx="5" fill="#0E1116"/><text x="235" y="138" font-family="Inter,Arial,sans-serif" font-size="12" fill="#FFFFFF" font-weight="700" text-anchor="middle">China Southern</text>
+      <rect x="316" y="112" width="130" height="44" rx="5" fill="#0E1116"/><text x="381" y="138" font-family="Inter,Arial,sans-serif" font-size="12" fill="#FFFFFF" font-weight="700" text-anchor="middle">Airlines,</text>
+      <rect x="452" y="112" width="130" height="44" rx="5" fill="#0E1116"/><text x="517" y="138" font-family="Inter,Arial,sans-serif" font-size="12" fill="#FFFFFF" font-weight="700" text-anchor="middle">925 F.3d 1339</text>
+      <rect x="588" y="112" width="158" height="44" rx="5" fill="#0E1116"/><text x="667" y="138" font-family="Inter,Arial,sans-serif" font-size="12" fill="#FFFFFF" font-weight="700" text-anchor="middle">(11th Cir. 2019)</text>
+      <text x="84" y="176" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">a name shaped like</text><text x="84" y="188" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">a case name</text>
+      <text x="235" y="176" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">an airline, because</text><text x="235" y="188" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">the prompt was about one</text>
+      <text x="381" y="176" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">the word that follows</text><text x="381" y="188" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">an airline's name</text>
+      <text x="517" y="176" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">numbers shaped like</text><text x="517" y="188" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">a reporter citation</text>
+      <text x="667" y="176" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">a court and year</text><text x="667" y="188" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">that fit the pattern</text>
+      <text x="380" y="216" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#D61F69" text-anchor="middle" font-style="italic">each piece is the most plausible next piece, given everything the model has read. the finished line looks exactly like a real one.</text>
+      <rect x="14" y="236" width="732" height="52" rx="6" fill="#FFFFFF" stroke="#FF3D8A" stroke-width="1.5"/>
+      <text x="28" y="258" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">At no step did the model check a database. It had no step for that. The case is a real phantom from the Avianca brief;</text><text x="28" y="276" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">the court could not find it because it was never anywhere to be found.</text>
+    </svg>
+    <figcaption>A phantom citation, being written. Every piece is the most plausible next piece. The machine is never lying and never telling the truth; it's doing this, and here plausible and true came apart.</figcaption>
+  </figure>
+
+  <p>This is why <strong>hallucination</strong>, the industry's word for confident fabrication, is not a bug being patched out. It's the machine working as designed, in the cases where plausible and true come apart. The systems have gotten meaningfully better at staying aligned with truth, and the grounding tools in section 2.4 help a lot. They have not changed what the model fundamentally optimizes.</p>
+  <div class="concept">
+    <div class="term">Hallucination</div>
+    <p>Confident fabrication by a generative model: invented facts, quotes, sources, delivered in the same fluent voice as everything accurate. What people get wrong: they picture it as a malfunction. It's the plausibility engine running in territory where plausible and true diverge, and the fluency is the same either way.</p>
+  </div>
+
+  <h3 class="sub"><span>2.2</span> The verification asymmetry</h3>
+  <p>Now the economics. A phantom citation took seconds to generate and hours of professional time to expose. The same shape shows up wherever generation gets cheap. Two days before the 2024 New Hampshire presidential primary, thousands of voters got a robocall in Joe Biden's voice telling them not to vote. It was an AI clone, commissioned by a political consultant who testified that he <a class="inline" href="https://www.wbur.org/news/2025/06/16/biden-ai-robocall-new-hampshire-steven-kramer-not-guilty" target="_blank" rel="noopener">paid a magician $150</a> to create the recording. The consequences ran for more than a year: a state investigation, a <a class="inline" href="https://cyberscoop.com/fcc-fine-joe-biden-deepfake-new-hampshire-robocall-steve-kramer/" target="_blank" rel="noopener">$6 million federal fine</a> finalized in September 2024, and a criminal trial on 22 counts, at which a New Hampshire jury acquitted him of all of them in June 2025. He argued the primary was an unsanctioned straw poll and the call never used Biden's name. A hundred and fifty dollars of generation consumed investigators, regulators, and courts, and the criminal law, written before voice clones existed, didn't reach him.</p>
+  <p>That's the chapter's central fact: <strong>generation is cheap and verification is expensive, and the gap is widening.</strong> For a century, audio was self-authenticating: hearing was believing. That default is gone, and elections are just where the stakes make it visible first. Any system where attacking costs pennies and defending costs hours has a stability problem, and "the information environment" is now such a system.</p>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="va-t va-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="va-t">The verification asymmetry, in time and money</title>
+      <desc id="va-d">Two rows. Making: a fake brief citation takes seconds and costs cents; a cloned-voice robocall to thousands of voters cost one hundred fifty dollars. Checking: finding out the citation is fake took a lawyer and a judge hours; the robocall consumed a state investigation, a federal regulator, and criminal courts for more than a year. The bars for checking are far longer than the bars for making. A note says any system where attacking costs pennies and defending costs hours has a stability problem.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">MAKING</text><text x="400" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">CHECKING</text>
+      <text x="14" y="56" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" font-weight="700">a phantom citation</text>
+      <rect x="180" y="44" width="18" height="18" fill="#0E1116"/><text x="206" y="58" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">seconds, cents</text>
+      <rect x="400" y="44" width="220" height="18" fill="#FF3D8A"/><text x="400" y="82" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">hours of a lawyer's and a judge's time</text>
+      <text x="14" y="106" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" font-weight="700">a cloned-voice robocall</text><text x="14" y="122" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">to thousands of voters</text>
+      <rect x="180" y="94" width="34" height="18" fill="#0E1116"/><text x="222" y="108" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">$150 and one afternoon</text>
+      <rect x="400" y="94" width="340" height="18" fill="#FF3D8A"/><text x="400" y="132" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">a state investigation, a federal fine, a criminal trial: more than a year</text>
+      <text x="14" y="166" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" font-weight="700">a fake photo of a real event</text>
+      <rect x="180" y="154" width="12" height="18" fill="#0E1116"/><text x="200" y="168" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">one prompt</text>
+      <rect x="400" y="154" width="290" height="18" fill="#FF3D8A"/><text x="400" y="192" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">forensics, source-tracing, and it still may not settle it</text>
+      <text x="14" y="232" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">Any system where attacking costs pennies and defending costs hours has a stability problem. The information environment is now such a system.</text>
+    </svg>
+    <figcaption>The verification asymmetry. The left bars are what generation costs now; the right bars are what checking still costs. Most of what this chapter recommends is an attempt to shorten the right bars.</figcaption>
+  </figure>
+
+  <div class="concept">
+    <div class="term">The verification asymmetry</div>
+    <p>Fabricating content costs seconds and cents; checking it costs minutes, expertise, and institutional time. Whoever benefits from noise can now produce it faster than anyone can clean it up. What people get wrong: they treat this as a problem of gullible people. It's a problem of cost, and the fixes are things that make checking cheap.</p>
+  </div>
+
+  <h3 class="sub"><span>2.3</span> The liar's dividend</h3>
+  <p>The deepest damage doesn't come from the fakes. It comes from what the possibility of fakes does to real evidence. Legal scholars call it the <strong>liar's dividend</strong>: once everyone knows audio can be faked, anyone caught on real audio can say "deepfake," and some people will believe them, and everyone else has to do work to prove otherwise. The technology pays dishonest people a dividend without their generating anything at all.</p>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ld-t ld-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="ld-t">The liar's dividend</title>
+      <desc id="ld-d">A flow. Real audio catches a real person saying something damaging. Because everyone knows audio can be faked, the person says deepfake. Some people believe them. Everyone else now has to do expensive work to prove the real audio is real. The person paid nothing and generated nothing. A note says the deepest damage runs through true things, not false ones.</desc>
+      <rect x="14" y="60" width="150" height="70" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="89" y="88" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" font-weight="700" text-anchor="middle">real audio</text><text x="89" y="106" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">catches a real person</text><text x="89" y="120" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">saying something damaging</text>
+      <path d="M166,95 L190,95" stroke="#14181D" stroke-width="1.5" marker-end="url(#ld-ar)"/><defs><marker id="ld-ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#14181D"/></marker></defs>
+      <rect x="194" y="60" width="150" height="70" rx="6" fill="#0E1116"/><text x="269" y="88" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle">&quot;that's a deepfake&quot;</text><text x="269" y="106" font-family="Inter,Arial,sans-serif" font-size="10" fill="#C9CED6" text-anchor="middle">costs nothing to say,</text><text x="269" y="120" font-family="Inter,Arial,sans-serif" font-size="10" fill="#C9CED6" text-anchor="middle">because fakes exist now</text>
+      <path d="M346,95 L370,95" stroke="#14181D" stroke-width="1.5" marker-end="url(#ld-ar)"/>
+      <rect x="374" y="60" width="150" height="70" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="449" y="88" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" font-weight="700" text-anchor="middle">some people believe it</text><text x="449" y="106" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">and the rest have to</text><text x="449" y="120" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" text-anchor="middle">prove the real thing is real</text>
+      <path d="M526,95 L550,95" stroke="#FF3D8A" stroke-width="1.5" marker-end="url(#ld-ar2)"/><defs><marker id="ld-ar2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#FF3D8A"/></marker></defs>
+      <rect x="554" y="60" width="192" height="70" rx="6" fill="#FF3D8A"/><text x="650" y="88" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle">the dividend</text><text x="650" y="106" font-family="Inter,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">paid to the dishonest person,</text><text x="650" y="120" font-family="Inter,Arial,sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle">who generated nothing at all</text>
+      <text x="14" y="176" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">Follow it to the end state: not a world where people believe false things, but a world where people can't be made to believe true ones,</text><text x="14" y="192" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">where every inconvenient fact has a plausible exit.</text>
+      <text x="14" y="226" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" font-weight="700">A society can survive some lies. It cannot govern itself without a shared way to settle what happened.</text>
+    </svg>
+    <figcaption>The liar's dividend. The deepest damage from fakes doesn't come from the fakes. It comes from what their possibility does to real evidence.</figcaption>
+  </figure>
+
+  <p>Follow that to its end state and you get the real stakes of this chapter: not a world where people believe false things, but a world where people can't be made to believe true ones, where every inconvenient fact has a plausible exit. A society can survive some lies. It cannot govern itself without a shared way to settle what happened.</p>
+  <div class="concept">
+    <div class="term">The liar's dividend</div>
+    <p>The bonus fakery pays the dishonest: real evidence becomes deniable. What people get wrong: they count the harm in fakes believed. Count it in truths dismissed, and the number is larger.</p>
+  </div>
+
+  <h3 class="sub"><span>2.4</span> Making verification cheap again</h3>
+  <p>If the problem is a cost gap, the fixes are things that close it from the checking side. Two matter most, and you'll use both.</p>
+  <p><strong>Grounding</strong>, for text. Connect the language model to a real database and require every claim it makes to point at a document that exists. The model still predicts plausible text, but plausible now has to link to something, and a phantom has nowhere to link. This is how legal research tools now work, and it's why the Avianca mistake is harder to make today than it was in 2023, though not impossible: the model can still misread a real document, and the reader still has to click.</p>
+  <p><strong>Provenance</strong>, for photos, audio, and video. A camera signs what it captures with a cryptographic credential; every edit adds to the record; a viewer can check the chain. The leading standard, called C2PA, is backed by camera makers, software companies, and newsrooms, and its adoption is partial. Notice what it does and doesn't do: a photo with no credential isn't proven fake, it's just unproven. Hearing was believing; now the credential is.</p>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pv-t pv-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="pv-t">Two ways to make verification cheap again</title>
+      <desc id="pv-d">Two panels. Left, grounding: a language model is connected to a real database; every citation it produces is a link to a document that exists, and the user can click through; a fabricated citation has no link and is caught before it leaves. Right, provenance: a camera signs the photo it takes with a cryptographic credential; every edit adds to the record; a viewer can check the chain. A note says neither makes fakes impossible; both make checking take seconds instead of hours.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">GROUNDING · for text</text>
+      <rect x="14" y="32" width="358" height="200" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <rect x="30" y="56" width="120" height="44" rx="5" fill="#0E1116"/><text x="90" y="82" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">language model</text>
+      <path d="M152,78 L176,78" stroke="#14181D" stroke-width="1.5" marker-end="url(#pv-ar)"/><defs><marker id="pv-ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#14181D"/></marker></defs>
+      <rect x="180" y="56" width="176" height="44" rx="5" fill="#E4FF32"/><text x="268" y="74" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" font-weight="700" text-anchor="middle">a real case database</text><text x="268" y="90" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#14181D" text-anchor="middle">the model can only cite what's in it</text>
+      <text x="30" y="132" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D">every citation it writes is a link to a document that exists</text><text x="30" y="150" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D">the user clicks through; a phantom has nowhere to link</text>
+      <text x="30" y="184" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" font-style="italic">what changed: the model still predicts plausible text,</text><text x="30" y="198" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" font-style="italic">but plausible now has to point at something</text>
+      <text x="193" y="222" font-family="Inter,Arial,sans-serif" font-size="10" fill="#D61F69" text-anchor="middle" font-style="italic">this is how legal research tools now work</text>
+      <text x="388" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">PROVENANCE · for photos, audio, video</text>
+      <rect x="388" y="32" width="358" height="200" rx="6" fill="#0E1116"/>
+      <rect x="404" y="56" width="100" height="44" rx="5" fill="#F4F5F2"/><text x="454" y="76" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" text-anchor="middle">camera</text><text x="454" y="92" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">signs the photo</text>
+      <path d="M506,78 L528,78" stroke="#C9CED6" stroke-width="1.5" marker-end="url(#pv-ar2)"/><defs><marker id="pv-ar2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#C9CED6"/></marker></defs>
+      <rect x="532" y="56" width="100" height="44" rx="5" fill="#F4F5F2"/><text x="582" y="76" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D" text-anchor="middle">each edit</text><text x="582" y="92" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#5A626C" text-anchor="middle">adds to the record</text>
+      <path d="M634,78 L656,78" stroke="#C9CED6" stroke-width="1.5" marker-end="url(#pv-ar2)"/>
+      <rect x="660" y="56" width="72" height="44" rx="5" fill="#FF3D8A"/><text x="696" y="76" font-family="Inter,Arial,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">viewer</text><text x="696" y="92" font-family="Inter,Arial,sans-serif" font-size="9.5" fill="#FFFFFF" text-anchor="middle">checks it</text>
+      <text x="404" y="132" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#C9CED6">a content credential: who made it, with what, and what changed</text><text x="404" y="150" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#C9CED6">a photo with no credential isn't proven fake; it's just unproven</text>
+      <text x="404" y="184" font-family="Inter,Arial,sans-serif" font-size="10" fill="#9AA1AB" font-style="italic">the leading standard is called C2PA, backed by camera makers,</text><text x="404" y="198" font-family="Inter,Arial,sans-serif" font-size="10" fill="#9AA1AB" font-style="italic">software companies, and newsrooms; adoption is partial</text>
+      <text x="567" y="222" font-family="Inter,Arial,sans-serif" font-size="10" fill="#E4FF32" text-anchor="middle" font-style="italic">hearing was believing. now the credential is.</text>
+      <text x="14" y="262" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">Neither makes fakes impossible. Both move the cost of checking from hours to seconds, which is the only fix that scales.</text>
+    </svg>
+    <figcaption>Cheapening verification. Grounding makes a model's claims clickable; provenance makes a photo's history readable. Both attack the asymmetry from the checking side, which is the side that matters.</figcaption>
+  </figure>
+
+  <div class="concept">
+    <div class="term">Provenance</div>
+    <p>Cryptographic content credentials: cameras and tools signing what they produce, so that a viewer can check where a file came from and what changed. What people get wrong: they expect it to detect fakes. It doesn't. It makes real things provable, which is the side of the asymmetry worth fixing.</p>
+  </div>
+
+
+  <h3 class="sub"><span>2.5</span> The other edge: AI built for truth, and the feed it's competing with</h3>
+  <p>Everything so far has treated generative AI as a truth problem. Hold that against the technology it's actually displacing for many people, the feed from Chapter 3, and the picture changes. A feed is paid by attention. It learned, without anyone intending it, that outrage holds people, and nobody at the company is judged on whether a post was true. A chatbot is judged on whether its answer was right. Users notice when it's wrong, competitors advertise on it, and the labs train their models for honesty, by their own account, which is a claim we hold them to rather than take on faith. Neither system is built for truth by nature. But one of them has truth in the objective, imperfectly, and the other doesn't have it at all.</p>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fc2-t fc2-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="fc2-t">The feed and the chatbot: same raw material, different objective</title>
+      <desc id="fc2-d">Two columns. The feed: what it optimizes for is attention, measured as time and sessions; what wins is whatever holds people, and outrage holds people; the failure is amplification, and nobody at the company is judged on whether a post was true. The chatbot: what it's judged on is whether the answer was right; the labs train for honesty, by their own account; what wins is a checkable answer; the failure is confident fabrication, section 2.1, and sycophancy, telling you what you want to hear. A closing line reads: the same model can debunk a conspiracy or sell one; the objective decides which.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">THE FEED · Chapter 3</text>
+      <rect x="14" y="32" width="358" height="220" rx="6" fill="#0E1116"/>
+      <text x="28" y="58" font-family="Inter,Arial,sans-serif" font-size="10" fill="#9AA1AB">optimizes for</text><text x="28" y="76" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#FFFFFF" font-weight="700">attention: time, sessions, return visits</text>
+      <text x="28" y="106" font-family="Inter,Arial,sans-serif" font-size="10" fill="#9AA1AB">what wins</text><text x="28" y="124" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#FFFFFF">whatever holds people. outrage holds people.</text>
+      <text x="28" y="154" font-family="Inter,Arial,sans-serif" font-size="10" fill="#9AA1AB">the failure</text><text x="28" y="172" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#FF3D8A">amplification: a false thing spreads because it</text><text x="28" y="188" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#FF3D8A">performs, and no one is judged on whether it's true</text>
+      <text x="28" y="222" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#E4FF32" font-style="italic">truth is not in the objective at all</text>
+      <text x="388" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">THE CHATBOT</text>
+      <rect x="388" y="32" width="358" height="220" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="402" y="58" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C">judged on</text><text x="402" y="76" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D" font-weight="700">whether the answer was right</text>
+      <text x="402" y="106" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C">what wins</text><text x="402" y="124" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">a checkable answer; the labs train for honesty</text><text x="402" y="140" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" font-style="italic">(their claim, and a real one to hold them to)</text>
+      <text x="402" y="170" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C">the failure</text><text x="402" y="188" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#D61F69">confident fabrication (2.1), and sycophancy:</text><text x="402" y="204" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#D61F69">telling you what you want to hear (Chapter 2)</text>
+      <text x="402" y="236" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#14181D" font-style="italic">truth is in the objective, imperfectly</text>
+      <text x="380" y="284" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle">The same model can talk a person out of a conspiracy or into one. The objective decides which. That's the whole difference, and it's a design choice.</text>
+    </svg>
+    <figcaption>The feed and the chatbot. Neither is built for truth by nature; the difference is what each is paid for, and one of them is paid for being right. That's not a small thing, and it's also not a guarantee.</figcaption>
+  </figure>
+
+  <p>Now the evidence, because this shouldn't rest on a diagram. In 2024, three researchers, Thomas Costello, Gordon Pennycook, and David Rand, <a class="inline" href="https://www.science.org/doi/10.1126/science.adq1814" target="_blank" rel="noopener">put 2,190 conspiracy believers into three rounds of conversation</a> with GPT-4, which was asked to respond to each person's own reasons with evidence. Belief in the person's chosen conspiracy fell by about 20 percent, the effect held two months later, and it worked even on people with deeply entrenched views. Decades of human fact-checking had rarely moved believers at all; a model that could answer their specific argument did. A <a class="inline" href="https://www.adl.org/resources/report/short-dialogues-ai-reduce-belief-antisemitic-conspiracy-theories" target="_blank" rel="noopener">2025 follow-up</a> with 1,224 people used a different lab's model on antisemitic conspiracies and found the same thing. The mechanism is the plausibility machine again, pointed the other way: it can produce the specific, tailored counterargument a believer has never actually heard.</p>
+  <p>Two caveats, and both are course material. First, Science <a class="inline" href="https://pubmed.ncbi.nlm.nih.gov/39264999/" target="_blank" rel="noopener">posted an editorial expression of concern</a> on the 2024 paper in June 2026. That's a journal saying it's looking into something; it's not a retraction and it's not an all-clear, and the replication stands on its own. Check where it lands, and run Question 4 on whatever you find. Second, a <a class="inline" href="https://arxiv.org/pdf/2601.05050" target="_blank" rel="noopener">2026 study</a> found the same models persuade people <em>into</em> conspiracies about as effectively as out of them. The capability is symmetric. The objective decides the direction, which is exactly the point of the diagram: what a system is built to optimize for is the whole difference between a debunking tool and a propaganda machine, and it's a choice someone makes.</p>
+  <p>So the honest version of this chapter's claim is narrower than "AI is a truth problem." Generation got cheap, and that created the asymmetry and the dividend, which are real and getting worse. And, at the same time, the most capable tool anyone has ever had for tailored, evidence-based correction just arrived, and whether it's used that way depends on who's paying for it and what for. Both edges. The chapter's job is to make sure you can see both.</p>
+  <div class="concept">
+    <div class="term">The objective decides</div>
+    <p>A model that can produce the perfect tailored counterargument can produce the perfect tailored lie; which one you get depends on what it's optimized for and who's paying. What people get wrong: they ask whether AI is good or bad for truth. Ask what the system in front of you is judged on, and by whom.</p>
+  </div>
+
+  <div class="callout tryit">
+    <div class="label">Try it · practice for Friday's quiz. Five situations: which concept is doing the work? Decide, then click to check.</div>
+    <details><summary>1. A chatbot gives you three statistics with sources. You ask "are these real?" and it says yes.</summary><p>Section 2.1. A model's assurance about its own output is the same operation as the output. The check is the source, not the model.</p></details>
+    <details><summary>2. A politician's real recording leaks; her team says it's AI-generated, and the story stalls.</summary><p>The liar's dividend. Nobody made a fake. The possibility of one did the work.</p></details>
+    <details><summary>3. Your research tool shows a citation as a link; you click and the document opens.</summary><p>Grounding. The model could only cite what's in the database, and you just did the ten-minute check in ten seconds.</p></details>
+    <details><summary>4. A viral photo has no content credential.</summary><p>Provenance, correctly read: unproven, not fake. The absence of a credential is a reason to check, not a verdict.</p></details>
+    <details><summary>5. A scammer clones a grandson's voice from a video and calls his grandmother.</summary><p>The verification asymmetry. Seconds to make, and the person who has to verify is the one least equipped to. The fix is a family password, which is cheap verification.</p></details>
+  </div>
 </section>
 
 <section id="s3">
-  <div class="shead"><span class="num">3</span><h2>Case two: the voice on the phone</h2></div>
-  <p>Two days before the 2024 New Hampshire presidential primary, thousands of Democratic voters got a robocall in Joe Biden's voice telling them not to vote in it. The voice was an AI clone — commissioned, it turned out, by a political consultant, generated with commercial tools, for a few hundred dollars. Regulators moved quickly by government standards: the FCC declared AI-cloned voices in robocalls illegal, proposed a multimillion-dollar fine, and prosecutors brought charges. A year earlier, days before Slovakia's national election — during the legal quiet period when candidates couldn't respond — an audio clip spread of a leading candidate apparently discussing how to rig the vote. Fabricated, experts concluded. He lost. Whether the clip decided the race is unknowable, which is precisely the problem.</p>
-  <p>What both cases demonstrate is the collapse of an old default. For a century, audio and video were self-authenticating: hearing was believing, more or less. That default is gone. What used to require a studio now requires an app; the marginal cost of fabricated evidence has fallen close to zero. Elections are just where the stakes make it visible first — the same collapse is arriving in insurance claims, school disputes, workplace HR files, and family group chats.</p>
-</section>
+  <div class="shead"><span class="num">3</span><h2>The case: the phantom citations</h2></div>
+  <h3 class="sub"><span>Background</span> A serving cart, a brief, and six cases that didn't exist</h3>
+  <p>In 2022, a passenger sued the airline Avianca in federal court in New York, saying a metal serving cart had struck his knee on a flight. A routine case. In 2023, his lawyers filed a brief citing multiple court cases supporting their argument: cases with convincing names, plausible citations, quotable passages. Avianca's lawyers couldn't find them. Neither could the judge. Because they did not exist. One of the lawyers had asked ChatGPT for supporting cases; it produced them, complete and confident and fictional. Asked directly whether the cases were real, it assured him they were. When the judge ordered copies, what came back was fabricated too. On June 22, 2023, the court dismissed the case and <a class="inline" href="https://en.wikipedia.org/wiki/Mata_v._Avianca,_Inc." target="_blank" rel="noopener">fined the lawyers $5,000</a>, and <em>Mata v. Avianca</em> became the first famous collision between a plausibility machine and an institution built on verification.</p>
+  
+  <figure class="diagram">
+    <svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="av-t av-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="av-t">Mata v. Avianca, as a timeline</title>
+      <desc id="av-d">A horizontal timeline. February 2022: a passenger sues Avianca over an injury from a serving cart. Early 2023: his lawyers ask ChatGPT for supporting cases and file a brief citing them. Avianca's lawyers cannot find the cases; neither can the judge. The lawyers ask ChatGPT whether the cases are real; it says yes. The judge orders copies; what comes back is fabricated too. June 22, 2023: the case is dismissed and the lawyers are fined five thousand dollars. A note marks the ten-minute check that would have ended it at step two.</desc>
+      <line x1="30" y1="120" x2="730" y2="120" stroke="#E3E3DD" stroke-width="2"/>
+      <circle cx="60" cy="120" r="7" fill="#0E1116"/><circle cx="200" cy="120" r="7" fill="#0E1116"/><circle cx="340" cy="120" r="7" fill="#FF3D8A"/><circle cx="480" cy="120" r="7" fill="#FF3D8A"/><circle cx="610" cy="120" r="7" fill="#0E1116"/><circle cx="720" cy="120" r="7" fill="#0E1116"/>
+      <text x="60" y="60" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" font-weight="700" text-anchor="middle">Feb 2022</text><text x="60" y="76" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">a passenger sues</text><text x="60" y="90" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">over a serving cart</text>
+      <text x="200" y="60" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" font-weight="700" text-anchor="middle">early 2023</text><text x="200" y="76" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">lawyers ask ChatGPT</text><text x="200" y="90" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">for cases; file the brief</text>
+      <text x="340" y="150" font-family="Inter,Arial,sans-serif" font-size="10" fill="#D61F69" text-anchor="middle">opposing counsel can't</text><text x="340" y="164" font-family="Inter,Arial,sans-serif" font-size="10" fill="#D61F69" text-anchor="middle">find the cases. neither</text><text x="340" y="178" font-family="Inter,Arial,sans-serif" font-size="10" fill="#D61F69" text-anchor="middle">can the judge</text>
+      <text x="480" y="60" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">the lawyers ask ChatGPT</text><text x="480" y="76" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">if the cases are real.</text><text x="480" y="90" font-family="Inter,Arial,sans-serif" font-size="10" fill="#D61F69" font-weight="700" text-anchor="middle">it says yes.</text>
+      <text x="610" y="150" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">judge orders copies;</text><text x="610" y="164" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">what comes back is</text><text x="610" y="178" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">fabricated too</text>
+      <text x="720" y="60" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C" font-weight="700" text-anchor="middle">June 22, 2023</text><text x="720" y="76" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">case dismissed;</text><text x="720" y="90" font-family="Inter,Arial,sans-serif" font-size="10" fill="#14181D" text-anchor="middle">lawyers fined $5,000</text>
+      <path d="M200,128 L200,200" stroke="#FF3D8A" stroke-width="1.5" stroke-dasharray="4 3"/><text x="206" y="214" font-family="Inter,Arial,sans-serif" font-size="10" fill="#D61F69" font-style="italic">the ten-minute check that would have ended it here: look the cases up in the real database</text>
+    </svg>
+    <figcaption>The case, in order. Notice the step in pink: asking the machine whether its own output was real. That check was worthless for a reason section 2.1 explains, and the check that would have worked took ten minutes.</figcaption>
+  </figure>
 
-<section id="s4">
-  <div class="shead"><span class="num">4</span><h2>The asymmetry — and the dividend</h2></div>
-  <p>Put the two cases side by side and the common structure emerges. The phantom citations took seconds to generate and hours of professional time to expose. The robocall cost a few hundred dollars and consumed investigators, regulators, and courts for years. This is the chapter's central economic fact: <strong>generation is cheap and verification is expensive — and the gap is widening.</strong> Any system where attacking costs pennies and defending costs hours has a stability problem, and "the information environment" is now such a system.</p>
+  <p>Here's what makes it a chapter case rather than a funny story: it keeps happening. Courts and researchers now track AI-fabricated citations in legal filings, and the running counts are in the hundreds, after every lawyer in America heard about the first one. The lesson isn't that some lawyers are lazy. It's structural: the fabrication arrives pre-formatted in the <em>genre of reliability</em>. A phantom citation looks exactly like a real one; the fluency that makes the tool useful is the same fluency that makes its failures invisible. Monday's discussion hands you two of the actual phantom citations from the actual case and asks how you'd catch them, with a clock running, for a reason section 2.2 explained.</p>
+
+  <p><strong>The five critical AI questions, run on this case:</strong></p>
+  <h3 class="sub"><span>What this AI is, and how it works</span> Question 1: what is the AI system, and what does it do?</h3>
+  <p>Generative AI in its purest form: a general chatbot asked to do a retrieval task it was never built for. The five parts: <strong>data</strong>, the internet's text, including a great deal of legal writing, which is why the phantoms were so well-formed; <strong>model</strong>, a plausibility engine with no lookup step; <strong>output</strong>, a brief's worth of citations, real and fake in the same voice; <strong>feedback loop</strong>, none that mattered here, though every fabricated citation now in a court record is a document the next model may read; <strong>humans</strong>, a lawyer who treated a writer as a librarian, opposing counsel who was paid to check, and a judge. Beyond the one case, the truth problem is three chapters working together: the model that fabricates, the platforms that distribute, and the recommendation systems from Chapter 3 that decide what spreads.</p>
+
+  <h3 class="sub"><span>Who benefits, and who doesn't</span> Question 2: why does it exist, and who benefits?</h3>
+  <p>The tool exists to produce plausible text cheaply, at any volume. Who benefits: anyone who needs a lot of words fast, and anyone for whom plausible is enough: a lawyer in a hurry, a campaign, a scammer with a voice sample. Who doesn't: the client whose case was dismissed for his lawyers' shortcut; the court, which spent its time on a brief that should never have been filed; and, once the counts reached the hundreds, every honest lawyer whose real citations now get a second look. Generation is cheap; verification is expensive; that gap is the business model, and the costs land on the people doing the checking.</p>
+
+  <h3 class="sub"><span>When it fails, who finds out</span> Question 3: what happens when it fails, and who finds out?</h3>
+  <p>It fails as epistemic pollution: no crash, no recall, just a rising cost of knowing anything. Who finds out is the asymmetry question: whoever can afford verification. In Avianca, opposing counsel was paid to check, which is why this one was caught, and why it became a case at all. Most of life has no such adversary. The fabricated statistic in a term paper, the invented quote in a marketing deck, the phantom source in a news summary: those get found out later, or never.</p>
+
+  <h3 class="sub"><span>Business implications</span> What this means for anyone who ships words</h3>
+  <p>Every business now produces text with these tools, and the Avianca lawyers are the case study nobody wants to be. Three lessons. First, know which task you're asking for. Drafting, summarizing, and rephrasing are what the model does; retrieving facts is not, unless it's grounded, and a company that confuses the two has a Chapter 3 "narrator, not decider" problem with legal exposure. Second, the check has to be in the workflow, not in the good intentions. "Someone reviews it" fails the way "on the loop" fails in Chapter 7; "every citation links to its source before it leaves" holds. Third, the signature rule: whatever your company publishes with AI, a named person signs, and that person checked anything the company could be held to. The costs are the minutes the lawyer didn't spend, multiplied across a company, plus grounded tools that cost more than a free chatbot. The alternative cost was a dismissed case, a sanction, and a name that now appears in every textbook on the subject, including this one.</p>
+
+  <h3 class="sub"><span>Societal implications</span> Question 4: who's saying that, and how would we know?</h3>
+  <p>"The AI confirmed the cases were real" is what the lawyer said the AI said. A chatbot's assurance about its own output is a claim from a source with no way to check itself. What would settle it: the docket, which took ten minutes. That's the whole lesson, and it scales up. A society that can't afford the ten minutes, or has been talked out of believing what the ten minutes show, is the liar's dividend at full size. The structural answers are the ones in section 2.4, plus the institutions that do expensive checking for a living: courts, journalism, science. All three are under-funded relative to what generation now costs, and deciding to pay for referees is a political choice, which is Chapter 11's subject.</p>
+
+  <h3 class="sub"><span>How to make it beneficial</span> Question 5: keep it, fix it, or drop it, and what does that cost?</h3>
+  <ul class="decide">
+    <li><strong>Keep</strong> the tool for drafts, summaries, and the argument you forgot. The cost: the discipline to remember which task you're in.</li>
+    <li><strong>Fix it:</strong> ground it, so every claim links to a source; sign what you produce; check anything you'd be held to. The cost is the ten minutes the lawyer didn't spend, and paid tools instead of free ones.</li>
+    <li><strong>Drop it</strong> where the checker doesn't exist, and say what knowing costs when it becomes a luxury good.</li>
+  </ul>
   <div class="concept">
-    <div class="term">The verification asymmetry</div>
-    <p>Fabricating content costs seconds and cents; checking it costs minutes, expertise, and institutional time. Whoever benefits from noise can now produce it faster than anyone can clean it up. Most of what this chapter recommends is, one way or another, an attempt to cheapen verification.</p>
+    <div class="term">How to make it good</div>
+    <p>The lawyers' mistake wasn't using the tool. It was using it as a source. <em>Keep</em> AI for what it's good at in legal work: summarizing a long record, drafting a first pass, finding the argument you forgot. <em>Fix</em> the workflow so that every citation it produces is checked against the real database before it leaves the office, which is exactly what grounded legal research tools now do; the cost is the minutes that checking takes, which is the point. <em>Drop</em> asking a general chatbot to find cases at all. The cost is nothing, because it was never able to. And keep section 2.5 in view: the same machine that wrote the phantoms is, pointed the other way and paid for being right, the best correction tool anyone has built. The lawyers had the good version available. They asked it the wrong kind of question.</p>
   </div>
-  <p>And the deepest damage doesn't come from the fakes. It comes from what the <em>possibility</em> of fakes does to real evidence. Legal scholars call it the <em>liar's dividend</em>: once everyone knows audio can be faked, anyone caught on real audio can say "deepfake" — and some people will believe them, and everyone else has to do work to prove otherwise. The technology pays dishonest people a dividend without their generating anything at all. Follow that to its end state and you get the real stakes of this chapter: not a world where people believe false things, but a world where people can't be made to believe true ones — where every inconvenient fact has a plausible exit. A society can survive some lies. It cannot govern itself without a shared way to settle what happened.</p>
-</section>
 
-<section id="s5">
-  <div class="shead"><span class="num">5</span><h2>Question it &amp; decide</h2></div>
-  <div class="callout">
-    <div class="label">The five questions, applied</div>
-    <div class="fourq">
-      <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> Generative AI in its purest form, plus the full stack it runs on: the model that fabricates, the platforms that distribute, and the engagement feeds from Chapter 2 that decide what spreads. The truth problem is three chapters working together.</p></div>
-      <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> To produce plausible text and audio cheaply, at any volume. Who benefits: anyone who needs a lot of words fast, and anyone for whom plausible is enough: a lawyer in a hurry, a campaign, a scammer with a voice sample. Generation is cheap; verification is expensive; that gap is the business model.</p></div>
-      <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> Epistemic pollution: no crash, no recall, just a rising cost of knowing anything. Who finds out is the asymmetry question: whoever can afford verification. In Avianca, opposing counsel was paid to check. Most of life has no such adversary.</p></div>
-      <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> "The AI confirmed the cases were real" is what the lawyer said the AI said. A chatbot's assurance about its own output is a claim from a source with no way to check itself. What would settle it: the docket, which took ten minutes. That's the whole lesson.</p></div>
-      <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Keep the tool for drafts. Fix it: whatever we produce with AI, we sign, and we check anything we'd be held to; the cost is the ten minutes the lawyer didn't spend. Drop it where the checker doesn't exist, and say what knowing costs when it becomes a luxury good.</p></div>
-    </div>
-  </div>
-  <p><strong>Deciding</strong> operates at two levels. Personal: adopt a verification protocol and make it a reflex — the lab builds yours, and Think · Ask · Judge · Reflect has been rehearsing it all quarter. The Judge step was always the point; this chapter just showed you the stakes. Structural: personal vigilance doesn't fix an asymmetry — cheapening verification does. That means provenance standards that let cameras cryptographically sign what they capture, platform accountability for what gets amplified, institutions (courts, journalism, science) funded to do the expensive checking — and it means deciding, as citizens, that we'll pay for referees. The mature position, one last time, refuses both exits: not "trust nothing" (that's the liar's dividend winning) and not "it'll sort itself out" (the asymmetry says it won't). See it. Question it. Decide. That was never advice about AI. It was advice about being a citizen of what comes next.</p>
-</section>
-
-<section id="s6">
-  <div class="shead"><span class="num">6</span><h2>Key terms</h2></div>
-  <div class="terms">
-    <div class="term-card"><div class="t">Plausibility optimization</div><p>What language models actually do: produce the most likely continuation. Truth is a frequent correlate, not the target.</p></div>
-    <div class="term-card"><div class="t">Hallucination</div><p>Confident fabrication — the plausibility engine running where plausible and true diverge. Not a separable bug.</p></div>
-    <div class="term-card"><div class="t">Deepfake</div><p>AI-fabricated audio, image, or video of a real person. The end of self-authenticating media.</p></div>
-    <div class="term-card"><div class="t">Verification asymmetry</div><p>Generation costs seconds; checking costs hours. The economics underneath every case in this chapter.</p></div>
-    <div class="term-card"><div class="t">The liar's dividend</div><p>The bonus fakery pays the dishonest: real evidence becomes deniable. The deepest damage runs through true things, not false ones.</p></div>
-    <div class="term-card"><div class="t">Provenance</div><p>Cryptographic content credentials — cameras and tools signing what they produce — the leading attempt to make verification cheap again.</p></div>
-  </div>
-</section>
-
-<section id="s7">
-  <div class="shead"><span class="num">7</span><h2>Discussion questions</h2></div>
+  <h3 class="sub"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
   <div class="ticket">
-    <div class="label">For Monday's discussion, alongside Chapter 11 · these also help with final exam review</div>
+    <div class="label">Thinking critically · for Monday's discussion, alongside Chapter 11 · one question each, answered by you, not by the chapter. Plus Monday's debate, assigned sides then switch: verification should be required of the producer, not the platform.</div>
     <ol>
-      <li>Explain "the machine is never lying and never telling the truth" to someone who missed the quarter — and why that's more useful than calling AI "unreliable." Three sentences.</li>
-      <li>The Avianca lawyers asked the chatbot if the cases were real, and it said yes. Using this chapter's mechanism, explain why that check was worthless — and name the check that would have worked, in under a minute.</li>
-      <li>Find the liar's dividend in miniature somewhere in your own life or feed: a moment where "that could be fake" did work for someone. What would have settled it, and what did settling it cost?</li>
-      <li>Review question — connect two chapters in three sentences: how do Chapter 2's seeming and engagement loops combine with this chapter's plausibility machines into one problem? (This synthesis is exam material.)</li>
-      <li>Your working stance, final revision: Chapter 2 asked what's human that no dial can turn up. After ten chapters, answer again — same question, everything you now know. Bring both versions Monday; the distance between them is the course.</li>
+      <li><strong>Q1 · What is it, and what does it do?</strong> Explain "the machine is never lying and never telling the truth" to someone who missed the quarter, in three sentences, and say why that's more useful than calling AI "unreliable." Then name one task you give a chatbot that is retrieval, and what you'd have to ground it in.</li>
+      <li><strong>Q2 · Why does it exist, and who benefits?</strong> Generation is cheap, verification is expensive, and the gap is the business model. Name two parties who benefit from that gap and one who pays for it, in a case that isn't law or elections.</li>
+      <li><strong>Q3 · What happens when it fails, and who finds out?</strong> The Avianca lawyers asked the chatbot if the cases were real, and it said yes. Using this chapter's mechanism, explain why that check was worthless, name the check that would have worked in under a minute, and say who in most workplaces is paid to do it. Usually nobody; say what that means.</li>
+      <li><strong>Q4 · Who's saying that, and how would we know?</strong> Find the liar's dividend in miniature somewhere in your own life or feed: a moment where "that could be fake" did work for someone. Who said it, what did they gain, what would have settled it, and what did settling it cost?</li>
+      <li><strong>Q5 · Keep it, fix it, or drop it, and what does that cost?</strong> Keep, fix, or drop: your own verification protocol. Write the three checks you'll run before you repeat anything a model tells you, price each in minutes, and say which one you'll skip when you're in a hurry. That's the one to fix.</li>
     </ol>
   </div>
 </section>
 
+<section id="s4">
+  <div class="shead"><span class="num">4</span><h2>Decide: the reflex, and the referees</h2></div>
+  <p>Deciding operates at two levels. <strong>Personal:</strong> adopt a verification protocol and make it a reflex. Question 4 has been rehearsing it all quarter. Asking how we'd know was always the point; this chapter just showed you the stakes. <strong>Structural:</strong> personal vigilance doesn't fix an asymmetry; cheapening verification does. That means provenance standards that let cameras sign what they capture, grounded tools that make claims clickable, platform accountability for what gets amplified, institutions funded to do the expensive checking, and it means deciding, as citizens, that we'll pay for referees.</p>
+  <p>The mature position, one last time, refuses both exits: not "trust nothing" (that's the liar's dividend winning) and not "it'll sort itself out" (the asymmetry says it won't). See it. Question it. Decide. That was never advice about AI. It was advice about being a citizen of what comes next.</p>
+</section>
+
+<section id="s5">
+  <div class="shead"><span class="num">5</span><h2>Key terms</h2></div>
+  <div class="terms">
+    <div class="term-card"><div class="t">Plausibility optimization</div><p>What language models actually do: produce the most likely continuation. Truth is a frequent correlate, not the target.</p></div>
+    <div class="term-card"><div class="t">Hallucination</div><p>Confident fabrication, the plausibility engine running where plausible and true diverge. Not a separable bug.</p></div>
+    <div class="term-card"><div class="t">Deepfake</div><p>AI-fabricated audio, image, or video of a real person. The end of self-authenticating media.</p></div>
+    <div class="term-card"><div class="t">Verification asymmetry</div><p>Generation costs seconds; checking costs hours. The economics underneath every case in this chapter.</p></div>
+    <div class="term-card"><div class="t">The liar's dividend</div><p>The bonus fakery pays the dishonest: real evidence becomes deniable. The deepest damage runs through true things, not false ones.</p></div>
+    <div class="term-card"><div class="t">The objective decides</div><p>A feed is paid for attention; a chatbot is judged on being right. Same raw material, opposite failure modes, and the difference is a design choice.</p></div>
+    <div class="term-card"><div class="t">Grounding</div><p>Connecting a model to a real database so every claim has to point at a document that exists. The fix for phantom citations.</p></div>
+    <div class="term-card"><div class="t">Provenance</div><p>Cryptographic content credentials, cameras and tools signing what they produce, the leading attempt to make real media provable.</p></div>
+  </div>
+</section>
+
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <p>Verified 17 Sep 2026. <em>Mata v. Avianca</em>: the June 22, 2023 sanctions order by Judge P. Kevin Castel (S.D.N.Y.), the $5,000 fine, and the sequence of events as summarized in the linked reference, which cites the court filings; the phantom citation in the section 2.1 diagram is one of the fabricated cases named in the record. The New Hampshire robocall: the consultant's trial testimony that he paid $150 to have the recording made and the jury's acquittal on all counts (AP via WBUR, June 2025, linked); the FCC's $6 million forfeiture finalized September 26, 2024 (linked). Coverage at the time of the calls reported higher figures for the whole operation; the $150 is his own sworn figure for the recording. The running count of fabricated citations in court filings refers to public trackers maintained by legal researchers and is approximate. Section 2.5: Costello, Pennycook, and Rand, Science 385 (September 13, 2024), 2,190 participants, roughly 20 percent reduction, durable at two months; MIT Sloan's summary; the 2025 antisemitic-conspiracy replication (Rabb et al., with the ADL, N = 1,224, Claude 3.5 Sonnet); Science's editorial expression of concern on the 2024 paper (June 11, 2026, visible on the PubMed record) is noted and its status should be rechecked before class; the symmetric-persuasion finding is a 2026 preprint (linked) and should be read as such. Grounding and provenance are described generally; C2PA is the Coalition for Content Provenance and Authenticity's standard, and its adoption status is as of the verification date. Found an error? Tell your instructor; corrections are course content.</p>
+</details>
+
 <div class="nextbar">
   <a href="chapter-09-economy-lab.html"><span class="dir">← Back</span>Lab 9 · Run the Firm</a>
-  <a href="chapter-10-truth-lab.html" style="text-align:right;"><span class="dir">Next →</span>Lab 10 · The Phantom Docket</a>
+  <a href="chapter-11-rules.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 11 · Who Makes the Rules?</a>
 </div>
 
 </main>
@@ -336,7 +552,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <footer class="foot">
   <div class="wrap">
     <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
-    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">A free, critical field guide to AI, for the people who'll live with it, not just build it.</p>
     <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
   </div>
 </footer>
