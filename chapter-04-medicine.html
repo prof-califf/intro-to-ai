@@ -250,6 +250,20 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 .hopnum{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--pink);color:#fff;font-size:.72rem;font-weight:700;margin-right:6px;vertical-align:middle}
 .hopnum.arc{width:auto;padding:0 7px;border-radius:10px;background:transparent;color:var(--pinktext);border:1.5px dashed var(--pink);font-size:.68rem}
 </style>
+<style>
+  .srcnote{border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0;margin:34px 0}
+  .srcnote > summary{cursor:pointer;padding:14px 20px;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1rem;color:var(--ink);list-style:none}
+  .srcnote > summary::-webkit-details-marker{display:none}
+  .srcnote > summary::after{content:"\25BE";float:right;color:var(--pinktext);font-size:.8rem}
+  .srcnote[open] > summary::after{content:"\25B4"}
+  .srcnote .srcbody{padding:0 20px 18px}
+  .srcnote .srcintro{font-size:.9rem;color:var(--gray);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+  .srcnote dl{margin:0}
+  .srcnote dt{font-family:'Inter',Arial,sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:14px 0 4px}
+  .srcnote dd{margin:0;font-size:.9rem;line-height:1.55;color:var(--gray)}
+  .srcnote > p, .srcnote .srcbody > p{font-size:.9rem;line-height:1.55;color:var(--gray)}
+  .srcnote .srcfoot{margin-top:18px;padding-top:12px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--gray)}
+</style>
 </head>
 <body>
 
@@ -991,7 +1005,29 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
-  <p>The case: Penn Medicine's film (linked and embedded) is the source for David Fajgenbaum's illness and remission, Joseph's diagnosis of POEMS syndrome, the failed treatment, the cancelled stem cell transplant, the hospice conversation, Tara's email, the three multiple myeloma chemotherapy drugs that Fajgenbaum considered and that the model also scored highly, the decision to treat, and Joseph's recovery, transplant, and remission. Joseph's story is told in his own words on Penn's public channel and is used here as he told it. Fajgenbaum's description of the biomedical knowledge graph and of training on known treatments is his own, from the same film, paraphrased. The 4,000-approved-drugs figure and the eleven-plus years of remission are his, also from the film; the 18,000 known diseases and roughly 9,000 without an approved treatment are Every Cure's published counts. Every Cure's founding (2022), the $48.3 million ARPA-H contract of February 2024, and the up-to-$76 million phase two of February 2026 (twenty preclinical programs, ten clinical trials) are from Every Cure's own announcements (linked) and ARPA-H's releases; these are the organization's claims about itself and are presented as such. Graph scale (about 8.9 million nodes, 33 million relationships, five integrated source graphs, 58 node categories, 76 relationship types) is from Every Cure's public MATRIX data dashboard at data.dev.everycure.org, v0.15.x releases, 2026; these numbers change between releases. Section 2.4: the hospital alert example uses round, illustrative numbers. Facial recognition: Buolamwini and Gebru, "Gender Shades," Proceedings of Machine Learning Research, 2018 (error rates up to 34.7 percent for darker-skinned women versus 0.8 percent for lighter-skinned men across three commercial systems); wrongful arrests on facial recognition matches, including Robert Williams in Detroit in 2020, as reported by the ACLU of Michigan and the New York Times. The distribution-shift figure's 0.84 and 0.64 are illustrative, simulated numbers. Section 2.5: Emanuel, Baker-Butler, Khosla, and Khosla, JAMA, August 2026 (linked); the 74 / 76 / 90 percent figures are from Goh et al., JAMA Network Open, October 2024 (linked), as summarized in Robert Wachter's August 27, 2026 reply (linked), which is also the source for the Oxford study description and the doorman fallacy; Wachter's adviser role at Curai is his own disclosure. The AMA response is as reported by Fierce Healthcare and Wired, August 2026. Table 4: MASAI, Hernström et al., The Lancet Digital Health, February 2025; the fetal-ultrasound trial, Lei et al., The Lancet Digital Health, September 2026 (the Lancet page blocks automated access, so click-verify; the roughly nine-point sensitivity gain should be confirmed against the paper); PROMETHEUS, NEJM AI, 2025. Aspirin and Ozempic as repurposing examples are historical and stable. The fourth takeaway's claim that graph models favor well-connected nodes (degree bias in link prediction) is a documented phenomenon in the graph-learning literature; that Every Cure trains on known treatments is Fajgenbaum's own description in the Penn video. MATRIX's inclusion in TIME's Best Inventions of 2025 is from TIME's published list. The photo's licensed use is pending. Verified 16 September 2026. Found an error? Tell your instructor; corrections are course content.</p>
+  <div class="srcbody">
+    <p class="srcintro">Verified 16 September 2026. Where a claim is an organization's account of itself, it says so. Two items are flagged below as still needing a check.</p>
+    <dl>
+      <dt>The case: Joseph and Every Cure</dt>
+      <dd>Penn Medicine's film (linked and embedded) is the source for David Fajgenbaum's illness and remission, Joseph's diagnosis of POEMS syndrome, the failed treatment, the cancelled stem cell transplant, the hospice conversation, Tara's email, the three multiple myeloma chemotherapy drugs Fajgenbaum considered and the model also scored highly, the decision to treat, and Joseph's recovery, transplant and remission. Joseph's story is told in his own words on Penn's public channel and is used here as he told it. Fajgenbaum's description of the biomedical knowledge graph and of training on known treatments is his own, from the same film, paraphrased.</dd>
+
+      <dt>The numbers</dt>
+      <dd>The 4,000 approved drugs and the eleven-plus years of remission are Fajgenbaum's, from the film. The 18,000 known diseases and roughly 9,000 without an approved treatment are Every Cure's published counts. Every Cure's founding (2022), the $48.3 million ARPA-H contract of February 2024 and the up-to-$76 million phase two of February 2026 (twenty preclinical programs, ten clinical trials) are from Every Cure's own announcements (linked) and ARPA-H's releases; these are the organization's claims about itself and are presented as such. Graph scale (about 8.9 million nodes, 33 million relationships, five integrated source graphs, 58 node categories, 76 relationship types) is from Every Cure's public MATRIX data dashboard, v0.15.x releases, 2026; these numbers change between releases. MATRIX's inclusion in TIME's Best Inventions of 2025 is from TIME's published list.</dd>
+
+      <dt>How it fails (2.4)</dt>
+      <dd>The hospital alert example uses round, illustrative numbers, and the distribution-shift figure's 0.84 and 0.64 are simulated. Facial recognition: Buolamwini and Gebru, "Gender Shades," <i>Proceedings of Machine Learning Research</i>, 2018, with error rates up to 34.7 percent for darker-skinned women against 0.8 percent for lighter-skinned men across three commercial systems. Wrongful arrests on facial recognition matches, including Robert Williams in Detroit in 2020, as reported by the ACLU of Michigan and the <i>New York Times</i>.</dd>
+
+      <dt>The human in the loop (2.5)</dt>
+      <dd>Emanuel, Baker-Butler, Khosla and Khosla, <i>JAMA</i>, August 2026 (linked). The 74, 76 and 90 percent figures are from Goh et al., <i>JAMA Network Open</i>, October 2024 (linked), as summarized in Robert Wachter's August 27, 2026 reply (linked), which is also the source for the Oxford study description and the doorman fallacy; Wachter's adviser role at Curai is his own disclosure. The AMA response is as reported by Fierce Healthcare and Wired, August 2026.</dd>
+
+      <dt>Table 4: the trials</dt>
+      <dd>MASAI: Hernström et al., <i>The Lancet Digital Health</i>, February 2025. The fetal-ultrasound trial: Lei et al., <i>The Lancet Digital Health</i>, September 2026. <b>The Lancet page blocks automated access, so click-verify; the roughly nine-point sensitivity gain should be confirmed against the paper.</b> PROMETHEUS: <i>NEJM AI</i>, 2025. Aspirin and Ozempic as repurposing examples are historical and stable.</dd>
+
+      <dt>Still open</dt>
+      <dd>The fourth takeaway's claim that graph models favor well-connected nodes (degree bias in link prediction) is a documented phenomenon in the graph-learning literature; that Every Cure trains on known treatments is Fajgenbaum's own description in the Penn video. <b>The photo's licensed use is pending.</b></dd>
+    </dl>
+    <p class="srcfoot">Found an error? Tell your instructor; corrections are course content.</p>
+  </div>
 </details>
 
 <div class="nextbar">

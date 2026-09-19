@@ -241,6 +241,20 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 .srcnote p{margin:10px 0 2px;color:var(--gray);}
 .ticket .label a.inline{color:var(--pink);}
 </style>
+<style>
+  .srcnote{border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0;margin:34px 0}
+  .srcnote > summary{cursor:pointer;padding:14px 20px;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1rem;color:var(--ink);list-style:none}
+  .srcnote > summary::-webkit-details-marker{display:none}
+  .srcnote > summary::after{content:"\25BE";float:right;color:var(--pinktext);font-size:.8rem}
+  .srcnote[open] > summary::after{content:"\25B4"}
+  .srcnote .srcbody{padding:0 20px 18px}
+  .srcnote .srcintro{font-size:.9rem;color:var(--gray);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+  .srcnote dl{margin:0}
+  .srcnote dt{font-family:'Inter',Arial,sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:14px 0 4px}
+  .srcnote dd{margin:0;font-size:.9rem;line-height:1.55;color:var(--gray)}
+  .srcnote > p, .srcnote .srcbody > p{font-size:.9rem;line-height:1.55;color:var(--gray)}
+  .srcnote .srcfoot{margin-top:18px;padding-top:12px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--gray)}
+</style>
 </head>
 <body>
 
@@ -595,8 +609,10 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
-  <p>This chapter combines the book's earlier markets and work material, 16 Sep 2026. No facts were changed in the merge; wording was tightened and em dashes removed. Carried-over verification: Krugman essay and Stanford AI Adoption Monitor (verified 3 Sep 2026); Canaries study, August 2026 revision, 19% and 15% figures, and the NPR story (verified 3 Sep 2026). The NPR link was built from a verified mirror's path because NPR blocks automated fetching: click-check it before class.</p>
+  <div class="srcbody">
+<p>This chapter combines the book's earlier markets and work material, 16 Sep 2026. No facts were changed in the merge; wording was tightened and em dashes removed. Carried-over verification: Krugman essay and Stanford AI Adoption Monitor (verified 3 Sep 2026); Canaries study, August 2026 revision, 19% and 15% figures, and the NPR story (verified 3 Sep 2026). The NPR link was built from a verified mirror's path because NPR blocks automated fetching: click-check it before class.</p>
   <p>Things to recheck before Week 9: the Canaries Dashboard's latest gap figure, and the Adoption Monitor's latest adoption numbers. Corrections are course content: if a number here has moved by the time you read it, that change is worth bringing to class.</p>
+  </div>
 </details>
 
 <div class="nextbar">

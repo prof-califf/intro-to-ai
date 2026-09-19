@@ -216,6 +216,20 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   svg{max-width:100% !important}
 }
 </style>
+<style>
+  .srcnote{border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0;margin:34px 0}
+  .srcnote > summary{cursor:pointer;padding:14px 20px;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1rem;color:var(--ink);list-style:none}
+  .srcnote > summary::-webkit-details-marker{display:none}
+  .srcnote > summary::after{content:"\25BE";float:right;color:var(--pinktext);font-size:.8rem}
+  .srcnote[open] > summary::after{content:"\25B4"}
+  .srcnote .srcbody{padding:0 20px 18px}
+  .srcnote .srcintro{font-size:.9rem;color:var(--gray);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+  .srcnote dl{margin:0}
+  .srcnote dt{font-family:'Inter',Arial,sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:14px 0 4px}
+  .srcnote dd{margin:0;font-size:.9rem;line-height:1.55;color:var(--gray)}
+  .srcnote > p, .srcnote .srcbody > p{font-size:.9rem;line-height:1.55;color:var(--gray)}
+  .srcnote .srcfoot{margin-top:18px;padding-top:12px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--gray)}
+</style>
 </head>
 <body>
 
@@ -534,7 +548,9 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
-  <p>Verified 17 Sep 2026 against the linked sources. Wrapped 2025 features and rules (data window, 30-second listens, Private Mode exclusion, eligibility thresholds) from Spotify's newsroom guides of December 3 and 5, 2025. The Listening Archive's heuristics and language-model summaries from Spotify Engineering (March 2026); the 1.4 billion reports and 350 million users figure as reported by InfoQ (April 2026). The 2024 NotebookLM podcast from TechCrunch (December 4, 2024); the "AI slop" reception and 2025's analog design from Fast Company (December 3, 2025). Discovery Mode: the 2020 congressional letter (Reps. Nadler and Johnson), The Guardian (February 19, 2025) on the royalty reduction and disclosure, and Forbes and Billboard (November 5, 2025) on the class action; the lawsuit is pending and its claims are allegations. General mechanics of collaborative and content-based filtering are standard; specifics of Spotify's current models are not public beyond what the company publishes. Corrections are course content.</p>
+  <div class="srcbody">
+<p>Verified 17 Sep 2026 against the linked sources. Wrapped 2025 features and rules (data window, 30-second listens, Private Mode exclusion, eligibility thresholds) from Spotify's newsroom guides of December 3 and 5, 2025. The Listening Archive's heuristics and language-model summaries from Spotify Engineering (March 2026); the 1.4 billion reports and 350 million users figure as reported by InfoQ (April 2026). The 2024 NotebookLM podcast from TechCrunch (December 4, 2024); the "AI slop" reception and 2025's analog design from Fast Company (December 3, 2025). Discovery Mode: the 2020 congressional letter (Reps. Nadler and Johnson), The Guardian (February 19, 2025) on the royalty reduction and disclosure, and Forbes and Billboard (November 5, 2025) on the class action; the lawsuit is pending and its claims are allegations. General mechanics of collaborative and content-based filtering are standard; specifics of Spotify's current models are not public beyond what the company publishes. Corrections are course content.</p>
+  </div>
 </details>
 
 <div class="nextbar">

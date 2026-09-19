@@ -216,6 +216,20 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   svg{max-width:100% !important}
 }
 </style>
+<style>
+  .srcnote{border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0;margin:34px 0}
+  .srcnote > summary{cursor:pointer;padding:14px 20px;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1rem;color:var(--ink);list-style:none}
+  .srcnote > summary::-webkit-details-marker{display:none}
+  .srcnote > summary::after{content:"\25BE";float:right;color:var(--pinktext);font-size:.8rem}
+  .srcnote[open] > summary::after{content:"\25B4"}
+  .srcnote .srcbody{padding:0 20px 18px}
+  .srcnote .srcintro{font-size:.9rem;color:var(--gray);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+  .srcnote dl{margin:0}
+  .srcnote dt{font-family:'Inter',Arial,sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:14px 0 4px}
+  .srcnote dd{margin:0;font-size:.9rem;line-height:1.55;color:var(--gray)}
+  .srcnote > p, .srcnote .srcbody > p{font-size:.9rem;line-height:1.55;color:var(--gray)}
+  .srcnote .srcfoot{margin-top:18px;padding-top:12px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--gray)}
+</style>
 </head>
 <body>
 
@@ -530,7 +544,9 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
-  <p>Verified 17 Sep 2026. The pivot's contracts and policy changes (OpenAI and Anduril, Anthropic with Palantir and Amazon, Meta's Llama for defense contractors, U.S. military programs) are as reported in the linked and assigned coverage at the time of writing. The July 2026 sandbox incidents and the calls to slow development: NPR (September 12, 2026, linked) and the companies' own disclosures; the "above ten percent" figure is one researcher's stated estimate, not a consensus. The Summer 2026 AI Safety Index grades: Future of Life Institute (linked). The kill chain is public military doctrine (find, fix, track, target, engage, assess), described generally; nothing in this chapter is a claim about a specific classified system. The Anthropic disclosure is a conflict-of-interest statement written by the conflicted party and should be read that way; it's reviewed by the instructor every term. Found an error? Tell your instructor; corrections are course content.</p>
+  <div class="srcbody">
+<p>Verified 17 Sep 2026. The pivot's contracts and policy changes (OpenAI and Anduril, Anthropic with Palantir and Amazon, Meta's Llama for defense contractors, U.S. military programs) are as reported in the linked and assigned coverage at the time of writing. The July 2026 sandbox incidents and the calls to slow development: NPR (September 12, 2026, linked) and the companies' own disclosures; the "above ten percent" figure is one researcher's stated estimate, not a consensus. The Summer 2026 AI Safety Index grades: Future of Life Institute (linked). The kill chain is public military doctrine (find, fix, track, target, engage, assess), described generally; nothing in this chapter is a claim about a specific classified system. The Anthropic disclosure is a conflict-of-interest statement written by the conflicted party and should be read that way; it's reviewed by the instructor every term. Found an error? Tell your instructor; corrections are course content.</p>
+  </div>
 </details>
 
 <div class="nextbar">
