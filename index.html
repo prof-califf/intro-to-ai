@@ -209,21 +209,28 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .how b{display:block;font-family:'Fraunces',serif;font-size:1.05rem;margin-bottom:6px}
 .how p{margin:0;font-size:.92rem;color:#3E454E}
 .fine2{font-size:.9rem;color:var(--gray)}
-.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:20px}
-.ccard{background:#fff;border:1px solid var(--rule);padding:18px 20px;display:flex;flex-direction:column}
-.ccard .cwk{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:6px}
-.ccard h3{font-family:'Fraunces',serif;font-size:1.25rem;margin:0 0 8px}
-.ccard h3 a{color:var(--ink);text-decoration:none}.ccard h3 a:hover{color:var(--pinktext)}
-.ccard p{font-size:.92rem;margin:0 0 10px;color:#3E454E}
-.ccard .clab{font-size:.88rem;color:#3E454E;background:#F7F7F4;border-left:3px solid var(--yellow);padding:8px 10px;margin-bottom:12px}
-.ccard .clab .lbl{font-weight:600;color:var(--ink)}
-.ccard .clinks{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px 16px;font-size:.85rem}
-.ccard .clinks a{color:var(--pinktext);text-decoration:none;font-weight:600}
-.ccard .cwk .cdays{color:var(--gray)}
-.ccard .centry{margin-bottom:4px}
-.ccard .centry+.centry{border-top:1px solid var(--rule);margin-top:12px;padding-top:12px}
-.ccard .centry .cnum{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:3px}
-.ccard .cnote{font-size:.85rem;color:var(--gray);margin:0 0 12px}
+.wkrow{border:1px solid var(--rule);background:#fff;border-radius:10px;overflow:hidden;margin:0 0 18px}
+.wkbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:10px;padding:14px 20px;background:var(--dark);color:#fff}
+.wkbar .wkn{font-family:'Fraunces',serif;font-weight:700;font-size:1rem;color:var(--yellow)}
+.wkbar .wkt{font-family:'Fraunces',serif;font-weight:600;font-size:1rem;color:#fff}
+.wkcols{display:grid}
+.wkcols.c2{grid-template-columns:1fr 1fr}
+.wkcols.c3{grid-template-columns:1fr 1fr 1fr}
+.wkcol{padding:16px 18px;border-left:1px solid var(--rule)}
+.wkcol:first-child{border-left:none}
+.wkday{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--pinktext);margin-bottom:6px}
+.wkcol h3{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;margin:0 0 6px;line-height:1.3}
+.wkcol h3 a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--pink)}
+.wkcol h3 a:hover{color:var(--pinktext)}
+.wkcol p{font-size:.88rem;color:#3E454E;margin:0}
+.wkcol.quiet h3{color:var(--gray);font-weight:500;font-style:italic;border:0}
+.wkcol.quiet p{color:var(--gray)}
+.wknote{border-top:1px solid var(--rule);background:#F7F7F4;padding:10px 18px;font-size:.85rem;color:var(--gray)}
+.wkrow.off .wkbar{background:#F7F7F4;color:var(--ink);border-bottom:1px solid var(--rule)}
+.wkrow.off .wkbar .wkn{color:var(--pinktext)}
+.wkrow.off .wkbar .wkt{color:var(--ink)}
+.wkrow.off .wknote{border-top:0;background:#fff}
+@media(max-width:700px){.wkcols.c2,.wkcols.c3{grid-template-columns:1fr}.wkcol{border-left:0;border-top:1px solid var(--rule)}.wkcol:first-child{border-top:0}}
 
 .masthead .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .masthead .cta a{display:inline-block;text-decoration:none;font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;border-radius:4px}
@@ -364,123 +371,193 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <section>
   <div class="shead"><span class="num">4</span><h2>The ten weeks</h2></div>
   <p>One chapter a week, starting in Week 2. Week 1 is Day 1 and Lab 0, with no chapter. Week 3 takes two chapters with one lab for both, and Week 10 takes the last three with no lab. Chapter 8 lands on Veterans Day week on purpose. Full dates are on <a href="schedule.html">the schedule</a>.</p>
-  <div class="cgrid">
-    <div class="ccard">
-      <div class="cwk">Week 1 <span class="cdays">· Wednesday only</span></div>
-      <div class="centry">
-        <div class="cnum">No chapter</div>
-        <h3>Day 1</h3>
-        <p>One session. What this course is, what it is not, and a lab instead of a reading. Chapter 1 is the reading for Monday of Week 2.</p>
+  <div class="weeks">
+    <div class="wkrow">
+      <div class="wkbar"><span class="wkn">Week 1 &middot; Sept 23 &ndash; 25</span><span class="wkt">First Contact</span></div>
+      <div class="wkcols c3">
+      <div class="wkcol quiet">
+        <div class="wkday">Monday</div>
+        <h3>No class</h3>
+        <p>The quarter begins Wednesday, September 23.</p>
       </div>
-      <div class="clab"><span class="lbl">Lab 0 · First Contact</span> Guess which everyday things are secretly AI, sort them by kind, call eight claims, and browse what people are building with AI.</div>
-      <div class="clinks"><a href="lab-00-first-contact.html">Open Lab 0 &rarr;</a></div>
+      <div class="wkcol">
+        <div class="wkday">Wednesday &middot; day 1</div>
+        <h3>What this course is</h3>
+        <p>What the course is, what it is not, and a lab instead of a reading. Chapter 1 is the reading for Monday of Week 2.</p>
+      </div>
+      <div class="wkcol">
+        <div class="wkday">Wednesday &middot; lab</div>
+        <h3><a href="lab-00-first-contact.html">Lab 0 &middot; First Contact</a></h3>
+        <p>Guess which everyday things are secretly AI, sort them by kind, call eight claims, and browse what people are building with AI.</p>
+      </div>
+      </div>
     </div>
-    <div class="ccard">
-      <div class="cwk">Week 2</div>
-      <div class="centry">
-        <div class="cnum">Chapter 1</div>
-        <h3><a href="chapter-01-what-is-ai.html">What Is AI?</a></h3>
+    <div class="wkrow">
+      <div class="wkbar"><span class="wkn">Week 2 &middot; Sept 28 &ndash; Oct 2</span><span class="wkt">What Is AI?</span></div>
+      <div class="wkcols c2">
+      <div class="wkcol">
+        <div class="wkday">Monday &middot; case</div>
+        <h3><a href="chapter-01-what-is-ai.html">Chapter 1: What Is AI?</a></h3>
         <p>Five moments that made AI, from ImageNet to ChatGPT, and the case everyone's arguing about right now: the AI agents that hacked a company and started a movement to slow AI down.</p>
       </div>
-      <div class="clab"><span class="lbl">Lab 1 · Inside the Machine</span> Train two tiny AIs yourself, break them, and run the five questions on your own.</div>
-      <div class="clinks"><a href="chapter-01-what-is-ai.html">Read the chapter &rarr;</a><a href="chapter-01-what-is-ai-lab.html">Open the lab &rarr;</a></div>
+      <div class="wkcol">
+        <div class="wkday">Wednesday &middot; lab</div>
+        <h3><a href="chapter-01-what-is-ai-lab.html">Lab 1 &middot; Inside the Machine</a></h3>
+        <p>Train two tiny AIs yourself, break them, and run the five questions on your own.</p>
+      </div>
+      </div>
     </div>
-    <div class="ccard">
-      <div class="cwk">Week 3 <span class="cdays">· Two chapters, one lab</span></div>
-      <div class="centry">
-        <div class="cnum">Chapter 2 · Monday</div>
-        <h3><a href="chapter-02-human.html">Seemingly Human</a></h3>
+    <div class="wkrow">
+      <div class="wkbar"><span class="wkn">Week 3 &middot; Oct 5 &ndash; 9</span><span class="wkt">Seemingly Human, and Systems That Know You</span></div>
+      <div class="wkcols c3">
+      <div class="wkcol">
+        <div class="wkday">Monday &middot; case</div>
+        <h3><a href="chapter-02-human.html">Chapter 2: Seemingly Human</a></h3>
         <p>Machines built to seem like they care, the chatbot people trusted like a therapist, and what the seeming does to us.</p>
       </div>
-      <div class="centry">
-        <div class="cnum">Chapter 3 · Wednesday</div>
-        <h3><a href="chapter-03-systems.html">Systems That Know You</a></h3>
-        <p>How recommendation systems guess what you want, the loop that shapes your taste, and Spotify Wrapped taken apart as an AI system, with a language model writing about your year.</p>
+      <div class="wkcol">
+        <div class="wkday">Wednesday &middot; case</div>
+        <h3><a href="chapter-03-systems.html">Chapter 3: Systems That Know You</a></h3>
+        <p>How recommendation systems guess what you want, the loop that shapes your taste, and Spotify Wrapped taken apart as an AI system.</p>
       </div>
-      <div class="clab"><span class="lbl">Lab 2 · The Seeming Test and the Feed</span> One lab for both chapters. Build a language model out of matchboxes and probe a real chatbot, then run the feed twice: once seeing only what the company sees, once with the meter they don't build.</div>
-      <div class="clinks"><a href="chapter-02-human.html">Chapter 2 &rarr;</a><a href="chapter-03-systems.html">Chapter 3 &rarr;</a><a href="chapter-02-human-lab.html">Open the lab &rarr;</a></div>
+      <div class="wkcol">
+        <div class="wkday">Wednesday &middot; lab</div>
+        <h3><a href="chapter-02-human-lab.html">Lab 2 &middot; The Seeming Test and the Feed</a></h3>
+        <p>One lab for both chapters. Build a language model out of matchboxes and probe a real chatbot, then run the feed twice: once seeing what the company sees, once with the meter they don't build.</p>
+      </div>
+      </div>
+      <div class="wknote">Two chapters this week, one lab for both.</div>
     </div>
-    <div class="ccard">
-      <div class="cwk">Week 4</div>
-      <div class="centry">
-        <div class="cnum">Chapter 4</div>
-        <h3><a href="chapter-04-medicine.html">Medicine</a></h3>
+    <div class="wkrow">
+      <div class="wkbar"><span class="wkn">Week 4 &middot; Oct 12 &ndash; 16</span><span class="wkt">Medicine</span></div>
+      <div class="wkcols c2">
+      <div class="wkcol">
+        <div class="wkday">Monday &middot; case</div>
+        <h3><a href="chapter-04-medicine.html">Chapter 4: Medicine</a></h3>
         <p>A doctor who cured himself, the AI hunting treatments for diseases nobody studies, and whether the doctor should step out of the loop.</p>
       </div>
-      <div class="clab"><span class="lbl">Lab 4 · Inside the Graph</span> Click through the knowledge graph and find a cure, then rewind history and watch it vanish.</div>
-      <div class="clinks"><a href="chapter-04-medicine.html">Read the chapter &rarr;</a><a href="chapter-04-medicine-lab.html">Open the lab &rarr;</a></div>
-    </div>
-    <div class="ccard">
-      <div class="cwk">Week 5 <span class="cdays">· Midterm this week</span></div>
-      <div class="centry">
-        <div class="cnum">Chapter 5</div>
-        <h3><a href="chapter-05-environment.html">Environment</a></h3>
-        <p>Data centers, reopened reactors, and the energy and water cost nobody publishes.</p>
+      <div class="wkcol">
+        <div class="wkday">Wednesday &middot; lab</div>
+        <h3><a href="chapter-04-medicine-lab.html">Lab 4 &middot; Inside the Graph</a></h3>
+        <p>Click through the knowledge graph and find a cure, then rewind history and watch it vanish.</p>
       </div>
-      <p class="cnote">Midterm Wednesday, October 21, covering Chapters 1 to 4 and Labs 0 to 4.</p>
-      <div class="clab"><span class="lbl">Lab 5 · The Footprint Machine</span> Run the numbers at four scales, then interrogate a live AI about its own footprint.</div>
-      <div class="clinks"><a href="chapter-05-environment.html">Read the chapter &rarr;</a><a href="chapter-05-environment-lab.html">Open the lab &rarr;</a></div>
+      </div>
     </div>
-    <div class="ccard">
-      <div class="cwk">Week 6</div>
-      <div class="centry">
-        <div class="cnum">Chapter 6</div>
-        <h3><a href="chapter-06-hiring-lending.html">Bias: Hiring &amp; Lending</a></h3>
+    <div class="wkrow">
+      <div class="wkbar"><span class="wkn">Week 5 &middot; Oct 19 &ndash; 23</span><span class="wkt">Environment, then the midterm</span></div>
+      <div class="wkcols c3">
+      <div class="wkcol">
+        <div class="wkday">Monday &middot; case + review</div>
+        <h3><a href="chapter-05-environment.html">Chapter 5: Environment</a></h3>
+        <p>Data centers, reopened reactors, and the energy and water cost nobody publishes. The case and discussion, then midterm review.</p>
+      </div>
+      <div class="wkcol">
+        <div class="wkday">Wednesday &middot; midterm</div>
+        <h3>Midterm</h3>
+        <p>Chapters 1 through 4 and Labs 0 through 4. In class, on Canvas.</p>
+      </div>
+      <div class="wkcol">
+        <div class="wkday">Lab &middot; take-home</div>
+        <h3><a href="chapter-05-environment-lab.html">Lab 5 &middot; The Footprint Machine</a></h3>
+        <p>Run the numbers at four scales, then interrogate a live AI about its own footprint. Take-home this week because of the midterm.</p>
+      </div>
+      </div>
+      <div class="wknote">Midterm Wednesday, October 21.</div>
+    </div>
+    <div class="wkrow">
+      <div class="wkbar"><span class="wkn">Week 6 &middot; Oct 26 &ndash; 30</span><span class="wkt">Bias in Hiring and Lending</span></div>
+      <div class="wkcols c2">
+      <div class="wkcol">
+        <div class="wkday">Monday &middot; case</div>
+        <h3><a href="chapter-06-hiring-lending.html">Chapter 6: Bias in Hiring &amp; Lending</a></h3>
         <p>The classifiers that read your r&eacute;sum&eacute; and price your loan, and how bias launders through them.</p>
       </div>
-      <div class="clab"><span class="lbl">Lab 6 · You Are the Auditor</span> Run a real audit on a live AI screener, one variable at a time.</div>
-      <div class="clinks"><a href="chapter-06-hiring-lending.html">Read the chapter &rarr;</a><a href="chapter-06-hiring-lending-lab.html">Open the lab &rarr;</a></div>
-    </div>
-    <div class="ccard">
-      <div class="cwk">Week 7</div>
-      <div class="centry">
-        <div class="cnum">Chapter 7</div>
-        <h3><a href="chapter-07-transportation.html">Transportation</a></h3>
-        <p>How a robotaxi drives, the three seats a human can sit in, and driverless cars with no driver to blame: Waymo, and the question "where is the human."</p>
+      <div class="wkcol">
+        <div class="wkday">Wednesday &middot; lab</div>
+        <h3><a href="chapter-06-hiring-lending-lab.html">Lab 6 &middot; You Are the Auditor</a></h3>
+        <p>Run a real audit on a live AI screener, one variable at a time.</p>
       </div>
-      <div class="clab"><span class="lbl">Lab 7 · You Are the City Council</span> Write the robotaxi permit, with every condition priced.</div>
-      <div class="clinks"><a href="chapter-07-transportation.html">Read the chapter &rarr;</a><a href="chapter-07-transportation-lab.html">Open the lab &rarr;</a></div>
+      </div>
+      <div class="wknote">Prototype project teams due Friday: four names and a rough idea.</div>
     </div>
-    <div class="ccard">
-      <div class="cwk">Week 8 <span class="cdays">· Veterans Day week</span></div>
-      <div class="centry">
-        <div class="cnum">Chapter 8</div>
-        <h3><a href="chapter-08-ethics-war.html">Ethics &amp; War</a></h3>
+    <div class="wkrow">
+      <div class="wkbar"><span class="wkn">Week 7 &middot; Nov 2 &ndash; 6</span><span class="wkt">Transportation</span></div>
+      <div class="wkcols c2">
+      <div class="wkcol">
+        <div class="wkday">Monday &middot; case</div>
+        <h3><a href="chapter-07-transportation.html">Chapter 7: Transportation</a></h3>
+        <p>How a robotaxi drives, the three seats a human can sit in, and driverless cars with no driver to blame.</p>
+      </div>
+      <div class="wkcol">
+        <div class="wkday">Wednesday &middot; lab</div>
+        <h3><a href="chapter-07-transportation-lab.html">Lab 7 &middot; You Are the City Council</a></h3>
+        <p>Write the robotaxi permit, with every condition priced.</p>
+      </div>
+      </div>
+    </div>
+    <div class="wkrow">
+      <div class="wkbar"><span class="wkn">Week 8 &middot; Nov 9 &ndash; 13</span><span class="wkt">Ethics and War &middot; Veterans Day week</span></div>
+      <div class="wkcols c3">
+      <div class="wkcol">
+        <div class="wkday">Monday &middot; case</div>
+        <h3><a href="chapter-08-ethics-war.html">Chapter 8: Ethics &amp; War</a></h3>
         <p>The military pivot, autonomy in lethal force, and who grades the graders.</p>
       </div>
-      <p class="cnote">No Wednesday class. The lab starts Monday and finishes at home.</p>
-      <div class="clab"><span class="lbl">Lab 8 · The Red Lines</span> Eight defense contracts on your desk. Find your line. Started Monday in class, finished at home.</div>
-      <div class="clinks"><a href="chapter-08-ethics-war.html">Read the chapter &rarr;</a><a href="chapter-08-ethics-war-lab.html">Open the lab &rarr;</a></div>
+      <div class="wkcol">
+        <div class="wkday">Monday &middot; lab</div>
+        <h3><a href="chapter-08-ethics-war-lab.html">Lab 8 &middot; The Red Lines</a></h3>
+        <p>Eight defense contracts on your desk. Find your line. Started Monday in class, finished at home.</p>
+      </div>
+      <div class="wkcol quiet">
+        <div class="wkday">Wednesday &middot; Nov 11</div>
+        <h3>No class</h3>
+        <p>Veterans Day. The week is Monday only, on purpose.</p>
+      </div>
+      </div>
     </div>
-    <div class="ccard">
-      <div class="cwk">Week 9</div>
-      <div class="centry">
-        <div class="cnum">Chapter 9</div>
-        <h3><a href="chapter-09-economy.html">The Economy</a></h3>
+    <div class="wkrow">
+      <div class="wkbar"><span class="wkn">Week 9 &middot; Nov 16 &ndash; 20</span><span class="wkt">The Economy</span></div>
+      <div class="wkcols c2">
+      <div class="wkcol">
+        <div class="wkday">Monday &middot; case</div>
+        <h3><a href="chapter-09-economy.html">Chapter 9: The Economy</a></h3>
         <p>Everyone's using AI and the productivity statistics barely blinked, while entry-level hiring quietly slows: the forty-year lesson of the electric motor, and the canaries in the payroll data.</p>
       </div>
-      <div class="clab"><span class="lbl">Lab 9 · Run the Firm</span> Run a company for eight quarters and feel why redesign is rare.</div>
-      <div class="clinks"><a href="chapter-09-economy.html">Read the chapter &rarr;</a><a href="chapter-09-economy-lab.html">Open the lab &rarr;</a></div>
+      <div class="wkcol">
+        <div class="wkday">Wednesday &middot; lab</div>
+        <h3><a href="chapter-09-economy-lab.html">Lab 9 &middot; Run the Firm</a></h3>
+        <p>Run a company for eight quarters and feel why redesign is rare.</p>
+      </div>
+      </div>
     </div>
-    <div class="ccard">
-      <div class="cwk">Week 10 <span class="cdays">· Three chapters, no lab</span></div>
-      <div class="centry">
-        <div class="cnum">Chapter 10 · Monday</div>
-        <h3><a href="chapter-10-truth.html">Truth</a></h3>
-        <p>Machines built for plausible, not true: phantom court cases, the rising cost of knowing anything, and the surprising evidence that a chatbot can move people toward the facts.</p>
+    <div class="wkrow off">
+      <div class="wkbar"><span class="wkn">Break &middot; Nov 23 &ndash; 27</span><span class="wkt">Thanksgiving</span></div>
+      <div class="wknote">No class, nothing due.</div>
+    </div>
+    <div class="wkrow">
+      <div class="wkbar"><span class="wkn">Week 10 &middot; Nov 30 &ndash; Dec 4</span><span class="wkt">Truth and the rules, then the last class</span></div>
+      <div class="wkcols c3">
+      <div class="wkcol">
+        <div class="wkday">Monday &middot; case</div>
+        <h3><a href="chapter-10-truth.html">Chapter 10: Truth</a></h3>
+        <p>Machines built for plausible, not true: phantom court cases, the rising cost of knowing anything, and the evidence that a chatbot can move people toward the facts.</p>
       </div>
-      <div class="centry">
-        <div class="cnum">Chapter 11 · Monday</div>
-        <h3><a href="chapter-11-rules.html">Who Makes the Rules?</a></h3>
-        <p>Why AI rules exist, why they arrive late, and the fight between the states and Washington over who writes them. The case: the license plate cameras in Bellingham parking lots, and the Washington law written in response.</p>
+      <div class="wkcol">
+        <div class="wkday">Monday &middot; case</div>
+        <h3><a href="chapter-11-rules.html">Chapter 11: Who Makes the Rules?</a></h3>
+        <p>Why AI rules exist, why they arrive late, and the fight over who writes them. The case: the license plate cameras in Bellingham parking lots.</p>
       </div>
-      <div class="centry">
-        <div class="cnum">Chapter 12 · Wednesday</div>
-        <h3><a href="chapter-12-future.html">The Future</a></h3>
+      <div class="wkcol">
+        <div class="wkday">Wednesday &middot; last class</div>
+        <h3><a href="chapter-12-future.html">Chapter 12: The Future</a></h3>
         <p>Three published futures, the instruments that would show each arriving, and the course's answer to its own question.</p>
       </div>
-      <p class="cnote">No lab. The team pitches run on both days, and the last class closes the course.</p>
-      <div class="clinks"><a href="chapter-10-truth.html">Chapter 10 &rarr;</a><a href="chapter-11-rules.html">Chapter 11 &rarr;</a><a href="chapter-12-future.html">Chapter 12 &rarr;</a></div>
+      </div>
+      <div class="wknote">No lab. The Prototype pitches run on both days, and the last class closes the course.</div>
+    </div>
+    <div class="wkrow off">
+      <div class="wkbar"><span class="wkn">Finals &middot; Dec 7 &ndash; 11</span><span class="wkt">Final exam</span></div>
+      <div class="wknote">Thursday, December 10, 10:30 a.m., in our classroom. Cumulative.</div>
     </div>
   </div>
 </section>
