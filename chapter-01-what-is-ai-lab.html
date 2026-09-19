@@ -369,7 +369,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">3a</span><h2>Inside the machine: what your two AIs actually learned</h2></div>
+  <div class="shead"><span class="num">3</span><h2>Inside the machine: what your two AIs actually learned</h2></div>
   <p><strong>Look at the heat map.</strong> Next to your drawing pad, the panel labeled "What mini-ImageNet has learned" is the entire model: one number per pixel, shown as color. That grid is everything it knows. It never learned what a smiley <em>is</em>. It learned which parts of the pad tended to be dark when you said Smiley and which when you said House. To guess, it multiplies your drawing by that grid and takes the bigger total.</p>
   <p><strong>Now break it.</strong> Draw a smiley the same size as before, but in a corner of the pad. Then try one twice as large. Watch what it guesses.</p>
   <p>If it got those wrong, you just saw the thing the heat map already told you: the weights are about <em>where</em> the dark pixels are, not <em>what</em> they mean. It learned your training data's habits, not the world.</p>
@@ -381,7 +381,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">3b</span><h2>The question: when a safety test gets out of hand, who has to be told?</h2></div>
+  <div class="shead"><span class="num">4</span><h2>The question: when a safety test gets out of hand, who has to be told?</h2></div>
 
   <p>Before this chapter's case, OpenAI did something the industry does routinely and rarely discusses: <strong>dangerous-capability testing</strong>. You take a model, switch off the safety training that would normally make it refuse, point it at genuinely harmful tasks like breaking into software, and measure how far it gets. The point is to find out what a system can do before someone else does. It is a reasonable thing to do, and everyone building frontier models does it.</p>
 
@@ -411,7 +411,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">3</span><h2>Talk it out</h2></div>
+  <div class="shead"><span class="num">5</span><h2>Talk it out</h2></div>
   <p class="lead">Groups of four, then the room. Bring what you just saw on your own screen.</p>
   <div class="callout">
     <div class="label">Discussion questions · about 20 minutes</div>
@@ -423,7 +423,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">4</span><h2>Run the five questions on your own AI</h2></div>
+  <div class="shead"><span class="num">6</span><h2>Run the five questions on your own AI</h2></div>
   <p>Now turn the questions on Mini-ImageNet, the drawing AI you trained in section 1. Pairs, about ten minutes.</p>
   <div class="fourq">
     <div class="q"><span class="qn">1</span><p><strong>What is the AI system, and what does it do?</strong> What kind is it? Name its five parts: the data (your drawings), the model (the colored grid), the output, the feedback loop, and the humans (you).</p></div>
@@ -435,20 +435,21 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">5</span><h2>The writeup (for homework)</h2></div>
+  <div class="shead"><span class="num">7</span><h2>The writeup (for homework)</h2></div>
   <div class="callout">
-    <div class="label">Can you use AI on this writeup? Yes, with eyes open. Here's the line.</div>
-    <p><strong>Learn it first, then use AI.</strong> You'll use AI all through your career. But while you're learning how something works, like how Mini-ImageNet learned, work it out yourself first, or you won't be able to tell when a chatbot's explanation is wrong. After that, <strong>use AI as a tutor:</strong> ask it to explain how Mini-AlphaGo learned, argue against your answer so you can sharpen it, or fix your grammar and spelling. <strong>Don't use it as the author:</strong> the paragraphs are yours. The test is the calculator test: if the tool does the thing the assignment exists to teach, it isn't allowed on that part.</p>
-    <p>And <strong>say so.</strong> At the bottom of your writeup, one line: which tool, if any, and what you used it for. "None" is a fine answer. What isn't fine is silence about it.</p>
+    <div class="label">Using AI on this writeup</div>
+    <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
+    <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
+    <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
   </div>
   <div class="ticket">
-    <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
+    <div class="label">Five items &middot; due Friday, 11:59 p.m. &middot; post to Canvas</div>
     <ol>
       <li><strong>Mini-ImageNet.</strong> One thing it got right, one thing it got wrong, and why, in terms of the data you gave it.</li>
       <li><strong>Mini-AlphaGo.</strong> Did it beat you after practice? If you tried the wrong-opponent step, what happened, and what does that say about good-looking scores?</li>
-      <li><strong>The talk.</strong> Your answer to one of the four discussion questions in section 3, in your own words.</li>
-      <li><strong>Your own AI.</strong> Your answers to two of the five questions from section 4.</li>
-      <li><strong>Your move.</strong> One AI system you use every week: keep it, fix it, or drop it, and what that costs you. One sentence.</li>
+      <li><strong>The talk.</strong> Your answer to one of the questions from section 5, Talk it out, in your own words.</li>
+      <li><strong>Your own AI.</strong> Your answers to two of the five questions from section 6.</li>
+      <li><strong>Your commitment card.</strong> One AI system you use every week: keep it, fix it, or drop it, and what that costs you. One sentence, and make it one you'll actually keep. Next Wednesday's lab asks what happened.</li>
     </ol>
   </div>
 </section>
