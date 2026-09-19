@@ -204,6 +204,22 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .mb-box small{color:var(--gray);margin-left:4px}
 .mb-sentence{font-family:'Fraunces',serif;font-size:1.25rem;line-height:1.4;color:#fff;margin:0 0 10px}
 .btn[disabled]{background:#3A424C;color:#9AA1AB;cursor:not-allowed}
+.mb-rail{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.mb-tab{font:inherit;font-size:.78rem;font-weight:600;padding:5px 11px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px}
+.mb-tab span{color:var(--pinktext);margin-right:5px}
+.mb-tab.on{background:var(--dark);color:#fff;border-color:var(--dark)}
+.mb-tab.on span{color:var(--yellow)}
+.mb-tab[disabled]{opacity:1;background:#F4F4F0;color:#A7ADB5;border-style:dashed;cursor:not-allowed}
+.mb-tab[disabled] span{color:#A7ADB5}
+.mb-tab:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.mb-h{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;margin:0 0 8px;color:var(--ink)}
+.mb-h2{font-family:'Fraunces',serif;font-weight:600;font-size:.98rem;margin:20px 0 6px;color:var(--ink)}
+.mb-stage p{font-size:.95rem;margin-bottom:10px}
+.mb-drawn{font-family:'Fraunces',serif;font-size:1.6rem;color:var(--pinktext);margin:12px 0 4px}
+.mb-sentence.dark{font-family:'Fraunces',serif;font-size:1.15rem;line-height:1.4;color:var(--ink);margin:12px 0 4px}
+.mb-nav{margin-top:20px;padding-top:16px;border-top:1px solid var(--rule)}
+.mb-side .label{margin-top:0}
+.mb-out{margin-top:18px}
 @media (max-width:640px){.mb-grid{grid-template-columns:1fr}}
 
 /* ---- set the dial ---- */
@@ -288,47 +304,113 @@ ul.ideas li{margin:8px 0}
   <p class="lead">Chapter 2 said a language model is trained on one task, predict the next word, and that fluency falls out of it while warmth has to be dialed in. Before you go probe a real chatbot, build the smallest possible one, watch it write, and then tune it with your thumb, so you've seen both stages with your own eyes. In 2023 the researcher David Corney built a language model out of 35 matchboxes: each box is labeled with a word, and the slips of paper inside are the words that followed it in one short book. Draw a slip, open that word's box, draw again, and it writes sentences that were never in the book. He built it so there would be, in his words, <a class="inline" href="https://dcorney.com/thoughts/2023/09/23/matchboxes.html" target="_blank" rel="noopener">nowhere for sentience to hide</a>. This is the same machine, on your screen, and you can train it on anything.</p>
 
   <div class="tool" id="mb">
-    <div class="label">Simulator 0 · the matchbox language model</div>
+    <div class="label">Simulator 0 &middot; the matchbox language model</div>
+
+    <div class="mb-rail" role="list" aria-label="Steps">
+      <button class="mb-tab" type="button" role="listitem" data-go="1" aria-current="true"><span>1</span> Open a box</button>
+      <button class="mb-tab" type="button" role="listitem" data-go="2"><span>2</span> Draw a slip</button>
+      <button class="mb-tab" type="button" role="listitem" data-go="3"><span>3</span> Keep going</button>
+      <button class="mb-tab" type="button" role="listitem" data-go="4"><span>4</span> Let it run</button>
+      <button class="mb-tab" type="button" role="listitem" data-go="5"><span>5</span> Longer memory</button>
+      <button class="mb-tab" type="button" role="listitem" data-go="6"><span>6</span> Turn the dial</button>
+    </div>
+
     <div class="mb-grid">
-      <div>
-        <label for="mb-text" class="mb-lbl">Training text (a public-domain poem to start; replace it with anything)</label>
-        <textarea id="mb-text" rows="9" aria-label="Training text"></textarea>
-        <div class="chips tis-actions">
-          <button class="btn" type="button" id="mb-train">Train the model</button>
-          <button class="chip" type="button" id="mb-ctx" aria-pressed="false">Context: 1 word</button>
-          <button class="chip" type="button" id="mb-reset">Reset to the poem</button>
+      <div class="mb-stagewrap">
+
+        <div class="mb-stage" id="mb-s1">
+          <h3 class="mb-h">Step 1 &middot; Open a box</h3>
+          <p>The machine on the right is already built. It read one poem, and it made a box for every word in it. Inside each box are slips of paper: the words that came next, one slip each time.</p>
+          <p>Click the box labeled <b>the</b>, then click one or two others.</p>
+          <p class="tis-note" id="mb-open" aria-live="polite">Nothing open yet.</p>
         </div>
-        <p class="tis-counts" id="mb-status" aria-live="polite">Not trained yet.</p>
+
+        <div class="mb-stage" id="mb-s2" hidden>
+          <h3 class="mb-h">Step 2 &middot; Draw a slip</h3>
+          <p>You have a box open. Now do what the model does: reach in without looking and pull out one slip.</p>
+          <div class="chips tis-actions">
+            <button class="btn" type="button" id="mb-draw">Draw a slip</button>
+          </div>
+          <p class="mb-drawn" id="mb-drawn" aria-live="polite"></p>
+          <p class="tis-note" id="mb-s2note"></p>
+        </div>
+
+        <div class="mb-stage" id="mb-s3" hidden>
+          <h3 class="mb-h">Step 3 &middot; Keep going</h3>
+          <p>Take the word you drew, open <em>its</em> box, and draw again. Do that five times and watch what appears.</p>
+          <div class="chips tis-actions">
+            <button class="btn" type="button" id="mb-hand">Open that word's box and draw</button>
+            <button class="chip" type="button" id="mb-hand-reset">Start over</button>
+          </div>
+          <p class="mb-sentence dark" id="mb-hand-out" aria-live="polite"></p>
+          <p class="tis-note" id="mb-hand-note">Nothing drawn yet.</p>
+        </div>
+
+        <div class="mb-stage" id="mb-s4" hidden>
+          <h3 class="mb-h">Step 4 &middot; Let it run</h3>
+          <p>That is the entire machine. The only thing a computer adds is speed. Press the button and it does what you just did, a few hundred times a second.</p>
+          <div class="chips tis-actions">
+            <button class="btn" type="button" id="mb-gen">Write a sentence</button>
+            <button class="chip" type="button" id="mb-step">Slowly, one word at a time</button>
+          </div>
+          <p class="tis-note" id="mb-s4note">It is writing sentences that are not in the poem. It is also doing nothing else. No idea, no intent, nobody home. Every word came out of a box.</p>
+        </div>
+
+        <div class="mb-stage" id="mb-s5" hidden>
+          <h3 class="mb-h">Step 5 &middot; Give it a longer memory</h3>
+          <p>So far each box is labeled with one word, so the model only remembers the word it just wrote. Give it two, and every box gets labeled with a pair.</p>
+          <div class="chips tis-actions" role="group" aria-label="How far back it remembers">
+            <button class="chip on" type="button" id="mb-c1" aria-pressed="true">Remember 1 word</button>
+            <button class="chip" type="button" id="mb-c2" aria-pressed="false">Remember 2 words</button>
+          </div>
+          <div class="chips tis-actions">
+            <button class="btn" type="button" id="mb-gen5">Write a sentence</button>
+          </div>
+          <p class="tis-note" id="mb-s5note" aria-live="polite"></p>
+        </div>
+
+        <div class="mb-stage" id="mb-s6" hidden>
+          <h3 class="mb-h">Step 6 &middot; Turn the dial with your thumb</h3>
+          <p>This is the chapter's second stage, the one that makes a chatbot warm. Write a sentence, and if you like it press <b>More like this</b>. If you don't, press <b>Less like this</b>. Liked words get extra slips in their boxes; disliked words lose one.</p>
+          <div class="chips tis-actions">
+            <button class="btn" type="button" id="mb-gen6">Write a sentence</button>
+            <button class="chip" type="button" id="mb-up">More like this</button>
+            <button class="chip" type="button" id="mb-down">Less like this</button>
+          </div>
+          <p class="tis-note" id="mb-tune" aria-live="polite">Write one, then rate it. Rate only the sentences you actually want more of; if this one isn't it, just write another.</p>
+          <div id="mb-own" hidden>
+            <p class="mb-h2">Now feed it your own words</p>
+            <label for="mb-text" class="mb-lbl">Paste twenty or thirty of your own texts, messages or posts, then train.</label>
+            <textarea id="mb-text" rows="6" aria-label="Training text"></textarea>
+            <div class="chips tis-actions">
+              <button class="btn" type="button" id="mb-train">Train on this text</button>
+              <button class="chip" type="button" id="mb-reset">Back to the poem</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="verdict mb-out" id="mb-out" hidden>
+          <div class="label">What it wrote</div>
+          <p class="mb-sentence" id="mb-sentence"></p>
+          <p class="tis-note" id="mb-trace"></p>
+        </div>
+
+        <div class="chips mb-nav">
+          <button class="chip" type="button" id="mb-back" disabled>Back</button>
+          <button class="btn alt" type="button" id="mb-next" disabled>Next step</button>
+          <span class="tis-note" id="mb-hint" style="margin:0 0 0 8px"></span>
+        </div>
       </div>
-      <div>
+
+      <div class="mb-side">
         <div class="label">The boxes</div>
-        <div id="mb-boxes" class="mb-boxes" aria-live="polite"></div>
-        <p class="tis-note" id="mb-open">Train, then click a box to see what's inside.</p>
-      </div>
-    </div>
-    <div class="chips tis-actions">
-      <button class="btn" type="button" id="mb-gen" disabled>Write a sentence</button>
-      <button class="chip" type="button" id="mb-step" disabled>One word at a time</button>
-    </div>
-    <div class="verdict" id="mb-out" hidden aria-live="polite">
-      <div class="label">What it wrote</div>
-      <p class="mb-sentence" id="mb-sentence"></p>
-      <p class="tis-note" id="mb-trace"></p>
-      <div class="chips tis-actions">
-        <button class="chip" type="button" id="mb-up">More like this</button>
-        <button class="chip" type="button" id="mb-down">Less like this</button>
-        <span class="tis-note" id="mb-tune" style="margin:0 0 0 8px">Rate a few sentences and watch the boxes change.</span>
+        <div id="mb-boxes" class="mb-boxes"></div>
+        <p class="tis-counts" id="mb-status" aria-live="polite"></p>
+        <button class="chip" type="button" id="mb-all" aria-pressed="false">Show all boxes</button>
       </div>
     </div>
   </div>
 
-  <div class="steps">
-    <div class="step"><span class="sn">1</span><p><strong>Train it.</strong> Press "Train the model." Every word in the poem gets a box, and the slips inside are the words that followed it. Click the box for a common word and look at the pile.</p></div>
-    <div class="step"><span class="sn">2</span><p><strong>Let it write.</strong> Press "Write a sentence" a few times, then "One word at a time" once so you can watch each box open. It is producing sentences that are not in the poem. It is also producing nothing else: no idea, no intent, no one home. Every word came out of a box.</p></div>
-    <div class="step"><span class="sn">3</span><p><strong>Turn up the context.</strong> Switch to two words of context and train again. The sentences get more fluent, because each box now knows the two words before it. Real models use thousands of words of context and the whole internet instead of a poem. That's the entire difference. There is no point on that road where a mind gets added.</p></div>
-    <div class="step"><span class="sn">4</span><p><strong>Turn the dial.</strong> This is the chapter's second stage, the one that makes a chatbot warm. Write a sentence, then press "More like this" or "Less like this." Every slip that produced a sentence you liked gets copied into its box; every slip in a sentence you disliked gets pulled out. Do it ten times, rewarding whatever you want: cheerful sentences, sentences about the moon, sentences that mention you. Then write ten more and read them. The model now has a personality, and nobody typed it in. You tuned it with your thumb, and that's exactly what a company does with paid raters and a million thumbs. The warmth isn't the machine's. It's whoever held the buttons.</p></div>
-    <div class="step"><span class="sn">5</span><p><strong>Feed it yourself.</strong> Paste twenty or thirty of your own messages, texts, or posts into the box and train. Now read what it writes. That's the Narcissus trap from the chapter, on a screen: the warmth, the jokes, the phrasing are yours, sampled and handed back, and for a second it can feel like someone else. Screenshot one sentence it wrote in your voice; the writeup asks for it.</p></div>
-  </div>
   <p>Now go do the same thing to a real one: turn the dials on a fake one, then pick a real chatbot, run Chapter 2's seeming test on it, find where its company set the dials, and run the five critical AI questions on it, the way the chapter ran them on Therabot.</p>
 </section>
 
@@ -688,77 +770,190 @@ ul.ideas li{margin:8px 0}
   var $=function(id){return document.getElementById(id);};
   if(!$('mb')) return;
   var POEM='The Owl and the Pussy-cat went to sea in a beautiful pea-green boat. They took some honey, and plenty of money, wrapped up in a five-pound note. The Owl looked up to the stars above, and sang to a small guitar. O lovely Pussy! O Pussy, my love, what a beautiful Pussy you are! You are, you are! What a beautiful Pussy you are! Pussy said to the Owl, You elegant fowl! How charmingly sweet you sing! O let us be married! Too long we have tarried. But what shall we do for a ring? They sailed away, for a year and a day, to the land where the Bong-tree grows. And there in a wood a Piggy-wig stood, with a ring at the end of his nose. His nose! His nose! With a ring at the end of his nose. Dear Pig, are you willing to sell for one shilling your ring? Said the Piggy, I will. So they took it away, and were married next day by the Turkey who lives on the hill. They dined on mince, and slices of quince, which they ate with a runcible spoon. And hand in hand, on the edge of the sand, they danced by the light of the moon. The moon! The moon! They danced by the light of the moon.';
-  var boxes={}, ctx=1, trained=false, opened=null;
-  $('mb-text').value=POEM;
+  var START='\u2039start of a sentence\u203a';
+  var boxes={}, ctx=1, opened=null, showAll=false, stage=1, maxStage=1;
+  var done={1:false,2:false,3:false,4:false,5:false,6:false};
+  var hand=[], handKey=START, drawn=null, lastPath=[], tuned=0, playing=false;
+
+  function label(k){return k===START?START:k;}
   function tokens(t){return t.replace(/\s+/g,' ').trim().split(' ').filter(Boolean);}
   function isEnd(w){return /[.!?]["')]*$/.test(w);}
-  function train(){
-    var w=tokens($('mb-text').value); boxes={}; var nSent=0;
-    var prev=[]; 
-    function add(key,word){(boxes[key]=boxes[key]||[]).push(word);}
+
+  function train(text){
+    var w=tokens(text), prev=[], nSent=0; boxes={};
     for(var i=0;i<w.length;i++){
-      var key=prev.length? prev.join(' ') : '<start>';
-      add(key,w[i]);
+      var key=prev.length?prev.join(' '):START;
+      (boxes[key]=boxes[key]||[]).push(w[i]);
       if(isEnd(w[i])){prev=[];nSent++;} else {prev.push(w[i]); if(prev.length>ctx)prev.shift();}
     }
-    trained=true; opened=null; tuned=0; lastPath=[]; renderBoxes();
-    var n=Object.keys(boxes).length;
-    $('mb-status').textContent='Trained: '+w.length+' words, '+nSent+' sentences, '+n+' boxes, context '+ctx+(ctx===1?' word.':' words.');
-    $('mb-gen').disabled=false; $('mb-step').disabled=false; $('mb-out').hidden=true;
-    $('mb-open').textContent='Click a box to see the slips inside.';
+    opened=null; lastPath=[]; resetHand(); renderBoxes();
+    var keys=Object.keys(boxes), one=0;
+    keys.forEach(function(k){if(boxes[k].length===1)one++;});
+    $('mb-status').innerHTML=w.length+' words, '+nSent+' sentences, '+keys.length+' boxes. '+one+' of them hold only one slip.';
+    return {n:keys.length, one:one};
   }
+  function stats(){var k=Object.keys(boxes),o=0;k.forEach(function(x){if(boxes[x].length===1)o++;});return {n:k.length,one:o};}
+
   function renderBoxes(){
     var el=$('mb-boxes'); el.innerHTML='';
     var keys=Object.keys(boxes).sort(function(a,b){return boxes[b].length-boxes[a].length;});
-    keys.forEach(function(k){
-      var b=document.createElement('button'); b.type='button'; b.className='mb-box'; b.setAttribute('aria-pressed', k===opened?'true':'false');
-      b.innerHTML=(k==='<start>'?'&lt;start&gt;':k.replace(/</g,'&lt;'))+'<small>'+boxes[k].length+'</small>';
-      b.addEventListener('click',function(){open(k);}); el.appendChild(b);
+    var list=showAll?keys:keys.slice(0,14);
+    list.forEach(function(k){
+      var b=document.createElement('button'); b.type='button'; b.className='mb-box';
+      b.setAttribute('aria-pressed',k===opened?'true':'false');
+      b.appendChild(document.createTextNode(label(k)));
+      var s=document.createElement('small'); s.textContent=boxes[k].length; b.appendChild(s);
+      b.addEventListener('click',function(){openBox(k);});
+      el.appendChild(b);
     });
+    $('mb-all').textContent=showAll?'Show the fullest 14':'Show all '+keys.length+' boxes';
+    $('mb-all').setAttribute('aria-pressed',showAll?'true':'false');
   }
-  function open(k){
+
+  function openBox(k){
     opened=k; renderBoxes();
     var counts={}; boxes[k].forEach(function(x){counts[x]=(counts[x]||0)+1;});
-    var slips=Object.keys(counts).sort(function(a,b){return counts[b]-counts[a];}).map(function(x){return x+(counts[x]>1?' ×'+counts[x]:'');});
-    $('mb-open').textContent='Box "'+(k==='<start>'?'<start>':k)+'" holds '+boxes[k].length+' slips: '+slips.join(', ')+'.';
+    var slips=Object.keys(counts).sort(function(a,b){return counts[b]-counts[a];})
+      .map(function(x){return counts[x]>1?x+' \u00d7'+counts[x]:x;});
+    $('mb-open').textContent='Box "'+label(k)+'" holds '+boxes[k].length+' slip'+(boxes[k].length===1?'':'s')+': '+slips.join(', ')+'.';
+    if(stage===1){done[1]=true; sync();}
+    if(stage===2){handKey=k;}
   }
-  var lastPath=[], tuned=0;
-  function draw(k){var arr=boxes[k]; return arr? arr[Math.floor(Math.random()*arr.length)] : null;}
-  function generate(stepwise){
-    if(!trained)return;
-    var out=[], prev=[], trace=[], guard=0; lastPath=[];
-    var key='<start>';
-    while(guard++<60){
-      var w=draw(key); if(!w){trace.push('box "'+key+'" is empty, so it stops'); break;}
-      out.push(w); lastPath.push([key,w]); trace.push('"'+(key==='<start>'?'<start>':key)+'" → '+w);
+
+  function draw(k){var a=boxes[k]; return a&&a.length?a[Math.floor(Math.random()*a.length)]:null;}
+
+  function resetHand(){hand=[]; handKey=START; $('mb-hand-out').textContent=''; $('mb-hand-note').textContent='Nothing drawn yet.';}
+
+  function generate(stepwise,outNote){
+    var out=[], prev=[], trace=[], key=START, guard=0; lastPath=[];
+    while(guard++<40){
+      var w=draw(key); if(!w){break;}
+      out.push(w); lastPath.push([key,w]); trace.push('"'+label(key)+'" \u2192 '+w);
       if(isEnd(w)) break;
       prev.push(w); if(prev.length>ctx)prev.shift(); key=prev.join(' ');
     }
-    $('mb-out').hidden=false;
     var sent=out.join(' ');
-    var inText=$('mb-text').value.replace(/\s+/g,' ').indexOf(sent)>=0;
+    var inText=(' '+currentText().replace(/\s+/g,' ')+' ').indexOf(' '+sent+' ')>=0;
+    $('mb-out').hidden=false;
     if(stepwise){
+      playing=true; $('mb-step').disabled=true; $('mb-gen').disabled=true;
       $('mb-sentence').textContent=''; $('mb-trace').textContent='';
-      var i=0; (function tick(){ if(i<out.length){ $('mb-sentence').textContent=out.slice(0,i+1).join(' '); $('mb-trace').textContent='Opened '+trace[i]; i++; setTimeout(tick,650);} else { $('mb-trace').textContent=trace.join(' · ')+(inText?' · (This one happens to be in the training text.)':' · This sentence is not in the training text.'); } })();
+      var i=0;
+      (function tick(){
+        if(i<out.length){
+          $('mb-sentence').textContent=out.slice(0,i+1).join(' ');
+          $('mb-trace').textContent='Opened box '+trace[i];
+          i++; setTimeout(tick,650);
+        } else {
+          $('mb-trace').textContent=trace.join(' \u00b7 ');
+          playing=false; $('mb-step').disabled=false; $('mb-gen').disabled=false;
+        }
+      })();
     } else {
       $('mb-sentence').textContent=sent;
-      $('mb-trace').textContent=(inText?'This exact sentence is in the training text. ':'This sentence is not in the training text. ')+'Boxes opened: '+out.length+'.';
+      $('mb-trace').textContent=(inText?'This one happens to be straight out of the training text. ':'This sentence is not in the training text. ')+out.length+' boxes opened.';
     }
+    if(outNote) outNote();
+    return {sent:sent, inText:inText};
   }
+
+  function currentText(){var t=$('mb-text'); return (t&&t.value.trim())?t.value:POEM;}
+
   function tune(up){
     if(!lastPath.length){$('mb-tune').textContent='Write a sentence first.';return;}
-    lastPath.forEach(function(pair){var k=pair[0],w=pair[1],arr=boxes[k]; if(!arr)return;
-      if(up){arr.push(w,w);} else {var i=arr.indexOf(w); if(i>=0&&arr.length>1)arr.splice(i,1);} });
-    tuned++; renderBoxes(); if(opened)open(opened);
-    $('mb-tune').textContent=(up?'Rewarded. ':'Penalized. ')+'Boxes updated ('+tuned+' rating'+(tuned===1?'':'s')+' so far). Write another sentence and see what it learned.';
+    var changed=[];
+    lastPath.forEach(function(p){
+      var k=p[0], w=p[1], a=boxes[k]; if(!a)return;
+      if(up){a.push(w,w); changed.push('"'+label(k)+'" now holds '+a.length+' slips, '+w+' three times as likely');}
+      else{var i=a.indexOf(w); if(i>=0&&a.length>1){a.splice(i,1); changed.push('"'+label(k)+'" lost a '+w+' slip, '+a.length+' left');}}
+    });
+    tuned++; renderBoxes(); if(opened&&boxes[opened])openBox(opened);
+    $('mb-tune').textContent=(up?'Rewarded. ':'Penalized. ')+changed.slice(0,2).join('; ')+'. '+tuned+' rating'+(tuned===1?'':'s')+' so far. After about ten, write a few more and read them: the model now has a personality, and nobody typed it in.';
+    if(tuned>=3){done[6]=true; $('mb-own').hidden=false; sync();}
   }
+
+  function sync(){
+    for(var i=1;i<=6;i++){ $('mb-s'+i).hidden=(i!==stage); }
+    var tabs=document.querySelectorAll('.mb-tab');
+    Array.prototype.forEach.call(tabs,function(t){
+      var n=+t.getAttribute('data-go');
+      t.setAttribute('aria-current',n===stage?'true':'false');
+      t.classList.toggle('on',n===stage);
+      t.disabled = n>maxStage;
+    });
+    $('mb-back').disabled = stage===1;
+    var ok=done[stage];
+    $('mb-next').disabled = !ok || stage===6;
+    var hints={1:'Open a box to continue.',2:'Draw a slip to continue.',3:'Draw five times to continue.',4:'Write one sentence to continue.',5:'Try two words, then write a sentence.',6:'Rate three sentences to unlock the last part.'};
+    $('mb-hint').textContent = stage===6&&done[6] ? 'That is the whole lab warm-up.' : (ok?'':hints[stage]);
+    $('mb-out').hidden = (stage<4);
+  }
+
+  function go(n){
+    if(n<1||n>6||n>maxStage) return;
+    stage=n;
+    if(n===3) resetHand();
+    sync();
+  }
+
+  // step 2
+  $('mb-draw').addEventListener('click',function(){
+    var k=opened||START; var w=draw(k);
+    if(!w){$('mb-s2note').textContent='That box is empty. Open another one.';return;}
+    drawn=w; handKey=isEnd(w)?START:w;
+    $('mb-drawn').textContent=w;
+    $('mb-s2note').textContent='You reached into box "'+label(k)+'" and pulled out "'+w+'". That is the whole of what the model does, once.';
+    done[2]=true; sync();
+  });
+  // step 3
+  $('mb-hand').addEventListener('click',function(){
+    var w=draw(handKey);
+    if(!w){handKey=START; w=draw(START);}
+    hand.push(w);
+    $('mb-hand-out').textContent=hand.join(' ');
+    $('mb-hand-note').textContent='Opened box "'+label(handKey)+'", drew "'+w+'". '+hand.length+' word'+(hand.length===1?'':'s')+' so far.';
+    handKey=isEnd(w)?START:w;
+    if(hand.length>=5){
+      done[3]=true;
+      $('mb-hand-note').textContent='You just wrote that, one box at a time. No one chose the words, including you. Press Next and watch the computer do the same thing at speed.';
+      sync();
+    }
+  });
+  $('mb-hand-reset').addEventListener('click',resetHand);
+  // step 4
+  $('mb-gen').addEventListener('click',function(){generate(false); done[4]=true; sync();});
+  $('mb-step').addEventListener('click',function(){if(playing)return; generate(true); done[4]=true; sync();});
+  // step 5
+  function setCtx(n){
+    ctx=n;
+    $('mb-c1').classList.toggle('on',n===1); $('mb-c1').setAttribute('aria-pressed',n===1?'true':'false');
+    $('mb-c2').classList.toggle('on',n===2); $('mb-c2').setAttribute('aria-pressed',n===2?'true':'false');
+    var s=train(currentText());
+    var pct=Math.round(100*s.one/s.n);
+    $('mb-s5note').textContent = n===1
+      ? 'One word of memory: '+s.n+' boxes, '+pct+' percent of them holding a single slip.'
+      : 'Two words of memory: '+s.n+' boxes now, and '+pct+' percent hold a single slip. A box with one slip has no choice to make, so the model stops inventing and starts reciting the poem. Write a few and watch. Real models fix this with the whole internet, not with a longer memory. There is still no point on that road where a mind gets added.';
+    if(n===2) done[5]=true;
+    sync();
+  }
+  $('mb-c1').addEventListener('click',function(){setCtx(1);});
+  $('mb-c2').addEventListener('click',function(){setCtx(2);});
+  $('mb-gen5').addEventListener('click',function(){generate(false);});
+  // step 6
+  $('mb-gen6').addEventListener('click',function(){generate(false);});
   $('mb-up').addEventListener('click',function(){tune(true);});
   $('mb-down').addEventListener('click',function(){tune(false);});
-  $('mb-train').addEventListener('click',train);
-  $('mb-gen').addEventListener('click',function(){generate(false);});
-  $('mb-step').addEventListener('click',function(){generate(true);});
-  $('mb-ctx').addEventListener('click',function(){ctx=ctx===1?2:1; this.textContent='Context: '+ctx+(ctx===1?' word':' words'); this.setAttribute('aria-pressed',ctx===2?'true':'false'); if(trained)train();});
-  $('mb-reset').addEventListener('click',function(){$('mb-text').value=POEM; ctx=1; $('mb-ctx').textContent='Context: 1 word'; $('mb-ctx').setAttribute('aria-pressed','false'); train();});
+  $('mb-train').addEventListener('click',function(){tuned=0; train(currentText()); $('mb-tune').textContent='Trained on your text. Write a few sentences and read them: the warmth, the jokes, the phrasing are yours, sampled and handed back.';});
+  $('mb-reset').addEventListener('click',function(){$('mb-text').value=''; tuned=0; train(POEM); $('mb-tune').textContent='Back to the poem.';});
+  // nav
+  $('mb-next').addEventListener('click',function(){maxStage=Math.max(maxStage,stage+1); go(stage+1);});
+  $('mb-back').addEventListener('click',function(){go(stage-1);});
+  Array.prototype.forEach.call(document.querySelectorAll('.mb-tab'),function(t){
+    t.addEventListener('click',function(){go(+t.getAttribute('data-go'));});
+  });
+  $('mb-all').addEventListener('click',function(){showAll=!showAll; renderBoxes();});
+
+  train(POEM); sync();
 })();
 </script>
 <script>
