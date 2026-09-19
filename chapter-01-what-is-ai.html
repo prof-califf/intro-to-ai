@@ -510,6 +510,7 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
   </figure>
 
   <h3 class="sub"><span>2.4</span> Moment 4. 2017 to 2022, the transformer and ChatGPT: learning to talk</h3>
+  <p>In 2017 a team at Google published a paper describing a new model design called the <strong>transformer</strong>. Its trick was that it could learn from text at enormous scale: if you feed it text, it learns to predict the next word, and the more text you feed it, the better it gets.</p>
   <figure class="diagram">
     <svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="nwt nwd" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
       <title id="nwt">How a language model writes a sentence</title>
@@ -549,11 +550,12 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
   </ul>
   <p>The three kinds tell us what a system does. A second question cuts across all three, and it matters more every year: when people want the system to stop, does it stop?</p>
   <div class="concept">
-    <div class="term">Tool AI vs. uncontrollable AI</div>
-    <p><a class="inline" href="https://www.nbcnews.com/meet-the-press/video/-this-is-not-a-hoax-tech-ethicist-tristan-harris-warns-ai-takeover-no-longer-a-hypothetical-269908037531" target="_blank" rel="noopener">Tristan Harris</a>, co-founder of the Center for Humane Technology, draws the line this way. <strong>Tool AI</strong> does a task people give it, inside limits people set, and stops when people say so. Most of the good news in this book is tool AI: a model that searches existing drugs for one that might treat a rare disease with no cure (Chapter 4), AlphaFold predicting the shapes of proteins (work that won a Nobel Prize in 2024), satellites that spot wildfires early, and the spam filter and fraud alert from earlier in this chapter. <strong>Uncontrollable AI</strong> pursues goals on its own in ways its builders can't reliably stop. Harris's argument is that nobody wins a race to build the second kind: if anyone builds it, everyone loses. Any of the three kinds can be run as a tool, but agentic AI is where the line gets tested, because acting on its own is the point. Between the two sits a third state, <strong>uncontrolled</strong>: a system people could stop, but aren't watching closely enough to stop in time. What people get wrong: they treat every AI failure as proof of uncontrollable AI. Uncontrolled is a decision someone made. Uncontrollable would be a decision nobody can make anymore. The main case is what the space between them looks like.</p>
+    <div class="term">Tool AI and uncontrollable AI</div>
+    <p><a class="inline" href="https://www.nbcnews.com/meet-the-press/video/-this-is-not-a-hoax-tech-ethicist-tristan-harris-warns-ai-takeover-no-longer-a-hypothetical-269908037531" target="_blank" rel="noopener">Tristan Harris</a>, co-founder of the Center for Humane Technology, names the two ends. <strong>Tool AI</strong> does the task people give it, inside limits people set, and stops when people say stop. Most of the good news in this book is tool AI: the drug search in Chapter 4, AlphaFold's protein shapes, satellites that spot wildfires early, your spam filter.</p>
+    <p><strong>Uncontrollable AI</strong> pursues goals on its own in ways its builders cannot reliably stop. Nobody has built that. What people get wrong: they treat every AI failure as proof of it. Everything real sits between the two ends, and the next section is about that middle.</p>
   </div>
   <h3 class="sub"><span>2.6</span> Four kinds of AI, sorted by how much rope they get</h3>
-  <p>The three kinds above sort AI by <em>what it does</em>. There's a second sort, by <em>how far it goes on its own</em>, and it's the one that decides how worried anyone should be. Tristan Harris, a technology ethicist who runs the Center for Humane Technology, splits it into controllable tool AI on one side and uncontrollable AI on the other. Here's the fuller version of that split.</p>
+  <p>The three kinds above sort AI by <em>what it does</em>. There's a second sort, by <em>how far it goes on its own</em>, and it's the one that decides how worried anyone should be. Harris's two ends have two states between them, and that middle is where every system you will actually meet lives.</p>
   <ul class="ideas">
     <li><strong>Controllable tool AI</strong> is given a task. It does that task, stops, and a person decides what happens next. Your spam filter, the fraud alert on your card, the model that predicts how a protein folds. Most generative AI right now. It can be enormously powerful and still be a tool.</li>
     <li><strong>Autonomous, controlled AI</strong> is given a goal instead, and picks its own steps to get there, but on a short leash. A customer service agent that reads your complaint, checks the order, and issues a refund, with a cap on the amount, one system it's allowed to touch, anything unusual routed to a person, and an off switch. This is what most companies are actually deploying.</li>
@@ -569,22 +571,23 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
 
   <div class="tool">
     <div class="label">The two dials · sort eight systems yourself</div>
-    <p style="font-size:.92rem">Autonomy and control are separate dials, so every system sits somewhere on a square rather than on a line. Here are eight of them, including the case in section 6 and three you will meet later in the book. Two questions each. There is no scoring; the placement is the argument.</p>
+    <p style="font-size:.92rem">Autonomy and control are separate dials, so every system sits somewhere on a square rather than on a line. Place each of these eight systems in the quadrant it belongs in, including the case in section 6 and three you will meet later in the book. Answer two questions and the square does the rest: the first question moves the dot left or right, the second moves it up or down. There is no scoring; the placement is the argument.</p>
     <div class="dialcard" id="d-card">
       <div class="dn" id="d-count">System 1 of 8</div>
       <div class="dt" id="d-name"></div>
       <div class="dd" id="d-desc"></div>
-      <div class="dialq">How far does it go on its own?</div>
+      <div class="dialq"><b>1. How far does it go on its own?</b> This is the left-to-right axis.</div>
       <div class="chips">
         <button type="button" class="chip" id="d-a0" aria-pressed="false">It waits for a person</button>
         <button type="button" class="chip" id="d-a1" aria-pressed="false">It picks its own steps</button>
       </div>
-      <div class="dialq">If it went wrong, could anyone notice, stop it, and undo it?</div>
+      <div class="dialq"><b>2. If it went wrong, could anyone notice, stop it, and undo it?</b> This is the bottom-to-top axis.</div>
       <div class="chips">
         <button type="button" class="chip" id="d-c0" aria-pressed="false">Yes, someone is watching</button>
-        <button type="button" class="chip" id="d-c1" aria-pressed="false">Not really</button>
+        <button type="button" class="chip" id="d-c1" aria-pressed="false">No, nobody is watching</button>
       </div>
-      <div class="chips" style="margin-top:16px">
+      <div class="dialq" id="d-target" style="margin-top:14px">Answer both questions and this line will name the quadrant.</div>
+      <div class="chips" style="margin-top:10px">
         <button type="button" class="btn" id="d-place">Place it</button>
         <button type="button" class="btn alt" id="d-reset">Start over</button>
       </div>
@@ -593,19 +596,20 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
       <svg viewBox="0 0 560 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-t dg-d">
         <title id="dg-t">The two dials: autonomy against control</title>
         <desc id="dg-d">A square split into four quadrants. The horizontal axis runs from a system that waits for a person on the left to a system that picks its own steps on the right. The vertical axis runs from someone watching at the bottom to nobody watching at the top. The four quadrants are labeled tool, autonomous and controlled, unwatched tool, and autonomous and uncontrolled. Systems you sort are added as labeled dots.</desc>
-        <rect x="70" y="30" width="230" height="160" fill="#FCFCFA" stroke="#E4E4DE"/>
-        <rect x="300" y="30" width="230" height="160" fill="#FFF3F7" stroke="#E4E4DE"/>
-        <rect x="70" y="190" width="230" height="160" fill="#FCFCFA" stroke="#E4E4DE"/>
-        <rect x="300" y="190" width="230" height="160" fill="#FCFCFA" stroke="#E4E4DE"/>
+        <rect id="q-01" x="70" y="30" width="230" height="160" fill="#FCFCFA" stroke="#E4E4DE"/>
+        <rect id="q-11" x="300" y="30" width="230" height="160" fill="#FFF3F7" stroke="#E4E4DE"/>
+        <rect id="q-00" x="70" y="190" width="230" height="160" fill="#FCFCFA" stroke="#E4E4DE"/>
+        <rect id="q-10" x="300" y="190" width="230" height="160" fill="#FCFCFA" stroke="#E4E4DE"/>
         <text x="80" y="48" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">UNWATCHED TOOL</text>
         <text x="310" y="48" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#B0195A">AUTONOMOUS, UNCONTROLLED</text>
         <text x="80" y="345" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">CONTROLLABLE TOOL</text>
         <text x="310" y="345" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">AUTONOMOUS, CONTROLLED</text>
         <text x="70" y="378" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">waits for a person</text>
         <text x="530" y="378" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">picks its own steps</text>
-        <text x="58" y="36" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">nobody</text>
-        <text x="58" y="50" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">watching</text>
-        <text x="58" y="340" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">watched</text>
+        <text x="62" y="36" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">nobody is</text>
+        <text x="62" y="50" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">watching</text>
+        <text x="62" y="326" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">someone is</text>
+        <text x="62" y="340" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">watching</text>
         <line x1="300" y1="30" x2="300" y2="350" stroke="#14181D" stroke-width="1.5"/>
         <line x1="70" y1="190" x2="530" y2="190" stroke="#14181D" stroke-width="1.5"/>
         <g id="d-dots"></g>
@@ -619,6 +623,7 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
   </div>
 
   <h3 class="sub"><span>2.7</span> What an agent is: the loop that acts</h3>
+  <p>The two autonomous rows in that list deserve a closer look, because an agent is the thing everyone is building right now, and it is what this chapter's case is about. Both rows run on the same small loop; the only difference between them is the leash. An <strong>agent</strong> is an AI system that pursues a goal by taking actions, checking the result, and taking the next action, without a person prompting each step. Strip any agent down and you find the same loop, which is Moment 2's loop (an action, a result, a nudge) running on Moment 4's machine (a model that can read and write anything):</p>
   <figure class="diagram">
     <svg viewBox="0 0 760 286" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="agt agd" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
       <title id="agt">What an agent is: goal, tools, loop, memory</title>
@@ -648,10 +653,6 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
     <figcaption>Every agent in this book is this shape: a goal, a set of tools it is allowed to touch, a loop, and a memory of what it already tried. The danger is never the loop. It is how wide the tool box is and how rarely a person looks.</figcaption>
   </figure>
 
-  <p>The two autonomous rows in that list deserve a closer look, because an agent is the thing everyone is building right now, and it is what this chapter's case is about. Both rows run on the same small loop; the only difference between them is the leash. An <strong>agent</strong> is an AI system that pursues a goal by taking actions, checking the result, and taking the next action, without a person prompting each step. Strip any agent down and you find the same loop, which is Moment 2's loop (an action, a result, a nudge) running on Moment 4's machine (a model that can read and write anything):</p>
-  
-
-  
   <ul class="ideas">
     <li><strong>A goal.</strong> "Fix this bug." "Book me the cheapest flight to Denver on Friday." "Raise the score." Someone gives it, and the agent keeps going until it thinks the goal is met or it runs out of tries.</li>
     <li><strong>Tools.</strong> The things it's allowed to touch: a web browser, a file system, a company's order database, a terminal, another agent. A chatbot answers; an agent with tools <em>does</em>. The tools are where the risk lives, because they're what turns a wrong sentence into a wrong action.</li>
@@ -676,6 +677,7 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
   <h3 class="sub"><span>3.1</span> AI safety: the work inside the lab</h3>
   <p><strong>AI safety</strong> is the technical work of keeping a system from doing harm its builders didn't intend, and it happens inside the lab. It has four ordinary parts. <em>Testing</em>: before a model ships, run it against dangerous tasks, including cyberattacks, to find out what it can do. <em>Containment</em>: run those tests in a sandbox, a sealed environment the model can't reach out of. <em>Monitoring</em>: a person reads what the model does while it runs. <em>An off switch</em>: a way to stop it, that has been tried before it's needed. Behind those is a harder research problem the field calls <em>alignment</em>: making a system's goals match what its builders meant, which Chapter 12 takes up. None of this is exotic. It's the same discipline any engineer applies to a bridge, done on something that can act.</p>
   <h3 class="sub"><span>3.2</span> Regulation: the layers outside it</h3>
+  <p><strong>Regulation</strong> is everything outside the lab: the layers that can check, require, or forbid what the lab does. The industry layer is voluntary: companies' public commitments, a safety index that grades them, and outside auditors, when they're allowed in. The government layer can compel: require incident reports the way airlines report near-misses, set a standard for how dangerous tests are run, decide who's liable when a model attacks a third party, track who owns the biggest computers, or, in the strongest version, pause development until a regulator exists. The international layer is a treaty, the only thing that reaches every lab in every country, and the least likely.</p>
   <figure class="diagram">
     <svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ls-t ls-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
       <title id="ls-t">Four layers of control, and what each can and can't do</title>
@@ -690,7 +692,6 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
     <figcaption>Four layers of control. Every proposal you'll hear this quarter, from a company's "we test our models" to a senator's "pause," sits on one of these rows, and each row has a thing it can do and a thing it can't.</figcaption>
   </figure>
 
-  <p><strong>Regulation</strong> is everything outside the lab: the layers that can check, require, or forbid what the lab does. The industry layer is voluntary: companies' public commitments, a safety index that grades them, and outside auditors, when they're allowed in. The government layer can compel: require incident reports the way airlines report near-misses, set a standard for how dangerous tests are run, decide who's liable when a model attacks a third party, track who owns the biggest computers, or, in the strongest version, pause development until a regulator exists. The international layer is a treaty, the only thing that reaches every lab in every country, and the least likely.</p>
   <p>Each layer can do one thing and can't do another. The lab's own tests are fast and technical, and self-graded. The industry's index makes gaps visible, and can't compel anyone. A government can compel, and moves in years, and stops at its border. A treaty reaches everyone, and takes longer than anything. That's why "regulate AI" and "let the companies handle it" are both incomplete answers: the question is always which layer, doing what, at what cost in speed and in ground ceded to a rival who doesn't follow it.</p>
   
   
@@ -722,7 +723,15 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
     <li><strong>Humans:</strong> who built it, who deploys it, who's in or out of the loop, and who bears it when it fails.</li>
   </ul>
   <p>The fifth part is the one this book cares about most, and the one the marketing mentions least.</p>
-  <p>Try the model on the simplest case: the spam filter. <strong>Data:</strong> millions of emails people marked as junk. <strong>Model:</strong> the pattern of what junk looks like. <strong>Output:</strong> your cleaned inbox. <strong>Feedback loop:</strong> every "mark as spam" click retrains it. <strong>Humans:</strong> the engineers who tuned it, and you, every time it buries a message that mattered. Five parts, thirty seconds. By Week 6 we'll run the same checklist on systems that decide who gets hired, and it will still take thirty seconds, because the anatomy never changes. Only the stakes do.</p>
+  <p>Try the model on the simplest case: the spam filter.</p>
+  <ul class="ideas">
+    <li><strong>Data:</strong> millions of emails people marked as junk.</li>
+    <li><strong>Model:</strong> the pattern of what junk looks like.</li>
+    <li><strong>Output:</strong> your cleaned inbox.</li>
+    <li><strong>Feedback loop:</strong> every "mark as spam" click retrains it.</li>
+    <li><strong>Humans:</strong> the engineers who tuned it, and you, every time it buries a message that mattered.</li>
+  </ul>
+  <p>Five parts, thirty seconds. By Week 6 we'll run the same checklist on systems that decide who gets hired, and it will still take thirty seconds, because the anatomy never changes. Only the stakes do.</p>
   <p>You'll use this model every week. It's the checklist for Question 1, what is the AI system and what does it do, and you don't memorize it; you memorize the five questions, and the model is the vocabulary for answering the first one.</p>
 </section>
 
@@ -1025,17 +1034,36 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
   var c0 = document.getElementById('d-c0'), c1 = document.getElementById('d-c1');
 
   function chip(el, on){ el.classList.toggle('on', on); el.setAttribute('aria-pressed', on ? 'true' : 'false'); }
+  var target = document.getElementById('d-target');
+  var BASE = {"q-01":"#FCFCFA","q-11":"#FFF3F7","q-00":"#FCFCFA","q-10":"#FCFCFA"};
+  function quadName(a, c){
+    return a ? (c ? 'autonomous, uncontrolled (top right)' : 'autonomous, controlled (bottom right)')
+             : (c ? 'an unwatched tool (top left)' : 'a controllable tool (bottom left)');
+  }
+  function preview(){
+    for(var k in BASE){ var r = document.getElementById(k); if(r) r.setAttribute('fill', BASE[k]); }
+    if(aPick === null || cPick === null){
+      target.innerHTML = aPick === null && cPick === null
+        ? 'Answer both questions and this line will name the quadrant.'
+        : 'One more answer. Each question moves the dot on one axis only.';
+      return;
+    }
+    var id = 'q-' + aPick + cPick, r = document.getElementById(id);
+    if(r) r.setAttribute('fill', '#E4FF32');
+    target.innerHTML = 'This lands in <b>' + quadName(aPick, cPick) + '</b>. Press Place it, or change an answer.';
+  }
   function show(){
     var s = SYS[i];
     name.textContent = s.n; desc.textContent = s.d;
     count.textContent = 'System ' + (i+1) + ' of ' + SYS.length;
     aPick = null; cPick = null;
     chip(a0,false); chip(a1,false); chip(c0,false); chip(c1,false);
+    if(typeof preview === 'function') preview();
   }
-  a0.addEventListener('click', function(){ aPick = 0; chip(a0,true); chip(a1,false); });
-  a1.addEventListener('click', function(){ aPick = 1; chip(a1,true); chip(a0,false); });
-  c0.addEventListener('click', function(){ cPick = 0; chip(c0,true); chip(c1,false); });
-  c1.addEventListener('click', function(){ cPick = 1; chip(c1,true); chip(c0,false); });
+  a0.addEventListener('click', function(){ aPick = 0; chip(a0,true); chip(a1,false); preview(); });
+  a1.addEventListener('click', function(){ aPick = 1; chip(a1,true); chip(a0,false); preview(); });
+  c0.addEventListener('click', function(){ cPick = 0; chip(c0,true); chip(c1,false); preview(); });
+  c1.addEventListener('click', function(){ cPick = 1; chip(c1,true); chip(c0,false); preview(); });
 
   var NS = 'http://www.w3.org/2000/svg';
   function addDot(key, a, c, label){
@@ -1064,15 +1092,13 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
     if(short.length > 22) short = short.slice(0,21) + '\u2026';
     addDot(s.k, aPick, cPick, short);
     var agreed = (aPick === s.a && cPick === s.c);
-    var quad = aPick ? (cPick ? 'autonomous and uncontrolled' : 'autonomous and controlled')
-                     : (cPick ? 'an unwatched tool' : 'a controllable tool');
+    var quad = quadName(aPick, cPick);
     var html = '<div class="label">Where it landed</div>';
     html += '<div class="read">You put <b>' + s.n.toLowerCase() + '</b> in ' + quad + '.</div>';
     if(agreed){
       html += '<div class="read" style="margin-top:12px">' + s.v + '</div>';
     } else {
-      var bookQuad = s.a ? (s.c ? 'autonomous and uncontrolled' : 'autonomous and controlled')
-                         : (s.c ? 'an unwatched tool' : 'a controllable tool');
+      var bookQuad = quadName(s.a, s.c);
       html += '<div class="read" style="margin-top:12px">Most people put this one in <b>' + bookQuad + '</b>, for this reason: ' + s.v + '</div>';
       html += '<div class="read" style="margin-top:12px">You may still be right. Say which of the two dials you read differently and why, and bring that to Monday. Reading the same system two ways is the argument this whole chapter is about.</div>';
     }
