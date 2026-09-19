@@ -169,6 +169,29 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 .tryit summary{cursor:pointer;font-weight:600;font-size:.95rem;}
 .tryit p{margin:8px 0 2px;font-size:.9rem;color:var(--gray);}
 .srcnote{border:1px solid var(--rule);border-radius:10px;padding:14px 18px;margin:30px 0;background:#fff;font-size:.9rem;}
+.tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
+.tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.btn{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;}
+.btn:hover{background:#1B222B;}
+.btn:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--rule);}
+.btn.alt:hover{border-color:var(--pink);color:var(--pinktext);}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.verdict{background:var(--dark);color:#E7EAEF;padding:26px 28px;margin-top:22px;}
+.verdict .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;}
+.verdict .read{font-size:.95rem;line-height:1.65;}
+.verdict .read b{color:var(--yellow);}
+.fut{margin:18px 0 0;}
+.fut .fh{font-family:'Fraunces',serif;font-size:1.05rem;margin-bottom:3px;}
+.fut .fs{font-size:.83rem;color:var(--gray);margin-bottom:9px;}
+.opt{display:block;width:100%;text-align:left;border:1px solid var(--rule);background:var(--bg);padding:10px 12px;margin-bottom:6px;font-family:'Inter',sans-serif;font-size:.88rem;line-height:1.45;color:var(--ink);cursor:pointer;}
+.opt:hover{border-color:var(--pink);}
+.opt:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.opt[aria-pressed="true"]{background:var(--dark);border-color:var(--dark);color:#fff;}
+.opt .vtag{display:none;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-top:6px;}
+.opt.graded .vtag{display:block;}
+.opt .vtag.good{color:#9BE870;}
+.opt .vtag.bad{color:#FF8FBC;}
 .srcnote summary{cursor:pointer;font-weight:700;color:var(--ink);}
 .srcnote p{margin:10px 0 2px;color:var(--gray);}
 </style>
@@ -368,6 +391,19 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   </figure>
 
 
+
+  <div class="tool">
+    <div class="label">Set your tripwires · three futures, one instrument each</div>
+    <p style="font-size:.92rem">An instrument is only useful if you decide in advance what would move you. Pick the one thing you would accept as real evidence that each future is arriving, then grade your own picks. There is no right future here, only picks you can be wrong about in public and picks you cannot.</p>
+    <div id="tw-list"></div>
+    <div class="chips" style="margin-top:16px">
+      <button type="button" class="btn" id="tw-grade">Grade my tripwires</button>
+      <button type="button" class="btn alt" id="tw-reset">Start over</button>
+    </div>
+    <div class="verdict" id="tw-out" aria-live="polite" style="display:none"></div>
+    <p style="font-size:.85rem;color:var(--gray);margin-top:10px">Nothing is saved, so write your three down somewhere before you close the tab. That is the point of them.</p>
+  </div>
+
   <h3 class="sub"><span>2.5</span> Calibration: the future that already arrived</h3>
   <p>Before the three futures, a calibration exercise: some of what would have sounded like the future on Day 1 is already here, and it's worth seeing how the five questions handle things that recently didn't exist.</p>
   <p><strong>AI in science.</strong> For fifty years, one of biology's hardest problems was predicting how a protein folds, the three-dimensional shape that determines what it does. Working it out for a single protein could take a doctoral student years. In 2020, a system from Google DeepMind called AlphaFold essentially solved the problem, and by 2024 the work had won <a class="inline" href="https://www.nobelprize.org/prizes/chemistry/2024/press-release/" target="_blank" rel="noopener">the Nobel Prize in Chemistry</a>, the first Nobel for a prediction system. Its structure database now covers essentially every known protein. This is Chapter 4's argument at planetary scale: prediction mining a record, then handing findings to humans who verify them in wet labs, which still takes years. Five questions, fast: predictive AI; humans firmly in the loop at verification; accountability with the labs that publish the follow-on claims; failures visible, because science has referees. Notice that the best-case AI story in the world passes every question cleanly, that's not a coincidence, and section 5 comes back to it.</p>
@@ -509,6 +545,106 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   document.addEventListener('click',closeAll);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
   document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+
+<script>
+(function(){
+  var list = document.getElementById('tw-list');
+  if(!list) return;
+  var F = [
+    {h:"Future one: the fast takeoff", s:"agents good enough to do AI research, then self-improvement",
+     o:[
+      {t:"A lab announces it has built AGI.", ok:false, g:"Not checkable. There is no agreed definition of the word, and the announcement would be made by the one party that gains from making it. You would be taking a press release as a measurement."},
+      {t:"AI keeps getting better at coding.", ok:false, g:"No threshold. This has been true every year since 2021 and will be true next year, so nothing could ever contradict it. A tripwire you cannot trip is a feeling with a date on it."},
+      {t:"The share of frontier AI research work verifiably done by models, as the labs report it and an independent index grades it.", ok:true, g:"A real instrument. It has a number, a schedule, and two keepers, and you can watch the second one argue with the first. If it stays near zero for three years, this future is not arriving on the timeline its authors gave."},
+      {t:"Another senior researcher resigns with a warning.", ok:false, g:"Already happened, more than once, and it tells you something real about people rather than about capability. Resignations do not update on a schedule and they cannot be compared year to year."}
+     ]},
+    {h:"Future two: normal technology", s:"capability is not deployment; institutions move slowly",
+     o:[
+      {t:"Everyone I know is using AI at work.", ok:false, g:"This is the extensive margin from section 2.3, and it is already close to saturated. It was true before the productivity numbers moved and it will be true whether or not they ever do."},
+      {t:"Measured productivity moves, and firms report reorganizing work rather than just buying tools.", ok:true, g:"A real instrument, in two parts, both published on a schedule. This is the one that would separate this future from the last one, and it is deliberately slow, because the claim itself is about slowness."},
+      {t:"The hype dies down.", ok:false, g:"Vibes. Hype is a measure of coverage, not of diffusion, and it has already risen and fallen twice during this course."},
+      {t:"A big company announces its AI rollout failed.", ok:false, g:"One anecdote, chosen by whoever wants to tell it. There will always be one available, for either side."}
+     ]},
+    {h:"Future three: flourishing", s:"the same powerful AI, plus alignment holding",
+     o:[
+      {t:"A major cure gets announced.", ok:false, g:"Announcements are cheap, and Chapter 4 taught you what sits between a promising candidate and a treatment anyone receives. Check the pipeline, not the press conference."},
+      {t:"Drug approvals traceable to AI-originated candidates, counted yearly.", ok:true, g:"A real instrument, and an unglamorous one. It moves in years, it is kept by regulators rather than by labs, and it is the kind of evidence that would survive a bad news cycle in either direction."},
+      {t:"AI companies keep saying they are working for humanity.", ok:false, g:"The interested party is the keeper. This chapter's disclosure exists for exactly this reason: the author of this future runs one of these companies, and so does the employer of the researcher most alarmed by future one."},
+      {t:"I feel more optimistic about the future.", ok:false, g:"Not an instrument, which does not make it worthless. Feelings are worth having. They just cannot be checked, and this exercise is about the ones that can."}
+     ]}
+  ];
+  var pick = [null, null, null], graded = false;
+
+  function build(){
+    list.innerHTML = ''; pick = [null, null, null]; graded = false;
+    document.getElementById('tw-out').style.display = 'none';
+    F.forEach(function(f, fi){
+      var d = document.createElement('div');
+      d.className = 'fut';
+      d.innerHTML = '<div class="fh">' + f.h + '</div><div class="fs">' + f.s + '</div>';
+      f.o.forEach(function(o, oi){
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'opt'; b.setAttribute('aria-pressed', 'false');
+        b.innerHTML = o.t + '<span class="vtag"></span>';
+        b.addEventListener('click', function(){
+          if(graded) return;
+          pick[fi] = oi;
+          d.querySelectorAll('.opt').forEach(function(x, xi){
+            var on = xi === oi;
+            x.setAttribute('aria-pressed', on ? 'true' : 'false');
+          });
+        });
+        d.appendChild(b);
+      });
+      list.appendChild(d);
+    });
+  }
+
+  document.getElementById('tw-grade').addEventListener('click', function(){
+    var out = document.getElementById('tw-out');
+    if(pick.indexOf(null) > -1){
+      out.style.display = '';
+      out.innerHTML = '<div class="label">Three picks, one per future</div><div class="read">Pick one tripwire for each future first. Choosing is the exercise; a future you have not set a tripwire for is one you can never be wrong about.</div>';
+      return;
+    }
+    graded = true;
+    var good = 0;
+    var blocks = list.querySelectorAll('.fut');
+    F.forEach(function(f, fi){
+      var o = f.o[pick[fi]];
+      if(o.ok) good++;
+      var btns = blocks[fi].querySelectorAll('.opt');
+      var b = btns[pick[fi]];
+      b.classList.add('graded');
+      var tag = b.querySelector('.vtag');
+      tag.className = 'vtag ' + (o.ok ? 'good' : 'bad');
+      tag.textContent = o.ok ? 'a real instrument' : 'cannot be checked';
+      var note = document.createElement('div');
+      note.style.cssText = 'font-size:.85rem;color:#3E454E;line-height:1.55;margin:2px 0 10px;padding-left:12px;border-left:2px solid ' + (o.ok ? '#14181D' : '#D61F69');
+      note.textContent = o.g;
+      blocks[fi].appendChild(note);
+    });
+    out.style.display = '';
+    var head, body;
+    if(good === 3){
+      head = 'Three tripwires you can actually trip';
+      body = 'All three of your picks have a number, a schedule, and a keeper. That is a belief system you can be wrong about in public, which is rarer than it sounds and is most of what this course was for.';
+    } else if(good === 0){
+      head = 'Nothing here could ever prove you wrong';
+      body = 'Every pick you made is either unfalsifiable, already true, or reported by someone with a stake in the answer. That is not a failure of judgment; it is what most confident opinions about AI are made of. Go back and find the one option in each group that has a number and a date attached.';
+    } else {
+      head = good + ' of 3 could actually be checked';
+      body = 'Look at the ones that failed. They tend to fail in one of three ways: no threshold, no schedule, or the keeper is the party that benefits. Those are the same three tests you ran on a company safety report in Chapter 7 and on a footprint number in Chapter 5.';
+    }
+    out.innerHTML = '<div class="label">' + head + '</div><div class="read">' + body + '</div>' +
+      '<div class="read" style="margin-top:12px">Now the part that outlasts the course. Write your three down with today\u2019s date, put them somewhere you will find them, and look once a year. If an instrument moved and you did not update, that is worth knowing about yourself. If it did not move and you stayed worried, or stayed calm, that is worth knowing too.</div>' +
+      '<div class="read" style="margin-top:12px">Nobody in this chapter knows which future is arriving. The people who sound most certain are the ones to watch most carefully, in both directions. <b>The answer to who do I believe is still nobody. Watch the board.</b></div>';
+  });
+
+  document.getElementById('tw-reset').addEventListener('click', build);
+  build();
 })();
 </script>
 </body>
