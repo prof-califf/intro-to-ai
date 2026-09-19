@@ -12,7 +12,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab 1 · Inside the Machine — Intro to AI in Business | MIS 201</title>
+<title>Lab 1 · Inside the Machine · Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -316,7 +316,7 @@ ul.ideas li{margin:8px 0}
       <div>
         <div class="label">What mini-ImageNet has learned</div>
         <canvas id="tis-weights" width="252" height="252" aria-label="Heat map of learned weights: pink cells push toward A, dark cells push toward B." role="img"></canvas>
-        <p class="tis-note" id="tis-wnote">Nothing yet. This grid shows which parts of the pad mini-ImageNet has decided point to a smiley and which to a house. It's all it knows.</p>
+        <p class="tis-note" id="tis-wnote" aria-live="polite">Nothing yet. This grid shows which parts of the pad mini-ImageNet has decided point to a smiley and which to a house. It's all it knows.</p>
       </div>
     </div>
     <div class="verdict" id="tis-verdict" aria-live="polite" hidden>
@@ -355,14 +355,14 @@ ul.ideas li{margin:8px 0}
       </div>
       <div>
         <div class="label">Mini-AlphaGo's record</div>
-        <p class="tis-counts" id="mn-score">Games 0 · Mini-AlphaGo won 0 · draws 0 · human won 0</p>
+        <p class="tis-counts" id="mn-score" aria-live="polite">Games 0 · Mini-AlphaGo won 0 · draws 0 · human won 0</p>
         <div class="mn-strip" id="mn-strip" role="img" aria-label="Last twenty results"></div>
         <div class="label" style="margin-top:16px">Let it practice (simulated games, played in a second)</div>
         <div class="chips">
           <button class="chip" type="button" id="mn-rand">Simulate 300 games vs. a random player</button>
           <button class="chip" type="button" id="mn-block">Simulate 300 games vs. a careful player</button>
         </div>
-        <p class="tis-note" id="mn-note">These are simulations: the computer plays both sides, 300 games in about a second, the way AlphaGo played itself millions of times. They count in the record too. Pink is a Mini-AlphaGo win, gray a draw, black a human win.</p>
+        <p class="tis-note" id="mn-note" aria-live="polite">These are simulations: the computer plays both sides, 300 games in about a second, the way AlphaGo played itself millions of times. They count in the record too. Pink is a Mini-AlphaGo win, gray a draw, black a human win.</p>
       </div>
     </div>
   </div>
@@ -591,7 +591,10 @@ ul.ideas li{margin:8px 0}
   function randomMove(b){var e=[]; b.forEach(function(c,i){if(c==='')e.push(i);}); return e[Math.floor(Math.random()*e.length)];}
   function record(result){rec.g++; if(result==='X')rec.w++; else if(result==='draw')rec.d++; else rec.l++; strip.push(result==='X'?'w':result==='draw'?'d':'l'); if(strip.length>20)strip.shift();
     $('mn-score').textContent='Games '+rec.g+' · Mini-AlphaGo won '+rec.w+' · draws '+rec.d+' · human won '+rec.l;
-    $('mn-strip').innerHTML=strip.map(function(x){return '<span class="'+x+'"></span>';}).join('');}
+    $('mn-strip').innerHTML=strip.map(function(x){return '<span class="'+x+'"></span>';}).join('');
+    stripLabel();}
+  function stripLabel(){var w=0,d=0,l=0; strip.forEach(function(x){if(x==='w')w++; else if(x==='d')d++; else l++;});
+    $('mn-strip').setAttribute('aria-label', strip.length? 'Last '+strip.length+' results: Mini-AlphaGo won '+w+', draws '+d+', human won '+l+'.' : 'Last twenty results: none yet.');}
   function playAuto(opp,n){for(var g=0;g<n;g++){var b=['','','','','','','','',''],h=[],res=null; while(!(res=winner(b))){var box=getBox(b),m=menaceMove(b); h.push({k:key(b),m:m}); b[m]='X'; if((res=winner(b)))break; var o=opp(b); b[o]='O';} hist=h; learn(res); record(res);} newGame();}
   function render(){var el=$('mn-board'); el.innerHTML=''; var box=over?null:getBox(board);
     board.forEach(function(c,i){var btn=document.createElement('button'); btn.type='button'; btn.className='mn-cell'+(c==='X'?' x':c==='O'?' o':''); btn.setAttribute('aria-label','Square '+(i+1)+(c?': '+c:': empty'));
@@ -604,7 +607,7 @@ ul.ideas li{margin:8px 0}
   function humanMove(i){if(over||!human||board[i])return; board[i]='O'; human=false; var res=winner(board); if(res){finish(res);return;} render(); setTimeout(menaceTurn,250);}
   function newGame(){board=['','','','','','','','','']; hist=[]; over=false; human=false; render(); $('mn-msg').textContent='It goes first.'; setTimeout(menaceTurn,200);}
   $('mn-new').addEventListener('click',newGame);
-  $('mn-reset').addEventListener('click',function(){boxes={}; rec={g:0,w:0,d:0,l:0}; strip=[]; $('mn-score').textContent='Games 0 · Mini-AlphaGo won 0 · draws 0 · human won 0'; $('mn-strip').innerHTML=''; $('mn-note').textContent='All beads reset. It knows nothing again.'; newGame();});
+  $('mn-reset').addEventListener('click',function(){boxes={}; rec={g:0,w:0,d:0,l:0}; strip=[]; $('mn-score').textContent='Games 0 · Mini-AlphaGo won 0 · draws 0 · human won 0'; $('mn-strip').innerHTML=''; stripLabel(); $('mn-note').textContent='All beads reset. It knows nothing again.'; newGame();});
   $('mn-rand').addEventListener('click',function(){playAuto(randomMove,300); $('mn-note').textContent='Simulated 300 games against a player who moves at random.';});
   $('mn-block').addEventListener('click',function(){playAuto(careful,300); $('mn-note').textContent='Simulated 300 games against a player who takes wins and blocks yours.';});
   newGame();
