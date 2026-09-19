@@ -256,6 +256,19 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
 .srcnote summary{cursor:pointer;font-weight:700;color:var(--ink);}
 .srcnote p{margin:10px 0 2px;color:var(--gray);}
 </style>
+<style>
+  .srcnote{border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0;margin:34px 0}
+  .srcnote > summary{cursor:pointer;padding:14px 20px;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1rem;color:var(--ink);list-style:none}
+  .srcnote > summary::-webkit-details-marker{display:none}
+  .srcnote > summary::after{content:"\25BE";float:right;color:var(--pinktext);font-size:.8rem}
+  .srcnote[open] > summary::after{content:"\25B4"}
+  .srcnote .srcbody{padding:0 20px 18px}
+  .srcnote .srcintro{font-size:.9rem;color:var(--gray);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+  .srcnote dl{margin:0}
+  .srcnote dt{font-family:'Inter',Arial,sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:14px 0 4px}
+  .srcnote dd{margin:0;font-size:.9rem;line-height:1.55;color:var(--gray)}
+  .srcnote .srcfoot{margin-top:18px;padding-top:12px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--gray)}
+</style>
 </head>
 <body>
 
@@ -786,9 +799,31 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
 
 
 <details class="srcnote">
-    <summary>Sources &amp; verification</summary>
-    <p>The reach of the Coxon tweet (170 million-plus views, the network interviews, the House recess and the U.S.-China agenda) is from Kai Williams, "How a single tweet transformed the AI safety debate," Understanding AI, September 17, 2026 (linked; the free portion of the post). Section 1's definition of critical AI literacy is Sam Illingworth's (Slow AI, "What Is Critical AI Literacy?", February 13, 2026, linked); the three ideas are his, paraphrased. The four examples in 1.1 are this book's own cases (Chapters 4, 6, 7, and the main case); the trauma surgeon's "public health breakthrough" is from the NPR interview cited in Lab 0. Section 2's four moments are historical and stable: ImageNet (Fei-Fei Li, 2007 onward; the 2012 Toronto result of Krizhevsky, Sutskever, and Hinton, error 26 to 15 percent; later removal of images from the person categories); AlphaGo (DeepMind, March 2016, 4 to 1 over Lee Sedol; Move 37's one-in-ten-thousand estimate and Lee Sedol's "creative" remark from DeepMind's and the match's contemporaneous coverage; Move 78 and the Wired quotation from Wired, March 2016; AlphaGo Zero, 2017, 100 to 0); the feed dates (YouTube's 2012 watch-time change, Instagram's and Twitter's 2016 ranked timelines, TikTok's 2018 launch outside China); the 2017 transformer paper; ChatGPT's November 30, 2022 release and the widely reported hundred-million-user estimate (UBS, February 2023). Section 6's case: OpenAI's July 21 disclosure and August 26 technical report, Hugging Face's July 16 disclosure and July 27 timeline, OpenAI's Black Hat presentation (August 5, as reported by Wired), Reuters (July 24, on when OpenAI learned its agents were responsible; September 4, on the German wiki), the ExploitGym benchmark paper (May 11, 2026), the Lieu–Moran AI Kill Switch Act (July 23), the "Pacing the Frontier" letter (July 28; signer counts grew after launch), Ajeya Cotra's post on the METR investigation (linked), and the METR and Redwood investigation of August 26 (linked; message samples and quoted words are from that report as covered by CBS, Fortune, and the Irish Times); Jacob Coxon's resignation (Wired, September 8 and 9, 2026); the renewed slowdown call and the July employee letter (NPR, September 12); Jack Clark's proposal (NPR Morning Edition, September 15, 2026); the Sanders and Casar bill, the Ban Artificial Superintelligence Act (announced September 3, 2026; full text not released, and reporting as of mid-September is split on whether it has been formally introduced); California's 2025 frontier-model law (SB 53); the president's and White House AI adviser's responses (NPR, September 13; CNBC, September 14); Dario Amodei's "fifty to a hundred years" claim ("Machines of Loving Grace," October 2024) and his CBS News interview with Jo Ling Kent (September 2026, embedded; quotations from the broadcast transcript); the tool AI vs. uncontrollable AI distinction is Tristan Harris's (Meet the Press NOW, NBC News, September 15, 2026, linked; paraphrased); AlphaFold's 2024 Nobel Prize in Chemistry. Verified 15 September 2026; the case carries an as-of date and will move. The seven checkable claims live in Lab 0, where five of them carry links to their sources. Found an error? Tell your instructor; corrections are course content.</p>
-  </details>
+  <summary>Sources &amp; verification</summary>
+  <div class="srcbody">
+    <p class="srcintro">Verified 15 September 2026. The case carries an as-of date and will move. Where a claim is one source's characterization rather than established fact, it says so.</p>
+    <dl>
+      <dt>The framework</dt>
+      <dd>Critical AI literacy, in section 1, is Sam Illingworth's definition (<i>Slow AI</i>, "What Is Critical AI Literacy?", February 13, 2026, linked); the three ideas are his, paraphrased. The four examples in 1.1 are this book's own cases (Chapters 4, 6, 7, and the main case). The trauma surgeon's "public health breakthrough" is from the NPR interview cited in Lab 0. The tool AI versus uncontrollable AI distinction is Tristan Harris's (Meet the Press NOW, NBC News, September 15, 2026, linked; paraphrased).</dd>
+
+      <dt>The five moments (section 2)</dt>
+      <dd>Historical and stable. <b>ImageNet:</b> Fei-Fei Li, 2007 onward; the 2012 Toronto result of Krizhevsky, Sutskever and Hinton, error 26 to 15 percent; later removal of images from the person categories. <b>AlphaGo:</b> DeepMind, March 2016, 4 to 1 over Lee Sedol; Move 37's one-in-ten-thousand estimate and Lee Sedol's "creative" remark from DeepMind's and the match's contemporaneous coverage; Move 78 and the Wired quotation from Wired, March 2016; AlphaGo Zero, 2017, 100 to 0. <b>The feed:</b> YouTube's 2012 watch-time change, Instagram's and Twitter's 2016 ranked timelines, TikTok's 2018 launch outside China. <b>The transformer:</b> the 2017 paper. <b>ChatGPT:</b> released November 30, 2022; the hundred-million-user estimate is UBS, February 2023. AlphaFold's Nobel Prize in Chemistry is 2024.</dd>
+
+      <dt>The main case: the OpenAI agents (section 6)</dt>
+      <dd><b>Primary documents:</b> OpenAI's July 21 disclosure and August 26 technical report; Hugging Face's July 16 disclosure and July 27 timeline; OpenAI's Black Hat presentation of August 5, as reported by Wired; the ExploitGym benchmark paper, May 11, 2026. <b>Investigations:</b> the METR and Redwood report of August 26 (linked; message samples and quoted words come from that report as covered by CBS, Fortune and the Irish Times), and Ajeya Cotra's post on it (linked). <b>Reporting:</b> Reuters, July 24, on when OpenAI learned its agents were responsible, and September 4, on the German wiki.</dd>
+
+      <dt>The response (section 6)</dt>
+      <dd>Jacob Coxon's resignation: Wired, September 8 and 9, 2026. The renewed slowdown call and the July employee letter: NPR, September 12. Jack Clark's proposal: NPR Morning Edition, September 15, 2026. The president's and the White House AI adviser's responses: NPR, September 13, and CNBC, September 14. Dario Amodei's "fifty to a hundred years" claim is from "Machines of Loving Grace," October 2024; his CBS News interview with Jo Ling Kent is September 2026, embedded, with quotations taken from the broadcast transcript.</dd>
+
+      <dt>Legislation</dt>
+      <dd>The Lieu&ndash;Moran AI Kill Switch Act, July 23. The "Pacing the Frontier" letter, July 28; signer counts grew after launch. The Sanders and Casar bill, the Ban Artificial Superintelligence Act, announced September 3, 2026: full text not released, and reporting as of mid-September is split on whether it has been formally introduced. California's frontier-model law, SB 53, 2025.</dd>
+
+      <dt>The tweet's reach</dt>
+      <dd>The 170 million-plus views, the network interviews, the House recess and the U.S.&ndash;China agenda are from Kai Williams, "How a single tweet transformed the AI safety debate," Understanding AI, September 17, 2026 (linked; the free portion of the post).</dd>
+    </dl>
+    <p class="srcfoot">The seven checkable claims live in Lab 0, where five of them carry links to their sources. Found an error? Tell your instructor; corrections are course content.</p>
+  </div>
+</details>
 
 <div class="nextbar">
   <a href="index.html"><span class="dir">← Back</span>Contents</a>
