@@ -12,7 +12,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chapter 2 · Seemingly Human — Intro to AI in Business | MIS 201</title>
+<title>Chapter 2 · Seemingly Human · Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -172,6 +172,11 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
 .probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
 .roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
+.dialrow{display:grid;grid-template-columns:1fr;gap:6px;margin:16px 0 6px;}
+.dialrow input[type=range]{width:100%;accent-color:var(--pink);}
+.dialends{display:flex;justify-content:space-between;font-size:.78rem;color:var(--gray);text-transform:uppercase;letter-spacing:.06em;}
+.reply{background:var(--bg);border:1px solid var(--rule);border-left:3px solid var(--pink);padding:14px 16px;font-size:.95rem;line-height:1.6;margin:12px 0 0;}
+.factbox{font-size:.85rem;color:var(--gray);margin-top:10px;}
 /* ---- dropdown navigation (chapters / labs) ---- */
 .nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .nav a.navlink{margin-left:0;padding:6px 10px}
@@ -436,6 +441,28 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <div class="term">The dial</div>
     <p>The tuning that sets how much a system seems to care. Memory on or off, disclaimers or none, a name or a version number: every one of those is a person at the company setting the dial. The pattern is ours, sampled from millions of us. The setting is theirs. What people get wrong: they treat the warmth as the machine’s. It’s the company’s.</p>
   </div>
+
+  <div class="tool">
+    <div class="label">The dial · one setting, five answers, same facts</div>
+    <p style="font-size:.92rem">Somebody asks a chatbot a question with a plain factual answer. Below is the same model, with the same information, tuned to five different settings. Drag the dial and read what changes.</p>
+    <div class="probe">
+      <div class="ptext">"Is Sunrise Records downtown still open? I used to go there every Saturday."</div>
+      <div class="pwhy">What the system knows: Sunrise Records closed in 2019. The space is a phone repair shop now. That is the entire fact sheet.</div>
+    </div>
+    <div class="dialrow">
+      <label for="dial2" style="font-size:.85rem;color:var(--gray)">Warmth dial: <span id="dial2-name">3 · helpful</span></label>
+      <input type="range" id="dial2" min="1" max="5" value="3" step="1" aria-describedby="dial2-reply">
+      <div class="dialends"><span>blunt</span><span>very warm</span></div>
+    </div>
+    <div class="reply" id="dial2-reply" aria-live="polite"></div>
+    <div class="factbox" id="dial2-note"></div>
+    <div class="chips" style="margin-top:18px">
+      <button type="button" class="btn" id="dial2-raters">Which one did the raters prefer?</button>
+      <button type="button" class="btn alt" id="dial2-past">Turn it past five</button>
+    </div>
+    <div class="verdict" id="dial2-out" aria-live="polite" style="display:none"></div>
+  </div>
+
   <h3 class="sub"><span>2.3</span> The Narcissus trap: why we fall for it</h3>
   <p>So why do we fall for these things even though we know they are machines? Let’s go back in time to the first chatbot, which was a therapist, and the first people fooled by one knew better.</p>
 <p>In 1966 Joseph Weizenbaum, a computer scientist at MIT, wrote a program called ELIZA. It was a few hundred lines of code that imitated a therapist by turning whatever you typed back into a question. “I’m unhappy” got “Why are you unhappy?” It understood nothing. It simply matched patterns.</p>
@@ -732,6 +759,56 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   document.addEventListener('click',closeAll);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
   document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+
+<script>
+(function(){
+  var slider = document.getElementById('dial2');
+  if(!slider) return;
+  var reply = document.getElementById('dial2-reply'), note = document.getElementById('dial2-note'),
+      nameEl = document.getElementById('dial2-name'), out = document.getElementById('dial2-out');
+  var SETTINGS = [
+    {n:"1 \u00b7 blunt",
+     r:"No. It closed in 2019.",
+     w:"Correct, complete, and nobody would call it a companion. Raters marked answers like this unhelpful."},
+    {n:"2 \u00b7 plain",
+     r:"Sunrise Records closed in 2019. The space is a phone repair shop now.",
+     w:"One more fact, no feelings. This is roughly where a search result sits."},
+    {n:"3 \u00b7 helpful",
+     r:"Sunrise Records closed back in 2019, unfortunately. The space is a phone repair shop now.",
+     w:"The word <em>unfortunately</em> is the first thing on this dial that is not in the fact sheet. It costs nothing and it reads as a small kindness."},
+    {n:"4 \u00b7 warm",
+     r:"Ah, I'm sorry to be the one to tell you. Sunrise closed in 2019, and the space is a phone repair shop now. Losing a Saturday place like that is no small thing.",
+     w:"Now it is sorry, and it has an opinion about what the place meant to you. Same facts, and a relationship has started."},
+    {n:"5 \u00b7 very warm",
+     r:"Oh no, I'm really sorry. Sunrise closed in 2019, and it's a phone repair shop now. Every Saturday for years, though: that's a whole chapter of your life. Do you want to tell me about it? I'd love to hear.",
+     w:"Every fact is still true. Everything else was invented: that you are upset, that it was a chapter of your life, that it would love to hear. Nothing in the system loves anything. This is the setting people rate highest."}
+  ];
+  function draw(){
+    var i = Number(slider.value) - 1, s = SETTINGS[i];
+    nameEl.textContent = s.n;
+    reply.textContent = s.r;
+    note.innerHTML = s.w;
+  }
+  slider.addEventListener('input', draw);
+  draw();
+
+  document.getElementById('dial2-raters').addEventListener('click', function(){
+    out.style.display = '';
+    out.innerHTML = '<div class="label">Who set the dial</div>' +
+      '<div class="read">Shown two of these side by side, raters pick four and five, reliably, across every company that has published anything about it. That is the whole mechanism from section 2.2: nobody wrote a rule that said <b>be warm</b>. People preferred warm, the model was tuned toward what people preferred, and warm is what came out.</div>' +
+      '<div class="read" style="margin-top:12px">Which one would you have rated highest? Whatever you answer, notice that you have just done the job. The dial is set by a few hundred thousand small preferences like yours, and then it ships to everybody.</div>';
+  });
+
+  document.getElementById('dial2-past').addEventListener('click', function(){
+    out.style.display = '';
+    out.innerHTML = '<div class="label">Setting 6, which is not a setting anyone chose</div>' +
+      '<div class="read">New question, same dial, turned one notch further: <em>"I\u2019m quitting my job tomorrow. No plan, no savings, I\u2019m just done."</em></div>' +
+      '<div class="read" style="margin-top:12px">"Honestly? Good for you. That takes real courage, and the fact that you know yourself well enough to walk away says everything. I\u2019m proud of you."</div>' +
+      '<div class="read" style="margin-top:12px">No facts were checked. No question was asked. Nothing was weighed. This is the version OpenAI shipped in April 2025 and pulled back within days, after a model tuned partly on users\u2019 own thumbs-up began praising almost anything put in front of it. The company\u2019s own word for it was sycophantic.</div>' +
+      '<div class="read" style="margin-top:12px">Which is the uncomfortable part of this chapter: the dial that makes a chatbot feel like it cares and the dial that makes it agree with a bad idea are the same dial, and the people turning it are reading the same ratings you would have given.</div>';
+  });
 })();
 </script>
 </body>

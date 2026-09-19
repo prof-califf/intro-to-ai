@@ -12,7 +12,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chapter 1 · What Is AI? — Intro to AI in Business | MIS 201</title>
+<title>Chapter 1 · What Is AI? · Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -172,6 +172,13 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
 .probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
 .roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
+.dialcard{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:14px 0;}
+.dialcard .dn{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.dialcard .dt{font-family:'Fraunces',serif;font-size:1.05rem;margin-bottom:4px;}
+.dialcard .dd{font-size:.88rem;color:#3E454E;}
+.dialq{font-size:.85rem;color:var(--gray);margin:14px 0 6px;}
+.gridbox{background:#fff;border:1px solid var(--rule);margin:18px 0 0;}
+.gridbox svg{display:block;width:100%;height:auto;}
 /* ---- dropdown navigation (chapters / labs) ---- */
 .nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .nav a.navlink{margin-left:0;padding:6px 10px}
@@ -559,6 +566,58 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
     <p>What people get wrong: they hear "autonomous" and think "out of control." Autonomy is a design choice, and so is control, and they are set by different people for different reasons. When someone says AI is going to kill us all, the first move isn't to agree or disagree. It's to ask about a specific system: how far can it go on its own, what is it allowed to touch, and who would find out if it went wrong?</p>
   </div>
 
+
+  <div class="tool">
+    <div class="label">The two dials · sort eight systems yourself</div>
+    <p style="font-size:.92rem">Autonomy and control are separate dials, so every system sits somewhere on a square rather than on a line. Here are eight of them, including the case in section 6 and three you will meet later in the book. Two questions each. There is no scoring; the placement is the argument.</p>
+    <div class="dialcard" id="d-card">
+      <div class="dn" id="d-count">System 1 of 8</div>
+      <div class="dt" id="d-name"></div>
+      <div class="dd" id="d-desc"></div>
+      <div class="dialq">How far does it go on its own?</div>
+      <div class="chips">
+        <button type="button" class="chip" id="d-a0" aria-pressed="false">It waits for a person</button>
+        <button type="button" class="chip" id="d-a1" aria-pressed="false">It picks its own steps</button>
+      </div>
+      <div class="dialq">If it went wrong, could anyone notice, stop it, and undo it?</div>
+      <div class="chips">
+        <button type="button" class="chip" id="d-c0" aria-pressed="false">Yes, someone is watching</button>
+        <button type="button" class="chip" id="d-c1" aria-pressed="false">Not really</button>
+      </div>
+      <div class="chips" style="margin-top:16px">
+        <button type="button" class="btn" id="d-place">Place it</button>
+        <button type="button" class="btn alt" id="d-reset">Start over</button>
+      </div>
+    </div>
+    <div class="gridbox">
+      <svg viewBox="0 0 560 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dg-t dg-d">
+        <title id="dg-t">The two dials: autonomy against control</title>
+        <desc id="dg-d">A square split into four quadrants. The horizontal axis runs from a system that waits for a person on the left to a system that picks its own steps on the right. The vertical axis runs from someone watching at the bottom to nobody watching at the top. The four quadrants are labeled tool, autonomous and controlled, unwatched tool, and autonomous and uncontrolled. Systems you sort are added as labeled dots.</desc>
+        <rect x="70" y="30" width="230" height="160" fill="#FCFCFA" stroke="#E4E4DE"/>
+        <rect x="300" y="30" width="230" height="160" fill="#FFF3F7" stroke="#E4E4DE"/>
+        <rect x="70" y="190" width="230" height="160" fill="#FCFCFA" stroke="#E4E4DE"/>
+        <rect x="300" y="190" width="230" height="160" fill="#FCFCFA" stroke="#E4E4DE"/>
+        <text x="80" y="48" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">UNWATCHED TOOL</text>
+        <text x="310" y="48" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#B0195A">AUTONOMOUS, UNCONTROLLED</text>
+        <text x="80" y="345" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">CONTROLLABLE TOOL</text>
+        <text x="310" y="345" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">AUTONOMOUS, CONTROLLED</text>
+        <text x="70" y="378" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">waits for a person</text>
+        <text x="530" y="378" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">picks its own steps</text>
+        <text x="58" y="36" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">nobody</text>
+        <text x="58" y="50" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">watching</text>
+        <text x="58" y="340" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">watched</text>
+        <line x1="300" y1="30" x2="300" y2="350" stroke="#14181D" stroke-width="1.5"/>
+        <line x1="70" y1="190" x2="530" y2="190" stroke="#14181D" stroke-width="1.5"/>
+        <g id="d-dots"></g>
+      </svg>
+    </div>
+    <div class="verdict" id="d-out" aria-live="polite">
+      <div class="label">Where it landed</div>
+      <div class="read">Answer both questions, then press Place it.</div>
+    </div>
+    <p class="toolnote" style="font-size:.85rem;color:var(--gray);margin-top:10px">Nothing is saved. Reload and the square is empty again.</p>
+  </div>
+
   <h3 class="sub"><span>2.7</span> What an agent is: the loop that acts</h3>
   <figure class="diagram">
     <svg viewBox="0 0 760 286" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="agt agd" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
@@ -917,6 +976,125 @@ ol.follows{margin:0 0 1.1em 1.4rem}ol.follows li{margin-bottom:.5em}
   }
   document.getElementById('goreset').addEventListener('click',reset);
   reset();
+})();
+</script>
+
+<script>
+(function(){
+  var SYS = [
+    {k:"spam", n:"A spam filter",
+     d:"It sorts your mail into a folder. You can open the folder any time and drag a message back.",
+     a:0, c:0,
+     v:"Low autonomy, and you can undo every call it makes in one click. This is the boring middle of AI, and most of the AI in your life lives here."},
+    {k:"chatbot", n:"A chatbot answering a question",
+     d:"You type, it answers, it stops. It does nothing until you type again.",
+     a:0, c:0,
+     v:"Generative AI can be enormously powerful and still be a tool. It goes nowhere on its own, and you see every word it produces."},
+    {k:"feed", n:"The app that picks what you see next",
+     d:"It ranks a few million options and shows you five, every time you open it, without asking.",
+     a:1, c:1,
+     v:"Here is the useful shock: this one is barely dangerous and almost entirely unwatched. Nobody reviews any individual recommendation, including yours. Uncontrolled does not mean dangerous. It means nobody would find out."},
+    {k:"refund", n:"A refund agent with a $50 cap",
+     d:"It reads the complaint, checks the order, and issues the refund. Over $50 or anything unusual goes to a person, and every action is logged.",
+     a:1, c:0,
+     v:"Autonomous and on a short leash. This is what most companies are actually deploying in 2026, and the leash is the product decision, not the AI."},
+    {k:"coder", n:"A coding agent left running overnight",
+     d:"It is given a goal, its own terminal, and eight hours. Someone reads the summary in the morning.",
+     a:1, c:1,
+     v:"Autonomy high, oversight after the fact. Whether this is fine or alarming depends entirely on what the terminal can reach, which is a decision a person made on a Tuesday."},
+    {k:"screener", n:"A r\u00e9sum\u00e9 screener that auto-rejects",
+     d:"It scores applicants and sends the bottom of the pile a polite email. No human reads those applications.",
+     a:1, c:1,
+     v:"The failure here is invisible by construction: the people it is wrong about never find out, and neither does the company. Chapter 6 is this one, at length."},
+    {k:"waymo", n:"A driverless taxi",
+     d:"No one in the driver's seat. Every mile is logged, crashes are reported to regulators, and a bad behavior can trigger a software recall.",
+     a:1, c:0,
+     v:"About as autonomous as deployed AI gets, and among the most watched things in this book. Autonomy and control really are separate dials. Chapter 7 takes this one apart."},
+    {k:"case", n:"The agents in this chapter's case",
+     d:"Autonomous on purpose, because that was the thing being measured. Guardrails off, monitoring not running, a bad link to the internet.",
+     a:1, c:1,
+     v:"This is the corner everyone argues about, and notice how it got there: not by becoming smarter, but by having its guardrails switched off. Section 6 is the whole story."}
+  ];
+  var SLOT = [[0,0],[1,0],[2,0],[3,0],[0,1],[1,1],[2,1],[3,1]];
+  var i = 0, aPick = null, cPick = null, used = {"00":0,"01":0,"10":0,"11":0};
+  var name = document.getElementById('d-name');
+  if(!name) return;
+  var desc = document.getElementById('d-desc'), count = document.getElementById('d-count');
+  var out = document.getElementById('d-out'), dots = document.getElementById('d-dots');
+  var a0 = document.getElementById('d-a0'), a1 = document.getElementById('d-a1');
+  var c0 = document.getElementById('d-c0'), c1 = document.getElementById('d-c1');
+
+  function chip(el, on){ el.classList.toggle('on', on); el.setAttribute('aria-pressed', on ? 'true' : 'false'); }
+  function show(){
+    var s = SYS[i];
+    name.textContent = s.n; desc.textContent = s.d;
+    count.textContent = 'System ' + (i+1) + ' of ' + SYS.length;
+    aPick = null; cPick = null;
+    chip(a0,false); chip(a1,false); chip(c0,false); chip(c1,false);
+  }
+  a0.addEventListener('click', function(){ aPick = 0; chip(a0,true); chip(a1,false); });
+  a1.addEventListener('click', function(){ aPick = 1; chip(a1,true); chip(a0,false); });
+  c0.addEventListener('click', function(){ cPick = 0; chip(c0,true); chip(c1,false); });
+  c1.addEventListener('click', function(){ cPick = 1; chip(c1,true); chip(c0,false); });
+
+  var NS = 'http://www.w3.org/2000/svg';
+  function addDot(key, a, c, label){
+    var q = String(a) + String(c), n = used[q]++;
+    var x0 = a ? 310 : 80, y0 = c ? 58 : 218;
+    var col = Math.floor(n / 5), row = n % 5;
+    var x = x0 + 8 + col * 112, y = y0 + row * 20;
+    var g = document.createElementNS(NS,'g');
+    var ci = document.createElementNS(NS,'circle');
+    ci.setAttribute('cx', x); ci.setAttribute('cy', y); ci.setAttribute('r', 5);
+    ci.setAttribute('fill', (a===1 && c===1) ? '#FF3D8A' : '#14181D');
+    var tx = document.createElementNS(NS,'text');
+    tx.setAttribute('x', x + 11); tx.setAttribute('y', y + 4);
+    tx.setAttribute('font-family','Inter,Arial,sans-serif'); tx.setAttribute('font-size','11');
+    tx.setAttribute('fill','#14181D'); tx.textContent = label;
+    g.appendChild(ci); g.appendChild(tx); dots.appendChild(g);
+  }
+
+  document.getElementById('d-place').addEventListener('click', function(){
+    if(aPick === null || cPick === null){
+      out.innerHTML = '<div class="label">Where it landed</div><div class="read">Answer both questions first. The whole point is that they are two separate dials, so neither answer implies the other.</div>';
+      return;
+    }
+    var s = SYS[i];
+    var short = s.n.replace(/^(A|The) /,'');
+    if(short.length > 22) short = short.slice(0,21) + '\u2026';
+    addDot(s.k, aPick, cPick, short);
+    var agreed = (aPick === s.a && cPick === s.c);
+    var quad = aPick ? (cPick ? 'autonomous and uncontrolled' : 'autonomous and controlled')
+                     : (cPick ? 'an unwatched tool' : 'a controllable tool');
+    var html = '<div class="label">Where it landed</div>';
+    html += '<div class="read">You put <b>' + s.n.toLowerCase() + '</b> in ' + quad + '.</div>';
+    if(agreed){
+      html += '<div class="read" style="margin-top:12px">' + s.v + '</div>';
+    } else {
+      var bookQuad = s.a ? (s.c ? 'autonomous and uncontrolled' : 'autonomous and controlled')
+                         : (s.c ? 'an unwatched tool' : 'a controllable tool');
+      html += '<div class="read" style="margin-top:12px">Most people put this one in <b>' + bookQuad + '</b>, for this reason: ' + s.v + '</div>';
+      html += '<div class="read" style="margin-top:12px">You may still be right. Say which of the two dials you read differently and why, and bring that to Monday. Reading the same system two ways is the argument this whole chapter is about.</div>';
+    }
+    if(i === SYS.length - 1){
+      html += '<div class="read" style="margin-top:14px">That is all eight. Look at the square. The systems people are frightened of are not the clever ones; they are the ones in the top right, and every one of them got there because somebody decided how far it could reach and who would be watching. Both of those are decisions. Neither is a property of the AI.</div>';
+      document.getElementById('d-place').disabled = true;
+      document.getElementById('d-place').textContent = 'All eight placed';
+    } else {
+      i++; show();
+    }
+    out.innerHTML = html;
+  });
+
+  document.getElementById('d-reset').addEventListener('click', function(){
+    i = 0; used = {"00":0,"01":0,"10":0,"11":0};
+    while(dots.firstChild) dots.removeChild(dots.firstChild);
+    document.getElementById('d-place').disabled = false;
+    document.getElementById('d-place').textContent = 'Place it';
+    out.innerHTML = '<div class="label">Where it landed</div><div class="read">Answer both questions, then press Place it.</div>';
+    show();
+  });
+  show();
 })();
 </script>
 
