@@ -33,7 +33,7 @@ body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--i
 .nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
 .brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
-.brand b{color:var(--pink);font-weight:700;}
+.brand b{color:var(--pinktext);font-weight:700;}
 .nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
 .nav a.navlink:hover{color:var(--pinktext);}
 .masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
@@ -56,6 +56,7 @@ section{padding:44px 0 8px;}
 p{margin-bottom:1.1em;}
 p.lead{font-size:1.05rem;}
 a.inline{color:var(--pinktext);}
+.masthead a.inline,.foot a.inline,.concept a.inline,.ticket a.inline,.verdict a.inline,.howto a.inline,.rhythm a.inline,.graphbox a.inline{color:var(--pink);}
 h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
 .concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
 .concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
@@ -308,7 +309,7 @@ ul.gilman span{color:var(--gray)}
   <p>AI is already in your life: the spam filter on your inbox, the bank watching your card, the software reading your résumé, the feed deciding what you see next. This course is not about building it. It's about seeing it clearly enough to decide what to do about it, as a worker, a customer, and a citizen. The question the whole quarter carries: can we build a hybrid society, one where humans and AI systems are tangled together, that still works for the humans in it?</p>
   <p>The course runs on a free digital textbook written for it: this website. Every chapter is anchored on a real system at a real moment (EveryCure's drug search, Amazon's scrapped hiring tool, Waymo's crash data, the lawyer who cited phantom cases, the New Hampshire robocall, the "canaries" study on entry-level jobs), and every chapter reads its case through the same method. First, name the five parts of any AI system: data, model, output, feedback loop, humans. Then ask <strong>the five critical AI questions</strong>, the same five of every system, every week: what is it and what does it do; why does it exist and who benefits; what happens when it fails and who finds out; who's saying that and how would we know; and keep it, fix it, or drop it, and what does that cost. The fifth one is a decision, and it is yours to defend.</p>
   <p>This course takes a critical approach to AI, and "critical" doesn't mean negative. It means looking closely instead of taking anyone's word for it: not the companies', not the critics', not this book's. Critical AI literacy is the skill of knowing what an AI system is, what it's for, how it fails, who benefits from your believing what you're told about it, and when to use it and when not to. That last part is the one nobody teaches, and it's the one this course is built around. The book is not pro-AI and not anti-AI. It's pro-thinking critically about AI, and it says so on page one.</p>
-  <p>The labs are where you do it yourself: train a tiny neural network on your own drawings, audit a résumé screener, sit on a city council deciding whether to permit robotaxis, sort a stack of military contracts and find your own line, and run a firm through an AI reorganization.</p>
+  <p>The labs are where you do it yourself: train a tiny neural network on your own drawings, audit a résumé screener, sit on a city council deciding whether to permit robotaxis, run a firm through an AI reorganization, and verify a docket of court citations against a chatbot's inventions.</p>
   <p>One disclosure, made on the first page of the book and repeated here: this textbook was drafted with the help of Claude, an AI model made by Anthropic, a company that appears in the book's cases. That is a conflict of interest. Chapter 8 explains the choice; you are allowed to hold it against the book while reading closely.</p>
 </section>
 
@@ -385,7 +386,7 @@ ul.gilman span{color:var(--gray)}
   <p>Every lab ends the same way, and the repetition is the point: the five critical AI questions run on your own work rather than on the chapter's case, a debate with the sides assigned rather than chosen, and a commitment card, one sentence about what you'll do differently, that the next session asks you about. By December the questions should be a habit you can use on a system you have never seen.</p>
   <p><strong>How it runs.</strong> Chapters 1 through 9 have labs, plus Lab 0 on the first day; Lab 2 covers Chapters 2 and 3, the chatbot that seems to care and the feed that learns what holds you. Labs run Wednesdays in class, in pairs at the lab computers: a short recap of Monday, about an hour of work, then the debate. Two exceptions: Lab 8 (The Red Lines) starts on the Monday of Veterans Day week as the discussion itself and is finished at home, and Lab 5 (The Footprint Machine) is take-home in midterm week. Week 10 has no lab, because the Prototype project is that week's work.</p>
   <p><strong>The writeup.</strong> Nine graded writeups, each due Friday at 11:59 p.m. on Canvas: exactly five items, listed at the end of every lab. Credit is for a complete, on-time writeup that answers what was asked; the lab's own verdict already told you how you did. Writeups are individual even though the lab is done in pairs: same work, your own words.</p>
-  <p>Keep everything you make. A hiring audit, a robotaxi permit with priced conditions, and an eight-quarter reorganization you ran yourself are all work you can describe on a r&#233;sum&#233;.</p>
+  <p>Keep everything you make. A hiring audit, a robotaxi permit with priced conditions, and a citation docket you verified by hand are all work you can describe on a r&#233;sum&#233;.</p>
 </section>
 
 <section id="s9">

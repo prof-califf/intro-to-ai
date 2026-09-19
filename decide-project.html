@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K9V6CZ9N83"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-K9V6CZ9N83');
-</script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prototype Project — Intro to AI in Business | MIS 201</title>
+<title>Decide Project — Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -245,12 +236,11 @@ ul.gilman span{color:var(--gray)}
       <a class="navlink" href="schedule.html">Schedule</a>
       <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddc" data-dd="ddc">Chapters<span class="caret" aria-hidden="true">▾</span></button>
 <div class="dd-menu" id="ddc">
-<a href="about.html"><span class="lbl">Start here</span>About this book</a>
-          <a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
+<a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
 <a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
-<a href="chapter-03-systems.html"><span class="lbl">Chapter 3 · Week 3</span>Systems That Know You</a>
-<a href="chapter-04-medicine.html"><span class="lbl">Chapter 4 · Week 4</span>Medicine</a>
-<a href="chapter-05-environment.html"><span class="lbl">Chapter 5 · Week 5</span>Environment</a>
+<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 4</span>Medicine</a>
+<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 5</span>Environment</a>
+<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · optional</span>Systems That Want You</a>
 <a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
 <a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
 <a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
@@ -263,13 +253,17 @@ ul.gilman span{color:var(--gray)}
 <div class="dd-menu" id="ddl">
 <a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
 <a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
-<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test and the Feed</a>
-<a href="chapter-04-medicine-lab.html"><span class="lbl">Lab 4 · Week 4</span>Inside the Graph</a>
-<a href="chapter-05-environment-lab.html"><span class="lbl">Lab 5 · Week 5</span>The Footprint Machine</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test</a>
+<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 4</span>Inside the Graph</a>
+<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 5</span>The Footprint Machine</a>
+<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · optional</span>Play the Algorithm</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
-<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
+<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
 <a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
+<a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 10 · take-home</span>The Phantom Docket</a>
+<a href="exposure-audit.html"><span class="lbl">Self-guided · pairs with Chapter 9</span>The Exposure Audit</a>
+<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · last class</span>First Contact, Revisited</a>
 </div></div>
     </div>
   </div>
@@ -278,9 +272,9 @@ ul.gilman span{color:var(--gray)}
 <header class="masthead">
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Fall 2026</div>
-    <h1>The <b>Prototype</b> Project</h1>
-    <p class="kicker">In a team of four, design your own AI system and pitch it. Your spec is the prototype on paper. Building a working version is optional, and you are not required to use AI at any point in this project. Find a problem worth solving, lay out how your system would work using the model we use every week, question your own design as hard as we question everyone else's, and pitch it to the class.</p>
-    <p class="factline">10 percent of your grade · teams of four · a three-page paper · a pitch of four slides or fewer · pitches in class Mon, Nov 30 and Wed, Dec 2 · paper and slides due Fri, Dec 4, 11:59 p.m.</p>
+    <h1>The <b>Decide</b> Project</h1>
+    <p class="kicker">In a team of four, design your own AI system. Find a problem worth solving, lay out how your system would work using the model we use every week, question your own design as hard as we question everyone else's, and pitch it to the class.</p>
+    <p class="factline">10 percent of your grade · teams of four · a three-page paper · a pitch of four slides or fewer · pitches in class Wed, Dec 2 · everything due that night, 11:59 p.m.</p>
   </div>
 </header>
 
@@ -288,7 +282,7 @@ ul.gilman span{color:var(--gray)}
 
 <div class="rhythm">
   <div class="label">In one paragraph</div>
-  <p>Form a team of four by <b>Friday, October 30</b>, and submit the four names plus one paragraph on your rough idea on Canvas that day. Browse the Rundown AI Workflow Hub for inspiration and pick a real problem you'd like an AI system to help with. Design that system as a spec: what it's for, who uses it, and its five parts (data, model, output, feedback loop, humans). Run the five critical AI questions on your own design and decide what to keep, fix, or drop, with the cost of each choice. Building a working version is up to your team; you can use Claude, ChatGPT, any other tool, or no AI at all. On <b>Monday, November 30, or Wednesday, December 2</b>, your team gives a five-minute pitch with four slides or fewer. By <b>11:59 p.m. Friday, December 4</b>, your team submits the paper and slides, and each of you submits a short reflection. You are graded on whether your design survives the questions, not on whether you built it.</p>
+  <p>Form a team of four by <b>Friday, October 30</b>. Browse the Rundown AI Workflow Hub for inspiration and pick a real problem you'd like an AI system to help with. Design that system as a spec: what it's for, who uses it, and its five parts (data, model, output, feedback loop, humans). Run the five critical AI questions on your own design and decide what to keep, fix, or drop, with the cost of each choice. Building a working version is up to your team; you can use Claude, ChatGPT, any other tool, or no AI at all. On <b>Wednesday, December 2</b>, the last class, your team gives a five-minute pitch with four slides or fewer. By <b>11:59 p.m.</b> that night, your team submits the paper and slides, and each of you submits a short reflection. You are graded on whether your design survives the questions, not on whether you built it.</p>
 </div>
 
 <div class="toc">
@@ -296,28 +290,22 @@ ul.gilman span{color:var(--gray)}
   <p><a href="#s1">Your team</a> · <a href="#s2">Get inspired</a> · <a href="#s3">Write the spec</a> · <a href="#s4">Question your own design</a> · <a href="#s5">Build it, if you want to</a> · <a href="#s6">How to write it up</a> · <a href="#s7">The pitch</a> · <a href="#s8">What I look for</a> · <a href="#s9">Using AI on this project</a></p>
 </div>
 
-<div class="callout">
-    <div class="label">Before anything else</div>
-    <p><strong>You are not required to use AI on this project, or anywhere in this course outside the labs that study it.</strong> The deliverable is a design: a real problem, a system that would address it, and an honest account of how it could fail and who it could hurt. You can use AI to help you think, or to try building a rough version, or you can use none at all. A team that builds nothing and designs carefully can earn full marks. A team that builds something impressive and can't say who it hurts will not.</p>
-  </div>
-
-  <section id="s1">
+<section id="s1">
   <div class="shead"><span class="num">1</span><h2>Your team</h2></div>
   <p>Teams of four, formed by Friday, October 30, at 11:59 p.m. on Canvas. Pick your own team or ask to be placed; anyone without a team by then gets placed. Your team designs one system and turns in one paper and one pitch.</p>
   <table class="syl">
     <tr><th>What</th><th>Who</th><th>Due</th></tr>
-    <tr><td>Team sign-up and rough idea: the four names, and one paragraph on the problem, who has it, and what the system would do</td><td>Team</td><td>Fri, Oct 30, 11:59 p.m.</td></tr>
-    <tr><td>The pitch, five minutes plus two minutes of questions</td><td>Team</td><td>In class, Mon, Nov 30 or Wed, Dec 2 (order announced in Week 9; slides ready by Monday)</td></tr>
-    <tr><td>The paper (about three pages) and the pitch slides (four or fewer)</td><td>Team</td><td>Fri, Dec 4, 11:59 p.m.</td></tr>
-    <tr><td>Your reflection: what you did, and what you'd change. One paragraph. Plus a quick rating of each teammate's contribution.</td><td>Each of you</td><td>Fri, Dec 4, 11:59 p.m.</td></tr>
+    <tr><td>Team sign-up</td><td>Team</td><td>Fri, Oct 30, 11:59 p.m.</td></tr>
+    <tr><td>The pitch, five minutes plus two minutes of questions</td><td>Team</td><td>In class, Wed, Dec 2</td></tr>
+    <tr><td>The paper (about three pages) and the pitch slides (four or fewer)</td><td>Team</td><td>Wed, Dec 2, 11:59 p.m.</td></tr>
+    <tr><td>Your reflection: what you did, and what you'd change. One paragraph. Plus a quick rating of each teammate's contribution.</td><td>Each of you</td><td>Wed, Dec 2, 11:59 p.m.</td></tr>
   </table>
   <p class="note">The team grade comes from the paper and the pitch. Your reflection and your teammates' ratings can move your own grade up or down, so nobody carries the team alone and nobody coasts.</p>
 </section>
 
 <section id="s2">
   <div class="shead"><span class="num">2</span><h2>Get inspired</h2></div>
-  <p>Prototyping is how ideas get tested in business now. Instead of writing a long plan and hoping, people build a rough working version fast, put it in front of someone, and learn what's wrong before it costs much. AI has made that much cheaper: a chatbot, a spreadsheet, or a no-code tool can turn a sketch into something you can click on in an afternoon. Companies increasingly ask for a prototype, not a proposal.</p>
-  <p>The <a class="inline" href="https://app.therundown.ai/community" target="_blank" rel="noopener">Rundown AI Workflow Hub</a>, where Day 1 left off, is a live feed of exactly those prototypes: workflows real people built with AI for real work, most of them rough, some of them clever, a few of them bad ideas that look good. Browse it for the shape of what's possible, then pick a problem of your own. It can come from your job, your classes, a club, a business you know, or your family.</p>
+  <p>Start where Day 1 left off: the <a class="inline" href="https://app.therundown.ai/community" target="_blank" rel="noopener">Rundown AI Workflow Hub</a>, a live feed of AI workflows real people use for real work. Browse it for ideas, then pick a problem of your own. It can come from your job, your classes, a club, a business you know, or your family.</p>
   <table class="syl">
     <tr><th>A good problem</th><th>A weak problem</th></tr>
     <tr><td>Has a specific user: "the front desk at my gym," "first-year students choosing classes"</td><td>Has no one in particular in mind: "people," "businesses"</td></tr>
@@ -389,7 +377,7 @@ ul.gilman span{color:var(--gray)}
 
 <section id="s7">
   <div class="shead"><span class="num">7</span><h2>The pitch</h2></div>
-  <p>In the last week, half the teams pitch on Monday, November 30, after the Chapter 10 and 11 cases, and half on Wednesday, December 2. Each team gets <strong>five minutes to pitch, then two minutes of questions</strong> from the room. Everyone on the team should speak. Four slides at most:</p>
+  <p>On Wednesday, December 2, each team gets <strong>five minutes to pitch, then two minutes of questions</strong> from the room. Everyone on the team should speak. Four slides at most:</p>
   <div class="fourq">
     <div class="q"><span class="qn">1</span><p><strong>The problem.</strong> Who the customer is, what goes wrong for them today, and what it costs them.</p></div>
     <div class="q"><span class="qn">2</span><p><strong>How it works.</strong> Your five parts, as a simple diagram.</p></div>
@@ -429,9 +417,8 @@ ul.gilman span{color:var(--gray)}
 <footer class="foot">
   <div class="wrap">
     <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
-    <p class="fine">A free, critical field guide to AI, for the people who'll live with it, not just build it.</p>
-    <p class="fine"><a class="inline" href="https://cbe.wwu.edu/dsci/management-information-systems" target="_blank" rel="noopener">Management Information Systems</a> · <a class="inline" href="https://cbe.wwu.edu/dsci" target="_blank" rel="noopener">Department of Decision Sciences</a> · <a class="inline" href="https://cbe.wwu.edu" target="_blank" rel="noopener">College of Business &amp; Economics</a></p>
-    <p class="fine">MIS 201 · <a class="inline" href="about.html">About this book</a> · <a class="inline" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
   </div>
 </footer>
 

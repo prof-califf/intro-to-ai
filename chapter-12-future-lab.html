@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 12 · First Contact, Revisited — Intro to AI in Business | MIS 201</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+
+/* ---- nav ---- */
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pinktext);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+
+/* ---- masthead ---- */
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+
+/* ---- contents ---- */
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+
+/* ---- sections ---- */
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+.masthead a.inline,.foot a.inline,.concept a.inline,.ticket a.inline,.verdict a.inline,.howto a.inline,.rhythm a.inline,.graphbox a.inline{color:var(--pink);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+
+/* ---- concept boxes ---- */
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+
+/* ---- callout ---- */
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+
+/* ---- number facts ---- */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+
+/* ---- five questions ---- */
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+
+/* ---- key terms ---- */
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+
+/* ---- entry ticket ---- */
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+
+/* ---- next ---- */
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+
+/* ---- footer ---- */
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+
+/* ---- dropdown navigation (chapters / labs) ---- */
+.nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.nav a.navlink{margin-left:0;padding:6px 10px}
+.dd{position:relative}
+.dd-btn{font:inherit;font-size:.85rem;font-weight:600;color:#fff;background:var(--dark);border:1px solid var(--dark);border-radius:4px;padding:7px 14px;cursor:pointer}
+.dd-btn:hover,.dd-btn[aria-expanded="true"]{background:var(--pinktext);border-color:var(--pinktext);color:#fff}
+.dd-btn .caret{color:var(--yellow)}
+.dd-btn .caret{font-size:.7rem;margin-left:.3rem}
+.dd-menu{display:none;position:absolute;right:0;top:calc(100% + 6px);min-width:19rem;background:var(--bg);border:1px solid var(--rule);border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:.35rem 0;max-height:75vh;overflow-y:auto;z-index:50}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:.5rem 1rem;text-decoration:none;color:var(--ink);font-size:.9rem;line-height:1.35}
+.dd-menu a:hover{background:#F3F3EE;color:var(--pinktext)}
+.dd-menu a .lbl{display:block;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--pinktext);margin-bottom:.1rem}
+.dd-menu a.current{background:#F3F3EE;border-left:3px solid var(--pink)}
+@media (max-width:640px){
+  .nav .wrap{flex-wrap:wrap;gap:8px}
+  .nav .navlinks{width:100%;justify-content:flex-start}
+  .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
+}
+</style>
+<style>
+.tryit details{border-top:1px dashed var(--rule);padding:10px 0;}
+.tryit details:first-of-type{border-top:none;}
+.tryit summary{cursor:pointer;font-weight:600;font-size:.95rem;}
+.tryit p{margin:8px 0 2px;font-size:.9rem;color:var(--gray);}
+.srcnote{border:1px solid var(--rule);border-radius:10px;padding:14px 18px;margin:30px 0;background:#fff;font-size:.9rem;}
+.srcnote summary{cursor:pointer;font-weight:700;color:var(--ink);}
+.srcnote p{margin:10px 0 2px;color:var(--gray);}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div class="navlinks">
+      <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="syllabus.html">Syllabus</a>
+      <a class="navlink" href="rules.html">Rules</a>
+      <a class="navlink" href="schedule.html">Schedule</a>
+      <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddc" data-dd="ddc">Chapters<span class="caret" aria-hidden="true">▾</span></button>
+<div class="dd-menu" id="ddc">
+<a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
+<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
+<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 4</span>Medicine</a>
+<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 5</span>Environment</a>
+<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · optional</span>Systems That Want You</a>
+<a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
+<a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
+<a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
+<a href="chapter-09-economy.html"><span class="lbl">Chapter 9 · Week 9</span>The Economy</a>
+<a href="chapter-10-truth.html"><span class="lbl">Chapter 10 · Week 10</span>Truth</a>
+<a href="chapter-11-rules.html"><span class="lbl">Chapter 11 · Week 10</span>Who Makes the Rules?</a>
+<a href="chapter-12-future.html"><span class="lbl">Chapter 12 · Week 10</span>The Future</a>
+</div></div>
+      <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddl" data-dd="ddl">Labs<span class="caret" aria-hidden="true">▾</span></button>
+<div class="dd-menu" id="ddl">
+<a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
+<a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 · Week 3</span>The Seeming Test</a>
+<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 4</span>Inside the Graph</a>
+<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 5</span>The Footprint Machine</a>
+<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · optional</span>Play the Algorithm</a>
+<a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
+<a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
+<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
+<a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
+<a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 · Week 10 · take-home</span>The Phantom Docket</a>
+<a href="exposure-audit.html"><span class="lbl">Self-guided · pairs with Chapter 9</span>The Exposure Audit</a>
+<a href="chapter-12-future-lab.html" class="current" aria-current="page"><span class="lbl">Lab 12 · Week 10 · last class</span>First Contact, Revisited</a>
+</div></div>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Western Washington University · MIS 201 · Lab 12 · Wednesday, December 2 · The last class</div>
+    <h1>First Contact, <b>Revisited</b></h1>
+    <p class="kicker">Week 1, you judged seven claims about the world as it already was. Today you write the ten claims about 2036 that next year's class will judge — each one built the way this course taught you: a mechanism, an instrument, and the five questions. Then your own Week 1 positions come back to you.</p>
+    <p class="factline">Ten claims for 2036 · one instrument each · the bookend to Lab 0</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <div class="shead"><span class="num">1</span><h2>Re-answer Week 1</h2></div>
+  <p class="lead">Before anything new: open <a class="inline" href="lab-00-first-contact.html">Lab 0</a> in another tab and mark the seven claims again, from what you know now. No peeking at your Lab 0 answers until you're done. Then put the two sets side by side. The claims you doubted then and believe now are the weeks that moved you. The ones you still doubt are your homework for life.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="num">2</span><h2>Write the docket for 2036</h2></div>
+  <p>Ten claims about a decade from now, one per row. Each needs three things: the claim itself (specific enough to be wrong), the <em>instrument</em> that would show it coming true, and the one Monday question that matters most for it. Rough is fine — this is scenario thinking, not prophecy, and the next class gets to grade you.</p>
+  <div class="tool">
+    <div class="label">Your ten claims · compile them when you're done</div>
+    <div id="rows"></div>
+    <div class="chips" style="margin-top:14px;">
+      <button type="button" class="btn" id="compile">Compile my 2036 docket</button>
+      <button type="button" class="chip" id="clear">Start over</button>
+    </div>
+    <div class="verdict" id="verdict" aria-live="polite" hidden>
+      <div class="label" id="vlabel">The 2036 docket</div>
+      <div id="docket"></div>
+      <p class="read" id="reading" style="margin-top:14px;"></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">3</span><h2>Read the room</h2></div>
+  <p>Pair up and trade dockets. For your partner's most confident claim, ask the two questions that have run this whole course: <em>what would we need to see</em> — is the instrument they named actually capable of showing it? — and <em>who benefits</em> if it comes true. Then swap the hardest one: the claim you each least want to be true. Say out loud what it would take to prevent it. That sentence is usually a condition from Chapter 12's list.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="num">4</span><h2>Run the five questions on your own docket</h2></div>
+  <div class="fourq">
+    <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> Count your ten claims: how many are predictive, generative, embodied, agentic? If they cluster, that's a reading of where you think the decade goes.</p></div>
+    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> For each claim, who benefits if it comes true? If the same names keep appearing, you've written a forecast about power, not just about technology.</p></div>
+    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> Which of your ten has the least visible failure? Name the institution that would catch it. If none exists yet, you've found something worth building.</p></div>
+    <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> Each of your ten is a claim you're making. What would you need to see by 2036 to know you were wrong, and who would be positioned to tell you?</p></div>
+    <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Pick the claim with the highest stakes and write the decision it forces: keep, fix, or drop, and what it would cost the people in it.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="num">5</span><h2>The last writeup</h2></div>
+  <div class="ticket">
+    <div class="label">Due Friday, December 11, 11:59 p.m. · post to Canvas</div>
+    <ol>
+      <li><strong>Both dockets.</strong> Your seven Lab 0 answers next to your answers today, plus your compiled 2036 docket.</li>
+      <li><strong>The movement.</strong> Which Week 1 claims flipped for you, and the specific case that flipped each one. One sentence each.</li>
+      <li><strong>The claim you'd bet on.</strong> Your single most confident 2036 claim, with its instrument and the mechanism chain behind it — written as a scenario, not a prediction.</li>
+      <li><strong>The five questions.</strong> Your answers on your own docket, including the accountability chain for your highest-stakes claim.</li>
+      <li><strong>The commitment, kept.</strong> Read back every commitment card you wrote this quarter (they're in your writeups). Choose one to keep past this course, and say — in one sentence a future employer could violate — what it commits you to. That's the last thing this course asks of you, and the first thing the hybrid society does.</li>
+    </ol>
+  </div>
+</section>
+
+<div class="nextbar">
+  <a href="chapter-12-future.html"><span class="dir">← Back</span>Chapter 12 · The Future</a>
+  <a href="index.html" style="text-align:right;"><span class="dir">Next →</span>Contents</a>
+</div>
+
+</main>
+
+<script>
+(function(){
+  var QS = ['What kind of AI is this?','Where is the human?','Who is accountable when it fails?','What happens when it fails, and who finds out?'];
+  var rows = document.getElementById('rows');
+  var fieldStyle = 'width:100%;padding:8px 10px;border:1px solid var(--rule);border-radius:8px;font-family:Inter,sans-serif;font-size:.9rem;margin-top:6px;';
+  function build(){
+    rows.innerHTML = '';
+    for (var i=1;i<=10;i++){
+      var d = document.createElement('div'); d.className='probe';
+      var t = document.createElement('div'); t.className='ptext'; t.textContent = 'Claim ' + i;
+      var c = document.createElement('input'); c.type='text'; c.placeholder='In 2036, ... (specific enough to be wrong)'; c.setAttribute('aria-label','Claim '+i); c.style.cssText=fieldStyle; c.setAttribute('data-k','claim');
+      var ins = document.createElement('input'); ins.type='text'; ins.placeholder='The instrument that would show it arriving (a dashboard, an index, a map, a dataset)'; ins.setAttribute('aria-label','Instrument for claim '+i); ins.style.cssText=fieldStyle; ins.setAttribute('data-k','inst');
+      var sel = document.createElement('select'); sel.setAttribute('aria-label','Key question for claim '+i); sel.style.cssText=fieldStyle; sel.setAttribute('data-k','q');
+      var o0 = document.createElement('option'); o0.value=''; o0.textContent='Which Monday question matters most here?'; sel.appendChild(o0);
+      QS.forEach(function(q,qi){ var o=document.createElement('option'); o.value=String(qi+1); o.textContent=(qi+1)+'. '+q; sel.appendChild(o); });
+      d.appendChild(t); d.appendChild(c); d.appendChild(ins); d.appendChild(sel);
+      rows.appendChild(d);
+    }
+  }
+  build();
+
+  document.getElementById('clear').addEventListener('click', function(){ build(); document.getElementById('verdict').hidden=true; });
+
+  document.getElementById('compile').addEventListener('click', function(){
+    var probes = rows.querySelectorAll('.probe');
+    var out = [], filled=0, noInst=0, qCount=[0,0,0,0];
+    probes.forEach(function(p,i){
+      var claim = p.querySelector('[data-k="claim"]').value.trim();
+      var inst = p.querySelector('[data-k="inst"]').value.trim();
+      var q = p.querySelector('[data-k="q"]').value;
+      if (!claim) return;
+      filled++;
+      if (!inst) noInst++;
+      if (q) qCount[parseInt(q,10)-1]++;
+      out.push({n:i+1, claim:claim, inst:inst, q:q});
+    });
+    var docket = document.getElementById('docket'); docket.innerHTML='';
+    out.forEach(function(r){
+      var row = document.createElement('div'); row.className='r'; row.style.cssText='display:block;padding:10px 0;border-top:1px solid #2A3038;';
+      var a = document.createElement('div'); a.innerHTML = '<b>' + r.n + '.</b> ' + esc(r.claim);
+      var b = document.createElement('div'); b.style.cssText='font-size:.85rem;opacity:.8;margin-top:3px;';
+      b.textContent = (r.inst ? 'Instrument: ' + r.inst : 'Instrument: (none named)') + (r.q ? ' · Key question: ' + r.q : '');
+      row.appendChild(a); row.appendChild(b); docket.appendChild(row);
+    });
+    var read;
+    if (filled===0){ read = 'Nothing to compile yet — write at least one claim. Specific enough to be wrong is the only rule.'; }
+    else {
+      read = filled + ' of 10 claims written. ';
+      if (noInst) read += noInst + ' ' + (noInst===1?'has':'have') + ' no instrument — a claim with no way to be checked is a slogan wearing a date. Name the dashboard, index, or dataset, or drop the claim. ';
+      var top = qCount.indexOf(Math.max.apply(null,qCount));
+      if (Math.max.apply(null,qCount) >= 4) read += 'Your docket leans on question ' + (top+1) + ' — "' + QS[top] + '" That\u2019s a reading of what you think this decade is about. ';
+      if (filled===10 && !noInst) read += 'A full docket, every claim checkable. Screenshot it: next year\u2019s class marks these True or False in Week 1, and you find out in 2036.';
+      else read += 'Screenshot when it\u2019s complete — this is the artifact the next class inherits.';
+    }
+    document.getElementById('reading').textContent = read;
+    document.getElementById('verdict').hidden=false;
+  });
+  function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+})();
+</script>
+
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
+    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.dd-btn'));
+  function closeAll(){btns.forEach(function(b){var m=document.getElementById(b.getAttribute('data-dd'));if(m){m.classList.remove('open');b.setAttribute('aria-expanded','false');}});}
+  btns.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var m=document.getElementById(b.getAttribute('data-dd'));var open=m.classList.contains('open');closeAll();if(!open){m.classList.add('open');b.setAttribute('aria-expanded','true');}});});
+  document.addEventListener('click',closeAll);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+  document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+</body>
+</html>

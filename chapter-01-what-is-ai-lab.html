@@ -33,7 +33,7 @@ body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--i
 .nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
 .brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
-.brand b{color:var(--pink);font-weight:700;}
+.brand b{color:var(--pinktext);font-weight:700;}
 .nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
 .nav a.navlink:hover{color:var(--pinktext);}
 .masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
@@ -56,6 +56,7 @@ section{padding:44px 0 8px;}
 p{margin-bottom:1.1em;}
 p.lead{font-size:1.05rem;}
 a.inline{color:var(--pinktext);}
+.masthead a.inline,.foot a.inline,.concept a.inline,.ticket a.inline,.verdict a.inline,.howto a.inline,.rhythm a.inline,.graphbox a.inline{color:var(--pink);}
 h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
 .concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
 .concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
@@ -345,7 +346,7 @@ ul.ideas li{margin:8px 0}
     <div class="label">Mini-AlphaGo · a matchbox tic-tac-toe player (MENACE, 1961) · it plays X and goes first</div>
     <div class="mn-grid">
       <div>
-        <div class="mn-board" id="mn-board" role="grid" aria-label="Tic-tac-toe board. You are O."></div>
+        <div class="mn-board" id="mn-board" role="group" aria-label="Tic-tac-toe board. You are O."></div>
         <p class="tis-counts" id="mn-msg" aria-live="polite">Your move: you are O. The small numbers show how many beads each move has in the box for this position.</p>
         <div class="chips tis-actions">
           <button class="btn" type="button" id="mn-new">New game</button>
@@ -355,7 +356,7 @@ ul.ideas li{margin:8px 0}
       <div>
         <div class="label">Mini-AlphaGo's record</div>
         <p class="tis-counts" id="mn-score">Games 0 · Mini-AlphaGo won 0 · draws 0 · human won 0</p>
-        <div class="mn-strip" id="mn-strip" aria-label="Last twenty results"></div>
+        <div class="mn-strip" id="mn-strip" role="img" aria-label="Last twenty results"></div>
         <div class="label" style="margin-top:16px">Let it practice (simulated games, played in a second)</div>
         <div class="chips">
           <button class="chip" type="button" id="mn-rand">Simulate 300 games vs. a random player</button>
@@ -593,7 +594,7 @@ ul.ideas li{margin:8px 0}
     $('mn-strip').innerHTML=strip.map(function(x){return '<span class="'+x+'"></span>';}).join('');}
   function playAuto(opp,n){for(var g=0;g<n;g++){var b=['','','','','','','','',''],h=[],res=null; while(!(res=winner(b))){var box=getBox(b),m=menaceMove(b); h.push({k:key(b),m:m}); b[m]='X'; if((res=winner(b)))break; var o=opp(b); b[o]='O';} hist=h; learn(res); record(res);} newGame();}
   function render(){var el=$('mn-board'); el.innerHTML=''; var box=over?null:getBox(board);
-    board.forEach(function(c,i){var btn=document.createElement('button'); btn.type='button'; btn.className='mn-cell'+(c==='X'?' x':c==='O'?' o':''); btn.setAttribute('role','gridcell'); btn.setAttribute('aria-label','Square '+(i+1)+(c?': '+c:': empty'));
+    board.forEach(function(c,i){var btn=document.createElement('button'); btn.type='button'; btn.className='mn-cell'+(c==='X'?' x':c==='O'?' o':''); btn.setAttribute('aria-label','Square '+(i+1)+(c?': '+c:': empty'));
       btn.textContent=c; if(c||over||!human)btn.disabled=true;
       if(!c&&!over&&box){var bd=document.createElement('span'); bd.className='bd'; bd.textContent=box[i]; btn.appendChild(bd);}
       btn.addEventListener('click',function(){humanMove(i);}); el.appendChild(btn);});}
