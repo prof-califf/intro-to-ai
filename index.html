@@ -12,7 +12,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Intro to AI in Business — MIS 201 | Western Washington University</title>
+<title>Intro to AI in Business · MIS 201 | Western Washington University</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -217,8 +217,13 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .ccard p{font-size:.92rem;margin:0 0 10px;color:#3E454E}
 .ccard .clab{font-size:.88rem;color:#3E454E;background:#F7F7F4;border-left:3px solid var(--yellow);padding:8px 10px;margin-bottom:12px}
 .ccard .clab .lbl{font-weight:600;color:var(--ink)}
-.ccard .clinks{margin-top:auto;display:flex;gap:16px;font-size:.85rem}
+.ccard .clinks{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px 16px;font-size:.85rem}
 .ccard .clinks a{color:var(--pinktext);text-decoration:none;font-weight:600}
+.ccard .cwk .cdays{color:var(--gray)}
+.ccard .centry{margin-bottom:4px}
+.ccard .centry+.centry{border-top:1px solid var(--rule);margin-top:12px;padding-top:12px}
+.ccard .centry .cnum{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:3px}
+.ccard .cnote{font-size:.85rem;color:var(--gray);margin:0 0 12px}
 
 .masthead .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .masthead .cta a{display:inline-block;text-decoration:none;font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;border-radius:4px}
@@ -327,7 +332,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   <p class="lead">Most conversations about AI start with "is it good or bad?" This book starts somewhere more useful: which AI system, built by whom, for what, and what happens when it fails. Every chapter takes one real system at one real moment and asks those questions. Every lab has you do the work yourself, often with a live AI on the other side.</p>
   <div class="feats">
     <div class="feat"><div class="fi">📰</div><b>Real cases, current ones</b><p>A drug-hunter, a résumé screener, a robotaxi, a chatbot in a courtroom, the AI agents that escaped a safety test this summer. Every chapter carries the date it was checked.</p></div>
-    <div class="feat"><div class="fi">🧪</div><b>Labs where you build and break things</b><p>Train a tiny neural network on your own drawings. Teach a matchbox machine to play. Audit a hiring AI. Sit on a city council and price a robotaxi permit. Nothing to install; it all runs in the browser.</p></div>
+    <div class="feat"><div class="fi">🧪</div><b>Labs where you build and break things</b><p>Train a tiny neural network on your own drawings. Teach a matchbox machine to play. Audit a hiring AI. Verify a docket of court cases. Nothing to install; it all runs in the browser.</p></div>
     <div class="feat"><div class="fi">🔍</div><b>The five critical AI questions</b><p>The only thing to memorize. Asked of every system, every week, until they're reflex, and then used on the AI you meet outside class.</p></div>
     <div class="feat"><div class="fi">🐢</div><b>Slow AI, on purpose</b><p>Not pro-AI, not anti-AI. Critical AI literacy means knowing when to use it and when not to, and saying so. The book discloses its own AI use, and its conflict of interest, on the <a class="inline" href="about.html">about page</a>.</p></div>
   </div>
@@ -357,92 +362,125 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 </section>
 
 <section>
-  <div class="shead"><span class="num">4</span><h2>Chapters and labs</h2></div>
-  <p>In order, one chapter a week, starting in Week 2 (Week 1 is Lab 0). Week 3 covers Chapter 2 Monday and Chapter 3 Wednesday, with one lab for both. Chapter 8 lands on Veterans Day week on purpose.</p>
+  <div class="shead"><span class="num">4</span><h2>The ten weeks</h2></div>
+  <p>One chapter a week, starting in Week 2. Week 1 is Day 1 and Lab 0, with no chapter. Week 3 takes two chapters with one lab for both, and Week 10 takes the last three with no lab. Chapter 8 lands on Veterans Day week on purpose. Full dates are on <a href="schedule.html">the schedule</a>.</p>
   <div class="cgrid">
     <div class="ccard">
-      <div class="cwk">Chapter 1 · Week 2</div>
-      <h3><a href="chapter-01-what-is-ai.html">What Is AI?</a></h3>
-      <p>Five moments that made AI, from ImageNet to ChatGPT, and the case everyone's arguing about right now: the AI agents that hacked a company and started a movement to slow AI down.</p>
-      <div class="clab"><span class="lbl">Day 1 · Lab 0 · First Contact</span> Guess which everyday things are secretly AI, sort them by kind, call eight claims, and browse what people are building with AI. <a href="lab-00-first-contact.html">Open Lab 0 →</a></div>
-        <div class="clab"><span class="lbl">Lab 1 · Inside the Machine</span> Train two tiny AIs yourself, break them, and run the five questions on your own.</div>
-      <div class="clinks"><a href="chapter-01-what-is-ai.html">Read the chapter →</a><a href="chapter-01-what-is-ai-lab.html">Open the lab →</a></div>
+      <div class="cwk">Week 1 <span class="cdays">· Wednesday only</span></div>
+      <div class="centry">
+        <div class="cnum">No chapter</div>
+        <h3>Day 1</h3>
+        <p>One session. What this course is, what it is not, and a lab instead of a reading. Chapter 1 is the reading for Monday of Week 2.</p>
+      </div>
+      <div class="clab"><span class="lbl">Lab 0 · First Contact</span> Guess which everyday things are secretly AI, sort them by kind, call eight claims, and browse what people are building with AI.</div>
+      <div class="clinks"><a href="lab-00-first-contact.html">Open Lab 0 &rarr;</a></div>
     </div>
     <div class="ccard">
-      <div class="cwk">Chapter 2 · Week 3</div>
-      <h3><a href="chapter-02-human.html">Seemingly Human</a></h3>
-      <p>Machines built to seem like they care, the chatbot people trusted like a therapist, and what the seeming does to us.</p>
-      <div class="clab"><span class="lbl">Lab 2 · The Seeming Test</span> Build a language model out of matchboxes, then probe a real chatbot and score how human it seems.</div>
-      <div class="clinks"><a href="chapter-02-human.html">Read the chapter →</a><a href="chapter-02-human-lab.html">Open the lab →</a></div>
+      <div class="cwk">Week 2</div>
+      <div class="centry">
+        <div class="cnum">Chapter 1</div>
+        <h3><a href="chapter-01-what-is-ai.html">What Is AI?</a></h3>
+        <p>Five moments that made AI, from ImageNet to ChatGPT, and the case everyone's arguing about right now: the AI agents that hacked a company and started a movement to slow AI down.</p>
+      </div>
+      <div class="clab"><span class="lbl">Lab 1 · Inside the Machine</span> Train two tiny AIs yourself, break them, and run the five questions on your own.</div>
+      <div class="clinks"><a href="chapter-01-what-is-ai.html">Read the chapter &rarr;</a><a href="chapter-01-what-is-ai-lab.html">Open the lab &rarr;</a></div>
     </div>
     <div class="ccard">
-      <div class="cwk">Chapter 3 · Week 3</div>
-      <h3><a href="chapter-03-systems.html">Systems That Know You</a></h3>
-      <p>How recommendation systems guess what you want, the loop that shapes your taste, and Spotify Wrapped taken apart as an AI system, with a language model writing about your year.</p>
-      <div class="clab"><span class="lbl">Shares Lab 2</span> The feed simulator is the second half of Lab 2: run the feed twice, once seeing only what the company sees, once with the meter they don't build.</div>
-      <div class="clinks"><a href="chapter-03-systems.html">Read the chapter →</a><a href="chapter-02-human-lab.html">Open Lab 2 →</a></div>
+      <div class="cwk">Week 3 <span class="cdays">· Two chapters, one lab</span></div>
+      <div class="centry">
+        <div class="cnum">Chapter 2 · Monday</div>
+        <h3><a href="chapter-02-human.html">Seemingly Human</a></h3>
+        <p>Machines built to seem like they care, the chatbot people trusted like a therapist, and what the seeming does to us.</p>
+      </div>
+      <div class="centry">
+        <div class="cnum">Chapter 3 · Wednesday</div>
+        <h3><a href="chapter-03-systems.html">Systems That Know You</a></h3>
+        <p>How recommendation systems guess what you want, the loop that shapes your taste, and Spotify Wrapped taken apart as an AI system, with a language model writing about your year.</p>
+      </div>
+      <div class="clab"><span class="lbl">Lab 2 · The Seeming Test and the Feed</span> One lab for both chapters. Build a language model out of matchboxes and probe a real chatbot, then run the feed twice: once seeing only what the company sees, once with the meter they don't build.</div>
+      <div class="clinks"><a href="chapter-02-human.html">Chapter 2 &rarr;</a><a href="chapter-03-systems.html">Chapter 3 &rarr;</a><a href="chapter-02-human-lab.html">Open the lab &rarr;</a></div>
     </div>
     <div class="ccard">
-      <div class="cwk">Chapter 4 · Week 4</div>
-      <h3><a href="chapter-04-medicine.html">Medicine</a></h3>
-      <p>A doctor who cured himself, the AI hunting treatments for diseases nobody studies, and whether the doctor should step out of the loop.</p>
+      <div class="cwk">Week 4</div>
+      <div class="centry">
+        <div class="cnum">Chapter 4</div>
+        <h3><a href="chapter-04-medicine.html">Medicine</a></h3>
+        <p>A doctor who cured himself, the AI hunting treatments for diseases nobody studies, and whether the doctor should step out of the loop.</p>
+      </div>
       <div class="clab"><span class="lbl">Lab 4 · Inside the Graph</span> Click through the knowledge graph and find a cure, then rewind history and watch it vanish.</div>
-      <div class="clinks"><a href="chapter-04-medicine.html">Read the chapter →</a><a href="chapter-04-medicine-lab.html">Open the lab →</a></div>
+      <div class="clinks"><a href="chapter-04-medicine.html">Read the chapter &rarr;</a><a href="chapter-04-medicine-lab.html">Open the lab &rarr;</a></div>
     </div>
     <div class="ccard">
-      <div class="cwk">Chapter 5 · Week 5</div>
-      <h3><a href="chapter-05-environment.html">Environment</a></h3>
-      <p>Data centers, reopened reactors, and the energy and water cost nobody publishes.</p>
+      <div class="cwk">Week 5 <span class="cdays">· Midterm this week</span></div>
+      <div class="centry">
+        <div class="cnum">Chapter 5</div>
+        <h3><a href="chapter-05-environment.html">Environment</a></h3>
+        <p>Data centers, reopened reactors, and the energy and water cost nobody publishes.</p>
+      </div>
+      <p class="cnote">Midterm Wednesday, October 21, covering Chapters 1 to 4 and Labs 0 to 4.</p>
       <div class="clab"><span class="lbl">Lab 5 · The Footprint Machine</span> Run the numbers at four scales, then interrogate a live AI about its own footprint.</div>
-      <div class="clinks"><a href="chapter-05-environment.html">Read the chapter →</a><a href="chapter-05-environment-lab.html">Open the lab →</a></div>
+      <div class="clinks"><a href="chapter-05-environment.html">Read the chapter &rarr;</a><a href="chapter-05-environment-lab.html">Open the lab &rarr;</a></div>
     </div>
-    
     <div class="ccard">
-      <div class="cwk">Chapter 6 · Week 6</div>
-      <h3><a href="chapter-06-hiring-lending.html">Bias: Hiring &amp; Lending</a></h3>
-      <p>The classifiers that read your résumé and price your loan, and how bias launders through them.</p>
+      <div class="cwk">Week 6</div>
+      <div class="centry">
+        <div class="cnum">Chapter 6</div>
+        <h3><a href="chapter-06-hiring-lending.html">Bias: Hiring &amp; Lending</a></h3>
+        <p>The classifiers that read your r&eacute;sum&eacute; and price your loan, and how bias launders through them.</p>
+      </div>
       <div class="clab"><span class="lbl">Lab 6 · You Are the Auditor</span> Run a real audit on a live AI screener, one variable at a time.</div>
-      <div class="clinks"><a href="chapter-06-hiring-lending.html">Read the chapter →</a><a href="chapter-06-hiring-lending-lab.html">Open the lab →</a></div>
+      <div class="clinks"><a href="chapter-06-hiring-lending.html">Read the chapter &rarr;</a><a href="chapter-06-hiring-lending-lab.html">Open the lab &rarr;</a></div>
     </div>
     <div class="ccard">
-      <div class="cwk">Chapter 7 · Week 7</div>
-      <h3><a href="chapter-07-transportation.html">Transportation</a></h3>
-      <p>How a robotaxi drives, the three seats a human can sit in, and driverless cars with no driver to blame: Waymo, and the question "where is the human."</p>
+      <div class="cwk">Week 7</div>
+      <div class="centry">
+        <div class="cnum">Chapter 7</div>
+        <h3><a href="chapter-07-transportation.html">Transportation</a></h3>
+        <p>How a robotaxi drives, the three seats a human can sit in, and driverless cars with no driver to blame: Waymo, and the question "where is the human."</p>
+      </div>
       <div class="clab"><span class="lbl">Lab 7 · You Are the City Council</span> Write the robotaxi permit, with every condition priced.</div>
-      <div class="clinks"><a href="chapter-07-transportation.html">Read the chapter →</a><a href="chapter-07-transportation-lab.html">Open the lab →</a></div>
+      <div class="clinks"><a href="chapter-07-transportation.html">Read the chapter &rarr;</a><a href="chapter-07-transportation-lab.html">Open the lab &rarr;</a></div>
     </div>
     <div class="ccard">
-      <div class="cwk">Chapter 8 · Week 8</div>
-      <h3><a href="chapter-08-ethics-war.html">Ethics &amp; War</a></h3>
-      <p>The military pivot, autonomy in lethal force, and who grades the graders. Veterans Day week.</p>
+      <div class="cwk">Week 8 <span class="cdays">· Veterans Day week</span></div>
+      <div class="centry">
+        <div class="cnum">Chapter 8</div>
+        <h3><a href="chapter-08-ethics-war.html">Ethics &amp; War</a></h3>
+        <p>The military pivot, autonomy in lethal force, and who grades the graders.</p>
+      </div>
+      <p class="cnote">No Wednesday class. The lab starts Monday and finishes at home.</p>
       <div class="clab"><span class="lbl">Lab 8 · The Red Lines</span> Eight defense contracts on your desk. Find your line. Started Monday in class, finished at home.</div>
-      <div class="clinks"><a href="chapter-08-ethics-war.html">Read the chapter →</a><a href="chapter-08-ethics-war-lab.html">Open the lab →</a></div>
+      <div class="clinks"><a href="chapter-08-ethics-war.html">Read the chapter &rarr;</a><a href="chapter-08-ethics-war-lab.html">Open the lab &rarr;</a></div>
     </div>
     <div class="ccard">
-      <div class="cwk">Chapter 9 · Week 9</div>
-      <h3><a href="chapter-09-economy.html">The Economy</a></h3>
-      <p>Everyone's using AI and the productivity statistics barely blinked, while entry-level hiring quietly slows: the forty-year lesson of the electric motor, and the canaries in the payroll data.</p>
+      <div class="cwk">Week 9</div>
+      <div class="centry">
+        <div class="cnum">Chapter 9</div>
+        <h3><a href="chapter-09-economy.html">The Economy</a></h3>
+        <p>Everyone's using AI and the productivity statistics barely blinked, while entry-level hiring quietly slows: the forty-year lesson of the electric motor, and the canaries in the payroll data.</p>
+      </div>
       <div class="clab"><span class="lbl">Lab 9 · Run the Firm</span> Run a company for eight quarters and feel why redesign is rare.</div>
-      <div class="clinks"><a href="chapter-09-economy.html">Read the chapter →</a><a href="chapter-09-economy-lab.html">Open the lab →</a></div>
+      <div class="clinks"><a href="chapter-09-economy.html">Read the chapter &rarr;</a><a href="chapter-09-economy-lab.html">Open the lab &rarr;</a></div>
     </div>
     <div class="ccard">
-      <div class="cwk">Chapter 10 · Week 10</div>
-      <h3><a href="chapter-10-truth.html">Truth</a></h3>
-      <p>Machines built for plausible, not true: phantom court cases, the rising cost of knowing anything, and the surprising evidence that a chatbot can move people toward the facts.</p>
-      <div class="clinks"><a href="chapter-10-truth.html">Read the chapter →</a></div>
-    </div>
-    <div class="ccard">
-      <div class="cwk">Chapter 11 · Week 10</div>
-      <h3><a href="chapter-11-rules.html">Who Makes the Rules?</a></h3>
-      <p>Why AI rules exist, why they arrive late, and the fight between the states and Washington over who writes them. The case: the license plate cameras in Bellingham parking lots, and the Washington law written in response.</p>
-      <div class="clab"><span class="lbl">No separate lab</span> Discussed with Chapter 10 on Monday, Nov 30.</div>
-      <div class="clinks"><a href="chapter-11-rules.html">Read the chapter →</a></div>
-    </div>
-    <div class="ccard">
-      <div class="cwk">Chapter 12 · Week 10</div>
-      <h3><a href="chapter-12-future.html">The Future</a></h3>
-      <p>Three published futures, the instruments that would show each arriving, and the course's answer to its own question.</p>
-      <div class="clinks"><a href="chapter-12-future.html">Read the chapter →</a></div>
+      <div class="cwk">Week 10 <span class="cdays">· Three chapters, no lab</span></div>
+      <div class="centry">
+        <div class="cnum">Chapter 10 · Monday</div>
+        <h3><a href="chapter-10-truth.html">Truth</a></h3>
+        <p>Machines built for plausible, not true: phantom court cases, the rising cost of knowing anything, and the surprising evidence that a chatbot can move people toward the facts.</p>
+      </div>
+      <div class="centry">
+        <div class="cnum">Chapter 11 · Monday</div>
+        <h3><a href="chapter-11-rules.html">Who Makes the Rules?</a></h3>
+        <p>Why AI rules exist, why they arrive late, and the fight between the states and Washington over who writes them. The case: the license plate cameras in Bellingham parking lots, and the Washington law written in response.</p>
+      </div>
+      <div class="centry">
+        <div class="cnum">Chapter 12 · Wednesday</div>
+        <h3><a href="chapter-12-future.html">The Future</a></h3>
+        <p>Three published futures, the instruments that would show each arriving, and the course's answer to its own question.</p>
+      </div>
+      <p class="cnote">No lab. The team pitches run on both days, and the last class closes the course.</p>
+      <div class="clinks"><a href="chapter-10-truth.html">Chapter 10 &rarr;</a><a href="chapter-11-rules.html">Chapter 11 &rarr;</a><a href="chapter-12-future.html">Chapter 12 &rarr;</a></div>
     </div>
   </div>
 </section>
