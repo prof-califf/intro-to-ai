@@ -12,7 +12,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chapter 3 · Systems That Know You — Intro to AI in Business | MIS 201</title>
+<title>Chapter 3 · Systems That Know You · Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -172,6 +172,17 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
 .probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
 .roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
+.songgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:8px;margin:14px 0 4px;}
+.song{border:1px solid var(--rule);background:var(--bg);padding:10px 12px;cursor:pointer;text-align:left;font-family:'Inter',sans-serif;font-size:.85rem;line-height:1.4;color:var(--ink);}
+.song:hover{border-color:var(--pink);}
+.song:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.song .ar{display:block;font-size:.74rem;color:var(--gray);margin-top:2px;}
+.song[aria-pressed="true"]{background:var(--dark);border-color:var(--dark);color:#fff;}
+.song[aria-pressed="true"] .ar{color:var(--yellow);}
+.song.fresh{border-style:dashed;}
+.ranked .why{grid-column:1 / -1;font-size:.8rem;color:#A9B0B9;margin-top:2px;}
+.ranked .why b{color:var(--yellow);}
+.toolnote{font-size:.85rem;color:var(--gray);margin-top:10px;}
 /* ---- dropdown navigation (chapters / labs) ---- */
 .nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .nav a.navlink{margin-left:0;padding:6px 10px}
@@ -349,6 +360,33 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <p>Collaborative filtering recommends from behavior: people like you played this. Content-based filtering recommends from features: this sounds like what you played. What people get wrong: they picture the system "understanding" music. It doesn't. It finds patterns in plays and in sound, and the patterns work well enough that understanding isn't needed.</p>
   </div>
 
+
+  <div class="tool">
+    <div class="label">Mini-Recommender · build a listener, then watch two systems guess</div>
+    <p style="font-size:.92rem">Pick the songs you would actually play. Nothing here is real: twelve invented tracks, six invented listeners, one tiny catalog. The math is the same math.</p>
+    <div class="songgrid" id="mr-grid"></div>
+    <div class="chips" style="margin-top:14px">
+      <span style="font-size:.8rem;color:var(--gray);text-transform:uppercase;letter-spacing:.06em">How it guesses</span>
+      <button type="button" class="chip on" id="mr-collab" aria-pressed="true">Collaborative</button>
+      <button type="button" class="chip" id="mr-content" aria-pressed="false">Content-based</button>
+    </div>
+    <div class="chips" style="margin-top:10px">
+      <span style="font-size:.8rem;color:var(--gray);text-transform:uppercase;letter-spacing:.06em">Twist it</span>
+      <button type="button" class="chip" id="mr-cold" aria-pressed="false">Add a brand new song</button>
+      <button type="button" class="chip" id="mr-boost" aria-pressed="false">Discovery Mode: a label pays</button>
+      <button type="button" class="chip" id="mr-reveal" aria-pressed="false">Show what's paid</button>
+    </div>
+    <div class="chips" style="margin-top:16px">
+      <button type="button" class="btn" id="mr-run">Recommend</button>
+      <button type="button" class="btn alt" id="mr-clear">Clear picks</button>
+    </div>
+    <div class="verdict" id="mr-out" aria-live="polite">
+      <div class="label">The ranking</div>
+      <div class="read">Pick a few songs, then press Recommend.</div>
+    </div>
+    <p class="toolnote">Nothing is saved, and nothing leaves your browser. Reload the page and the listener you built is gone.</p>
+  </div>
+
   <h3 class="sub"><span>2.2</span> The signals, and the taste profile</h3>
   <p>What counts as "liking" something? The system can't ask, so it watches. Spotify has been open about some of this: <a class="inline" href="https://newsroom.spotify.com/2025-12-05/wrapped-methodology-explained/" target="_blank" rel="noopener">a play counts as a listen after 30 seconds</a>, a skip before that is a negative signal, and saves, repeats, and adds to playlists count for more than a single stream. Skips matter enormously. A song that gets skipped early is a song the model learns to stop suggesting.</p>
   <p>All of that behavior gets compressed into a <strong>taste profile</strong>: a mathematical summary of a listener, a long list of numbers that places them near listeners and songs they're likely to enjoy and far from the ones they're not. Nobody sees their own. The system also learns that each of us is several people: the workout self, the studying self, the 1 a.m. self. Modern recommenders keep a few of these profiles and guess which one is listening from the time, the device, and the last song played.</p>
@@ -386,7 +424,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <h3 class="sub"><span>2.3</span> The loop, and who it favors</h3>
   <p>That feedback loop is where recommendation systems stop being neutral. The system shows us something; we play it or skip it; the model updates; it shows us more of what we played. Over months, it doesn't just learn our taste. It shapes it, because we can only like what we're shown. Engineers call the extreme version a filter bubble. A gentler word is drift: our recommendations get more like our recommendations.</p>
   <p>The loop also has a direction: it favors whoever already has data. A popular artist generates millions of signals, which puts them in more neighborhoods, which generates more plays, which generates more signals. A new artist, by definition, has few. That's the cold start problem with a paycheck attached. The system doesn't dislike new artists. It just can't see them, and invisibility on a platform where the algorithm drives a large share of listening is a business problem with a real dollar cost.</p>
-  <p>Now add the part that isn't about the listener at all. Since 2020, Spotify has run <strong>Discovery Mode</strong>, a program in which artists and labels accept <a class="inline" href="https://www.theguardian.com/music/2025/feb/19/spotify-discovery-mode-payola-playlist" target="_blank" rel="noopener">a roughly 30 percent lower royalty</a> on certain streams in exchange for their songs being favored in algorithmic recommendations like Radio and Autoplay. There's no upfront fee; you pay in royalties. Members of Congress <a class="inline" href="https://hankjohnson.house.gov/media-center/press-releases/nadler-johnson-request-information-spotifys-discovery-mode-feature" target="_blank" rel="noopener">asked Spotify in 2020</a> whether this risked a race to the bottom, where the only way to get recommended is to accept less pay. Spotify says the program is one of thousands of signals and that its guide to recommendations discloses that commercial considerations can play a role. In November 2025, a listener <a class="inline" href="https://www.forbes.com/sites/conormurray/2025/11/05/spotify-hit-with-class-action-lawsuit-alleging-discovery-mode-is-a-pay-for-play-scheme/" target="_blank" rel="noopener">filed a class action</a> arguing that a service promising a personalized experience was steering her toward the same major-label tracks and not telling her which recommendations were paid. However that case ends, the point for this chapter is structural: the system is optimizing for more than one thing, and only one of them is the listener.</p>
+  <p>Now add the part that isn't about the listener at all. Since 2020, Spotify has run <strong>Discovery Mode</strong>, a program in which artists and labels accept <a class="inline" href="https://www.theguardian.com/music/2025/feb/19/spotify-discovery-mode-payola-playlist" target="_blank" rel="noopener">a roughly 30 percent lower royalty</a> on certain streams in exchange for their songs being favored in algorithmic recommendations like Radio and Autoplay. There's no upfront fee; you pay in royalties. Members of Congress <a class="inline" href="https://hankjohnson.house.gov/media-center/press-releases/nadler-johnson-request-information-spotifys-discovery-mode-feature" target="_blank" rel="noopener">asked Spotify in 2020</a> whether this risked a race to the bottom, where the only way to get recommended is to accept less pay. Spotify says the program is one of thousands of signals and that its guide to recommendations discloses that commercial considerations can play a role. In November 2025, a listener <a class="inline" href="https://www.forbes.com/sites/conormurray/2025/11/05/spotify-hit-with-class-action-lawsuit-alleging-discovery-mode-is-a-pay-for-play-scheme/" target="_blank" rel="noopener">filed a class action</a> arguing that a service promising a personalized experience was steering her toward the same major-label tracks and not telling her which recommendations were paid. However that case ends, the point for this chapter is structural: the system is optimizing for more than one thing, and only one of them is the listener. Scroll back up to Mini-Recommender and switch on Discovery Mode, then run it again. One track moves. The ranking still reads as if it were about you, and the only way to see the thumb is a button the real app does not have.</p>
 
   <figure class="diagram">
     <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="rsc-t rsc-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
@@ -417,12 +455,37 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   </div>
 
   <h3 class="sub"><span>2.4</span> Where the LLM fits</h3>
-  <p>Everything so far is predictive AI: a ranking. It never writes a sentence. But since 2024, systems like Spotify's have added a second kind of AI on top: a <strong>large language model</strong> that generates text, the same technology behind chatbots, Chapter 1's Moment 4. The two do different jobs, and confusing them is the most common mistake people make about "the algorithm."</p>
-  <p>The recommender decides <em>what</em>. The language model decides <em>how to say it</em>. Spotify's AI DJ is the clearest example: a recommendation system picks the songs, and a language model writes the DJ's patter between them, read out in a cloned voice. Wrapped works the same way. The numbers come from counting. The paragraph about someone's July comes from a language model handed those numbers and told to write something warm. Each layer fails differently. The ranking can be wrong about what we want. The language model can be wrong about what happened: it can overstate, invent a detail, or say something true in a way that lands badly, and it does all of it fluently.</p>
+  <p>Everything so far is predictive AI: a ranking. It never writes a sentence. But since 2024, systems like Spotify's have added a second kind of AI on top: a <strong>large language model</strong> that generates text, the same technology behind the chatbots in Chapter 1's transformer moment and in Chapter 2. The two do different jobs, and confusing them is the most common mistake people make about "the algorithm."</p>
+  <p>Chapter 2 is the other half of this. The dial that tunes a chatbot toward sounding warm and attentive is the same dial, turned the same way, and here it is pointed at a paragraph about your year. A system that knows you and a system that seems to care about you are built from the same two pieces, which is why the two chapters share a lab. The recommender decides <em>what</em>. The language model decides <em>how to say it</em>. Spotify's AI DJ is the clearest example: a recommendation system picks the songs, and a language model writes the DJ's patter between them, read out in a cloned voice. Wrapped works the same way. The numbers come from counting. The paragraph about someone's July comes from a language model handed those numbers and told to write something warm. Each layer fails differently. The ranking can be wrong about what we want. The language model can be wrong about what happened: it can overstate, invent a detail, or say something true in a way that lands badly, and it does all of it fluently.</p>
   <div class="concept">
     <div class="term">Predictive layer, generative layer</div>
     <p>In most consumer AI today, a predictive model ranks and a generative model narrates. What people get wrong: they blame "the AI" as one thing. Ask which layer failed. A bad recommendation is a data or ranking problem. A bad sentence about a person is a generation problem. They get fixed in different rooms.</p>
   </div>
+
+  <div class="tool">
+    <div class="label">Mini-Wrapped · the same facts, two ways to say them</div>
+    <p style="font-size:.92rem">Here is the fact sheet the counting layer produced about one listener's March 14. It is arithmetic, and you could check every line of it.</p>
+    <div class="probe">
+      <div class="ptext">March 14</div>
+      <div class="pwhy">Plays of <em>Paper Boats</em> by Cedar &amp; Vine: 11 · Total listening: 41 minutes · Rank for the year: most-repeated single day</div>
+    </div>
+    <div class="chips">
+      <span style="font-size:.8rem;color:var(--gray);text-transform:uppercase;letter-spacing:.06em">What March 14 actually was</span>
+      <button type="button" class="chip on" id="mw-d1" aria-pressed="true">A long drive</button>
+      <button type="button" class="chip" id="mw-d2" aria-pressed="false">Studying for a midterm</button>
+      <button type="button" class="chip" id="mw-d3" aria-pressed="false">A funeral</button>
+    </div>
+    <div class="chips" style="margin-top:16px">
+      <button type="button" class="btn" id="mw-desc">Describe the facts</button>
+      <button type="button" class="btn" id="mw-interp">Interpret the person</button>
+    </div>
+    <div class="verdict" id="mw-out" aria-live="polite">
+      <div class="label">What Wrapped would say</div>
+      <div class="read">Press either button. Then press the other one.</div>
+    </div>
+    <p class="toolnote">The language model is never told which chip you picked, because the data never recorded it. Neither does the real one.</p>
+  </div>
+
   <div class="callout tryit">
     <div class="label">Try it · practice for Friday's quiz. Five situations: which concept is doing the work? Decide, then click to check.</div>
     <details><summary>1. "Because you watched a documentary about coral reefs, here's one about deep-sea fish."</summary><p>Content-based filtering. It matched features of the thing you watched; it needed nothing about other people.</p></details>
@@ -506,6 +569,10 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
       <li><strong>Q5 · Keep it, fix it, or drop it, and what does that cost?</strong> Your Prototype project will almost certainly recommend something. Write the number it optimizes for in one sentence. Then write who could pay to move the ranking, and whether you'd let them, and what saying no would cost.</li>
     </ol>
   </div>
+  <div class="concept">
+    <div class="term">The takeaway from the case</div>
+    <p>Wrapped is the friendliest AI system in this book, and it still runs on the same three facts as the rest: a year of behavior kept because the feature needs it, a ranking that was never only about the listener, and a language model writing more sentences about people than anyone could ever read. The question it leaves you with is not whether to like it. Most of us do. It is whether a mirror you enjoy looking into is one you can check.</p>
+  </div>
 </section>
 
 <section id="s4">
@@ -554,7 +621,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 </details>
 
 <div class="nextbar">
-  <a href="chapter-02-human-lab.html"><span class="dir">← Back</span>Lab 2 · The Seeming Test</a>
+  <a href="chapter-02-human.html"><span class="dir">← Back</span>Chapter 2 · Seemingly Human</a>
   <a href="chapter-02-human-lab.html" style="text-align:right;"><span class="dir">Next →</span>Lab 2 · The Seeming Test and the Feed (covers this chapter)</a>
 </div>
 
@@ -577,6 +644,212 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   document.addEventListener('click',closeAll);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
   document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+
+<script>
+(function(){
+  var SONGS = [
+    {id:1,  t:"Harbor Lights",  a:"Cedar & Vine", tags:["slow","acoustic","warm"]},
+    {id:2,  t:"Static Bloom",   a:"Novaline",     tags:["fast","electronic","bright"]},
+    {id:3,  t:"Long Way Down",  a:"The Gray Hours",tags:["slow","guitar","sad"]},
+    {id:4,  t:"Peach Soda",     a:"Marisol Vang", tags:["fast","pop","bright"]},
+    {id:5,  t:"Tunnel Vision",  a:"KOVA",         tags:["fast","electronic","dark"]},
+    {id:6,  t:"Paper Boats",    a:"Cedar & Vine", tags:["slow","acoustic","sad"]},
+    {id:7,  t:"Night Bus",      a:"Emi Tanaka",   tags:["slow","electronic","warm"]},
+    {id:8,  t:"Brick by Brick", a:"The Gray Hours",tags:["mid","guitar","warm"]},
+    {id:9,  t:"Glass Arcade",   a:"Novaline",     tags:["mid","electronic","bright"]},
+    {id:10, t:"Saltwater",      a:"Emi Tanaka",   tags:["slow","acoustic","sad"]},
+    {id:11, t:"Loud Neighbors", a:"Pocket Radio", tags:["fast","guitar","bright"]},
+    {id:12, t:"Six A.M.",       a:"KOVA",         tags:["slow","electronic","dark"]}
+  ];
+  var NEW_SONG = {id:99, t:"Untitled (demo)", a:"nobody yet \u00b7 0 plays", tags:["slow","acoustic","sad"], fresh:true};
+  var LISTENERS = [
+    {n:"listener 1", p:[1,3,6,10]},
+    {n:"listener 2", p:[2,4,9,11]},
+    {n:"listener 3", p:[5,7,9,12]},
+    {n:"listener 4", p:[1,3,6,8]},
+    {n:"listener 5", p:[2,4,8,11]},
+    {n:"listener 6", p:[6,7,10,12]}
+  ];
+  var BOOSTED = 4; // Peach Soda, the track whose label accepted a lower royalty
+
+  var picks = {}, cold = false, boost = false, reveal = false, mode = {collab:true, content:false};
+  var grid = document.getElementById('mr-grid');
+  if(!grid) return;
+
+  function catalog(){ return cold ? SONGS.concat([NEW_SONG]) : SONGS; }
+
+  function drawGrid(){
+    grid.innerHTML = '';
+    catalog().forEach(function(s){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'song' + (s.fresh ? ' fresh' : '');
+      b.setAttribute('aria-pressed', picks[s.id] ? 'true' : 'false');
+      b.innerHTML = s.t + '<span class="ar">' + s.a + '</span>';
+      b.addEventListener('click', function(){
+        if(picks[s.id]) { delete picks[s.id]; } else { picks[s.id] = true; }
+        b.setAttribute('aria-pressed', picks[s.id] ? 'true' : 'false');
+      });
+      grid.appendChild(b);
+    });
+  }
+
+  function chip(el, on){ el.classList.toggle('on', on); el.setAttribute('aria-pressed', on ? 'true' : 'false'); }
+
+  function picked(){ return Object.keys(picks).map(Number); }
+
+  function collabScores(){
+    var mine = picked(), out = {}, neighbours = 0, detail = {};
+    LISTENERS.forEach(function(L){
+      var overlap = L.p.filter(function(id){ return mine.indexOf(id) > -1; }).length;
+      if(overlap === 0) return;
+      neighbours++;
+      L.p.forEach(function(id){
+        if(mine.indexOf(id) > -1) return;
+        out[id] = (out[id] || 0) + overlap;
+        detail[id] = (detail[id] || 0) + 1;
+      });
+    });
+    return {scores: out, neighbours: neighbours, count: detail};
+  }
+
+  function contentScores(){
+    var mine = picked(), want = {};
+    catalog().forEach(function(s){
+      if(mine.indexOf(s.id) === -1) return;
+      s.tags.forEach(function(t){ want[t] = (want[t] || 0) + 1; });
+    });
+    var out = {}, shared = {};
+    catalog().forEach(function(s){
+      if(mine.indexOf(s.id) > -1) return;
+      var sc = 0, sh = [];
+      s.tags.forEach(function(t){ if(want[t]){ sc += want[t]; sh.push(t); } });
+      if(sc > 0){ out[s.id] = sc; shared[s.id] = sh; }
+    });
+    return {scores: out, shared: shared};
+  }
+
+  function norm(obj){
+    var max = 0, out = {};
+    for(var k in obj){ if(obj[k] > max) max = obj[k]; }
+    if(max === 0) return out;
+    for(var k2 in obj){ out[k2] = obj[k2] / max; }
+    return out;
+  }
+
+  function byId(id){
+    var all = catalog();
+    for(var i=0;i<all.length;i++){ if(all[i].id === id) return all[i]; }
+    return null;
+  }
+
+  function run(){
+    var out = document.getElementById('mr-out');
+    var mine = picked();
+    if(!mode.collab && !mode.content){
+      out.innerHTML = '<div class="label">The ranking</div><div class="read">Turn on at least one way of guessing. A system with neither has nothing to go on.</div>';
+      return;
+    }
+    if(mine.length === 0){
+      out.innerHTML = '<div class="label">The ranking</div><div class="read">You have played nothing, so there is nothing to match and nothing to compare. This is exactly what a brand new account looks like from inside the system: <b>the cold start problem</b>, on the listener side. Real services fill this gap by asking you to pick three artists at signup, which is the company quietly asking you to solve its math problem.</div>';
+      return;
+    }
+    var c = collabScores(), k = contentScores();
+    var cn = norm(c.scores), kn = norm(k.scores);
+    var ids = {}, id;
+    if(mode.collab) for(id in cn) ids[id] = true;
+    if(mode.content) for(id in kn) ids[id] = true;
+    // a paid placement does not have to earn its way in, which is the point of it
+    if(boost && mine.indexOf(BOOSTED) === -1) ids[BOOSTED] = true;
+
+    var rows = Object.keys(ids).map(function(idStr){
+      var i = Number(idStr), parts = 0, sc = 0;
+      if(mode.collab){ sc += (cn[i] || 0); parts++; }
+      if(mode.content){ sc += (kn[i] || 0); parts++; }
+      sc = sc / parts;
+      var boosted = boost && i === BOOSTED;
+      if(boosted) sc = Math.max(Math.min(1, sc * 1.6), 0.62);
+      return {id:i, score:sc, boosted:boosted};
+    }).filter(function(r){ return r.score > 0; });
+
+    rows.sort(function(a,b){ return b.score - a.score; });
+    rows = rows.slice(0,4);
+
+    var html = '<div class="label">The ranking</div><div class="ranked">';
+    rows.forEach(function(r){
+      var s = byId(r.id), why = [];
+      if(r.boosted && !reveal){
+        why.push('recommended for you');
+      } else {
+      if(mode.collab){
+        var n = c.count[r.id] || 0;
+        why.push(n > 0 ? (n + ' of the ' + c.neighbours + ' listeners who overlap with you played it') : 'no listener who overlaps with you has played it');
+      }
+      if(mode.content){
+        var sh = (k.shared[r.id] || []);
+        why.push(sh.length ? ('shares ' + sh.join(', ') + ' with what you picked') : 'shares no features with what you picked');
+      }
+      if(r.boosted && reveal) why.push('<b>boosted: the label accepted a lower royalty for this placement</b>');
+      }
+      html += '<div class="r"><div>' + s.t + ' <span style="color:#A9B0B9">' + s.a + '</span></div>' +
+              '<div class="s">' + Math.round(r.score * 100) + '</div>' +
+              '<div class="why">' + why.join(' \u00b7 ') + '</div></div>';
+    });
+    html += '</div>';
+
+    var notes = [];
+    if(mode.collab && !mode.content) notes.push('Collaborative only: this ranking never listened to a single second of music. It only knows who played what.');
+    if(mode.content && !mode.collab) notes.push('Content-based only: this ranking never looked at another human being. It only knows what the songs are like.');
+    if(mode.collab && mode.content) notes.push('Both, blended, which is what real services do. Notice that the two halves sometimes disagree, and the blend hides which one won.');
+    if(cold){
+      var newIn = rows.some(function(r){ return r.id === 99; });
+      notes.push(newIn
+        ? 'The brand new song made the list, and it could only have come from the content side: zero plays means zero neighbours.'
+        : 'The brand new song is in the catalog and did not make the list. Zero plays means collaborative filtering cannot see it at all. That is the cold start problem with a paycheck attached.');
+    }
+    if(boost && !reveal) notes.push('Discovery Mode is on. One track in this list did not earn its place, and nothing on this screen says which one. Read the reasons again: the paid one still comes with a friendly explanation. That is the complaint in the 2025 lawsuit.');
+    if(boost && reveal) notes.push('With the label on, you can see the thumb: Peach Soda is there because Marisol Vang\u0027s label accepted a lower royalty, not because the math liked it for you. The real app has no such button.');
+    if(mine.length === 1) notes.push('One play is thin evidence. Watch how much the ranking moves when you add a second.');
+    html += '<div class="read" style="margin-top:14px">' + notes.join(' ') + '</div>';
+    out.innerHTML = html;
+  }
+
+  document.getElementById('mr-collab').addEventListener('click', function(){ mode.collab = !mode.collab; chip(this, mode.collab); run(); });
+  document.getElementById('mr-content').addEventListener('click', function(){ mode.content = !mode.content; chip(this, mode.content); run(); });
+  document.getElementById('mr-cold').addEventListener('click', function(){ cold = !cold; chip(this, cold); if(!cold) delete picks[99]; drawGrid(); run(); });
+  document.getElementById('mr-boost').addEventListener('click', function(){ boost = !boost; chip(this, boost); run(); });
+  document.getElementById('mr-reveal').addEventListener('click', function(){ reveal = !reveal; chip(this, reveal); run(); });
+  document.getElementById('mr-run').addEventListener('click', run);
+  document.getElementById('mr-clear').addEventListener('click', function(){
+    picks = {}; drawGrid();
+    document.getElementById('mr-out').innerHTML = '<div class="label">The ranking</div><div class="read">Pick a few songs, then press Recommend.</div>';
+  });
+  drawGrid();
+
+  // ---- Mini-Wrapped
+  var day = 'a long drive', mwOut = document.getElementById('mw-out');
+  var days = {'mw-d1':'a long drive','mw-d2':'studying for a midterm','mw-d3':'a funeral'};
+  Object.keys(days).forEach(function(idk){
+    var el = document.getElementById(idk);
+    if(!el) return;
+    el.addEventListener('click', function(){
+      day = days[idk];
+      Object.keys(days).forEach(function(o){ chip(document.getElementById(o), o === idk); });
+    });
+  });
+  var descBtn = document.getElementById('mw-desc'), interpBtn = document.getElementById('mw-interp');
+  if(descBtn) descBtn.addEventListener('click', function(){
+    mwOut.innerHTML = '<div class="label">Describing the facts</div>' +
+      '<div class="read">"On March 14 you played <b>Paper Boats</b> 11 times, more repeats than any other day this year."</div>' +
+      '<div class="read" style="margin-top:12px">Every word of that traces to a number in the fact sheet. It is also, most people agree, boring. That tension is the whole design problem: the checkable version is the dull one.</div>';
+  });
+  if(interpBtn) interpBtn.addEventListener('click', function(){
+    mwOut.innerHTML = '<div class="label">Interpreting the person</div>' +
+      '<div class="read">"March 14 was a day you needed something steady. You found it in <b>Paper Boats</b>, and you stayed there, eleven times over."</div>' +
+      '<div class="read" style="margin-top:12px">Warmer, more shareable, and it invented the part that matters. You told this page the day was <b>' + day + '</b>. The model was never told, because nothing in the data records it. The sentence comes out the same either way, which is the point: switch the chip and press this button again.</div>';
+  });
 })();
 </script>
 </body>
