@@ -313,21 +313,21 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">4a</span><h2>Inside the machine: what the screener did with your two résumés</h2></div>
+  <div class="shead"><span class="num">4</span><h2>Inside the machine: what the screener did with your two résumés</h2></div>
   <p>The screener you tested is a language model asked to rank, which means it's Chapter 6's classifier (2.1) built from Chapter 2's parts. It read both résumés as text, and the pattern it learned from the internet's hiring language, job posts, advice columns, decades of résumés and the comments about them, told it which words tend to appear near "strong candidate." If your one changed signal moved the score, that's a proxy (2.3) in action: nothing in your instructions mentioned age or gender, and the model found a stand-in anyway, because the training text carried it. That's the objectivity trap (2.2): the model was perfectly consistent, and consistently wrong about the same people.</p><p>Notice what you didn't need. You never saw the model's weights, its training data, or its rules. Two applications and a comparison were enough, which is the whole argument of the chapter's audit section (2.7): you can test a classifier from the outside, and a vendor who says "proprietary" is refusing a test that doesn't require opening anything. Your handful of trials is an anecdote. Two thousand of them, run by the class over the term, would be a study.</p>
 </section>
 
 <section>
-  <div class="shead"><span class="num">4b</span><h2>Debate: should hiring get a right to an explanation?</h2></div>
+  <div class="shead"><span class="num">5</span><h2>The question: should hiring get a right to an explanation?</h2></div>
   <div class="callout">
-    <div class="label">Debate · in class, about 20 minutes · pick a side, argue it, then switch</div>
+    <div class="label">Debate · in class, about 20 minutes · sides assigned, speak for one, then switch</div>
     <p><strong>How it runs, every week.</strong> Sides are assigned, not chosen, so you're never defending your own belief. Two minutes with your partner to find your side's best point and its honest cost. Three minutes a side. Then everyone switches and does it again. Last five minutes: what would change your mind? Say it out loud. The person who names the evidence that would move them wins, whichever side they were on.</p>
     <p>Chapter 6 ends on the gap: credit law gives you the reasons for a no, hiring law doesn't. Argue closing it.</p><ul class="ideas"><li><strong>Side A: extend the adverse action notice to hiring.</strong> Any automated rejection must come with its main reasons, in plain words, and a way to correct wrong data. It's fifty years old in lending and the sky didn't fall. Cost: a company screening a million applications a year now sends a million explanations, and the explanations will be vague to avoid lawsuits.</li><li><strong>Side B: require audits, not explanations.</strong> A reason for one rejection tells the applicant little; a published four-fifths test on the whole pipeline tells everyone something. Mandate the audit and let the vendor keep its model closed. Cost: the individual still gets the 1:50 a.m. email with nothing in it.</li></ul><p>Then the Workday question: if the vendor's model does the screening, who should be liable, the company that bought it or the company that built it, and what changes about how each behaves once you decide?</p>
   </div>
 </section>
 
 <section>
-  <div class="shead"><span class="num">4</span><h2>Talk it out</h2></div>
+  <div class="shead"><span class="num">6</span><h2>Talk it out</h2></div>
   <p class="lead">Groups of four, then the room. Bring what you just saw on your own screen.</p>
   <div class="callout">
     <div class="label">Discussion questions · about 15 minutes</div>
@@ -339,7 +339,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">5</span><h2>Run the five questions</h2></div>
+  <div class="shead"><span class="num">7</span><h2>Run the five questions</h2></div>
   <div class="fourq">
     <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> You just used a generative chatbot as a predictive classifier. Real screeners are purpose-built; name one way your test might understate the problem and one way it might overstate it.</p></div>
     <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> Who benefits from a screener that ranks your two résumés differently? Name the party for whom that difference is a feature, not a bug.</p></div>
@@ -350,8 +350,14 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">6</span><h2>The writeup</h2></div>
-  <div class="ticket">
+  <div class="shead"><span class="num">8</span><h2>The writeup</h2></div>
+    <div class="callout">
+    <div class="label">Using AI on this writeup</div>
+    <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
+    <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
+    <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
+  </div>
+<div class="ticket">
     <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
     <ol>
       <li><strong>The audit.</strong> Your variable, both scores (screenshots of the AI's full responses), and the lab's gap analysis.</li>
