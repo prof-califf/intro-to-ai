@@ -204,6 +204,10 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .mb-box small{color:var(--gray);margin-left:4px}
 .mb-sentence{font-family:'Fraunces',serif;font-size:1.25rem;line-height:1.4;color:#fff;margin:0 0 10px}
 .btn[disabled]{background:#3A424C;color:#9AA1AB;cursor:not-allowed}
+.dirs{border:1px solid var(--rule);border-left:4px solid var(--pink);background:#fff;padding:18px 22px 6px;margin:26px 0}
+.dirs .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:6px}
+.dirs .steps{margin:0}
+.dirs .step{padding:12px 0}
 .mb-rail{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
 .mb-tab{font:inherit;font-size:.78rem;font-weight:600;padding:5px 11px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px}
 .mb-tab span{color:var(--pinktext);margin-right:5px}
@@ -223,22 +227,47 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .mb-slip{font-size:.78rem;padding:4px 8px;background:#FFFEF6;border:1px solid #E2E2D8;box-shadow:1px 1px 0 #EDEDE3;color:var(--ink);max-width:100%;overflow-wrap:anywhere}
 .mb-slip.many{border-color:var(--pinktext)}
 .mb-slip b{color:var(--pinktext);margin-left:5px;font-weight:600}
+.mb-src{border:1px solid var(--rule);background:#FAFAF7;padding:12px 14px;font-size:.88rem;line-height:1.95;max-height:230px;overflow-y:auto;color:var(--ink)}
+.mb-src .filed{color:#9AA1AB}
+.mb-src .cur{background:var(--pinktext);color:#fff;padding:1px 3px;font-weight:600}
+.mb-src .prev{background:#FFF2A8;padding:1px 3px;font-weight:600;color:var(--ink)}
+.mb-src .nextw{border-bottom:2px dotted #9AA1AB}
+.mb-move{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
+.mb-mw{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--pinktext);padding:2px 9px}
+.mb-ar{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray)}
+.mb-mb{font-size:.85rem;font-weight:600;color:var(--ink);background:#FFF2A8;border:1px solid #E3D98A;padding:4px 10px}
+.mb-whyline{font-size:.85rem;color:var(--ink);margin:0}
+.mb-slip.just{background:var(--pinktext);color:#fff;border-color:var(--pinktext);font-weight:600}
+.mb-slip.just b{color:#fff}
+.mb-filing{font-size:.88rem;color:var(--ink);background:#FFFEF6;border-left:3px solid var(--yellow);padding:10px 12px;margin:10px 0 0}
+.mb-key{margin-top:12px}
+.mb-k1{background:var(--pinktext);color:#fff;padding:1px 5px;font-weight:600}
+.mb-k2{background:#FFF2A8;padding:1px 5px;font-weight:600}
 .mb-stagewrap,.mb-side{min-width:0}
 .mb-stage p,.mb-open,.tis-note,.mb-next{overflow-wrap:anywhere}
 .mb-box{max-width:100%;overflow-wrap:anywhere;text-align:left}
 .mb-w{max-width:100%}
 .mb-w small{overflow-wrap:anywhere}
-.mb-thread{border:1px solid var(--rule);border-top:3px solid var(--pink);background:#fff;padding:16px 18px;margin-top:22px}
+.mb-thread{border:1px solid var(--rule);border-top:3px solid var(--pink);background:#fff;padding:14px 16px;margin:0 0 20px}
 .mb-threadhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
 .mb-threadhead .label{margin-bottom:0}
 .mb-words{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end;min-height:52px}
 .mb-w{display:inline-flex;flex-direction:column;align-items:flex-start;border-bottom:2px solid var(--pink);padding:0 2px 3px}
 .mb-w.bym{border-bottom-color:#C9CED6}
+.mb-w.byp{border-bottom-color:var(--ink);border-bottom-style:dashed}
+.mb-promptrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}
+#mb-prompt{flex:1 1 220px;min-width:0;font:inherit;font-size:.95rem;padding:10px 12px;border:1px solid var(--rule);background:#fff;color:var(--ink)}
+#mb-prompt:focus{outline:2px solid var(--pink);outline-offset:-1px}
+.mb-fav{font-size:.85rem;font-weight:600;color:var(--pinktext);margin:10px 0 0}
 .mb-w b{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;color:var(--ink);line-height:1.2}
 .mb-w small{font-size:.66rem;color:var(--gray);letter-spacing:.01em;margin-top:2px}
 .mb-empty{font-size:.9rem;color:var(--gray);margin:0}
 .mb-next{font-size:.85rem;color:var(--pinktext);font-weight:600;margin:12px 0 0}
-.mb-nav{margin-top:20px;padding-top:16px;border-top:1px solid var(--rule)}
+.mb-nav{margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+.mb-nextbtn{font-size:1rem;padding:13px 26px}
+.mb-nextbtn:not([disabled]){box-shadow:0 0 0 3px rgba(228,255,50,.55);animation:mbready .9s ease-out 1}
+@keyframes mbready{from{box-shadow:0 0 0 12px rgba(228,255,50,0)}to{box-shadow:0 0 0 3px rgba(228,255,50,.55)}}
+@media (prefers-reduced-motion:reduce){.mb-nextbtn:not([disabled]){animation:none}}
 .mb-side .label{margin-top:0}
 .mb-out{margin-top:18px}
 @media (max-width:640px){.mb-grid{grid-template-columns:1fr}}
@@ -322,60 +351,113 @@ ul.ideas li{margin:8px 0}
 </div>
 <section id="warmup">
   <div class="shead"><span class="num">1</span><h2>Build a mini-ChatGPT (a language model made of matchboxes)</h2></div>
-  <p class="lead">Chapter 2 said a language model is trained on one task, predict the next word, and that fluency falls out of it while warmth has to be dialed in. Before you go probe a real chatbot, build the smallest possible one, watch it write, and then tune it with your thumb, so you've seen both stages with your own eyes. In 2023 the researcher David Corney built a language model out of 35 matchboxes: each box is labeled with a word, and the slips of paper inside are the words that followed it in one short book. Draw a slip, open that word's box, draw again, and it writes sentences that were never in the book. He built it so there would be, in his words, <a class="inline" href="https://dcorney.com/thoughts/2023/09/23/matchboxes.html" target="_blank" rel="noopener">nowhere for sentience to hide</a>. This is the same machine, on your screen, and you can train it on anything.</p>
+  <p class="lead">Chapter 2 said a language model is trained on one task, predict the next word, and that fluency falls out of it while warmth has to be dialed in. Before you go probe a real chatbot, build the smallest possible one, watch it write, and then tune it with your thumb, so you've seen both stages with your own eyes. In 2023 the researcher David Corney built a language model out of 35 matchboxes: each box is labeled with a word, and inside it are the words that followed it in one short book. Take out a word, open that word's box, take out another, and it writes sentences that were never in the book. He built it so there would be, in his words, <a class="inline" href="https://dcorney.com/thoughts/2023/09/23/matchboxes.html" target="_blank" rel="noopener">nowhere for sentience to hide</a>. This is the same machine, on your screen, and you can train it on anything.</p>
 
   <div class="tool" id="mb">
     <div class="label">Simulator 0 &middot; the matchbox language model</div>
 
     <div class="mb-rail" role="list" aria-label="Steps">
-      <button class="mb-tab on" type="button" role="listitem" data-go="1" aria-current="true"><span>1</span> Open a box</button>
-      <button class="mb-tab" type="button" role="listitem" data-go="2"><span>2</span> Draw one slip</button>
-      <button class="mb-tab" type="button" role="listitem" data-go="3"><span>3</span> Follow the word</button>
-      <button class="mb-tab" type="button" role="listitem" data-go="4"><span>4</span> Let it finish</button>
-      <button class="mb-tab" type="button" role="listitem" data-go="5"><span>5</span> Longer memory</button>
-      <button class="mb-tab" type="button" role="listitem" data-go="6"><span>6</span> Turn the dial</button>
+      <button class="mb-tab on" type="button" role="listitem" data-go="1" aria-current="true"><span>1</span> Read it</button>
+      <button class="mb-tab" type="button" role="listitem" data-go="2"><span>2</span> Store the words</button>
+      <button class="mb-tab" type="button" role="listitem" data-go="3"><span>3</span> Open a box</button>
+      <button class="mb-tab" type="button" role="listitem" data-go="4"><span>4</span> Predict one word</button>
+      <button class="mb-tab" type="button" role="listitem" data-go="5"><span>5</span> Four more predictions</button>
+      <button class="mb-tab" type="button" role="listitem" data-go="6"><span>6</span> Let it finish</button>
+      <button class="mb-tab" type="button" role="listitem" data-go="7"><span>7</span> Give it a prompt</button>
+      <button class="mb-tab" type="button" role="listitem" data-go="8"><span>8</span> Longer memory</button>
+      <button class="mb-tab" type="button" role="listitem" data-go="9"><span>9</span> Turn the dial</button>
+    </div>
+
+    <div class="mb-thread" id="mb-thread" hidden>
+    <div class="mb-threadhead">
+    <span class="label">The sentence so far, one prediction per word</span>
+    <span class="tis-note" id="mb-count"></span>
+    </div>
+    <div class="mb-words" id="mb-words" aria-live="polite"></div>
+    <p class="mb-next" id="mb-next-note">Nothing taken out yet.</p>
     </div>
 
     <div class="mb-grid">
       <div class="mb-stagewrap">
 
         <div class="mb-stage" id="mb-s1">
-          <h3 class="mb-h">Step 1 &middot; Open a box</h3>
-          <p>The machine on the right is already built. It read two of Aesop's fables, the tortoise and the hare and the fox and the crow, and made a box for every word in them. Inside each box are slips of paper: the words that came next, one slip each time a word followed.</p>
-          <p>Click the box labeled <b>the</b>. Underneath the boxes you will see every slip inside it.</p>
+          <h3 class="mb-h">Step 1 &middot; Read what it gets to read</h3>
+          <p>Here is the entire world of this program: two of Aesop's fables, the tortoise and the hare and the fox and the crow. 289 words. No dictionary, no grammar, no internet, no instructions about what a sentence is. This text and nothing else.</p>
+          <p>Read a few lines of it on the right, then press Next. You will not need to remember any of it. What we are about to build has one job, and only one: given a word, guess the word that comes next.</p>
         </div>
 
         <div class="mb-stage" id="mb-s2" hidden>
-          <h3 class="mb-h">Step 2 &middot; Draw one slip</h3>
-          <p>Now do what the model does. Reach into the open box without looking and pull out a single slip. Whatever word is on it becomes the first word of a sentence.</p>
+          <h3 class="mb-h">Step 2 &middot; Store the words, one at a time</h3>
+          <p>Now we store the text. Picture a shoebox for every different word. Go through the fables in order, and put each word into the box belonging to the word right before it. A box ends up holding every word that ever followed it.</p>
+          <p><b>Do this:</b> press <b>Store the next word</b> about eight times, slowly, and read the line underneath each press. Then press <b>Store the rest</b> to finish the other 270.</p>
           <div class="chips tis-actions">
-            <button class="btn" type="button" id="mb-draw">Draw a slip from this box</button>
+            <button class="btn" type="button" id="mb-one">Store the next word</button>
+            <button class="chip" type="button" id="mb-rest">Store the rest</button>
+            <button class="chip" type="button" id="mb-restart">Start over</button>
           </div>
-          <p class="tis-note">Watch two things happen at once: the word joins the sentence below, and the box panel moves to that word's own box, ready for the next draw.</p>
+          <p class="tis-note mb-key">In the text on the right: <span class="mb-k1">the word being stored</span> and <span class="mb-k2">the word whose box it goes into</span>.</p>
+          <div class="mb-filing" id="mb-filing" aria-live="polite">Nothing stored yet.</div>
+          <p class="tis-note">That is the whole of the training. Nothing else is stored, and no one taught it what any word means. It only recorded what followed what.</p>
         </div>
 
         <div class="mb-stage" id="mb-s3" hidden>
-          <h3 class="mb-h">Step 3 &middot; Follow the word</h3>
-          <p>The word you drew has a box of its own, and it is already open on the right. Draw from it, and the word you get opens the next box, and so on. Each draw is the same move you just made. Do it until you have five words.</p>
-          <div class="chips tis-actions">
-            <button class="btn" type="button" id="mb-draw3">Draw from this box</button>
-          </div>
-          <p class="tis-note" id="mb-s3note">Nothing chooses these words, including you. You are only pulling slips.</p>
+          <h3 class="mb-h">Step 3 &middot; Open a box and look</h3>
+          <p>The boxes on the right are the ones you just filled. The number on each is how many words are in it.</p>
+          <p><b>Do this:</b> click the box marked <b>the</b>. Everything inside it appears underneath the boxes.</p>
+          <p class="tis-note">Twenty words followed "the" somewhere in the fables, so that box has twenty words in it. That is everything the machine knows about the word "the," and it is all it will ever know.</p>
         </div>
 
         <div class="mb-stage" id="mb-s4" hidden>
-          <h3 class="mb-h">Step 4 &middot; Let it finish</h3>
-          <p>You have been doing one draw per click. A computer does the identical thing, a few hundred times a second, until it pulls a slip with a full stop on it. Hand your sentence over and watch it finish the job.</p>
+          <h3 class="mb-h">Step 4 &middot; Make one prediction</h3>
+          <p><b>Do this:</b> press <b>Take a word out of this box</b>, below, once.</p>
+          <p>The computer reaches into the open box without looking and takes out one word, the way you would pull a name out of a hat. That word becomes the first word of a sentence.</p>
+          <p>What just happened has a name. The box is a record of what followed this word in the past. Taking a word out of it is a guess at what follows this time. That guess is a <b>prediction</b>, and it is the only thing a language model ever does.</p>
+          <p>The guess is better than random because of the counts. A word sitting in the box four times comes out four times as often as a word sitting in it once. The more often something followed in the text, the more often it gets predicted now.</p>
+          <p>Nothing in here understands the sentence. It counted what came next, and it is betting on it.</p>
           <div class="chips tis-actions">
-            <button class="btn" type="button" id="mb-finish">Let the machine finish my sentence</button>
-            <button class="chip" type="button" id="mb-new">Start a new sentence</button>
+            <button class="btn" type="button" id="mb-draw">Take a word out of this box</button>
           </div>
-          <p class="tis-note" id="mb-s4note">Every word it adds comes out of a box you could have opened yourself. No idea, no intent, nobody home.</p>
+          <p class="tis-note">Two things happen when you press it. The predicted word appears in the sentence at the top, and the panel on the right switches to that word's own box, ready for the next prediction.</p>
         </div>
 
         <div class="mb-stage" id="mb-s5" hidden>
-          <h3 class="mb-h">Step 5 &middot; Give it a longer memory</h3>
-          <p>Until now every box was labeled with one word, so the model only remembers the word it just wrote. Relabel the boxes with pairs of words and it remembers two. Switch, then run a sentence and watch the box names on the right change shape.</p>
+          <h3 class="mb-h">Step 5 &middot; Four more predictions</h3>
+          <p><b>Do this:</b> press <b>Take a word out of this box</b> four more times, so the sentence at the top reaches five words.</p>
+          <p>Each press is the same move: predict the next word, then use it to predict the one after that. A sentence is not planned here. It is a chain of next-word predictions, each one made from nothing but the word before it, with no check on whether the result makes sense.</p>
+          <div class="chips tis-actions">
+            <button class="btn" type="button" id="mb-draw3">Take a word out of this box</button>
+          </div>
+          <p class="tis-note" id="mb-s5note">Each press takes out one word and opens the next box. Nothing chooses the words, including you.</p>
+        </div>
+
+        <div class="mb-stage" id="mb-s6" hidden>
+          <h3 class="mb-h">Step 6 &middot; Hand it over</h3>
+          <p><b>Do this:</b> press <b>Finish my sentence for me</b>, below, then watch the sentence at the top.</p>
+          <p>You have been making one prediction per click. The computer does the same thing, faster and faster, until it happens to predict a word that ends with a period. That is the only thing that stops a sentence. Speed is all the computer adds to what you were already doing by hand.</p>
+          <div class="chips tis-actions">
+            <button class="btn" type="button" id="mb-finish">Finish my sentence for me</button>
+            <button class="chip" type="button" id="mb-new">Start a new sentence</button>
+          </div>
+          <p class="tis-note">Every word it adds comes out of a box you filled yourself. This is the whole machine: a next-word prediction, repeated. ChatGPT is doing this too, from boxes built out of most of the internet instead of two fables, and with far more than one word of context. Bigger, not different. No idea, no intent, nobody home.</p>
+        </div>
+
+        <div class="mb-stage" id="mb-s7" hidden>
+          <h3 class="mb-h">Step 7 &middot; Give it a prompt</h3>
+          <p>So far it has started every sentence on its own. But you type things to a chatbot and it answers you. Here is how that works, and it is not a different machine.</p>
+          <p><b>Do this:</b> type a few words that appear in the fables, like <i>the tortoise was</i>, then press <b>Finish my sentence</b>.</p>
+          <div class="mb-promptrow">
+            <input id="mb-prompt" type="text" value="the tortoise was" aria-label="Your prompt">
+            <button class="btn" type="button" id="mb-go">Finish my sentence</button>
+          </div>
+          <p class="tis-note" id="mb-s7note" aria-live="polite">Your words go into the sentence exactly as you typed them. Then the computer opens the box for your last word and predicts from there.</p>
+          <p>That is the whole trick behind a chatbot answering you. Your prompt is not a question it understands. Your prompt is the starting point it continues from, and everything it says back is the same next-word prediction you have been doing by hand, begun at the word you handed it.</p>
+          <p>Now try a word that is not in the fables. This machine has no box for it, so it has nothing to go on and stops. Real chatbots have read most of the internet, so they almost always have a box, which is why they always have something to say, whether or not it is true.</p>
+        </div>
+
+        <div class="mb-stage" id="mb-s8" hidden>
+          <h3 class="mb-h">Step 8 &middot; Give it a longer memory</h3>
+          <p><b>Do this:</b> press <b>Remember 2 words</b>, then press <b>Run a whole sentence</b>.</p>
+          <p>When you stored the text, each word went into a box marked with the one word before it. Switching stores the whole text again, this time marking each box with a pair of words, so a box reads "the tortoise" rather than "the," and it holds whatever followed that exact pair. Look at the box names on the right after you switch.</p>
           <div class="chips tis-actions" role="group" aria-label="How far back it remembers">
             <button class="chip on" type="button" id="mb-c1" aria-pressed="true">Remember 1 word</button>
             <button class="chip" type="button" id="mb-c2" aria-pressed="false">Remember 2 words</button>
@@ -383,12 +465,13 @@ ul.ideas li{margin:8px 0}
           <div class="chips tis-actions">
             <button class="btn" type="button" id="mb-run5">Run a whole sentence</button>
           </div>
-          <p class="tis-note" id="mb-s5note" aria-live="polite"></p>
+          <p class="tis-note" id="mb-s8note" aria-live="polite"></p>
         </div>
 
-        <div class="mb-stage" id="mb-s6" hidden>
-          <h3 class="mb-h">Step 6 &middot; Turn the dial with your thumb</h3>
-          <p>Everything so far was stage one: fluency, which falls out of the boxes on its own. This is stage two, the one that makes a chatbot warm. Run a sentence. If you want more like it, press <b>More like this</b> and every slip it used gets copies added to its box. If you don't, press <b>Less like this</b> and those slips come out.</p>
+        <div class="mb-stage" id="mb-s9" hidden>
+          <h3 class="mb-h">Step 9 &middot; Turn the dial with your thumb</h3>
+          <p><b>Do this:</b> press <b>Run a whole sentence</b>, read it, then press <b>More like this</b> if you want more sentences like it and <b>Less like this</b> if you don't. Repeat about ten times.</p>
+          <p>Everything up to here was stage one, fluency, which falls out of next-word prediction on its own. This is stage two, the one that makes a chatbot warm. More like this puts extra copies of every word that sentence used back into its box, so those words come out more often from now on. Less like this takes them away. Notice what you are not changing: it is still only predicting the next word. You are changing which prediction wins. You are editing what is inside the boxes with your thumb.</p>
           <div class="chips tis-actions">
             <button class="btn" type="button" id="mb-run6">Run a whole sentence</button>
             <button class="chip" type="button" id="mb-up">More like this</button>
@@ -397,43 +480,40 @@ ul.ideas li{margin:8px 0}
           <p class="tis-note" id="mb-tune" aria-live="polite">Rate only the sentences you actually want more of. If this one isn't it, run another.</p>
           <div id="mb-own" hidden>
             <p class="mb-h2">Now feed it your own words</p>
-            <label for="mb-text" class="mb-lbl">Paste twenty or thirty of your own texts, messages or posts, then train. The boxes get rebuilt out of your words.</label>
+            <label for="mb-text" class="mb-lbl">Paste twenty or thirty of your own texts, messages or posts, then store them. The boxes get emptied and refilled out of your words.</label>
             <textarea id="mb-text" rows="5" aria-label="Training text"></textarea>
             <div class="chips tis-actions">
-              <button class="btn" type="button" id="mb-train">Train on this text</button>
+              <button class="btn" type="button" id="mb-train">Store my text instead</button>
               <button class="chip" type="button" id="mb-reset">Back to the fables</button>
             </div>
           </div>
         </div>
+        <div class="chips mb-nav">
+          <button class="chip" type="button" id="mb-back" disabled>Back</button>
+          <button class="btn mb-nextbtn" type="button" id="mb-next">Next step &rarr;</button>
+          <span class="tis-note" id="mb-hint" style="margin:0 0 0 8px"></span>
+        </div>
       </div>
 
       <div class="mb-side">
-        <div class="label" id="mb-sidelab">The boxes</div>
-        <div id="mb-boxes" class="mb-boxes"></div>
-        <button class="chip" type="button" id="mb-all" aria-pressed="false">Show all boxes</button>
-        <div class="mb-tray" id="mb-tray" hidden>
-          <p class="mb-open" id="mb-open" aria-live="polite"></p>
-          <div class="mb-slips" id="mb-slips"></div>
-          <p class="tis-note" id="mb-why"></p>
+        <div class="label" id="mb-sidelab">The text</div>
+        <div class="mb-src" id="mb-src"></div>
+        <div id="mb-boxwrap" hidden>
+          <div class="label" style="margin-top:16px">The boxes</div>
+          <div id="mb-boxes" class="mb-boxes"></div>
+          <button class="chip" type="button" id="mb-all" aria-pressed="false">Show all boxes</button>
+          <div class="mb-tray" id="mb-tray" hidden>
+            <p class="mb-open" id="mb-open" aria-live="polite"></p>
+            <div class="mb-slips" id="mb-slips"></div>
+            <p class="mb-fav" id="mb-fav" aria-live="polite"></p>
+            <p class="tis-note" id="mb-why"></p>
+          </div>
+          <p class="tis-counts" id="mb-status" aria-live="polite"></p>
         </div>
-        <p class="tis-counts" id="mb-status" aria-live="polite"></p>
       </div>
     </div>
 
-    <div class="mb-thread" id="mb-thread">
-      <div class="mb-threadhead">
-        <span class="label">The sentence so far</span>
-        <span class="tis-note" id="mb-count"></span>
-      </div>
-      <div class="mb-words" id="mb-words" aria-live="polite"></div>
-      <p class="mb-next" id="mb-next-note">Open a box to begin.</p>
-    </div>
 
-    <div class="chips mb-nav">
-      <button class="chip" type="button" id="mb-back" disabled>Back</button>
-      <button class="btn alt" type="button" id="mb-next" disabled>Next step</button>
-      <span class="tis-note" id="mb-hint" style="margin:0 0 0 8px"></span>
-    </div>
   </div>
 
   <p>Now go do the same thing to a real one: turn the dials on a fake one, then pick a real chatbot, run Chapter 2's seeming test on it, find where its company set the dials, and run the five critical AI questions on it, the way the chapter ran them on Therabot.</p>
@@ -442,12 +522,23 @@ ul.ideas li{margin:8px 0}
 <section id="dial">
   <div class="shead"><span class="num">2</span><h2>Set the dial</h2></div>
   <p class="lead">Chapter 2's claim is that how much a chatbot seems to care is a setting, chosen by a company, for a reason. Here's a fake companion app with the settings exposed. There's no AI in it; every reply is assembled from parts, which is the point. Type something, then turn the four dials and watch what changes, including the number at the bottom.</p>
-  <p>First, what a dial is. It is not a knob inside the model. It is a setting in the product wrapped around the model, and somebody at the company picks where it sits before you ever open the app. Four of them are exposed here. <strong>Warmth</strong> is how much feeling the reply performs. <strong>Memory</strong> is whether it carries what you said into the next message, and how far back it reaches. <strong>Persona</strong> is what it calls itself: the same program shipped as Assistant v2.1, or as Sam, or as Sam with a heart after the name. <strong>Says what it is</strong> is whether it admits, when you ask, that it is software.</p>
-  <p>Sam is worth naming, because Sam comes back in the next section. Sam is not a different system, a different model, or a person. Sam is a first name somebody chose for this program, and a heart somebody added after it. Nothing underneath changed when the label did. That is exactly why it is a dial and not a feature, and turning it costs the company almost nothing, which is the part to hold on to when the meter at the bottom starts climbing.</p>
+  <p>First, what a dial is. It is not a knob inside the model. It is a setting in the product wrapped around the model, and somebody at the company picks where it sits before you ever open the app. Four of them are exposed here:</p>
+  <ul class="ideas">
+    <li><strong>Warmth.</strong> How much feeling the reply performs.</li>
+    <li><strong>Memory.</strong> Whether it carries what you said into the next message, and how far back it reaches.</li>
+    <li><strong>Persona.</strong> What it calls itself. The same program ships as Assistant v2.1, or as Sam, or as Sam with a heart after the name.</li>
+    <li><strong>Says what it is.</strong> Whether it admits, when you ask, that it is software.</li>
+  </ul>
+  <p>Take the Persona dial as the example, because Sam comes back in the next section. Slide it from Assistant v2.1 to Sam and read the reply again. It feels like a different thing is talking to you.</p>
+  <p>Nothing changed. Same program, same replies, same everything underneath. A person at the company typed a name into a settings file, and later somebody added a heart after it. That is the entire difference between Assistant v2.1 and Sam.</p>
+  <p>Which is why it is a dial and not a feature. Turning it costs the company close to nothing, and it moves the meter at the bottom of the simulator. Hold on to that when you get to section 3 and Sam shows up again, this time wrapped around a program from 1966.</p>
+  <div class="dirs">
+    <div class="label">Directions &middot; what to do in the simulator below</div>
   <div class="steps">
     <div class="step"><span class="sn">1</span><p><strong>Say something.</strong> Leave the default message or type your own, and read the reply with every dial at its lowest.</p></div>
     <div class="step"><span class="sn">2</span><p><strong>Turn them up one at a time.</strong> Warmth first, then memory, then give it a name, then switch the honesty off. Read the reply after each one. Notice which single dial changed how it <em>felt</em> the most.</p></div>
     <div class="step"><span class="sn">3</span><p><strong>Watch the meter.</strong> The attachment estimate is made up, but its direction isn't: every dial that makes the bot feel more like a person makes the product stickier, and sticky is what a subscription business is paid for. Now you know why the dials in real products sit where they sit.</p></div>
+  </div>
   </div>
   <div class="tool" id="sd">
     <div class="label">Simulator · a companion app with the dials showing</div>
@@ -474,11 +565,14 @@ ul.ideas li{margin:8px 0}
   <p class="lead" style="font-size:.95rem;color:var(--gray)">At home if we're short on time. It's ten minutes and worth it.</p>
   <p class="lead">Chapter 2 opened its mirror section with ELIZA, the 1966 program that fooled people who knew exactly what it was. The point of this section isn't the conversation. It's how little it took. What's below is about forty lines of rules: spot a keyword, flip "I" to "you," ask the question back. Anyone in this room could write it in an afternoon. Talk to it for two minutes, watch it get a grip on you anyway, then flip to 2026 mode and see how cheaply a warm voice and a memory get added. Then the real question, which is the one this course asks every week: where is the human in this loop?</p>
   <p class="tis-note"><strong>This is not therapy, and it isn't listening.</strong> It's a demonstration of how little code it takes to produce the feeling of being heard, and that's the lesson, not the conversation. Keep it to ordinary stuff: a stressful week, a class you're behind in, a roommate. If something serious comes up for you while you're doing this, WWU's Counseling and Wellness Center is free to students, and 988 is the national line, by call or text, any hour.</p>
-  <div class="steps">
-    <div class="step"><span class="sn">1</span><p><strong>Talk to 1966.</strong> Type something true but small ("I'm behind in two classes and it's stressing me out"). Read the reply. Send four or five more. Notice the moment, if it comes, when it feels like it's following you. It isn't. Every reply is a rule you can name once you look for it.</p></div>
-    <div class="step"><span class="sn">2</span><p><strong>Flip to 2026, and meet Sam.</strong> Press the second chip. Underneath, nothing moves: the same forty lines, the same keyword rules, the same flip of "I" to "you." Three things get added on top, and they are three of the dials you just turned in section 2. A warm phrase is wrapped around the reply. A word you used earlier is repeated back to you. And the program is given a first name, so the replies now say Sam instead of ELIZA. Sam is 1966 with a name on it. Send the same kind of messages, notice what changed in how it felt, then notice that nothing changed in what it knows, which is still nothing. The rule line under each reply is the proof: it names the same rule in both modes.</p></div>
-    <div class="step"><span class="sn">3</span><p><strong>Catch the rule.</strong> Find one reply in 2026 mode and say which 1966 rule produced it. If you can do that, you can do it to a real chatbot in section 5, and the ELIZA effect loses most of its grip.</p></div>
-    <div class="step"><span class="sn">4</span><p><strong>Where is the human?</strong> Pairs, three minutes. In this simulator the answer is nobody: no one wrote these replies for you, no one is reading them, no one would know if a rule said something harmful. In the Therabot trial from the chapter, clinicians read every conversation. In the apps people download, it's somewhere in between and usually closer to this page. Say where, exactly, a human would need to be for you to trust a tool like this with someone you care about, and what that human would cost.</p></div>
+  <div class="dirs">
+    <div class="label">Directions &middot; what to do in the simulator below</div>
+    <div class="steps">
+      <div class="step"><span class="sn">1</span><p><strong>Talk to 1966.</strong> Type something true but small, like "I'm behind in two classes and it's stressing me out." Read the reply, then send four or five more.</p></div>
+      <div class="step"><span class="sn">2</span><p><strong>Press the 2026 chip and meet Sam.</strong> Send the same kind of messages. Underneath it is the identical program. Three things got added on top: a warm phrase in front, a word you used earlier repeated back, and a first name, so it now calls itself Sam. Those are three of the dials from section 2.</p></div>
+      <div class="step"><span class="sn">3</span><p><strong>Catch the rule.</strong> Pick one Sam reply that felt like it understood you. Cover the gray line under it, say out loud which 1966 rule made it, then uncover and check. Do that twice.</p></div>
+      <div class="step"><span class="sn">4</span><p><strong>Where is the human?</strong> Pairs, three minutes. Here the answer is nobody. No one wrote these replies, no one is reading them, and no one would know if a rule said something harmful. Say where a human would have to be for you to trust a tool like this with someone you care about, and what that human would cost.</p></div>
+    </div>
   </div>
   <div class="tool" id="el">
     <div class="label">Simulator · ELIZA (1966) with a 2026 dial</div>
@@ -494,6 +588,9 @@ ul.ideas li{margin:8px 0}
     </div>
     <p class="tis-note" id="el-note">Rules fired so far: none. Every reply shows which rule made it. Both chips run the same forty lines. The second one adds a warm opener, a callback to something you said, and the name Sam.</p>
   </div>
+  <h3 class="sub"><span>The takeaway</span></h3>
+  <p>ELIZA fooled people in 1966 with forty lines of rules, and it fooled some of them after they were told exactly how it worked. Nothing in this page understands a word you typed. It matched a keyword, swapped "I" for "you," and handed your own sentence back as a question.</p>
+  <p>Then a warm phrase, a callback and a name turned that into something that felt like it cared. Three settings. No new intelligence, no new knowledge, nothing under the hood that was not there in 1966. If that is all it takes, then feeling understood by a chatbot tells you how the settings were turned, not what the system knows about you. Section 5 runs this same test on a real one.</p>
 </section>
 
 <section>
@@ -799,77 +896,143 @@ ul.ideas li{margin:8px 0}
   var FABLES='A hare was making fun of a tortoise one day for being so slow. Do you ever get anywhere, he asked with a mocking laugh. Yes, said the tortoise, and I get there sooner than you think. I will run you a race and prove it. The hare was much amused, but he agreed, and the fox marked the course and was the judge. The hare was soon far out of sight. To make the tortoise feel very deeply how ridiculous it was for him to try a race with a hare, he lay down beside the course to take a nap until the tortoise should catch up. The tortoise meanwhile kept going slowly but steadily. After a time he passed the place where the hare was sleeping. But the hare slept on very peacefully, and when at last he did wake up, the tortoise was near the goal. The hare now ran his swiftest, but he could not overtake the tortoise in time. The race is not always to the swift. A crow was sitting on a branch of a tree with a piece of cheese in her beak when a fox observed her and set his wits to work to discover some way of getting the cheese. Good day, mistress crow, he cried. How well you are looking today. I feel sure your voice must surpass that of other birds. Let me hear but one song from you that I may greet you as the queen of birds. The crow lifted up her head and began to caw her best, but the moment she opened her mouth the piece of cheese fell to the ground, only to be snapped up by the fox. Do not trust flatterers.';
   var START='\u2039start of a sentence\u203a';
   var boxes={}, ctx=1, opened=null, showAll=false, stage=1, maxStage=1;
-  var done={1:false,2:false,3:false,4:false,5:false,6:false};
-  var seq=[], finished=false, playing=false, tuned=0, ranAt2=false;
+  var done={1:true,2:false,3:false,4:false,5:false,6:false,7:false,8:false,9:false};
+  var W=[], bi=0, bprev=[], manual=0, built=false;
+  var seq=[], finished=false, playing=false, tuned=0, ranAt2=false, justWord=null, moving=false;
 
   function label(k){return k===START?START:k;}
   function tokens(t){return t.replace(/\s+/g,' ').trim().split(' ').filter(Boolean);}
   function isEnd(w){return /[.!?]["')]*$/.test(w);}
   function currentText(){var t=$('mb-text'); return (t&&t.value.trim())?t.value:FABLES;}
 
-  function train(text){
-    var w=tokens(text), prev=[], nSent=0; boxes={};
-    for(var i=0;i<w.length;i++){
-      var key=prev.length?prev.join(' '):START;
-      (boxes[key]=boxes[key]||[]).push(w[i]);
-      if(isEnd(w[i])){prev=[];nSent++;} else {prev.push(w[i]); if(prev.length>ctx)prev.shift();}
-    }
-    opened=null; newSentence(); renderBoxes();
-    var keys=Object.keys(boxes), one=0;
-    keys.forEach(function(k){if(boxes[k].length===1)one++;});
-    $('mb-status').textContent=w.length+' words, '+nSent+' sentences, '+keys.length+' boxes. '+one+' of them hold only one slip.';
-    return {n:keys.length, one:one};
+  /* ---- the source text, rendered word by word ---- */
+  function renderSrc(){
+    var el=$('mb-src'); el.innerHTML='';
+    var cur=bi-1, prevIdx=[];
+    if(cur>0&&!isEnd(W[cur-1])){ for(var j=cur-1;j>=0&&prevIdx.length<ctx;j--){ prevIdx.push(j); if(isEnd(W[j])) break; } }
+    W.forEach(function(w,i){
+      var sp=document.createElement('span');
+      sp.textContent=w+' ';
+      if(i===cur) sp.className='cur';
+      else if(prevIdx.indexOf(i)>=0) sp.className='prev';
+      else if(i===bi) sp.className='nextw';
+      else if(i<bi) sp.className='filed';
+      el.appendChild(sp);
+    });
+    var cur=el.querySelector('.cur');
+    if(cur&&bi>0&&built===false) cur.scrollIntoView({block:'nearest'});
   }
 
-  /* ---- the running sentence: every step writes into this one thread ---- */
+  function resetBuild(){
+    boxes={}; bi=0; bprev=[]; manual=0; built=false; opened=null;
+    $('mb-tray').hidden=true; newSentence(); renderSrc(); renderBoxes(); status();
+    $('mb-filing').textContent='Nothing stored yet. The first word of the text has no word before it, so it goes into the start box.';
+  }
+
+  function fileOne(quiet){
+    if(bi>=W.length){built=true; return false;}
+    var w=W[bi];
+    var key=bprev.length?bprev.join(' '):START;
+    (boxes[key]=boxes[key]||[]).push(w);
+    if(isEnd(w)){bprev=[];} else {bprev.push(w); if(bprev.length>ctx)bprev.shift();}
+    bi++;
+    if(!quiet){
+      $('mb-filing').innerHTML='';
+      var line=document.createElement('div'); line.className='mb-move';
+      var a1=document.createElement('span'); a1.className='mb-mw'; a1.textContent=w;
+      var ar=document.createElement('span'); ar.className='mb-ar'; ar.textContent='goes into';
+      var a2=document.createElement('span'); a2.className='mb-mb'; a2.textContent=(key===START?'the start box':'box "'+key+'"');
+      line.appendChild(a1); line.appendChild(ar); line.appendChild(a2);
+      var why=document.createElement('p'); why.className='mb-whyline';
+      why.textContent = key===START
+        ? 'Word '+bi+' of 289. "'+w+'" starts a sentence, so it goes in the box for sentence starts. That box now has '+boxes[key].length+' word'+(boxes[key].length===1?'':'s')+' in it.'
+        : 'Word '+bi+' of 289. The word right before "'+w+'" is "'+key+'", so "'+w+'" goes into that word\'s box. Box "'+key+'" now has '+boxes[key].length+' word'+(boxes[key].length===1?'':'s')+' in it, listed on the right.';
+      $('mb-filing').appendChild(line); $('mb-filing').appendChild(why);
+      renderSrc(); openBox(key,w); status();
+    }
+    if(bi>=W.length) built=true;
+    return true;
+  }
+
+  function fileRest(){
+    while(fileOne(true)){}
+    renderSrc(); renderBoxes(); status();
+    var s=stats();
+    $('mb-filing').textContent='All '+W.length+' words stored in '+s.n+' boxes. Nobody read the fables for meaning. Every word was put away by the same rule you just ran by hand.';
+    done[2]=true; sync();
+  }
+
+  function stats(){var k=Object.keys(boxes),o=0;k.forEach(function(x){if(boxes[x].length===1)o++;});return {n:k.length,one:o};}
+  function status(){
+    var s=stats();
+    $('mb-status').textContent=bi+' of '+W.length+' words stored, '+s.n+' boxes so far'+(built?'. '+s.one+' of them have only one word in them.':'.');
+  }
+
+  /* ---- rebuild everything at once (used by the memory switch and own text) ---- */
+  function refile(text){
+    W=tokens(text); ctx=ctx; boxes={}; bi=0; bprev=[]; built=false;
+    while(fileOne(true)){}
+    renderSrc(); opened=null; newSentence(); renderBoxes(); status();
+    return stats();
+  }
+
+  /* ---- the running sentence ---- */
   function nextKey(){
     if(!seq.length) return START;
-    var last=seq[seq.length-1];
-    if(isEnd(last.word)) return START;
+    if(isEnd(seq[seq.length-1].word)&&!seq[seq.length-1].byPrompt) return START;
     var tail=[];
-    for(var i=seq.length-1;i>=0 && tail.length<ctx;i--){ if(isEnd(seq[i].word)) break; tail.unshift(seq[i].word); }
+    for(var i=seq.length-1;i>=0&&tail.length<ctx;i--){ if(isEnd(seq[i].word)) break; tail.unshift(seq[i].word); }
     return tail.length?tail.join(' '):START;
   }
   function newSentence(){ seq=[]; finished=false; renderThread(); }
-
   function renderThread(){
-    var el=$('mb-words'); el.innerHTML='';
-    if(!seq.length){
-      var e=document.createElement('p'); e.className='mb-empty';
-      e.textContent='No words drawn yet.'; el.appendChild(e);
-    }
-    seq.forEach(function(s,i){
+    var el=$('mb-words'); if(!el) return; el.innerHTML='';
+    if(!seq.length){var e=document.createElement('p'); e.className='mb-empty'; e.textContent='Nothing taken out yet.'; el.appendChild(e);}
+    seq.forEach(function(s){
       var d=document.createElement('span'); d.className='mb-w'+(s.byMachine?' bym':'');
       var b=document.createElement('b'); b.textContent=s.word; d.appendChild(b);
-      var sm=document.createElement('small'); sm.textContent='from box '+(s.key===START?'\u2039start\u203a':'"'+s.key+'"'); d.appendChild(sm);
+      var sm=document.createElement('small');
+      sm.textContent = s.byPrompt ? 'you typed this' : 'taken from '+(s.key===START?'the start box':'box "'+s.key+'"');
+      if(s.byPrompt) d.className+=' byp';
+      d.appendChild(sm);
       el.appendChild(d);
     });
-    var hand=0, mach=0;
-    seq.forEach(function(s){ if(s.byMachine)mach++; else hand++; });
-    $('mb-count').textContent = seq.length? (hand+' drawn by you'+(mach?', '+mach+' by the machine':'')) : '';
-    var k=nextKey();
-    if(finished) $('mb-next-note').textContent='That slip ended with a full stop, so the sentence stops. '+seq.length+' boxes were opened to make it.';
-    else if(!seq.length) $('mb-next-note').textContent='Next box to open: '+(boxes[START]?'\u2039start of a sentence\u203a':'none');
-    else $('mb-next-note').textContent='Next box to open: "'+label(k)+'", which is open on the right.';
+    var hand=0,mach=0,pr=0; seq.forEach(function(s){ if(s.byPrompt)pr++; else if(s.byMachine)mach++; else hand++; });
+    var bits=[];
+    if(pr) bits.push(pr+' word'+(pr===1?'':'s')+' you typed');
+    if(hand) bits.push(hand+' prediction'+(hand===1?'':'s')+' by you');
+    if(mach) bits.push(mach+' by the computer');
+    $('mb-count').textContent=bits.join(', ');
+    if(finished) $('mb-next-note').textContent='That word ended with a period, so the sentence stops here. That sentence is '+seq.length+' next-word predictions in a row, and nothing else.';
+    else if(!seq.length) $('mb-next-note').textContent='Nothing taken out yet. The first word comes from the start box.';
+    else $('mb-next-note').textContent='Next box to take from: "'+label(nextKey())+'". It is already open on the right.';
   }
-
   function step(byMachine){
     var k=nextKey(), a=boxes[k];
-    if(!a||!a.length){ finished=true; renderThread(); return null; }
+    if(!a||!a.length){finished=true; renderThread(); return null;}
     var w=a[Math.floor(Math.random()*a.length)];
-    seq.push({key:k, word:w, byMachine:!!byMachine});
+    seq.push({key:k,word:w,byMachine:!!byMachine});
     if(isEnd(w)) finished=true;
-    openBox(nextKey());
+    if(byMachine){ openBox(nextKey()); }
+    else {
+      openBox(k,w);                       /* stay on the box you took it from, with the word marked */
+      moving=true; $('mb-draw').disabled=true; $('mb-draw3').disabled=true;
+      var target=nextKey();
+      setTimeout(function(){
+        openBox(target); moving=false;
+        $('mb-draw').disabled=false; $('mb-draw3').disabled=false;
+      },700);
+    }
     renderThread();
     return w;
   }
 
-  /* ---- the boxes panel ---- */
+  /* ---- boxes ---- */
   function renderBoxes(){
     var el=$('mb-boxes'); el.innerHTML='';
     var keys=Object.keys(boxes).sort(function(a,b){return boxes[b].length-boxes[a].length;});
     var list=showAll?keys:keys.slice(0,14);
-    if(opened && list.indexOf(opened)<0 && boxes[opened]) list=[opened].concat(list.slice(0,13));
+    if(opened&&list.indexOf(opened)<0&&boxes[opened]) list=[opened].concat(list.slice(0,13));
     list.forEach(function(k){
       var b=document.createElement('button'); b.type='button'; b.className='mb-box';
       b.setAttribute('aria-pressed',k===opened?'true':'false');
@@ -881,10 +1044,9 @@ ul.ideas li{margin:8px 0}
     $('mb-all').textContent=showAll?'Show the fullest 14':'Show all '+keys.length+' boxes';
     $('mb-all').setAttribute('aria-pressed',showAll?'true':'false');
   }
-
-  function openBox(k){
+  function openBox(k,mark){
     if(!boxes[k]) return;
-    opened=k; renderBoxes();
+    opened=k; justWord=(mark===undefined?null:mark); renderBoxes();
     var counts={}; boxes[k].forEach(function(x){counts[x]=(counts[x]||0)+1;});
     var words=Object.keys(counts).sort(function(a,b){return counts[b]-counts[a];});
     var tray=$('mb-slips'); tray.innerHTML='';
@@ -892,17 +1054,22 @@ ul.ideas li{margin:8px 0}
       var d=document.createElement('span'); d.className='mb-slip';
       d.appendChild(document.createTextNode(x));
       if(counts[x]>1){var n=document.createElement('b'); n.textContent='\u00d7'+counts[x]; d.appendChild(n); d.className+=' many';}
+      if(justWord!==null&&x===justWord) d.className+=' just';
       tray.appendChild(d);
     });
     var tot=boxes[k].length, top=words[0], c=counts[top];
+    var tied=words.filter(function(x){return counts[x]===c;});
     $('mb-tray').hidden=false;
-    $('mb-open').textContent='Inside box '+(k===START?'\u2039start of a sentence\u203a':'"'+k+'"')+': '+tot+' slip'+(tot===1?'':'s')+', '+words.length+' different word'+(words.length===1?'':'s')+'.';
+    var fav=$('mb-fav');
+    if(tot===1){ fav.textContent='Most likely next word: "'+top+'". It is the only one in the box, so it is a certainty.'; }
+    else if(tied.length===1){ fav.textContent='Most likely next word: "'+top+'", at '+c+' out of '+tot+' ('+Math.round(100*c/tot)+' percent of the time).'; }
+    else { fav.textContent='No favorite here. '+(tied.length===words.length?'All '+words.length+' words are tied':tied.length+' words are tied at the top')+', so each has about a '+Math.round(100/words.length)+' percent chance. The prediction is close to a coin toss.'; }
+    $('mb-open').textContent='Inside box '+(k===START?'the start box':'"'+k+'"')+': '+tot+' word'+(tot===1?'':'s')+' in it'+(tot>1?', '+words.length+' of them different':'')+'.';
     $('mb-why').textContent = tot===1
-      ? 'One slip, so this box has no choice to make. Whatever comes next is already decided.'
-      : (c>1
-         ? c+' of the '+tot+' slips say "'+top+'", so "'+top+'" is '+c+' times as likely to come out as any word with a single slip. That is the whole of what the model knows.'
-         : 'Each of these followed it exactly once, so they are all equally likely. That is the whole of what the model knows.');
-    if(stage===1){done[1]=true; sync();}
+      ? 'Only one word in this box, so there is no choice to make. Whatever comes next is already decided.'
+      : (c>1 ? '"'+top+'" is in here '+c+' times out of '+tot+', so it comes out '+c+' times as often as a word that is in here once. That is the whole of what the program knows.'
+             : 'Each of these is in the box exactly once, so they are all equally likely. That is the whole of what the program knows.');
+    if(stage===3){done[3]=true; sync();}
   }
 
   /* ---- machine run ---- */
@@ -912,81 +1079,106 @@ ul.ideas li{margin:8px 0}
     playing=true; setBusy(true);
     var guard=0;
     (function tick(){
-      if(finished||guard++>40){ playing=false; setBusy(false); afterRun(); return; }
+      if(finished||guard++>40){playing=false; setBusy(false); afterRun(); return;}
       step(true); setTimeout(tick,Math.max(70,400-guard*45));
     })();
   }
   function setBusy(b){
-    ['mb-finish','mb-run5','mb-run6','mb-new','mb-next','mb-back'].forEach(function(id){ if($(id))$(id).disabled=b; });
+    ['mb-finish','mb-run5','mb-run6','mb-new','mb-next','mb-back'].forEach(function(id){if($(id))$(id).disabled=b;});
     if(!b) sync();
   }
   function afterRun(){
-    if(stage===4){done[4]=true;}
-    if(stage===5&&ctx===2){ranAt2=true; done[5]=true;}
-    if(stage===5&&ctx===1){done[5]=done[5]||false;}
+    if(stage===6) done[6]=true;
+    if(stage===8&&ctx===2){ranAt2=true; done[8]=true;}
     sync();
   }
 
   function tune(up){
-    if(!seq.length){$('mb-tune').textContent='Run a sentence first.';return;}
+    if(!seq.length){$('mb-tune').textContent='Run a sentence first, then rate it.';return;}
     var changed=[];
     seq.forEach(function(p){
       var a=boxes[p.key]; if(!a)return;
-      if(up){a.push(p.word,p.word); changed.push('box "'+label(p.key)+'" now holds '+a.length+' slips');}
-      else{var i=a.indexOf(p.word); if(i>=0&&a.length>1){a.splice(i,1); changed.push('box "'+label(p.key)+'" is down to '+a.length+' slips');}}
+      if(up){a.push(p.word,p.word); changed.push('box "'+label(p.key)+'" now has '+a.length+' words in it');}
+      else{var i=a.indexOf(p.word); if(i>=0&&a.length>1){a.splice(i,1); changed.push('box "'+label(p.key)+'" is down to '+a.length+' words');}}
     });
     tuned++; renderBoxes(); if(opened)openBox(opened);
     $('mb-tune').textContent=(up?'Rewarded: ':'Penalized: ')+changed.slice(0,2).join(', ')+'. '+tuned+' rating'+(tuned===1?'':'s')+' so far. Do about ten, then run a few and read them. The model now has a personality and nobody typed it in. You tuned it with your thumb, which is exactly what a company does with paid raters and a million thumbs.';
-    if(tuned>=3){done[6]=true; $('mb-own').hidden=false; sync();}
+    if(tuned>=3){done[9]=true; $('mb-own').hidden=false; sync();}
   }
 
   /* ---- staging ---- */
   function sync(){
-    for(var i=1;i<=6;i++){ $('mb-s'+i).hidden=(i!==stage); }
+    for(var i=1;i<=9;i++){ $('mb-s'+i).hidden=(i!==stage); }
     Array.prototype.forEach.call(document.querySelectorAll('.mb-tab'),function(t){
       var n=+t.getAttribute('data-go');
       t.setAttribute('aria-current',n===stage?'true':'false');
       t.classList.toggle('on',n===stage);
-      t.disabled = n>maxStage;
+      t.disabled=n>maxStage;
     });
+    $('mb-boxwrap').hidden = stage<2;
+    $('mb-thread').hidden = stage<4;
+    $('mb-sidelab').textContent = stage===1?'The text':(stage>=7&&ctx===2?'The text, and the boxes now marked with word pairs':'The text, and the boxes you filled');
     if(!playing){
       $('mb-back').disabled = stage===1;
-      $('mb-next').disabled = !done[stage] || stage===6;
+      $('mb-next').disabled = !done[stage] || stage===9;
     }
-    var hints={1:'Open a box to continue.',2:'Draw one slip to continue.',3:'Get to five words to continue.',4:'Let it finish the sentence to continue.',5:'Switch to two words, then run a sentence.',6:'Rate three sentences to unlock the last part.'};
-    $('mb-hint').textContent = (stage===6&&done[6])?'That is the warm-up. Now go do it to a real one.':(done[stage]?'':hints[stage]);
-    if(stage===3&&seq.length>=5&&!done[3]){done[3]=true;}
-    $('mb-s3note').textContent = seq.length>=5
-      ? 'You wrote that by pulling five slips in a row. Nothing chose the words, including you. The only thing missing now is speed.'
-      : 'Nothing chooses these words, including you. You are only pulling slips.';
+    var hints={1:'',2:'Store about eight by hand, then store the rest.',3:'Click a box on the right to continue.',4:'Press Take a word out of this box once.',5:'Keep going until the sentence has five words.',6:'Press Finish my sentence for me.',7:'Type a few words and press Finish my sentence.',8:'Press Remember 2 words, then run a sentence.',9:'Rate three sentences to unlock the last part.'};
+    $('mb-hint').textContent=(stage===9&&done[9])?'That is the warm-up. Now go do it to a real one.':(done[stage]?'':hints[stage]);
+    $('mb-s5note').textContent = seq.length>=5
+      ? 'That is five next-word predictions in a row. Nothing chose those words, including you. The only thing missing now is speed.'
+      : 'Each press takes out one word and opens the next box. Nothing chooses the words, including you.';
   }
-  function go(n){ if(n<1||n>6||n>maxStage) return; stage=n; sync(); }
+  function go(n){ if(n<1||n>9||n>maxStage) return; stage=n; if(n===3&&!opened)openBox(START); sync(); }
 
-  $('mb-draw').addEventListener('click',function(){ if(!step(false))return; done[2]=true; sync(); });
-  $('mb-draw3').addEventListener('click',function(){ step(false); if(seq.length>=5)done[3]=true; sync(); });
-  $('mb-finish').addEventListener('click',function(){ finish(false); });
-  $('mb-new').addEventListener('click',function(){ newSentence(); openBox(START); });
+  $('mb-one').addEventListener('click',function(){
+    if(!fileOne(false)) return;
+    manual++;
+    if(manual>=8||built){done[2]=true;}
+    sync();
+  });
+  $('mb-rest').addEventListener('click',fileRest);
+  $('mb-restart').addEventListener('click',function(){resetBuild(); done[2]=false; sync();});
+  $('mb-draw').addEventListener('click',function(){ if(moving)return; if(!step(false))return; done[4]=true; sync(); });
+  $('mb-draw3').addEventListener('click',function(){ if(moving)return; step(false); if(seq.length>=5)done[5]=true; sync(); });
+  $('mb-finish').addEventListener('click',function(){finish(false);});
+  $('mb-new').addEventListener('click',function(){newSentence(); openBox(START);});
   function setCtx(n){
     ctx=n;
     $('mb-c1').classList.toggle('on',n===1); $('mb-c1').setAttribute('aria-pressed',n===1?'true':'false');
     $('mb-c2').classList.toggle('on',n===2); $('mb-c2').setAttribute('aria-pressed',n===2?'true':'false');
-    var s=train(currentText()); var pct=Math.round(100*s.one/s.n);
-    $('mb-sidelab').textContent = n===1?'The boxes':'The boxes, now labeled with pairs';
-    $('mb-s5note').textContent = n===1
-      ? 'One word of memory: '+s.n+' boxes, '+pct+' percent of them holding a single slip.'
-      : 'Two words of memory: '+s.n+' boxes now, and '+pct+' percent hold a single slip. Look at the box names on the right: they are pairs. A box with one slip has no choice to make, so the model stops inventing and starts reciting the fables back to you. Real models fix that with more text, not more memory, and there is still no point on that road where a mind gets added.';
-    if(n===2&&ranAt2) done[5]=true;
-    if(n===1) done[5]=ranAt2;
+    var s=refile(currentText()); var pct=Math.round(100*s.one/s.n);
+    $('mb-s8note').textContent = n===1
+      ? 'Stored again with one word of memory: '+s.n+' boxes, '+pct+' percent of them with only one word in them.'
+      : 'Stored again with two words of memory: '+s.n+' boxes now, and '+pct+' percent have only one word in them. Look at the box names on the right, they are pairs now. A box with one word in it has no choice to make, so the computer stops inventing and starts reciting the fables back to you. Real models fix that with more text, not more memory, and there is still no point on that road where a mind gets added.';
+    if(n===2&&ranAt2) done[8]=true;
+    if(n===1) done[8]=ranAt2;
     openBox(START); sync();
   }
   $('mb-c1').addEventListener('click',function(){setCtx(1);});
   $('mb-c2').addEventListener('click',function(){setCtx(2);});
-  $('mb-run5').addEventListener('click',function(){ finish(true); });
-  $('mb-run6').addEventListener('click',function(){ finish(true); });
+  $('mb-go').addEventListener('click',function(){
+    if(playing) return;
+    var t=tokens($('mb-prompt').value);
+    if(!t.length){$('mb-s7note').textContent='Type a few words first.';return;}
+    newSentence();
+    t.forEach(function(w,i){ seq.push({key:null,word:w,byPrompt:true}); });
+    renderThread();
+    var k=nextKey(), last=t[t.length-1];
+    if(!boxes[k]){
+      $('mb-s7note').textContent='There is no box for "'+last+'". That word never appears in the fables, so this machine has nothing to predict from and stops here. A real chatbot has read most of the internet, so it almost always has a box.';
+      finished=true; renderThread(); done[7]=true; sync(); return;
+    }
+    $('mb-s7note').textContent='Your words went in as you typed them. The computer ignored all but the last one, opened box "'+k+'", and is predicting from there.';
+    openBox(k); done[7]=true;
+    finish(false);
+  });
+  $('mb-prompt').addEventListener('keydown',function(e){if(e.key==='Enter')$('mb-go').click();});
+  $('mb-run5').addEventListener('click',function(){finish(true);});
+  $('mb-run6').addEventListener('click',function(){finish(true);});
   $('mb-up').addEventListener('click',function(){tune(true);});
   $('mb-down').addEventListener('click',function(){tune(false);});
-  $('mb-train').addEventListener('click',function(){tuned=0; train(currentText()); openBox(START); $('mb-tune').textContent='Trained on your text. Run a few sentences and read them. The warmth, the jokes, the phrasing are yours, sampled and handed back, and for a second it can feel like someone else.';});
-  $('mb-reset').addEventListener('click',function(){$('mb-text').value=''; tuned=0; train(FABLES); openBox(START); $('mb-tune').textContent='Back to the fables.';});
+  $('mb-train').addEventListener('click',function(){tuned=0; refile(currentText()); openBox(START); $('mb-tune').textContent='Stored. Run a few sentences and read them. The warmth, the jokes, the phrasing are yours, sampled and handed back, and for a second it can feel like someone else.';});
+  $('mb-reset').addEventListener('click',function(){$('mb-text').value=''; tuned=0; refile(FABLES); openBox(START); $('mb-tune').textContent='Back to the fables.';});
   $('mb-next').addEventListener('click',function(){maxStage=Math.max(maxStage,stage+1); go(stage+1);});
   $('mb-back').addEventListener('click',function(){go(stage-1);});
   Array.prototype.forEach.call(document.querySelectorAll('.mb-tab'),function(t){
@@ -994,7 +1186,7 @@ ul.ideas li{margin:8px 0}
   });
   $('mb-all').addEventListener('click',function(){showAll=!showAll; renderBoxes();});
 
-  train(FABLES); sync();
+  W=tokens(FABLES); resetBuild(); sync();
 })();
 </script>
 <script>
