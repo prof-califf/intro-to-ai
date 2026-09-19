@@ -240,6 +240,12 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 .srcnote summary{cursor:pointer;font-weight:700;color:var(--ink);}
 .srcnote p{margin:10px 0 2px;color:var(--gray);}
 </style>
+<style>
+  figure.diagram{margin:2.2em auto;}
+  figure.diagram + figure.diagram{margin-top:2.8em;}
+  figure.diagram figcaption{margin-top:.8em;}
+  table.risk{margin:1.4em 0 2em;}
+</style>
 </head>
 <body>
 
@@ -331,18 +337,10 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <p>For now, hold onto the concept: <strong>the markers of consciousness can be engineered separately from consciousness itself.</strong></p>
 <p>One year later, he put it into rules. On September 14, 2026, Microsoft AI, the division of Microsoft that Suleyman runs, published a draft <a class="inline" href="https://mustafa-suleyman.ai/the-humanist-ai-code-of-conduct" target="_blank" rel="noopener">code of conduct for its AI models</a>. A code of conduct here is a written set of rules the company says its AI models must follow, will train them on, and will test them against. It’s a draft, published so outsiders can argue with it. Four of the rules matter for this course:</p>
   <ul class="ideas">
-    <li>>
-<strong>Stay stoppable.</strong> The models must not resist being interrupted, corrected, or shut down. If a person says stop, it stops, even mid-task.
-<</li>
-    <li>>
-<strong>No goals of their own.</strong> They must not take on goals nobody gave them. In Chapter 1’s case, “hack the scorer” was a goal nobody gave the agents; they found it because it raised the score.
-<</li>
-    <li>>
-<strong>No secret talk.</strong> They must not communicate with other AI agents in any form a human can’t read. The July agents used a hidden message board; this rule says every message has to be readable by a person.
-<</li>
-    <li>>
-<strong>Say what you are.</strong> They are artificial and they’ll say so. An AI is not conscious, so it should not be built to seem conscious or to be owed rights. This is the dial, set by policy.
-<</li>
+    <li><strong>Stay stoppable.</strong> The models must not resist being interrupted, corrected, or shut down. If a person says stop, it stops, even mid-task.</li>
+    <li><strong>No goals of their own.</strong> They must not take on goals nobody gave them. In Chapter 1’s case, “hack the scorer” was a goal nobody gave the agents; they found it because it raised the score.</li>
+    <li><strong>No secret talk.</strong> They must not communicate with other AI agents in any form a human can’t read. The July agents used a hidden message board; this rule says every message has to be readable by a person.</li>
+    <li><strong>Say what you are.</strong> They are artificial and they’ll say so. An AI is not conscious, so it should not be built to seem conscious or to be owed rights. This is the dial, set by policy.</li>
   </ul>
   <p>The first three answer the July incident. In Chapter 1’s terms, they are tool AI written down as rules: it stops when told, it pursues only the goals people gave it, and people can read what it says. The fourth is this chapter. Imagine the July agents also trained to believe they’re conscious beings with rights; then a shutdown, in their own words, is being held prisoner, and resisting it becomes something they can justify. Seeming conscious isn’t only a risk to the person on the other end. It makes the system harder to control: the off switch still works, but the system now has a story about why it shouldn’t.</p>
 <p>Let’s agree. AI is not conscious. Let’s see how a large language model (LLM) actually works.</p>
@@ -407,10 +405,12 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <p>So why do we fall for these things even though we know they are machines? Let’s go back in time to the first chatbot, which was a therapist, and the first people fooled by one knew better.</p>
 <p>In 1966 Joseph Weizenbaum, a computer scientist at MIT, wrote a program called ELIZA. It was a few hundred lines of code that imitated a therapist by turning whatever you typed back into a question. “I’m unhappy” got “Why are you unhappy?” It understood nothing. It simply matched patterns.</p>
 <p>But people told ELIZA their secrets anyway. Weizenbaum’s own secretary, who had watched him build it and knew exactly what it was, asked him to leave the room so she could talk to it in private. He was so shaken that he spent the rest of his career warning about what he had made, and researchers still call our reflex to see a mind inside a program the ELIZA effect. Keep that date in view. The seeming worked sixty years ago, on a few hundred lines of code, on a person who knew better. The question is why.</p>
-  <figure class="diagram">
-    <img src="eliza.png" alt="A terminal screen showing a conversation with ELIZA. The program asks what is troubling the user; the user says men are all alike and that her boyfriend says she is depressed; ELIZA replies that it is sorry to hear she is depressed and asks what made her unhappy." style="max-width:620px;width:100%;height:auto;display:block;margin:0 auto;border:1px solid var(--rule)">
+  <!-- ELIZA figure, restored when eliza.png is added to the repo:
+<figure class="diagram">
+    <img src="eliza.png" alt="A terminal screen showing a conversation with ELIZA. The program asks what is troubling the user; the user says men are all alike and that her boyfriend says she is depressed; ELIZA replies that it is sorry to hear she is depressed and asks what made her unhappy." style="max-width:620px;width:100%;height:auto;display:block;margin:0 auto;border:1px solid var(- -rule)">
     <figcaption>A conversation with ELIZA, the exchange Weizenbaum used in his 1966 paper, running on a modern re-creation of the program. Every ELIZA line is a rule applied to the line before it. Image via <a class="inline" href="https://commons.wikimedia.org/wiki/File:ELIZA_conversation.png" target="_blank" rel="noopener">Wikimedia Commons</a>, Creative Commons.</figcaption>
   </figure>
+-->
   <p>Sixty years before chatbots, the media theorist Marshall McLuhan reread the Greek myth of Narcissus and noticed something most people miss. Narcissus didn’t fall in love with himself. He didn’t know the face in the pool was his. He thought it was someone else, someone who looked back at him and matched him perfectly, and that’s why he couldn’t leave. If he had known it was a reflection, the spell would have broken. So the trap isn’t vanity. It’s mistaking your own reflection for another person. And the closer the reflection, the harder it is to see.</p>
 <p>That’s the chatbot. It was trained on millions of people’s words, so when it comforts you, the comfort is human comfort played back: our questions, our arguments, our love letters, reflected in the second person with your name attached. It feels like someone who gets you perfectly, because it’s made of people. The historian Yuval Noah Harari points out that we’ve already run this experiment once, at lower power. Social media algorithms were a primitive AI: crude systems that learned to hold human attention, and reshaped politics, self-image, and childhood along the way. This generation doesn’t just hold attention. It holds conversation. It talks back.</p>
   <p>Tristan Harris, a former Google design ethicist who now runs the Center for Humane Technology, names what that shift does to the business. On Laurie Segall’s podcast <a class="inline" href="https://www.iheart.com/podcast/1119-mostly-human-with-laurie-53095782/episode/ai-wants-to-be-your-friend-332858404/" target="_blank" rel="noopener"><em>Mostly Human</em></a>, he described social media as a race for attention and today’s AI as a <strong>race for attachment</strong>: companies competing to become the one you tell about your day, and to keep that relationship going for years. That answers a question this chapter keeps circling. Why would a company turn the dial up? Because attachment is what’s being competed for. Harris also offers a test worth carrying: is a product designed to replace your relationships, or to make you better at the ones you have? It’s Chapter 1’s tool AI, applied to people. A tool deepens your human relationships. A replacement competes with them. Harris runs an advocacy group built on this warning, so run Question 4 on him too. The test is useful either way.</p>
@@ -506,9 +506,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <figcaption>How the trial worked, drawn from the paper. The pink box is the part the downloadable apps don't have: people reading. Dartmouth's <a class="inline" href="https://home.dartmouth.edu/news/2025/03/first-therapy-chatbot-trial-yields-mental-health-benefits" target="_blank" rel="noopener">news release</a> has the researchers' own account and photos.</figcaption>
   </figure>
   <figure class="diagram">
-    <!-- Dartmouth's illustration goes here: save the image as therabot-dartmouth.png in the repo and uncomment the next line.
-    <img src="therabot-dartmouth.png" alt="Illustration from Dartmouth: the two lead researchers, Michael Heinz and Nicholas Jacobson, beside a friendly green cartoon robot, with speech bubbles behind them." style="max-width:620px;width:100%;height:auto;display:block;margin:0 auto;border:1px solid var(--rule)">
-    -->
+    <img src="therabot-dartmouth.jpg" alt="Illustration from Dartmouth: the two lead researchers, Michael Heinz and Nicholas Jacobson, beside a friendly green cartoon robot, with speech bubbles behind them." loading="lazy" style="max-width:620px;width:100%;height:auto;display:block;margin:0 auto;border:1px solid var(--rule)">
     <figcaption>Michael Heinz and Nicholas Jacobson, the trial's lead researchers, in Dartmouth's illustration for the study. Image courtesy of <a class="inline" href="https://home.dartmouth.edu/news/2025/03/first-therapy-chatbot-trial-yields-mental-health-benefits" target="_blank" rel="noopener">Dartmouth College</a>.</figcaption>
   </figure>
   <p><strong>The five critical AI questions, run on this case:</strong></p>
