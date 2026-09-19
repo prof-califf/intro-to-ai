@@ -71,6 +71,14 @@ h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0
 @media(max-width:640px){.facts{grid-template-columns:1fr;}}
 .fourq{margin:26px 0;}
 .rwd{display:grid;grid-template-columns:1fr auto;gap:7px 18px;font-size:.92rem;margin:10px 0 0;}
+.rw{display:grid;grid-template-columns:1fr 130px 54px;gap:12px;align-items:center;margin:10px 0;font-size:.88rem;}
+.rw input[type=range]{width:100%;accent-color:var(--pink);}
+.rw .val{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;}
+.res3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#242C36;border:1px solid #242C36;margin:14px 0 0;}
+.res3 .cell{background:var(--dark);padding:14px 12px;text-align:center;}
+.res3 .v{font-family:'Fraunces',serif;font-weight:700;font-size:1.5rem;color:#E7EAEF;}
+.res3 .v.warn{color:var(--pink);}
+.res3 .k{font-size:.76rem;color:#A9B0B9;margin-top:3px;line-height:1.35;}
 .rwd .k{color:var(--ink);}
 .rwd .v{font-variant-numeric:tabular-nums;font-weight:700;text-align:right;color:var(--ink);}
 .rwd .v.neg{color:var(--pinktext);}
@@ -396,6 +404,27 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <div class="term">The reward function</div>
     <p>The list of scored outcomes a learned system is trained to maximize. What people get wrong: they treat it as a technical detail. It is the company's priorities in numbers, it encodes who is asked to wait and who is protected, and changing one line of it changes behavior on public streets the same week.</p>
   </div>
+
+  <div class="tool">
+    <div class="label">Set the reward function · then drive 200 intersections with it</div>
+    <p style="font-size:.92rem">You are not writing driving rules. You are writing the scoring sheet the planner is trained to maximize, which is the only steering wheel a company actually holds. Move the numbers, run the intersections, and read what your priorities did to the street.</p>
+    <div class="rw"><span>Reaching the destination</span><input type="range" id="rw-a" min="4" max="20" step="1" value="10" aria-label="Points for completing the trip"><span class="val" id="rw-av">+10</span></div>
+    <div class="rw"><span>Each second spent waiting</span><input type="range" id="rw-b" min="0" max="10" step="1" value="1" aria-label="Penalty per second of waiting"><span class="val" id="rw-bv">-1</span></div>
+    <div class="rw"><span>A hard brake that jolts the rider</span><input type="range" id="rw-c" min="0" max="20" step="1" value="5" aria-label="Penalty for a hard brake"><span class="val" id="rw-cv">-5</span></div>
+    <div class="rw"><span>A close call, under three feet</span><input type="range" id="rw-d" min="0" max="60" step="1" value="15" aria-label="Penalty for a close call"><span class="val" id="rw-dv">-15</span></div>
+    <div class="chips" style="margin-top:16px">
+      <button type="button" class="btn" id="rw-run">Run 200 intersections</button>
+      <button type="button" class="btn alt" id="rw-reset">Back to the defaults</button>
+    </div>
+    <div class="res3">
+      <div class="cell"><div class="v" id="rw-wait">--</div><div class="k">average wait at the intersection</div></div>
+      <div class="cell"><div class="v" id="rw-brake">--</div><div class="k">hard brakes per 200 trips</div></div>
+      <div class="cell"><div class="v" id="rw-near">--</div><div class="k">close calls per 200 trips</div></div>
+    </div>
+    <div class="verdict" id="rw-out" aria-live="polite" style="display:none"></div>
+    <p style="font-size:.85rem;color:var(--gray);margin-top:10px">A toy model, not Waymo's, which is not published. The shape of the tradeoff is the real part.</p>
+  </div>
+
   <p>One problem remains: you cannot learn to drive by crashing a few hundred thousand times. So most of the learning happens in <strong>simulation</strong>. Every real mile becomes a scenario that can be replayed with the variables moved: the same intersection, but the child steps out a half second earlier, or the light changes, or it is raining. Waymo has built a generative model of driving, trained on its own fleet's video, that produces scenes which never happened at all, which is the same technology as Chapter 2's chatbot pointed at traffic instead of text. The fleet's real driving is measured in hundreds of millions of miles, and the simulated driving in tens of billions.</p>
   <p>Two things follow, and they matter well beyond cars. The first is competitive. Real miles feed the models, the models feed the simulator, the simulator tests the fix, the fixed car drives more real miles: a loop that compounds, and one a competitor cannot shortcut by buying the same sensors or hiring the same engineers. That is why this is a strategy story and not only an engineering story, and it is the same flywheel Chapter 9 will describe in less dramatic industries. The second is a limit. A simulator can only imagine variations on what it has already seen, and a simulated pedestrian is the company's own model of pedestrians, which means the practice is honest exactly where the data was and silent where it was not.</p>
 
@@ -701,6 +730,63 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   document.addEventListener('click',closeAll);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
   document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+
+<script>
+(function(){
+  var run = document.getElementById('rw-run');
+  if(!run) return;
+  var ids = ['a','b','c','d'], el = {};
+  ids.forEach(function(k){ el[k] = document.getElementById('rw-' + k); });
+  function val(k){ return Number(el[k].value); }
+  function sync(){
+    document.getElementById('rw-av').textContent = '+' + val('a');
+    document.getElementById('rw-bv').textContent = '-' + val('b');
+    document.getElementById('rw-cv').textContent = '-' + val('c');
+    document.getElementById('rw-dv').textContent = '-' + val('d');
+  }
+  ids.forEach(function(k){ el[k].addEventListener('input', sync); });
+  sync();
+
+  document.getElementById('rw-reset').addEventListener('click', function(){
+    el.a.value = 10; el.b.value = 1; el.c.value = 5; el.d.value = 15; sync();
+  });
+
+  run.addEventListener('click', function(){
+    var goal = val('a'), wait = val('b'), brake = val('c'), near = val('d');
+    // how eager the policy is to take a gap: rewarded by arriving and by not waiting,
+    // held back by the penalties on braking hard and cutting it close
+    var push = (goal / 10) + wait * 0.85;
+    var hold = 1 + brake * 0.10 + near * 0.13;
+    var eager = push / (push + hold);                        // 0 = timid, 1 = aggressive
+
+    var secs = Math.round((22 - eager * 19) * 10) / 10;       // average wait
+    var brakes = Math.round(4 + eager * 46);                  // per 200 trips
+    var nears = Math.round(Math.max(0, (eager - 0.22)) * 62); // per 200 trips
+    if(near >= 40) nears = Math.round(nears * 0.45);
+    if(brake >= 15) brakes = Math.round(brakes * 0.5);
+
+    document.getElementById('rw-wait').textContent = secs + 's';
+    var bEl = document.getElementById('rw-brake'), nEl = document.getElementById('rw-near');
+    bEl.textContent = brakes; nEl.textContent = nears;
+    bEl.classList.toggle('warn', brakes > 30);
+    nEl.classList.toggle('warn', nears > 8);
+
+    var out = document.getElementById('rw-out');
+    out.style.display = '';
+    var read;
+    if(nears > 12){
+      read = 'Your car takes gaps. Riders get where they are going and the trip feels decisive, and it produced <b>' + nears + ' close calls in 200 trips</b>. Nobody wrote "drive aggressively" anywhere. You made waiting expensive, and the policy found the cheapest way out of waiting, which is to go.';
+    } else if(secs > 16){
+      read = 'Your car waits. Almost nothing scary happens, and the average car sits <b>' + secs + ' seconds</b> at the intersection. This is the setting early robotaxis shipped with, and it created its own problem: traffic backs up behind a car that will always yield, and human drivers learn they can cut it off forever. Politeness is not free either.';
+    } else {
+      read = 'A defensible middle: <b>' + secs + ' seconds</b> of waiting, ' + brakes + ' hard brakes, ' + nears + ' close calls. Notice you did not get to zero on all three. You cannot. The dials trade against each other, and picking the point on that curve is the product decision.';
+    }
+    out.innerHTML = '<div class="label">200 intersections, with your numbers</div><div class="read">' + read + '</div>' +
+      '<div class="read" style="margin-top:12px">Whatever you chose, somebody at a real company chose something like it, in a meeting, on a Tuesday. It then ran ten times a second on a street where people live, and none of them were asked. The ratio between your waiting penalty and your close-call penalty is a statement about whose time matters and whose margin of safety matters, written as two numbers.</div>' +
+      '<div class="read" style="margin-top:12px">This is why section 2.9 asks who keeps the track record. The scoring sheet is not published, so the only evidence anyone outside has that it changed is the behavior on the road.</div>';
+  });
 })();
 </script>
 </body>

@@ -12,7 +12,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chapter 9 · AI and the Economy — Intro to AI in Business | MIS 201</title>
+<title>Chapter 9 · AI and the Economy · Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -172,6 +172,19 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
 .probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
 .roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
+.hyp{border:1px solid var(--rule);background:#fff;padding:12px 14px;margin-bottom:8px;}
+.hyp .hd{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;}
+.hyp .ttl{font-size:.92rem;font-weight:600;}
+.hyp .sh{font-variant-numeric:tabular-nums;font-weight:700;font-size:.95rem;color:var(--gray);}
+.hyp.on{border-color:var(--ink);background:var(--bg);}
+.hyp.on .sh{color:var(--ink);}
+.hyp .bar{height:12px;background:#EFEFEA;border:1px solid var(--rule);margin-top:9px;overflow:hidden;}
+.hyp .bar span{display:block;height:100%;width:0;background:var(--pinktext);transition:width .4s ease;}
+.hyp .why{font-size:.83rem;color:#3E454E;margin-top:8px;line-height:1.5;display:none;}
+.hyp.on .why{display:block;}
+.sumline{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;border-top:2px solid var(--ink);margin-top:12px;padding-top:12px;}
+.sumline .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.5rem;}
+.sumline .big em{font-style:normal;color:var(--pink);}
 /* ---- dropdown navigation (chapters / labs) ---- */
 .nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .nav a.navlink{margin-left:0;padding:6px 10px}
@@ -495,6 +508,16 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   </div>
 </section>
 
+
+  <div class="tool">
+    <div class="label">Same curve, three stories · the rival hypothesis, run on one number</div>
+    <p style="font-size:.92rem">Entry-level hiring in the most exposed occupations is down about 13 percent from its 2022 peak. That number is not in dispute. What caused it is, and this is the argument you will watch play out on a dashboard all quarter. Switch on the explanations you find plausible and read the total.</p>
+    <div id="rh-list"></div>
+    <div class="sumline"><span>Accounted for, by your reading</span><span class="big" id="rh-sum"><em>0</em>%</span></div>
+    <div class="verdict" id="rh-out" aria-live="polite"></div>
+    <p style="font-size:.85rem;color:var(--gray);margin-top:10px">Illustrative shares in the range economists have argued for, not a settled estimate. The disagreement is the content here.</p>
+  </div>
+
 <section id="s3">
   <div class="shead"><span class="num">3</span><h2>The case: canaries in the coal mine</h2></div>
   <h3 class="sub"><span>Background</span> A lab, a payroll company, and a bird</h3>
@@ -640,6 +663,62 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   document.addEventListener('click',closeAll);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
   document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+
+<script>
+(function(){
+  var list = document.getElementById('rh-list');
+  if(!list) return;
+  var H = [
+    {t:"Interest rates", sh:45,
+     w:"Money got expensive in 2022 and stayed that way. Junior hiring is the most discretionary line in a budget, it is the first thing frozen when borrowing costs rise, and the freeze shows up as fewer openings rather than layoffs. This explanation needs no AI at all, and it fits the timing almost as well."},
+    {t:"The 2023 correction", sh:35,
+     w:"Firms overhired through 2021 and 2022, then corrected. A company that hired three years of graduates in one year does not need graduates for a while. This one predicts the decline should stop on its own, which is a testable claim and the next two years will test it."},
+    {t:"AI exposure", sh:60,
+     w:"The occupations where the drop is steepest are the ones a model can do a junior version of: first-draft writing, basic code, tier-one support, entry-level analysis. The gap between exposed and unexposed roles is the whole argument, and it is the part the other two stories struggle to explain."}
+  ];
+  var on = [false,false,false];
+  var sum = document.getElementById('rh-sum'), out = document.getElementById('rh-out');
+
+  H.forEach(function(h, i){
+    var d = document.createElement('div');
+    d.className = 'hyp';
+    d.innerHTML = '<button type="button" style="all:unset;cursor:pointer;display:block;width:100%" aria-pressed="false">' +
+      '<span class="hd"><span class="ttl">' + h.t + '</span><span class="sh">up to ' + h.sh + '%</span></span>' +
+      '<span class="bar"><span></span></span></button>' +
+      '<div class="why">' + h.w + '</div>';
+    d.querySelector('button').addEventListener('click', function(){
+      on[i] = !on[i];
+      d.classList.toggle('on', on[i]);
+      this.setAttribute('aria-pressed', on[i] ? 'true' : 'false');
+      d.querySelector('.bar span').style.width = on[i] ? h.sh + '%' : '0';
+      draw();
+    });
+    list.appendChild(d);
+  });
+
+  function draw(){
+    var total = 0, count = 0;
+    H.forEach(function(h, i){ if(on[i]){ total += h.sh; count++; } });
+    sum.innerHTML = '<em>' + total + '</em>%';
+    var read;
+    if(count === 0){
+      read = 'Nothing switched on yet. Before you pick, notice that all three are held by serious people looking at the same data.';
+    } else if(total > 100){
+      read = 'You are over 100 percent, and that is the honest result. Each of these can account for most of the drop on its own, which means the evidence available right now cannot tell you how to divide it. Two economists can look at this number, agree on every fact, and walk away with different policy.';
+    } else if(count === 1 && on[2]){
+      read = 'AI alone accounts for most of it, and this is the version that makes headlines. The weakness: the drop starts close to when rates rose, and rate cycles have thinned junior hiring before, in years when no model existed.';
+    } else if(count === 1){
+      read = 'A story with no AI in it, and it fits a lot of the curve. Hold onto this: the strongest version of the AI argument has to beat this explanation, not ignore it.';
+    } else {
+      read = 'A mix, which is probably right and is also the least satisfying answer to give anyone. The useful question stops being "is it AI" and becomes "how much, in which occupations, and for how long."';
+    }
+    out.innerHTML = '<div class="label">What your reading commits you to</div><div class="read">' + read + '</div>' +
+      '<div class="read" style="margin-top:12px"><b>What would actually settle it.</b> Compare exposed and unexposed occupations inside the same firms, in the same months, so the rate cycle hits both. Watch whether the gap survives the next rate cut. Track postings as well as hires, because a job that quietly never opens leaves no other trace. Those three are on a public dashboard, updated monthly, which means you can check this yourself for the rest of your career rather than waiting to be told.</div>' +
+      '<div class="read" style="margin-top:12px">And notice what you just did. You held a number constant and moved the explanations, which is Question 4 with real stakes attached: who is saying it, and how would we know?</div>';
+  }
+  draw();
 })();
 </script>
 </body>

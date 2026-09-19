@@ -12,7 +12,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chapter 5 · Environment — Intro to AI in Business | MIS 201</title>
+<title>Chapter 5 · Environment · Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -172,6 +172,16 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
 .probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
 .roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
+.stack{margin:16px 0 0;}
+.lyr{display:grid;grid-template-columns:1fr 92px;gap:12px;align-items:center;padding:11px 12px;border:1px solid var(--rule);margin-bottom:7px;background:var(--bg);}
+.lyr.off{opacity:1;border-style:dashed;background:#fff;}
+.lyr .ln{font-size:.88rem;line-height:1.4;}
+.lyr .sub{display:block;font-size:.78rem;color:var(--gray);margin-top:2px;}
+.lyr .amt{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;font-size:.95rem;}
+.lyr.off .amt{color:var(--pinktext);}
+.total{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;border-top:2px solid var(--ink);padding-top:12px;margin-top:4px;}
+.total .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.6rem;}
+.total .big em{font-style:normal;color:var(--pink);}
 /* ---- dropdown navigation (chapters / labs) ---- */
 .nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .nav a.navlink{margin-left:0;padding:6px 10px}
@@ -487,6 +497,20 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <p>The absence of standardized, published footprint data for AI products; the reason honest estimates for the same question can differ by a factor of ten. What people get wrong: they treat the disagreement as a debate about facts. It's a debate conducted in the absence of facts that specific parties could publish and don't. The critical move isn't picking a side. It's asking who benefits from not knowing.</p>
   </div>
 
+
+  <div class="tool">
+    <div class="label">The fog · one prompt, and what gets counted</div>
+    <p style="font-size:.92rem">One text prompt to a frontier model. The stages below are all real parts of what it costs; the question this section asks is which of them anybody publishes. Switch between the number a company reports and the number that exists, and watch the same prompt change size.</p>
+    <div class="chips">
+      <button type="button" class="chip on" id="fg-a" aria-pressed="true">What gets reported</button>
+      <button type="button" class="chip" id="fg-b" aria-pressed="false">What is actually spent</button>
+    </div>
+    <div class="stack" id="fg-stack"></div>
+    <div class="total"><span id="fg-label">Reported per prompt</span><span class="big" id="fg-total"><em>0.24</em> Wh</span></div>
+    <div class="verdict" id="fg-out" aria-live="polite"></div>
+    <p style="font-size:.85rem;color:var(--gray);margin-top:10px">Illustrative numbers in the right order of magnitude, built from the published estimates this section discusses. The point is the shape of the gap, not the decimals.</p>
+  </div>
+
   <h3 class="sub"><span>2.6</span> Right-sizing and the waste factor: the lever, and who holds it</h3>
   <p>If the multiplication is the problem, where's the lever? Mostly not in personal guilt. Your yearly chatbot use plausibly costs less energy than a few hot showers, and the lab will show you that number. The decisions that move gigawatts are made somewhere else.</p>
   <p><strong>Right-sizing</strong> means matching the model to the task. A small model answering a simple question can use a tenth or less of the energy of a frontier model answering the same question just as well; the same estimates that put a reasoning reply in the tens of watt-hours put a lean model's reply well under one. The <strong>waste factor</strong> is everything we run that we didn't need: the answer regenerated and never read, the giant model summoned to fix a comma, the AI summary bolted onto a search you didn't want summarized. Both levers are real. And notice who's holding them. You choose which model you open. A product team chooses which model runs by default for a hundred million users, and whether the AI fires on every keystroke. A regulator chooses whether anyone has to publish the number. One of those three moves gigawatts.</p>
@@ -673,6 +697,56 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   document.addEventListener('click',closeAll);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
   document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+
+<script>
+(function(){
+  var stack = document.getElementById('fg-stack');
+  if(!stack) return;
+  var L = [
+    {n:"The chips doing the work", s:"the GPU cycles that answer your question", v:0.24, rep:true},
+    {n:"The rest of the machine", s:"CPU, memory, networking, storage in the same rack", v:0.10, rep:true},
+    {n:"Cooling", s:"keeping the hall at temperature, all day, whether or not you prompt", v:0.14, rep:false},
+    {n:"Idle capacity", s:"servers kept warm for peak load, because nobody queues for a chatbot", v:0.16, rep:false},
+    {n:"Water", s:"on site for cooling, plus the far larger amount used to generate the power", v:0, rep:false, unit:"separate"},
+    {n:"Embodied carbon", s:"concrete, steel, and the chips themselves, spent before switch-on", v:0.09, rep:false},
+    {n:"Training, amortized", s:"one model's training run, divided across the prompts it will ever serve", v:0.05, rep:false}
+  ];
+  var full = false;
+  var a = document.getElementById('fg-a'), b = document.getElementById('fg-b');
+  var totalEl = document.getElementById('fg-total'), labelEl = document.getElementById('fg-label'), out = document.getElementById('fg-out');
+
+  function draw(){
+    stack.innerHTML = '';
+    var sum = 0;
+    L.forEach(function(x){
+      var counted = x.rep || full;
+      if(counted) sum += x.v;
+      var d = document.createElement('div');
+      d.className = 'lyr' + (counted ? '' : ' off');
+      var amt = x.unit === 'separate'
+        ? (counted ? 'counted' : 'not in Wh')
+        : (counted ? x.v.toFixed(2) + ' Wh' : 'not counted');
+      d.innerHTML = '<div class="ln">' + x.n + '<span class="sub">' + x.s + '</span></div><div class="amt">' + amt + '</div>';
+      stack.appendChild(d);
+    });
+    totalEl.innerHTML = '<em>' + sum.toFixed(2) + '</em> Wh';
+    labelEl.textContent = full ? 'Actually spent per prompt' : 'Reported per prompt';
+    a.classList.toggle('on', !full); a.setAttribute('aria-pressed', full ? 'false' : 'true');
+    b.classList.toggle('on', full);  b.setAttribute('aria-pressed', full ? 'true' : 'false');
+    out.innerHTML = full
+      ? '<div class="label">The number that exists</div>' +
+        '<div class="read">More than double the reported figure, and none of the added lines are exotic. Cooling, idle capacity, the concrete, and a slice of the training run are all ordinary costs of running the service. They sit outside the number because the accounting rules do not force them in and the company chooses the boundary.</div>' +
+        '<div class="read" style="margin-top:12px">Water is the sharpest case. Google publishes an on-site cooling figure, which is a real measurement, and it leaves out the much larger volume used to generate the electricity upstream. The published number is honest and incomplete at the same time, which is the hardest kind of number to argue with.</div>' +
+        '<div class="read" style="margin-top:12px">And the embodied-carbon line is the one that shows up in Scope 3, which is why Microsoft\u2019s total emissions rose while its Scope 1 and 2 fell. Same company, same year, two true stories.</div>'
+      : '<div class="label">The number you can find</div>' +
+        '<div class="read">This is roughly the shape of a published per-prompt figure: the chips, and the machine around them. It is not a lie. It is a boundary, drawn by the party that benefits from where it sits.</div>' +
+        '<div class="read" style="margin-top:12px">Now press the other button and watch the same prompt get bigger without anything about the prompt changing.</div>';
+  }
+  a.addEventListener('click', function(){ full = false; draw(); });
+  b.addEventListener('click', function(){ full = true; draw(); });
+  draw();
 })();
 </script>
 </body>

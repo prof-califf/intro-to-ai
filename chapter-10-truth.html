@@ -172,6 +172,20 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
 .probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
 .roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
+.cite{border:1px solid var(--rule);background:var(--bg);padding:12px 14px;margin-bottom:8px;}
+.cite .cn{font-family:'Fraunces',serif;font-size:1rem;line-height:1.4;}
+.cite .cc{font-size:.82rem;color:var(--gray);margin-top:2px;font-variant-numeric:tabular-nums;}
+.cite .guess{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;}
+.cite .res{display:none;margin-top:10px;font-size:.86rem;line-height:1.55;border-top:1px solid var(--rule);padding-top:9px;}
+.cite.done .res{display:block;}
+.cite .verdictword{font-weight:700;}
+.cite .verdictword.real{color:var(--ink);}
+.cite .verdictword.fake{color:var(--pinktext);}
+.tally{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:18px 0 0;}
+.tally .cell{background:#fff;padding:14px 16px;}
+.tally .v{font-family:'Fraunces',serif;font-weight:700;font-size:1.5rem;}
+.tally .v em{font-style:normal;color:var(--pink);}
+.tally .k{font-size:.8rem;color:var(--gray);margin-top:2px;}
 /* ---- dropdown navigation (chapters / labs) ---- */
 .nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .nav a.navlink{margin-left:0;padding:6px 10px}
@@ -369,6 +383,22 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <div class="concept">
     <div class="term">The verification asymmetry</div>
     <p>Fabricating content costs seconds and cents; checking it costs minutes, expertise, and institutional time. Whoever benefits from noise can now produce it faster than anyone can clean it up. What people get wrong: they treat this as a problem of gullible people. It's a problem of cost, and the fixes are things that make checking cheap.</p>
+  </div>
+
+
+  <div class="tool">
+    <div class="label">The phantom docket · six citations, five minutes, no database</div>
+    <p style="font-size:.92rem">Six citations from a brief about airline liability. Four came out of a chatbot and do not exist; two are real cases that lawyers have cited for years. Call each one from the page alone, the way an opposing lawyer first sees them, then run the check.</p>
+    <div id="pd-list"></div>
+    <div class="chips" style="margin-top:14px">
+      <button type="button" class="btn" id="pd-run">Run the check on all six</button>
+      <button type="button" class="btn alt" id="pd-reset">Start over</button>
+    </div>
+    <div class="tally">
+      <div class="cell"><div class="v" id="pd-gen"><em>4 sec</em></div><div class="k">to generate all six, at about a tenth of a cent</div></div>
+      <div class="cell"><div class="v" id="pd-ver">0 min</div><div class="k">of professional time to check them</div></div>
+    </div>
+    <div class="verdict" id="pd-out" aria-live="polite" style="display:none"></div>
   </div>
 
   <h3 class="sub"><span>2.3</span> The liar's dividend</h3>
@@ -592,6 +622,84 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   document.addEventListener('click',closeAll);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
   document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+
+<script>
+(function(){
+  var list = document.getElementById('pd-list');
+  if(!list) return;
+  var CITES = [
+    {n:"Varghese v. China Southern Airlines Co. Ltd.", c:"925 F.3d 1339 (11th Cir. 2019)", real:false, min:35,
+     r:"The volume and page are real; they belong to a different case entirely. Avianca's lawyers could not find it, the court could not find it, and when the judge ordered a copy, what arrived was also generated. This is the citation the figure above was built from."},
+    {n:"Shaboon v. Egyptair", c:"2013 IL App (1st) 111279-U (Ill. App. Ct. 2013)", real:false, min:25,
+     r:"Unpublished state appellate orders are the hardest kind to check quickly, which is exactly why a fabricated one survives longest."},
+    {n:"Zicherman v. Korean Air Lines Co.", c:"516 U.S. 217 (1996)", real:true, min:3,
+     r:"A Supreme Court case, which is why it took seconds. The easy ones are easy because somebody already built the index."},
+    {n:"Petersen v. Iran Air", c:"905 F. Supp. 2d 121 (D.D.C. 2012)", real:false, min:30,
+     r:"Reads perfectly: plausible court, plausible year, plausible reporter. Nothing about the surface tells you, because the model was optimizing for exactly that surface."},
+    {n:"Ehrlich v. American Airlines, Inc.", c:"360 N.J. Super. 360 (App. Div. 2003)", real:true, min:8,
+     r:"A genuine New Jersey appellate decision on the Montreal Convention, and one of the citations in the same brief that checked out fine."},
+    {n:"Estate of Durden v. KLM Royal Dutch Airlines", c:"2017 WL 2418825 (Ga. Ct. App. 2017)", real:false, min:28,
+     r:"A Westlaw number looks like proof and is just a string. Confirming a negative here means searching the reporter, then the docket, then calling the clerk."}
+  ];
+  var guesses = {}, done = false;
+  var out = document.getElementById('pd-out'), ver = document.getElementById('pd-ver');
+
+  function build(){
+    list.innerHTML = ''; guesses = {}; done = false;
+    ver.textContent = '0 min';
+    out.style.display = 'none';
+    CITES.forEach(function(x, i){
+      var d = document.createElement('div');
+      d.className = 'cite';
+      d.innerHTML = '<div class="cn">' + x.n + '</div><div class="cc">' + x.c + '</div>' +
+        '<div class="guess"><button type="button" class="chip" data-g="real">Looks real</button>' +
+        '<button type="button" class="chip" data-g="fake">Looks made up</button></div>' +
+        '<div class="res"></div>';
+      d.querySelectorAll('.guess .chip').forEach(function(btn){
+        btn.setAttribute('aria-pressed', 'false');
+        btn.addEventListener('click', function(){
+          if(done) return;
+          guesses[i] = btn.getAttribute('data-g') === 'real';
+          d.querySelectorAll('.guess .chip').forEach(function(o){
+            var on = o === btn; o.classList.toggle('on', on); o.setAttribute('aria-pressed', on ? 'true' : 'false');
+          });
+        });
+      });
+      list.appendChild(d);
+    });
+  }
+
+  document.getElementById('pd-run').addEventListener('click', function(){
+    if(done) return;
+    done = true;
+    var minutes = 0, right = 0, answered = 0;
+    var rows = list.querySelectorAll('.cite');
+    CITES.forEach(function(x, i){
+      minutes += x.min;
+      if(guesses[i] !== undefined){ answered++; if(guesses[i] === x.real) right++; }
+      var d = rows[i];
+      d.classList.add('done');
+      d.querySelector('.res').innerHTML =
+        '<span class="verdictword ' + (x.real ? 'real' : 'fake') + '">' +
+        (x.real ? 'Real.' : 'Does not exist.') + '</span> ' + x.r +
+        ' <span style="color:#5A626C">Checking it: about ' + x.min + ' minutes.</span>';
+    });
+    ver.textContent = Math.round(minutes / 60 * 10) / 10 + ' hrs';
+    out.style.display = '';
+    var scoreLine = answered === 0
+      ? 'You did not call any of them, which is the honest answer: from the page alone, there is nothing to go on.'
+      : 'You called ' + answered + ' and got ' + right + ' right. Most people land near half, because half is what guessing gets you when the surface carries no information.';
+    out.innerHTML = '<div class="label">The asymmetry, in one screen</div>' +
+      '<div class="read">' + scoreLine + '</div>' +
+      '<div class="read" style="margin-top:12px">Now read the two boxes above against each other. Four seconds and a tenth of a cent to produce all six. Something like <b>two hours of trained attention</b> to sort them, and most of that time was spent confirming that four things do not exist. Proving a negative is the expensive direction, and it is the direction the model leaves you facing.</div>' +
+      '<div class="read" style="margin-top:12px">Notice which two were cheap to check. Both were real, published, indexed, and famous. Verification is cheap only where somebody already paid to build the index, which is the whole argument for provenance in 2.4.</div>' +
+      '<div class="read" style="margin-top:12px">And the two lawyers in this chapter\u2019s case did not skip the check because they were lazy. They asked the model whether the cases were real, and it said yes.</div>';
+  });
+
+  document.getElementById('pd-reset').addEventListener('click', build);
+  build();
 })();
 </script>
 </body>

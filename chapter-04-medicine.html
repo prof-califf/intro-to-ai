@@ -12,7 +12,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chapter 4 · Medicine — Intro to AI in Business | MIS 201</title>
+<title>Chapter 4 · Medicine · Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -172,6 +172,18 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
 .probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
 .roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
+.evlist{margin:14px 0 0;}
+.ev{border:1px solid var(--rule);background:var(--bg);margin-bottom:8px;}
+.ev button{display:block;width:100%;text-align:left;background:none;border:none;padding:12px 14px;font-family:'Inter',sans-serif;font-size:.9rem;line-height:1.45;color:var(--ink);cursor:pointer;}
+.ev button:hover{background:#F4F4EF;}
+.ev button:focus-visible{outline:2px solid var(--pink);outline-offset:-2px;}
+.ev .mo{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:3px;}
+.ev .rec{display:none;padding:0 14px 13px;font-size:.87rem;line-height:1.55;color:#3E454E;}
+.ev.open .rec{display:block;}
+.ev .tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;margin-bottom:6px;}
+.ev .tag.kept{background:var(--ink);color:#fff;}
+.ev .tag.part{background:var(--yellow);color:var(--ink);}
+.ev .tag.gone{background:var(--pinktext);color:#fff;}
 /* ---- dropdown navigation (chapters / labs) ---- */
 .nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .nav a.navlink{margin-left:0;padding:6px 10px}
@@ -664,6 +676,20 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <p>An AI model inherits the data trove's head and tail, and when predicting, the tail comes out as confident low scores, not as "unknown." What people get wrong: they read a low score as "the drug doesn't work" or "the patient is low-risk." Sometimes it means that. But it could also mean "no one has really looked yet," and a system that reports both with the same number is hiding its own blind spot inside its output. You'll meet this again in hiring data in Chapter 6, where the thin records are people.</p>
   </div>
 
+
+  <div class="tool">
+    <div class="label">What the record kept · one man's year, twice</div>
+    <p style="font-size:.92rem">Here is a year in the life of one 54-year-old patient, as he lived it. Click each thing that happened to him and see what, if anything, his chart has to say about it. Then ask the model what kind of patient he is.</p>
+    <div class="roundinfo" id="rk-count">0 of 10 opened · the record has kept 0 of them in full</div>
+    <div class="evlist" id="rk-list"></div>
+    <div class="chips" style="margin-top:16px">
+      <button type="button" class="btn" id="rk-model">What the model sees</button>
+      <button type="button" class="btn alt" id="rk-scale">Now do it a million times</button>
+    </div>
+    <div class="verdict" id="rk-out" aria-live="polite" style="display:none"></div>
+    <p style="font-size:.85rem;color:var(--gray);margin-top:10px">An invented patient, built from the ordinary ways records get made. Nothing is saved.</p>
+  </div>
+
   <h3 class="sub"><span>2.4</span> External validation: who checked, and on whose data</h3>
   <p>Every model comes with a number: how accurate it is, how often it catches the thing it's looking for. The question is who measured it, on what data. When the company that built the model measures it on the data it trained on, you get the company's number. When someone else runs the model on their own data and publishes what happened, you get the outside number. The second is called <strong>external validation</strong>, and in medicine it is the difference between a claim and a finding.</p>
   <p>Here's why the two numbers drift apart, even with nobody lying. A model learns the patterns in one data trove. A different hospital has different patients, different equipment, different habits about what gets typed into the chart. Patterns that were real in the training data are weaker or absent in the new one, so accuracy drops. That's called <strong>distribution shift</strong>, and it happens to every model that leaves home. There's also a quieter reason: a company chooses which number to report, and it will not choose the one from its worst site.</p>
@@ -1077,6 +1103,71 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
       hits.forEach(function(x){ x.classList.remove('on'); }); pinned = el; el.classList.add('on'); show(el); });
   });
   document.addEventListener('click', function(){ if (pinned){ pinned.classList.remove('on'); pinned = null; out.textContent = base; } });
+})();
+</script>
+
+<script>
+(function(){
+  var list = document.getElementById('rk-list');
+  if(!list) return;
+  var EV = [
+    {m:"March", e:"Falls off a ladder cleaning the gutters. Sore for a week. Never goes in.",
+     k:"gone", r:"Nothing. No visit, no bill, no code. As far as every AI system in his health system is concerned, this did not happen."},
+    {m:"May", e:"Three nights of chest pain that passes by morning. He decides it was the coffee.",
+     k:"gone", r:"Nothing. The event that would matter most to a risk model is the one event with no record at all, because nothing was billed."},
+    {m:"August", e:"Annual checkup. Blood pressure, weight, the usual labs.",
+     k:"kept", r:"Thick. A well-visit code, a bill, a set of lab values with dates. This is what a record is built to capture, because this is what gets paid for."},
+    {m:"August", e:"He mentions the May chest pain to his doctor, who asks a few questions and isn't worried.",
+     k:"part", r:"A line of free text in the visit note. A person reading the chart would see it. Most models are trained on the coded fields, not the prose, so to them it is close to invisible."},
+    {m:"August", e:"The doctor orders an EKG. It comes back normal.",
+     k:"kept", r:"Thick. Procedure code, result, timestamp, bill. Notice that the test exists in the data and the symptom that prompted it barely does."},
+    {m:"September", e:"Starts a statin. Fills it twice, then stops taking it because it makes his legs ache.",
+     k:"part", r:"The record shows a prescription and two fills. It does not show that he stopped, and it does not show why. To a model, two fills reads as a patient doing what he was told."},
+    {m:"October", e:"Misses the follow-up appointment. He could not get out of a shift.",
+     k:"part", r:"A no-show flag, with no reason attached. Models that use no-shows learn them as a trait of the patient rather than a fact about his schedule."},
+    {m:"November", e:"Loses his insurance between jobs and skips everything for two months.",
+     k:"gone", r:"A gap. Nothing in the file marks it as a gap for a reason, so the quietest, healthiest-looking stretch of his year is the stretch he could not afford care."},
+    {m:"November", e:"Pays cash at an urgent care for a bad cough.",
+     k:"gone", r:"It exists, in a different company's system that does not talk to this one. His record is not wrong. It is just not the whole person."},
+    {m:"December", e:"ER visit for a kidney stone. Imaging, pain control, discharged at 4 a.m.",
+     k:"kept", r:"The thickest entry of the year by far. An ER visit is coded and billed in detail, which is why emergencies are the best-documented thing in American medicine."}
+  ];
+  var opened = 0, keptOpened = 0;
+  var count = document.getElementById('rk-count'), out = document.getElementById('rk-out');
+
+  EV.forEach(function(x, i){
+    var d = document.createElement('div');
+    d.className = 'ev';
+    var label = x.k === 'kept' ? 'kept in full' : (x.k === 'part' ? 'kept, but flattened' : 'not in the record');
+    d.innerHTML = '<button type="button" aria-expanded="false"><span class="mo">' + x.m + '</span>' + x.e + '</button>' +
+                  '<div class="rec"><span class="tag ' + x.k + '">' + label + '</span><br>' + x.r + '</div>';
+    var b = d.querySelector('button');
+    b.addEventListener('click', function(){
+      var isOpen = d.classList.toggle('open');
+      b.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if(isOpen && !d.dataset.seen){
+        d.dataset.seen = '1'; opened++; if(x.k === 'kept') keptOpened++;
+        count.textContent = opened + ' of 10 opened \u00b7 the record has kept ' + keptOpened + ' of them in full';
+      }
+    });
+    list.appendChild(d);
+  });
+
+  document.getElementById('rk-model').addEventListener('click', function(){
+    out.style.display = '';
+    out.innerHTML = '<div class="label">What a model trained on this record would say about him</div>' +
+      '<div class="read">"54-year-old male. One well visit, labs within range, one normal EKG. Started on a statin and filling it. One missed appointment. One ER visit for nephrolithiasis. <b>Low risk. Engaged patient.</b>"</div>' +
+      '<div class="read" style="margin-top:12px">Every word of that is true, and the summary is wrong about him in three places. The two events that would worry any doctor, the ladder and the May chest pain, are not in the file. The good adherence is fiction; he stopped in week three. And the healthiest-looking months are the months he had no insurance.</div>' +
+      '<div class="read" style="margin-top:12px">This is what section 2.3 means by <b>the record has a shape</b>. The chart is not a picture of his health. It is a picture of the care that was delivered and billed, and a model can only learn the second one.</div>';
+  });
+
+  document.getElementById('rk-scale').addEventListener('click', function(){
+    out.style.display = '';
+    out.innerHTML = '<div class="label">The same shape, a million patients wide</div>' +
+      '<div class="read">Run that year for everyone in the system and the holes stop being random. The record is thick wherever care was delivered and billed, and thin wherever people did not make it in: no insurance, no transport, no time off, no doctor within an hour, no trust in the place.</div>' +
+      '<div class="read" style="margin-top:12px">So a model trained on the trove knows the most about the people who were already getting care, and the least about the people who were not. It will be measured as accurate, because it is tested on the same record that created the gap.</div>' +
+      '<div class="read" style="margin-top:12px">Hold that for two chapters. In Chapter 6 the same shape shows up as the pile of rejected applicants nobody reads, and in Chapter 7 as the rare driving situations nobody filmed. Different industries, one lesson: <b>a model inherits the shape of whatever got written down</b>.</div>';
+  });
 })();
 </script>
 </body>

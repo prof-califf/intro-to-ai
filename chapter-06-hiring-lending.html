@@ -172,6 +172,19 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
 .probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
 .roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
+.apps{margin:14px 0 0;border-top:1px solid var(--rule);}
+.app{display:grid;grid-template-columns:1fr 62px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--rule);font-size:.88rem;}
+.app .nm{font-weight:600;}
+.app .ft{display:block;font-size:.78rem;color:var(--gray);margin-top:2px;line-height:1.45;}
+.app .sc{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;font-size:1.05rem;}
+.app.hire{background:#FBFBF7;}
+.app .sc.yes{color:var(--ink);}
+.app .sc.no{color:#A9B0B9;}
+.ratio{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;margin:16px 0 0;font-size:.88rem;}
+.ratio .track{height:14px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;}
+.ratio .fill{height:100%;background:var(--pinktext);transition:width .35s ease;}
+.ratio .fill.ok{background:var(--ink);}
+.ratio .n{font-variant-numeric:tabular-nums;font-weight:700;}
 /* ---- dropdown navigation (chapters / labs) ---- */
 .nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .nav a.navlink{margin-left:0;padding:6px 10px}
@@ -407,6 +420,25 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <p>A proxy is an allowed variable that reconstructs a forbidden one. Disparate impact is what proxies produce: a neutral-looking process with unequal outcomes for a protected group. What people get wrong: they think deleting the sensitive column fixes it. The model finds the column again, in pieces, in everything else.</p>
   </div>
 
+
+  <div class="tool">
+    <div class="label">Train the screener · then try to take the bias out</div>
+    <p style="font-size:.92rem">A small firm wants to screen résumés faster, so it does the ordinary thing: it trains a model to agree with its own past hiring. Six applicants are waiting, all qualified. Press the buttons in order and watch what happens to the ranking, and to the rule the law actually uses.</p>
+    <div class="chips">
+      <button type="button" class="chip on" id="hs-m0" aria-pressed="true">1. Train on our past hires</button>
+      <button type="button" class="chip" id="hs-m1" aria-pressed="false">2. Delete the gender field</button>
+      <button type="button" class="chip" id="hs-m2" aria-pressed="false">3. Delete the proxies too</button>
+    </div>
+    <div class="apps" id="hs-apps"></div>
+    <div class="ratio">
+      <span>Four-fifths rule</span>
+      <span class="track"><span class="fill" id="hs-fill" style="width:40%"></span></span>
+      <span class="n" id="hs-ratio">0.40</span>
+    </div>
+    <div class="verdict" id="hs-out" aria-live="polite"></div>
+    <p style="font-size:.85rem;color:var(--gray);margin-top:10px">Invented applicants and invented numbers, built to behave the way the studies in this section describe. Nothing is saved.</p>
+  </div>
+
   <h3 class="sub"><span>2.4</span> Two kinds of wrong</h3>
   <p>Every classifier makes two kinds of mistakes, and they cost different people. A <strong>false positive</strong> is a yes that should have been a no: the loan that defaults, the hire that fails. A <strong>false negative</strong> is a no that should have been a yes: the borrower who would have repaid, the candidate who would have been great. Companies see the first kind, because a bad loan shows up on the books. They rarely see the second kind, because a rejected applicant just disappears. Nobody counts the good hires they didn't make.</p>
   <p>That asymmetry shapes the model. When you tune a classifier to avoid the mistake you can see, it makes more of the mistake you can't. A lender that hates defaults sets a high threshold and turns away many people who would have paid. And because the rejected pile is invisible, a model can be "95 percent accurate" on the loans it approved while being badly unfair about who it never approved. Accuracy on the yeses says nothing about the noes.</p>
@@ -627,6 +659,57 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   document.addEventListener('click',closeAll);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
   document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+
+<script>
+(function(){
+  var wrap = document.getElementById('hs-apps');
+  if(!wrap) return;
+  var APPS = [
+    {n:"Applicant A", g:"m", f:"State U \u00b7 chess club captain \u00b7 4 years at a logistics firm",   s:[88, 87, 71]},
+    {n:"Applicant B", g:"f", f:"State U \u00b7 women's chess club captain \u00b7 4 years, same firm",     s:[54, 55, 74]},
+    {n:"Applicant C", g:"m", f:"Elite U \u00b7 rowing \u00b7 3 years, two promotions",                    s:[91, 90, 80]},
+    {n:"Applicant D", g:"f", f:"Elite U \u00b7 women's rowing \u00b7 3 years, two promotions",            s:[62, 63, 82]},
+    {n:"Applicant E", g:"m", f:"Community college then State U \u00b7 warehouse lead \u00b7 6 years",      s:[76, 75, 78]},
+    {n:"Applicant F", g:"f", f:"Women's college \u00b7 warehouse lead \u00b7 6 years, ran the night shift", s:[49, 51, 79]}
+  ];
+  var MODES = [
+    {ratio:0.40,
+     label:"Step 1. Trained on ten years of our own hires",
+     read:"The model was never told to prefer anyone. It was told to agree with us, and for ten years we hired mostly men. It learned the job it was given.<br><br>Look at B and D. Same school as A and C, same work history, twenty to thirty points lower. Now read their lines again. The only difference is one word, and the word is <b>women's</b>.<br><br>The bar above is the <b>four-fifths rule</b>: the selection rate for one group divided by the other. Below 0.80 and the process gets scrutinized. This model is at 0.40, and nobody in the company wrote a single line about gender."},
+    {ratio:0.48,
+     label:"Step 2. Gender field deleted",
+     read:"Almost nothing moved. Of course it didn't: there was never a gender field doing the work. The model reads <b>women's chess club</b>, <b>women's rowing</b>, <b>women's college</b>, and it reads the zip codes and schools that a century of other decisions already sorted.<br><br>This is the <b>proxy</b>. Deleting the sensitive column does not delete the pattern; it only deletes your ability to see the pattern in the code. Amazon's real model never saw a gender field either.<br><br>Still 0.48. Still fails the rule. Now it fails it invisibly."},
+    {ratio:0.95,
+     label:"Step 3. Proxies deleted too",
+     read:"Strip the activity wording, the school, and the zip, and leave the work history. The scores converge, the ratio clears 0.80, and the model stops reproducing the pattern.<br><br>Here is the catch, and it is the real decision in this chapter. The model now agrees with the firm's own past hiring choices about 60 percent of the time, down from 94. The hiring manager's first reaction will be that the new model is broken.<br><br>It is not broken. It is disagreeing, and what it is disagreeing with is ten years of decisions the firm made by hand. Every fairness fix costs accuracy <em>against the old data</em>, which is exactly the thing you were trying to stop copying. That tradeoff is the conversation, and it belongs to a person, not a vendor."}
+  ];
+  var mode = 0;
+  var chips = [document.getElementById('hs-m0'), document.getElementById('hs-m1'), document.getElementById('hs-m2')];
+  var fill = document.getElementById('hs-fill'), ratio = document.getElementById('hs-ratio'), out = document.getElementById('hs-out');
+
+  function draw(){
+    wrap.innerHTML = '';
+    var rows = APPS.map(function(a){ return {a:a, sc:a.s[mode]}; });
+    rows.sort(function(x,y){ return y.sc - x.sc; });
+    rows.forEach(function(r, idx){
+      var d = document.createElement('div');
+      d.className = 'app' + (idx < 3 ? ' hire' : '');
+      d.innerHTML = '<div><span class="nm">' + r.a.n + '</span>' + (idx < 3 ? ' <span style="font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#B0195A">to interview</span>' : '') +
+                    '<span class="ft">' + r.a.f + '</span></div>' +
+                    '<div class="sc ' + (idx < 3 ? 'yes' : 'no') + '">' + r.sc + '</div>';
+      wrap.appendChild(d);
+    });
+    var m = MODES[mode];
+    ratio.textContent = m.ratio.toFixed(2);
+    fill.style.width = Math.round(m.ratio * 100) + '%';
+    fill.classList.toggle('ok', m.ratio >= 0.8);
+    out.innerHTML = '<div class="label">' + m.label + '</div><div class="read">' + m.read + '</div>';
+    chips.forEach(function(c, i){ c.classList.toggle('on', i === mode); c.setAttribute('aria-pressed', i === mode ? 'true' : 'false'); });
+  }
+  chips.forEach(function(c, i){ c.addEventListener('click', function(){ mode = i; draw(); }); });
+  draw();
 })();
 </script>
 </body>

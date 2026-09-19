@@ -12,7 +12,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chapter 11 · Who Makes the Rules? — Intro to AI in Business | MIS 201</title>
+<title>Chapter 11 · Who Makes the Rules? · Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -172,6 +172,15 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
 .probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
 .roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
+.cov{margin:14px 0 0;}
+.cv{display:grid;grid-template-columns:1fr 104px;gap:10px;align-items:center;padding:9px 11px;border:1px solid var(--rule);margin-bottom:6px;font-size:.88rem;background:#fff;}
+.cv .nm .s{display:block;font-size:.77rem;color:var(--gray);margin-top:2px;}
+.cv .st{text-align:right;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+.cv.in{background:var(--bg);border-color:var(--ink);}
+.cv.in .st{color:var(--ink);}
+.cv.out .st{color:#A9B0B9;}
+.cv.flag{border-color:var(--pinktext);}
+.cv.flag .st{color:var(--pinktext);}
 /* ---- dropdown navigation (chapters / labs) ---- */
 .nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .nav a.navlink{margin-left:0;padding:6px 10px}
@@ -472,6 +481,28 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <p>When a higher level of government overrides a lower level's laws on the same subject. What people get wrong: preemption doesn't have to mean fewer rules. It can set a strong national standard or a weak one. The question is always what replaces the rules it removes.</p>
   </div>
 
+
+  <div class="tool">
+    <div class="label">Write the rule · then see what it catches</div>
+    <p style="font-size:.92rem">Every AI law starts with one sentence that decides what it applies to, and that sentence does more work than everything after it. Pick a definition, add the obligations you want, and watch eight real systems sort themselves into covered and not covered. The camera from this chapter's case is one of the eight.</p>
+    <div class="roundinfo" style="margin-top:14px"><b>Step 1.</b> Your law covers:</div>
+    <div class="chips">
+      <button type="button" class="chip on" id="wr-d0" aria-pressed="true">any system that uses machine learning</button>
+      <button type="button" class="chip" id="wr-d1" aria-pressed="false">any system that helps decide something consequential about a person</button>
+      <button type="button" class="chip" id="wr-d2" aria-pressed="false">any system that identifies or tracks a person in public</button>
+    </div>
+    <div class="roundinfo" style="margin-top:16px"><b>Step 2.</b> Covered systems must:</div>
+    <div class="chips">
+      <button type="button" class="chip" id="wr-o0" aria-pressed="false">tell people it was used</button>
+      <button type="button" class="chip" id="wr-o1" aria-pressed="false">offer human review on request</button>
+      <button type="button" class="chip" id="wr-o2" aria-pressed="false">pass an annual bias audit</button>
+      <button type="button" class="chip" id="wr-o3" aria-pressed="false">register publicly and log incidents</button>
+    </div>
+    <div class="cov" id="wr-cov"></div>
+    <div class="verdict" id="wr-out" aria-live="polite"></div>
+    <p style="font-size:.85rem;color:var(--gray);margin-top:10px">Nothing is saved. The eight systems are real kinds of system; the sorting is this page's reading of your definition, not legal advice.</p>
+  </div>
+
   <h3 class="sub"><span>2.5</span> The rule-makers nobody elected</h3>
   <p>Governments aren't the only rule-makers. Courts make rules case by case: Air Canada learned in Chapter 2 that it owned what its chatbot said, and the lawyers in Chapter 10 learned what happens when a brief cites cases that don't exist. Companies make rules for themselves, through safety policies, internal audits, and decisions about what they won't sell. And industry groups write standards that often become the practical definition of "reasonable."</p>
   <p>Self-rules move faster than laws. They also have a known weak spot. <strong>Regulatory capture</strong> is when the people being regulated end up shaping the rules in their own favor, through lobbying, through staff moving between industry and government, or simply because the government has to ask the industry how its own technology works. With AI, government often has fewer experts than the companies it's checking, so the risk is high.</p>
@@ -640,6 +671,72 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   document.addEventListener('click',closeAll);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
   document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+
+<script>
+(function(){
+  var cov = document.getElementById('wr-cov');
+  if(!cov) return;
+  // d0 = uses ML, d1 = consequential decision about a person, d2 = identifies or tracks in public
+  var SYS = [
+    {n:"Your email spam filter", s:"sorts mail into a folder, reversible in one click", in:[true,false,false], note:"caught by the broad definition, and nobody thinks a spam filter needs an annual audit"},
+    {n:"A r\u00e9sum\u00e9 screener that auto-rejects", s:"Chapter 6", in:[true,true,false], note:""},
+    {n:"A model that prices your car loan", s:"Chapter 6", in:[true,true,false], note:""},
+    {n:"License plate cameras in a store parking lot", s:"this chapter's case", in:[true,false,true], note:"the case itself: it decides nothing about you, it just knows where you were"},
+    {n:"A chatbot on the city's website", s:"answers questions about permits", in:[true,false,false], note:""},
+    {n:"The app that picks what you watch next", s:"Chapter 3", in:[true,false,false], note:""},
+    {n:"A driverless taxi", s:"Chapter 7", in:[true,false,true], note:"it reads plates and faces to drive safely, which is not why anyone wrote a tracking rule"},
+    {n:"A model that forecasts crop yields", s:"no person anywhere in it", in:[true,false,false], note:""}
+  ];
+  var def = 0, obl = [false,false,false,false];
+  var dchips = [0,1,2].map(function(i){ return document.getElementById('wr-d' + i); });
+  var ochips = [0,1,2,3].map(function(i){ return document.getElementById('wr-o' + i); });
+  var out = document.getElementById('wr-out');
+
+  function draw(){
+    dchips.forEach(function(c,i){ c.classList.toggle('on', i===def); c.setAttribute('aria-pressed', i===def?'true':'false'); });
+    ochips.forEach(function(c,i){ c.classList.toggle('on', obl[i]); c.setAttribute('aria-pressed', obl[i]?'true':'false'); });
+    cov.innerHTML = '';
+    var n = 0, oddOnes = [];
+    SYS.forEach(function(x){
+      var inside = x.in[def];
+      if(inside) n++;
+      var odd = inside && x.note && (def === 0 || (def === 2 && x.n.indexOf('taxi') > -1) || (def === 0 && x.n.indexOf('spam') > -1));
+      if(def === 0 && x.n.indexOf('spam') > -1) odd = true;
+      if(def === 2 && x.n.indexOf('taxi') > -1) odd = true;
+      if(odd) oddOnes.push(x.n);
+      var d = document.createElement('div');
+      d.className = 'cv ' + (inside ? 'in' : 'out') + (odd ? ' flag' : '');
+      d.innerHTML = '<div class="nm">' + x.n + '<span class="s">' + x.s + '</span></div>' +
+                    '<div class="st">' + (inside ? 'covered' : 'not covered') + '</div>';
+      cov.appendChild(d);
+    });
+
+    var count = obl.filter(Boolean).length;
+    var head, body;
+    if(def === 0){
+      head = 'Everything is covered, so nothing is';
+      body = 'Eight of eight, including a spam filter and a crop model with no person anywhere near it. A rule this wide is the one industry lobbies hardest against, and it deserves the lobbying: the compliance cost lands on a thousand harmless systems, and the enforcement attention gets spread so thin that the systems you wrote the law for get the same glance as autocomplete.';
+    } else if(def === 1){
+      head = 'Two covered: the job and the loan';
+      body = 'This is close to how Colorado drew it, and it is the definition most state bills reach for. It catches the systems that can take something from you and leaves the crop model alone. Look at what it misses, though: the cameras in this chapter\u2019s case are not covered, because the camera does not decide anything about you. It only records that you were there.';
+    } else {
+      head = 'Two covered: the cameras and the robotaxi';
+      body = 'Now the case is covered, and so is a driverless car, because it reads plates and faces to do its job. Every surveillance definition has this problem: written tightly enough to catch the camera on the pole, it also catches things nobody was aiming at, and the vendor\u2019s lawyer will spend the hearing talking about the robotaxi instead of the pole.';
+    }
+    var oblLine;
+    if(count === 0) oblLine = 'You have not attached any obligations yet, which makes this a definition rather than a law. Add one and ask who pays for it.';
+    else if(count <= 2) oblLine = 'Two or fewer obligations is the version that usually passes: cheap enough that the industry does not fight to the death, real enough to change behavior. Notice that notice and human review cost the operator money per person, while an audit costs money per system. Which one you pick decides whether the burden scales with how many people the system touches.';
+    else oblLine = 'Four obligations is a strong bill. It is also the version that gets amended in committee, preempted from above, or passed and then not funded, which is the same outcome as not passing it. Section 2.5 is about who is in the room for that part.';
+
+    out.innerHTML = '<div class="label">' + head + '</div><div class="read">' + body + '</div>' +
+      '<div class="read" style="margin-top:12px">' + oblLine + '</div>' +
+      '<div class="read" style="margin-top:12px">Try all three definitions before you leave this. No single sentence catches exactly the systems you meant and nothing else, and that is not a failure of drafting. It is the job, and somebody does it for real, usually in a hurry, usually with the vendor in the room.</div>';
+  }
+  dchips.forEach(function(c,i){ c.addEventListener('click', function(){ def = i; draw(); }); });
+  ochips.forEach(function(c,i){ c.addEventListener('click', function(){ obl[i] = !obl[i]; draw(); }); });
+  draw();
 })();
 </script>
 </body>
