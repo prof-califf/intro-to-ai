@@ -49,6 +49,14 @@ body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--i
 .contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
 .contents a{color:var(--ink);text-decoration:none;}
 .contents a:hover{color:var(--pinktext);}
+.contents .secs{border-top:1px solid var(--rule);margin-top:22px;padding-top:18px;}
+.contents ul.seclist{list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px;margin:0;}
+.contents ul.seclist li{counter-increment:none;padding:2px 0;}
+.contents ul.seclist li::before{content:none;margin:0;}
+.contents ul.seclist a{font-size:.92rem;}
+.contents ul.seclist a .sn{font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:7px;}
+.contents ul.seclist a:hover .sn{color:var(--ink);}
+section[id],h3.sub[id]{scroll-margin-top:68px;}
 section{padding:44px 0 8px;}
 .shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
 .shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
@@ -314,6 +322,16 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <li>Walk through how a credit decision is made, and run the two basic audit tools, a matched pair and the four-fifths rule, on a screener you can't see inside.</li>
 <li>Run the five critical AI questions on Amazon's recruiting engine and decide what to keep, fix, or drop.</li>
   </ol>
+  <div class="secs">
+    <div class="label">Chapter sections</div>
+    <ul class="seclist">
+      <li><a href="#s1"><span class="sn">1</span>1:50 a.m.</a></li>
+      <li><a href="#s2"><span class="sn">2</span>The concepts: how a machine learns to say no</a></li>
+      <li><a href="#s3"><span class="sn">3</span>The case: Amazon's recruiting engine</a></li>
+      <li><a href="#s4"><span class="sn">4</span>Decide: both sides of the machine</a></li>
+      <li><a href="#s5"><span class="sn">5</span>Key terms</a></li>
+    </ul>
+  </div>
 </div>
 
 <section id="s1">
@@ -326,7 +344,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <section id="s2">
   <div class="shead"><span class="num">2</span><h2>The concepts: how a machine learns to say no</h2></div>
 
-  <h3 class="sub"><span>2.1</span> The classifier</h3>
+  <h3 class="sub" id="s2-1"><span>2.1</span> The classifier</h3>
   <p>Strip any of this chapter's examples down and the same machine is inside: a <strong>classifier</strong>, predictive AI that takes a person's data and outputs a category. Interview or reject. Approve or deny. High risk or low. Chapter 3's recommender ranked songs; a classifier sorts people. It's the oldest, quietest, most widespread kind of AI we've met, and it works the way every predictive system works: show the model thousands of past decisions, who got hired, who repaid, who defaulted, and it finds the pattern. Then it applies that pattern to the next applicant.</p>
   <p>Here's a small, honest example. A bank has ten years of car loans: the application (income, job, zip code, credit history) and the outcome (repaid or not). A classifier trained on that data learns which combinations of application details tended to end in repayment. Hand it a new application and it produces a number, say 0.82, meaning "applications like this one repaid 82 percent of the time." A threshold turns the number into a decision: above 0.75, approve. That's the whole machine. No understanding, no intent, just a pattern and a line.</p>
   <p>Now notice what the machine actually promises. It does not learn who <em>deserved</em> the loan or the job. It learns who <em>got</em> them. Those are different things, and the gap between them is where every problem in this chapter lives. A model trained on past decisions learns the pattern of every past decision, including the biased ones, and applies it forward with perfect consistency, at industrial scale, to people who never had a chance to argue.</p>
@@ -371,7 +389,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <p>Predictive AI that sorts cases into categories by learning patterns from past decisions and applying a threshold. What people get wrong: they picture the model judging merit. It's matching a new case to old outcomes, and old outcomes include everything that was wrong with old decisions.</p>
   </div>
 
-  <h3 class="sub"><span>2.2</span> The objectivity trap</h3>
+  <h3 class="sub" id="s2-2"><span>2.2</span> The objectivity trap</h3>
   <p>Classifiers get adopted with a seductive pitch: humans are biased, math is neutral, so let the algorithm decide. It sounds right. A tired recruiter at 4 p.m. on a Friday is not a fair judge, and a model gives every applicant the same attention at any hour.</p>
   <p>The trap is that the algorithm learned from the humans. If the recruiters of the last decade preferred one kind of applicant, the "good hire" pattern the model finds is that kind of applicant. The model doesn't remove the bias. It <em>launders</em> it: it converts messy, visible human prejudice into a clean, confident, uniform score that looks like arithmetic. The output looks objective precisely because the subjectivity moved upstream, into the training data, where nobody can see it and no one is asked to defend it.</p>
   <p>Consistency makes it worse, not better. A biased recruiter is inconsistently biased; a good day, a good mood, a good conversation can override the prejudice. A biased model is biased the same way every time, for every applicant, forever, until someone notices. That's why "the system treats everyone the same" is not a defense. It can treat everyone the same and still be unfair to the same people every time.</p>
@@ -380,7 +398,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <p>Mistaking a classifier's consistency for neutrality. What people get wrong: they think removing the human removed the bias. It moved the bias into the data and gave it a number, which is harder to argue with than a person.</p>
   </div>
 
-  <h3 class="sub"><span>2.3</span> Proxies and disparate impact</h3>
+  <h3 class="sub" id="s2-3"><span>2.3</span> Proxies and disparate impact</h3>
   <p>"Fine," says the obvious fix, "just don't show the model gender or race." Lending is where that fix goes to die, and it dies on a concept called the <strong>proxy</strong>: an allowed variable that stands in for a forbidden one. A model forbidden from seeing race can often reconstruct it from what it is allowed to see: zip code, which stores you shop at, which college you attended, even the words in your cover letter. A model forbidden from seeing age can read a graduation year. A model forbidden from seeing gender can read "women's chess club captain."</p>
   <p>In American lending this has a long history that predates any computer. In the 1930s, federal maps rated neighborhoods for mortgage risk, and the ones outlined in red were overwhelmingly Black neighborhoods; that's where the word <strong>redlining</strong> comes from. Banks used the maps for decades. The practice was outlawed in 1968, but the maps shaped where people could buy, which shaped who owns what today, which is why a zip code still carries information about race. A classifier trained on data with that history in it can produce <strong>disparate impact</strong>: systematically worse outcomes for a protected group, with no discriminatory line of code anywhere and no one in the company intending it.</p>
   <p>Disparate impact is a legal term, and the law is older than AI. U.S. hiring and lending law has prohibited it since the 1970s, and regulators have long used a rough test called the four-fifths rule: if one group's selection rate is less than 80 percent of another's, the process gets scrutinized. The classifier didn't invent the problem. It industrialized it and made it harder to see, because the reasons now live inside a model rather than in a manager's head.</p>
@@ -440,7 +458,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <p style="font-size:.85rem;color:var(--gray);margin-top:10px">Invented applicants and invented numbers, built to behave the way the studies in this section describe. Nothing is saved.</p>
   </div>
 
-  <h3 class="sub"><span>2.4</span> Two kinds of wrong</h3>
+  <h3 class="sub" id="s2-4"><span>2.4</span> Two kinds of wrong</h3>
   <p>Every classifier makes two kinds of mistakes, and they cost different people. A <strong>false positive</strong> is a yes that should have been a no: the loan that defaults, the hire that fails. A <strong>false negative</strong> is a no that should have been a yes: the borrower who would have repaid, the candidate who would have been great. Companies see the first kind, because a bad loan shows up on the books. They rarely see the second kind, because a rejected applicant just disappears. Nobody counts the good hires they didn't make.</p>
   <p>That asymmetry shapes the model. When you tune a classifier to avoid the mistake you can see, it makes more of the mistake you can't. A lender that hates defaults sets a high threshold and turns away many people who would have paid. And because the rejected pile is invisible, a model can be "95 percent accurate" on the loans it approved while being badly unfair about who it never approved. Accuracy on the yeses says nothing about the noes.</p>
   <p>This is Question 3 of our five, in numbers: what happens when it fails, and who finds out? The false positive is found by the company, fast. The false negative is found by nobody, unless someone goes looking in the rejected pile. That's why every serious fix in this chapter involves someone looking there.</p>
@@ -465,7 +483,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <p>A classifier's rejections are its least examined output. What people get wrong: they judge a screener by the quality of the people it let through. The question that matters is who it kept out, and almost no one is paid to ask.</p>
   </div>
 
-  <h3 class="sub"><span>2.5</span> Who answers when the no is illegal</h3>
+  <h3 class="sub" id="s2-5"><span>2.5</span> Who answers when the no is illegal</h3>
   <p>So when the classifier says no and the no is illegal, who answers? The law is catching up, in three steps.</p>
   <p><strong>Step one: automating discrimination is still discrimination.</strong> Tutoring company iTutorGroup programmed its application software to automatically reject female applicants 55 and older and male applicants 60 and older. It was caught when one applicant, rejected under her real birthdate, resubmitted the identical application with a younger one and promptly got an interview. In 2023 it became <a class="inline" href="https://www.eeoc.gov/newsroom/itutorgroup-pay-365000-settle-eeoc-discriminatory-hiring-suit" target="_blank" rel="noopener">the EEOC's first settlement over AI-driven hiring discrimination</a>: $365,000 to more than 200 auto-rejected applicants. The legal principle was almost boring, and that's the point. The software was just the fingerprints.</p>
   <p><strong>Step two: the vendor can be on the hook.</strong> The man from 1:50 a.m. is the plaintiff in <em>Mobley v. Workday</em>, and he sued Workday, the vendor whose screening tools thousands of employers use. The court let the case proceed on a theory with enormous reach: a vendor whose AI effectively makes screening decisions can be treated as the employer's <em>agent</em>, and sued like one. A federal judge <a class="inline" href="https://www.forbes.com/sites/sheilacallaham/2026/05/29/a-federal-judge-a-1967-law-and-a-billion-rejected-job-applications/" target="_blank" rel="noopener">certified a nationwide age-discrimination collective</a>; Workday disclosed in filings that its tools had rejected applications numbering in the billions during the covered period, and roughly 14,000 people joined the case before the 2026 deadline. Workday denies the claims and says its tools don't make hiring decisions and keep humans in the loop. However it ends, the case has already ended something: the era when "the algorithm did it" pointed at nobody.</p>
@@ -476,11 +494,11 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   </div>
 
 
-  <h3 class="sub"><span>2.6</span> The lending half: how a credit decision is actually made</h3>
+  <h3 class="sub" id="s2-6"><span>2.6</span> The lending half: how a credit decision is actually made</h3>
   <p>Hiring gets the headlines, but lending is where classifiers have been judging people the longest, and it's the domain with the most developed rules, so it's worth walking through one decision end to end.</p>
   <p>Start with the file. Three credit bureaus keep a record of you: what you've borrowed, whether you paid on time, how much of your available credit you're using, how long you've had accounts, what kinds, and how recently you applied for new ones. A scoring model, the classic one has been sold since 1989, turns that file into a three-digit number. It's a classifier's output with a friendlier scale: instead of "0.82," you get 712 on a range of 300 to 850. The factors and their rough weights are public, which is unusual in this chapter. Payment history counts most; amounts owed next; length, mix, and new credit less.</p>
-  <p>Then comes the part you don't see. The lender takes the score, adds what's on the application (income, existing debt, the loan's size), and applies its own cutoff and often its own model on top. Two lenders can look at the same file and decide differently, because the line is theirs. And a lender's own model is where the proxies of section 2.3 can creep back in: a variable like "shops at this store" or "lives in this zip code" that the classic score never used.</p>
-  <p>Now the part the law makes visible. If the answer is no, U.S. credit law requires an <strong>adverse action notice</strong>: the main reasons for the denial, in plain words. "Too many recent inquiries." "Short credit history." "High balances relative to limits." Those reasons are the model's biggest factors, translated, and you can act on them. This is the fifty-year-old standard section 2.5 compares hiring against, and the CFPB's point was simple: a lender that uses a model too complex to produce those reasons has chosen a model it isn't allowed to use.</p>
+  <p>Then comes the part you don't see. The lender takes the score, adds what's on the application (income, existing debt, the loan's size), and applies its own cutoff and often its own model on top. Two lenders can look at the same file and decide differently, because the line is theirs. And a lender's own model is where the proxies of <a class="inline" href="#s2-3">section 2.3</a> can creep back in: a variable like "shops at this store" or "lives in this zip code" that the classic score never used.</p>
+  <p>Now the part the law makes visible. If the answer is no, U.S. credit law requires an <strong>adverse action notice</strong>: the main reasons for the denial, in plain words. "Too many recent inquiries." "Short credit history." "High balances relative to limits." Those reasons are the model's biggest factors, translated, and you can act on them. This is the fifty-year-old standard <a class="inline" href="#s2-5">section 2.5</a> compares hiring against, and the CFPB's point was simple: a lender that uses a model too complex to produce those reasons has chosen a model it isn't allowed to use.</p>
   
   <figure class="diagram">
     <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="cr-t cr-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
@@ -503,13 +521,13 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <figcaption>How a loan decision is made. The score is a classifier's output with a friendlier scale; the lender's rules on top are the part you can't see; and the adverse action notice is the part the law makes them show you.</figcaption>
   </figure>
 
-  <p>One more idea from lending that reaches everywhere: the <strong>thin file</strong>. A classifier can't score what it has no data on. Young people, recent immigrants, and anyone who has avoided debt have thin files, and a thin file is not a bad file; it's an unreadable one. Some lenders now score "alternative data," rent and utility payments, to fill it in, which helps the thin-file applicant and, if the alternative data carries its own proxies, brings section 2.3 right back. Every fix in this chapter has that shape: real progress, and a new place to look.</p>
+  <p>One more idea from lending that reaches everywhere: the <strong>thin file</strong>. A classifier can't score what it has no data on. Young people, recent immigrants, and anyone who has avoided debt have thin files, and a thin file is not a bad file; it's an unreadable one. Some lenders now score "alternative data," rent and utility payments, to fill it in, which helps the thin-file applicant and, if the alternative data carries its own proxies, brings <a class="inline" href="#s2-3">section 2.3</a> right back. Every fix in this chapter has that shape: real progress, and a new place to look.</p>
   <div class="concept">
     <div class="term">Adverse action notice</div>
     <p>Credit law's requirement that a denial come with its main reasons, stated plainly. What people get wrong: they think it's a courtesy. It's the mechanism that forces a classifier to be explainable, and it's why lending models are simpler and more auditable than hiring models, on purpose.</p>
   </div>
 
-  <h3 class="sub"><span>2.7</span> How an audit works</h3>
+  <h3 class="sub" id="s2-7"><span>2.7</span> How an audit works</h3>
   <p>"Audit it" is the fix this chapter keeps recommending, so here's what one actually involves. Two tools do most of the work, and neither needs to see inside the model.</p>
   <p>The first is the <strong>matched pair</strong>: two applications identical in every detail except one, a name that reads as one gender, a graduation year that reveals age, a zip code. Run both through the screener. If the scores differ, the one detail you changed is what the model is reading, and no vendor can argue with that, because you never touched their model; you touched the input. This is Wednesday's lab, on a live screener. It's also, almost exactly, how iTutorGroup got caught: one applicant, two birthdates, one interview.</p>
   <p>The second is the <strong>four-fifths rule</strong>, with numbers. Count who advanced, by group. If 60 of 100 applicants under 40 advanced and 40 of 100 over 40 did, the selection rates are 60 and 40 percent, and the ratio is 0.67, under the 0.8 line that regulators have used since 1978 to decide when a process needs a closer look. The rule doesn't prove discrimination; it flags it, which is the point of an instrument. It works on outcomes alone, so it works on a model the vendor won't open.</p>
@@ -555,38 +573,38 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 
 <section id="s3">
   <div class="shead"><span class="num">3</span><h2>The case: Amazon's recruiting engine</h2></div>
-  <h3 class="sub"><span>Background</span> The problem Amazon was trying to solve</h3>
+  <h3 class="sub" id="s3-background"><span>Background</span> The problem Amazon was trying to solve</h3>
   <p>By 2014, Amazon was hiring at a pace few companies in history had matched, and its recruiters were drowning in résumés. The company's answer was the one you'd expect from a company that had automated its warehouses: automate the screening. A team in Edinburgh, Scotland, set out to build a tool that could do for hiring what Amazon's systems did for products. Feed it a hundred résumés, get back the top five. As <a class="inline" href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G/" target="_blank" rel="noopener">Reuters reported in 2018</a>, the team built hundreds of models, each focused on a specific job function and location, and taught them to recognize tens of thousands of terms that had appeared on past applicants' résumés.</p>
-  <p>The training data was a decade of résumés submitted to Amazon, and the outcomes were what happened to them: who got hired. That's the classifier from section 2.1, exactly. Learn the pattern of past good candidates, apply it to new ones. It's worth pausing on how reasonable this was. Nobody set out to build a biased tool. They set out to save recruiters time using the best data they had.</p>
+  <p>The training data was a decade of résumés submitted to Amazon, and the outcomes were what happened to them: who got hired. That's the classifier from <a class="inline" href="#s2-1">section 2.1</a>, exactly. Learn the pattern of past good candidates, apply it to new ones. It's worth pausing on how reasonable this was. Nobody set out to build a biased tool. They set out to save recruiters time using the best data they had.</p>
 
-  <h3 class="sub"><span>What happened</span> The model found the women</h3>
+  <h3 class="sub" id="s3-what-happened"><span>What happened</span> The model found the women</h3>
   <p>The tech industry's applicant pool over that decade had been mostly male, and so were its hires. So the model learned, correctly from its point of view, that maleness predicted "good candidate." It penalized résumés containing the word "women's," as in "women's chess club captain," and downgraded graduates of two all-women's colleges. Nobody programmed that rule. The model <em>found</em> it, because it really was there in the data. The objectivity trap and the proxy, in one system: no gender field anywhere, and "women's" was proxy enough.</p>
   <p>Amazon's engineers did the obvious fix. They edited the model to neutralize those specific terms. And then they scrapped the project anyway, because they couldn't guarantee it wasn't finding <em>other</em> ways to reach the same conclusion. Think about that. The people with full access to the model, at one of the most technically capable companies on earth, could not prove their classifier fair. They could only stop using it. Amazon told Reuters the tool was never used by its recruiters to evaluate candidates on its own; the team was disbanded by 2017.</p>
 
   <p><strong>The five critical AI questions, run on this case:</strong></p>
-  <h3 class="sub"><span>What this AI is, and how it works</span> Question 1: what is the AI system, and what does it do?</h3>
+  <h3 class="sub" id="s3-what-this-ai-is-and-how-it-w"><span>What this AI is, and how it works</span> Question 1: what is the AI system, and what does it do?</h3>
   <p>A predictive classifier: hundreds of models that score résumés against the pattern of past Amazon hires. The five parts: <strong>data</strong>, ten years of résumés and hiring outcomes; <strong>model</strong>, the term-weighting that learned which words predicted a hire; <strong>output</strong>, a ranking of applicants; <strong>feedback loop</strong>, had it shipped, the people it recommended would have become the next decade's "good hires," and the pattern would have tightened; <strong>humans</strong>, the Edinburgh engineers, the recruiters, and the applicants who never knew a model read their résumé.</p>
 
-  <h3 class="sub"><span>Who benefits, and who doesn't</span> Question 2: why does it exist, and who benefits?</h3>
+  <h3 class="sub" id="s3-who-benefits-and-who-doesn-t"><span>Who benefits, and who doesn't</span> Question 2: why does it exist, and who benefits?</h3>
   <p>To process a flood of applications at a cost no human team could match, and to make hiring feel objective. Amazon benefits from speed and from cover: "the model ranked them" is an easier sentence than "the recruiter preferred him." The applicant was never the customer. The best-case applicant benefit is real, though: a fair model would have read every résumé with the same attention, which no tired recruiter does.</p>
   <p>Who doesn't benefit: the applicants the model scored down for a word on their résumé, who never learned a model had read it; and, quietly, Amazon itself, which spent three years building a tool it couldn't trust and got a Reuters headline for it.</p>
 
-  <h3 class="sub"><span>When it fails, who finds out</span> Question 3: what happens when it fails, and who finds out?</h3>
+  <h3 class="sub" id="s3-when-it-fails-who-finds-out"><span>When it fails, who finds out</span> Question 3: what happens when it fails, and who finds out?</h3>
   <p>It fails silently, in the invisible pile. A woman's résumé scores lower and she never learns that a model read it, let alone why. The people who found the failure were insiders, engineers looking at their own model's weights. Nobody outside Amazon would have. That's the pattern across this chapter: iTutorGroup's bias was found by one applicant's lucky experiment, Workday's is being tested in court. Every discovery was nearly an accident, and the failures that weren't discovered are still out there.</p>
 
-  <h3 class="sub"><span>Business implications</span> What this means for anyone buying a screener</h3>
+  <h3 class="sub" id="s3-business-implications"><span>Business implications</span> What this means for anyone buying a screener</h3>
   <p>Almost no company builds its own screener now; they buy one, which is what makes <em>Mobley v. Workday</em> the business end of this case. Three questions before signing. Can you audit it? A vendor that won't let you run two identical applications through its model, differing in one detail, is asking you to take its fairness on faith, and the courts are deciding whether that faith is your liability. What does it optimize for? A tool tuned to minimize bad hires makes more of the mistake you can't see, and the rejected pile is where the lawsuit lives. Who reads the noes? Someone should, on a schedule, because that's the only way the second kind of wrong ever surfaces. The costs are a slower rollout, an audit fee, and a person's time. The alternative is Amazon's choice, dropping the tool, or the choice Amazon's engineers wished they'd made: building it to be checked from the start.</p>
-  <h3 class="sub"><span>Societal implications</span> Question 4: who's saying that, and how would we know?</h3>
+  <h3 class="sub" id="s3-societal-implications"><span>Societal implications</span> Question 4: who's saying that, and how would we know?</h3>
   <p>"Our screener removes human bias" is said by vendors selling screeners. "It launders it" is said by the Amazon engineers who watched it find the women anyway. Amazon says the tool was never the sole basis for a decision, which is a company's claim about its own system. The Berkeley mortgage study says both things at once: less biased than the humans, and still costing minority borrowers hundreds of millions. How would we know about any specific system? The same way Amazon's engineers did: look inside, or run two identical applications that differ in one detail and compare. That test is Wednesday's lab.</p>
 
-  <h3 class="sub"><span>How to make it beneficial</span> Question 5: keep it, fix it, or drop it, and what does that cost?</h3>
+  <h3 class="sub" id="s3-how-to-make-it-beneficial"><span>How to make it beneficial</span> Question 5: keep it, fix it, or drop it, and what does that cost?</h3>
   <ul class="decide">
     <li><strong>Keep it</strong> if it beats the humans it replaced? The Berkeley result says a system can beat the humans and still discriminate. "Better than before" isn't the finish line; auditing is.</li>
     <li><strong>Fix it:</strong> a required audit before launch and every year after, an explanation right like lending's, and a person who reads the rejected pile. Each costs speed and money, and sometimes an audit fails and the tool has to wait.</li>
     <li><strong>Drop it:</strong> Amazon's choice. The cost is the humans' worse bias, and the recruiters' time. Refusal is the hardest position to argue this week and the most worth arguing.</li>
   </ul>
 
-  <h3 class="sub"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
+  <h3 class="sub" id="s3-thinking-critically"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
   <div class="ticket">
     <div class="label">Thinking critically · for Monday's discussion · skim the Reuters Amazon story and the EEOC settlement release linked above · one question each, answered by you, not by the chapter</div>
     <ol>

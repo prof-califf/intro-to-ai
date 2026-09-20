@@ -49,6 +49,14 @@ body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--i
 .contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
 .contents a{color:var(--ink);text-decoration:none;}
 .contents a:hover{color:var(--pinktext);}
+.contents .secs{border-top:1px solid var(--rule);margin-top:22px;padding-top:18px;}
+.contents ul.seclist{list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px;margin:0;}
+.contents ul.seclist li{counter-increment:none;padding:2px 0;}
+.contents ul.seclist li::before{content:none;margin:0;}
+.contents ul.seclist a{font-size:.92rem;}
+.contents ul.seclist a .sn{font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:7px;}
+.contents ul.seclist a:hover .sn{color:var(--ink);}
+section[id],h3.sub[id]{scroll-margin-top:68px;}
 section{padding:44px 0 8px;}
 .shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
 .shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
@@ -337,6 +345,16 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <li>Describe the Canaries study's findings on young workers, including automating versus complementing use and codified versus tacit knowledge.</li>
 <li>Separate a descriptive pattern from a causal claim, and name the evidence that would settle whether AI is behind the entry-level gap.</li>
 </ol>
+  <div class="secs">
+    <div class="label">Chapter sections</div>
+    <ul class="seclist">
+      <li><a href="#s1"><span class="sn">1</span>The paradox on the receipt</a></li>
+      <li><a href="#s2"><span class="sn">2</span>The concepts: why a technology pays late, and who feels it first</a></li>
+      <li><a href="#s3"><span class="sn">3</span>The case: canaries in the coal mine</a></li>
+      <li><a href="#s4"><span class="sn">4</span>Decide: your own first job</a></li>
+      <li><a href="#s5"><span class="sn">5</span>Key terms</a></li>
+    </ul>
+  </div>
 </div>
 
 
@@ -355,8 +373,8 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <section id="s2">
   <div class="shead"><span class="num">2</span><h2>The concepts: why a technology pays late, and who feels it first</h2></div>
 
-  <h3 class="sub"><span>2.1</span> Productivity, and the paradox</h3>
-  <p>Economists judge a technology by one number, and it isn't users or market value. <strong>Productivity</strong> is output per hour worked, and in the long run it's close to everything: wages, living standards, whether the next generation lives better than the last. The paradox in section 1 is that AI is racing on every measure except this one. That's not new. In 1987 Robert Solow said the computer age was visible everywhere except in the productivity statistics, and he was right for roughly a decade before the number moved. The question this chapter asks is whether we're in that decade again, or in something else.</p>
+  <h3 class="sub" id="s2-1"><span>2.1</span> Productivity, and the paradox</h3>
+  <p>Economists judge a technology by one number, and it isn't users or market value. <strong>Productivity</strong> is output per hour worked, and in the long run it's close to everything: wages, living standards, whether the next generation lives better than the last. The paradox in <a class="inline" href="#s1">section 1</a> is that AI is racing on every measure except this one. That's not new. In 1987 Robert Solow said the computer age was visible everywhere except in the productivity statistics, and he was right for roughly a decade before the number moved. The question this chapter asks is whether we're in that decade again, or in something else.</p>
   
   <figure class="diagram">
     <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ecp-t ecp-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
@@ -377,7 +395,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <p>Transformative technology, flat statistics. What people get wrong: they resolve it too early, in either direction. "It's coming" and "it's a bubble" are both predictions about the same flat line, and the line hasn't told us yet.</p>
   </div>
 
-  <h3 class="sub"><span>2.2</span> General-purpose technologies, and the dynamo's forty years</h3>
+  <h3 class="sub" id="s2-2"><span>2.2</span> General-purpose technologies, and the dynamo's forty years</h3>
   <p>The best history lesson for this moment is a hundred years old, and Krugman's essay leans on it for good reason. The economic historian Paul David studied what happened when American factories got electricity, and found that for decades, almost nothing happened.</p>
   <p>Here's why. A steam-powered factory was built vertically around one giant engine, with power carried by belts and shafts through the whole building. When electric motors arrived, owners did the obvious thing: swapped the steam engine for a big electric one and kept everything else. Same building, same layout, same workflow, new power source. The gain was small, and it stayed small for about a generation.</p>
   <p>The payoff came only when a new generation of managers stopped <em>retrofitting</em> and started <em>redesigning</em>: small motors on each machine, single-story factories laid out around the flow of work instead of the flow of power, assembly lines that were impossible in the old buildings. The technology hadn't improved much. The <em>organization</em> had finally been rebuilt around it, and productivity took off, forty years after the dynamo arrived.</p>
@@ -419,7 +437,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   </figure>
 
 
-  <h3 class="sub"><span>2.3</span> The two margins: everyone's using it, firms aren't changing</h3>
+  <h3 class="sub" id="s2-3"><span>2.3</span> The two margins: everyone's using it, firms aren't changing</h3>
   <p>If David's story is the right map, we should be able to locate ourselves on it. The Stanford Digital Economy Lab's <a class="inline" href="https://digitaleconomy.stanford.edu/project/indicators/" target="_blank" rel="noopener">AI Adoption Monitor</a> tracks the two numbers that matter, and they're moving at very different speeds.</p>
   <p><strong>Individual adoption is fast.</strong> Surveys tracked by the Monitor find a large share of American workers already using generative AI, at rates that rival or beat the early PC and internet eras. Much of this use is informal: personal accounts, no permission asked.</p>
   <p><strong>Firm adoption is slow.</strong> The share of companies that have formally woven AI into how they produce things is a small fraction of workers' personal adoption, and much of what exists is shallow: a chatbot license, a pilot program, an engine swapped into an unchanged factory.</p>
@@ -455,7 +473,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <p>How many use it versus how deeply it's woven in. What people get wrong: they read the first as the second. A company where everyone has a chatbot license has adopted AI on the extensive margin only, which is the swapped engine.</p>
   </div>
 
-  <h3 class="sub"><span>2.4</span> Exposure, and the two ways to build a job</h3>
+  <h3 class="sub" id="s2-4"><span>2.4</span> Exposure, and the two ways to build a job</h3>
   <p>Now bring the dynamo down to the size of one job. Economists measure a job's <strong>AI exposure</strong> by asking how much of its tasks current systems could plausibly perform: low for electricians, nurses, and chefs; high for customer service, basic accounting, and entry-level software work. Exposure measures overlap, not destiny, because the same exposed job can be rebuilt two ways.</p>
   
   <figure class="diagram">
@@ -521,7 +539,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 
 <section id="s3">
   <div class="shead"><span class="num">3</span><h2>The case: canaries in the coal mine</h2></div>
-  <h3 class="sub"><span>Background</span> A lab, a payroll company, and a bird</h3>
+  <h3 class="sub" id="s3-background"><span>Background</span> A lab, a payroll company, and a bird</h3>
   <p>Coal miners used to carry canaries underground. The birds were more sensitive to dangerous gas than the miners were, so if the canary stopped singing, you got out. The same Stanford lab borrowed the image for a study called <a class="inline" href="https://digitaleconomy.stanford.edu/news/canariesaug26/" target="_blank" rel="noopener">"Canaries in the Coal Mine? Six Facts About the Recent Employment Effects of Artificial Intelligence."</a> The question: if AI is starting to change the job market, who feels it first?</p>
   <p>The data source matters. Instead of surveys or predictions, the researchers, Erik Brynjolfsson, Bharat Chandar, and Ruyu Chen, used payroll records from ADP, a company that processes paychecks for millions of American workers. Real hires, real paychecks, month by month, since ChatGPT launched in late 2022. The August 2026 revision says two things at once, and we need to hold both.</p>
   <p><strong>First: there is no widespread, economy-wide job displacement from AI.</strong> Across the whole workforce, employment looks broadly normal.</p>
@@ -532,7 +550,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <div class="fact"><div class="big"><em>0</em></div><div class="small">Comparable gap for experienced workers in the same occupations.</div></div>
   </div>
   
-  <h3 class="sub"><span>What this AI is, and how it works</span> Question 1: what is the AI system, and what does it do?</h3>
+  <h3 class="sub" id="s3-what-this-ai-is-and-how-it-w"><span>What this AI is, and how it works</span> Question 1: what is the AI system, and what does it do?</h3>
   <p>This week "AI" is an economic object rather than one product: a candidate general-purpose technology, like the dynamo, doing the tasks that used to fill someone's first job. The chatbot on your phone, the capital spending on Microsoft's books, and the missing entry-level posting are the same story at three scales. The system under the microscope, though, is the study itself, and it's worth seeing how it works, because a finding is only as good as its machinery.</p>
   
   <figure class="diagram">
@@ -559,16 +577,16 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <p>One more detail: the gap doesn't come from firing. It comes from <em>hiring</em>. Companies aren't laying young workers off in large numbers. They're not opening the door in the first place. A wave of layoffs makes news. A hiring slowdown makes silence: fewer postings, longer searches, more "we went with another candidate." The canary doesn't drop. It just stops getting invited into the mine.</p>
 
   
-  <h3 class="sub"><span>Who benefits, and who doesn't</span> Question 2: why does it exist, and who benefits?</h3>
+  <h3 class="sub" id="s3-who-benefits-and-who-doesn-t"><span>Who benefits, and who doesn't</span> Question 2: why does it exist, and who benefits?</h3>
   <p>AI exists in workplaces to make work more productive, which pays the firm only when the work is reorganized around the tool. Who benefits: firms that reorganize, eventually; investors, if the boom arrives; experienced workers whose output multiplies, because the tacit layer they built is now the scarce thing. Who doesn't: the cohort that never gets the door opened, which is the study's darker point, and the towns and investors who built around a boom if the boom turns out to be a bubble. Notice who is missing from both lists: the companies selling the tools, who do fine either way. Sellers of shovels profit in every gold rush, real or imagined.</p>
 
-  <h3 class="sub"><span>When it fails, who finds out</span> Question 3: what happens when it fails, and who finds out?</h3>
+  <h3 class="sub" id="s3-when-it-fails-who-finds-out"><span>When it fails, who finds out</span> Question 3: what happens when it fails, and who finds out?</h3>
   <p>Both failures here are absences. A productivity boom that never arrives shows up only in statistics years later, like the missed cure in Chapter 4. A job that never opens makes no news, because nobody was laid off. The canary doesn't drop; it stops getting invited into the mine. That's why the Adoption Monitor and the Canaries Dashboard matter more than any single headline: they make absences visible on a schedule, and they're the reason this chapter can be checked rather than believed.</p>
 
-  <h3 class="sub"><span>Business implications</span> What this means for a company deciding what to do with AI</h3>
+  <h3 class="sub" id="s3-business-implications"><span>Business implications</span> What this means for a company deciding what to do with AI</h3>
   <p>The dynamo story is a warning to executives, and the Canaries study is its human cost. Three implications. First, a chatbot license is not a strategy. Buying the tool puts a firm on the extensive margin, which is nearly free and nearly worthless; the gains are in the redesign, which is slow, expensive, and punished by quarterly incentives, which is exactly why most firms haven't done it. Second, how a firm builds a job decides what happens to the people in it. The automating build is cheaper this quarter and hollows out the pipeline of people who will run the company in ten years; the complementing build costs more now and keeps the tacit knowledge that AI didn't train on. Third, the entry-level role was never just cheap labor. It was the company's training system, the way tacit knowledge got transferred, and firms that close the door are canceling their own apprenticeship program without noticing. The costs of doing this well: hiring the junior anyway and paying for training that used to happen by accident, and living through the dip while the redesign takes hold. The cost of doing it badly shows up in a decade, which is why almost nobody is measuring it.</p>
 
-  <h3 class="sub"><span>Societal implications</span> Question 4: who's saying that, and how would we know?</h3>
+  <h3 class="sub" id="s3-societal-implications"><span>Societal implications</span> Question 4: who's saying that, and how would we know?</h3>
   <h3>What if the bet is wrong?</h3>
   <p>The dynamo story says: be patient, the reorganization is coming, the boom follows. The same facts support a darker reading. The hundreds of billions flowing into data centers are a bet that reorganization will happen <em>and</em> that the gains will be enormous. If either half disappoints, the word for what we're in isn't "early." It's "bubble." Krugman's essay is about exactly this: innovation booms have repeatedly outrun the payoff, and the correction hits investors, workers, and towns that built around the boom.</p>
   <p>Nobody knows which reading is right, and this book won't pretend otherwise. What we can do is name the evidence that would tell them apart. Watch the intensive margin: if firms deeply reorganize and productivity still doesn't move, the dynamo story weakens. Watch who profits in the meantime: sellers of shovels do fine in every gold rush, real or imagined.</p>
@@ -580,7 +598,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 
   <p>"AI will add trillions to GDP" is said by the companies selling it and the analysts who cover them. "It's a bubble" is said by people who remember 2000. "AI is closing the entry-level door" is said by the Stanford team, who publish their doubts; "it's remote work and the economy" is said by the economists NPR interviewed, with their own evidence. What would settle both disputes is the same thing: the two dashboards over the next twelve months. That is the rare case in this book where the evidence that would change your mind is scheduled.</p>
 
-  <h3 class="sub"><span>How to make it beneficial</span> Question 5: keep it, fix it, or drop it, and what does that cost?</h3>
+  <h3 class="sub" id="s3-how-to-make-it-beneficial"><span>How to make it beneficial</span> Question 5: keep it, fix it, or drop it, and what does that cost?</h3>
   <ul class="decide">
     <li><strong>Keep</strong> buying tools without reorganizing, and the cost is paying for a dynamo bolted to a steam layout.</li>
     <li><strong>Fix it</strong> by reorganizing through the dip, which quarterly incentives punish, and by hiring the junior anyway and paying for the training AI used to provide by accident. The cost is money now for a payoff later, which is the dynamo's whole lesson.</li>
@@ -591,7 +609,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <p>The good version of this chapter exists: it's the complementing build, at scale. <em>Keep</em> AI where it extends people. <em>Fix</em> the hiring gap by treating entry-level roles as the training system they always were, and budgeting for them as such. <em>Drop</em> the assumption that a job that AI can do is a job that should be done by AI alone; the evidence says the firms that made that assumption cut the wrong people. The cost is a slower, more expensive first few years. The payoff is the forty years.</p>
   </div>
 
-  <h3 class="sub"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
+  <h3 class="sub" id="s3-thinking-critically"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
   <div class="ticket">
     <div class="label">Thinking critically · for Monday's discussion · read the Krugman essay and listen to the NPR story on recent grads (about 4 minutes) first · one question each, answered by you, not by the chapter</div>
     <ol>

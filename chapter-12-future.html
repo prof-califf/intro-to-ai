@@ -56,6 +56,14 @@ body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--i
 .contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
 .contents a{color:var(--ink);text-decoration:none;}
 .contents a:hover{color:var(--pinktext);}
+.contents .secs{border-top:1px solid var(--rule);margin-top:22px;padding-top:18px;}
+.contents ul.seclist{list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px;margin:0;}
+.contents ul.seclist li{counter-increment:none;padding:2px 0;}
+.contents ul.seclist li::before{content:none;margin:0;}
+.contents ul.seclist a{font-size:.92rem;}
+.contents ul.seclist a .sn{font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:7px;}
+.contents ul.seclist a:hover .sn{color:var(--ink);}
+section[id],h3.sub[id]{scroll-margin-top:68px;}
 
 /* ---- sections ---- */
 section{padding:44px 0 8px;}
@@ -279,6 +287,16 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <li>Steelman each of the three published futures, and name the instrument reading that would make you take it seriously.</li>
 <li>Answer the course question in your own words, with your conditions and their costs, next to your Week 1 answer.</li>
   </ol>
+  <div class="secs">
+    <div class="label">Chapter sections</div>
+    <ul class="seclist">
+      <li><a href="#s1"><span class="sn">1</span>The question we've been carrying</a></li>
+      <li><a href="#s2"><span class="sn">2</span>The concepts: how to read a future</a></li>
+      <li><a href="#s3"><span class="sn">3</span>The case: three published futures</a></li>
+      <li><a href="#s4"><span class="sn">4</span>Decide: what went right</a></li>
+      <li><a href="#s5"><span class="sn">5</span>Key terms</a></li>
+    </ul>
+  </div>
 </div>
 
 <section id="s1">
@@ -292,7 +310,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <div class="shead"><span class="num">2</span><h2>The concepts: how to read a future</h2></div>
   <p>Five ideas, taught plain, before we touch a single future. Watch for each one in the case that follows.</p>
 
-  <h3 class="sub"><span>2.1</span> Prediction vs. scenario</h3>
+  <h3 class="sub" id="s2-1"><span>2.1</span> Prediction vs. scenario</h3>
 <p>A prediction says what will happen: "AI will automate half of white-collar work by 2030." It has a date and a number, and it's almost always wrong, because the future is a system with more parts than any forecaster can hold. A <em>scenario</em> is different: it's a story with mechanisms you can inspect, "if agents get reliable enough to be trusted with multi-day tasks, then firms will reorganize around them, then the J-curve from Chapter 9 starts, then..." You can't fact-check a scenario. You can check whether each step's mechanism is real and whether it's happening yet. Serious people who think about the future write scenarios in the plural, because the point isn't to be right about one, it's to be ready for several.</p>
   <div class="concept">
     <div class="term">Scenario thinking</div>
@@ -321,7 +339,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   </figure>
 
 
-  <h3 class="sub"><span>2.2</span> Agents: from answering to acting</h3>
+  <h3 class="sub" id="s2-2"><span>2.2</span> Agents: from answering to acting</h3>
 <p>Everything in Chapters 2 and 10 was an AI that <em>answers</em>, you ask, it produces. An <em>agent</em> is an AI that <em>acts</em>: given a goal, it plans steps, uses tools (a browser, a spreadsheet, a code editor, another AI), checks its own results, and keeps going without a human between steps. The customer-service example in Chapter 1's quiz, reads your complaint, issues the refund, sends the email, is a small one. The ones under development run for hours or days. Run Chapter 7's question on that and notice what happens: with an agent, "where is the human?" stops being a design choice at one gate and becomes a question about <em>every</em> step. Agents are the concept that turns most futures, which is why every scenario in the case hinges on how good they get.</p>
   <div class="concept">
     <div class="term">Agent</div>
@@ -330,7 +348,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 
   
 
-  <h3 class="sub"><span>2.3</span> Recursive self-improvement, and alignment</h3>
+  <h3 class="sub" id="s2-3"><span>2.3</span> Recursive self-improvement, and alignment</h3>
 <p>This is the idea underneath the Day 1 headline, and it deserves to be understood rather than felt. Today, better AI models are built by humans running enormous training processes (Chapter 5). Increasingly, AI systems help with that work, writing the code, designing the experiments, generating the training data. <em>Recursive self-improvement</em> is the scenario where that help becomes the whole job: systems improving the systems that improve them, with humans further from the loop each round. Nobody has built this. It's the hinge concept in the entire debate, because if it's possible the curve bends sharply, and if it isn't, AI is another general-purpose technology diffusing on the dynamo's timetable. The honest status, as of this writing: real research toward it, real disagreement about whether it's near, and, this is the part that made a researcher quit, no agreed method for keeping such a system aligned with what its builders intend.</p>
   <div class="concept">
     <div class="term">Recursive self-improvement &amp; alignment</div>
@@ -366,7 +384,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   </figure>
 
 
-  <h3 class="sub"><span>2.4</span> Instruments: how to watch a future arrive</h3>
+  <h3 class="sub" id="s2-4"><span>2.4</span> Instruments: how to watch a future arrive</h3>
 <p>You already know this concept; you've used it all quarter without the name. An <em>instrument</em> is a measurement that updates on a schedule you can watch: the Canaries Dashboard for who's getting hired, the Adoption Monitor for whether firms are reorganizing, the Safety Index for whether companies' conduct matches their rhetoric, a robotaxi coverage map for how fast the physical world is changing. Instruments beat opinions because they can't be argued with, only interpreted. Every scenario in this chapter comes with the instrument that would confirm it.</p>
   <div class="concept">
     <div class="term">Instrument</div>
@@ -405,10 +423,10 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <p style="font-size:.85rem;color:var(--gray);margin-top:10px">Nothing is saved, so write your three down somewhere before you close the tab. That is the point of them.</p>
   </div>
 
-  <h3 class="sub"><span>2.5</span> Calibration: the future that already arrived</h3>
+  <h3 class="sub" id="s2-5"><span>2.5</span> Calibration: the future that already arrived</h3>
   <p>Before the three futures, a calibration exercise: some of what would have sounded like the future on Day 1 is already here, and it's worth seeing how the five questions handle things that recently didn't exist.</p>
-  <p><strong>AI in science.</strong> For fifty years, one of biology's hardest problems was predicting how a protein folds, the three-dimensional shape that determines what it does. Working it out for a single protein could take a doctoral student years. In 2020, a system from Google DeepMind called AlphaFold essentially solved the problem, and by 2024 the work had won <a class="inline" href="https://www.nobelprize.org/prizes/chemistry/2024/press-release/" target="_blank" rel="noopener">the Nobel Prize in Chemistry</a>, the first Nobel for a prediction system. Its structure database now covers essentially every known protein. This is Chapter 4's argument at planetary scale: prediction mining a record, then handing findings to humans who verify them in wet labs, which still takes years. Five questions, fast: predictive AI; humans firmly in the loop at verification; accountability with the labs that publish the follow-on claims; failures visible, because science has referees. Notice that the best-case AI story in the world passes every question cleanly, that's not a coincidence, and section 5 comes back to it.</p>
-  <p><strong>Agents in deployment.</strong> The agents of section 2 are not hypothetical: software companies now use AI systems that take a bug report, write the fix, run the tests, and open the change for human review; companies run agents on multi-step customer-service and back-office work; the "customer-service system" from Chapter 1's quiz is a product category. Run the questions: agentic; the human is <em>at the end</em> (the reviewer), which is the on-the-loop seat Chapter 7 warned about; accountability is contested, the company deploying, or the company that built the agent (Chapter 6's <em>Mobley</em> question, coming to every industry); failure visibility depends entirely on whether the reviewer actually reviews. The agent future is arriving through the middle seat.</p>
+  <p><strong>AI in science.</strong> For fifty years, one of biology's hardest problems was predicting how a protein folds, the three-dimensional shape that determines what it does. Working it out for a single protein could take a doctoral student years. In 2020, a system from Google DeepMind called AlphaFold essentially solved the problem, and by 2024 the work had won <a class="inline" href="https://www.nobelprize.org/prizes/chemistry/2024/press-release/" target="_blank" rel="noopener">the Nobel Prize in Chemistry</a>, the first Nobel for a prediction system. Its structure database now covers essentially every known protein. This is Chapter 4's argument at planetary scale: prediction mining a record, then handing findings to humans who verify them in wet labs, which still takes years. Five questions, fast: predictive AI; humans firmly in the loop at verification; accountability with the labs that publish the follow-on claims; failures visible, because science has referees. Notice that the best-case AI story in the world passes every question cleanly, that's not a coincidence, and <a class="inline" href="#s5">section 5</a> comes back to it.</p>
+  <p><strong>Agents in deployment.</strong> The agents of <a class="inline" href="#s2">section 2</a> are not hypothetical: software companies now use AI systems that take a bug report, write the fix, run the tests, and open the change for human review; companies run agents on multi-step customer-service and back-office work; the "customer-service system" from Chapter 1's quiz is a product category. Run the questions: agentic; the human is <em>at the end</em> (the reviewer), which is the on-the-loop seat Chapter 7 warned about; accountability is contested, the company deploying, or the company that built the agent (Chapter 6's <em>Mobley</em> question, coming to every industry); failure visibility depends entirely on whether the reviewer actually reviews. The agent future is arriving through the middle seat.</p>
   <p><strong>The physical world.</strong> Chapter 7's coverage map keeps expanding, more cities, more freeway miles, London next, and the same perception-prediction-planning stack is moving into warehouses, hospitals, and sidewalks. Embodied; human out of the loop by design; corporate accountability; failures filmed. The future here has a schedule, and the schedule is a permit calendar.</p>
   <p>What the calibration shows: things that would have read as science fiction in Week 1 turn out to be ordinary objects for the five questions. The ritual works on the future. That's the whole reason we practiced it eleven times.</p>
 
@@ -418,14 +436,14 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <details><summary>2. "If agents become reliable for week-long tasks, small firms will be able to do what mid-size firms do today, which would show up first in business-formation data."</summary><p>Scenario, a chain of mechanisms with a named signal at the end. Each link can be checked. This is the useful kind.</p></details>
     <details><summary>3. "The August dashboard shows the employment gap for young workers in AI-exposed jobs widened to 19%."</summary><p>Instrument reading, a measurement, dated. Trust it more than either of the above, and then argue about what caused it (Chapter 9).</p></details>
     <details><summary>4. "AI is going to change everything."</summary><p>Slogan. True, empty, and unfalsifiable. Chapter 1's rule: it asks you to feel, not look. Ask "which everything, by what mechanism, visible where?"</p></details>
-    <details><summary>5. "Insiders believe AI could kill everyone this decade."</summary><p>The hard one: it's a report about beliefs, not about AI. It's real evidence that serious people are afraid, and it's not evidence about the systems themselves. Read it as an instrument reading of the <em>people</em>, then go look at the specific claims underneath (section 3).</p></details>
+    <details><summary>5. "Insiders believe AI could kill everyone this decade."</summary><p>The hard one: it's a report about beliefs, not about AI. It's real evidence that serious people are afraid, and it's not evidence about the systems themselves. Read it as an instrument reading of the <em>people</em>, then go look at the specific claims underneath (<a class="inline" href="#s3">section 3</a>).</p></details>
   </div>
 
 </section>
 
 <section id="s3">
   <div class="shead"><span class="num">3</span><h2>The case: three published futures</h2></div>
-  <h3 class="sub"><span>Background</span> Three camps, all serious, all published, all in open disagreement</h3>
+  <h3 class="sub" id="s3-background"><span>Background</span> Three camps, all serious, all published, all in open disagreement</h3>
   <p>Now the futures that don't exist yet, presented as their authors would, with the mechanism each depends on and the instrument that would show it arriving. Three camps, all serious, all published, all in open disagreement.</p>
 
   
@@ -457,31 +475,31 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 
 
   <p><strong>The five critical AI questions, run on the system all three futures are about:</strong></p>
-  <h3 class="sub"><span>What this AI is, and how it works</span> Question 1: what is the AI system, and what does it do?</h3>
-  <p>All three kinds at once, chained: agentic systems that predict, generate, and act, pointed at their own successors. The loop from section 2.3 is the machine; the three futures are three guesses about how it runs. Our categories were built for systems with a human at one gate; this one, in the takeoff version, has none, and in the normal-technology version, has all the gates institutions usually put in the way.</p>
+  <h3 class="sub" id="s3-what-this-ai-is-and-how-it-w"><span>What this AI is, and how it works</span> Question 1: what is the AI system, and what does it do?</h3>
+  <p>All three kinds at once, chained: agentic systems that predict, generate, and act, pointed at their own successors. The loop from <a class="inline" href="#s2-3">section 2.3</a> is the machine; the three futures are three guesses about how it runs. Our categories were built for systems with a human at one gate; this one, in the takeoff version, has none, and in the normal-technology version, has all the gates institutions usually put in the way.</p>
 
-  <h3 class="sub"><span>Who benefits, and who doesn't</span> Question 2: why does it exist, and who benefits?</h3>
+  <h3 class="sub" id="s3-who-benefits-and-who-doesn-t"><span>Who benefits, and who doesn't</span> Question 2: why does it exist, and who benefits?</h3>
   <p>To build the next model faster than a rival can. Who benefits: the companies in the race, the countries that host them, and, if the flourishing story is right, everyone. Who doesn't: if the other story is right, no one, which is why the same executives argue both sides; and, in every version, the people who live through the transition without a say in it, which is most people.</p>
 
-  <h3 class="sub"><span>When it fails, who finds out</span> Question 3: what happens when it fails, and who finds out?</h3>
+  <h3 class="sub" id="s3-when-it-fails-who-finds-out"><span>When it fails, who finds out</span> Question 3: what happens when it fails, and who finds out?</h3>
   <p>The gravest failure mode in the book with the least visible failure: a senior safety researcher said, on the record, that there is no plan yet. The visibility rule at maximum stakes. What can see inside is a short list: indexes, regulators, whistleblowers, researchers who quit loudly. Chapter 8's inversion, applied to the labs themselves.</p>
 
-  <h3 class="sub"><span>Business implications</span> What this means for every company that isn't a lab</h3>
+  <h3 class="sub" id="s3-business-implications"><span>Business implications</span> What this means for every company that isn't a lab</h3>
   <p>Almost nobody reading this will decide whether recursive self-improvement gets built. Everybody reading this will decide, in some company, how to plan when three serious futures disagree. The scenario discipline is the business skill. Don't bet the company on one future; identify the instrument for each and the decision you'd make when it moves. If the intensive margin starts climbing, that's the signal to invest in redesign (Chapter 9). If verified shares of research work start going to agents, that's the signal that the fast future is arriving and your five-year plan is a two-year plan. If neither moves, the normal-technology future is the one you're in, and the winners are the firms that reorganized patiently. The cost of this approach is that it never lets you sound certain in a meeting. The cost of the alternative is being the company that bet on a headline.</p>
 
-  <h3 class="sub"><span>Societal implications</span> Question 4: who's saying that, and how would we know?</h3>
+  <h3 class="sub" id="s3-societal-implications"><span>Societal implications</span> Question 4: who's saying that, and how would we know?</h3>
 <p>Read all three with the skeptics' voice in the room, because it belongs there: some critics argue that extinction talk from insiders is a form of marketing, a way to advertise the power of the product to investors, especially ahead of enormous stock offerings, and others argue the fears are simply overblown, that intelligence doesn't automatically become power. Coxon's own reply was that the fear was not a marketing stunt, and that he heard the same fear expressed privately by people who softened it in public. You can't settle that from outside. What you <em>can</em> do, the skill, is notice that futures one and three share a mechanism and disagree about alignment, that future two disagrees with both about diffusion speed, and that each comes with an instrument. Three scenarios, three signals, one habit: watch.</p>
 
   <p>Every claim in this chapter is made by someone with a stake: the labs, the researchers who used to work at them, the governments racing, the critics selling books. You have eleven weeks of practice at this now. Which claims did you watch fail or come true this quarter?</p>
 
-  <h3 class="sub"><span>How to make it beneficial</span> Question 5: keep it, fix it, or drop it, and what does that cost?</h3>
+  <h3 class="sub" id="s3-how-to-make-it-beneficial"><span>How to make it beneficial</span> Question 5: keep it, fix it, or drop it, and what does that cost?</h3>
   <p>Keep, fix, or drop: not AI, which isn't yours to decide, but your own position. Your Day 1 answer and your answer now are the two ends of this course. Say what changed and what it cost you to change it. And notice what the three futures agree on, because they do agree on one thing: the difference between the good versions and the bad ones runs through whether humans keep looking, keep checking, and keep the power to refuse.</p>
   <div class="concept">
     <div class="term">How to keep it good</div>
     <p>Every good outcome in this book had the same cause: someone looked. <em>Keep</em> the instruments funded and public. <em>Fix</em> the visibility gap at the labs, which is what the Safety Index and whistleblower protections are for. <em>Drop</em> the habit of treating a confident prediction, in either direction, as information. The cost is living with uncertainty in public. The benefit is being the kind of society that notices when a future arrives.</p>
   </div>
 
-  <h3 class="sub"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
+  <h3 class="sub" id="s3-thinking-critically"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
   <div class="ticket">
     <div class="label">Thinking critically · for the last week of the course · one question each, answered by you, not by the chapter</div>
     <ol>

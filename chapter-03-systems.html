@@ -49,6 +49,14 @@ body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--i
 .contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
 .contents a{color:var(--ink);text-decoration:none;}
 .contents a:hover{color:var(--pinktext);}
+.contents .secs{border-top:1px solid var(--rule);margin-top:22px;padding-top:18px;}
+.contents ul.seclist{list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px;margin:0;}
+.contents ul.seclist li{counter-increment:none;padding:2px 0;}
+.contents ul.seclist li::before{content:none;margin:0;}
+.contents ul.seclist a{font-size:.92rem;}
+.contents ul.seclist a .sn{font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:7px;}
+.contents ul.seclist a:hover .sn{color:var(--ink);}
+section[id],h3.sub[id]{scroll-margin-top:68px;}
 section{padding:44px 0 8px;}
 .shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
 .shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
@@ -311,6 +319,17 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <li>Describe the pattern most organizations follow when they put generative AI into a product, and say why the first uses are narrow.</li>
 <li>Decide, with costs, what a recommendation system should be allowed to optimize for.</li>
   </ol>
+  <div class="secs">
+    <div class="label">Chapter sections</div>
+    <ul class="seclist">
+      <li><a href="#s1"><span class="sn">1</span>The first Wednesday in December</a></li>
+      <li><a href="#s2"><span class="sn">2</span>How recommendation systems actually work</a></li>
+      <li><a href="#s3"><span class="sn">3</span>The case: Spotify Wrapped as an AI system</a></li>
+      <li><a href="#s4"><span class="sn">4</span>Wrapped as a pattern: how organizations are putting generative AI to work</a></li>
+      <li><a href="#s5"><span class="sn">5</span>Decide: what should it optimize for?</a></li>
+      <li><a href="#s6"><span class="sn">6</span>Key terms</a></li>
+    </ul>
+  </div>
 </div>
 
 <section id="s1">
@@ -322,7 +341,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 
 <section id="s2">
   <div class="shead"><span class="num">2</span><h2>How recommendation systems actually work</h2></div>
-  <h3 class="sub"><span>2.1</span> Two ways to guess</h3>
+  <h3 class="sub" id="s2-1"><span>2.1</span> Two ways to guess</h3>
   <p>A recommendation system has one job: predict, out of everything it could show us, what we're most likely to want. Predictive AI, in Chapter 1's terms. There are two classic ways to make that guess.</p>
   <p>The first is <strong>collaborative filtering</strong>: people who liked what we liked also liked this. The system doesn't need to know anything about the music itself. It needs a huge table of who played what, and it looks for neighbors, listeners whose history overlaps with ours, and hands us what they played that we haven't. Spotify's early Discover Weekly worked largely this way, mining the playlists people built; the company has said its models learned from hundreds of millions of user-created playlists. It's powerful because it captures things nobody could write a rule for: that fans of one obscure band tend to like another, for reasons even the fans couldn't explain.</p>
   <p>The second is <strong>content-based filtering</strong>: this is similar to what we liked. Here the system looks at the thing itself. For music, that means audio features the model extracts from the sound (tempo, energy, timbre) plus text about the song from the wider web (reviews, blogs, playlist titles). If someone plays a lot of slow, acoustic, sad songs, it can find another one even if nobody in their listening neighborhood has heard it yet.</p>
@@ -388,7 +407,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <p class="toolnote">Nothing is saved, and nothing leaves your browser. Reload the page and the listener you built is gone.</p>
   </div>
 
-  <h3 class="sub"><span>2.2</span> The signals, and the taste profile</h3>
+  <h3 class="sub" id="s2-2"><span>2.2</span> The signals, and the taste profile</h3>
   <p>What counts as "liking" something? The system can't ask, so it watches. Spotify has been open about some of this: <a class="inline" href="https://newsroom.spotify.com/2025-12-05/wrapped-methodology-explained/" target="_blank" rel="noopener">a play counts as a listen after 30 seconds</a>, a skip before that is a negative signal, and saves, repeats, and adds to playlists count for more than a single stream. Skips matter enormously. A song that gets skipped early is a song the model learns to stop suggesting.</p>
   <p>All of that behavior gets compressed into a <strong>taste profile</strong>: a mathematical summary of a listener, a long list of numbers that places them near listeners and songs they're likely to enjoy and far from the ones they're not. Nobody sees their own. The system also learns that each of us is several people: the workout self, the studying self, the 1 a.m. self. Modern recommenders keep a few of these profiles and guess which one is listening from the time, the device, and the last song played.</p>
 
@@ -422,7 +441,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   </figure>
   <p>Run the five parts on this and the shape is clear. <strong>Data:</strong> every play, skip, and save, from each of us and from hundreds of millions of others. <strong>Model:</strong> the filters above, which turn the data into a taste profile and a ranking. <strong>Output:</strong> the next song, the Monday playlist, the top of the home screen. <strong>Feedback loop:</strong> what we do with the output becomes tomorrow's data. <strong>Humans:</strong> the listener, the data scientists who choose what the model rewards, and the people who make the music.</p>
 
-  <h3 class="sub"><span>2.3</span> The loop, and who it favors</h3>
+  <h3 class="sub" id="s2-3"><span>2.3</span> The loop, and who it favors</h3>
   <p>That feedback loop is where recommendation systems stop being neutral. The system shows us something; we play it or skip it; the model updates; it shows us more of what we played. Over months, it doesn't just learn our taste. It shapes it, because we can only like what we're shown. Engineers call the extreme version a filter bubble. A gentler word is drift: our recommendations get more like our recommendations.</p>
   <p>The loop also has a direction: it favors whoever already has data. A popular artist generates millions of signals, which puts them in more neighborhoods, which generates more plays, which generates more signals. A new artist, by definition, has few. That's the cold start problem with a paycheck attached. The system doesn't dislike new artists. It just can't see them, and invisibility on a platform where the algorithm drives a large share of listening is a business problem with a real dollar cost.</p>
   <p>Now add the part that isn't about the listener at all. Since 2020, Spotify has run <strong>Discovery Mode</strong>, a program in which artists and labels accept <a class="inline" href="https://www.theguardian.com/music/2025/feb/19/spotify-discovery-mode-payola-playlist" target="_blank" rel="noopener">a roughly 30 percent lower royalty</a> on certain streams in exchange for their songs being favored in algorithmic recommendations like Radio and Autoplay. There's no upfront fee; you pay in royalties. Members of Congress <a class="inline" href="https://hankjohnson.house.gov/media-center/press-releases/nadler-johnson-request-information-spotifys-discovery-mode-feature" target="_blank" rel="noopener">asked Spotify in 2020</a> whether this risked a race to the bottom, where the only way to get recommended is to accept less pay. Spotify says the program is one of thousands of signals and that its guide to recommendations discloses that commercial considerations can play a role. In November 2025, a listener <a class="inline" href="https://www.forbes.com/sites/conormurray/2025/11/05/spotify-hit-with-class-action-lawsuit-alleging-discovery-mode-is-a-pay-for-play-scheme/" target="_blank" rel="noopener">filed a class action</a> arguing that a service promising a personalized experience was steering her toward the same major-label tracks and not telling her which recommendations were paid. However that case ends, the point for this chapter is structural: the system is optimizing for more than one thing, and only one of them is the listener. Scroll back up to Mini-Recommender and switch on Discovery Mode, then run it again. One track moves. The ranking still reads as if it were about you, and the only way to see the thumb is a button the real app does not have.</p>
@@ -455,7 +474,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <p>Training a system to maximize a measurable stand-in for your attention: streams, minutes, sessions, return visits. What people get wrong: they think the algorithm prefers outrage, or major labels, or sad songs. It prefers nothing. It finds whatever holds people and whatever it's paid to favor, and it can't tell a listener who loves a song from one who just stopped skipping.</p>
   </div>
 
-  <h3 class="sub"><span>2.4</span> Where the LLM fits</h3>
+  <h3 class="sub" id="s2-4"><span>2.4</span> Where the LLM fits</h3>
   <p>Everything so far is predictive AI: a ranking. It never writes a sentence. But since 2024, systems like Spotify's have added a second kind of AI on top: a <strong>large language model</strong> that generates text, the same technology behind the chatbots in Chapter 1's transformer moment and in Chapter 2. The two do different jobs, and confusing them is the most common mistake people make about "the algorithm."</p>
   <p>Chapter 2 is the other half of this. The dial that tunes a chatbot toward sounding warm and attentive is the same dial, turned the same way, and here it is pointed at a paragraph about your year. A system that knows you and a system that seems to care about you are built from the same two pieces, which is why the two chapters share a lab. The recommender decides <em>what</em>. The language model decides <em>how to say it</em>. Spotify's AI DJ is the clearest example: a recommendation system picks the songs, and a language model writes the DJ's patter between them, read out in a cloned voice. Wrapped works the same way. The numbers come from counting. The paragraph about someone's July comes from a language model handed those numbers and told to write something warm. Each layer fails differently. The ranking can be wrong about what we want. The language model can be wrong about what happened: it can overstate, invent a detail, or say something true in a way that lands badly, and it does all of it fluently.</p>
   <div class="concept">
@@ -499,7 +518,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 
 <section id="s3">
   <div class="shead"><span class="num">3</span><h2>The case: Spotify Wrapped as an AI system</h2></div>
-  <h3 class="sub"><span>Background</span> From a top-tracks list to a story about you</h3>
+  <h3 class="sub" id="s3-background"><span>Background</span> From a top-tracks list to a story about you</h3>
   <p>Wrapped launched in 2016 as a list of your top tracks. By 2025 it was an animated story with <a class="inline" href="https://newsroom.spotify.com/2025-12-03/2025-wrapped-user-experience/" target="_blank" rel="noopener">nearly a dozen data stories</a>: minutes listened, top songs and artists, top albums for the first time, a "listening age" comparing your taste with your age group, and share cards built to be posted. Spotify publishes how it's made, which is rare and makes this case possible.</p>
   <p><strong>The data.</strong> Wrapped counts your listening <a class="inline" href="https://newsroom.spotify.com/2025-12-03/how-your-wrapped-is-made/" target="_blank" rel="noopener">from January to mid-November</a>. A listen is a play of more than 30 seconds. Listening in Private Mode counts toward your total minutes but doesn't shape your taste stories, which means the company keeps two versions of you: the one it counts and the one it tells stories about. To get a personalized Wrapped at all you need to have played at least 30 songs for more than 30 seconds and at least five artists. Everything Wrapped knows, the recommender already knew; Wrapped is that year of data, read back to you.</p>
   <p><strong>The model, in two layers.</strong> The predictive layer is the counting and ranking: top songs by number of listens, one stream is one listen whether the song is three minutes or ten, and Spotify's data scientists <a class="inline" href="https://newsroom.spotify.com/2025-12-05/wrapped-methodology-explained/" target="_blank" rel="noopener">say they spend the year testing which ranking methods</a> feel most like the listener. The generative layer is new. For 2025's "Listening Archive," Spotify's engineers <a class="inline" href="https://engineering.atspotify.com/2026/3/inside-the-archive-2025-wrapped" target="_blank" rel="noopener">used a set of priority-ordered rules</a> to pick up to five remarkable days from your year (a day you binged an album, a day your listening spiked), and then handed each day's details to a language model to write a short summary. By the company's own account the system pre-generated <a class="inline" href="https://www.infoq.com/news/2026/04/spotify-wrapped-privacy/" target="_blank" rel="noopener">about 1.4 billion reports for roughly 350 million users</a>. That's an LLM writing a paragraph about you, at a scale no editor could ever check.</p>
@@ -533,22 +552,22 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <p><strong>The humans.</strong> You, choosing what to post. The data scientists, choosing what a "listen" means and which days are "remarkable." And the year it went wrong, the humans who trusted a model to speak for them. In 2024, Wrapped added an <a class="inline" href="https://techcrunch.com/2024/12/04/spotify-wrapped-2024-adds-an-ai-podcast-powered-by-googles-notebooklm" target="_blank" rel="noopener">AI-generated podcast</a> built with Google's NotebookLM, two synthetic hosts chatting about your year. It was <a class="inline" href="https://www.fastcompany.com/91451332/spotify-wrapped-2025-goes-analog-in-the-age-of-ai" target="_blank" rel="noopener">broadly panned</a>; critics called the whole launch AI slop, and the company got the message. The 2025 edition <a class="inline" href="https://www.fastcompany.com/91451332/spotify-wrapped-2025-goes-analog-in-the-age-of-ai" target="_blank" rel="noopener">went analog on purpose</a>, styled like mixtapes and scrapbooks, and kept its language model in the background, writing a few sentences per day rather than performing. Same technology, different design decision, opposite reaction.</p>
 
   <p><strong>The five critical AI questions, run on this case:</strong></p>
-  <h3 class="sub"><span>What this AI is, and how it works</span> Question 1: what is the AI system, and what does it do?</h3>
+  <h3 class="sub" id="s3-what-this-ai-is-and-how-it-w"><span>What this AI is, and how it works</span> Question 1: what is the AI system, and what does it do?</h3>
   <p>Two layers. A predictive system that counts and ranks a year of listening, and a generative system that writes about it. It turns your data into a story you'll share, which turns your friends into December listeners. Name both layers, because they fail differently.</p>
 
-  <h3 class="sub"><span>Who benefits, and who doesn't</span> Question 2: why does it exist, and who benefits?</h3>
-  <p>Officially, so you can see yourself in your sound. Commercially, because it's the most effective marketing Spotify has ever built and it costs the company almost nothing but compute. You benefit, and people like it, which is real. Artists benefit from the exposure. Spotify benefits most: attention, sign-ups, and a fresh reason to keep a year of your listening data, which is also the fuel for everything in section 2. The benefit and the cost run on the same data.</p>
+  <h3 class="sub" id="s3-who-benefits-and-who-doesn-t"><span>Who benefits, and who doesn't</span> Question 2: why does it exist, and who benefits?</h3>
+  <p>Officially, so you can see yourself in your sound. Commercially, because it's the most effective marketing Spotify has ever built and it costs the company almost nothing but compute. You benefit, and people like it, which is real. Artists benefit from the exposure. Spotify benefits most: attention, sign-ups, and a fresh reason to keep a year of your listening data, which is also the fuel for everything in <a class="inline" href="#s2">section 2</a>. The benefit and the cost run on the same data.</p>
   <p>Who doesn't benefit: artists outside the neighborhoods the recommender already favors, who never make it into anyone's Wrapped; listeners whose "taste" was partly paid promotion, read back to them as if it were theirs; and anyone whose remarkable day the language model describes wrong.</p>
 
-  <h3 class="sub"><span>When it fails, who finds out</span> Question 3: what happens when it fails, and who finds out?</h3>
+  <h3 class="sub" id="s3-when-it-fails-who-finds-out"><span>When it fails, who finds out</span> Question 3: what happens when it fails, and who finds out?</h3>
   <p>The predictive layer fails quietly: a ranking that feels wrong, a top artist you'd rather not admit to. You find out, and you shrug. The generative layer fails loudly, because it speaks. A language model writing 1.4 billion paragraphs will get some wrong, and some right in ways that hurt: the day you listened to one song on repeat was a funeral, not a vibe. Spotify's engineers describe safety loops and testing for exactly this; the scale is why it's hard. And the 2024 podcast failed in public, which is the visible kind of failure that gets fixed fast. The failure nobody sees is the loop: a year of taste shaped by recommendations, some of them paid, read back to you as if it were all you.</p>
 
-  <h3 class="sub"><span>Business implications</span> What this means for anyone building a "your year" feature</h3>
+  <h3 class="sub" id="s3-business-implications"><span>Business implications</span> What this means for anyone building a "your year" feature</h3>
   <p>Wrapped is the most copied feature in consumer software, and every copy makes the same two decisions Spotify made. First, what data you keep: a year-in-review needs a year of behavior, so shipping one means deciding to retain it, and retention is a liability as well as an asset. Second, what the generative layer is allowed to do: describe facts the system already counted, or interpret the person. The first is cheap to check and hard to get badly wrong; the second is where a warm sentence becomes a wrong one at scale. There's a third decision most companies skip, and it's the one the Discovery Mode lawsuit is about: whether anything commercially boosted is labeled as such inside a feature sold as personal. The costs of doing these well are engineering time, a smaller, plainer feature, and a harder conversation with whoever pays for placement. The cost of doing them badly, in 2024, was a launch that got called slop in public.</p>
-  <h3 class="sub"><span>Societal implications</span> Question 4: who's saying that, and how would we know?</h3>
+  <h3 class="sub" id="s3-societal-implications"><span>Societal implications</span> Question 4: who's saying that, and how would we know?</h3>
   <p>"Wrapped is your year" is Spotify's framing, and it's mostly true, with exclusions the company documents. "Personalized" is also Spotify's word, and the Discovery Mode lawsuit is a fight over whether it's entirely true. "AI slop" was the critics' verdict on 2024, and the company's response tells you it took the claim seriously. How would we know if Wrapped is accurate? Spotify publishes its methodology, which is more than most systems offer. How would we know how much of your taste was steered? That's the number nobody publishes.</p>
 
-  <h3 class="sub"><span>How to keep it beneficial</span> Question 5: keep it, fix it, or drop it, and what does that cost?</h3>
+  <h3 class="sub" id="s3-how-to-keep-it-beneficial"><span>How to keep it beneficial</span> Question 5: keep it, fix it, or drop it, and what does that cost?</h3>
   <ul class="decide">
     <li><strong>Keep it:</strong> people like Wrapped, it's transparent about its methods, and 2025 showed the company can learn from a bad year. The cost: it normalizes keeping a year of your behavior, and it keeps working as marketing whether or not you think of it that way.</li>
     <li><strong>Fix it:</strong> label which recommendations were commercially boosted, let people see and edit the taste profile Wrapped is built from, and keep the language model to short, checkable facts. The cost: less magic, fewer surprises, and a harder conversation with the labels who pay for Discovery Mode.</li>
@@ -559,11 +578,11 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <div class="term">How to make it good</div>
     <p>Wrapped is close to a good version already, which is why it's worth studying. <em>Keep</em> the published methodology and the human-checked exclusions. <em>Fix</em> the part the fun hides: show people the profile the system has built, mark what was paid promotion, and let the language model describe rather than interpret. <em>Drop</em> any generated line the system can't trace to a fact in the data. The cost of all three is a slightly less flattering mirror. The benefit is a mirror you can trust.</p>
   </div>
-  <h3 class="sub"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
+  <h3 class="sub" id="s3-thinking-critically"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
   <div class="ticket">
     <div class="label">Thinking critically · for Wednesday's discussion · one question each, answered by you, not by the chapter</div>
     <ol>
-      <li><strong>Q1 · What is it, and what does it do?</strong> Pick one recommendation you got this week, from any app, and take it apart the way section 2 does: was it more likely collaborative (people like you) or content-based (things like that), and which layer, predictive or generative, produced what you saw on the screen?</li>
+      <li><strong>Q1 · What is it, and what does it do?</strong> Pick one recommendation you got this week, from any app, and take it apart the way <a class="inline" href="#s2">section 2</a> does: was it more likely collaborative (people like you) or content-based (things like that), and which layer, predictive or generative, produced what you saw on the screen?</li>
       <li><strong>Q2 · Why does it exist, and who benefits?</strong> Wrapped is marketing that feels like a gift. Name who benefits from your posting it, in order, and then name one artist or one listener who doesn't, using the Discovery Mode fight or the cold-start problem.</li>
       <li><strong>Q3 · What happens when it fails, and who finds out?</strong> Your Wrapped says you had a "remarkable day" in March and describes it warmly, but the description is slightly off. Which layer failed, and how would Spotify ever find out at 1.4 billion reports? Then name a failure of the recommender itself that nobody would ever report.</li>
       <li><strong>Q4 · Who's saying that, and how would we know?</strong> Discovery Mode lets artists pay in royalties for a boost, and Spotify says it discloses that commercial considerations play a role. Is that different from radio payola, which was outlawed? Say who's making each claim, what they gain, and what evidence would settle it.</li>
