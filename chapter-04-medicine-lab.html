@@ -85,6 +85,9 @@ h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0
 .ticket ol{padding-left:20px;}
 .ticket li{margin-bottom:14px;line-height:1.65;}
 .ticket li:last-child{margin-bottom:0;}
+ol.writeup{padding-left:22px;margin:14px 0 26px;}
+ol.writeup li{margin-bottom:14px;line-height:1.65;}
+ol.writeup li:last-child{margin-bottom:0;}
 .steps{margin:26px 0;}
 .step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
 .step:last-child{border-bottom:none;}
@@ -374,13 +377,17 @@ ul.ideas li{margin:8px 0}
 
 <main class="wrap">
 <div class="callout">
+  <div class="label">How today runs</div>
+  <p>Almost all of this lab happens in class, right now, at the machine in front of you. Work through the sections in order. At the end there are five questions to upload to Canvas by 11:59 p.m. Friday, and most people finish most of them before they leave, so answer them as you go rather than saving them for later.</p>
+</div>
+<div class="callout">
   <div class="label">From Chapter 4 · what this lab runs on</div>
   <p>The graph you'll click through is section 2.2's knowledge graph, the record turned into connections. Every score you see is a claim about the record, not a verdict about a patient (2.5). When you rewind history and watch a cure vanish, you're watching section 2.3's gap: the system can only find what someone bothered to write down. Your decisions are the analyst's, not the doctor's, which is where the chapter says the human belongs.</p>
 </div>
 
 
 <section id="today">
-  <div class="shead"><span class="num">1</span><h2>Today, and what you're working with</h2></div>
+  <div class="shead"><span class="num">1</span><h2>In class: Today, and what you're working with</h2></div>
   <div class="callout">
     <div class="label">The plan · 110 minutes</div>
     <ul class="plan">
@@ -397,7 +404,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section id="graph">
-  <div class="shead"><span class="num">2</span><h2>Part 1: run the graph · 35 minutes</h2></div>
+  <div class="shead"><span class="num">2</span><h2>In class: Part 1, run the graph · 35 minutes</h2></div>
 
     <p><strong>What you are working with.</strong> Below is Mini-MATRIX: seven drugs on the left, eight pieces of biology in the middle, seven diseases on the right, and every line a piece of published research. Each disease shows how many studies stand behind it. Pick a disease and every drug gets scored against it; the paths behind the top drug light up. Your job is in the panel: four diseases, four decisions.</p>
   <div class="tool" id="kg">
@@ -461,7 +468,7 @@ ul.ideas li{margin:8px 0}
   </section>
 
 <section id="gate">
-  <div class="shead"><span class="num">3</span><h2>Part 2: set the gate · 30 minutes</h2></div>
+  <div class="shead"><span class="num">3</span><h2>In class: Part 2, set the gate · 30 minutes</h2></div>
   <p class="lead">New desk. You run the AI program at a hospital, and four tasks need a setting. For each, put the doctor <strong>in</strong> the loop, <strong>on</strong> it, or <strong>out</strong> of it. Each card links the real study or case behind it. Read the evidence before you decide, and remember that in the loop is the expensive setting: a person touches every case.</p>
   <div class="steps">
     <div class="step"><span class="sn">1</span><p><strong>Decide, with the evidence open.</strong> For each card, click the evidence link, read what was actually tested, then choose in, on, or out. Decide as a pair. When all four are set, press <em>Run the year</em>.</p></div>
@@ -497,12 +504,12 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">4</span><h2>Inside the machine: how a knowledge graph scores a drug</h2></div>
+  <div class="shead"><span class="num">4</span><h2>In class: Inside the machine, how a knowledge graph scores a drug</h2></div>
   <p>The graph you clicked is a small version of Chapter 4's section 2.2, and the score next to each drug came from a rule you can state in a sentence: count the paths from this drug to this disease, weight each path by how strong its links are, and add. A drug that reaches the disease through a protein that many papers connect to it scores high. A drug that reaches it through one weak paper scores low. There's no biology in the machine, only a record of biology and the paths through it. That's why the rewind button is the lesson: erase the papers and the paths vanish, and so does the score, and so does the cure.</p><p>The real system, Every Cure's MATRIX, scores every approved drug against every disease the same way, at a scale no person could read, and then does the thing your gate in Part 2 did: hands a ranked list to a human who decides which ones are worth a trial. The score is a claim about the record (2.5). The gate is where the chapter puts the human, and Part 2 let you feel why moving it in either direction costs something.</p>
 </section>
 
 <section>
-  <div class="shead"><span class="num">5</span><h2>The question: who should pay for the cures nobody profits from?</h2></div>
+  <div class="shead"><span class="num">5</span><h2>In class: Who should pay for the cures nobody profits from?</h2></div>
   <div class="callout">
     <div class="label">Debate · in class, about 20 minutes · sides assigned, speak for one, then switch</div>
     <p><strong>How it runs, every week.</strong> Sides are assigned, not chosen, so you're never defending your own belief. Two minutes with your partner to find your side's best point and its honest cost. Three minutes a side. Then everyone switches and does it again. Last five minutes: what would change your mind? Say it out loud. The person who names the evidence that would move them wins, whichever side they were on.</p>
@@ -511,7 +518,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section id="room">
-  <div class="shead"><span class="num">6</span><h2>The room · 10 minutes</h2></div>
+  <div class="shead"><span class="num">6</span><h2>In class: The room · 10 minutes</h2></div>
   <p class="lead">One question to close, everyone in.</p>
   <div class="callout">
     <div class="label">Who has to notice</div>
@@ -520,7 +527,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section id="fiveq">
-  <div class="shead"><span class="num">7</span><h2>Run the five questions on your own choices · 10 minutes</h2></div>
+  <div class="shead"><span class="num">7</span><h2>In class: Run the five questions on your own choices · 10 minutes</h2></div>
   <p>Not on MATRIX in general. On the scores you weighed and the four settings you chose.</p>
   <div class="fourq">
     <div class="q"><span class="qn">1</span><p><strong>What is the AI system, and what does it do?</strong> Name the two you ran today and their kind. For the graph, run the five parts: the data (and what it leaves out), the model, the output, the feedback loop (what would happen to the graph if someone studied ROHHAD), and the humans (you).</p></div>
@@ -532,23 +539,22 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section id="writeup">
-  <div class="shead"><span class="num">8</span><h2>The writeup (for homework)</h2></div>
-    <div class="callout">
-    <div class="label">Using AI on this writeup</div>
-    <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
-    <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
-    <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
-  </div>
-<div class="ticket">
-    <div class="label">Due Friday, 11:59 p.m. · post to Canvas · no screenshots, written reflections · your Part 1 and Part 2 answers are items 1 and 2</div>
-    <ol>
+  <div class="shead"><span class="num">8</span><h2>For homework: The writeup</h2></div>
+    <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday.</strong> Written reflections, no screenshots. Your Part 1 and Part 2 answers are items 1 and 2.</p>
+  <ol class="writeup">
       <li><b>Part 1.</b> Your submission answer: which match you'd send, why the higher number doesn't automatically win, and what the ROHHAD zeros mean.</li>
       <li><b>Part 2.</b> Your submission answer: the four settings, what each card's evidence supports, which settings no trial tested, and the 2 a.m. sentence.</li>
       <li><b>After the room.</b> The one setting you'd change after hearing the discussion, and why.</li>
       <li><b>Joseph.</b> Your letter from decision 4: (a), (b), or (c), and one sentence on what the doctors would still have to decide that no score can decide for them.</li>
       <li><b>Your commitment card.</b> For which one medical task would you accept a person out of the loop, what would you need to see first, and who answers when it's wrong? Three sentences. Chapter 7 asks this again about a car.</li>
     </ol>
+  <div class="callout">
+    <div class="label">Using AI on this writeup</div>
+    <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
+    <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
+    <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
   </div>
+
   <details class="srcnote">
     <summary>Sources &amp; what's simulated</summary>
     <p>The sirolimus path, POEMS's resemblance to Castleman disease and multiple myeloma, the three highly ranked myeloma drugs, and Joseph's case are from Chapter 4 and Penn Medicine's film. Propranolol for infantile hemangioma is a documented repurposing (2008). ROHHAD's nine published studies and migraine's 12,000 follow the chapter's worked example; all other study counts, weights, scores are simulated. Tessolin*, Corvanol*, Brivamide*, and Kessler-Lund syndrome* are invented. Real gate cards: MASAI (The Lancet Digital Health, February 2025); the 74 / 76 / 90 diagnostic reasoning scores (Goh et al., JAMA Network Open, October 2024, as reported in the JAMA viewpoint of August 2026); the Oxford patient-description finding as described in Robert Wachter's August 27, 2026 reply; PROMETHEUS (NEJM AI, 2025); Every Cure's human review of matches, as Fajgenbaum describes it in the film.</p>

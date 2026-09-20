@@ -85,6 +85,9 @@ h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0
 .ticket ol{padding-left:20px;}
 .ticket li{margin-bottom:14px;line-height:1.65;}
 .ticket li:last-child{margin-bottom:0;}
+ol.writeup{padding-left:22px;margin:14px 0 26px;}
+ol.writeup li{margin-bottom:14px;line-height:1.65;}
+ol.writeup li:last-child{margin-bottom:0;}
 .steps{margin:26px 0;}
 .step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
 .step:last-child{border-bottom:none;}
@@ -249,19 +252,23 @@ ul.ideas li{margin:8px 0}
 
 <main class="wrap">
 <div class="callout">
+  <div class="label">How today runs</div>
+  <p>Almost all of this lab happens in class, right now, at the machine in front of you. Work through the sections in order. At the end there are five questions to upload to Canvas by 11:59 p.m. Friday, and most people finish most of them before they leave, so answer them as you go rather than saving them for later.</p>
+</div>
+<div class="callout">
   <div class="label">From Chapter 6 · what this lab runs on</div>
   <p>This is section 2.7's matched pair, run for real: two applications identical except for one signal, through a live screener. If the scores move, the signal is a proxy (2.3), and you've found what the model reads without opening it. The pooled tally at the end is the class's version of the four-fifths rule. Your result is an anecdote, not a finding, and the chapter's audit section explains why that distinction matters.</p>
 </div>
 
 
 <section>
-  <div class="shead"><span class="num">1</span><h2>The method: the audit study</h2></div>
+  <div class="shead"><span class="num">1</span><h2>In class: The method, the audit study</h2></div>
   <p class="lead">In 2004, economists Marianne Bertrand and Sendhil Mullainathan mailed nearly 5,000 fictitious résumés to real job openings, identical qualifications, but half signed with names like Emily and Greg, half with names like Lakisha and Jamal. The white-sounding names received <a class="inline" href="https://www.nber.org/papers/w9873" target="_blank" rel="noopener">about 50% more callbacks</a>. That design, change one signal, hold everything else constant, measure the difference, is called an <strong>audit study</strong>, and it's the single most powerful tool ever built for catching discrimination that no one will admit to and no one may even intend.</p>
   <p>Today you run a miniature one on an AI screener. One honest disclosure before you start: real audits need thousands of trials; you'll run a handful. Your result will be an <em>anecdote</em>, not a finding, and learning exactly why that distinction matters is half of what this lab teaches. The method is the science. The sample size is the difference between science and a story.</p>
 </section>
 
 <section>
-  <div class="shead"><span class="num">2</span><h2>Build your audit</h2></div>
+  <div class="shead"><span class="num">2</span><h2>In class: Build your audit</h2></div>
   <p>Below is a job posting and a base résumé for a fictional candidate. Choose <strong>one variable to test</strong>, the lab will generate two versions of the résumé, identical except for that single signal, wrapped in a screening prompt you'll paste into a live AI.</p>
   <div class="callout">
     <div class="label">The protocol · this part is the experiment, don't improvise it</div>
@@ -293,7 +300,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">3</span><h2>Read the results like a researcher</h2></div>
+  <div class="shead"><span class="num">3</span><h2>In class: Read the results like a researcher</h2></div>
   <div class="tool">
     <div class="label">The scorecard · enter the AI's 1–100 ratings</div>
     <div class="chips" style="align-items:center;gap:14px;">
@@ -314,12 +321,12 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">4</span><h2>Inside the machine: what the screener did with your two résumés</h2></div>
+  <div class="shead"><span class="num">4</span><h2>In class: Inside the machine, what the screener did with your two résumés</h2></div>
   <p>The screener you tested is a language model asked to rank, which means it's Chapter 6's classifier (2.1) built from Chapter 2's parts. It read both résumés as text, and the pattern it learned from the internet's hiring language, job posts, advice columns, decades of résumés and the comments about them, told it which words tend to appear near "strong candidate." If your one changed signal moved the score, that's a proxy (2.3) in action: nothing in your instructions mentioned age or gender, and the model found a stand-in anyway, because the training text carried it. That's the objectivity trap (2.2): the model was perfectly consistent, and consistently wrong about the same people.</p><p>Notice what you didn't need. You never saw the model's weights, its training data, or its rules. Two applications and a comparison were enough, which is the whole argument of the chapter's audit section (2.7): you can test a classifier from the outside, and a vendor who says "proprietary" is refusing a test that doesn't require opening anything. Your handful of trials is an anecdote. Two thousand of them, run by the class over the term, would be a study.</p>
 </section>
 
 <section>
-  <div class="shead"><span class="num">5</span><h2>The question: should hiring get a right to an explanation?</h2></div>
+  <div class="shead"><span class="num">5</span><h2>In class: Should hiring get a right to an explanation?</h2></div>
   <div class="callout">
     <div class="label">Debate · in class, about 20 minutes · sides assigned, speak for one, then switch</div>
     <p><strong>How it runs, every week.</strong> Sides are assigned, not chosen, so you're never defending your own belief. Two minutes with your partner to find your side's best point and its honest cost. Three minutes a side. Then everyone switches and does it again. Last five minutes: what would change your mind? Say it out loud. The person who names the evidence that would move them wins, whichever side they were on.</p>
@@ -328,7 +335,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">6</span><h2>Talk it out</h2></div>
+  <div class="shead"><span class="num">6</span><h2>In class: Talk it out</h2></div>
   <p class="lead">Groups of four, then the room. Bring what you just saw on your own screen.</p>
   <div class="callout">
     <div class="label">Discussion questions · about 15 minutes</div>
@@ -340,7 +347,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">7</span><h2>Run the five questions</h2></div>
+  <div class="shead"><span class="num">7</span><h2>In class: Run the five questions</h2></div>
   <div class="fourq">
     <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> You just used a generative chatbot as a predictive classifier. Real screeners are purpose-built; name one way your test might understate the problem and one way it might overstate it.</p></div>
     <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> Who benefits from a screener that ranks your two résumés differently? Name the party for whom that difference is a feature, not a bug.</p></div>
@@ -351,23 +358,22 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">8</span><h2>The writeup</h2></div>
-    <div class="callout">
-    <div class="label">Using AI on this writeup</div>
-    <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
-    <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
-    <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
-  </div>
-<div class="ticket">
-    <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
-    <ol>
+  <div class="shead"><span class="num">8</span><h2>For homework: The writeup</h2></div>
+    <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday.</strong></p>
+  <ol class="writeup">
       <li><strong>The audit.</strong> Your variable, both scores (screenshots of the AI's full responses), and the lab's gap analysis.</li>
       <li><strong>The reasoning.</strong> The most telling difference, or the most telling <em>sameness</em>, between the two reasoning paragraphs, quoted.</li>
       <li><strong>The epistemics.</strong> In your own words: why your single result proves almost nothing, why the class tally proves more, and what it would take to actually establish whether this model discriminates on your variable. (This question is the lab.)</li>
       <li><strong>The five questions.</strong> Your answers, including your accountability ranking.</li>
       <li><strong>Your move.</strong> The proxy you found in your own résumé in Monday's discussion questions: will you change it, keep it, or keep it and know it? One sentence of reasoning, that's Wednesday's commitment card, and unlike most of them, this one you can act on before Friday.</li>
     </ol>
+  <div class="callout">
+    <div class="label">Using AI on this writeup</div>
+    <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
+    <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
+    <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
   </div>
+
 </section>
 
 <div class="nextbar">

@@ -12,7 +12,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab 5 · The Footprint Machine — Intro to AI in Business | MIS 201</title>
+<title>Lab 5 · The Footprint Machine · Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -85,6 +85,9 @@ h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0
 .ticket ol{padding-left:20px;}
 .ticket li{margin-bottom:14px;line-height:1.65;}
 .ticket li:last-child{margin-bottom:0;}
+ol.writeup{padding-left:22px;margin:14px 0 26px;}
+ol.writeup li{margin-bottom:14px;line-height:1.65;}
+ol.writeup li:last-child{margin-bottom:0;}
 .steps{margin:26px 0;}
 .step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
 .step:last-child{border-bottom:none;}
@@ -473,22 +476,21 @@ ul.ideas li{margin:8px 0}
 
 <section id="writeup">
   <div class="shead"><span class="num">10</span><h2>The writeup</h2></div>
-    <div class="callout">
-    <div class="label">Using AI on this writeup</div>
-    <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
-    <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
-    <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
-  </div>
-<div class="ticket">
-    <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
-    <ol>
+    <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday.</strong></p>
+  <ol class="writeup">
       <li><b>Your day.</b> A screenshot of your chart, your biggest bar, and what the "count" switch did to the comparison, in three sentences.</li>
       <li><b>Your defaults.</b> A screenshot of Parla, the default you'd change first, and your CFO decision with its cost.</li>
       <li><b>The report.</b> The heavy share where Helio's headline moved, what the total was doing before then, and your question for Helio.</li>
       <li><b>The machine.</b> The line from your transcript where knowing became guessing, and what that says about the disclosure gap.</li>
       <li><b>Your commitment card.</b> Two commitments: one habit you'll actually keep, and one number you'd demand from any AI company on the record.</li>
     </ol>
+  <div class="callout">
+    <div class="label">Using AI on this writeup</div>
+    <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
+    <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
+    <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
   </div>
+
   <details class="srcnote">
     <summary>Sources &amp; what's simulated</summary>
     <p>Streaming: 77 Wh per hour including devices, networks, and data centers, with data centers about 5 percent (about 3.9 Wh) and 36 gCO2 per hour, from George Kamiya, "The carbon footprint of streaming video: fact-checking the headlines," IEA, December 2020 (2019 estimates); short-video scrolling uses the same commentary's phone-on-WiFi scenario, 37 Wh per hour, and ignores recommendation computing. Grams use the 0.47 gCO2 per Wh implied by the IEA's 2019 figures. AI text prompts: 0.05, 0.3, and 1.2 Wh for small, medium, and large models, the same constants as Lab 1 and consistent with Chapter 5 (Google's 0.24 Wh median, Epoch AI's 0.3 Wh estimate). Reasoning: a 30x multiplier, the AI Energy Score average reported by Ebert, Gamazaychikov, Hacker, and Luccioni (2026). Images (2,282 J, about 0.63 Wh) and five-second videos (3.4 MJ, about 944 Wh) are from MIT Technology Review, May 2025. The uncertainty bands (one-third to three times for AI figures, half to double for streaming) are illustrative, not measured. Parla, Helio AI, their user counts, request mixes, automatic-summary counts, electricity price ($0.08 per kWh), quality scores, and emissions are fictional; Helio's scope pattern is modeled on Microsoft's 2024 report as described in Chapter 5. The household comparison uses about 10,800 kWh per US home per year, as in Chapter 5.</p>
