@@ -85,6 +85,9 @@ h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0
 .ticket ol{padding-left:20px;}
 .ticket li{margin-bottom:14px;line-height:1.65;}
 .ticket li:last-child{margin-bottom:0;}
+ol.writeup{padding-left:22px;margin:14px 0 26px;}
+ol.writeup li{margin-bottom:14px;line-height:1.65;}
+ol.writeup li:last-child{margin-bottom:0;}
 .steps{margin:26px 0;}
 .step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);}
 .step:last-child{border-bottom:none;}
@@ -277,6 +280,7 @@ ul.ideas li{margin:8px 0}
 <main class="wrap">
 <div class="callout">
   <div class="label">From Chapter 1 · what this lab runs on</div>
+  <p><strong>How today runs.</strong> Almost all of this lab happens in class, right now, with your laptop open. Work through the sections in order. At the end there are five questions to upload to Canvas by 11:59 p.m. Friday, and most people finish most of them before they leave, so answer them as you go rather than saving them for later.</p>
   <p>You'll train two tiny AIs today. Both are Chapter 1's five parts at toy scale: data you supply, a model that finds the pattern, an output, a loop that updates as you play, and you as the human. The tic-tac-toe player is also section 2.7's agent loop in miniature: a goal, a move, a result, a nudge. Watch for the moment each one fails, because that's Question 3 arriving in a game.</p>
 </div>
 
@@ -412,7 +416,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">5</span><h2>Talk it out</h2></div>
+  <div class="shead"><span class="num">5</span><h2>In class: Talk it out</h2></div>
   <p class="lead">Groups of four, then the room. Bring what you just saw on your own screen.</p>
   <div class="callout">
     <div class="label">Discussion questions · about 20 minutes</div>
@@ -424,7 +428,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">6</span><h2>Run the five questions on your own AI</h2></div>
+  <div class="shead"><span class="num">6</span><h2>In class: Run the five questions on your own AI</h2></div>
   <p>Now turn the questions on Mini-ImageNet, the drawing AI you trained in section 1. Pairs, about ten minutes.</p>
   <div class="fourq">
     <div class="q"><span class="qn">1</span><p><strong>What is the AI system, and what does it do?</strong> What kind is it? Name its five parts: the data (your drawings), the model (the colored grid), the output, the feedback loop, and the humans (you).</p></div>
@@ -437,21 +441,19 @@ ul.ideas li{margin:8px 0}
 
 <section>
   <div class="shead"><span class="num">7</span><h2>The writeup (for homework)</h2></div>
-  <div class="callout">
-    <div class="label">Using AI on this writeup</div>
-    <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
-    <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
-    <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
-  </div>
-  <div class="ticket">
-    <div class="label">Five items &middot; due Friday, 11:59 p.m. &middot; post to Canvas</div>
-    <ol>
+  <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday.</strong> Answer them as you go today.</p>
+  <ol class="writeup">
       <li><strong>Mini-ImageNet.</strong> One thing it got right, one thing it got wrong, and why, in terms of the data you gave it.</li>
       <li><strong>Mini-AlphaGo.</strong> Did it beat you after practice? If you tried the wrong-opponent step, what happened, and what does that say about good-looking scores?</li>
       <li><strong>The talk.</strong> Your answer to one of the questions from section 5, Talk it out, in your own words.</li>
       <li><strong>Your own AI.</strong> Your answers to two of the five questions from section 6.</li>
       <li><strong>Your commitment card.</strong> One AI system you use every week: keep it, fix it, or drop it, and what that costs you. One sentence, and make it one you'll actually keep. Next Wednesday's lab asks what happened.</li>
-    </ol>
+  </ol>
+  <div class="callout">
+    <div class="label">Using AI on this writeup</div>
+    <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
+    <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
+    <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
   </div>
 </section>
 
