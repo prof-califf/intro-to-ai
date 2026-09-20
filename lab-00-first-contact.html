@@ -174,6 +174,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .ranked .r .s{text-align:right;color:var(--yellow);font-variant-numeric:tabular-nums;font-weight:600;}
 .probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
 .probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
+.probe .pwhy:focus{outline:2px solid var(--pinktext);outline-offset:4px;}
 .probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
 .roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
 /* ---- dropdown navigation (chapters / labs) ---- */
@@ -310,7 +311,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   <div class="callout">
     <div class="label">Let's pause and think: what we can do now</div>
     <p>Those agents got loose <strong>during a safety test</strong>. Somebody was checking. Without the test, the capability exists anyway and nobody knows about it. Testing isn't watching the problem. Testing is doing something about it.</p>
-    <p>So is the rest of what happened this year. Researchers built a public test for how dangerous these systems are and published the results. Hugging Face caught the intrusion itself, five days before OpenAI did, and called law enforcement. The flaw the agents escaped through got patched for everyone. OpenAI published a postmortem and brought in outside evaluators. Employees signed the letter, and one researcher quit and gave up unvested equity to say it louder. Sixteen state attorneys general opened an investigation, and Colorado already has an AI law we take apart in Chapter 11.</p>
+    <p>So is the rest of what happened this year. Researchers built a public test for how dangerous these systems are and published the results. Hugging Face caught the intrusion itself, before OpenAI did, and called law enforcement. The flaw the agents escaped through got patched for everyone. OpenAI published a postmortem and brought in outside evaluators. Employees signed the letter, and one researcher quit and gave up unvested equity to say it louder. Sixteen state attorneys general opened an investigation, and Colorado already has an AI law we take apart in Chapter 11.</p>
     <p>None of that is heroic. Test it, watch it, patch it, say what happened, set a rule. Every one is somebody who got close enough to a specific system to see what it was doing, and made it visible to other people. That's why we take one system at a time. You can't act on "AI." You can act on a system, at a company, with a person responsible for it.</p>
   </div>
 
@@ -552,7 +553,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   ];
   var KINDS=[['Controllable tool','tool'],['Autonomous, controlled','controlled'],['Autonomous, uncontrolled','uncontrolled']];
   var box=document.getElementById('aon'); if(!box) return;
-  var answers={}; var kinds={};
+  var answers={}; var kinds={}; var focusTarget=null;
   function render(){
     box.textContent='';
     items.forEach(function(it,i){
@@ -563,12 +564,12 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
         var b=document.createElement('button'); b.type='button'; b.className='chip'+(answers[i]===o[1]?' on':''); b.textContent=o[0];
         b.setAttribute('aria-pressed', answers[i]===o[1]?'true':'false');
         b.disabled = answers[i]!==undefined;
-        b.addEventListener('click',function(){ answers[i]=o[1]; render(); });
+        b.addEventListener('click',function(){ answers[i]=o[1]; focusTarget='aon-why-'+i; render(); });
         c.appendChild(b);
       });
       d.appendChild(c);
       if(answers[i]!==undefined){
-        var w=document.createElement('p'); w.className='pwhy'; w.style.marginTop='10px'; w.style.marginBottom='0';
+        var w=document.createElement('p'); w.className='pwhy'; w.id='aon-why-'+i; w.tabIndex=-1; w.style.marginTop='10px'; w.style.marginBottom='0';
         w.textContent=(answers[i]===it[1]?'Right. ':'Not quite. ')+it[2];
         d.appendChild(w);
         if(it[1]===true){
@@ -581,12 +582,12 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
             kb.className='chip'+(kinds[i]===k[1]?' on':''); kb.textContent=k[0];
             kb.setAttribute('aria-pressed', kinds[i]===k[1]?'true':'false');
             kb.disabled = kinds[i]!==undefined;
-            kb.addEventListener('click',function(){ kinds[i]=k[1]; render(); });
+            kb.addEventListener('click',function(){ kinds[i]=k[1]; focusTarget='aon-kwhy-'+i; render(); });
             kc.appendChild(kb);
           });
           d.appendChild(kc);
           if(kinds[i]!==undefined){
-            var kw=document.createElement('p'); kw.className='pwhy'; kw.style.marginTop='10px'; kw.style.marginBottom='0';
+            var kw=document.createElement('p'); kw.className='pwhy'; kw.id='aon-kwhy-'+i; kw.tabIndex=-1; kw.style.marginTop='10px'; kw.style.marginBottom='0';
             kw.textContent=(kinds[i]===it[3]?'Right. ':'Not quite. ')+it[4];
             d.appendChild(kw);
           }
@@ -594,6 +595,7 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       }
       box.appendChild(d);
     });
+    if(focusTarget){ var ft=document.getElementById(focusTarget); if(ft){ ft.focus(); } focusTarget=null; }
     var n=Object.keys(answers).length;
     var v=document.getElementById('aon-verdict');
     if(n===items.length){
