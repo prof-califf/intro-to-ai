@@ -224,6 +224,17 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 @media (max-width:640px){.mn-grid{grid-template-columns:1fr}}
 ul.ideas{padding-left:1.2em;margin:10px 0}
 ul.ideas li{margin:8px 0}
+  .srcnote{border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0;margin:34px 0}
+  .srcnote > summary{cursor:pointer;padding:14px 20px;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1rem;color:var(--ink);list-style:none}
+  .srcnote > summary::-webkit-details-marker{display:none}
+  .srcnote > summary::after{content:"\25BE";float:right;color:var(--pinktext);font-size:.8rem}
+  .srcnote[open] > summary::after{content:"\25B4"}
+  .srcnote .srcbody{padding:0 20px 18px}
+  .srcnote .srcintro{font-size:.9rem;color:var(--gray);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+  .srcnote dl{margin:0}
+  .srcnote dt{font-family:'Inter',Arial,sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:14px 0 4px}
+  .srcnote dd{margin:0;font-size:.9rem;line-height:1.55;color:var(--gray)}
+  .srcnote .srcfoot{margin-top:18px;padding-top:12px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--gray)}
 </style>
 </head>
 <body>
@@ -456,6 +467,25 @@ ul.ideas li{margin:8px 0}
     <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
   </div>
 </section>
+
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <div class="srcbody">
+    <p class="srcintro">Verified 19 September 2026. This lab makes no outside claims of its own. Both tools run entirely in the browser, and every factual statement in it comes from Chapter 1, which carries the dated note.</p>
+    <dl>
+      <dt>The two tools</dt>
+      <dd>Self-contained. Mini-ImageNet is a small neural network trained on the student's own drawings; Mini-AlphaGo is a matchbox-style reinforcement learner. No network calls, no stored data, nothing persists. Both are illustrations of Chapter 1's moments, not reproductions of the real systems.</dd>
+
+      <dt>The case (section 4)</dt>
+      <dd>The OpenAI agents and the Hugging Face intrusion, July 2026. Every fact here is Chapter 1's, from that chapter's primary documents: OpenAI's July 21 disclosure, its August technical report, and Hugging Face's own disclosure. See <a class="inline" href="chapter-01-what-is-ai.html#s6">Chapter 1, section 6</a> and its verification note. Where this lab gives an interval, it is deliberately approximate, because the precise figures are anchored differently in different accounts.</dd>
+
+      <dt>Where the questions come from</dt>
+      <dd>The five critical AI questions and the four regulatory layers are the book's own framework, introduced in <a class="inline" href="chapter-01-what-is-ai.html#s5">Chapter 1, section 5</a> and <a class="inline" href="chapter-01-what-is-ai.html#s3">section 3</a>.</dd>
+    </dl>
+    <p class="srcfoot">If Chapter 1's case is corrected, this lab's section 4 and its Side A and Side B materials have to be checked against it.</p>
+  </div>
+</details>
+
 
 <div class="nextbar">
   <a href="chapter-01-what-is-ai.html"><span class="dir">← Back</span>Chapter 1 · What Is AI?</a>

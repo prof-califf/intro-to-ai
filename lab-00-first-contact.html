@@ -224,6 +224,17 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .mn-strip .w{background:var(--pink)}.mn-strip .d{background:#9AA1AB}.mn-strip .l{background:var(--ink)}
 @media (max-width:640px){.mn-grid{grid-template-columns:1fr}}
 .ideas-box{border:1px solid var(--rule);background:var(--bg);padding:12px 16px;margin:12px 0}.ideas-box summary{cursor:pointer}.ideas-box ul{margin:6px 0 10px 1.2rem}.ideas-box li{margin-bottom:4px}
+  .srcnote{border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0;margin:34px 0}
+  .srcnote > summary{cursor:pointer;padding:14px 20px;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1rem;color:var(--ink);list-style:none}
+  .srcnote > summary::-webkit-details-marker{display:none}
+  .srcnote > summary::after{content:"\25BE";float:right;color:var(--pinktext);font-size:.8rem}
+  .srcnote[open] > summary::after{content:"\25B4"}
+  .srcnote .srcbody{padding:0 20px 18px}
+  .srcnote .srcintro{font-size:.9rem;color:var(--gray);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+  .srcnote dl{margin:0}
+  .srcnote dt{font-family:'Inter',Arial,sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:14px 0 4px}
+  .srcnote dd{margin:0;font-size:.9rem;line-height:1.55;color:var(--gray)}
+  .srcnote .srcfoot{margin-top:18px;padding-top:12px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--gray)}
 </style>
 </head>
 <body>
@@ -416,6 +427,31 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   <p><strong>Using AI on this assignment.</strong> Use it if you want to. This is an AI course, and part of the point is finding out where these tools help and where they quietly don’t. Two conditions, and they hold all quarter. What you write has to be about your run and your answers, because a model that wasn’t in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. "None" is a fine answer. The disclosure is part of the assignment, not a formality.</p>
   <p><b>For next week:</b> read Chapter 1 before Monday, September 28. Its quiz is due the following Friday, October 2, with the Lab 1 writeup.</p>
 </section>
+
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <div class="srcbody">
+    <p class="srcintro">Verified 19 September 2026. The eight claims are dated because several of them will move; each links its source in the reveal. Where a claim is one source's characterization rather than established fact, it says so.</p>
+    <dl>
+      <dt>The opening question</dt>
+      <dd>Tristan Harris on tool AI versus uncontrollable AI, and the four kinds in section 1, are his framing, paraphrased (Meet the Press NOW, NBC News, September 2026, linked in the section). Chapter 1 carries the same distinction and its own note.</dd>
+
+      <dt>AI or not? (section 2)</dt>
+      <dd>No outside claims. The twelve items are everyday systems and the sorting is this book's, built on Chapter 1's three kinds and the control spectrum.</dd>
+
+      <dt>The eight claims (section 3)</dt>
+      <dd><b>All eight are true as written.</b> Each carries its source as a link in the reveal text. <b>Fake citations:</b> Mata v. Avianca, 2023 (Forbes). <b>Hiring:</b> iTutorGroup's $365,000 EEOC settlement, 2023, the first US settlement over AI hiring, 200-plus applicants screened out, company denied wrongdoing (Foley). <b>Chapter 1's case:</b> Jacob Coxon's resignation, September 8, 2026 (Wired); the second researcher who agreed is Anthropic's alignment science lead. <b>Transportation:</b> Dr. Jonathan Slotkin, December 2025 (NPR), reading Waymo's own published figures, which is the catch and is said so in the reveal. <b>Medicine:</b> Imperial College London's ECG model, presented at the European Society of Cardiology congress in Munich, more than 65,000 US patients (British Heart Foundation). <b>Hardware:</b> AlexNet on two $500 gaming cards, 2012 (Wikipedia; a secondary source, and the weakest citation here). <b>Wildfire:</b> FireSat, three satellites from Vandenberg on July 7, 2026, Muon Space and Earth Fire Alliance with Google Research, 50-plus satellites planned by 2030 (Google).</dd>
+
+      <dt>The rules claim has no link</dt>
+      <dd>The Week 11 claim is the one item in the set without a source link in its reveal. Its facts: the "Pacing the Frontier" statement, signed by more than 1,100 employees across Anthropic, OpenAI, Google DeepMind and Meta in late July 2026, with the count passing 1,200 within days; the Ban Artificial Superintelligence Act announced by Senator Bernie Sanders and Representative Greg Casar on September 3, 2026; and the September 12 statements from the heads of Anthropic, OpenAI, Google DeepMind and xAI. Add links on the next pass.</dd>
+
+      <dt>The Hub (section 5)</dt>
+      <dd>The Rundown AI Workflow Hub is a live third-party feed. Nothing in it is vetted by this course, and what students find there will differ every term.</dd>
+    </dl>
+    <p class="srcfoot">Most likely to be out of date first: Chapter 1's case, the FireSat status, and the Waymo figures. Check these before the first class of any term.</p>
+  </div>
+</details>
+
 
 <div class="nextbar">
   <a href="index.html"><span class="dir">← Back</span>Contents</a>

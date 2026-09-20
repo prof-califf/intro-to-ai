@@ -290,6 +290,17 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .el-row{display:flex;gap:8px;margin-top:10px}.el-row input{flex:1;font:inherit;font-size:.95rem;padding:10px;border:1px solid var(--rule);background:#fff;color:var(--ink)}
 ul.ideas{padding-left:1.2em;margin:10px 0}
 ul.ideas li{margin:8px 0}
+  .srcnote{border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0;margin:34px 0}
+  .srcnote > summary{cursor:pointer;padding:14px 20px;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1rem;color:var(--ink);list-style:none}
+  .srcnote > summary::-webkit-details-marker{display:none}
+  .srcnote > summary::after{content:"\25BE";float:right;color:var(--pinktext);font-size:.8rem}
+  .srcnote[open] > summary::after{content:"\25B4"}
+  .srcnote .srcbody{padding:0 20px 18px}
+  .srcnote .srcintro{font-size:.9rem;color:var(--gray);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+  .srcnote dl{margin:0}
+  .srcnote dt{font-family:'Inter',Arial,sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:14px 0 4px}
+  .srcnote dd{margin:0;font-size:.9rem;line-height:1.55;color:var(--gray)}
+  .srcnote .srcfoot{margin-top:18px;padding-top:12px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--gray)}
 </style>
 </head>
 <body>
@@ -818,6 +829,31 @@ ul.ideas li{margin:8px 0}
     <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
   </div>
 </section>
+
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <div class="srcbody">
+    <p class="srcintro">Verified 19 September 2026. This lab runs mostly on its own tools. The claims it does make come from Chapters 2 and 3, which carry the dated notes.</p>
+    <dl>
+      <dt>The matchbox language model (section 1)</dt>
+      <dd>Trained on two of Aesop's fables, 289 words, public domain. It is a bigram next-word predictor, so its output is incoherent by design; that is the lesson, not a fault. The matchbox construction is a long-standing teaching device; the version this one follows is linked in section 3.</dd>
+
+      <dt>ELIZA (section 3)</dt>
+      <dd>Joseph Weizenbaum's 1966 program, rebuilt here in about forty lines. The claim that it fooled people who knew what it was is Chapter 2's, with that chapter's sourcing.</dd>
+
+      <dt>The live chatbot probes (sections 4 and 5)</dt>
+      <dd>Student-generated. Results differ by tool, by date, and by run, and nothing here is a stable finding. The scorecard is this book's instrument, not a published one.</dd>
+
+      <dt>The feed simulator (sections 7 and 8)</dt>
+      <dd>A model, not a measurement. Its constants are illustrative and chosen to make the engagement-versus-wellbeing trade visible. It is not calibrated against any company's real numbers, and it should not be cited as if it were.</dd>
+
+      <dt>Chapter claims used here</dt>
+      <dd>The two training stages, the seeming dials, and Therabot come from <a class="inline" href="chapter-02-human.html">Chapter 2</a>. The taste profile, the drift, and the ranked feed come from <a class="inline" href="chapter-03-systems.html">Chapter 3</a>. Both chapters carry their own verification notes; Chapter 2's is the oldest in the book and its subject moves fast.</dd>
+    </dl>
+    <p class="srcfoot">Most likely to need checking first: anything resting on Chapter 2, and any live-chatbot behavior described as typical, since the models change under it.</p>
+  </div>
+</details>
+
 
 <div class="nextbar">
   <a href="chapter-03-systems.html"><span class="dir">← Back</span>Chapter 3 · Systems That Know You</a>
