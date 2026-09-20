@@ -280,13 +280,13 @@ ul.ideas li{margin:8px 0}
 <main class="wrap">
 <div class="callout">
   <div class="label">From Chapter 1 · what this lab runs on</div>
-  <p><strong>How today runs.</strong> Almost all of this lab happens in class, right now, with your laptop open. Work through the sections in order. At the end there are five questions to upload to Canvas by 11:59 p.m. Friday, and most people finish most of them before they leave, so answer them as you go rather than saving them for later.</p>
-  <p>You'll train two tiny AIs today. Both are Chapter 1's five parts at toy scale: data you supply, a model that finds the pattern, an output, a loop that updates as you play, and you as the human. The tic-tac-toe player is also section 2.7's agent loop in miniature: a goal, a move, a result, a nudge. Watch for the moment each one fails, because that's Question 3 arriving in a game.</p>
+  <p><strong>How today runs.</strong> Almost all of this lab happens in class, right now, at the machine in front of you. Work through the sections in order. At the end there are five questions to upload to Canvas by 11:59 p.m. Friday, and most people finish most of them before they leave, so answer them as you go rather than saving them for later.</p>
+  <p>You'll train two tiny AIs today. Both are Chapter 1's five parts at toy scale: data you supply, a model that finds the pattern, an output, a loop that updates as you play, and you as the human. The tic-tac-toe player is also section 2.7's agent loop in miniature: a goal, a move, a result, a nudge.</p>
 </div>
 
 
 <section id="warmup">
-  <div class="shead"><span class="num">1</span><h2>Train an AI to see (ImageNet, in miniature)</h2></div>
+  <div class="shead"><span class="num">1</span><h2>In class: Train an AI to see (ImageNet, in miniature)</h2></div>
   <p class="lead">In Chapter 1 you read how ImageNet trained a neural network to see: millions of photos, each labeled by a person, and a network that found the pattern. Now do it yourself, in miniature. Below is a real, tiny neural network that runs entirely on your computer. Your drawings are the labeled photos. The colored grid on the right shows what the AI has learned from them: which parts of the drawing pad it has decided point to a smiley and which point to a house. That grid is the whole model. It learns only from what you draw, and forgets everything when you reload. Read the four steps, then do them in the simulator below. Rough is fine; precision is what the next ten weeks are for.</p>
 
   <div class="steps">
@@ -337,7 +337,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section id="menace">
-  <div class="shead"><span class="num">2</span><h2>Train an AI to play (AlphaGo, in miniature)</h2></div>
+  <div class="shead"><span class="num">2</span><h2>In class: Train an AI to play (AlphaGo, in miniature)</h2></div>
   <p class="lead">You also read how AlphaGo trained itself to play Go by playing millions of games against itself, learning from every win and loss until it beat the best human alive. Now train a tic-tac-toe AI the same way, and see whether it can beat you. It takes five minutes. Read the three steps, then play. In 1961 Donald Michie, who had no computer, built a tic-tac-toe player out of 304 matchboxes and a bag of colored beads. Each box is a board position; each bead is a move. It plays by drawing a bead at random. After each game, winning moves get more beads and losing moves lose some. That's all. Play it enough and it stops losing. This is the same machine, and it is the whole idea behind AlphaGo: an action, a result, a nudge, repeated.</p>
 
   <div class="steps">
@@ -374,7 +374,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">3</span><h2>Inside the machine: what your two AIs actually learned</h2></div>
+  <div class="shead"><span class="num">3</span><h2>In class: Inside the machine, what your two AIs actually learned</h2></div>
   <p><strong>Look at the heat map.</strong> Next to your drawing pad, the panel labeled "What mini-ImageNet has learned" is the entire model: one number per pixel, shown as color. That grid is everything it knows. It never learned what a smiley <em>is</em>. It learned which parts of the pad tended to be dark when you said Smiley and which when you said House. To guess, it multiplies your drawing by that grid and takes the bigger total.</p>
   <p><strong>Now break it.</strong> Draw a smiley the same size as before, but in a corner of the pad. Then try one twice as large. Watch what it guesses.</p>
   <p>If it got those wrong, you just saw the thing the heat map already told you: the weights are about <em>where</em> the dark pixels are, not <em>what</em> they mean. It learned your training data's habits, not the world.</p>
@@ -386,7 +386,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">4</span><h2>The question: when a safety test gets out of hand, who has to be told?</h2></div>
+  <div class="shead"><span class="num">4</span><h2>In class: When a safety test gets out of hand, who has to be told?</h2></div>
 
   <p>Before this chapter's case, OpenAI did something the industry does routinely and rarely discusses: <strong>dangerous-capability testing</strong>. You take a model, switch off the safety training that would normally make it refuse, point it at genuinely harmful tasks like breaking into software, and measure how far it gets. The point is to find out what a system can do before someone else does. It is a reasonable thing to do, and everyone building frontier models does it.</p>
 
@@ -397,7 +397,7 @@ ul.ideas li{margin:8px 0}
     <p><strong>Sides are assigned, not chosen.</strong> You are speaking <em>for</em> a position, not defending your own. Nobody in this room has to believe what they say today, and you will speak for the other side before we finish.</p>
     <ol>
       <li><strong>Get your side (1 min).</strong> Left half of the room is Side A, right half is Side B.</li>
-      <li><strong>Research it, with your partner (10 min).</strong> Laptops open. Start from the sources listed with your side below and find one more of your own. Then write three things on one card: your strongest point in a sentence, the specific evidence behind it, and the honest cost of your own position. Add a fourth line: the thing your side would rather you didn't notice.</li>
+      <li><strong>Research it, with your partner (10 min).</strong> Machines open. Start from the sources listed with your side below and find one more of your own. Then write three things on one card: your strongest point in a sentence, the specific evidence behind it, and the honest cost of your own position. Add a fourth line: the thing your side would rather you didn't notice.</li>
       <li><strong>Join another pair on your side (5 min).</strong> Four of you, two cards. Pick the single best point and the single best piece of evidence between you. That is what your group brings to the room.</li>
       <li><strong>Speak for your side (3 min each).</strong> One sentence per group, then the evidence. No speeches, no repeats. If your point is already on the table, say what it costs instead.</li>
       <li><strong>Switch (5 min).</strong> Everyone now speaks for the other side, same one-sentence rule. This is the part that does the work.</li>
@@ -440,7 +440,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">7</span><h2>The writeup (for homework)</h2></div>
+  <div class="shead"><span class="num">7</span><h2>For homework: The writeup</h2></div>
   <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday.</strong> Answer them as you go today.</p>
   <ol class="writeup">
       <li><strong>Mini-ImageNet.</strong> One thing it got right, one thing it got wrong, and why, in terms of the data you gave it.</li>
