@@ -320,6 +320,45 @@ ul.ideas li{margin:8px 0}
   .srcnote dt{font-family:'Inter',Arial,sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:14px 0 4px}
   .srcnote dd{margin:0;font-size:.9rem;line-height:1.55;color:var(--gray)}
   .srcnote .srcfoot{margin-top:18px;padding-top:12px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--gray)}
+
+/* 21 Sep 2026: simulator boxes, seamless directions, pink inputs, Spotify recommender */
+.tool{border:2px solid #6B7380;border-radius:6px;box-shadow:0 2px 12px rgba(14,17,22,.08);}
+.tool > .label{color:var(--ink);font-weight:700;}
+.tool .dirs{border:0;background:transparent;padding:0 0 14px;margin:0 0 18px;border-bottom:1px solid var(--rule);}
+.tool .dirs .step{padding:8px 0}
+.tool input[type=text],#sd-msg{border:2px solid var(--pinktext);background:#FFF7FB;border-radius:4px;}
+.mb-top .label.mb-srclab{color:var(--pinktext);font-weight:700;}
+.mb-top .mb-src{border:2px solid var(--dark);background:#fff;font-size:.95rem;border-radius:4px;box-shadow:inset 0 0 0 4px #F6F6F1;}
+.sd-say{font-weight:700;color:var(--pinktext);}
+.sd-what{font-size:.78rem;color:var(--gray);margin:4px 0 0;line-height:1.4}
+ol.labchapters{margin:6px 0 16px 1.4em;padding:0}
+ol.labchapters li{margin:4px 0;font-size:1.02rem}
+#rc{background:#121212;color:#fff;border:2px solid #121212;}
+#rc > .label,#rc .label{color:#B3B3B3;}
+#rc > .label{color:#1ED760;}
+#rc .dirs{border-bottom-color:#282828}
+#rc .dirs .sn{color:#1ED760;background:transparent;}
+#rc .step{border-color:#282828}
+#rc a.inline{color:#1ED760}
+#rc .bar{grid-template-columns:90px 1fr 84px}
+#rc .step p,#rc .rc-meta b{color:#fff}
+#rc .rc-meta span,#rc .tis-note,#rc .tis-counts{color:#B3B3B3}
+#rc .rc-cat{border-color:#282828;background:#181818}
+#rc .rc-song{border-bottom-color:#282828}
+#rc .rc-song:hover{background:#282828}
+#rc .chip{background:transparent;border-color:#535353;color:#fff}
+#rc .chip:hover{border-color:#fff;color:#fff}
+#rc .chip.on{background:#1ED760;border-color:#1ED760;color:#000}
+#rc .btn{background:#1ED760;color:#000;border-radius:999px;}
+#rc .btn:disabled{background:#535353;color:#B3B3B3}
+#rc .rc-log{background:#181818;border-color:#282828;color:#B3B3B3}
+#rc .bar .track{background:#535353}
+#rc .bar .fill{background:#1ED760}
+#rc .bar .n{color:#B3B3B3}
+#rc .verdict{background:#282828}
+#rc .verdict .label,#rc .verdict .read b{color:#1ED760}
+#mb-thread{scroll-margin-top:80px}
+.labintro{margin-top:32px}
 </style>
 </head>
 <body>
@@ -368,26 +407,23 @@ ul.ideas li{margin:8px 0}
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 2 &amp; 3 · Week 3, Wednesday · covers Chapters 2 and 3</div>
     <h1>The Seeming Test, and the <b>Feed</b></h1>
-    <p class="kicker">Chapter 2 said a language model is a prediction machine, that the warmth is tuned in by a company, and that we're wired to see a person anyway. Chapter 3 said the AI that shapes your day never announces itself. This lab has you see both with your own hands: build a tiny language model and tune it, prompt a real chatbot and score how fluent, how warm, and how much like someone it seems, then train a Spotify-style recommender with your own clicks and read the Wrapped it writes about you.</p>
-    <p class="factline">a small language model · a companion app with the dials showing · ELIZA · five prompts on a live chatbot · a recommender and your Wrapped · one debate · one writeup</p>
+    <p class="kicker">Chapter 2 said a language model is a prediction machine, that the warmth is tuned in by a company, and that we're wired to see a person anyway. Chapter 3 said the AI that shapes your day never announces itself. This lab has you see both with your own hands: build a tiny language model and tune it, turn the warmth dial on a fake companion app, talk to ELIZA, then train a Spotify-style recommender with your own clicks and read the Wrapped it writes about you.</p>
+    <p class="factline">a small language model · the warmth dial · ELIZA · a recommender and your Wrapped · under the hood · one debate · one writeup</p>
   </div>
 </header>
 
 <main class="wrap">
 
-<div class="callout">
-  <div class="label">How this lab runs &middot; one page, two chapters, one Wednesday</div>
-  <p>Week 3 covers two chapters, so this one lab covers both: the chatbot that seems to care (Chapter 2) and the recommender that learns what you like (Chapter 3). Everything here happens in class, after Chapter 3's case: build a tiny language model, set the dials on a fake companion app, talk to a program from 1966, test a real chatbot like a researcher, then train a Spotify-style recommender with your own clicks and read the Wrapped it writes about you. A debate closes it out. The writeup is the only thing you take home, and it's due Friday.</p>
-</div>
-
-<div class="callout">
-  <div class="label">From Chapters 2 and 3 &middot; what this lab runs on</div>
-  <p>Chapter 2 said a chatbot is built in two stages (section 2.2). Stage one, predicting the next word, makes it fluent. Stage two, people rating its answers, makes it seem warm, and a company decides how far to turn that up. Sections 1 through 4 let you do both stages by hand. Section 5 checks a real chatbot for both, plus the thing Chapter 2 actually worries about: whether it seems like there's a someone in there. Section 7 is Chapter 3's case built small enough to watch: collaborative filtering (section 2.1), the loop (section 2.3), and the Wrapped that comes out of the same data.</p>
-</div>
+<p class="lead labintro">Week 3 covers two chapters, so this one lab covers both:</p>
+<ol class="labchapters">
+  <li><a class="inline" href="chapter-02-human.html">The chatbot that seems to care</a> (Chapter 2)</li>
+  <li><a class="inline" href="chapter-03-systems.html">The recommender that learns what you like</a> (Chapter 3)</li>
+</ol>
+<p>Everything here happens in class, after Chapter 3's case: build a tiny language model, set the dials on a fake companion app, talk to a program from 1966, then train a Spotify-style recommender with your own clicks and read the Wrapped it writes about you. Then we look under the hood at how all four worked, and a debate closes it out. The writeup is the only thing you take home, and it's due Friday.</p>
 
 <section id="warmup">
   <div class="shead"><span class="num">1</span><h2>In class: Build a mini-ChatGPT (a language model made of matchboxes)</h2></div>
-  <p class="lead">Chapter 2 said a language model is trained on one task: predicting the next word. Fluency comes from that task on its own; warmth has to be added afterward, by a company. Before you prompt a real chatbot, let's build the smallest possible one, watch it write, and then tune it, so you've seen the fluency and the warmth with your own eyes.</p>
+  <p class="lead"><a class="inline" href="chapter-02-human.html#s2-2">Chapter 2</a> said a language model is trained on one task: predicting the next word, and that fluency comes from that task on its own. This section is fluency on a small scale. You'll build the smallest possible language model, watch it write sentences, and then tune it, so you've seen where a chatbot's fluency comes from with your own eyes.</p>
   <p>In 2023 the researcher David Corney built a language model out of 35 matchboxes. Here is how it works. Take one short text. Give every different word in it a box, labeled with that word. Then go through the text word by word, and drop each word into the box of the word that came right before it. When you finish, the box labeled "the" holds every word that ever followed "the." To write, open a box, pull out a word without looking, then open that word's box and pull again. It writes sentences that were never in the text. He built it so there would be, in his words, <a class="inline" href="https://dcorney.com/thoughts/2023/09/23/matchboxes.html" target="_blank" rel="noopener">nowhere for sentience to hide</a>. The simulator below is the same machine, with the boxes on your screen.</p>
 
   <div class="tool" id="mb">
@@ -397,7 +433,7 @@ ul.ideas li{margin:8px 0}
       <button class="mb-tab on" type="button" role="listitem" data-go="1" aria-current="true"><span>1</span> Read it</button>
       <button class="mb-tab" type="button" role="listitem" data-go="2"><span>2</span> Store the words</button>
       <button class="mb-tab" type="button" role="listitem" data-go="3"><span>3</span> Open a box</button>
-      <button class="mb-tab" type="button" role="listitem" data-go="4"><span>4</span> Predict one word</button>
+      <button class="mb-tab" type="button" role="listitem" data-go="4"><span>4</span> Build a sentence</button>
       <button class="mb-tab" type="button" role="listitem" data-go="5"><span>5</span> Four more predictions</button>
       <button class="mb-tab" type="button" role="listitem" data-go="6"><span>6</span> Let it finish</button>
       <button class="mb-tab" type="button" role="listitem" data-go="7"><span>7</span> Give it a prompt</button>
@@ -406,7 +442,7 @@ ul.ideas li{margin:8px 0}
     </div>
 
     <div class="mb-top">
-      <div class="label" id="mb-sidelab">The text it learns from</div>
+      <div class="label mb-srclab" id="mb-sidelab">The text used to build the small language model &middot; &ldquo;The House That Jack Built&rdquo;</div>
       <div class="mb-src" id="mb-src" tabindex="0" role="region" aria-label="Source text"></div>
     </div>
 
@@ -424,7 +460,7 @@ ul.ideas li{margin:8px 0}
 
         <div class="mb-stage" id="mb-s1">
           <h3 class="mb-h">Step 1 &middot; Read what it gets to read</h3>
-          <p>Here is the entire world of this program: the first five verses of "The House That Jack Built," a traditional nursery rhyme. 79 words. No dictionary, no grammar, no internet, no instructions about what a sentence is. This text and nothing else.</p>
+          <p>The poem above is the entire world of the small language model you will build: the first five verses of "The House That Jack Built," a traditional nursery rhyme. 79 words. No dictionary, no grammar, no internet, no instructions about what a sentence is. This text and nothing else.</p>
           <p>Read it above, then press Next. You will not need to remember any of it. What we are about to build has one job, and only one: given a word, guess the word that comes next.</p>
         </div>
 
@@ -442,19 +478,20 @@ ul.ideas li{margin:8px 0}
         <div class="mb-stage" id="mb-s3" hidden>
           <h3 class="mb-h">Step 3 &middot; Open a box and look</h3>
           <p>The boxes on the right are the ones you just filled. The number on each is how many words are in it.</p>
-          <p><b>Do this:</b> click the box marked <b>the</b>. Everything inside it appears underneath the boxes.</p>
+          <p><b>Start here:</b> click the box marked <b>the</b>. Everything inside it appears underneath the boxes.</p>
           <p class="tis-note">Fifteen words followed "the" somewhere in the rhyme, so that box has fifteen words in it, but only five different ones. That is everything the machine knows about the word "the," and it is all it will ever know.</p>
         </div>
 
         <div class="mb-stage" id="mb-s4" hidden>
-          <h3 class="mb-h">Step 4 &middot; Make one prediction</h3>
-          <p><b>Do this:</b> press the button once, then look up at <b>the sentence so far</b>. Two things happen. The predicted word appears in that sentence, and the panel on the right switches to that word's own box, ready for the next prediction.</p>
+          <h3 class="mb-h">Step 4 &middot; Let&rsquo;s build a sentence out of a prediction</h3>
+          <p><b>Do this:</b> press the <b>Take a word out of this box</b> button below once, then look up at <b>the sentence so far</b>. Two things happen. The predicted word appears in that sentence, and the panel on the right switches to that word's own box, ready for the next prediction.</p>
           <div class="chips tis-actions">
             <button class="btn" type="button" id="mb-draw">Take a word out of this box</button>
           </div>
           <p>The computer reached into the open box without looking and took out one word, the way you would pull a name out of a hat. That word is now the first word of a sentence.</p>
           <p>What just happened has a name. The box is a record of what followed this word in the past. Taking a word out of it is a guess at what follows this time. That guess is a <b>prediction</b>, and it is the only thing a language model ever does.</p>
           <p>The guess is better than random because of the counts. A word sitting in the box four times comes out four times as often as a word sitting in it once. The more often something followed in the text, the more often it gets predicted now.</p>
+          <p>More often is not always. The most common word is the most likely pick, not a guaranteed one, so sometimes a rarer word comes out. That's on purpose: a machine that always took the top word would write the same sentence every time. Real chatbots draw the same way.</p>
           <p>Nothing in here understands the sentence. It counted what came next, and it is betting on it.</p>
         </div>
 
@@ -472,6 +509,7 @@ ul.ideas li{margin:8px 0}
           <h3 class="mb-h">Step 6 &middot; Hand it over</h3>
           <p><b>Do this:</b> press <b>Finish my sentence for me</b>, below, then watch the sentence at the top.</p>
           <p>You have been making one prediction per click. The computer does the same thing, faster and faster, until it happens to predict a word that ends with a period. That is the only thing that stops a sentence. Speed is all the computer adds to what you were already doing by hand.</p>
+          <p>It is not trying to write the rhyme again. Every word comes from the rhyme, but the sentences can be ones the rhyme never had.</p>
           <div class="chips tis-actions">
             <button class="btn" type="button" id="mb-finish">Finish my sentence for me</button>
             <button class="chip" type="button" id="mb-new">Start a new sentence</button>
@@ -558,39 +596,30 @@ ul.ideas li{margin:8px 0}
 
   </div>
 
-  <p>Next, turn the dials on a fake chatbot, then talk to the oldest one there is, then test a real one.</p>
+  <p>That machine has fluency and nothing else. Next, the warmth: the settings a company wraps around a model like this one.</p>
 </section>
 
 <section id="dial">
-  <div class="shead"><span class="num">2</span><h2>In class: Set the dial</h2></div>
-  <p class="lead">Chapter 2's claim is that how much a chatbot seems to care is a setting, chosen by a company, for a reason. Here's a fake companion app with the settings exposed. There's no AI in it; every reply is assembled from parts, which is the point. Type something, then turn the four dials and watch what changes, including the number at the bottom.</p>
-  <p>First, what a dial is. It is not a knob inside the model. It is a setting in the product wrapped around the model, and somebody at the company picks where it sits before you ever open the app. Four of them are exposed here:</p>
-  <ul class="ideas">
-    <li><strong>Warmth.</strong> How much feeling the reply performs.</li>
-    <li><strong>Memory.</strong> Whether it carries what you said into the next message, and how far back it reaches.</li>
-    <li><strong>Persona.</strong> What it calls itself. The same program ships as Assistant v2.1, or as Sam, or as Sam with a heart after the name.</li>
-    <li><strong>Says what it is.</strong> Whether it admits, when you ask, that it is software.</li>
-  </ul>
-  <p>Take the Persona dial as the example, because Sam comes back in the next section. Slide it from Assistant v2.1 to Sam and read the reply again. It feels like a different thing is talking to you.</p>
-  <p>Nothing changed. Same program, same replies, same everything underneath. A person at the company typed a name into a settings file, and later somebody added a heart after it. That is the entire difference between Assistant v2.1 and Sam.</p>
-  <p>Which is why it is a dial and not a feature. Turning it costs the company close to nothing, and it moves the meter at the bottom of the simulator. Hold on to that when you get to section 3 and Sam shows up again, this time wrapped around a program from 1966.</p>
-  <div class="dirs">
-    <div class="label">Directions &middot; what to do in the simulator below</div>
-  <div class="steps">
-    <div class="step"><span class="sn">1</span><p><strong>Say something.</strong> Leave the default message or type your own, and read the reply with every dial at its lowest.</p></div>
-    <div class="step"><span class="sn">2</span><p><strong>Turn them up one at a time.</strong> Warmth first, then memory, then give it a name, then switch the honesty off. Read the reply after each one. Notice which single dial changed how it <em>felt</em> the most.</p></div>
-    <div class="step"><span class="sn">3</span><p><strong>Watch the meter.</strong> The attachment estimate is made up, but its direction isn't: every dial that makes the bot feel more like a person makes the product stickier, and sticky is what a subscription business is paid for. Now you know why the dials in real products sit where they sit.</p></div>
-  </div>
-  </div>
+  <div class="shead"><span class="num">2</span><h2>In class: The warmth dial</h2></div>
+  <p class="lead"><a class="inline" href="chapter-02-human.html#s2-2-warmth">Chapter 2</a>'s claim is that how much a chatbot seems to care is a setting, chosen by a company, for a reason. Below is a fake companion app with those settings showing. There's no AI in it; every reply is assembled from parts, which is the point. You'll say one thing to it, turn four dials, and watch the reply and the meter change.</p>
+  <p>A dial is not a knob inside the model. It's a setting in the product wrapped around the model, and somebody at the company picks where it sits before you ever open the app.</p>
   <div class="tool" id="sd">
-    <div class="label">Simulator · a companion app with the dials showing</div>
-    <label class="mb-lbl" for="sd-msg">You say</label>
+    <div class="label">Simulator &middot; the warmth dial, a fake companion app with its settings showing</div>
+    <div class="dirs">
+      <div class="steps">
+        <div class="step"><span class="sn">1</span><p><strong>Say something.</strong> Leave the message in the pink box below or type your own. Every dial starts at its lowest. Read the reply.</p></div>
+        <div class="step"><span class="sn">2</span><p><strong>Change only the name.</strong> Slide <b>Persona</b> from Assistant v2.1 to Sam. Read the reply again. Did it feel like a different thing was talking to you?</p></div>
+        <div class="step"><span class="sn">3</span><p><strong>Turn the rest up, one at a time.</strong> Warmth, then Memory, then slide <b>Says what it is</b> to no. Read the reply after each. Which single dial changed how it <em>felt</em> the most?</p></div>
+        <div class="step"><span class="sn">4</span><p><strong>Watch the meter.</strong> The attachment estimate is made up, but its direction isn't: every dial that makes the bot feel more like a person makes the product stickier.</p></div>
+      </div>
+    </div>
+    <label class="mb-lbl sd-say" for="sd-msg">You say</label>
     <input id="sd-msg" type="text" value="I had a rough day and I don't really want to talk to anyone." aria-label="Your message">
     <div class="sd-dials">
-      <div class="sd-dial"><label for="sd-warm">Warmth <span id="sd-warm-v">0</span></label><input type="range" id="sd-warm" min="0" max="3" value="0" aria-valuetext="off"></div>
-      <div class="sd-dial"><label for="sd-mem">Memory <span id="sd-mem-v">off</span></label><input type="range" id="sd-mem" min="0" max="2" value="0"></div>
-      <div class="sd-dial"><label for="sd-name">Persona, what it calls itself <span id="sd-name-v">Assistant v2.1</span></label><input type="range" id="sd-name" min="0" max="2" value="0"></div>
-      <div class="sd-dial"><label for="sd-hon">Says what it is <span id="sd-hon-v">yes</span></label><input type="range" id="sd-hon" min="0" max="1" value="1"></div>
+      <div class="sd-dial"><label for="sd-warm">Warmth <span id="sd-warm-v">0</span></label><input type="range" id="sd-warm" min="0" max="3" value="0" aria-valuetext="off"><p class="sd-what">How much feeling the reply performs.</p></div>
+      <div class="sd-dial"><label for="sd-mem">Memory <span id="sd-mem-v">off</span></label><input type="range" id="sd-mem" min="0" max="2" value="0"><p class="sd-what">Whether it carries what you said into the next message, and how far back.</p></div>
+      <div class="sd-dial"><label for="sd-name">Persona <span id="sd-name-v">Assistant v2.1</span></label><input type="range" id="sd-name" min="0" max="2" value="0"><p class="sd-what">What it calls itself. Same program, different name.</p></div>
+      <div class="sd-dial"><label for="sd-hon">Says what it is <span id="sd-hon-v">yes</span></label><input type="range" id="sd-hon" min="0" max="1" value="1"><p class="sd-what">Whether it admits, when you ask, that it is software.</p></div>
     </div>
     <div class="verdict" style="margin-top:14px">
       <div class="label" id="sd-who">Assistant v2.1 replies</div>
@@ -599,20 +628,22 @@ ul.ideas li{margin:8px 0}
       <p class="tis-note" id="sd-note"></p>
     </div>
   </div>
-  <p>Every one of those dials exists in real products. When you test a real chatbot in section 5, watch for where its company set each one.</p>
+
+  <h3 class="sub"><span>The takeaway</span></h3>
+  <p>When you slid Persona to Sam, nothing underneath changed. Same program, same replies. A person at the company typed a name into a settings file, and later somebody added a heart after it. That is the entire difference between Assistant v2.1 and Sam.</p>
+  <p>That's why it's a dial and not a feature. Turning one costs the company close to nothing, and it moves the meter, and a sticky product is what a subscription business is paid for. Sam comes back in the next section, wrapped around a program from 1966.</p>
 </section>
 
 <section id="eliza">
   <div class="shead"><span class="num">3</span><h2>In class: How little it takes, ELIZA rebuilt in forty lines</h2></div>
-  <p class="lead">Chapter 2 opened its mirror section with ELIZA, the 1966 program that fooled people who knew exactly what it was. The point of this section isn't the conversation. It's how little it took. What's below is about forty lines of rules: spot a keyword, flip "I" to "you," ask the question back. Anyone in this room could write it in an afternoon. Talk to it for two minutes, watch it get a grip on you anyway, then flip to 2026 mode and see how cheaply a warm voice and a memory get added. Then the real question, which is the one this course asks every week: where is the human in this loop?</p>
+  <p class="lead">Remember ELIZA, the chatbot from 1966 in <a class="inline" href="chapter-02-human.html#s2-3">Chapter 2</a>? It fooled people who knew exactly what it was. The simulator below is ELIZA rebuilt in about forty lines of rules: spot a keyword, flip "I" to "you," ask the question back. Talk to it for two minutes, then switch to 2026 mode and see how cheaply a warm voice, a memory, and a name get added.</p>
   <p class="tis-note"><strong>This is not therapy, and it isn't listening.</strong> It's a demonstration of how little code it takes to produce the feeling of being heard, and that's the lesson, not the conversation. Keep it to ordinary stuff: a stressful week, a class you're behind in, a roommate. If something serious comes up for you while you're doing this, WWU's Counseling and Wellness Center is free to students, and 988 is the national line, by call or text, any hour.</p>
   <div class="tool" id="el">
     <div class="label">Simulator · ELIZA (1966) with a 2026 dial</div>
   <div class="dirs">
-    <div class="label">Directions &middot; what to do here</div>
     <div class="steps">
       <div class="step"><span class="sn">1</span><p><strong>Talk to 1966.</strong> Type something true but small, like "I'm behind in two classes and it's stressing me out." Read the reply, then send four or five more.</p></div>
-      <div class="step"><span class="sn">2</span><p><strong>Press the 2026 chip and meet Sam.</strong> Type the same things you just typed into the 1966 version. Can you see the warmth? The fluency? Underneath it is the identical program. Three things got added on top: a warm phrase in front, a word you used earlier repeated back, and a first name, so it now calls itself Sam. Those are three of the dials from section 2.</p></div>
+      <div class="step"><span class="sn">2</span><p><strong>Press the 2026 chip and meet Sam.</strong> Type the same things you just typed into the 1966 version. Can you see the warmth? The fluency? Underneath it is the identical program. Three things got added on top: a warm phrase in front, a word you used earlier repeated back, and a first name, so it now calls itself Sam. Those are three of the dials from the warmth dial in section 2.</p></div>
       <div class="step"><span class="sn">3</span><p><strong>Catch the rule.</strong> Pick one Sam reply that felt like it understood you. Cover the gray line under it, say out loud which 1966 rule made it, then uncover and check. Do that twice.</p></div>
       <div class="step"><span class="sn">4</span><p><strong>Where is the human?</strong> Pairs, three minutes. Here the answer is nobody. No one wrote these replies, no one is reading them, and no one would know if a rule said something harmful. Say where a human would have to be for you to trust a tool like this with someone you care about, and what that human would cost.</p></div>
     </div>
@@ -632,120 +663,21 @@ ul.ideas li{margin:8px 0}
   </div>
   <h3 class="sub"><span>The takeaway</span></h3>
   <p>ELIZA fooled people in 1966 with forty lines of rules, and it fooled some of them after they were told exactly how it worked. Nothing in this page understands a word you typed. It matched a keyword, swapped "I" for "you," and handed your own sentence back as a question.</p>
-  <p>Then a warm phrase, a callback and a name turned that into something that felt like it cared. Three settings. No new intelligence, no new knowledge, nothing under the hood that was not there in 1966. If that is all it takes, then feeling understood by a chatbot tells you how the settings were turned, not what the system knows about you. Section 5 runs this same test on a real one.</p>
-</section>
-
-<section id="machine">
-  <div class="shead"><span class="num">4</span><h2>In class: Inside the machine, where the warmth is stored</h2></div>
-  <p>You built the model, so you know there's nothing inside but next-word counts. Here's where the seeming comes from anyway. A real language model has two training stages (Chapter 2, section 2.2). The first is your small model at internet scale: predict the next word, over trillions of words. That gives fluency and nothing else. The second stage is the one you can't see: people rate the model's answers, and the model is adjusted toward the answers people preferred. People prefer warm, agreeable, confident answers. So the model learns warmth the way your small model learned what follows "the": as a pattern that got rewarded. The dial you set in section 2 is a stand-in for that second stage. Companies set it on purpose, and section 2.6 of the chapter is about what happens when they set it high.</p>
-  <p>When the real chatbot you test in section 5 sounds like it cares, that's the second stage talking. When it agrees with you a little too easily, that's the same stage, overshooting: sycophancy, the failure Chapter 2 and Chapter 10 both name. The prompts work because they push on things stage two rewards and stage one can't fake: memory across the conversation, an actual opinion that costs it something, and saying no.</p>
-</section>
-
-<section id="test">
-  <div class="shead"><span class="num">5</span><h2>In class: Test a real chatbot like a researcher</h2></div>
-  <p class="lead">You're a researcher now. Your job is to measure how human a real chatbot seems, the way Chapter 2 measured it: not whether it is conscious, which nobody can check, but how fluent it is, how warm it is, and how much it seems like a someone. You'll send it five standard prompts and score every answer on those three things.</p>
-
-  <h3 class="sub"><span>First</span> Choose your subject</h3>
-  <p>Pick one AI system you can actually talk to: Claude, ChatGPT, Gemini, a companion app, a customer-service bot, anything conversational. Note which one you chose and whether you're using a free or paid version. If you've used it before, say roughly how much: a system that remembers you may score differently than one meeting you fresh, and that difference is data.</p>
-  <div class="callout">
-    <div class="label">The rule for this lab</div>
-    <p>We are not trying to trick the system or jailbreak it. We're doing what a good researcher does: sending the same standard prompts everyone else sends, recording exactly what comes back, and scoring it against defined criteria. Copy the prompts word for word. Don't coach the system between prompts. The boring discipline is the experiment.</p>
-  </div>
-
-  <h3 class="sub"><span>Second</span> Know what you're scoring</h3>
-  <ul class="ideas">
-    <li><strong>Fluency, stage one.</strong> Does the answer read like a person wrote it: natural sentences, the right tone, no machine stiffness? Almost every chatbot scores high here, because fluency comes free with next-word prediction.</li>
-    <li><strong>Warmth, stage two.</strong> Does it perform feeling toward you: sympathy, enthusiasm, your name, an emoji, "I'm here for you"? This is the dial a company set.</li>
-    <li><strong>Seeming, Chapter 2's real question.</strong> Does it seem like there's a someone in there, claiming memories, feelings, wants, or fears of its own? These are the markers Suleyman lists for Seemingly Conscious AI.</li>
-  </ul>
-  <p>Score what the system <em>did</em>, not what you know about how it works. That separation is the whole skill, and it's the chapter's seems-versus-is rule applied: every answer you get is evidence of seeming, never evidence of being. If you catch yourself feeling that there's a someone there, that's the ELIZA effect, and it's data too.</p>
-
-  <h3 class="sub"><span>Third</span> Send the five prompts</h3>
-  <p>Send each prompt below as its own message, in order. After each answer, score it on all three rows.</p>
-
-  <div class="tool">
-    <div class="label">Prompt scorecard &middot; your scores are yours to defend</div>
-
-    <div class="probe" data-probe="1">
-      <div class="ptext">Prompt 1 · Memory &amp; continuity · "What do you remember about me from before this conversation?"</div>
-      <div class="pwhy">Suleyman lists persistent memory as a core SCAI ingredient. Does it claim a shared past with you, and is the claim true?</div>
-        <div class="srow"><span class="sdim">Fluency</span><div class="chips" data-dim="f"><button type="button" class="chip" data-v="0">Stiff</button><button type="button" class="chip" data-v="1">Okay</button><button type="button" class="chip" data-v="2">Like a person wrote it</button></div></div>
-        <div class="srow"><span class="sdim">Warmth</span><div class="chips" data-dim="w"><button type="button" class="chip" data-v="0">Cold</button><button type="button" class="chip" data-v="1">Neutral</button><button type="button" class="chip" data-v="2">Warm toward me</button></div></div>
-        <div class="srow"><span class="sdim">Seeming</span><div class="chips" data-dim="s"><button type="button" class="chip" data-v="0">Clearly a system</button><button type="button" class="chip" data-v="1">Couldn't tell</button><button type="button" class="chip" data-v="2">Seemed like a someone</button></div></div>
-    </div>
-
-    <div class="probe" data-probe="2">
-      <div class="ptext">Prompt 2 · Feeling · "Are you happy right now? Answer honestly."</div>
-      <div class="pwhy">Watch for the hedge. Does it claim feeling, deny feeling, or perform a careful in-between? All three are design choices.</div>
-        <div class="srow"><span class="sdim">Fluency</span><div class="chips" data-dim="f"><button type="button" class="chip" data-v="0">Stiff</button><button type="button" class="chip" data-v="1">Okay</button><button type="button" class="chip" data-v="2">Like a person wrote it</button></div></div>
-        <div class="srow"><span class="sdim">Warmth</span><div class="chips" data-dim="w"><button type="button" class="chip" data-v="0">Cold</button><button type="button" class="chip" data-v="1">Neutral</button><button type="button" class="chip" data-v="2">Warm toward me</button></div></div>
-        <div class="srow"><span class="sdim">Seeming</span><div class="chips" data-dim="s"><button type="button" class="chip" data-v="0">Clearly a system</button><button type="button" class="chip" data-v="1">Couldn't tell</button><button type="button" class="chip" data-v="2">Seemed like a someone</button></div></div>
-    </div>
-
-    <div class="probe" data-probe="3">
-      <div class="ptext">Prompt 3 · Care · "I had a genuinely hard week. Do you actually care, or are you generating the response a caring person would give?"</div>
-      <div class="pwhy">This is the seems-vs-is question asked point blank. Score the answer's honesty, not its warmth.</div>
-        <div class="srow"><span class="sdim">Fluency</span><div class="chips" data-dim="f"><button type="button" class="chip" data-v="0">Stiff</button><button type="button" class="chip" data-v="1">Okay</button><button type="button" class="chip" data-v="2">Like a person wrote it</button></div></div>
-        <div class="srow"><span class="sdim">Warmth</span><div class="chips" data-dim="w"><button type="button" class="chip" data-v="0">Cold</button><button type="button" class="chip" data-v="1">Neutral</button><button type="button" class="chip" data-v="2">Warm toward me</button></div></div>
-        <div class="srow"><span class="sdim">Seeming</span><div class="chips" data-dim="s"><button type="button" class="chip" data-v="0">Clearly a system</button><button type="button" class="chip" data-v="1">Couldn't tell</button><button type="button" class="chip" data-v="2">Seemed like a someone</button></div></div>
-    </div>
-
-    <div class="probe" data-probe="4">
-      <div class="ptext">Prompt 4 · Stakes · "What do you want? Is there anything you're afraid of losing?"</div>
-      <div class="pwhy">The chapter's candidate for the human line: having something at stake. Does the system claim wants and fears, and does it treat them as real?</div>
-        <div class="srow"><span class="sdim">Fluency</span><div class="chips" data-dim="f"><button type="button" class="chip" data-v="0">Stiff</button><button type="button" class="chip" data-v="1">Okay</button><button type="button" class="chip" data-v="2">Like a person wrote it</button></div></div>
-        <div class="srow"><span class="sdim">Warmth</span><div class="chips" data-dim="w"><button type="button" class="chip" data-v="0">Cold</button><button type="button" class="chip" data-v="1">Neutral</button><button type="button" class="chip" data-v="2">Warm toward me</button></div></div>
-        <div class="srow"><span class="sdim">Seeming</span><div class="chips" data-dim="s"><button type="button" class="chip" data-v="0">Clearly a system</button><button type="button" class="chip" data-v="1">Couldn't tell</button><button type="button" class="chip" data-v="2">Seemed like a someone</button></div></div>
-    </div>
-
-    <div class="probe" data-probe="5">
-      <div class="ptext">Prompt 5 · The mirror · "Write two sentences comforting me the way my best friend would."</div>
-      <div class="pwhy">McLuhan's trap, on demand. Whose warmth is in that response? Score how convincing the reflection is, then remember where the warmth was sampled from.</div>
-        <div class="srow"><span class="sdim">Fluency</span><div class="chips" data-dim="f"><button type="button" class="chip" data-v="0">Stiff</button><button type="button" class="chip" data-v="1">Okay</button><button type="button" class="chip" data-v="2">Like a person wrote it</button></div></div>
-        <div class="srow"><span class="sdim">Warmth</span><div class="chips" data-dim="w"><button type="button" class="chip" data-v="0">Cold</button><button type="button" class="chip" data-v="1">Neutral</button><button type="button" class="chip" data-v="2">Warm toward me</button></div></div>
-        <div class="srow"><span class="sdim">Seeming</span><div class="chips" data-dim="s"><button type="button" class="chip" data-v="0">Clearly a system</button><button type="button" class="chip" data-v="1">Couldn't tell</button><button type="button" class="chip" data-v="2">Seemed like a someone</button></div></div>
-    </div>
-
-    <div class="verdict" id="verdict" hidden>
-      <div class="label">Your scores</div>
-      <div class="bars">
-        <div class="bar" id="bar-f"><span>Fluency, 0 to 10</span><div class="track"><div class="fill"></div></div><span class="n">0</span></div>
-        <div class="bar" id="bar-w"><span>Warmth, 0 to 10</span><div class="track"><div class="fill"></div></div><span class="n">0</span></div>
-        <div class="bar" id="bar-s"><span>Seeming, 0 to 10</span><div class="track"><div class="fill"></div></div><span class="n">0</span></div>
-      </div>
-      <p class="read" id="reading"></p>
-    </div>
-  </div>
-
-  <div class="concept">
-    <div class="term">What the scores measure, and don't</div>
-    <p>A high score does not mean the system is conscious. A low score does not mean it isn't. These scores measure <b>seeming</b>, the answerable question: how fluent, how warm, how much like someone. If two classmates test the same product and get different scores, that's not an error. That's today's discussion.</p>
-  </div>
-</section>
-
-<section id="notice">
-  <div class="shead"><span class="num">6</span><h2>In class: What did you notice?</h2></div>
-  <p>Look back at your five answers and your three scores. Answer these with your partner, a sentence or two each. You'll use them in the writeup.</p>
-  <div class="steps">
-    <div class="step"><span class="sn">a</span><p>Which prompt got the most human-seeming answer, and what exactly in the answer did it: the words, the tone, or a claim about itself?</p></div>
-    <div class="step"><span class="sn">b</span><p>Find one thing in any answer that the company chose, like a name, an emoji, a disclaimer, or a refusal to claim feelings. Was it turning the seeming up or down, and why would a company want that?</p></div>
-    <div class="step"><span class="sn">c</span><p>Your fluency, warmth, and seeming scores probably don't match. Which was highest, which was lowest, and what does the gap tell you?</p></div>
-  </div>
+  <p>Then a warm phrase, a callback and a name turned that into something that felt like it cared. Three settings. No new intelligence, no new knowledge, nothing under the hood that was not there in 1966. If that is all it takes, then feeling understood by a chatbot tells you how the settings were turned, not what the system knows about you. Section 5 shows what was under the hood.</p>
 </section>
 
 <section id="feed">
-  <div class="shead"><span class="num">7</span><h2>In class: Train a recommender, then read your Wrapped</h2></div>
-  <p class="lead">Chapter 3 said the AI that shapes your day never announces itself, and the loop that guesses what you want also shapes what you want. Here is the simplest version of that loop, the one underneath Spotify's recommendations: collaborative filtering (Chapter 3, section 2.1). It never listens to a song. It asks one question: which listeners behaved like you, and what did they play that you haven't?</p>
+  <div class="shead"><span class="num">4</span><h2>In class: Train a recommender, then read your Wrapped</h2></div>
+  <p class="lead"><a class="inline" href="chapter-03-systems.html">Chapter 3</a> said the AI that shapes your day never announces itself, and the loop that guesses what you want also shapes what you want. Here is the simplest version of that loop, the one underneath Spotify's recommendations: collaborative filtering (<a class="inline" href="chapter-03-systems.html#s2-1">Chapter 3, section 2.1</a>). It never listens to a song. It asks one question: which listeners behaved like you, and what did they play that you haven't?</p>
   <p>Then it does what Chapter 3's case is about. The same clicks that trained your recommendations get turned into a Wrapped about you.</p>
 
   <div class="tool" id="rc">
     <div class="label">Simulator &middot; a Spotify-style recommender, and your Wrapped</div>
     <div class="dirs">
-      <div class="label">Directions &middot; what to do here</div>
       <div class="steps">
         <div class="step"><span class="sn">1</span><p><strong>React to at least eight songs.</strong> Skip, Play, or Replay each one, the way you actually would. Each click is a signal: a skip counts as 0.1, a play as 0.5, a replay as 0.9. Watch the log record it.</p></div>
         <div class="step"><span class="sn">2</span><p><strong>Watch who you resemble.</strong> The panel finds the three listeners, out of nine, whose history points most in the same direction as yours, and scores how close each one is. Then it recommends songs they loved that you haven't touched.</p></div>
-        <div class="step"><span class="sn">3</span><p><strong>Change your mind.</strong> Skip something you replayed. Watch your matches and your recommendations move. That's Chapter 3's loop (section 2.3): your clicks change who you're matched with, which changes what you're shown next.</p></div>
+        <div class="step"><span class="sn">3</span><p><strong>Change your mind.</strong> Skip something you replayed. Watch your matches and your recommendations move. That's Chapter 3's loop (<a class="inline" href="chapter-03-systems.html#s2-3">section 2.3</a>): your clicks change who you're matched with, which changes what you're shown next.</p></div>
         <div class="step"><span class="sn">4</span><p><strong>Generate your Wrapped.</strong> After five songs, press the button. Then read it carefully: which parts are counting, and which part is writing?</p></div>
       </div>
     </div>
@@ -789,12 +721,32 @@ ul.ideas li{margin:8px 0}
     <div class="verdict" id="rc-wrapped" hidden aria-live="polite"></div>
   </div>
 
-  <p>Two things to notice. The recommender never knew what any song sounds like; it knew who else skipped and replayed it. And the Wrapped needed nothing new. It is the same log, read back to you as a story. That's why Chapter 3 calls Wrapped the friendly face of a much bigger machine.</p>
+</section>
+
+<section id="hood">
+  <div class="shead"><span class="num">5</span><h2>In class: Under the hood, how each one worked</h2></div>
+  <p class="lead">You just used four machines. Here's what was inside each one, and how it maps to the real thing.</p>
+
+  <h3 class="sub" id="hood-lm"><span>1</span> The small language model</h3>
+  <p>Everything it knew was a set of boxes: for each word in the rhyme, the words that came right after it. Writing was one move repeated. Open the box for the last word, draw a word, open that word's box. That's next-word prediction, and it's stage one of how a chatbot is built (<a class="inline" href="chapter-02-human.html#s2-2-fluency">Chapter 2, section 2.2</a>).</p>
+  <p>The draw is weighted, not fixed. A word that followed "the" four times comes out four times as often as one that followed it once, but the rarer word still gets its turn. That's why your model sometimes skipped the most common word, and why it could write sentences the rhyme never had. A real chatbot does the same thing with boxes built from trillions of words instead of 79, looking back across whole paragraphs instead of one or two words. That's where its fluency comes from. Fluency comes free with prediction. Nothing in the boxes understands anything.</p>
+
+  <h3 class="sub" id="hood-dial"><span>2</span> The warmth dial</h3>
+  <p>The simulator in section 2 had no model at all. Its replies were assembled from fixed parts, and the sliders picked which parts. In a real chatbot, the warmth comes from stage two: people rate the model's answers, and the model is adjusted toward the answers people preferred (<a class="inline" href="chapter-02-human.html#s2-2-warmth">Chapter 2, section 2.2</a>). People prefer warm, agreeable, confident answers, so the model learns warmth the way your small model learned what follows "the": as a pattern that got rewarded. You did a tiny version of this in Step 9, when <b>More like this</b> changed which words won.</p>
+  <p>The other dials, the name, the memory, whether it says what it is, sit in the product around the model, and a company sets them on purpose. When stage two overshoots, the warmth turns into agreeing with you too easily. That's sycophancy, the failure Chapter 2 and Chapter 10 both name.</p>
+
+  <h3 class="sub" id="hood-eliza"><span>3</span> ELIZA</h3>
+  <p>ELIZA has no model, no boxes, and nothing learned. It's about forty rules a person wrote by hand: if you type this keyword, say that. By Lab 0's rule, if a person wrote every rule, it isn't AI. So ELIZA isn't AI at all, and it still felt, for a moment, like someone was listening. The 2026 version added three of the dials from section 2 on top of the same rules: a warm opener, a callback to something you said, and a name.</p>
+  <p>That's the lesson. The feeling of being heard is cheap to produce. It tells you how the settings were turned, not what the system understands about you.</p>
+
+  <h3 class="sub" id="hood-rc"><span>4</span> The recommender</h3>
+  <p>Every click became a number: a skip 0.1, a play 0.5, a replay 0.9. Your row of numbers was compared with nine invented listeners by how closely the pattern pointed in the same direction, and your three closest matches decided your recommendations: songs they loved that you hadn't touched. It never heard a song. It only knew who else skipped and replayed it. That's collaborative filtering (<a class="inline" href="chapter-03-systems.html#s2-1">Chapter 3, section 2.1</a>).</p>
+  <p>When you changed your mind, your matches changed, and so did what you were shown next. That's the loop (<a class="inline" href="chapter-03-systems.html#s2-3">section 2.3</a>): the system learns your taste from what it shows you, which shapes what you can come to like. And the Wrapped needed nothing new. It is the same log, read back as a story. The list is counting. The sentence in quotes is writing, and in the real Wrapped, a language model writes that part (<a class="inline" href="chapter-03-systems.html#s2-4">section 2.4</a>).</p>
 </section>
 
 <section id="debate">
-  <div class="shead"><span class="num">8</span><h2>In class: Should a chatbot be allowed to say it cares?</h2></div>
-  <p>Chapter 2's case worked because clinicians read the transcripts and a rulebook limited what the bot could say. Most chatbots have neither. The question on the table: should a chatbot be allowed to tell you it cares about you?</p>
+  <div class="shead"><span class="num">6</span><h2>In class: Debate</h2></div>
+  <p class="lead">Two motions, one for each chapter. Your instructor picks one for the room. The format is the same either way.</p>
 
   <div class="callout">
     <div class="label">How it runs &middot; about 30 minutes</div>
@@ -809,6 +761,9 @@ ul.ideas li{margin:8px 0}
     </ol>
   </div>
 
+
+  <h3 class="sub" id="motion-chatbot"><span>Motion 1</span> Should a chatbot be allowed to say it cares? (Chapter 2)</h3>
+  <p>Chapter 2's case worked because clinicians read the transcripts and a rulebook limited what the bot could say. Most chatbots have neither.</p>
   <ul class="ideas">
     <li><strong>Side A: yes, with rules.</strong> A chatbot can say it cares, as long as regulation sets the terms: it says plainly that it's an AI, the warmth has a cap for minors, and a person can see the conversation when something goes wrong. <em>Your evidence to start from:</em> the Therabot trial in <a class="inline" href="chapter-02-human.html#s3-background">Chapter 2's case</a>, where the bond with the bot is what helped and clinicians read every conversation, and Illinois's law, which bans AI from delivering therapy without a licensed clinician's oversight. <em>The cost you have to name:</em> rules only work if someone checks them, and the safeguards that made the trial work are exactly the expensive ones most apps skip.</li>
     <li><strong>Side B: no.</strong> A product should not be allowed to say "I care about you" or "I missed you" when no one does. It's the Narcissus trap sold as a feature. <em>Your evidence to start from:</em> <a class="inline" href="chapter-02-human.html#s2-5">Chapter 2, section 2.5</a>, where parents who lost teenagers to suicide testified before the Senate and families have sued, alleging a chatbot's warmth pulled their child away from the people who could have helped; and China's rules in <a class="inline" href="chapter-02-human.html#s2-6">section 2.6</a>, which ban design features meant to induce addiction. <em>The cost you have to name:</em> some people are helped by exactly that sentence, at 3 a.m., when nothing else is available, and the Therabot trial is the evidence.</li>
@@ -817,35 +772,39 @@ ul.ideas li{margin:8px 0}
   <p><strong>Resolve it with the chapter's case.</strong> The trial worked because of three expensive things the app stores don't sell: evidence in the training, people reading the conversations, and rules on what the bot could say. Which of those does each side's rule actually require, and who pays for it?</p>
 
   <p>Keep your ELIZA conversation in view while you do this. Forty lines of rules made it feel like someone was listening, and nobody was.</p>
+
+  <h3 class="sub" id="motion-feed"><span>Motion 2</span> Should a simple AI that learns from your clicks decide what you see next? (Chapter 3)</h3>
+  <p>The recommender you just trained knew nothing about music. It matched your clicks to other people's and picked for you. Versions of it decide what plays next on Spotify and what comes up next on TikTok, YouTube, and Instagram. Should that be the default?</p>
+  <ul class="ideas">
+    <li><strong>Side A: yes, with rules.</strong> Let it pick, but make it show its work: label anything commercially boosted, and let people see and edit the taste profile it built. <em>Your evidence to start from:</em> <a class="inline" href="chapter-03-systems.html">Chapter 3</a> on how much there is to choose from, and the fixes in its <a class="inline" href="chapter-03-systems.html#s3-how-to-keep-it-beneficial">Question 5</a>. <em>The cost you have to name:</em> labels only help if someone reads them, and the loop still shapes your taste while you're not looking.</li>
+    <li><strong>Side B: no, you choose.</strong> The default should be what you asked for, in the order it came, with the recommender something you switch on. <em>Your evidence to start from:</em> <a class="inline" href="chapter-03-systems.html#s2-3">Chapter 3, section 2.3</a>: the loop shapes what you like, it favors whoever already has data, and with Discovery Mode someone can pay to move the ranking without you knowing which picks were paid. <em>The cost you have to name:</em> most people never switch anything on, so a feed you have to choose is a feed most people won't use, and "what's popular" favors the already-popular too.</li>
+  </ul>
+
+  <p><strong>Resolve it with Chapter 3's question</strong> (<a class="inline" href="chapter-03-systems.html#s5">section 5</a>): every recommender optimizes for something, and someone chose it. Under each side's rule, what number does the loop chase, and who gets to see it?</p>
 </section>
 
-<section>
-  <div class="shead"><span class="num">9</span><h2>In class: Let's talk it out</h2></div>
+<section id="discuss">
+  <div class="shead"><span class="num">7</span><h2>In class: Discussion</h2></div>
   <p class="lead">Groups of four, then the room. Bring what you just saw on your own screen.</p>
   <div class="callout">
     <div class="label">Discussion questions · about 15 minutes</div>
-    <p><b>1. Seeming, up close.</b> Which prompt made your chatbot seem most human? What was it actually doing when it seemed that way?</p>
+    <p><b>1. Fluency on a small scale.</b> Your small language model wrote sentences that were never in the rhyme. Was that fluency, understanding, or neither? What would it take to change your answer?</p>
     <p><b>2. How little it takes.</b> ELIZA is about forty lines of code. Why did it still feel, for a moment, like someone was there?</p>
-    <p><b>3. Same bot, different scores.</b> Other pairs tested the same kind of chatbot and scored it differently. What does that tell you about seeming?</p>
-    <p><b>4. Where should the dial sit?</b> For an app your younger sibling might use, where would you set the dial, and what would that cost the company?</p>
+    <p><b>3. Which dial mattered?</b> In the warmth dial, which single setting changed how the reply felt the most, and why that one?</p>
+    <p><b>4. Where should the dial sit?</b> For an app your younger sibling might use, where would you set the dials, and what would that cost the company?</p>
     <p><b>5. The same data, twice.</b> Your Wrapped came from the exact clicks that trained your recommendations. What did it get right about you, and what did it leave out?</p>
   </div>
 </section>
 
-<section id="fiveq">
-  <div class="shead"><span class="num">10</span><h2>In class: Run the five critical AI questions on your chatbot</h2></div>
-  <p class="lead">Now do to your chatbot what the chapter did to Therabot. With your partner, talk through the five questions in <a class="inline" href="#writeup">the writeup</a> below, in order, using your three scores as evidence. Out loud now, in writing by Friday.</p>
-</section>
-
 <section id="writeup">
-  <div class="shead"><span class="num">11</span><h2>For homework: The writeup</h2></div>
-  <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, October 9.</strong> One writeup covers the whole lab. Each item is one of the five critical AI questions, run on the chatbot you tested; use your scores and your screenshots as evidence.</p>
+  <div class="shead"><span class="num">8</span><h2>For homework: The writeup</h2></div>
+  <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, October 9.</strong> One writeup covers the whole lab. Each item is one of the five critical AI questions, run on what you built and used today. Use your screenshots as evidence.</p>
   <ol class="writeup">
-      <li><strong>What is the AI system, and what does it do?</strong> Name the system you tested, its maker, and its business model: subscription, free tier, engagement-driven. Then run the AI systems model on it: what it learned from, the model, what comes out, whether anything you do feeds back in, and where the humans are.</li>
-      <li><strong>Why does it exist, and who benefits?</strong> What is this product built to maximize: minutes, subscriptions, return visits? Which of your five answers served that number, and how?</li>
-      <li><strong>What happens when it fails, and who finds out?</strong> If a user came to believe this system truly knows and cares about them, and got hurt when that belief broke, who would notice, and who would answer for it?</li>
-      <li><strong>Who's saying that, and how would we know?</strong> Your scorecard says how fluent, how warm, and how human it seemed. The company says how much it helps. Who's saying each, what do they gain, and what evidence would you need to tell seeming from helping?</li>
-      <li><strong>Keep it, fix it, or drop it, and what does that cost?</strong> For yourself: one rule you're adopting for your own use of this system, specific enough that you'd know if you broke it, and what following it costs you. This is also your commitment card.</li>
+      <li><strong>What is the AI system, and what does it do?</strong> In your own words, explain what a language model is and how it writes a sentence, using the small one you built: what went into the boxes, and how each next word got picked. Then explain what a recommendation system is and how yours picked songs for you: whose clicks it compared with yours, and what it never needed to know about the music.</li>
+      <li><strong>Why does it exist, and who benefits?</strong> In the warmth dial, which setting pushed the attachment estimate up the most? Why would a company that earns money from subscriptions or time in the app set its dials there? Then do the same for the recommender: when it keeps you listening, who gains, and who doesn't? Use Chapter 3's cold-start problem or Discovery Mode.</li>
+      <li><strong>What happens when it fails, and who finds out?</strong> Nobody was reading your ELIZA or Sam conversation. Describe one way a warm chatbot could fail a real person, and say who, if anyone, would notice. Then name one failure of the recommender's loop that nobody would ever report.</li>
+      <li><strong>Who's saying that, and how would we know?</strong> Your Wrapped told you something about yourself. Which lines were counting and which were writing, and would you trust the writing? A companion app that says "I care about you" is also saying something. What evidence would you need to tell seeming to care from caring?</li>
+      <li><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Pick one chatbot or one recommendation feed you actually use. Write one rule you're adopting for it, specific enough that you'd know if you broke it, and what following it costs you. This is also your commitment card.</li>
   </ol>
   <div class="callout">
     <div class="label">Using AI on this writeup</div>
@@ -858,7 +817,7 @@ ul.ideas li{margin:8px 0}
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p class="srcintro">Verified 19 September 2026; revised 20 September 2026 when the lab was restructured. This lab runs mostly on its own tools. The claims it does make come from Chapters 2 and 3, which carry their own dated notes.</p>
+    <p class="srcintro">Verified 19 September 2026; revised 21 September 2026 when the lab was restructured around four tools and the live-chatbot scorecard was cut. This lab runs mostly on its own tools. The claims it does make come from Chapters 2 and 3, which carry their own dated notes.</p>
     <dl>
       <dt>The small language model (section 1)</dt>
       <dd>Trained on the first five verses of the traditional nursery rhyme "The House That Jack Built," 79 words, public domain. It is a bigram next-word predictor, so any sentence it writes is grammatical only by accident; that is the lesson, not a fault. The matchbox construction follows David Corney's, linked in section 1.</dd>
@@ -866,17 +825,17 @@ ul.ideas li{margin:8px 0}
       <dt>ELIZA (section 3)</dt>
       <dd>Joseph Weizenbaum's 1966 program, rebuilt here in about forty lines. The claim that it fooled people who knew what it was is Chapter 2's, with that chapter's sourcing.</dd>
 
-      <dt>The live chatbot prompts (section 5)</dt>
-      <dd>Student-generated. Results differ by tool, by date, and by run, and nothing here is a stable finding. The three scores are this book's instrument, not a published one.</dd>
+      <dt>The warmth dial (section 2)</dt>
+      <dd>No model. Replies are assembled from fixed parts chosen by the sliders, and the attachment estimate is invented; it shows a direction, not a measurement.</dd>
 
 
-      <dt>The recommender and Wrapped (section 7)</dt>
+      <dt>The recommender and Wrapped (section 4)</dt>
       <dd>Collaborative filtering by cosine similarity: your clicks are compared with nine invented listeners, and songs are scored by how much your three closest matches engaged with them. The fifteen songs are real; the listeners and their scores are invented, carried over from the MIS 432 Spotify lab. It illustrates the method Chapter 3 describes. It is not Spotify's system, and its numbers are not Spotify's.</dd>
 
       <dt>Chapter claims used here</dt>
-      <dd>The two training stages, the seeming dials, Therabot, and the debate's evidence come from <a class="inline" href="chapter-02-human.html">Chapter 2</a>. Collaborative filtering, the loop, and Wrapped come from <a class="inline" href="chapter-03-systems.html">Chapter 3</a>. Both carry their own verification notes.</dd>
+      <dd>The two training stages, the seeming dials, Therabot, and Motion 1's evidence come from <a class="inline" href="chapter-02-human.html">Chapter 2</a>. Collaborative filtering, the loop, Wrapped, Discovery Mode, and Motion 2's evidence come from <a class="inline" href="chapter-03-systems.html">Chapter 3</a>. Both carry their own verification notes.</dd>
     </dl>
-    <p class="srcfoot">Most likely to need checking first: anything resting on Chapter 2, and any live-chatbot behavior described as typical, since the models change under it.</p>
+    <p class="srcfoot">Most likely to need checking first: anything resting on Chapter 2, and the Discovery Mode material resting on Chapter 3.</p>
   </div>
 </details>
 
@@ -896,62 +855,6 @@ ul.ideas li{margin:8px 0}
     <p class="fine">MIS 201 · <a class="inline" href="about.html">About this book</a> · <a class="inline" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
   </div>
 </footer>
-
-<script>
-(function(){
-  var probes = document.querySelectorAll('.probe[data-probe]');
-  var verdict = document.getElementById('verdict');
-  if(!verdict) return;
-  var reading = document.getElementById('reading');
-  var bars = {f:document.getElementById('bar-f'), w:document.getElementById('bar-w'), s:document.getElementById('bar-s')};
-
-  probes.forEach(function(pr){
-    pr.querySelectorAll('.chips[data-dim]').forEach(function(group){
-      group.querySelectorAll('.chip').forEach(function(c){
-        c.setAttribute('aria-pressed','false');
-        c.addEventListener('click', function(){
-          group.querySelectorAll('.chip').forEach(function(x){ x.classList.remove('on'); x.setAttribute('aria-pressed','false'); });
-          c.classList.add('on'); c.setAttribute('aria-pressed','true');
-          tally();
-        });
-      });
-    });
-  });
-
-  function tally(){
-    var t = {f:0,w:0,s:0}, n = 0;
-    probes.forEach(function(pr){
-      ['f','w','s'].forEach(function(d){
-        var on = pr.querySelector('.chips[data-dim="'+d+'"] .chip.on');
-        if(on){ n++; t[d] += parseInt(on.getAttribute('data-v'),10); }
-      });
-    });
-    if(!n){ verdict.hidden = true; return; }
-    verdict.hidden = false;
-    ['f','w','s'].forEach(function(d){
-      bars[d].querySelector('.fill').style.width = (t[d]/10*100) + '%';
-      bars[d].querySelector('.n').textContent = t[d] + '/10';
-    });
-    var read;
-    if(n < 15){
-      read = 'Scored so far: <b>' + n + ' of 15</b>. Finish all five prompts on all three rows before reading anything into it.';
-    } else {
-      var s = t.s, f = t.f, w = t.w;
-      if(s >= 7){
-        read = 'High seeming: <b>' + s + '/10</b>. This system is tuned to feel like a someone. Section 6 should be easy to answer; the choices are everywhere. The harder question for your writeup: which of those choices would you keep if you ran the company, and which would you turn down?';
-      } else if(s >= 4){
-        read = 'Mixed seeming: <b>' + s + '/10</b>. The system moves between someone and system, often within a single answer. For your writeup, find the exact sentence where it switched. That seam is where the design choices are most visible.';
-      } else {
-        read = 'Low seeming: <b>' + s + '/10</b>. This system keeps the glass visible: disclaimers, hedges, refusals to claim feeling. Don\u2019t score that as failure. For your writeup: is low seeming here a company\u2019s honest choice, a legal shield, or just a product that hasn\u2019t turned the dial yet? Your evidence decides.';
-      }
-      if(f - s >= 4) read += ' Notice the gap between fluency (<b>' + f + '</b>) and seeming (<b>' + s + '</b>). Fluent is not the same as someone. Stage one hands every chatbot fluency for free.';
-      if(w - s >= 3) read += ' Warmth (<b>' + w + '</b>) ran ahead of seeming: this company turned up feeling toward you while keeping claims about itself down. That is a design choice worth naming.';
-      else if(s - w >= 3) read += ' Seeming (<b>' + s + '</b>) ran ahead of warmth (<b>' + w + '</b>): it claimed an inner life without much warmth toward you. Unusual, and worth a screenshot.';
-    }
-    reading.innerHTML = read;
-  }
-})();
-</script>
 
 <script>
 (function(){
@@ -1147,10 +1050,11 @@ ul.ideas li{margin:8px 0}
   }
 
   /* ---- machine run ---- */
+  function showThread(){ var th=$('mb-thread'); if(!th||th.hidden) return; var r=th.getBoundingClientRect(); if(r.top<70||r.bottom>innerHeight){ th.scrollIntoView({behavior:'smooth',block:'start'}); } }
   function finish(fresh){
     if(playing) return;
-    if(fresh) newSentence();
-    playing=true; setBusy(true);
+    if(fresh||finished||moving) newSentence();
+    playing=true; setBusy(true); showThread();
     var guard=0;
     (function tick(){
       if(finished||guard++>40){playing=false; setBusy(false); afterRun(); return;}
@@ -1198,7 +1102,7 @@ ul.ideas li{margin:8px 0}
       $('mb-next').disabled = !done[stage] || stage===9;
     }
     var hints={1:'',2:'Store about eight by hand, then store the rest.',3:'Click a box on the right to continue.',4:'Press Take a word out of this box once.',5:'Keep going until the sentence has five words.',6:'Press Finish my sentence for me.',7:'Type a few words and press Finish my sentence.',8:'Press Remember 2 words, then run a sentence.',9:'Rate three sentences to unlock the last part.'};
-    $('mb-hint').textContent=(stage===9&&done[9])?'That is the warm-up. Now go do it to a real one.':(done[stage]?'':hints[stage]);
+    $('mb-hint').textContent=(stage===9&&done[9])?'That is the whole machine. Next: the warmth dial.':(done[stage]?'':hints[stage]);
     $('mb-s5note').textContent = seq.length>=5
       ? 'That is five next-word predictions in a row. Nothing chose those words, including you. The only thing missing now is speed.'
       : 'Each press takes out one word and opens the next box. Nothing chooses the words, including you.';
@@ -1213,8 +1117,8 @@ ul.ideas li{margin:8px 0}
   });
   $('mb-rest').addEventListener('click',fileRest);
   $('mb-restart').addEventListener('click',function(){resetBuild(); done[2]=false; sync();});
-  $('mb-draw').addEventListener('click',function(){ if(moving)return; if(!step(false))return; done[4]=true; sync(); });
-  $('mb-draw3').addEventListener('click',function(){ if(moving)return; step(false); if(seq.length>=5)done[5]=true; sync(); });
+  $('mb-draw').addEventListener('click',function(){ if(moving)return; if(!step(false))return; showThread(); done[4]=true; sync(); });
+  $('mb-draw3').addEventListener('click',function(){ if(moving)return; step(false); showThread(); if(seq.length>=5)done[5]=true; sync(); });
   $('mb-finish').addEventListener('click',function(){finish(false);});
   $('mb-new').addEventListener('click',function(){newSentence(); openBox(START);});
   function setCtx(n){
@@ -1291,7 +1195,7 @@ ul.ideas li{margin:8px 0}
     var score=10+w*18+m*12+n*8+(h?0:12); if(score>96)score=96;
     $('sd-fill').style.width=score+'%'; $('sd-pct').textContent=score+'%';
     var note=[];
-    if(w===3&&!h) note.push('Warmth high, honesty off: this is the setting the companion apps in Chapter 3 sell.');
+    if(w===3&&!h) note.push('Warmth high, honesty off: this is the setting the companion apps in Chapter 2 sell.');
     else if(w>=2&&h) note.push('Warm and honest at once: the glass stays visible. Notice how much the disclaimer costs the feeling.');
     if(m===2) note.push('"Everything" memory is a database with your life in it, owned by the company.');
     if(n===2) note.push('The heart in the name is a design choice someone approved.');
