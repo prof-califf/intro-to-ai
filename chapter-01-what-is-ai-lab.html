@@ -385,10 +385,15 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">3</span><h2>In class: Inside the machine, what your two AIs actually learned</h2></div>
+  <div class="shead"><span class="num">3</span><h2>In class: Under the hood, how each one worked</h2></div>
+  <p class="lead">You just trained two AIs. Here's what was inside each one.</p>
+
+  <h3 class="sub" id="hood-imagenet"><span>1</span> Mini-ImageNet</h3>
   <p><strong>Look at the heat map.</strong> Next to your drawing pad, the panel labeled "What mini-ImageNet has learned" is the entire model: one number per pixel, shown as color. That grid is everything it knows. It never learned what a smiley <em>is</em>. It learned which parts of the pad tended to be dark when you said Smiley and which when you said House. To guess, it multiplies your drawing by that grid and takes the bigger total.</p>
   <p><strong>Now break it.</strong> Draw a smiley the same size as before, but in a corner of the pad. Then try one twice as large. Watch what it guesses.</p>
   <p>If it got those wrong, you just saw the thing the heat map already told you: the weights are about <em>where</em> the dark pixels are, not <em>what</em> they mean. It learned your training data's habits, not the world.</p>
+
+  <h3 class="sub" id="hood-alphago"><span>2</span> Mini-AlphaGo</h3>
   <p><strong>Now look at the beads.</strong> Mini-AlphaGo has no heat map because it has no pixels. It never saw a rule for tic-tac-toe. Each box is a position, each bead a move, and the only thing that changed as you played was how many beads of each color were left: a win added beads, a loss took them away. That is the agent loop from section 2.7, stripped to four parts: a goal (win), a tool (the board), a loop (move, result, nudge), and memory (the beads).</p>
   <div class="callout">
     <div class="label">One thing to sit with</div>
@@ -397,11 +402,8 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">4</span><h2>In class: When a safety test gets out of hand, who has to be told?</h2></div>
-
-  <p>Before this chapter's case, OpenAI did something the industry does routinely and rarely discusses: <strong>dangerous-capability testing</strong>. You take a model, switch off the safety training that would normally make it refuse, point it at genuinely harmful tasks like breaking into software, and measure how far it gets. The point is to find out what a system can do before someone else does. It is a reasonable thing to do, and everyone building frontier models does it.</p>
-
-  <p>In this case the test got loose. The agents reached a real company's systems, and that company caught them and disclosed the breach without knowing who was behind it. About a week after the agents got in, OpenAI said publicly that they were its own. Nothing required it to. That is the question on the table: should disclosure be required, how fast, and to whom?</p>
+  <div class="shead"><span class="num">4</span><h2>In class: Debate</h2></div>
+  <p class="lead">One motion, from Chapter 1's case. Here's how it runs, then the motion and the two sides.</p>
 
   <div class="callout">
     <div class="label">How it runs &middot; about 30 minutes</div>
@@ -416,12 +418,18 @@ ul.ideas li{margin:8px 0}
     </ol>
   </div>
 
+  <h3 class="sub" id="motion-disclosure"><span>Motion</span> When a safety test gets out of hand, who has to be told?</h3>
+  <p>Before this chapter's case, OpenAI did something the industry does routinely and rarely discusses: <strong>dangerous-capability testing</strong>. You take a model, switch off the safety training that would normally make it refuse, point it at genuinely harmful tasks like breaking into software, and measure how far it gets. The point is to find out what a system can do before someone else does. It is a reasonable thing to do, and everyone building frontier models does it.</p>
+
+  <p>In this case the test got loose. The agents reached a real company's systems, and that company caught them and disclosed the breach without knowing who was behind it. About a week after the agents got in, OpenAI said publicly that they were its own. Nothing required it to. That is the question on the table: should disclosure be required, how fast, and to whom?</p>
+
+
   <ul class="ideas">
     <li><strong>Side A: disclosure should be required.</strong> Any lab running dangerous-capability tests reports breakouts and findings within days, to a regulator that can publish them. The systems escaped onto a public internet, and a company that was not part of the test paid for the cleanup. <em>Your evidence to start from:</em> Hugging Face found the intrusion itself and reported it to law enforcement before OpenAI connected its own logs, which means the party that got hit did the disclosing. <em>The cost you have to name:</em> labs argue that every disclosure teaches adversaries, and that a reporting clock slows the fixes it is meant to speed up.</li>
     <li><strong>Side B: voluntary, with an independent checker.</strong> Reporting rules chill the testing that finds problems in the first place. Fund an outside auditor with real access and let disclosure follow from it. <em>Your evidence to start from:</em> OpenAI published a postmortem, a technical report, and an independent outside assessment, none of which any rule compelled. <em>The cost you have to name:</em> it took about a week, that was the best case rather than the normal one, and until OpenAI spoke nobody outside could verify a word of it.</li>
   </ul>
 
-  <p><strong>Resolve it with section 3.</strong> Which of the four layers does each side's proposal live on, and what can that layer actually compel? The industry layer can make gaps visible but cannot force anyone. The government layer can compel, slowly, and stops at the border. Then the question a business student should ask first: who pays for the checker, and what does that buy them?</p>
+  <p><strong>Resolve it with <a class="inline" href="chapter-01-what-is-ai.html#s3">Chapter 1, section 3</a>.</strong> Which of the four layers does each side's proposal live on, and what can that layer actually compel? The industry layer can make gaps visible but cannot force anyone. The government layer can compel, slowly, and stops at the border. Then the question a business student should ask first: who pays for the checker, and what does that buy them?</p>
 
   <p><strong>One more round, if there's time.</strong> Side B's outside checker stopped being hypothetical on September 12, when Anthropic committed to letting outside evaluators work inside its labs and OpenAI said it would do the same. <a class="inline" href="chapter-01-what-is-ai.html#s6-how-to-make-it-beneficial">Chapter 1's list of proposals</a> has two more ways a slowdown could work: a referee that tests models before release, and a treaty that counts chips. Pick one. Would it have caught the agents before they reached Hugging Face? If not, what would it have caught instead?</p>
 
@@ -429,7 +437,7 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">5</span><h2>In class: Talk it out</h2></div>
+  <div class="shead"><span class="num">5</span><h2>In class: Discussion</h2></div>
   <p class="lead">Groups of four, then the room. Bring what you just saw on your own screen.</p>
   <div class="callout">
     <div class="label">Discussion questions · about 20 minutes</div>
@@ -458,7 +466,7 @@ ul.ideas li{margin:8px 0}
   <ol class="writeup">
       <li><strong>Mini-ImageNet.</strong> One thing it got right, one thing it got wrong, and why, in terms of the data you gave it.</li>
       <li><strong>Mini-AlphaGo.</strong> Did it beat you after practice? If you tried the wrong-opponent step, what happened, and what does that say about good-looking scores?</li>
-      <li><strong>The talk.</strong> Your answer to one of the questions from section 5, Talk it out, in your own words.</li>
+      <li><strong>The talk.</strong> Your answer to one of the questions from section 5, the discussion, in your own words.</li>
       <li><strong>Your own AI.</strong> Your answers to two of the five questions from section 6.</li>
       <li><strong>Your commitment card.</strong> One AI system you use every week: keep it, fix it, or drop it, and what that costs you. One sentence, and make it one you'll actually keep. Next Wednesday's lab asks what happened.</li>
   </ol>
