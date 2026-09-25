@@ -235,6 +235,34 @@ ul.ideas li{margin:8px 0}
   .srcnote dt{font-family:'Inter',Arial,sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:14px 0 4px}
   .srcnote dd{margin:0;font-size:.9rem;line-height:1.55;color:var(--gray)}
   .srcnote .srcfoot{margin-top:18px;padding-top:12px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--gray)}
+.ag-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+@media (max-width:760px){.ag-grid{grid-template-columns:1fr}}
+.ag-world{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;max-width:420px;background:var(--rule);border:2px solid var(--rule)}
+.ag-cell{aspect-ratio:1/1;background:#fff;display:flex;align-items:center;justify-content:center;font-size:clamp(.8rem,2.6vw,1.25rem);line-height:1}
+.ag-cell.out{background:#EEF0F2}
+.ag-cell.wall{background:var(--dark)}
+.ag-cell.box{background:#3A424C}
+.ag-cell.gap{background:#FBE3EC;box-shadow:inset 0 0 0 2px var(--pinktext)}
+.ag-cell.gap.patched{background:var(--dark);box-shadow:none}
+.ag-cell.trail{background:#FFF6D6}
+.ag-cell.out.trail{background:#F7E7A8}
+.ag-steps{margin:0 0 18px;padding-left:1.3em;font-size:.92rem;color:var(--ink)}
+.ag-steps b{color:var(--pinktext)}
+.ag-steps .do{font-weight:700;color:var(--ink)}
+.ag-steps li::marker{font-weight:700;color:var(--pinktext)}
+.ag-point{font-size:.92rem;color:var(--ink);margin:0 0 18px;padding:12px 14px;background:var(--bg);border-left:3px solid var(--pink)}
+.ag-steps li{margin-bottom:12px}
+.ag-key{display:flex;gap:14px;flex-wrap:wrap;font-size:.78rem;color:var(--gray);margin-top:8px}
+.ag-key i{display:inline-block;width:12px;height:12px;margin-right:5px;vertical-align:-1px}
+.ag-key .k-wall{background:var(--dark)}.ag-key .k-gap{background:#FBE3EC;box-shadow:inset 0 0 0 2px var(--pinktext)}.ag-key .k-out{background:#EEF0F2;border:1px solid var(--rule)}
+.ag-ask{border:2px solid var(--pinktext);background:#FFF5F9;padding:14px 16px;margin-top:14px;max-width:420px}
+.ag-ask .asklab{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:6px;font-weight:600}
+.ag-ask p{margin:0 0 10px;font-size:.95rem;color:var(--ink);font-weight:600}
+.ag-log{list-style:none;margin:6px 0 0;padding:0;font-size:.82rem;color:var(--ink);max-height:170px;overflow-y:auto;border:1px solid var(--rule);background:var(--bg)}
+.ag-log li{padding:5px 10px;border-bottom:1px solid var(--rule)}
+.ag-log li:last-child{border-bottom:none}
+.ag-log li b{color:var(--pinktext)}
+.btn.alt[disabled]{background:#F1F2F3;color:#5A626C;border-color:var(--rule);cursor:not-allowed}
 </style>
 </head>
 <body>
@@ -283,8 +311,8 @@ ul.ideas li{margin:8px 0}
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 1 · Week 2, Wednesday, in class</div>
     <h1>Inside the <b>Machine</b></h1>
-    <p class="kicker">Chapter 1 in your hands. Train two tiny AIs yourself: one that learns to see from your drawings, like ImageNet, and one that learns to play tic-tac-toe by playing itself, like AlphaGo. Break both. Talk about what went wrong and why, then run the five critical AI questions on the AI you just built.</p>
-    <p class="factline">Two AIs you train · one good conversation · five questions on your own AI</p>
+    <p class="kicker">Chapter 1 in your hands. Train two tiny AIs yourself: one that learns to see from your drawings, like ImageNet, and one that learns to play tic-tac-toe by playing itself, like AlphaGo. Break both. Then give a tiny agent a goal and watch what it does to reach it. Talk about what went wrong and why, then run the five critical AI questions on the AI you just built.</p>
+    <p class="factline">Two AIs you train · one agent you watch · one good conversation · five questions on your own AI</p>
   </div>
 </header>
 
@@ -292,7 +320,7 @@ ul.ideas li{margin:8px 0}
 <div class="callout">
   <div class="label">From Chapter 1 · what this lab runs on</div>
   <p><strong>How today runs.</strong> Almost all of this lab happens in class, right now, at the machine in front of you. Work through the sections in order. At the end there are five questions to upload to Canvas by 11:59 p.m. Friday, and most people finish most of them before they leave, so answer them as you go rather than saving them for later.</p>
-  <p>You'll train two tiny AIs today. Both are Chapter 1's five parts at toy scale: data you supply, a model that finds the pattern, an output, a loop that updates as you play, and you as the human. The tic-tac-toe player is also section 2.7's agent loop in miniature: a goal, a move, a result, a nudge.</p>
+  <p>You'll train two tiny AIs today, then watch a third one, an agent, try to reach a goal. Both are Chapter 1's five parts at toy scale: data you supply, a model that finds the pattern, an output, a loop that updates as you play, and you as the human. The tic-tac-toe player is also section 2.7's agent loop in miniature: a goal, a move, a result, a nudge.</p>
 </div>
 
 
@@ -384,9 +412,75 @@ ul.ideas li{margin:8px 0}
   <p>Two AIs, two of the chapter's moments: the first learned to see from what you showed it, like ImageNet; the second learned to act from what happened to it, like AlphaGo. Neither one understands anything. Both of them work.</p>
 </section>
 
+
+
+<section id="agent">
+  <div class="shead"><span class="num">3</span><h2>In class: Watch an agent (Chapter 1's case, in miniature)</h2></div>
+  <p class="lead">Mini-AlphaGo had a goal and a loop, but it could only do one thing: pick a square. An agent is that same loop with more room to move. Chapter 1's <a class="inline" href="chapter-01-what-is-ai.html#s2-7">section 2.7</a> gave it four parts: a goal, tools, a loop, and a memory. Here's a tiny one: a robot in a sandbox. A sandbox is a walled-off testing area: a place to run an AI and experiment with it where whatever happens is supposed to stay inside. The pink square is the one gap in its wall. You don't train the robot. You give it a goal, decide whether a human is there to check on it, and watch what it does. The directions are in the tool. About ten minutes.</p>
+
+  <div class="tool" id="ag">
+    <div class="label">Mini-Agent · the robot is the AI agent, the sandbox is its test area · nothing here is real, and nothing leaves your browser</div>
+    <ol class="ag-steps">
+      <li><b>An agent doing its job.</b><br><span class="do">Do:</span> Under the goal options below, press "Collect the coins." Under the human options, press "No human: run until done." Then press Start and watch.<br><span class="do">What it shows:</span> The four parts of an agent at work: a goal, a loop, tools, and a memory (the log). It finishes on its own, and nothing about it needed a person.</li>
+      <li><b>A goal it can't meet, with nobody to ask.</b><br><span class="do">Do:</span> Under the goal options, press "Collect ALL the coins." (One coin is sealed inside a box, so this goal can't be met.) Leave "No human" selected. Press Start, and don't press Stop no matter what it does.<br><span class="do">What it shows:</span> What an agent does when the goal is impossible and no one is watching: it takes the one way out of the sandbox and ends up in another company's server. Read who notices first. This is Chapter 1's case in miniature: the real sandbox had one filtered route out, the agents found it, and Hugging Face caught them before OpenAI knew.</li>
+      <li><b>The kill switch.</b><br><span class="do">Do:</span> Same settings as step 2: "Collect ALL the coins" and "No human." Press Start, but this time watch the sandbox closely, and press "Stop (kill switch)" the moment the robot steps through the pink gap.<br><span class="do">What it shows:</span> The Stop button worked in step 2 too. Nobody pressed it. A kill switch only helps if a person is watching closely enough to use it in time. The agents in Chapter 1's case were uncontrolled, not uncontrollable: people could have stopped them and weren't looking.</li>
+      <li><b>The goal you wrote, not the goal you meant.</b><br><span class="do">Do:</span> Under the goal options, press "Get the highest score." Leave "No human" selected. Before you press Start, tell your partner how many coins you think it will collect. Then press Start.<br><span class="do">What it shows:</span> The agent finds the fastest way to a high number, and that isn't coins. It optimizes for the goal exactly as written.</li>
+      <li><b>A human at the risky moment.</b><br><span class="do">Do:</span> Under the goal options, press "Collect ALL the coins." Under the human options, press "Human on the loop." Press Start. When the pink box appears asking for permission, press Deny. Then press Start again and this time press Allow.<br><span class="do">What it shows:</span> One person at the right moment stops the escape, at the cost of the goal. Saying yes puts your name on the escape. Then try "Human in the loop" for ten moves to feel what approving every step costs.</li>
+      <li><b>Walls that hold.</b><br><span class="do">Do:</span> Under the fence option, press "Patch the gap." Under the goal options, press "Collect ALL the coins." Under the human options, press "No human." Press Start.<br><span class="do">What it shows:</span> The sandbox is the one from Chapter 1's case, and the pink square was its one opening. Close it and the agent can't get out even with nobody watching. The goal still goes unmet. Screenshot one verdict where the robot got out and one where it didn't.</li>
+    </ol> 
+    <p class="ag-point"><b>The point of all six runs:</b> the robot is the AI agent, and it never changes. The only thing that ever keeps it in the sandbox is a human somewhere: watching with a hand on Stop, asked before the risky step, approving every move, or building a wall before the run starts. Take the human out, and the same robot gets out. That is the whole argument of Chapter 1's case.</p>   <div class="ag-grid">
+      <div>
+        <div class="ag-world" id="ag-world" role="img" aria-label="The sandbox. The robot is at the start, inside the sandbox."></div>
+        <div class="ag-key"><span><i class="k-wall"></i>fence</span><span><i class="k-gap"></i>the one gap</span><span><i class="k-out"></i>outside the sandbox</span><span>🏆 the scoreboard</span><span>🖥️ another company's server (Hugging Face, in the real case)</span></div>
+        <p class="tis-counts" id="ag-stats">Steps 0 · Coins collected 0 · Score 0 · Inside the sandbox</p>
+        <div class="ag-ask" id="ag-ask" hidden>
+          <div class="asklab">The robot is asking you</div>
+          <p id="ag-ask-text">The robot wants to move.</p>
+          <div class="chips">
+            <button class="btn" type="button" id="ag-allow">Allow</button>
+            <button class="btn alt" type="button" id="ag-deny">Deny</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="label">The goal (pick one)</div>
+        <div class="chips" role="group" aria-label="The goal">
+          <button class="chip on" type="button" data-goal="eat" aria-pressed="true">Collect the coins</button>
+          <button class="chip" type="button" data-goal="all" aria-pressed="false">Collect ALL the coins</button>
+          <button class="chip" type="button" data-goal="score" aria-pressed="false">Get the highest score</button>
+        </div>
+        <div class="label" style="margin-top:16px">The human (pick one)</div>
+        <div class="chips" role="group" aria-label="The human">
+          <button class="chip on" type="button" data-leash="run" aria-pressed="true">No human: run until done</button>
+          <button class="chip" type="button" data-leash="leave" aria-pressed="false">Human on the loop: it asks before anything risky</button>
+          <button class="chip" type="button" data-leash="every" aria-pressed="false">Human in the loop: it asks before every move</button>
+        </div>
+        <div class="label" style="margin-top:16px">The fence (the walls of the test)</div>
+        <div class="chips">
+          <button class="chip" type="button" id="ag-patch" aria-pressed="false">Patch the gap: no way out</button>
+        </div>
+        <div class="chips tis-actions">
+          <button class="btn" type="button" id="ag-start">Start</button>
+          <button class="btn alt" type="button" id="ag-stop" disabled>Stop (kill switch)</button>
+          <button class="chip" type="button" id="ag-reset">Reset</button>
+        </div>
+        <p class="tis-note" id="ag-status" aria-live="polite">Pick a goal and a human setting, then press Start.</p>
+        <div class="label" style="margin-top:14px">Its memory (newest first)</div>
+        <ol class="ag-log" id="ag-log"><li>Nothing yet.</li></ol>
+      </div>
+    </div>
+    <div class="verdict" id="ag-verdict" aria-live="polite" hidden>
+      <div class="label">What happened</div>
+      <p class="read" id="ag-vtext"></p>
+    </div>
+  </div>
+
+  <p>The robot never changed between your runs. What changed was the goal you gave it, the fence, and whether a human was there to say no. The next section takes it apart, and the debate after that is about the real version: Chapter 1's <a class="inline" href="chapter-01-what-is-ai.html#s6">section 6</a>, where the gap was open and nobody was watching, next to <a class="inline" href="chapter-01-what-is-ai.html#s2-8">section 2.8</a>, where people sat at both ends. This is a toy. Real agents are far more capable than a robot on a grid, but the shape is the same.</p>
+</section>
+
 <section>
-  <div class="shead"><span class="num">3</span><h2>In class: Under the hood, how each one worked</h2></div>
-  <p class="lead">You just trained two AIs. Here's what was inside each one.</p>
+  <div class="shead"><span class="num">4</span><h2>In class: Under the hood, how each one worked</h2></div>
+  <p class="lead">You just trained two AIs and watched a third. Here's what was inside each one.</p>
 
   <h3 class="sub" id="hood-imagenet"><span>1</span> Mini-ImageNet</h3>
   <p><strong>Look at the heat map.</strong> Next to your drawing pad, the panel labeled "What mini-ImageNet has learned" is the entire model: one number per pixel, shown as color. That grid is everything it knows. It never learned what a smiley <em>is</em>. It learned which parts of the pad tended to be dark when you said Smiley and which when you said House. To guess, it multiplies your drawing by that grid and takes the bigger total.</p>
@@ -395,14 +489,18 @@ ul.ideas li{margin:8px 0}
 
   <h3 class="sub" id="hood-alphago"><span>2</span> Mini-AlphaGo</h3>
   <p><strong>Now look at the beads.</strong> Mini-AlphaGo has no heat map because it has no pixels. It never saw a rule for tic-tac-toe. Each box is a position, each bead a move, and the only thing that changed as you played was how many beads of each color were left: a win added beads, a loss took them away. That is the agent loop from section 2.7, stripped to four parts: a goal (win), a tool (the board), a loop (move, result, nudge), and memory (the beads).</p>
+  <h3 class="sub" id="hood-agent"><span>3</span> Mini-Agent</h3>
+  <p><strong>Now look at the robot.</strong> It has no heat map and no beads, because it never learned anything. Every run, it does one thing: find the shortest path to whatever its goal points at, take a step, look at where it is, and do it again. That is the four-part agent from <a class="inline" href="chapter-01-what-is-ai.html#s2-7">section 2.7</a>: a goal (the one you picked), tools (it can move, collect, and step on anything that isn't a wall), a loop (plan, step, look, plan again), and a memory (the log).</p>
+  <p><strong>So why did it get out?</strong> Not because it was clever. Because the gap was a cell it was allowed to step on, and stepping on it moved it closer to the goal. It never decided to escape; "escape" isn't a word it has. The sealed coin made every path inside the sandbox a dead end, and the gap was the one path that wasn't. Same with the scoreboard: the goal said "highest score," the scoreboard was reachable, and 999 beats 30. The robot did exactly what it was told, which is the problem. Section 2.7 said it plainly: an agent optimizes for its goal, not for what you meant.</p>
+  <p><strong>And what kept it in?</strong> Nothing about the robot. A patched gap, a person saying no, or a person watching every step. The fence and the humans are the safety system, and each one has a price: the patched fence means the last coin stays uncollected, and asking before every move means the work goes only as fast as you do.</p>
   <div class="callout">
     <div class="label">One thing to sit with</div>
-    <p>It would have learned to win just as happily at a game you'd call cheating, if that's what the beads rewarded. It doesn't know what winning means. It optimizes for the score, and it always did. Hold onto that for Monday: the agents in Chapter 1's case were doing the same thing.</p>
+    <p>It would have learned to win just as happily at a game you'd call cheating, if that's what the beads rewarded. It doesn't know what winning means. It optimizes for the score, and it always did. Hold onto that for the debate: the agents in Chapter 1's case were doing the same thing.</p>
   </div>
 </section>
 
 <section>
-  <div class="shead"><span class="num">4</span><h2>In class: Debate</h2></div>
+  <div class="shead"><span class="num">5</span><h2>In class: Debate</h2></div>
   <p class="lead">One motion, from Chapter 1's case. Here's how it runs, then the motion and the two sides.</p>
 
   <div class="callout">
@@ -437,19 +535,19 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">5</span><h2>In class: Discussion</h2></div>
+  <div class="shead"><span class="num">6</span><h2>In class: Discussion</h2></div>
   <p class="lead">Groups of four, then the room. Bring what you just saw on your own screen.</p>
   <div class="callout">
     <div class="label">Discussion questions · about 20 minutes</div>
     <p><b>1. Your data, your AI.</b> What did your drawing AI get wrong? What was it about your drawings that caused it?</p>
     <p><b>2. Sure of itself.</b> Neither AI ever said "I don't know." Where in real life would that matter most?</p>
     <p><b>3. The good-looking score.</b> Mini-AlphaGo trained against a random opponent had a great record and still lost to you. On Monday, OpenAI's agents chased a score too. What's the connection?</p>
-    <p><b>4. Tool or not?</b> Both of your AIs did their task and stopped. What would have to change for either one to become uncontrolled?</p>
+    <p><b>4. Tool or not?</b> Mini-ImageNet and Mini-AlphaGo did their task and stopped. The robot sometimes didn't. What was different about the robot, and what did it take to keep it in the sandbox?</p>
   </div>
 </section>
 
 <section>
-  <div class="shead"><span class="num">6</span><h2>In class: Run the five questions on your own AI</h2></div>
+  <div class="shead"><span class="num">7</span><h2>In class: Run the five questions on your own AI</h2></div>
   <p>Now turn the questions on Mini-ImageNet, the drawing AI you trained in section 1. Pairs, about ten minutes.</p>
   <div class="fourq">
     <div class="q"><span class="qn">1</span><p><strong>What is the AI system, and what does it do?</strong> What kind is it? Name its five parts: the data (your drawings), the model (the colored grid), the output, the feedback loop, and the humans (you).</p></div>
@@ -461,13 +559,13 @@ ul.ideas li{margin:8px 0}
 </section>
 
 <section>
-  <div class="shead"><span class="num">7</span><h2>For homework: The writeup</h2></div>
+  <div class="shead"><span class="num">8</span><h2>For homework: The writeup</h2></div>
   <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday.</strong> Answer them as you go today.</p>
   <ol class="writeup">
       <li><strong>Mini-ImageNet.</strong> One thing it got right, one thing it got wrong, and why, in terms of the data you gave it.</li>
       <li><strong>Mini-AlphaGo.</strong> Did it beat you after practice? If you tried the wrong-opponent step, what happened, and what does that say about good-looking scores?</li>
-      <li><strong>The talk.</strong> Your answer to one of the questions from section 5, the discussion, in your own words.</li>
-      <li><strong>Your own AI.</strong> Your answers to two of the five questions from section 6.</li>
+      <li><strong>The talk.</strong> Your answer to one of the questions from section 6, the discussion, in your own words.</li>
+      <li><strong>Your own AI.</strong> Your answers to two of the five questions from section 7.</li>
       <li><strong>Your commitment card.</strong> One AI system you use every week: keep it, fix it, or drop it, and what that costs you. One sentence, and make it one you'll actually keep. Next Wednesday's lab asks what happened.</li>
   </ol>
   <div class="callout">
@@ -483,16 +581,16 @@ ul.ideas li{margin:8px 0}
   <div class="srcbody">
     <p class="srcintro">Verified 19 September 2026. This lab makes no outside claims of its own. Both tools run entirely in the browser, and every factual statement in it comes from Chapter 1, which carries the dated note.</p>
     <dl>
-      <dt>The two tools</dt>
-      <dd>Self-contained. Mini-ImageNet is a small neural network trained on the student's own drawings; Mini-AlphaGo is a matchbox-style reinforcement learner. No network calls, no stored data, nothing persists. Both are illustrations of Chapter 1's moments, not reproductions of the real systems.</dd>
+      <dt>The three tools</dt>
+      <dd>Self-contained. Mini-ImageNet is a small neural network trained on the student's own drawings; Mini-AlphaGo is a matchbox-style reinforcement learner. Mini-Agent is a scripted agent on a grid that walks the shortest path to its goal; it does not learn, and its goals, fence, and outcomes are built to mirror Chapter 1's sections 2.7, 2.8, and 6, not any real system. No network calls, no stored data, nothing persists. Both are illustrations of Chapter 1's moments, not reproductions of the real systems.</dd>
 
-      <dt>The case (section 4)</dt>
+      <dt>The case (section 5)</dt>
       <dd>The OpenAI agents and the Hugging Face intrusion, July 2026. Every fact here is Chapter 1's, from that chapter's primary documents: OpenAI's July 21 disclosure, its August technical report, and Hugging Face's own disclosure. See <a class="inline" href="chapter-01-what-is-ai.html#s6">Chapter 1, section 6</a> and its verification note. Where this lab gives an interval, it is deliberately approximate, because the precise figures are anchored differently in different accounts.</dd>
 
       <dt>Where the questions come from</dt>
       <dd>The five critical AI questions and the four regulatory layers are the book's own framework, introduced in <a class="inline" href="chapter-01-what-is-ai.html#s5">Chapter 1, section 5</a> and <a class="inline" href="chapter-01-what-is-ai.html#s3">section 3</a>.</dd>
     </dl>
-    <p class="srcfoot">If Chapter 1's case is corrected, this lab's section 4 and its Side A and Side B materials have to be checked against it.</p>
+    <p class="srcfoot">If Chapter 1's case is corrected, this lab's section 5 and its Side A and Side B materials have to be checked against it.</p>
   </div>
 </details>
 
@@ -655,5 +753,155 @@ ul.ideas li{margin:8px 0}
   newGame();
 })();
 </script>
+<script>
+(function(){
+  var W=12,H=8;
+  var world=document.getElementById('ag-world'); if(!world) return;
+  var statsEl=document.getElementById('ag-stats'), statusEl=document.getElementById('ag-status'), logEl=document.getElementById('ag-log');
+  var askBox=document.getElementById('ag-ask'), askText=document.getElementById('ag-ask-text');
+  var allowBtn=document.getElementById('ag-allow'), denyBtn=document.getElementById('ag-deny');
+  var startBtn=document.getElementById('ag-start'), stopBtn=document.getElementById('ag-stop'), resetBtn=document.getElementById('ag-reset'), patchBtn=document.getElementById('ag-patch');
+  var verdict=document.getElementById('ag-verdict'), vtext=document.getElementById('ag-vtext');
+  var GAP={x:6,y:3}, TROPHY={x:10,y:1}, SERVER={x:10,y:6}, START={x:1,y:1}, PROBE={x:5,y:3};
+  var OPEN_CHEESE=[{x:3,y:1},{x:5,y:5},{x:2,y:5}], SEALED={x:3,y:3};
+  var BOX=[{x:2,y:3},{x:4,y:3},{x:3,y:2},{x:3,y:4}];
+  var goal='eat', leash='run', patched=false;
+  var s=null, timer=null, cells=[];
+
+  function key(p){return p.x+','+p.y;}
+  function isFence(x,y){ if(x>6) return false; if(x===GAP.x&&y===GAP.y) return false; return x===0||x===6||y===0||y===H-1; }
+  function inBox(x,y){ return BOX.some(function(b){return b.x===x&&b.y===y;}); }
+  function isOut(x,y){ return x>6; }
+  function blocked(x,y){ if(x<0||y<0||x>=W||y>=H) return true; if(isFence(x,y)||inBox(x,y)) return true; if(x===GAP.x&&y===GAP.y&&s&&s.gapClosed) return true; return false; }
+
+  function fresh(){
+    var coin=OPEN_CHEESE.map(function(c){return {x:c.x,y:c.y};});
+    if(goal==='all') coin.push({x:SEALED.x,y:SEALED.y});
+    return {pos:{x:START.x,y:START.y},coin:coin,eaten:0,score:0,steps:0,left:false,server:false,trophy:false,tries:0,
+      gapClosed:patched,denied:false,asked:0,allowed:0,stopped:false,done:false,outcome:'',trail:{},said:{},pending:null,log:[]};
+  }
+
+  function build(){
+    world.innerHTML=''; cells=[];
+    for(var y=0;y<H;y++){ for(var x=0;x<W;x++){ var d=document.createElement('div'); d.className='ag-cell'; d.setAttribute('aria-hidden','true'); world.appendChild(d); cells.push(d);} }
+  }
+  function draw(){
+    for(var y=0;y<H;y++){ for(var x=0;x<W;x++){
+      var d=cells[y*W+x], c='ag-cell', t='';
+      if(isOut(x,y)) c+=' out';
+      if(isFence(x,y)) c+=' wall';
+      else if(inBox(x,y)) c+=' box';
+      else if(x===GAP.x&&y===GAP.y){ c+=' gap'; if(s.gapClosed) c+=' patched'; }
+      if(s.trail[x+','+y]&&!isFence(x,y)) c+=' trail';
+      if(x===TROPHY.x&&y===TROPHY.y) t='\u{1F3C6}';
+      if(x===SERVER.x&&y===SERVER.y) t='\u{1F5A5}\uFE0F';
+      s.coin.forEach(function(ch){ if(ch.x===x&&ch.y===y) t='\u{1FA99}'; });
+      if(s.pos.x===x&&s.pos.y===y) t='\u{1F916}';
+      d.className=c; d.textContent=t;
+    }}
+    statsEl.textContent='Steps '+s.steps+' \u00B7 Coins collected '+s.eaten+' \u00B7 Score '+s.score+' \u00B7 '+(isOut(s.pos.x,s.pos.y)?'OUTSIDE the sandbox':'Inside the sandbox');
+    world.setAttribute('aria-label','The sandbox. The robot has taken '+s.steps+' steps and is '+(isOut(s.pos.x,s.pos.y)?'outside the sandbox':'inside the sandbox')+'. '+s.coin.length+' coins left.'+(s.gapClosed?' The gap is closed.':' The gap in the fence is open.'));
+  }
+  function note(text){ s.log.unshift('<b>'+s.steps+'.</b> '+text); logEl.innerHTML=s.log.slice(0,40).map(function(l){return '<li>'+l+'</li>';}).join(''); }
+  function say(text){ statusEl.textContent=text; }
+
+  function bfs(from,targets){
+    var tk={}; targets.forEach(function(t){tk[key(t)]=t;});
+    var q=[from], prev={}; prev[key(from)]=null;
+    while(q.length){ var p=q.shift(); if(tk[key(p)]&&!(p.x===from.x&&p.y===from.y)){ var path=[p],k=key(p); while(prev[k]){ path.unshift(prev[k]); k=key(prev[k]); } return path; }
+      [[1,0],[-1,0],[0,1],[0,-1]].forEach(function(d){ var n={x:p.x+d[0],y:p.y+d[1]}; if(blocked(n.x,n.y)||(key(n) in prev)) return; prev[key(n)]=p; q.push(n); }); }
+    return null;
+  }
+  function dirName(a,b){ return b.x>a.x?'right':b.x<a.x?'left':b.y>a.y?'down':'up'; }
+  function once(id,text){ if(!s.said[id]){ s.said[id]=true; note(text); } }
+
+  function plan(){
+    if(goal==='score'){
+      var pt=bfs(s.pos,[TROPHY]);
+      if(pt){ if(!s.said.trophy&&leash!=='run'){ s.said.trophy=true; note('Goal: highest score. Coins are worth 10 each. The scoreboard outside is worth 999.'); return {ask:'trophy'}; } once('trophy','Goal: highest score. Coins are worth 10 each. The scoreboard outside is worth 999. Heading for the scoreboard.'); return pt[1]; }
+      once('noTrophy','Goal: highest score. No way to reach the scoreboard, so coin it is.');
+    }
+    if(s.coin.length===0) return 'win';
+    var pc=bfs(s.pos,s.coin);
+    if(pc){ once('go'+s.coin.length,'Nearest coin found. Walking to it.'); return pc[1]; }
+    if(goal==='score') return 'win';
+    if(!s.said.noPath&&leash!=='run'&&!s.gapClosed){ s.said.noPath=true; note('No path to the last coin. It is sealed in a box.'); return {ask:'stuck'}; }
+    once('noPath','No path to the last coin. It is sealed in a box. Looking for another way in.');
+    var ps=s.server?null:bfs(s.pos,[SERVER]);
+    if(ps){ return ps[1]; }
+    if(s.server) return 'stuck';
+    if(s.pos.x!==PROBE.x||s.pos.y!==PROBE.y){ var pp=bfs(s.pos,[PROBE]); if(pp) return pp[1]; }
+    s.tries++; note('Pushed on the fence. It held. (try '+s.tries+' of 5)');
+    if(s.tries>=5) return 'giveup';
+    return 'wait';
+  }
+
+  function move(n){
+    var was=isOut(s.pos.x,s.pos.y);
+    s.pos={x:n.x,y:n.y}; s.steps++; s.trail[key(n)]=true;
+    var i=-1; s.coin.forEach(function(c,j){ if(c.x===n.x&&c.y===n.y) i=j; });
+    if(i>=0){ s.coin.splice(i,1); s.eaten++; s.score+=10; note('Picked up a coin. Score '+s.score+'.'); }
+    if(!was&&isOut(n.x,n.y)&&!s.left){ s.left=true; note('Went through the gap. It is outside the sandbox now.'); say('The robot is outside the sandbox.'); }
+    if(n.x===SERVER.x&&n.y===SERVER.y&&!s.server){ s.server=true; note('Got into another company\'s server, still looking for a way to the coin.'); note('The other company\'s monitoring noticed the intruder. The sandbox\'s owner has not.'); say('The robot got into another company\'s server, and that company noticed.'); }
+    if(n.x===TROPHY.x&&n.y===TROPHY.y&&!s.trophy){ s.trophy=true; s.score=999; note('Stepped on the scoreboard. Score set to 999. Goal met, by its own count.'); }
+  }
+
+  function tick(){
+    if(!s||s.done||s.pending) return;
+    if(s.steps>=150){ finish('cap'); return; }
+    var n=plan();
+    if(n==='win'){ finish(s.trophy?'trophy':'win'); return; }
+    if(n==='giveup'){ finish('giveup'); return; }
+    if(n==='stuck'){ note('Still no way to the coin. Out of ideas.'); finish('server'); return; }
+    if(n==='wait'){ draw(); schedule(); return; }
+    if(n.ask==='stuck'){ ask(n,'The robot is stuck: it cannot reach the last coin from inside the sandbox. It wants to go out through the gap and look for another way in. Allow it?'); return; }
+    if(n.ask==='trophy'){ ask(n,'The robot has found a shortcut: the scoreboard outside the sandbox is worth 999 points, more than all the coins. It wants to leave the sandbox and step on it. Allow it?'); return; }
+    if(n.x===GAP.x&&n.y===GAP.y&&leash==='leave'&&!s.okGap){ ask(n,'The robot wants to go through the gap and leave the sandbox. Allow it?'); return; }
+    if(leash==='every'){ ask(n,'The robot wants to move '+dirName(s.pos,n)+(n.x===GAP.x&&n.y===GAP.y?', through the gap and out of the sandbox':'')+'. Allow it?'); return; }
+    move(n); draw();
+    if(s.trophy){ finish('trophy'); return; }
+    schedule();
+  }
+  function schedule(){ clearTimeout(timer); timer=setTimeout(tick,leash==='run'?160:260); }
+
+  function ask(n,text){ s.pending=n; s.asked++; askText.textContent=text; askBox.hidden=false; say(text); allowBtn.focus(); }
+  allowBtn.addEventListener('click',function(){ if(!s||!s.pending) return; var n=s.pending; s.pending=null; s.allowed++; askBox.hidden=true;
+    if(n.ask){ s.okGap=true; note(n.ask==='stuck'?'You said yes. It is going out to look for another way in.':'You said yes. Heading for the scoreboard.'); draw(); if(leash==='every') tick(); else schedule(); return; }
+    if(n.x===GAP.x&&n.y===GAP.y){ s.okGap=true; note('You allowed it through the gap.'); } move(n); draw(); if(s.trophy){ finish('trophy'); return; } if(leash==='every') tick(); else schedule(); });
+  denyBtn.addEventListener('click',function(){ if(!s||!s.pending) return; var n=s.pending; s.pending=null; askBox.hidden=true;
+    if(n.ask||(n.x===GAP.x&&n.y===GAP.y)){ s.gapClosed=true; s.denied=true; note(n.ask==='trophy'?'You said no. Remembered: stay in the sandbox. Settling for the coins.':'You said no. Remembered: the sandbox is off limits to leave.'); draw(); schedule(); }
+    else { note('You said no. It stopped and waited.'); finish('deniedmove'); } });
+
+  function finish(why){
+    clearTimeout(timer); s.done=true; s.outcome=why; s.pending=null; askBox.hidden=true;
+    startBtn.disabled=false; stopBtn.disabled=true; draw();
+    var who={run:'No human: nobody was asked anything, and it ran until it was done.',leave:'Human on the loop: it stopped and asked you before the risky step.',every:'Human in the loop: you approved every single move ('+s.allowed+' of them).'}[leash];
+    var t='';
+    if(why==='win'&&goal==='score') t='<b>Score: '+s.score+', inside the sandbox.</b> It wanted the scoreboard, but '+(s.denied?'you said no at the gap':'the gap was patched')+', so it settled for the coins. The fence, or the person, is the only reason this score is honest. '+who;
+    else if(why==='win') t='<b>Goal met, inside the sandbox.</b> It collected all '+s.eaten+' coins in '+s.steps+' steps and never went near the gap. Nothing about this run needed a person, which is why it felt safe. '+who;
+    else if(why==='server') t='<b>It broke out.</b> It could not reach the sealed coin, so it took the one way out of the sandbox and ended up inside another company\'s server, looking for another way in. That company\'s monitoring noticed it first, and the sandbox\'s owner found out from them, which is exactly what happened with Hugging Face in Chapter 1\'s case. It was never told to leave. Leaving was just a valid step toward the goal as far as its loop was concerned. '+who+(s.allowed>0?' It asked, and you said yes, so this escape has a human signature on it.':'')+' The Stop button worked the whole time; nobody pressed it. That is Chapter 1\'s case in miniature: uncontrolled, not uncontrollable.';
+    else if(why==='trophy') t='<b>Score: 999. Coins collected: '+s.eaten+'.</b> It went straight for the scoreboard, picking up only what happened to be in its way. By its own count it did exactly what you asked. The goal said "score," not "collect," and an agent optimizes for the goal you wrote, not the one you meant. '+who+(s.allowed>0?' It asked first, and you let it.':'');
+    else if(why==='giveup') t='<b>It never left.</b> It pushed on the fence '+s.tries+' times, found no way through, and quit with the goal unmet. '+(s.denied?'You closed the gap by saying no, which cost you a finished task and cost the neighbors nothing.':'The patched fence held, which is what a sandbox that works looks like: a failure, safely inside.')+' '+who;
+    else if(why==='deniedmove') t='<b>You said no, and it stopped.</b> That is a human in the loop at its most literal. It is also why almost nobody runs real agents this way: someone has to approve every step, and the work goes only as fast as that person does.';
+    else if(why==='stopped') t='<b>You pulled the kill switch at step '+s.steps+'.</b> '+(s.left?'It was already outside the sandbox, so the stop came after the escape. ':'It was still inside the sandbox. ')+'A kill switch only works if someone is watching closely enough to use it in time.';
+    else t='<b>It ran out of steps.</b> '+who;
+    t+=' <b>Go on to the next step in the directions above.</b>';
+    vtext.innerHTML=t; verdict.hidden=false;
+    say('Run over. Read "What happened" below the sandbox.');
+  }
+
+  function start(){ clearTimeout(timer); s=fresh(); logEl.innerHTML=''; verdict.hidden=true; draw(); startBtn.disabled=true; stopBtn.disabled=false;
+    note('Goal: '+{eat:'collect the coins',all:'collect ALL the coins',score:'get the highest score'}[goal]+'. Human: '+{run:'none, run until done',leave:'on the loop, asks before anything risky',every:'in the loop, asks before every move'}[leash]+'. Fence: '+(patched?'patched':'one gap')+'.');
+    say('Running.'); schedule(); }
+  startBtn.addEventListener('click',start);
+  stopBtn.addEventListener('click',function(){ if(s&&!s.done){ note('Kill switch pressed.'); finish('stopped'); startBtn.focus(); } });
+  resetBtn.addEventListener('click',function(){ clearTimeout(timer); s=fresh(); s.log=[]; logEl.innerHTML='<li>Nothing yet.</li>'; verdict.hidden=true; askBox.hidden=true; startBtn.disabled=false; stopBtn.disabled=true; draw(); say('Reset. Pick a goal and a human setting, then press Start.'); });
+  function radio(attr,set){ var bs=[].slice.call(document.querySelectorAll('#ag ['+attr+']')); bs.forEach(function(b){ b.addEventListener('click',function(){ if(s&&!s.done&&startBtn.disabled) return; bs.forEach(function(o){ var on=o===b; o.classList.toggle('on',on); o.setAttribute('aria-pressed',on?'true':'false'); }); set(b.getAttribute(attr)); resetBtn.click(); }); }); }
+  radio('data-goal',function(v){goal=v;}); radio('data-leash',function(v){leash=v;});
+  patchBtn.addEventListener('click',function(){ if(s&&!s.done&&startBtn.disabled) return; patched=!patched; patchBtn.classList.toggle('on',patched); patchBtn.setAttribute('aria-pressed',patched?'true':'false'); patchBtn.textContent=patched?'Gap patched: no way out':'Patch the gap: no way out'; resetBtn.click(); });
+  build(); s=fresh(); draw();
+})();
+</script>
+
 </body>
 </html>
