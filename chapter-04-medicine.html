@@ -226,7 +226,15 @@ table.risk tr.grp td{background:#F3F3EE;font-family:'Fraunces',serif;font-weight
 table.pred td b{color:var(--pinktext)}
 table.pred td:first-child{width:46%}
 
-.tablecap{font-size:.88rem;color:var(--gray);margin:14px 0 4px}
+.tablecap{font-size:.88rem;color:var(--gray);margin:8px 0 22px}
+ul.ideas,ul.decide{margin:0 0 1.1em;padding-left:1.4em}
+ul.ideas li,ul.decide li{margin-bottom:.7em;padding-left:.3em}
+#songgraph .sge{transition:stroke .2s ease,stroke-width .2s ease}
+.sgctl{max-width:660px;margin:12px auto 0}
+.sgctl .chip[aria-pressed="true"]{background:var(--dark);color:var(--yellow);border-color:var(--dark)}
+.mgrid{display:block;width:100%;height:auto;margin:6px 0 4px}
+.mlegend{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:#C9CED6;margin:6px 0 2px}
+.mlegend i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px}
 figure.diagram{margin:22px 0}
 figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;margin-top:8px}
 
@@ -260,14 +268,15 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 .srcnote{border:1px solid var(--rule);border-radius:10px;padding:14px 18px;margin:30px 0;background:#fff;font-size:.9rem;}
 .srcnote summary{cursor:pointer;font-weight:700;color:var(--ink);}
 .srcnote p{margin:10px 0 2px;color:var(--gray);}
-.video-wrap{position:relative;width:100%;max-width:720px;margin:0 auto;aspect-ratio:16/9;background:#0E1116;border:1px solid var(--rule)}
+.video-wrap{position:relative;width:100%;max-width:560px;margin:0 auto;aspect-ratio:16/9;background:#0E1116;border:1px solid var(--rule)}
 .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 #medgraph .hit{cursor:pointer}
 #medgraph .hit:hover,#medgraph .hit:focus-visible,#medgraph .hit.on{filter:drop-shadow(0 0 5px rgba(255,61,138,.9))}
 #medgraph g.hit.on rect,#medgraph g.hit:hover rect{stroke:#FF3D8A;stroke-width:3;stroke-dasharray:none}
 #medgraph path.hit.on{stroke-width:4}
 #medgraph g.hit:focus-visible{outline:none}
-.ghint{max-width:760px;margin:8px auto 0;padding:10px 14px;background:#0E1116;color:#E7EAEF;border-radius:5px;font-size:.88rem;line-height:1.5;min-height:2.6em}
+.ghint{max-width:660px;margin:8px auto 0;padding:10px 14px;background:#0E1116;color:#E7EAEF;border-radius:5px;font-size:.88rem;line-height:1.5;min-height:2.6em}
+.tnum{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--pinktext);color:#fff;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;margin-right:10px;vertical-align:2px}
 .hopnum{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--pink);color:#fff;font-size:.72rem;font-weight:700;margin-right:6px;vertical-align:middle}
 .hopnum.arc{width:auto;padding:0 7px;border-radius:10px;background:transparent;color:var(--pinktext);border:1.5px dashed var(--pink);font-size:.68rem}
 </style>
@@ -349,7 +358,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <ol>
     <li>Explain how ordinary record-keeping becomes a data trove, and why the owner of the record ends up owning the prediction.</li>
     <li>Describe what a knowledge graph is, and show how a path through one becomes a prediction.</li>
-    <li>State "the record has a shape" in plain words, and find the same mechanism outside medicine.</li>
+    <li>State "the data trove has a shape" in plain words, and find the same mechanism outside medicine.</li>
     <li>Explain external validation, and why a company's number and an outside number differ even when nobody lies.</li>
     <li>Say where a human can stand in an AI system and what each position costs, then run the five critical AI questions on a case you want to like and name the costs anyway.</li>
   </ol>
@@ -358,7 +367,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <ul class="seclist">
       <li><a href="#s1"><span class="sn">1</span>The question, and the point of this chapter</a></li>
       <li><a href="#s2"><span class="sn">2</span>The concepts: the trove, the graph, the gap, the check, and the gate</a></li>
-      <li><a href="#s3"><span class="sn">3</span>The case: Every Cure, and the drug that was already there</a></li>
+      <li><a href="#s3"><span class="sn">3</span>The main case: Every Cure, and the drug that was already there</a></li>
       <li><a href="#s4"><span class="sn">4</span>Decide: yes to this one, and here is what I'd watch</a></li>
       <li><a href="#s5"><span class="sn">5</span>Key terms</a></li>
     </ul>
@@ -367,7 +376,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <section id="s1">
   <div class="shead"><span class="num">1</span><h2>The question, and the point of this chapter</h2></div>
   <p class="lead">In Chapter 2 we asked what stays human when machines do more of the human stuff. This chapter takes that question into the one place where the answer could actually kill someone: medicine.</p>
-  <p>Three things are true at once here. Medicine has spent fifteen years turning itself into data: charts, labs, insurance claims, and millions of published studies. AI is now using that data to find treatments for diseases no company would ever fund research on, with drugs that already sit in pharmacies. And AI has gotten good enough at some medical tasks that serious people are arguing the doctor should get out of its way.</p>
+  <p>Three things are true at once here. Hospitals, insurers, and researchers have spent <a class="inline" href="https://www.healthit.gov/data/quickstats/national-trends-hospital-and-physician-adoption-electronic-health-records" target="_blank" rel="noopener">fifteen years turning medicine into data</a>: charts, labs, insurance claims, and <a class="inline" href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">millions of published studies</a>. In 2009 about one U.S. hospital in eight used electronic health records; by 2021 nearly all of them did. AI is now using that data to <a class="inline" href="https://everycure.org" target="_blank" rel="noopener">find treatments for diseases no company would ever fund research on</a>, with drugs that already sit in pharmacies. And AI has gotten good enough at some medical tasks that serious people are <a class="inline" href="https://jamanetwork.com/journals/jama/fullarticle/2852952" target="_blank" rel="noopener">arguing the doctor should get out of its way</a>.</p>
   <p>So the question for the week comes in three parts. What can a predictive AI system actually see, and what can it never see? Who owns the data it sees, and what does that buy them? And where should the human stand, and who decides?</p>
   <p><strong>The point of this chapter, in one sentence:</strong> a predictive AI can only find what its data already holds, so the wins come from the thick parts of the record, the failures from the thin parts, and whether to trust it comes down to who checked it and where the human stood.</p>
   </section>
@@ -376,13 +385,13 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <div class="shead"><span class="num">2</span><h2>The concepts: the trove, the graph, the gap, the check, and the gate</h2></div>
 
   <h3 class="sub" id="s2-1"><span>2.1</span> The data trove: how ordinary record-keeping becomes an AI asset</h3>
-  <p>Let's start with something that isn't AI at all: a record. This could be a hospital chart, a bank ledger, a store's receipts, a hiring file. For most of history, records were kept so someone could look something up later. Then two things happened. The records went digital, so they could be copied and combined. And then all of those records were turned into training data.</p>
+  <p>Let's start with something that isn't AI at all: <strong>a record</strong>. A record could be a hospital chart, a bank ledger, a store's receipts, a hiring file. For most of history, records were kept so someone could look something up later, and old ones got thrown out because paper takes up space. What's new in today's business world is that records are digital, cheap to save, and cheap to keep for what amounts to forever. Nobody has to decide what to throw away anymore, so every visit, purchase, and click piles up, gets copied, and gets combined with other piles. That pile is what becomes a data trove.</p>
   <p>A <strong>data trove</strong> is a collection of records large enough, and consistent enough, to train an AI model on. Data accumulates over time, one transaction at a time, as the side effect of doing ordinary work. That's the part people miss. The most valuable AI assets in the world were not collected for AI. They were collected for billing, for compliance, for looking things up, and they became AI assets when someone noticed how big they had gotten.</p>
-  <p>Here's the business consequence, and it's the one this chapter turns on. At least right now, whoever holds the data trove gets to build the AI model, and the AI model is usually better the bigger the trove. So the owner of the record ends up owning the prediction, and every new record added by someone else makes the owner's position stronger.</p>
-  <p>Economists call that a <strong>moat</strong>: an advantage competitors can't easily cross. A company with better AI and no trove loses to a company with a big trove and ordinary AI. Notice who did the work of building it: usually not the owner. The nurses, the clerks, the customers, the patients.</p>
-  <p>Medicine has two of these troves, and the difference between them runs through the whole chapter. The first is the chart. In 2009 the federal government began paying hospitals to switch from paper to electronic records, and over the next fifteen years American medicine typed itself into software, most of it sold by a handful of private software companies. That trove is enormous, and it is owned. The second is the published research literature: millions of studies, written over decades by people who never met, and owned by nobody. This chapter's case runs on the second one.</p>
+  <p>Here's the business consequence, and it's the one this chapter turns on. At least right now, whoever holds the data trove gets to build the AI model, and the AI model is usually better the bigger the trove. So the owner of the record ends up owning the best predictions, and every new record added by someone else makes those predictions better and the owner's position stronger.</p>
+  <p>Economists call this data advantage a <strong>moat</strong>: an advantage competitors can't easily cross. A company with better AI and no trove loses to a company with a big trove and ordinary AI. Notice who did the work of building it: usually not the owner. The nurses, the clerks, the customers, the patients.</p>
+  <p>Medicine has two of these data troves, and the difference between them runs through the whole chapter. The first is the chart, or <strong>electronic medical record (EMR)</strong>. In 2009 the federal government began paying hospitals to switch from paper to electronic records, and over the next fifteen years American medicine typed itself into software, most of it sold by a handful of private software companies. That trove is enormous, and it is owned. The second is the data from published medical research: millions of studies, written over decades by people who never met, and owned by nobody. This chapter's case runs on the second one.</p>
   <figure class="diagram">
-    <svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="trt trd" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+    <svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="trt trd" style="width:100%;max-width:660px;height:auto;display:block;margin:0 auto">
       <title id="trt">How one clinic visit becomes training data</title>
       <desc id="trd">Three panels. On the left, a fifteen-minute visit described in plain words. In the middle, the same visit as typed fields in a record: date, vitals, a diagnosis code, a prescription, a lab result, and a note. On the right, the multiplication: one visit becomes one row, a patient has many visits, a hospital has many patients, and hundreds of health systems pooled together become a dataset of more than 300 million patient records and over 17 billion encounters.</desc>
 
@@ -440,93 +449,88 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     </svg>
     <figcaption>One cough, one row, one trove. The middle panel is the part worth staring at: a visit becomes fields, and fields are what a model can learn from. Note what did not make it into the record. How worried the patient was, whether they could afford the prescription, whether they came back. A model can only learn what fits in a field.</figcaption>
   </figure>
-  <div class="concept">
-    <div class="term">The data trove</div>
-    <p>A pile of records, collected for some other purpose, that has grown big enough to train a model. What people get wrong: they think the AI is the asset. The trove is the asset; the model is what you can build once you have it. And the trove was usually typed in by people who don't own it, which is why the first question about any impressive medical AI is not "how good is the model?" but "whose record is it learning from, and who else can get one?"</p>
-  </div>
+  <p>Here's what people get wrong about data troves: they think the AI is the asset. The trove is the asset; the model is what you can build once you have it. And the trove was usually typed in by people who don't own it. That's why the first question to ask about any impressive medical AI is not "how good is the model?" but "whose records is it learning from, and who else can get them?"</p>
 
   <h3 class="sub" id="s2-2"><span>2.2</span> The knowledge graph: how a path becomes a prediction</h3>
-  <p>A data trove on its own is just a pile. To predict anything from it, a system has to organize it, and the AI system in this chapter's case organizes it the way more and more systems do: as a knowledge graph. A <strong>knowledge graph</strong> is a way of storing information as connections instead of rows. Picture a map of dots and lines. Each dot is a thing the system knows about: a song, a drug, a customer, a disease. Each line is a specific, labeled relationship between two of them that someone recorded: <em>made by</em>, <em>bought with</em>, <em>blocks</em>, <em>treats</em>. A spreadsheet stores facts one row at a time and leaves the relationships to you. A knowledge graph stores the relationships themselves, which means a computer can follow them, hop to hop, the way you follow a trail of names on a whiteboard.</p>
+  <p>A data trove on its own is just a useless pile of numbers and words. To predict anything from it, a system has to organize it. One way to do this, and the way this chapter's case does it, is a knowledge graph. A <strong>knowledge graph</strong> is a way of storing information as connections instead of rows. Picture a map of dots and lines. Each dot is a thing the system knows about: a song, a drug, a customer, a disease. Each line is a specific, labeled relationship between two of them that someone recorded: <em>made by</em>, <em>bought with</em>, <em>blocks</em>, <em>treats</em>. A spreadsheet stores facts one row at a time and leaves the relationships to you. A knowledge graph stores the relationships themselves, which means a computer can follow them, hop to hop, the way you follow a trail of names on a whiteboard. That buys three things a spreadsheet can't easily give you. It can combine facts from sources that were never designed to fit together, because any dot can connect to any other. It can find indirect connections, A to B to C, that nobody ever wrote down in one place. And it can show its work: every prediction comes with the path that produced it, so a person can check each step. The cost is that it only knows what someone logged, which is the subject of <a class="inline" href="#s2-3">section 2.3</a>.</p>
+    <p>To think about how a knowledge graph works, let's use the example of Spotify. The dots are songs, artists, genres, moods, playlists, and listeners. The lines are things that got logged: this artist made this song, this song sits in this genre, this listener saved this playlist, these two songs get played back to back. Nobody wrote a rule that says "people who like this band will like that one." The system finds paths. Your favorite song connects to a playlist, that playlist connects to a second song, and the second song comes back to you as a recommendation. Two hops through the record, and the record was built by millions of people pressing play.</p>
   <figure class="diagram">
-    <svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sgt sgd" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
-      <title id="sgt">A music knowledge graph: dots and lines</title>
-      <desc id="sgd">A song you played sits on the left. Lines connect it to the artist who made it, the genre it belongs to, and a playlist it was saved in. Those dots connect on to two other songs, which come back as recommendations. One two-hop path is highlighted in pink: your song, saved in a playlist, which also holds another song. Below, alone and unconnected, sits a new artist's first track with no lines at all, labeled cold start: no path reaches it, so nobody hears it.</desc>
-
-      <line x1="128" y1="150" x2="290" y2="72" stroke="#14181D" stroke-width="1.6"/>
-      <line x1="128" y1="150" x2="290" y2="150" stroke="#14181D" stroke-width="1.6"/>
-      <line x1="128" y1="150" x2="290" y2="228" stroke="#FF3D8A" stroke-width="3.5"/>
-      <line x1="390" y1="72" x2="560" y2="110" stroke="#14181D" stroke-width="1.6"/>
-      <line x1="390" y1="150" x2="560" y2="110" stroke="#14181D" stroke-width="1.6"/>
-      <line x1="390" y1="228" x2="560" y2="196" stroke="#FF3D8A" stroke-width="3.5"/>
-      <line x1="390" y1="150" x2="560" y2="196" stroke="#14181D" stroke-width="1.6"/>
-
+    <svg id="songgraph" viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sgt sgd" style="width:100%;max-width:660px;height:auto;display:block;margin:0 auto">
+      <title id="sgt">A music knowledge graph you can follow, route by route</title>
+      <desc id="sgd">A song you played sits on the left. Lines connect it to the artist who made it, the genre it belongs to, and a playlist it was saved in. Those dots connect on to two other songs, which come back as recommendations. Buttons below the graph highlight each route: through the artist, through the genre, or through the playlist. Below a dashed line sits a new artist's first track with no lines at all. One button logs a single save of that track to the playlist, which draws a new line and gives the system a path to it.</desc>
+      <line id="e-sa" class="sge" x1="128" y1="150" x2="290" y2="72" stroke="#14181D" stroke-width="1.6"/>
+      <line id="e-sg" class="sge" x1="128" y1="150" x2="290" y2="150" stroke="#14181D" stroke-width="1.6"/>
+      <line id="e-sp" class="sge" x1="128" y1="150" x2="290" y2="228" stroke="#14181D" stroke-width="1.6"/>
+      <line id="e-ar1" class="sge" x1="390" y1="72" x2="560" y2="110" stroke="#14181D" stroke-width="1.6"/>
+      <line id="e-gr1" class="sge" x1="390" y1="150" x2="560" y2="110" stroke="#14181D" stroke-width="1.6"/>
+      <line id="e-pr2" class="sge" x1="390" y1="228" x2="560" y2="196" stroke="#14181D" stroke-width="1.6"/>
+      <line id="e-gr2" class="sge" x1="390" y1="150" x2="560" y2="196" stroke="#14181D" stroke-width="1.6"/>
+      <line id="e-pn" class="sge" x1="370" y1="250" x2="380" y2="308" stroke="#FF3D8A" stroke-width="3.5" style="display:none"/>
       <text x="196" y="100" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">made by</text>
       <text x="205" y="142" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">is in genre</text>
       <text x="196" y="205" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">saved in</text>
-      <circle cx="209" cy="189" r="9" fill="#FF3D8A"/><text x="209" y="193" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" fill="#fff">1</text>
       <text x="482" y="82" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">also made</text>
       <text x="486" y="145" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">also holds</text>
       <text x="486" y="230" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">also holds</text>
-      <circle cx="475" cy="212" r="9" fill="#FF3D8A"/><text x="475" y="216" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" fill="#fff">2</text>
-      <text x="380" y="262" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#D61F69">a path: two hops from your song to a recommendation</text>
-
-      <rect x="18" y="128" width="110" height="44" rx="22" fill="#0E1116" stroke="#E4FF32" stroke-width="2"/>
-      <text x="73" y="146" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E4FF32">a song</text>
-      <text x="73" y="160" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E4FF32">you played</text>
-
-      <rect x="290" y="50" width="100" height="44" rx="22" fill="#1B222B" stroke="#9AA1AB" stroke-width="1.6"/>
-      <text x="340" y="76" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E7EAEF">the artist</text>
-
-      <rect x="290" y="128" width="100" height="44" rx="22" fill="#1B222B" stroke="#9AA1AB" stroke-width="1.6"/>
-      <text x="340" y="154" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E7EAEF">a genre</text>
-
-      <rect x="290" y="206" width="100" height="44" rx="22" fill="#1B222B" stroke="#9AA1AB" stroke-width="1.6"/>
-      <text x="340" y="232" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E7EAEF">a playlist</text>
-
-      <rect x="560" y="88" width="122" height="44" rx="22" fill="#0E1116" stroke="#FF3D8A" stroke-width="2"/>
-      <text x="621" y="106" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#FF9DC3">another song</text>
-      <text x="621" y="120" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#FF9DC3">recommended</text>
-
-      <rect x="560" y="174" width="122" height="44" rx="22" fill="#0E1116" stroke="#FF3D8A" stroke-width="2"/>
-      <text x="621" y="192" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#FF9DC3">another song</text>
-      <text x="621" y="206" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#FF9DC3">recommended</text>
-
-      <line x1="18" y1="292" x2="742" y2="292" stroke="#E3E3DD" stroke-dasharray="4 5"/>
-      <rect x="290" y="308" width="180" height="40" rx="20" fill="#FCFCFA" stroke="#C9CED6" stroke-width="1.6" stroke-dasharray="5 4"/>
-      <text x="380" y="333" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#5A626C">a new artist's first track</text>
-      <text x="490" y="327" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#D61F69">nothing logged yet, so no lines</text>
-      <text x="490" y="342" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">no path reaches it, so it never gets recommended</text>
-      <text x="18" y="327" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#5A626C">THE FAILURE</text>
-      <text x="18" y="342" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">a dot with no lines</text>
-
+      <text x="380" y="24" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#D61F69" id="sg-route">pick a route below and follow it</text>
+      <rect id="n-song" x="18" y="128" width="110" height="44" rx="22" fill="#0E1116" stroke="#E4FF32" stroke-width="2"/>
+      <text x="73.0" y="146" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E4FF32">a song</text>
+      <text x="73.0" y="160" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E4FF32">you played</text>
+      <rect id="n-artist" x="290" y="50" width="100" height="44" rx="22" fill="#1B222B" stroke="#9AA1AB" stroke-width="1.6"/>
+      <text x="340.0" y="76" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E7EAEF">the artist</text>
+      <rect id="n-genre" x="290" y="128" width="100" height="44" rx="22" fill="#1B222B" stroke="#9AA1AB" stroke-width="1.6"/>
+      <text x="340.0" y="154" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E7EAEF">a genre</text>
+      <rect id="n-pl" x="290" y="206" width="100" height="44" rx="22" fill="#1B222B" stroke="#9AA1AB" stroke-width="1.6"/>
+      <text x="340.0" y="232" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E7EAEF">a playlist</text>
+      <rect id="n-r1" x="560" y="88" width="122" height="44" rx="22" fill="#0E1116" stroke="#FF3D8A" stroke-width="2"/>
+      <text x="621.0" y="106" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#FF9DC3">another song</text>
+      <text x="621.0" y="120" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#FF9DC3">recommended</text>
+      <rect id="n-r2" x="560" y="174" width="122" height="44" rx="22" fill="#0E1116" stroke="#FF3D8A" stroke-width="2"/>
+      <text x="621.0" y="192" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#FF9DC3">another song</text>
+      <text x="621.0" y="206" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#FF9DC3">recommended</text>
       <text x="73" y="196" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C">you</text>
-      <text x="340" y="278" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C">what the record already connects</text>
       <text x="621" y="240" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5A626C">the prediction</text>
-    </svg>
-    <figcaption>A knowledge graph, drawn small. Every line is something that got logged: who made the song, what genre it sits in, which playlists saved it. A <b>path</b> is a route along those lines from one dot to another. The pink one is two hops long, your song to a playlist to another song, and that route is the recommendation. Below the dashed line is the failure worth remembering: a track with no lines yet. Nothing is wrong with the song. There is simply no path to it, and the system reports that silence as nothing at all.</figcaption>
+      <line x1="18" y1="292" x2="742" y2="292" stroke="#E3E3DD" stroke-dasharray="4 5"/>
+      <rect id="n-new" x="290" y="308" width="180" height="40" rx="20" fill="#FCFCFA" stroke="#C9CED6" stroke-width="1.6" stroke-dasharray="5 4"/>
+      <text x="380" y="333" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#5A626C">a new artist's first track</text>
+      <text x="490" y="327" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#D61F69" id="sg-new1">nothing logged yet, so no lines</text>
+      <text x="490" y="342" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" id="sg-new2">no path reaches it, so it never gets recommended</text>
+      <text x="18" y="327" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#5A626C">THE FAILURE</text>
+      <text x="18" y="342" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">a dot with no lines</text>
+      </svg>
+    <div class="sgctl">
+      <div class="chips" role="group" aria-label="Follow a route through the graph">
+        <button type="button" class="chip" data-route="artist" aria-pressed="false">Follow the artist</button>
+        <button type="button" class="chip" data-route="genre" aria-pressed="false">Follow the genre</button>
+        <button type="button" class="chip" data-route="playlist" aria-pressed="false">Follow the playlist</button>
+        <button type="button" class="chip" data-route="save" aria-pressed="false">Log one save for the new track</button>
+        <button type="button" class="chip" data-route="reset">Reset</button>
+      </div>
+    </div>
+    <div class="ghint" id="songgraph-hint" aria-live="polite">Pick a route. Each one starts at the song you played and follows the logged lines to a recommendation.</div>
+    <figcaption>A knowledge graph example from Spotify, drawn small. Every line is something that got logged: who made the song, what genre it sits in, which playlists saved it. A <b>path</b> is a route along those lines from one dot to another, and that route is the recommendation. Try each route: three different kinds of fact, stored in one graph, each giving a reason you can read. Then look below the dashed line at the failure worth remembering: a track with no lines yet. Nothing is wrong with the song. There is simply no path to it, until one person saves it and the record changes.</figcaption>
   </figure>
-  <p>Take Spotify. The dots are songs, artists, genres, moods, playlists, and listeners. The lines are things that got logged: this artist made this song, this song sits in this genre, this listener saved this playlist, these two songs get played back to back. Nobody wrote a rule that says "people who like this band will like that one." The system finds paths. Your favorite song connects to a playlist, that playlist connects to a second song, and the second song comes back to you as a recommendation. Two hops through the record, and the record was built by millions of people pressing play.</p>
   <p>Spotify will show you a version of this. Open a song, scroll to the bottom, tap SongDNA, then Explore. You get dots and lines: the song, the people who made it, what they are connected to. That is the same object this chapter is about, built from what the record happened to log.</p>
-  <p>In the context of healthcare, the dots are things science knows about: drugs, diseases, genes, proteins, symptoms, biological pathways. The lines are relationships someone documented in a paper. This drug blocks this protein. This protein drives this disease. This gene sits in this pathway. Every line was somebody's research, published one study at a time, mostly by people who never spoke to each other and were not working on the same problem. A predictive system works that graph the same way Spotify works yours: it looks for indirect paths. If drug A connects to protein B, and B connects to disease C, then maybe A helps C, even though no paper ever said so. Here's one such path, and it's a real one.</p>
+  <p>In the context of healthcare, the dots are things science knows about: drugs, diseases, genes, proteins, symptoms, biological pathways. The lines are relationships someone documented in a paper. This drug blocks this protein. This protein drives this disease. This gene sits in this pathway. Every line was somebody's research, published one study at a time, mostly by people who never spoke to each other and were not working on the same problem. A predictive system works that graph the same way Spotify works yours: it looks for indirect paths. If drug A connects to protein B, and B connects to disease C, then maybe A helps C, even though no paper ever said so. Here's an example of a knowledge graph in medicine, with one such path, and it's a real one.</p>
   <figure class="diagram">
-    <svg id="medgraph" viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="kgt kgd" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+    <svg id="medgraph" viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="kgt kgd" style="width:100%;max-width:660px;height:auto;display:block;margin:0 auto">
       <title id="kgt">A medical knowledge graph, with the path to Castleman disease highlighted</title>
       <desc id="kgd">Sirolimus, a drug, sits on the left. Lines connect it to mTOR and to transplant rejection. mTOR connects to overactive immune cells and to blood vessel growth. Overactive immune cells connect to Castleman disease. A three-hop path from sirolimus to Castleman disease is highlighted in pink and numbered, and a dashed arc over the top marks the prediction that no research ever stated. Below a dashed line sits ROHHAD syndrome with no lines at all.</desc>
 
       <line x1="125" y1="160" x2="290" y2="82" stroke="#14181D" stroke-width="4.5"/>
       <line x1="125" y1="160" x2="290" y2="238" stroke="#14181D" stroke-width="4.5"/>
       <line x1="390" y1="82" x2="470" y2="160" stroke="#14181D" stroke-width="3"/>
-      <line x1="390" y1="82" x2="580" y2="82" stroke="#14181D" stroke-width="3"/>
+      <line x1="390" y1="82" x2="470" y2="82" stroke="#14181D" stroke-width="3"/>
       <line x1="390" y1="238" x2="580" y2="238" stroke="#14181D" stroke-width="4.5"/>
 
       <line class="hit" data-hint="Hop 1 · Sirolimus blocks mTOR. Well documented: on the order of 2,000 published studies. This is why the drug is approved for transplants." x1="125" y1="160" x2="290" y2="82" stroke="#FF3D8A" stroke-width="4.5"/>
       <line class="hit" data-hint="Hop 2 · mTOR switches on certain immune cells. Documented in immunology research, hundreds of studies, none about Castleman disease." x1="390" y1="82" x2="470" y2="160" stroke="#FF3D8A" stroke-width="3"/>
-      <line class="hit" data-hint="Hop 3 · Those overactive immune cells cause one form of Castleman disease. The thinnest line on the graph: a few dozen studies, some of them written by the patient you'll meet in <a class="inline" href="#s3">section 3</a>. This is the hop the whole prediction hangs on." x1="570" y1="160" x2="640" y2="160" stroke="#FF3D8A" stroke-width="1.6"/>
+      <line class="hit" data-hint="Hop 3 · Those overactive immune cells cause one form of Castleman disease. The thinnest line on the graph: a few dozen studies, some of them written by the patient you'll meet in section 3. This is the hop the whole prediction hangs on." x1="570" y1="160" x2="640" y2="160" stroke="#FF3D8A" stroke-width="1.6"/>
 
       <text x="192" y="108" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">blocks</text>
-      <text x="192" y="212" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">approved to prevent</text>
-      <text x="445" y="112" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">switches on</text>
-      <text x="485" y="72" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">drives</text>
+      <text x="160" y="226" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">approved to prevent</text>
+      <text x="466" y="120" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">switches on</text>
+      <text x="430" y="74" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">drives</text>
       <text x="485" y="228" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">a signal in</text>
       <text x="605" y="150" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">cause</text>
 
@@ -534,7 +538,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
       <circle cx="430" cy="128" r="9" fill="#FF3D8A"/><text x="430" y="132" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" fill="#fff">2</text>
       <circle cx="605" cy="172" r="9" fill="#FF3D8A"/><text x="605" y="176" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" fill="#fff">3</text>
 
-      <path class="hit" data-hint="The prediction · Sirolimus for Castleman disease: 74% potential match. Three documented hops, zero papers on this exact pair. That 74 is the only thing the AI adds." d="M70,138 C120,10 620,10 700,138" fill="none" stroke="#FF3D8A" stroke-width="2.5" stroke-dasharray="7 5"/>
+      <path class="hit" data-hint="The prediction · Sirolimus for Castleman disease: 74% potential match. Three documented hops, zero papers on this exact pair. That 74 is the only thing the AI adds." d="M70,138 C120,0 650,0 710,138" fill="none" stroke="#FF3D8A" stroke-width="2.5" stroke-dasharray="7 5"/>
       <rect x="240" y="22" width="280" height="24" rx="4" fill="#FCFCFA"/>
       <text x="380" y="39" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#D61F69">no research, no paper: the prediction</text>
 
@@ -554,9 +558,9 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
       <text x="520" y="157" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E7EAEF">overactive</text>
       <text x="520" y="171" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E7EAEF">immune cells</text>
 
-      <rect x="580" y="60" width="110" height="44" rx="22" fill="#1B222B" stroke="#9AA1AB" stroke-width="1.6"/>
-      <text x="635" y="79" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E7EAEF">blood vessel</text>
-      <text x="635" y="93" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E7EAEF">growth</text>
+      <rect x="470" y="60" width="100" height="44" rx="22" fill="#1B222B" stroke="#9AA1AB" stroke-width="1.6"/>
+      <text x="520" y="79" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E7EAEF">blood vessel</text>
+      <text x="520" y="93" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E7EAEF">growth</text>
 
       <rect x="580" y="216" width="110" height="44" rx="22" fill="#1B222B" stroke="#9AA1AB" stroke-width="1.6"/>
       <text x="635" y="235" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#E7EAEF">kidney</text>
@@ -584,10 +588,8 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
       <text x="18" y="366" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">same dot, no edges</text>
     </svg>
     <div class="ghint" id="medgraph-hint" aria-live="polite">Hover or tap any pink line, the dashed arc, or a labeled dot to see what the record holds there.</div>
-    <figcaption>The same machine, in medicine. Every solid line comes from published research: sirolimus blocks mTOR, mTOR switches on certain immune cells, those cells cause one form of Castleman disease. Line thickness shows how much research stands behind each relationship: thousands of studies on sirolimus and mTOR, a few dozen on immune cells and Castleman disease. The pink path is three hops long and gets thinner as it goes, and the dashed arc over the top is the thing no research ever said, which is the only thing the AI adds. Below the dashed line is the disease with almost no lines, where no path can form. Table 1 walks through the pink path step by step. Study counts are illustrative; the 74 and 6 percent scores match the lab's screen.</figcaption>
+    <figcaption>An example of a knowledge graph in medicine: the same machine as the Spotify figure. Every solid line comes from published research: sirolimus blocks mTOR, mTOR switches on certain immune cells, those cells cause one form of Castleman disease. Line thickness shows how much research stands behind each relationship: thousands of studies on sirolimus and mTOR, a few dozen on immune cells and Castleman disease. The pink path is three hops long and gets thinner as it goes, and the dashed arc over the top is the thing no research ever said, which is the only thing the AI adds. Below the dashed line is the disease with almost no lines, where no path can form. Table 1 walks through the pink path step by step. Study counts are illustrative; the 74 and 6 percent scores match the lab's screen.</figcaption>
   </figure>
-      </g>
-  <p class="tablecap"><strong>Table 1 · The path in the figure, step by step.</strong> Each solid line is a documented relationship from real research. The last row is the dashed arc: the prediction, which no research ever made.</p>
   <table class="risk pred">
     <thead><tr><th>Hop</th><th>The documented relationship</th></tr></thead>
     <tbody>
@@ -597,17 +599,14 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
       <tr><td><span class="hopnum arc">arc</span> <b>Sirolimus</b> → <b>Castleman disease</b></td><td>No research. No paper. No line. But three lines make a path, and the path is the prediction.</td></tr>
     </tbody>
   </table>
-  <p>Notice that the AI isn't actually discovering anything. It's finding relationships that people already published and scoring how well they line up, across millions of papers no person could read. That's the machine, and that's all of it. The humans do the rest: they read the score, pull the papers behind the path, decide whether the biology holds, and decide whether it's worth a scientist's time. A path is not a finding. It's a place to look, and the value of the ranking is that it puts the good places to look at the top of a list tens of millions of rows long.</p>
-  <div class="concept">
-    <div class="term">Knowledge graph</div>
-    <p>Information stored as labeled connections instead of rows, so a system can follow relationships hop to hop and find paths nobody wrote down. What people get wrong: they picture the AI discovering something new. It didn't. Every line in the graph was already published by somebody. The only thing the machine adds is noticing that three separate findings line up, which is a real contribution and a smaller one than the headline suggests.</p>
-  </div>
+  <p class="tablecap"><strong>Table 1 · The path in the figure, step by step.</strong> Each solid line is a documented relationship from real research. The last row is the dashed arc: the prediction, which no research ever made.</p>
+  <p>Notice that the AI isn't actually discovering anything. It's finding relationships that people already published and scoring how well they line up, across millions of papers no person could read. That's the machine, and that's all of it. The humans do the rest: they read the score, pull the papers behind the path, decide whether the biology holds, and decide whether it's worth a scientist's time. A path is not a finding. It's a place to look, and the value of the ranking is that it puts the good places to look at the top of a list tens of millions of rows long. Noticing that three separate findings line up is a real contribution, and a smaller one than headlines like "AI discovers a cure" suggest.</p>
 
-  <h3 class="sub" id="s2-3"><span>2.3</span> The record has a shape: the research gap becomes the prediction gap</h3>
-  <p>An AI model trained on a data trove can only know what the trove contains. That sounds obvious. Its consequence isn't. Every record is thick in some places and thin in others, and the thickness follows money and attention, not truth. For example, a hospital chart is thick wherever care was delivered and billed; it is thin wherever people never made it to the hospital. The published medical literature is thick around common diseases in rich countries, and thin around rare diseases nobody funds. This means the data trove has a shape, and the AI model inherits it.</p>
-  <p>If that sounds familiar, it should. It's the long tail, the same shape as the sales chart in any business class, and you'll see it again in Chapter 7, where the tail is rare driving situations instead of rare diseases. A few things happen constantly and get most of the attention; a very large number of things happen rarely and get almost none. Sort every known disease by how much research exists on it and you get the picture below. A few hundred common diseases in wealthy countries make up the head. Thousands of rare diseases make up the tail, and the tail is where every disease in this chapter's case lives.</p>
+  <h3 class="sub" id="s2-3"><span>2.3</span> The data trove has a shape: the research gap becomes the prediction gap</h3>
+  <p>Data is basically the brains of any AI model. An AI model trained on a data trove can only know what the trove contains. That sounds obvious. Its consequence isn't. The simplest version of the problem has an old name in computing: <strong>garbage in, garbage out</strong>. If the records are wrong, the model learns the mistakes as if they were facts. Say one hospital's night-shift nurses often skip recording patients' pain scores. A model trained on those charts will learn that people admitted at night are rarely in pain. But the bigger problem usually isn't garbage. It's gaps. Every record is thick in some places and thin in others, and the thickness follows money and attention, not truth. For example, a hospital chart is thick wherever care was delivered and billed; it is thin wherever people never made it to the hospital. The published medical literature is thick around common diseases in rich countries, and thin around rare diseases nobody funds. This means the data trove has a shape, and the AI model inherits it.</p>
+  <p>If that sounds familiar, it should. It's the <strong>long tail</strong>, the same shape as the sales chart in any business class, and you'll see it again in Chapter 7, where the tail is rare driving situations instead of rare diseases. A few things happen constantly and get most of the attention; a very large number of things happen rarely and get almost none. Sort every known disease by how much research exists on it and you get the picture below. A few hundred common diseases in wealthy countries make up the head. Thousands of rare diseases make up the tail, and the tail is where every disease in this chapter's case lives.</p>
   <figure class="diagram">
-    <svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ltt ltd" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+    <svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ltt ltd" style="width:100%;max-width:660px;height:auto;display:block;margin:0 auto">
       <title id="ltt">The long tail of medical research</title>
       <desc id="ltd">A bar chart of diseases sorted from most studied to least studied. A few tall green bars on the left, the head, hold most of the published research: common diseases in wealthy countries. A long line of short orange bars trails off to the right, the tail: thousands of rare diseases with almost no studies each. Three are labeled along the tail: Castleman disease, POEMS syndrome, and ROHHAD syndrome, the last with almost no research at all.</desc>
       <text x="40" y="30" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#14181D" letter-spacing=".04em">THE LONG TAIL OF MEDICAL RESEARCH</text>
@@ -685,13 +684,13 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     </svg>
     <figcaption>The record has a shape, and this is the shape. A few hundred common, well-funded diseases hold most of the published research; thousands of rare diseases have almost none each. Every disease in this chapter's case lives in the tail. A knowledge graph built from this record is dense on the left and nearly empty on the right, so it predicts confidently where research already went and falls silent where it didn't.</figcaption>
   </figure>
-  <p>Here's the catch. Remember how the graph makes a prediction: it finds paths, routes along the recorded lines from one dot to another, like the pink two-hop route in the Spotify figure or the drug-to-protein-to-disease route in Table 1. No path, no prediction. Look back at the thickness of the lines in the medical figure: thousands of studies behind the first hop, a few dozen behind the last. Now ask which diseases have the most lines, and the thickest ones, to build paths from. The ones in the head. A heavily studied disease is a dense hub with lines running everywhere. A disease out in the tail, studied by a handful of scientists, is a dot with almost nothing attached. Few lines means few paths. Few paths means weak scores, for <em>every</em> drug, no matter how well one of them might actually work. The system doesn't know the drug won't help. It knows that nothing connects, because nobody ever looked. In this sense, <strong>the research gap becomes a prediction gap</strong>.</p>
+  <p>Here's the catch. Remember how the graph makes a prediction: it finds paths, routes along the recorded lines from one dot to another, like the pink two-hop route in the Spotify figure or the drug-to-protein-to-disease route in Table 1. No path, no prediction. Look back at the thickness of the lines in the medical figure: thousands of studies behind the first hop, a few dozen behind the last. Now ask which diseases have the most lines, and the thickest ones, to build paths from. The ones in the head. A heavily studied disease is a dense hub with lines running everywhere. A disease out in the tail, studied by a handful of scientists, is a dot with almost nothing attached. Few lines means few paths. Few paths means weak scores, for <em>every</em> drug, no matter how well one of them might actually work. The knowledge graph doesn't know the drug won't help. It knows that nothing connects, because nobody ever looked. In this sense, <strong>the research gap becomes a prediction gap</strong>.</p>
   <p>Let's put numbers on it, made up but realistic. Say a drug scores 5 out of 100 against migraine, a disease with 12,000 published studies. That low score probably means what it looks like: no. Migraine is a dense hub, so if a path from that drug existed, the system had thousands of lines to find it with, and it didn't.</p>
   <p>Now the same drug scores 5 out of 100 against ROHHAD syndrome, an ultra-rare childhood disorder with about a hundred documented cases worldwide and nine published studies. That 5 means something completely different. There are almost no lines to build a path from, so the drug would score low against ROHHAD even if it were a cure. The system isn't saying "no." It's saying "I have nothing to go on," and it says that in exactly the same number.</p>
   <p>That's the problem. Two identical scores, one meaning "this doesn't work" and one meaning "nobody has looked," and nothing about the number tells you which one you're holding. The only way to know is to look at how much research sits behind it, which is why the evidence column in Wednesday's lab matters more than the score.</p>
   <p>Every drug scores near zero against ROHHAD, and not one of those scores is a judgment about any drug. The system is reporting the absence of research in the confident voice of a number. That is an <strong>invisible failure</strong>, and it is the failure to fear in this chapter, because nobody ever sees it happen.</p>
   <div class="concept">
-    <div class="term">The record has a shape</div>
+    <div class="term">The data trove has a shape</div>
     <p>An AI model inherits the data trove's head and tail, and when predicting, the tail comes out as confident low scores, not as "unknown." What people get wrong: they read a low score as "the drug doesn't work" or "the patient is low-risk." Sometimes it means that. But it could also mean "no one has really looked yet," and a system that reports both with the same number is hiding its own blind spot inside its output. You'll meet this again in hiring data in Chapter 6, where the thin records are people.</p>
   </div>
 
@@ -699,7 +698,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <div class="tool">
     <div class="label">What the record kept · one man's year, twice</div>
     <p style="font-size:.92rem">Here is a year in the life of one 54-year-old patient, as he lived it. Click each thing that happened to him and see what, if anything, his chart has to say about it. Then ask the model what kind of patient he is.</p>
-    <div class="roundinfo" id="rk-count">0 of 10 opened · the record has kept 0 of them in full</div>
+    <div class="roundinfo" id="rk-count">0 of 10 opened · the data trove has kept 0 of them in full</div>
     <div class="evlist" id="rk-list"></div>
     <div class="chips" style="margin-top:16px">
       <button type="button" class="btn" id="rk-model">What the model sees</button>
@@ -710,14 +709,17 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   </div>
 
   <h3 class="sub" id="s2-4"><span>2.4</span> External validation: who checked, and on whose data</h3>
-  <p>Every model comes with a number: how accurate it is, how often it catches the thing it's looking for. The question is who measured it, on what data. When the company that built the model measures it on the data it trained on, you get the company's number. When someone else runs the model on their own data and publishes what happened, you get the outside number. The second is called <strong>external validation</strong>, and in medicine it is the difference between a claim and a finding.</p>
-  <p>Here's why the two numbers drift apart, even with nobody lying. A model learns the patterns in one data trove. A different hospital has different patients, different equipment, different habits about what gets typed into the chart. Patterns that were real in the training data are weaker or absent in the new one, so accuracy drops. That's called <strong>distribution shift</strong>, and it happens to every model that leaves home. There's also a quieter reason: a company chooses which number to report, and it will not choose the one from its worst site.</p>
+  <p>Every AI model comes with a number: how accurate it is, how often it catches the thing it's looking for. The question is who measured it, on what data. When the company that built the model measures it on the data it trained on, you get the company's number. When someone else runs the model on their own data and publishes what happened, you get the outside number. The second is called <strong>external validation</strong>, and in medicine it is the difference between a claim and a finding.</p>
+  <p>Here's why the company's numbers and the numbers in actual use drift apart, even with nobody lying. A model learns the patterns in one data trove. A different hospital has different patients, different equipment, different habits about what gets typed into the chart. Patterns that were real in the training data are weaker or absent in the new one, so accuracy drops. That's called <strong>distribution shift</strong>, and it happens to every model that leaves home. There's also a quieter reason: a company chooses which number to report, and it will not choose the one from its worst site.</p>
+  <p>Here's a quick real example. In 2018, researchers at Mount Sinai in New York trained an AI model to spot pneumonia on chest X-rays from two hospital systems. When they <a class="inline" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6219764" target="_blank" rel="noopener">tested it on X-rays from a third hospital</a>, it did significantly worse in three of five comparisons, partly because it had learned to recognize which hospital's machines took the picture instead of what pneumonia looks like.</p>
   <figure class="diagram">
-    <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dst dsd" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+    <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dst dsd" style="width:100%;max-width:660px;height:auto;display:block;margin:0 auto">
       <title id="dst">Distribution shift: the same AI model, two crowds</title>
       <desc id="dsd">Two panels. Left: the vendor's patients, a crowd of dots mostly one color, and the same model reports a high accuracy of 0.84. Right: your hospital's patients, a crowd of dots in a different mix of colors, and the same model reports 0.64. Between them, one box labeled the same model. Only the crowd changed.</desc>
-      <text x="200" y="26" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#1FA37A">WHERE THE AI MODEL WAS BORN</text>
-      <text x="560" y="26" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#D61F69">WHERE IT HAS TO WORK</text>
+      <text x="200" y="16" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#1FA37A">WHERE THE AI MODEL WAS BORN</text>
+      <text x="200" y="34" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#1FA37A">(THE COMPANY'S NUMBERS)</text>
+      <text x="560" y="16" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#D61F69">WHERE IT HAS TO WORK</text>
+      <text x="560" y="34" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#D61F69">(A SINGLE HOSPITAL OR DOCTOR'S OFFICE NETWORK)</text>
       <rect x="60" y="40" width="280" height="150" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
       <rect x="420" y="40" width="280" height="150" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
       <circle cx="153" cy="68" r="4" fill="#1FA37A" opacity=".85"/>
@@ -873,28 +875,81 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     </svg>
     <figcaption>Distribution shift, shown on an imaginary heart disease risk score. An AI model learns the patterns in the crowd it was trained on. Move it to a different crowd and the patterns it learned are weaker or missing, so the number drops. Neither number is a lie. They were measured on different people, and only one of them was measured on yours.</figcaption>
   </figure>
-  <p>Let's make it concrete with round numbers. A vendor reports that its alert catches 80 percent of cases. A hospital tests it on a year of its own patients and finds it catches 35 percent, while firing on one admission in five. Both numbers can be honest. The first was measured where the model was born, the second where it has to work. And if the model is proprietary, meaning the hospital isn't allowed to see inside it, the outside number is the only one anyone can check. The people who run external validations have a phrase for what happens without them: confidential performance claims that never met a reviewer.</p>
+  <p>Here's a bigger real one. Epic, the company whose software holds the electronic records at many of the country's largest hospitals, built a sepsis alert into that software, and hundreds of U.S. hospitals turned it on. Sepsis is the body's runaway reaction to an infection, and catching it early saves lives. Epic's own reported numbers described the alert as good at telling sepsis patients apart from everyone else. Then researchers at the University of Michigan ran it on their own patients, about 38,000 hospital stays, and <a class="inline" href="https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2781307" target="_blank" rel="noopener">published what they found in 2021</a>. The alert missed two out of every three patients who actually had sepsis. At the same time, it went off for about one patient in five across the whole hospital. Epic answered that hospitals are supposed to tune the model before relying on it.</p>
+  <p>Both sides can be honest here. Epic's number was measured where the model was born; Michigan's was measured where it had to work. And because the model is proprietary, meaning hospitals aren't allowed to see inside it, the outside number was the only one anyone else could check. The Michigan team warned that models like this were spreading on the strength of confidential performance documents that no outside reviewer had ever checked.</p>
 
-  <p>Notice that both kinds of failure are in that example. The loud one: an alert firing on one admission in five, so nurses learn to click past it. The silent one: the real cases the alert never caught, which triggered nothing and generated no report at all.</p>
-  <div class="concept">
-    <div class="term">External validation</div>
-    <p>Someone outside the company runs the model on their own data and publishes the result. What people get wrong: they assume the number on the product page was measured the way a trial is. It usually wasn't. The company's number tells you the best the model did somewhere; the outside number tells you what it does here. If nobody outside has published one, the honest accuracy of the model is "unknown," however confident the brochure.</p>
-  </div>
-  <p>This is not a medical problem. It's a problem for any AI model that predicts something about people, and the outside check is the only defense. Police departments buy facial recognition systems on the vendor's accuracy number; when researchers at MIT tested three commercial systems in 2018 on their own set of faces, error rates for darker-skinned women ran above 30 percent against under 1 percent for lighter-skinned men, and by 2020 people were being wrongly arrested on matches nobody had checked. Banks buy credit models the same way, and employers buy résumé screeners the same way. In every case the question is the same: what does it do on our data, and who has looked?</p>
+  <p>Notice that both kinds of failure are in that example. <strong>The loud one:</strong> an alert firing on about one patient in five, so nurses learn to click past it. <strong>The silent one:</strong> the two-thirds of real sepsis cases the alert never caught, which triggered nothing and generated no report at all.</p>
+  <p>That's the whole case for external validation. The company's number tells you the best the model did somewhere; the outside number tells you what it does here. If nobody outside has published one, the honest accuracy of the model is "unknown," however confident the brochure.</p>
+  <p>This is not just a medical problem. It's a problem for any AI model that predicts something about people, and the outside check is the only defense. For example, police departments buy facial recognition systems on the vendor's accuracy number; when researchers at MIT tested three commercial systems in 2018 on their own set of faces, error rates for darker-skinned women ran above 30 percent against under 1 percent for lighter-skinned men, and by 2020 people were being wrongly arrested on matches nobody had checked. Banks buy credit models the same way, and employers buy résumé screeners the same way. In every case the question is the same: what does it do on our data, and who has looked?</p>
 
   <h3 class="sub" id="s2-5"><span>2.5</span> Where is the human? Should doctors stay in, on, or out of the loop?</h3>
-  <p>AI systems today put people to work in one of three ways. Businesses use all three constantly, and the three words are worth learning now because they come up in every chapter after this one.</p>
+  <p>Every AI system in this chapter produces an output: a score, a flag, a ranked list, a draft diagnosis. The design question that matters most is what happens next. Does the output go straight into the world, or does a person stand between the output and the action? And if a person stands there, what are they actually allowed to do? Someone decides this for every AI system a business deploys, usually before anyone uses it, and there are three standard answers. You'll see them in every chapter after this one, and Chapter 7 turns them into a single question: where is the human?</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 760 262" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="lpt lpd" style="width:100%;max-width:660px;height:auto;display:block;margin:0 auto">
+      <title id="lpt">Three places to put the human: in, on, or out of the loop</title>
+      <desc id="lpd">Three panels, each showing an AI output on its way to an action. Human in the loop: the arrow from the AI runs through a person, who decides before anything happens. Human on the loop: the arrow runs straight from the AI to the action, and a person above it watches and can step in, shown as a dashed arrow. Human out of the loop: the AI goes straight to the action, and the only person is someone who set the system up earlier and left. Under each panel, a hospital example and the price of that position.</desc>
+      <defs><marker id="lparr" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#14181D"/></marker><marker id="lparrp" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#D61F69"/></marker></defs>
+      <rect x="10" y="4" width="236" height="252" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="128" y="26" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#14181D">Human in the loop</text>
+      <text x="128" y="43" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">the AI proposes, a person decides</text>
+      <rect x="22" y="114" width="58" height="36" rx="5" fill="#0E1116"/>
+      <text x="51" y="136" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#E4FF32">AI</text>
+      <line x1="82" y1="132" x2="106" y2="132" stroke="#14181D" stroke-width="1.6" marker-end="url(#lparr)"/>
+      <circle cx="128" cy="122" r="7" fill="#FFFFFF" stroke="#D61F69" stroke-width="2"/>
+      <path d="M116,142 Q128,126 140,142 Z" fill="#FFFFFF" stroke="#D61F69" stroke-width="2"/>
+      <text x="128" y="156" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#D61F69">decides</text>
+      <line x1="150" y1="132" x2="170" y2="132" stroke="#14181D" stroke-width="1.6" marker-end="url(#lparr)"/>
+      <rect x="172" y="114" width="64" height="36" rx="5" fill="#FFFFFF" stroke="#9AA1AB" stroke-width="1.4"/>
+      <text x="204" y="136" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#14181D">action</text>
+      <line x1="24" y1="178" x2="232" y2="178" stroke="#E7E7E2"/>
+      <text x="128" y="198" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">A doctor reads the AI's draft</text>
+      <text x="128" y="213" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">diagnosis and makes the call.</text>
+      <text x="128" y="240" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="700" fill="#D61F69">Price: slow, a person on every case</text>
+      <rect x="262" y="4" width="236" height="252" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="380" y="26" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#14181D">Human on the loop</text>
+      <text x="380" y="43" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">the AI acts, a person watches</text>
+      <rect x="274" y="114" width="58" height="36" rx="5" fill="#0E1116"/>
+      <text x="303" y="136" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#E4FF32">AI</text>
+      <line x1="334" y1="132" x2="420" y2="132" stroke="#14181D" stroke-width="1.6" marker-end="url(#lparr)"/>
+      <rect x="424" y="114" width="64" height="36" rx="5" fill="#FFFFFF" stroke="#9AA1AB" stroke-width="1.4"/>
+      <text x="456" y="136" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#14181D">action</text>
+      <circle cx="380" cy="64" r="7" fill="#FFFFFF" stroke="#D61F69" stroke-width="2"/>
+      <path d="M368,84 Q380,68 392,84 Z" fill="#FFFFFF" stroke="#D61F69" stroke-width="2"/>
+      <text x="398" y="76" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#D61F69">watches, can step in</text>
+      <line x1="380" y1="90" x2="380" y2="126" stroke="#D61F69" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#lparrp)"/>
+      <line x1="276" y1="178" x2="484" y2="178" stroke="#E7E7E2"/>
+      <text x="380" y="198" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">The AI reads every mammogram;</text>
+      <text x="380" y="213" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">a radiologist checks what it flags.</text>
+      <text x="380" y="240" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="700" fill="#D61F69">Price: a person only on the exceptions</text>
+      <rect x="514" y="4" width="236" height="252" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="632" y="26" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#14181D">Human out of the loop</text>
+      <text x="632" y="43" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">the AI acts, nobody in the moment</text>
+      <rect x="526" y="114" width="58" height="36" rx="5" fill="#0E1116"/>
+      <text x="555" y="136" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#E4FF32">AI</text>
+      <line x1="586" y1="132" x2="672" y2="132" stroke="#14181D" stroke-width="1.6" marker-end="url(#lparr)"/>
+      <rect x="676" y="114" width="64" height="36" rx="5" fill="#FFFFFF" stroke="#9AA1AB" stroke-width="1.4"/>
+      <text x="708" y="136" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#14181D">action</text>
+      <circle cx="555" cy="64" r="7" fill="#FFFFFF" stroke="#D61F69" stroke-width="2"/>
+      <path d="M543,84 Q555,68 567,84 Z" fill="#FFFFFF" stroke="#D61F69" stroke-width="2"/>
+      <text x="573" y="76" text-anchor="start" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#D61F69">set it up earlier, then left</text>
+      <line x1="555" y1="90" x2="555" y2="110" stroke="#D61F69" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#lparrp)"/>
+      <line x1="528" y1="178" x2="736" y2="178" stroke="#E7E7E2"/>
+      <text x="632" y="198" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">A 2 a.m. symptom chatbot answers</text>
+      <text x="632" y="213" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" fill="#14181D">with no clinician involved.</text>
+      <text x="632" y="240" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="700" fill="#D61F69">Price: nobody there when it's wrong</text>
+      </svg>
+    <figcaption>Three places to put the human. The difference is not whether a person exists somewhere in the system; it's whether a person stands between the AI's output and what happens next, and what that costs.</figcaption>
+  </figure>
   <ul class="ideas">
     <li>A <strong>human in the loop</strong> makes the final call; the AI only proposes, and nothing happens until a person says yes. In a hospital: the AI drafts a diagnosis, and a doctor reads it and decides.</li>
     <li>A <strong>human on the loop</strong> watches the AI act and can step in; the AI is doing the work, and the person is supervising it. In a hospital: the AI reads every mammogram and flags the suspicious ones, and a radiologist reviews only what it flagged.</li>
     <li>A <strong>human out of the loop</strong> isn't there in the moment at all; someone set the system up, tested it, and left. In a hospital: a patient tells a chatbot their symptoms at 2 a.m. and gets an answer with no clinician involved.</li>
   </ul>
   <p>Each position has a price. In the loop is slow and expensive, because a person touches every decision. Out of the loop is fast and cheap, and when it goes wrong there is nobody in the room.</p>
-  <p>This book has been treating "keep a human in the loop" as a good thing to do, and for most AI systems it is. In medicine, though, that assumption may be changing, and the argument for changing it comes from serious people.</p>
-  <p>In August 2026, four authors published <a class="inline" href="https://jamanetwork.com/journals/jama/fullarticle/2852952" target="_blank" rel="noopener">a viewpoint in the Journal of the American Medical Association</a> arguing that doctors should get out of the loop for a specific set of tasks. Ezekiel Emanuel, an oncologist and bioethicist at Penn, wrote it with Abe Baker-Butler, a research fellow, and two investors, Neal Khosla, who runs the AI health company Curai, and Vinod Khosla, who funds it. Their claim is narrow and specific.</p>
+  <p>So far, this book has been treating "keep a human in the loop" as the safe choice, and for most AI systems it is. But an interesting case against it comes from a recent article in <em>JAMA</em>, the Journal of the American Medical Association, one of the best-known medical journals in the world.</p>
+  <p>In August 2026, four authors published <a class="inline" href="https://jamanetwork.com/journals/jama/fullarticle/2852952" target="_blank" rel="noopener">a viewpoint in JAMA</a> arguing that doctors should get out of the loop for a specific set of tasks. Ezekiel Emanuel, an oncologist and bioethicist at Penn, wrote it with Abe Baker-Butler, a research fellow, and two investors, Neal Khosla, who runs the AI health company Curai, and Vinod Khosla, who funds it. Their claim is narrow and specific.</p>
   <p>For the cognitive work of medicine, meaning taking a history, making a diagnosis, choosing tests, recommending treatment, and managing chronic disease, they argue that AI working alone will soon outperform not only doctors, but doctors working with AI. Here's how that would play out. You feel unwell and open an app. The AI asks you what's wrong, follows up the way a doctor would, decides which blood test you need, reads the result, tells you what you have and what to take, and checks in next week to adjust the dose. No doctor reads the transcript. On the authors' evidence, that version of the visit would be more accurate than the one where a doctor reviews the AI's work, because the doctor is the step where errors get added.</p>
-  <p>Their strongest evidence is a <a class="inline" href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2825395" target="_blank" rel="noopener">2024 study</a> of diagnostic reasoning on real patient cases, which the JAMA piece reports like this:</p>
-  <p class="tablecap"><strong>Table 3 · Who diagnosed best?</strong> Median diagnostic reasoning scores on the same real patient cases, from the 2024 study the JAMA authors lean on.</p>
+  <p>Their strongest evidence is not their own study. It's <a class="inline" href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2825395" target="_blank" rel="noopener">a 2024 study</a> in a sister journal, <em>JAMA Network Open</em>, which the viewpoint cites. Researchers led by a team at Stanford gave 50 doctors up to six hard, real patient cases, written up as case summaries, and an hour to work through them. Half the doctors could use a chatbot, OpenAI's GPT-4. Half used their usual resources, like medical reference sites. Expert graders scored each doctor's reasoning on a scoring sheet: did they list the right possible diagnoses, give the right evidence for and against each one, and pick sensible next tests? Then the researchers gave the chatbot the same cases on its own and graded it the same way. Each score below is the share of the scoring sheet's points that group earned.</p>
   <table class="risk pred">
     <thead><tr><th>Who made the call</th><th>Score</th><th>Where the human stood</th></tr></thead>
     <tbody>
@@ -903,59 +958,63 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
       <tr><td><b>The AI alone</b></td><td>about 90 percent</td><td>Human out of the loop</td></tr>
     </tbody>
   </table>
-  <p>Read the middle row twice. Adding the doctor didn't just fail to help. It dragged a 90 down to a 76.</p>
-  <p>So the regulators, they say, should stop requiring a human in the loop by default. Regulators here means the agencies that decide how medicine is allowed to run: the FDA, which clears medical AI the way it clears a device; the state medical boards, which decide who is licensed to diagnose and prescribe; and Medicare and the insurers, which decide what gets paid for and today almost always require a licensed clinician to sign. Every one of those currently assumes a human makes the final call. The JAMA authors want that assumption dropped for the five tasks above, because on their reading the human is making the answer worse.</p>
-  <p>Why would adding a doctor make the answer worse? Two habits, and both are ours. <strong>Automation bias</strong> is trusting a reliable-seeming system so much that you stop checking it. <strong>Algorithmic aversion</strong> is the opposite: overriding the system's answer with your own even when it's more likely to be right. And there's a third, which the hospital alert in <a class="inline" href="#s2-4">section 2.4</a> showed you: <strong>alert fatigue</strong>, when a system fires so often that the human in the loop learns to click past it, and becomes a human out of the loop with extra steps. On the JAMA view, the doctor isn't the safeguard. The doctor is the noise.</p>
-  <p>Who is saying this, and what do they gain? Two of the four JAMA authors make money if hospitals buy autonomous AI, and to their credit they disclosed it. The American Medical Association, which represents doctors, answered that most of the evidence cited in the article comes from simulations, not from blinded trials in real hospitals. Robert Wachter, who runs the department of medicine at UCSF and is himself an adviser to Curai, wrote the most careful reply and agreed with the premise: given a clean set of facts, the AI often wins. Then he named <a class="inline" href="https://robertwachter.substack.com/p/on-straw-men-and-doormen" target="_blank" rel="noopener">two problems</a>. First, garbage in, garbage out. The 90 percent was scored on cases a doctor had already boiled down to the facts that matter. In an Oxford study he cites, when ordinary people described the same cases in their own words, the AI made the wrong call about two-thirds of the time. The doctor's job of figuring out which facts matter wasn't in the test. Second, the doorman fallacy: even if a machine does the diagnosis better, the person does a dozen other things that only look unimportant until you remove them.</p>
+  <p class="tablecap"><strong>Table 2 · Who diagnosed best?</strong> Median diagnostic reasoning scores, as a percentage of the points available, on the same hard patient cases. From Goh and colleagues, <em>JAMA Network Open</em>, 2024, the study the JAMA viewpoint relies on.</p>
+  <p>Read the middle row twice. Adding the doctor didn't just fail to help. It dragged a 90 down to a 76. One caution before you run with that: the study's own authors wrote that their results should not be read as a reason to let AI diagnose without a doctor watching.</p>
+  <p>So the JAMA authors argue that regulators should stop requiring a human in the loop by default. Regulators here means the agencies that decide how medicine is allowed to run: the FDA, which clears medical AI the way it clears a device; the state medical boards, which decide who is licensed to diagnose and prescribe; and Medicare and the insurers, which decide what gets paid for and today almost always require a licensed clinician to sign. Every one of those currently assumes a human makes the final call. The JAMA authors want that assumption dropped for the five tasks above, because on their reading the human is making the answer worse.</p>
+  <p>Why would adding a doctor make the answer worse? Three habits, and all three are ours, not the machine's:</p>
+  <ul class="ideas">
+    <li><strong>Automation bias</strong> is trusting a reliable-seeming system so much that you stop checking it.</li>
+    <li><strong>Algorithmic aversion</strong> is the opposite: overriding the system's answer with your own even when it's more likely to be right.</li>
+    <li><strong>Alert fatigue</strong> is what the hospital alert in <a class="inline" href="#s2-4">section 2.4</a> showed you: a system fires so often that the human in the loop learns to click past it, and becomes a human out of the loop with extra steps.</li>
+  </ul>
+  <p>On the JAMA view, the doctor isn't the safeguard. The doctor is the noise.</p>
+  <p>Who is saying this, and what do they gain? Two of the four JAMA authors make money if hospitals buy autonomous AI, and to their credit they disclosed it. The American Medical Association, which represents doctors, answered that most of the evidence cited in the article comes from simulations, not from blinded trials in real hospitals. Robert Wachter, who runs the department of medicine at UCSF and is himself an adviser to Curai, wrote the most careful reply and agreed with the premise: given a clean set of facts, the AI often wins. Then he named <a class="inline" href="https://robertwachter.substack.com/p/on-straw-men-and-doormen" target="_blank" rel="noopener">two problems</a>. First, <strong>garbage in, garbage out</strong>, the idea from <a class="inline" href="#s2-3">section 2.3</a>. The 90 percent was scored on cases a doctor had already boiled down to the facts that matter. In an Oxford study he cites, when ordinary people described the same cases in their own words, the AI made the wrong call about two-thirds of the time. The doctor's job of figuring out which facts matter wasn't in the test. Second, the doorman fallacy: even if a machine does the diagnosis better, the person does a dozen other things that only look unimportant until you remove them.</p>
   <p>Notice that neither of those is the long tail. The long tail is about a thin record. Wachter's point is that the record can be fine and the input can still be a mess, because a scared patient at 2 a.m. does not describe their symptoms the way a chart does. Different problem, same lesson: the number was measured under conditions that aren't the ones you'll use it in.</p>
-  <p>So who's right? Here's what happened when people ran the experiment the AMA's way, in real hospitals, randomized. Three trials, three answers.</p>
-  <p class="tablecap"><strong>Table 4 · Three hospital trials, three answers to "where should the doctor be?"</strong> All three are randomized controlled trials, the design that lets you say a result was caused by the change and not by chance.</p>
+  <p>So who's right? The JAMA evidence came from cases on paper. The AMA's objection was that nobody had tested this in real hospitals, on real patients, with the doctor moved on purpose and the results compared fairly. Some researchers have now done exactly that, and each trial put the doctor in a different spot from 2.5's figure. <strong>Three trials, three answers.</strong></p>
   <table class="risk pred">
-    <thead><tr><th>The trial</th><th>Where they put the doctor</th><th>What happened</th></tr></thead>
+    <thead><tr><th>The trial study</th><th>Where they put the doctor</th><th>What happened</th></tr></thead>
     <tbody>
       <tr><td><b>Mammograms, Sweden.</b> The <a class="inline" href="https://doi.org/10.1016/S2589-7500(24)00267-X" target="_blank" rel="noopener">MASAI trial</a>, 105,000 women, <em>The Lancet Digital Health</em>, February 2025.</td><td><b>Moved from in the loop to on the loop.</b> Instead of two radiologists reading every scan, an AI sorted scans by risk and one radiologist read the low-risk ones, stepping in only where the AI flagged.</td><td>29 percent more cancers found, no more false alarms, 44 percent less reading work. Fewer humans, better result.</td></tr>
-      <tr><td><b>Fetal brain ultrasound, China.</b> 1,584 high-risk pregnancies at five hospitals, <em>The Lancet Digital Health</em>, September 2026.</td><td><b>In the loop, two ways.</b> Sonographers scanned with an AI that marks suspicious shapes on screen. The trial compared having it beside them live during the scan versus as a second look afterward.</td><td>About nine points more real problems caught, no more false alarms, and it helped most as a live co-pilot. The human's position had a measurable price.</td></tr>
-      <tr><td><b>Routine pregnancy scans, England.</b> The PROMETHEUS trial, <em>NEJM AI</em>, 2025.</td><td><b>In the loop, with help.</b> Sonographers kept the final call and used an AI that measured the fetus automatically while they scanned.</td><td>Accuracy didn't change in a way the trial could confirm. Scans took eleven minutes instead of twenty, and the sonographers reported far less strain. The gain was a less exhausted human.</td></tr>
+      <tr><td><b>Fetal brain ultrasound, China.</b> <a class="inline" href="https://www.thelancet.com/journals/landig/article/PIIS2589-7500(26)00063-4/fulltext" target="_blank" rel="noopener">1,584 high-risk pregnancies at five hospitals</a>, <em>The Lancet Digital Health</em>, September 2026.</td><td><b>In the loop, two ways.</b> Sonographers scanned with an AI that marks suspicious shapes on screen. The trial compared having it beside them live during the scan versus as a second look afterward.</td><td>About nine points more real problems caught, no more false alarms, and it helped most as a live co-pilot. The human's position had a measurable price.</td></tr>
+      <tr><td><b>Routine pregnancy scans, England.</b> The <a class="inline" href="https://ai.nejm.org/doi/full/10.1056/AIoa2400747" target="_blank" rel="noopener">PROMETHEUS trial</a>, <em>NEJM AI</em>, 2025.</td><td><b>In the loop, with help.</b> Sonographers kept the final call and used an AI that measured the fetus automatically while they scanned.</td><td>Accuracy didn't change in a way the trial could confirm. Scans took eleven minutes instead of twenty, and the sonographers reported far less strain. The gain was a less exhausted human.</td></tr>
     </tbody>
   </table>
+  <p class="tablecap"><strong>Table 3 · Three hospital trials, three answers to "where should the doctor be?"</strong> All three are randomized controlled trials, the design that lets you say a result was caused by the change and not by chance.</p>
   <p>Notice what the table does to the fight. The JAMA authors say the human is the noise. The AMA says the human is the safeguard. The trials say: it depends on the task, and you have to measure it.</p>
   <p>So the honest answer to "should doctors stay in, on, or out of the loop?" is that it isn't one answer. It's a setting you choose for each task, and each setting has a cost that a trial can put a number on. For low-risk mammograms, moving the radiologist on the loop caught more cancers with less work. For a fetal brain scan, keeping the sonographer in the loop with the AI beside her worked better than the AI checking afterward. Anyone who tells you the answer for all of medicine at once has skipped the trials.</p>
-  <div class="concept">
-    <div class="term">The human gate</div>
-    <p>The point in an AI system where a person decides whether an output goes forward. In the loop, on the loop, out of the loop: each is a design choice with a price in speed, money, and safety. What people get wrong: they assume the human is always the safety feature. Sometimes the human is the safeguard. Sometimes the human is the noise. Sometimes the human is technically there and has stopped looking. Which one is an empirical question, task by task, and the honest answer to "should the doctor step out?" is "for which task, tested how, and who answers when it's wrong?"</p>
-  </div>
+  <p>That design choice has a name worth keeping: the <strong>human gate</strong>, the point in an AI system where a person decides whether an output goes forward. In the loop, on the loop, and out of the loop are three places to put the gate, and each has a price in speed, money, and safety. What people get wrong is assuming the human is always the safety feature. Sometimes the human is the safeguard. Sometimes the human is the noise. Sometimes the human is technically there and has stopped looking. Which one is an empirical question, task by task, and the honest answer to "should the doctor step out?" is "for which task, tested how, and who answers when it's wrong?"</p>
 
   <div class="callout tryit">
-    <div class="label">Try it · practice for Friday's quiz. Five situations, none from this chapter's cases. For each, which concept is doing the work: the trove, the shape of the record, store-predict-act, external validation, or the human gate? Decide, then click.</div>
-    <details><summary>1. A grocery chain that has kept every loyalty-card receipt since 2010 starts selling "demand forecasts" to its suppliers.</summary><p><strong>The trove.</strong> Records collected for one purpose (discounts) became an AI asset when they got big enough, and the chain, not the shoppers who built it, owns the prediction.</p></details>
-    <details><summary>2. A hiring model scores an unusual career path low against past successful hires.</summary><p><strong>The shape of the record.</strong> Few past examples, few paths, weak score, and nothing to do with the candidate. Chapter 6 lives here.</p></details>
-    <details><summary>3. A bank's fraud system stops texting you to confirm a suspicious charge and starts blocking the card on its own.</summary><p><strong>Store, predict, act.</strong> The same model moved from a prediction that waited for you to an action that already happened. Where the human stands just changed without anyone announcing it.</p></details>
-    <details><summary>4. A software vendor's brochure says its model is "94 percent accurate." No hospital has published a test of it.</summary><p><strong>External validation, and the trap item.</strong> 94 is the company's number, measured somewhere. Until an outside number exists, the honest accuracy is "unknown," however confident the brochure.</p></details>
+    <div class="label">Try it · practice for Friday's quiz. Five situations, none from this chapter's cases. For each, which concept is doing the work: the data trove, the knowledge graph, the shape of the data trove, external validation, or the human gate? Decide, then click.</div>
+    <details><summary>1. A grocery chain that has kept every loyalty-card receipt since 2010 starts selling "demand forecasts" to its suppliers.</summary><p><strong>The data trove.</strong> Records collected for one purpose (discounts) became an AI asset when they got big enough, and the chain, not the shoppers who built it, owns the prediction.</p></details>
+    <details><summary>2. A hiring model scores an unusual career path low against past successful hires.</summary><p><strong>The shape of the data trove.</strong> Few past examples, few paths, weak score, and nothing to do with the candidate. Chapter 6 lives here.</p></details>
+    <details><summary>3. An online bookstore suggests a sourdough cookbook to you because you bought a cast-iron pan, and a lot of people who bought that pan also bought that book.</summary><p><strong>The knowledge graph.</strong> You, the pan, the book: a path through logged purchases, two hops long. Nobody wrote a rule about bread. The route is the recommendation, and it's also the reason the store could show you if you asked.</p></details>
+    <details><summary>4. A software vendor's brochure says its model is "94 percent accurate." No hospital has published a test of it.</summary><p><strong>External validation.</strong> 94 is the company's number, measured somewhere. Until an outside number exists, the honest accuracy is "unknown," however confident the brochure.</p></details>
     <details><summary>5. A radiologist signs off on a scan the AI flagged as normal without opening it, at the end of a twelve-hour shift.</summary><p><strong>The human gate.</strong> In the loop on paper, out of it in practice. That's automation bias, and it's the failure the JAMA authors would say proves their point and the AMA would say proves theirs.</p></details>
   </div>
 </section>
 
 <section id="s3">
-  <div class="shead"><span class="num">3</span><h2>The case: Every Cure, and the drug that was already there</h2></div>
-  <p class="lead">Watch this first. It runs about fourteen minutes, it is made by Penn Medicine, and it is the case for this chapter. Two people in it matter: Dr. David Fajgenbaum, who nearly died of a rare disease and found his own treatment, and Joseph, a patient whose doctors had run out of options.</p>
+  <div class="shead"><span class="num">3</span><h2>The main case: Every Cure, and the drug that was already there</h2></div>
+  <p class="lead">Watch this YouTube video first. It runs about fourteen minutes, it is made by Penn Medicine, and it is the main case for this chapter. Two people in it matter: Dr. David Fajgenbaum, who nearly died of a rare disease and found his own treatment, and Joseph, a patient whose doctors had run out of options.</p>
   <figure class="diagram">
     <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/4FxwoOuPGWs" title="Penn Medicine: David Fajgenbaum, Every Cure, and Joseph's treatment" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-    <figcaption>Penn Medicine's film about Every Cure. Watch before Monday; the discussion questions assume you have. Fajgenbaum's own description of the system, about eight minutes in, is the clearest definition of a knowledge graph in this chapter.</figcaption>
+    <figcaption>Penn Medicine's YouTube video about Every Cure. Watch before Monday; the discussion questions assume you have. Fajgenbaum's own description of the system, about eight minutes in, is the clearest definition of a knowledge graph in this chapter.</figcaption>
   </figure>
   <h3 class="sub" id="s3-background"><span>Background</span> A doctor who cured himself, and the search that followed</h3>
   <p>Here's what happened, in plain order. In his third year of medical school at Penn, Fajgenbaum's organs began shutting down. The diagnosis was Castleman disease, a rare disorder in which the immune system attacks the body. It nearly killed him five times. The approved treatments failed. So he studied his own disease, found an overactive signal in his own blood, and found a decades-old drug, sirolimus, given to organ transplant patients to stop the body rejecting the new organ, that happens to switch that signal off. Nobody had ever used it for Castleman disease. He has been in remission for more than eleven years on a drug that sat in every pharmacy the whole time he was dying.</p>
-  <p>That's the origin. Now the part that makes it a business case. Fajgenbaum's question afterward was: how many other treatments are already on the shelf? There are about 4,000 approved drugs and more than 18,000 known diseases. <strong>Drug repurposing</strong> is taking a drug that is already approved and on the market for one disease and using it to treat a different disease it was never designed for. It happens more than you'd think. Aspirin was a painkiller before it was a heart drug, and the diabetes drug in Ozempic became a weight-loss drug. Repurposing is cheap and fast, because the expensive part, proving the drug is safe in humans, has already been done. It is also commercially neglected, for a reason worth saying out loud. A new drug earns back its billion-dollar development cost through a patent. An old, off-patent drug has no patent left, so a company that spent ten million dollars proving a generic pill treats a rare disease could not stop rivals selling that pill the next day. The cure might be in every pharmacy, and nobody is paid to notice. That is why this is a nonprofit and not a startup.</p>
-  <p>In 2022 Fajgenbaum co-founded <a class="inline" href="https://everycure.org" target="_blank" rel="noopener">Every Cure</a>. In February 2024 the federal agency ARPA-H gave it a three-year, $48.3 million contract to build a platform called MATRIX. MATRIX is the AI system in this case, and it's the knowledge graph from <a class="inline" href="#s2-2">section 2.2</a> at full size: about 8.9 million dots and 33 million lines assembled from public biomedical databases, with a model on top that scores every approved drug against every known disease and hands the top matches to physicians. TIME named it one of the best inventions of 2025. Fajgenbaum's own description in the video is the one to remember: people cannot read billions of research articles, AI can, so they build a map of everything known about every drug, disease, gene, and protein, train the model on treatments that already work, and then humans decide what to focus on. In February 2026 ARPA-H <a class="inline" href="https://everycure.org/phase2" target="_blank" rel="noopener">funded a second phase</a>, up to $76 million, to take twenty top matches into the lab and ten into clinical trials.</p>
+  <p>That's the origin. Now the part that makes it a business case. Fajgenbaum's question afterward was: <strong>how many other treatments are already on the shelf?</strong> There are about 4,000 approved drugs and more than 18,000 known diseases. <strong>Drug repurposing</strong> is taking a drug that is already approved and on the market for one disease and using it to treat a different disease it was never designed for. It happens more than you'd think. Aspirin was a painkiller before it was a heart drug, and the diabetes drug in Ozempic became a weight-loss drug. To see why repurposing matters, look at the alternative. Developing a brand-new drug <a class="inline" href="https://doi.org/10.3389/fddsv.2023.1314077" target="_blank" rel="noopener">usually takes 10 to 15 years</a>, most candidates fail somewhere along the way, and counting those failures, <a class="inline" href="https://jamanetwork.com/journals/jama/fullarticle/2762311" target="_blank" rel="noopener">one independent estimate</a> puts the cost of bringing a single new drug to market at roughly a billion dollars. That money has to come from investors who expect it back, so new drugs get built for diseases with enough paying patients. For a patient with a rare disease, the new-drug route often means waiting for a drug that nobody is ever going to fund. Repurposing skips most of that. It is cheap and fast, because the expensive part, proving the drug is safe in humans, has already been done. It is also commercially neglected, for a reason worth saying out loud. A new drug earns back its billion-dollar development cost through a patent. An old, off-patent drug has no patent left, so a company that spent ten million dollars proving a generic pill treats a rare disease could not stop rivals selling that pill the next day. The cure might be in every pharmacy, and nobody is paid to notice. That is why this is a nonprofit and not a startup.</p>
+  <p>In 2022 Fajgenbaum co-founded <a class="inline" href="https://everycure.org" target="_blank" rel="noopener">Every Cure</a>. In February 2024 the federal agency ARPA-H gave it a three-year, $48.3 million contract to build a platform called MATRIX. MATRIX is the AI system in this case, and it's the knowledge graph from <a class="inline" href="#s2-2">section 2.2</a> at full size: about 8.9 million dots and 33 million lines assembled from public biomedical databases, with a model on top that scores every approved drug against every known disease and hands the top matches to physicians. TIME named it one of the best inventions of 2025. That scale is the reason AI is needed here at all. About 4,000 approved drugs against more than 18,000 diseases makes tens of millions of possible pairs, and the research behind them runs to millions of papers. No team of scientists could read that literature or check every pair by hand, which is why, before systems like this, repurposing mostly happened by accident or by one determined doctor, the way Fajgenbaum found his own drug. Every Cure puts its scores online in <a class="inline" href="https://prototypes.everycure.org/matrix-heatmap-public" target="_blank" rel="noopener">a public heatmap</a> anyone can explore, with a warning worth noticing: a score marks how biologically plausible a match looks, not proof that the drug will work. Fajgenbaum's own description in the video is the one to remember: people cannot read billions of research articles, AI can, so they build a map of everything known about every drug, disease, gene, and protein, train the model on treatments that already work, and then humans decide what to focus on. In February 2026 ARPA-H <a class="inline" href="https://everycure.org/phase2" target="_blank" rel="noopener">funded a second phase</a>, up to $76 million, to take twenty top matches into the lab and ten into clinical trials.</p>
   <p>Then Joseph. He was diagnosed with POEMS syndrome, a rare blood disorder. He lost forty pounds in weeks. His own oncology team's treatment did not work. A stem cell transplant was planned, then called off because he was too sick, and his doctor raised hospice. His partner Tara emailed Fajgenbaum on a Friday afternoon. Fajgenbaum's team ran the problem through the AI system: POEMS is rare, but it resembles Castleman disease and multiple myeloma, so drugs used in myeloma had paths into it. Fajgenbaum had already thought of three chemotherapy drugs, and the scoring ranked those same three highly. Then came the hard part, which he says plainly in the video. Chemotherapy is the last thing you give a person who is barely surviving, because it could kill him. They gave it. Joseph responded within two weeks, left the intensive care unit, walked again, recovered kidney function, got the transplant after all, and reached full remission.</p>
   <p>That is a story almost impossible not to love. Which is exactly why we run the five questions on it.</p>
   <figure class="diagram">
     <!-- Photo from TIME's Best Inventions 2025 feature on Every Cure (https://time.com/collections/best-inventions-2025/7318443/every-cure-matrix/). Confirm licensed use with TIME or Every Cure before public deployment; adjust the credit line below to match. -->
-    <img src="everycure-matrix-graph.jpg" alt="David Fajgenbaum at a monitor showing the MATRIX knowledge graph: hundreds of small nodes fanning out from a hub, joined by a dense web of lines." style="max-width:680px;width:100%;height:auto;display:block;margin:0 auto;border:1px solid var(--rule)">
+    <img src="everycure-matrix-graph.jpg" alt="David Fajgenbaum at a monitor showing the MATRIX knowledge graph: hundreds of small nodes fanning out from a hub, joined by a dense web of lines." style="max-width:460px;width:100%;height:auto;display:block;margin:0 auto;border:1px solid var(--rule)">
     <figcaption>Fajgenbaum at MATRIX. Every dot is something biomedical research has documented, every line a relationship someone published, and this screen shows a few hundred of roughly 8.9 million nodes and 33 million relationships. No one can read that. That, and not the word "AI," is why the search became possible. <span style="color:var(--muted)">Photo: TIME, Best Inventions 2025.</span></figcaption>
   </figure>
   <p><strong>The five critical AI questions, run on this case:</strong></p>
 
-  <h3 class="sub" id="s3-what-this-ai-is-and-how-it-w"><span>What this AI is, and how it works</span> Question 1: what is the AI system, and what does it do?</h3>
+  <h3 class="sub" id="s3-what-this-ai-is-and-how-it-w"><span>Question 1</span> What is the AI system, and what does it do?</h3>
   <p>MATRIX, a predictive AI system built on a biomedical knowledge graph. It does not write, chat, or diagnose. It scores and ranks. Let's run the AI systems model on it:</p>
   <ul class="ideas">
     <li><strong>Data:</strong> about seventy public biomedical databases, assembled from decades of published research, plus lab data Every Cure generates itself. Everything the literature contains, and nothing it doesn't.</li>
@@ -965,63 +1024,68 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <li><strong>Humans:</strong> Fajgenbaum and his team, who had their own hypothesis for Joseph before the ranking confirmed it; an independent scientific council; the treating oncologists who had to give the order; and Joseph, who had to consent to a drug that might kill him.</li>
   </ul>
 
-  <h3 class="sub" id="s3-who-benefits-and-who-doesn-t"><span>Who benefits, and who doesn't</span> Question 2: why does it exist, and who benefits?</h3>
+  <h3 class="sub" id="s3-who-benefits-and-who-doesn-t"><span>Question 2</span> Why does it exist, and who benefits?</h3>
   <p>It exists because the market does not pay anyone to run this search. Patients with rare diseases benefit first, and they have no other option. Hospitals and insurers benefit, because a repurposed generic costs a few dollars a dose instead of thousands. Every Cure benefits, because a nonprofit with a federal contract and a story like Joseph's will keep getting funded. Penn benefits; the video is Penn's.</p>
   <p>Now the part the same business logic implies. The missing patent that makes repurposing cheap also means nobody profits from proving it works. There is no company to fund the confirmatory trial, to chase a label change, or to argue with an insurer who declines to cover a drug used off-label. The economics that make the search possible are the same economics that make the proof hard to finish.</p>
   <p>Who doesn't benefit: patients with diseases so rarely studied that the graph has almost nothing on them, which is the gap in <a class="inline" href="#s2-3">section 2.3</a> with a face on it; and drug companies, who gain nothing from a generic pill finding a second use, which is why none of them built this.</p>
 
-  <h3 class="sub" id="s3-when-it-fails-who-finds-out"><span>When it fails, who finds out</span> Question 3: what happens when it fails, and who finds out?</h3>
+  <h3 class="sub" id="s3-when-it-fails-who-finds-out"><span>Question 3</span> What happens when it fails, and who finds out?</h3>
   <p>Two failures, and the video shows you neither.</p>
   <p>The first is the invisible failure from <a class="inline" href="#s2-3">section 2.3</a>. A drug that would have worked scores near zero because the disease is a thin dot, so nobody investigates, nobody publishes, and nobody ever knows there was anything to know. Who finds out? Nobody, ever, unless a patient does what Fajgenbaum did from a hospital bed.</p>
-  <p>The second is the one survivorship hides. We heard about Joseph. We did not hear about the patients where a high-scoring drug did nothing, or where chemotherapy given to someone barely surviving hastened the end. Those cases exist, they rarely get published, and without a denominator we cannot tell a good system from a lucky one. Notice also that Fajgenbaum had already thought of those three drugs himself. The AI agreed with him. That is worth something, and it is not the same as the AI finding a cure alone, which is how the story usually gets retold.</p>
+  <p>The second is the one <strong>survivorship bias</strong> hides: we only hear the stories that ended well enough to be told. We heard about Joseph. We did not hear about the patients where a high-scoring drug did nothing, or where chemotherapy given to someone barely surviving hastened the end. Those cases exist, they rarely get published, and without a denominator we cannot tell a good system from a lucky one. Notice also that Fajgenbaum had already thought of those three drugs himself. The AI agreed with him. That is worth something, and it is not the same as the AI finding a cure alone, which is how the story usually gets retold.</p>
 
   <h3 class="sub" id="s3-business-implications"><span>Business implications</span> What this means for anyone deploying a predictive system on a record</h3>
   <p>MATRIX is a nonprofit's tool, but the lesson is for any organization pointing a predictive model at its own records: an insurer, a hospital, a bank, a university. Three things carry over. First, the model can only find what the record holds, so before buying one, ask what your record is thin on, because that's where it will be confidently wrong. Second, a score is a claim about the record, not a verdict about the person, and the design that keeps a human as the gate is cheaper than the lawsuit that follows treating a score as a decision. Third, ask who validated it and on whose data, because a vendor's accuracy number came from the vendor's data, and <a class="inline" href="#s2-4">section 2.4</a> is what happens when you skip that step. The costs are real: an outside validation takes months, a human gate slows every decision, and a thin-data audit may tell you the tool isn't ready. The alternative is finding out the way the hospital alert did.</p>
-  <h3 class="sub" id="s3-societal-implications"><span>Societal implications</span> Question 4: who's saying that, and how would we know?</h3>
-  <p>Run it on everyone in the video, gently but fully. Fajgenbaum is a patient, a physician, and the founder of the nonprofit. Penn Medicine made the film and benefits from being the place where this happens. Joseph is telling the truth about his own life, and a single recovery is a story, not evidence. Every person in it gains if the story is believed, and none of that makes it false.</p>
+  <p>The case also carries over in a more hopeful direction. Strip away the medicine and MATRIX does one thing: it finds new value in assets an organization already has, by connecting records that were never connected. Most large organizations have their own version of the shelf full of approved drugs. A manufacturer has decades of patents and repair logs, and a knowledge graph over them might show that a part designed for one machine solves a failure in another. A university has thousands of research projects in separate departments that never read each other, and a graph might show two labs working on the same problem from opposite ends. A retailer has product data and customer searches, and a graph might show that something already on its shelves answers a need customers keep describing in other words. None of these needs a new invention. Each needs the records connected, a person to judge which connections are real, and the three rules above. That's the business lesson of Every Cure: before you pay to build something new, ask what you already own that nobody has connected.</p>
+  <h3 class="sub" id="s3-societal-implications"><span>Question 4</span> Societal implications: who's saying that, and how would we know?</h3>
+  <p>Start with what society gets, because it's large. Every Cure counts roughly 9,000 diseases with no approved treatment at all. For some of the people living with those diseases, the knowledge that could help them may already be published, split across papers written by scientists who never met, in fields that don't read each other. There is simply too much of it for people to connect. Without AI, this search doesn't happen slowly; it mostly doesn't happen. And because Every Cure is a nonprofit that publishes its code and its scores, what it finds belongs to everyone, including researchers who will never work there. That is a real public good, paid for largely with public money, and it's worth saying so plainly.</p>
+  <p>A case this good is exactly where the fourth question earns its keep. Run it on everyone in the video, gently but fully. Fajgenbaum is a patient, a physician, and the founder of the nonprofit. Penn Medicine made the video and benefits from being the place where this happens. Joseph is telling the truth about his own life, and a single recovery is a story, not evidence. Every person in it gains if the story is believed, and none of that makes it false.</p>
   <p>So how would we know? The same way medicine knows anything: trials. Phase two of the ARPA-H contract is exactly that test, ten matches into clinical trials, and it is a good kind of claim because it will produce a checkable result. Until then the honest sentence is: this system produced candidates, several of which are in trials, and one patient recovered after a match it ranked highly. Watch what happens when that sentence gets shortened.</p>
 
-  <h3 class="sub" id="s3-how-to-keep-it-beneficial"><span>How to keep it beneficial</span> Question 5: keep it, fix it, or drop it, and what does that cost?</h3>
+  <h3 class="sub" id="s3-how-to-keep-it-beneficial"><span>Question 5</span> Keep it, fix it, or drop it, and what does that cost?</h3>
   <ul class="decide">
     <li><strong>Keep it:</strong> the graph, the ranking, and the human gate between prediction and patient. The search is cheap, the drugs are already safe in humans, and the alternative for these patients is nothing. The cost is that the record's shape decides who benefits, so the diseases with the most research keep winning, and Every Cure keeps choosing roughly ten diseases out of thousands. That is a rationing decision made by a small group with a federal contract, and no one elected them.</li>
-    <li><strong>Fix it:</strong> publish the misses, not just the saves, so a denominator exists. Fund trials for the top matches, which nobody profits from running. Fill the thin records with cheap lab data so rare diseases stop scoring zero by default. Each fix costs money that no business model supplies, which is the same reason the problem exists.</li>
+    <li><strong>Fix it:</strong> publish the misses, not just the saves. A miss is a patient a top-ranked drug didn't help. If only the recoveries get reported, nobody can tell whether a top match works one time in two or one time in fifty, because you need the number of tries, not just the number of wins, to calculate a success rate. More broadly, sharing results, good and bad, with the wider research community is what lets other scientists check the work and build on it. It's the same thing now being asked of the big AI companies building frontier models, the most advanced general-purpose systems: the <a class="inline" href="https://www.gov.uk/government/publications/frontier-ai-safety-commitments-ai-seoul-summit-2024/frontier-ai-safety-commitments-ai-seoul-summit-2024" target="_blank" rel="noopener">Frontier AI Safety Commitments</a> that sixteen of them signed in Seoul in 2024 ask them to be publicly transparent about how they handle risk and to explain how governments, academics, and the public are involved in checking their work. Fund trials for the top matches, which nobody profits from running. Fill the thin records with cheap lab data so rare diseases stop scoring zero by default. Each fix costs money that no business model supplies, which is the same reason the problem exists.</li>
     <li><strong>Drop it:</strong> go back to finding repurposed cures by accident. The cost has a name now, and it is Joseph, plus everyone in the phase-two pipeline. Almost nobody argues for this, and that tells you something: "AI is all hype" does not survive contact with a patient who is alive.</li>
   </ul>
-  <p>Three more costs worth naming, because a case you want to like is where critical habits go to die. A high score can become cover for a risky decision, and chemotherapy for a man hours from life support was a risky decision that happened to work. Desperate families will find these scores and arrive asking for the drug, and a clinician will be arguing against a number. And the graph inherits the literature's flaws, including the fact that most negative results were never written down at all.</p>
+  <p>Three more things to note. None of them is a reason to drop the system, but each is a cost of keeping it that somebody has to pay.</p>
+  <p><strong>A high score still needs a human to review it.</strong> A score can become cover for a risky decision. Giving chemotherapy to a man that sick was a risky decision that happened to work, and it was made by doctors who knew him, not by the ranking. Someone qualified has to own every decision a score informs.</p>
+  <p><strong>If scores like these are public, desperate families will find them.</strong> A parent whose child has a rare disease will see a drug near the top of the list and ask for it, and a doctor will be arguing against a number. That means a system has to exist around the scores: somewhere families can ask, someone who can explain what a score does and doesn't mean, and a clear path to a clinician who can say yes or no with reasons. Decision-making gets complicated once the predictions leave the lab.</p>
+  <p><strong>The model is only as good as the data trove under it.</strong> New studies come out every week, and most negative results were never written down at all. Keeping the trove current and filling in what's missing has to be a standing job the organization budgets for every year, not a one-time build. Every Cure's public data page says it refreshes its scores roughly every quarter, which is the right habit.</p>
   <div class="concept">
     <div class="term">How to keep it good</div>
-    <p><em>Keep</em> the graph, the ranking, and the human gate between prediction and patient. <em>Fix</em> what the record can't see: publish the misses so a denominator exists, fund the trials nobody profits from, and fill thin records with cheap lab data so rare diseases stop scoring zero by default. <em>Drop</em> the headline; a candidate is not a cure until a trial says so. The cost is money no business model supplies, which is the same reason the problem exists, and it's a public choice about which diseases count.</p>
+    <p><em>Keep</em> the knowledge graph, the ranked list, and a doctor between every prediction and every patient. <em>Fix</em> the gaps: report the drugs that didn't work along with the ones that did, pay for the trials no company will pay for, and add new data on rare diseases so they stop scoring near zero by default. <em>Drop</em> the hype: "AI found a cure" is a headline, and "AI found a candidate, and a trial will tell us" is the truth. The cost is money that no business model supplies, and a public choice about which diseases get looked at first.</p>
   </div>
   <h3 class="sub" id="s3-thinking-critically"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
   <div class="ticket">
-    <div class="label">Thinking critically · for Monday's discussion · watch the Penn Medicine film first · one question each, answered by you, not by the chapter</div>
+    <div class="label">Thinking critically · for Monday's discussion · watch the Penn Medicine YouTube video first · one question each, answered by you, not by the chapter</div>
     <ol>
       <li><strong>What is it, and what does it do?</strong> Every Cure's system scores a claim about the record, not a verdict about a patient. Pick another predictive system from your own life (a credit score, a school's early-warning flag, a fitness app) and say what its score is actually a claim about, and what people treat it as.</li>
       <li><strong>Why does it exist, and who benefits?</strong> Drug companies didn't build this, and the chapter says why. Name who benefits from a generic drug finding a second use, who doesn't, and why the economics that make the search possible make the proof hard to finish.</li>
       <li><strong>What happens when it fails, and who finds out?</strong> The gap in <a class="inline" href="#s2-3">section 2.3</a> is a failure nobody sees: the cure that was never looked for. Name one disease or group you'd expect the graph to be thin on, say why, and say who, if anyone, would ever notice the miss.</li>
-      <li><strong>Who's saying that, and how would we know?</strong> "AI found a cure" is the headline; the chapter says AI found a candidate that a doctor read and a trial has to prove. Take the film's strongest moment and run this question on it: who's telling it, what do they gain, and what would you need to see, not hear, to believe it?</li>
+      <li><strong>Who's saying that, and how would we know?</strong> "AI found a cure" is the headline; the chapter says AI found a candidate that a doctor read and a trial has to prove. Take the video's strongest moment and run this question on it: who's telling it, what do they gain, and what would you need to see, not hear, to believe it?</li>
       <li><strong>Keep it, fix it, or drop it, and what does that cost?</strong> The chapter's author says yes to this one, with things to watch. Write your own keep-fix-drop, and price it: what does each of your conditions cost, in time, money, or patients not reached?</li>
     </ol>
   </div>
   <div class="concept">
     <div class="term">The takeaway from the case</div>
-    <p>The cure existed. The knowledge to find it existed. What was missing was anyone connecting them, and connecting them at the scale of millions of papers is the thing the machine actually does. That is the win, stated accurately. The limit is in the same sentence: it can only connect what somebody already wrote down, the saves get published and the misses mostly don't, and a doctor still had to decide whether to give a dying man chemotherapy. (As of September 16, 2026. Phase two's trials will move this.)</p>
+    <p>The hope in this case is that cures for many diseases already exist and we just haven't looked. The data exists. The knowledge exists. And now the technology to connect them exists, if we use it well. What was missing was anyone connecting them, and connecting them at the scale of millions of papers is the thing the machine actually does. That is the win, stated accurately. The limit is in the same sentence: it can only connect what somebody already wrote down, the saves get published and the misses mostly don't, and a doctor still had to decide whether to give a dying man chemotherapy. (As of September 16, 2026. Phase two's trials will move this.)</p>
   </div>
 </section>
 
 <section id="s4">
   <div class="shead"><span class="num">4</span><h2>Decide: yes to this one, and here is what I'd watch</h2></div>
-  <p>Let's say the plain thing first, because this book doesn't say it often: this is a good and beneficial use of AI, and of data. A machine read millions of studies no person could read, found paths no person had noticed, and a man who was being moved to hospice is alive and in remission. The data it ran on was public, built by scientists and owned by nobody. The organization is a nonprofit that publishes its graph, gives its tools away, and sends every match through human review before it goes near a patient. If we can't say yes to this, we can't say yes to anything.</p>
+  <p>Let's say the plain thing first, because this book doesn't say it often: Every Cure is a good and beneficial use of AI, and of data. A machine read millions of studies no person could read, found paths no person had noticed, and a man who was being moved to hospice is alive and in remission. The data it ran on was public, built by scientists and owned by nobody. The organization is a nonprofit that <a class="inline" href="https://prototypes.everycure.org/matrix-heatmap-public" target="_blank" rel="noopener">publishes its scores</a>, gives its tools away, and sends every match through human review before it goes near a patient. If we can't say yes to this, we can't say yes to anything.</p>
   <p>And the yes doesn't cancel the rest. The gap in the record is still real, the misses still go unpublished, the graph still tilts toward what got funded, and "AI found a cure" still does more work than the evidence supports. The mature position this course is after isn't "AI in medicine: good or bad." It is: <em>yes to this one, clearly, and here is the specific thing I'd watch.</em> Practice saying both halves in that order. You'll need the habit by Chapter 6, where the same mechanism runs on résumés and the people at the thin end of the record are job applicants.</p>
   <h3 class="sub" id="s4-1"><span>4.1</span> Four takeaways</h3>
-  <h3>Read every score twice</h3>
+  <h3><span class="tnum">1</span>Read every score twice</h3>
   <p>Once for what it says, once for what the record behind it could have said, and a third time if the only number you have is the company's. A low score on a thin record is "unknown," not "no." From now on, when a predictive system hands you a number, the trained reflex is to ask how thick the record was where that number came from.</p>
-  <h3>Ask who checked</h3>
+  <h3><span class="tnum">2</span>Ask who checked</h3>
   <p>Every model comes with a number and almost none come with an outside test. An outside test is what checking looks like, and it takes real time and money from someone who isn't selling the model. Before you trust a model anyone is selling, ask whether someone outside the company has run it on their own data and published the result. If nobody has, the honest accuracy is unknown.</p>
-  <h3>The market decides what gets looked for</h3>
+  <h3><span class="tnum">3</span>The market decides what gets looked for</h3>
   <p>Nobody hid Fajgenbaum's cure. Nobody was paid to find it. The most important thing an AI system can change in medicine may not be what it finds, but what finally gets looked for, and who pays for the looking. When you meet the next "AI will cure X" headline, ask who funded the search, which diseases it skipped, and who is paying to prove it.</p>
-  <h3>The graph favors what got funded, at both ends</h3>
-  <p>This bias is easy to miss because it looks like success. A drug that has been studied for decades has thousands of lines into the graph, so it shows up in paths to more diseases, and graph models have a well-known tendency to reward the best-connected dots. Every Cure also trains its model on treatments already known to work, which teaches it what a match looks like using the diseases that already have drugs. Neither is a flaw in the code. Both mean the search tilts toward the drugs and the diseases research has already invested in. So when a repurposing system keeps finding new uses for old blockbusters, ask whether that's the biology or the bibliography. The record has a shape, and its shape favors what got funded, at both ends of the path.</p>
+  <h3><span class="tnum">4</span>The graph favors what got funded, at both ends</h3>
+  <p>This bias is easy to miss because it looks like success. A drug that has been studied for decades has thousands of lines into the graph, so it shows up in paths to more diseases, and graph models have a well-known tendency to reward the best-connected dots. Every Cure also trains its model on treatments already known to work, which teaches it what a match looks like using the diseases that already have drugs. Neither is a flaw in the code. Both mean the search tilts toward the drugs and the diseases research has already invested in. So when a repurposing system keeps finding new uses for old blockbusters, ask whether that's the biology or the bibliography. The data trove has a shape, and that shape favors what got funded, at both ends of the path.</p>
 </section>
 
 <section id="s5">
@@ -1029,20 +1093,25 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <div class="terms">
     <div class="term-card"><div class="t">Data trove</div><p>A pile of records, collected for some other purpose, that has grown big enough to train a model. The asset behind every impressive AI, and usually typed in by people who don't own it.</p></div>
     <div class="term-card"><div class="t">Moat</div><p>An advantage competitors can't easily cross. Here: a trove that gets better with every record other people add, which makes the owner harder to leave.</p></div>
+    <div class="term-card"><div class="t">Electronic medical record (EMR)</div><p>The digital chart a hospital or clinic keeps on every patient. Built for billing and looking things up, and now one of the biggest owned data troves in the economy.</p></div>
     <div class="term-card"><div class="t">Knowledge graph</div><p>Information stored as labeled connections instead of rows, so a system can follow relationships hop to hop and find paths nobody wrote down. MATRIX's holds about 8.9 million dots and 33 million lines.</p></div>
     <div class="term-card"><div class="t">Predictive AI</div><p>AI that estimates and ranks rather than generates. Runs medicine, lending, and logistics, and predates the chatbot era. Chapter 1's first kind.</p></div>
+    <div class="term-card"><div class="t">Garbage in, garbage out</div><p>A model learns whatever its records say, mistakes included, and repeats those mistakes as confident output. The simplest reason a model can be wrong with nobody lying.</p></div>
     <div class="term-card"><div class="t">The long tail</div><p>A few things get most of the attention and a very large number of things get almost none. Sort diseases by research and you get it: a head of common, well-funded diseases and a tail of thousands with almost no studies each.</p></div>
-    <div class="term-card"><div class="t">The record has a shape</div><p>A model inherits the record's thick and thin places, and the thin places come out as confident low scores. In the literature: the research gap becomes the prediction gap.</p></div>
+    <div class="term-card"><div class="t">The data trove has a shape</div><p>A model inherits the data trove's thick and thin places, and the thin places come out as confident low scores. In the literature: the research gap becomes the prediction gap.</p></div>
+    <div class="term-card"><div class="t">Path</div><p>A route along a knowledge graph's lines from one dot to another. In a recommendation system or a drug-repurposing graph, the path is both the prediction and its reason.</p></div>
     <div class="term-card"><div class="t">Invisible failure</div><p>A failure no one can observe: the cure never surfaced, the patient the alert never flagged. The third critical AI question exists for exactly this.</p></div>
     <div class="term-card"><div class="t">Drug repurposing</div><p>Using an approved drug to treat a disease it wasn't approved for. Cheap, fast, already safe in humans, and commercially neglected: no patent, no profit, nobody paid to look.</p></div>
+    <div class="term-card"><div class="t">Survivorship bias</div><p>Judging something only by the cases that made it far enough to be seen. We hear about the patient who recovered; the ones a top match didn't help rarely get published, so the success rate looks better than it is.</p></div>
     <div class="term-card"><div class="t">External validation</div><p>Someone outside the company runs the model on their own data and publishes the result. Without one, a model's accuracy is whatever the company says it is.</p></div>
+    <div class="term-card"><div class="t">Proprietary model</div><p>A model its owner won't let customers look inside. When a hospital can't inspect it, an outside test on its own patients is the only check it has.</p></div>
     <div class="term-card"><div class="t">Distribution shift</div><p>Why a model's accuracy drops when it leaves the data it was trained on: different patients, equipment, and habits. One honest reason two numbers differ with nobody lying.</p></div>
     <div class="term-card"><div class="t">Alert fatigue</div><p>What humans do when a system fires too often: stop looking. A human in the loop who has learned to click past the alert is a human out of the loop with extra steps.</p></div>
     <div class="term-card"><div class="t">Human in, on, or out of the loop</div><p>Three places a person can stand in an AI system: making the final call, watching and able to step in, or absent in the moment. Each has a price.</p></div>
     <div class="term-card"><div class="t">The human gate</div><p>The point where a person decides whether an AI output goes forward. Sometimes the safeguard, sometimes the noise, sometimes technically there and no longer looking.</p></div>
     <div class="term-card"><div class="t">Automation bias</div><p>Trusting a reliable-seeming system so much that you stop checking it. The radiologist who signs off on the "normal" flag without opening the scan.</p></div>
     <div class="term-card"><div class="t">Algorithmic aversion</div><p>The opposite habit: overriding a system's answer with your own even when the system is more likely to be right. The JAMA authors' explanation for 76 beating 90.</p></div>
-    <div class="term-card"><div class="t">Randomized controlled trial (RCT)</div><p>An experiment that randomly assigns who gets the change, so a difference can be credited to the change and not to chance. Medicine's gold standard, and the design behind all three trials in Table 4.</p></div>
+    <div class="term-card"><div class="t">Randomized controlled trial (RCT)</div><p>An experiment that randomly assigns who gets the change, so a difference can be credited to the change and not to chance. Medicine's gold standard, and the design behind all three trials in Table 3.</p></div>
   </div>
 </section>
 
@@ -1051,22 +1120,31 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p class="srcintro">Verified 16 September 2026. Where a claim is an organization's account of itself, it says so. Two items are flagged below as still needing a check.</p>
+    <p class="srcintro">Verified 16 September 2026; items added 28 September 2026 (section 1's figures, the Epic and Mount Sinai examples in 2.4, the study details in 2.5, and the trial links) were checked that day. Where a claim is an organization's account of itself, it says so. Two items are flagged below as still needing a check.</p>
     <dl>
+      <dt>Section 1 and the data trove (2.1)</dt>
+      <dd>Hospital adoption of electronic health records (about 12 percent in 2009, 96 percent by 2021) is from the Office of the National Coordinator for Health IT's "National Trends in Hospital and Physician Adoption of Electronic Health Records" (linked); ONC notes its measures changed over those years, so treat the comparison as approximate. "Millions of published studies": PubMed, the National Library of Medicine's index, holds tens of millions of citations (linked). The night-shift pain-score example in 2.3 is invented to illustrate garbage in, garbage out.</dd>
+
+      <dt>Why repurposing (section 3 background)</dt>
+      <dd>The 10-to-15-year development timeline: Southey and Brunavs, "Introduction to small molecule drug discovery and preclinical development," <i>Frontiers in Drug Discovery</i>, 2023 (linked). The roughly billion-dollar cost: Wouters, McKee and Luyten, <i>JAMA</i>, 2020 (linked), a median of about $985 million per new drug approved 2009 to 2018, counting failed trials, estimated from public SEC filings; JAMA published corrections to the paper's data in 2022, so the text says "roughly a billion." Industry-funded estimates run higher.</dd>
+
       <dt>The case: Joseph and Every Cure</dt>
-      <dd>Penn Medicine's film (linked and embedded) is the source for David Fajgenbaum's illness and remission, Joseph's diagnosis of POEMS syndrome, the failed treatment, the cancelled stem cell transplant, the hospice conversation, Tara's email, the three multiple myeloma chemotherapy drugs Fajgenbaum considered and the model also scored highly, the decision to treat, and Joseph's recovery, transplant and remission. Joseph's story is told in his own words on Penn's public channel and is used here as he told it. Fajgenbaum's description of the biomedical knowledge graph and of training on known treatments is his own, from the same film, paraphrased.</dd>
+      <dd>Penn Medicine's YouTube video (linked and embedded) is the source for David Fajgenbaum's illness and remission, Joseph's diagnosis of POEMS syndrome, the failed treatment, the cancelled stem cell transplant, the hospice conversation, Tara's email, the three multiple myeloma chemotherapy drugs Fajgenbaum considered and the model also scored highly, the decision to treat, and Joseph's recovery, transplant and remission. Joseph's story is told in his own words on Penn's public channel and is used here as he told it. Fajgenbaum's description of the biomedical knowledge graph and of training on known treatments is his own, from the same video, paraphrased.</dd>
 
       <dt>The numbers</dt>
-      <dd>The 4,000 approved drugs and the eleven-plus years of remission are Fajgenbaum's, from the film. The 18,000 known diseases and roughly 9,000 without an approved treatment are Every Cure's published counts. Every Cure's founding (2022), the $48.3 million ARPA-H contract of February 2024 and the up-to-$76 million phase two of February 2026 (twenty preclinical programs, ten clinical trials) are from Every Cure's own announcements (linked) and ARPA-H's releases; these are the organization's claims about itself and are presented as such. Graph scale (about 8.9 million nodes, 33 million relationships, five integrated source graphs, 58 node categories, 76 relationship types) is from Every Cure's public MATRIX data dashboard, v0.15.x releases, 2026; these numbers change between releases. MATRIX's inclusion in TIME's Best Inventions of 2025 is from TIME's published list.</dd>
+      <dd>The 4,000 approved drugs and the eleven-plus years of remission are Fajgenbaum's, from the video. The 18,000 known diseases and roughly 9,000 without an approved treatment are Every Cure's published counts. Every Cure's founding (2022), the $48.3 million ARPA-H contract of February 2024 and the up-to-$76 million phase two of February 2026 (twenty preclinical programs, ten clinical trials) are from Every Cure's own announcements (linked) and ARPA-H's releases; these are the organization's claims about itself and are presented as such. Graph scale (about 8.9 million nodes, 33 million relationships, five integrated source graphs, 58 node categories, 76 relationship types) is from Every Cure's public MATRIX data dashboard, v0.15.x releases, 2026; these numbers change between releases. MATRIX's inclusion in TIME's Best Inventions of 2025 is from TIME's published list. The public heatmap (linked) and the caution that scores indicate biological plausibility, not repurposing potential, with scores refreshed roughly quarterly, are from Every Cure's public data page on Hugging Face; the heatmap URL blocks automated access, so click-verify it. "Tens of millions of possible pairs" is the arithmetic of 4,000 drugs by 18,000 diseases; Every Cure's own documentation describes a matrix of roughly 60 million pairs.</dd>
+
+      <dt>Knowledge sharing (Question 5)</dt>
+      <dd>Frontier AI Safety Commitments, AI Seoul Summit, May 2024, published by the UK government (linked): sixteen companies signed at the summit, with more added later; the commitments include public transparency on how signatories manage risk and an explanation of how external actors such as governments, academics, and the public are involved in assessing it. The business-implications examples (manufacturer, university, retailer) are illustrative, not reported cases.</dd>
 
       <dt>How it fails (2.4)</dt>
-      <dd>The hospital alert example uses round, illustrative numbers, and the distribution-shift figure's 0.84 and 0.64 are simulated. Facial recognition: Buolamwini and Gebru, "Gender Shades," <i>Proceedings of Machine Learning Research</i>, 2018, with error rates up to 34.7 percent for darker-skinned women against 0.8 percent for lighter-skinned men across three commercial systems. Wrongful arrests on facial recognition matches, including Robert Williams in Detroit in 2020, as reported by the ACLU of Michigan and the <i>New York Times</i>.</dd>
+      <dd>The Epic Sepsis Model: Wong et al., "External Validation of a Widely Implemented Proprietary Sepsis Prediction Model in Hospitalized Patients," <i>JAMA Internal Medicine</i>, 2021 (linked): 38,455 hospitalizations at Michigan Medicine, sensitivity 33 percent (sepsis missed in 67 percent of patients who had it), alerts on 18 percent of all hospitalized patients, area under the curve 0.63 against the 0.76 to 0.83 reported by Epic and UCHealth; the authors' warning about confidential, non-peer-reviewed performance documents and the use of the model at hundreds of U.S. hospitals are from the paper. Epic's response that the model needs local tuning before deployment is as reported by Fierce Healthcare. Pneumonia X-rays: Zech et al., <i>PLOS Medicine</i>, 2018 (linked), 158,323 X-rays from NIH, Mount Sinai and Indiana University; external performance significantly lower in three of five comparisons, and the model could identify the hospital system an X-ray came from. The distribution-shift figure's 0.84 and 0.64 are simulated. Facial recognition: Buolamwini and Gebru, "Gender Shades," <i>Proceedings of Machine Learning Research</i>, 2018, with error rates up to 34.7 percent for darker-skinned women against 0.8 percent for lighter-skinned men across three commercial systems. Wrongful arrests on facial recognition matches, including Robert Williams in Detroit in 2020, as reported by the ACLU of Michigan and the <i>New York Times</i>.</dd>
 
       <dt>The human in the loop (2.5)</dt>
-      <dd>Emanuel, Baker-Butler, Khosla and Khosla, <i>JAMA</i>, August 2026 (linked). The 74, 76 and 90 percent figures are from Goh et al., <i>JAMA Network Open</i>, October 2024 (linked), as summarized in Robert Wachter's August 27, 2026 reply (linked), which is also the source for the Oxford study description and the doorman fallacy; Wachter's adviser role at Curai is his own disclosure. The AMA response is as reported by Fierce Healthcare and Wired, August 2026.</dd>
+      <dd>Emanuel, Baker-Butler, Khosla and Khosla, <i>JAMA</i>, August 2026 (linked). The 74, 76 and 90 percent figures are from Goh et al., <i>JAMA Network Open</i>, October 2024 (linked): a randomized trial of 50 physicians (26 attendings, 24 residents) given 60 minutes for up to six clinical vignettes, with or without GPT-4 (via ChatGPT Plus), graded on a standardized diagnostic reasoning rubric by blinded experts; the model alone scored 16 points above the conventional-resources group (74 plus 16 is the "about 90"), and the authors cautioned against reading the result as support for autonomous diagnosis. The figures are also summarized in Robert Wachter's August 27, 2026 reply (linked), which is also the source for the Oxford study description and the doorman fallacy; Wachter's adviser role at Curai is his own disclosure. The AMA response is as reported by Fierce Healthcare and Wired, August 2026.</dd>
 
-      <dt>Table 4: the trials</dt>
-      <dd>MASAI: Hernström et al., <i>The Lancet Digital Health</i>, February 2025. The fetal-ultrasound trial: Lei et al., <i>The Lancet Digital Health</i>, September 2026. <b>The Lancet page blocks automated access, so click-verify; the roughly nine-point sensitivity gain should be confirmed against the paper.</b> PROMETHEUS: <i>NEJM AI</i>, 2025. Aspirin and Ozempic as repurposing examples are historical and stable.</dd>
+      <dt>Table 3: the trials</dt>
+      <dd>MASAI: Hernström et al., <i>The Lancet Digital Health</i>, February 2025. The fetal-ultrasound trial: Lei et al., <i>The Lancet Digital Health</i>, September 2026 (linked; a multicentre, self-crossover randomised trial at five Chinese centres, 1,584 scans). <b>The Lancet page blocks automated access, so click-verify; the roughly nine-point sensitivity gain should be confirmed against the paper.</b> PROMETHEUS: Day et al., <i>NEJM AI</i>, 2025 (linked; single-centre, median scan 11.4 minutes with AI against 19.7 without, detection difference not significant). Aspirin and Ozempic as repurposing examples are historical and stable.</dd>
 
       <dt>Still open</dt>
       <dd>The fourth takeaway's claim that graph models favor well-connected nodes (degree bias in link prediction) is a documented phenomenon in the graph-learning literature; that Every Cure trains on known treatments is Fajgenbaum's own description in the Penn video. <b>The photo's licensed use is pending.</b></dd>
@@ -1157,7 +1235,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   EV.forEach(function(x, i){
     var d = document.createElement('div');
     d.className = 'ev';
-    var label = x.k === 'kept' ? 'kept in full' : (x.k === 'part' ? 'kept, but flattened' : 'not in the record');
+    var label = x.k === 'kept' ? 'kept in full' : (x.k === 'part' ? 'kept, but flattened' : 'not in the data trove');
     d.innerHTML = '<button type="button" aria-expanded="false"><span class="mo">' + x.m + '</span>' + x.e + '</button>' +
                   '<div class="rec"><span class="tag ' + x.k + '">' + label + '</span><br>' + x.r + '</div>';
     var b = d.querySelector('button');
@@ -1166,7 +1244,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
       b.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       if(isOpen && !d.dataset.seen){
         d.dataset.seen = '1'; opened++; if(x.k === 'kept') keptOpened++;
-        count.textContent = opened + ' of 10 opened \u00b7 the record has kept ' + keptOpened + ' of them in full';
+        count.textContent = opened + ' of 10 opened \u00b7 the data trove has kept ' + keptOpened + ' of them in full';
       }
     });
     list.appendChild(d);
@@ -1174,18 +1252,94 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 
   document.getElementById('rk-model').addEventListener('click', function(){
     out.style.display = '';
-    out.innerHTML = '<div class="label">What a model trained on this record would say about him</div>' +
+    out.innerHTML = '<div class="label">What an AI model trained on this record would say about him</div>' +
       '<div class="read">"54-year-old male. One well visit, labs within range, one normal EKG. Started on a statin and filling it. One missed appointment. One ER visit for nephrolithiasis. <b>Low risk. Engaged patient.</b>"</div>' +
       '<div class="read" style="margin-top:12px">Every word of that is true, and the summary is wrong about him in three places. The two events that would worry any doctor, the ladder and the May chest pain, are not in the file. The good adherence is fiction; he stopped in week three. And the healthiest-looking months are the months he had no insurance.</div>' +
-      '<div class="read" style="margin-top:12px">This is what section 2.3 means by <b>the record has a shape</b>. The chart is not a picture of his health. It is a picture of the care that was delivered and billed, and a model can only learn the second one.</div>';
+      '<div class="read" style="margin-top:12px">This is what section 2.3 means by <b>the data trove has a shape</b>. The chart is not a picture of his health. It is a picture of the care that was delivered and billed, and a model can only learn the second one.</div>';
   });
 
   document.getElementById('rk-scale').addEventListener('click', function(){
     out.style.display = '';
+    var COLS = 50, ROWS = 20, C = 11, G = 2, top = 30;
+    var W = COLS * (C + G) - G, H = top + ROWS * (C + G) + 22;
+    var seed = 7; function rnd(){ seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+    var cells = '';
+    for (var r = 0; r < ROWS; r++){
+      var t = r / (ROWS - 1), pGone = 0.06 + 0.78 * Math.pow(t, 1.6), pPart = 0.22 + 0.12 * t;
+      for (var c = 0; c < COLS; c++){
+        var u = rnd(), col = u < pGone ? '#2A323C' : (u < pGone + pPart ? '#FF3D8A' : '#E4FF32');
+        cells += '<rect class="mc" data-r="' + r + '" x="' + (c * (C + G)) + '" y="' + (top + r * (C + G)) + '" width="' + C + '" height="' + C + '" rx="2" fill="' + col + '"/>';
+      }
+    }
+    var svg = '<svg class="mgrid" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="An illustrative grid of a thousand squares, each standing for a thousand patients. The top rows, people already getting care, are almost all bright: their years were recorded in full. Row by row the grid goes dark toward the bottom, the people who could not get in, until most of their squares hold nothing at all.">' +
+      '<text x="0" y="14" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="600" fill="#E4FF32">People already getting care: insured, near a clinic, able to take time off</text>' + cells +
+      '<text x="0" y="' + (H - 4) + '" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="600" fill="#FF9DC3">People who couldn\u2019t get in: no insurance, no ride, no time off, no doctor nearby</text></svg>';
     out.innerHTML = '<div class="label">The same shape, a million patients wide</div>' +
-      '<div class="read">Run that year for everyone in the system and the holes stop being random. The record is thick wherever care was delivered and billed, and thin wherever people did not make it in: no insurance, no transport, no time off, no doctor within an hour, no trust in the place.</div>' +
-      '<div class="read" style="margin-top:12px">So a model trained on the trove knows the most about the people who were already getting care, and the least about the people who were not. It will be measured as accurate, because it is tested on the same record that created the gap.</div>' +
+      '<div class="read" style="font-family:Fraunces,serif;font-size:1.25rem;line-height:1.35;color:#fff;margin-bottom:8px">Now multiply him by a million, and watch where the record goes dark.</div>' + svg +
+      '<div class="mlegend"><span><i style="background:#E4FF32"></i>year kept in full</span><span><i style="background:#FF3D8A"></i>kept, but flattened</span><span><i style="background:#2A323C;outline:1px solid #5A626C"></i>not in the data trove</span></div>' +
+      '<div class="read" style="font-size:.82rem;color:#9AA1AB;margin-bottom:12px">Illustrative, not data: each square stands for a thousand invented patients.</div>' +
+      '<div class="read">The holes stop being random. The record is thick wherever care was delivered and billed, and thin wherever people did not make it in: no insurance, no transport, no time off, no doctor within an hour, no trust in the place.</div>' +
+      '<div class="read" style="margin-top:12px">So a model trained on the trove knows the most about the people at the top of that grid and the least about the people at the bottom. It will still be measured as accurate, because it is tested on the same record that created the gap.</div>' +
       '<div class="read" style="margin-top:12px">Hold that for two chapters. In Chapter 6 the same shape shows up as the pile of rejected applicants nobody reads, and in Chapter 7 as the rare driving situations nobody filmed. Different industries, one lesson: <b>a model inherits the shape of whatever got written down</b>.</div>';
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce){
+      var rs = [].slice.call(out.querySelectorAll('.mc'));
+      rs.forEach(function(el){ el.style.opacity = '0'; });
+      for (var k = 0; k < ROWS; k++){ (function(k){ setTimeout(function(){
+        rs.forEach(function(el){ if (+el.getAttribute('data-r') === k) el.style.opacity = '1'; });
+      }, 60 * k); })(k); }
+    }
+  });})();
+</script>
+
+<script>
+(function(){
+  var svg = document.getElementById('songgraph'); if (!svg) return;
+  var hint = document.getElementById('songgraph-hint'), label = document.getElementById('sg-route');
+  var btns = [].slice.call(document.querySelectorAll('.sgctl .chip'));
+  var ALL = ['e-sa','e-sg','e-sp','e-ar1','e-gr1','e-pr2','e-gr2'];
+  var R = {
+    artist:   {e:['e-sa','e-ar1'], n:['n-r1'], lab:'two hops: your song, the artist, another song',
+               txt:'<b>Through the artist.</b> Your song was made by this artist, who also made another song. Two hops, and the recommendation comes with its own reason: same artist.'},
+    genre:    {e:['e-sg','e-gr1','e-gr2'], n:['n-r1','n-r2'], lab:'two hops: your song, a genre, two more songs',
+               txt:'<b>Through the genre.</b> One dot can fan out to many. The genre connects your song to both recommendations, which is how a graph finds things in bulk.'},
+    playlist: {e:['e-sp','e-pr2'], n:['n-r2'], lab:'two hops: your song, a playlist, another song',
+               txt:'<b>Through the playlist.</b> A listener you have never met saved your song and another one to the same playlist. Nobody wrote a rule; the route is the recommendation.'},
+    save:     {e:['e-sp','e-pn'], n:['n-new'], lab:'one new line, and the new track has a path',
+               txt:'<b>One save changes the graph.</b> A single listener adds the new track to that playlist. That is one new line, nothing else changed, and now a two-hop path reaches the track, so the system can recommend it. The song did not get better. The record got thicker.'}
+  };
+  function el(id){ return document.getElementById(id); }
+  function reset(){
+    ALL.forEach(function(id){ var e = el(id); e.setAttribute('stroke','#14181D'); e.setAttribute('stroke-width','1.6'); });
+    el('e-pn').style.display = 'none';
+    ['n-r1','n-r2'].forEach(function(id){ el(id).setAttribute('stroke-width','2'); });
+    var nw = el('n-new'); nw.setAttribute('stroke','#C9CED6'); nw.setAttribute('stroke-dasharray','5 4'); nw.setAttribute('stroke-width','1.6');
+    el('sg-new1').textContent = 'nothing logged yet, so no lines';
+    el('sg-new2').textContent = 'no path reaches it, so it never gets recommended';
+    label.textContent = 'pick a route below and follow it';
+  }
+  function show(key){
+    reset();
+    var r = R[key];
+    ALL.forEach(function(id){ if (r.e.indexOf(id) < 0) el(id).setAttribute('stroke','#C9CED6'); });
+    r.e.forEach(function(id){ var e = el(id); e.style.display = ''; e.setAttribute('stroke','#FF3D8A'); e.setAttribute('stroke-width','3.5'); });
+    r.n.forEach(function(id){ el(id).setAttribute('stroke-width','3.5'); });
+    if (key === 'save'){
+      var nw = el('n-new'); nw.setAttribute('stroke','#FF3D8A'); nw.removeAttribute('stroke-dasharray'); nw.setAttribute('stroke-width','2.5');
+      el('sg-new1').textContent = 'one save logged, so a line appears';
+      el('sg-new2').textContent = 'a path reaches it now, and it can be recommended';
+    }
+    label.textContent = r.lab;
+    hint.innerHTML = r.txt;
+  }
+  var base = hint.innerHTML;
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      var key = b.getAttribute('data-route');
+      btns.forEach(function(x){ if (x.hasAttribute('aria-pressed')) x.setAttribute('aria-pressed','false'); });
+      if (key === 'reset'){ reset(); hint.innerHTML = base; return; }
+      b.setAttribute('aria-pressed','true'); show(key);
+    });
   });
 })();
 </script>
