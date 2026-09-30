@@ -443,6 +443,9 @@ ul.ideas li{margin:8px 0}
 .exact li{margin:8px 0;font-size:.92rem}
 @media(max-width:760px){.accord .acc-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:420px){.accord .acc-grid{grid-template-columns:1fr}}
+.kedge.lit.bad{stroke:#FF3D8A}
+.kverb.lit.bad{fill:#FF7AAE}
+.legend .l-bad::before{border-color:#FF3D8A;background:#FF3D8A;border-radius:2px;height:4px;vertical-align:3px}
 </style>
 </head>
 <body>
@@ -513,10 +516,9 @@ ul.ideas li{margin:8px 0}
 
   <div class="steps">
     <div class="step"><span class="sn">1</span><p><strong>Build it.</strong> Click the fact cards one at a time and read each one as it goes in. Watch the graph grow. The list under the graph, "Everything it knows," is the whole machine. There is nothing else inside.</p></div>
-    <div class="step"><span class="sn">2</span><p><strong>Ask it.</strong> Leave it on <em>Just follow the arrows</em>. Ask about <em>trouble sleeping</em>. What does it suggest? Then ask about <em>drowsy driving</em>. Would you take either answer?</p></div>
-    <div class="step"><span class="sn">3</span><p><strong>Teach it to read.</strong> Switch to <em>Read the words too</em> and ask both questions again. What changed, and why? The answer box shows the math.</p></div>
-    <div class="step"><span class="sn">4</span><p><strong>Let it discover.</strong> Ask about <em>hair loss</em>. What did it suggest, and what was that drug made for? Then find "Minoxidil causes hair growth" in the list, remove it, and ask again.</p></div>
-    <div class="step"><span class="sn">5</span><p><strong>Feed it.</strong> Write your own sentence at the bottom of the tool. First a true one you know, then a false one, like "Candy reduces pain." Ask again. Can it tell which is which?</p></div>
+    <div class="step"><span class="sn">2</span><p><strong>Ask it.</strong> Ask about <em>trouble sleeping</em>, then <em>drowsy driving</em>. Both times, two things connect to the problem. The answer box shows which one helps and which one makes it worse, and the math behind it: every arrow either causes (+) or blocks (&minus;), and it multiplies along the path. A graph that only checked whether things connect would have suggested both. Would you have taken both?</p></div>
+    <div class="step"><span class="sn">3</span><p><strong>Let it discover.</strong> Ask about <em>hair loss</em>. What did it suggest, and what was that drug made for? Then find "Minoxidil causes hair growth" in the list, remove it, and ask again.</p></div>
+    <div class="step"><span class="sn">4</span><p><strong>Feed it.</strong> Write your own sentence at the bottom of the tool. First a true one you know, then a false one, like "Candy reduces pain." Ask again. Can it tell which is which?</p></div>
   </div>
 
   <div class="tool" id="kg">
@@ -524,11 +526,6 @@ ul.ideas li{margin:8px 0}
     <div class="kglayout">
       <div class="kgmain">
         <div class="kglbl">Ask it a question</div>
-    <div class="chips" role="group" aria-label="How the graph reads">
-      <span class="chiplbl">How it reads:</span>
-      <button type="button" class="chip on" data-read="lines" aria-pressed="true">Just follow the arrows</button>
-      <button type="button" class="chip" data-read="words" aria-pressed="false">Read the words too</button>
-    </div>
     <div class="chips" role="group" aria-label="What might reduce">
       <span class="chiplbl">What might reduce:</span>
       <span id="kg-qs" class="chips"></span>
@@ -538,10 +535,11 @@ ul.ideas li{margin:8px 0}
       <div class="graphscroll" tabindex="0" role="region" aria-label="The knowledge graph. Scrolls sideways on small screens. The list below it holds the same facts as text.">
         <div class="graphbox"><svg id="kg-svg" viewBox="0 0 780 200" role="img" aria-label="The knowledge graph"><defs>
           <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6B7480"/></marker>
+          <marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#FF3D8A"/></marker>
           <marker id="ahl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E4FF32"/></marker>
         </defs><g id="kg-edges"></g><g id="kg-nodes"></g></svg></div>
       </div>
-      <div class="legend"><span class="l-drug">something you can take</span><span class="l-mid">something in the body</span><span class="l-disease">a problem to reduce</span><span class="l-path">the path it used</span></div>
+      <div class="legend"><span class="l-drug">something you can take</span><span class="l-mid">something in the body</span><span class="l-disease">a problem to reduce</span><span class="l-path">a path that helps</span><span class="l-bad">a path that makes it worse</span></div>
       <div class="verdict" aria-live="polite">
         <div class="label" id="kg-title">No question yet</div>
         <div id="kg-answer"><p class="read">Add some facts, then pick a problem above.</p></div>
@@ -612,7 +610,7 @@ ul.ideas li{margin:8px 0}
 
   <h3 class="sub" id="hood-graph"><span>1</span> The knowledge graph</h3>
   <p>Look at "Everything it knows." That list is the whole machine. Each line is one sentence with three parts, a thing, an arrow, and another thing, and the picture is just those sentences drawn as dots and lines. Asking a question is one move repeated: start from anything you can take, follow the arrows, and see what reaches the problem. That's how it found minoxidil for hair loss without anyone telling it. The blood pressure pill had a side effect, somebody wrote it down, and the arrows did the rest. That's drug repurposing, the same thing Every Cure does in <a class="inline" href="chapter-04-medicine.html#s2-2">section 2.2</a>, and in real life it's how a blood pressure pill became Rogaine.</p>
-  <p>When it only followed the arrows, it suggested coffee for insomnia and Benadryl for drowsy driving, because a connection is a connection. When you had it read the words, it multiplied pluses and minuses along each path, and the same two drugs flipped. Real systems like MATRIX read far more than plus and minus, and weight each line by how strong the evidence is, but the idea is the same. And it believed "Candy reduces pain" as readily as anything on the cards, because it has no way to check a sentence. It only has the sentences.</p>
+  <p>Coffee connects to trouble sleeping just as surely as Benadryl does, so a graph that only checked for connections would suggest both. Yours read each arrow as a plus or a minus and multiplied along the path, which is how it knew coffee makes sleep worse and Benadryl makes driving worse. Real systems like MATRIX read far more than plus and minus, and weight each line by how strong the evidence is, but the idea is the same. And it believed "Candy reduces pain" as readily as anything on the cards, because it has no way to check a sentence. It only has the sentences.</p>
   <p>MATRIX runs this on millions of sentences pulled from published research, and then does what your gate in section 2 did: hands a ranked list to people who decide which ones are worth a trial. The graph can only find what someone wrote down, and what gets written down depends on what someone paid to study.</p>
 
   <h3 class="sub" id="hood-gate"><span>2</span> The gate</h3>
@@ -694,7 +692,7 @@ ul.ideas li{margin:8px 0}
   <div class="shead"><span class="num">5</span><h2>For homework: The writeup</h2></div>
   <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, October 16.</strong> Answer them as you go today. Written reflections, no screenshots.</p>
   <ol class="writeup">
-      <li><strong>The knowledge graph.</strong> In your own words, explain what a knowledge graph is and how yours answered a question. Use two examples from today: the question where following the arrows gave a bad answer and reading the words fixed it, and what happened to the hair-loss answer when you removed one sentence.</li>
+      <li><strong>The knowledge graph.</strong> In your own words, explain what a knowledge graph is and how yours answered a question. Use two examples from today: a question where two things connected but only one helped, and how the graph told them apart, and what happened to the hair-loss answer when you removed one sentence.</li>
       <li><strong>The gate.</strong> List your final four settings and how many of your tiles were striped. What did you give up to stay inside seven shifts? Then one sentence on the 2 a.m. card: its only measured setting is the one where the AI got two in three wrong. What would you do with it, and what would that cost?</li>
       <li><strong>The debate.</strong> Which argument from the other side was hardest to answer, and why? Give the argument, then your best answer to it, in your own words.</li>
       <li><strong>Your sentences.</strong> The true sentence and the false sentence you fed it, and what it did with each. Then one sentence on what that means for a system like MATRIX reading millions of sentences nobody checks one by one.</li>
@@ -765,7 +763,7 @@ ul.ideas li{margin:8px 0}
   ];
   FACTS.forEach(function(f,i){ f.id='f'+i; f.on=false; f.mine=false; if(!f.short) f.short=f.v; });
   var mine = [];
-  var state = {read:'lines', q:null};
+  var state = {read:'words', q:null};
   function all(){ return FACTS.concat(mine); }
   function live(){ return all().filter(function(f){ return f.on; }); }
   function norm(x){ return x.trim().toLowerCase(); }
@@ -826,14 +824,14 @@ ul.ideas li{margin:8px 0}
     svg.setAttribute('viewBox', '0 0 780 ' + L.h);
     gE.textContent=''; gN.textContent='';
     var litF = {}, litN = {};
-    (lit||[]).forEach(function(p){ p.facts.forEach(function(f){ litF[f.id]=1; litN[norm(f.a)]=1; litN[norm(f.b)]=1; }); });
+    (lit||[]).forEach(function(p){ var sg = p.facts.reduce(function(m,f){ return m*f.s; }, 1); p.facts.forEach(function(f){ if(litF[f.id]!=='good') litF[f.id] = sg<0 ? 'good' : 'bad'; litN[norm(f.a)]=1; litN[norm(f.b)]=1; }); });
     G.E.forEach(function(f){
       var p = pos[norm(f.a)], q = pos[norm(f.b)];
       var dx = q.x-p.x, dy = q.y-p.y, d = Math.sqrt(dx*dx+dy*dy)||1, r = 10;
       var x1 = p.x + dx/d*r, y1 = p.y + dy/d*r, x2 = q.x - dx/d*(r+3), y2 = q.y - dy/d*(r+3);
       var on = !!litF[f.id];
-      var cls = 'kedge' + (on?' lit':'') + (lit && !on?' faint':'') + (words && f.s<0?' neg':'');
-      gE.appendChild(el('line', {x1:x1, y1:y1, x2:x2, y2:y2, 'class':cls, 'marker-end': on?'url(#ahl)':'url(#ah)'}));
+      var cls = 'kedge' + (on?' lit':'') + (litF[f.id]==='bad'?' bad':'') + (lit && !on?' faint':'') + (words && f.s<0?' neg':'');
+      gE.appendChild(el('line', {x1:x1, y1:y1, x2:x2, y2:y2, 'class':cls, 'marker-end': on?(litF[f.id]==='bad'?'url(#ahb)':'url(#ahl)'):'url(#ah)'}));
       if(words){
         var mx = (x1+x2)/2, my = (y1+y2)/2 - 4;
         var t = el('text', {x:mx, y:my, 'text-anchor':'middle', 'class':'kverb' + (f.s<0?' neg':' pos') + (on?' lit':'')});
@@ -904,16 +902,8 @@ ul.ideas li{margin:8px 0}
     P.forEach(function(p){ (by[p.from] = by[p.from] || []).push(p); });
     var html = '';
     var froms = Object.keys(by);
-    if(state.read==='lines'){
-      html += '<p class="read">Following the arrows, it can reach <b>' + target + '</b> from <b>' + froms.length + '</b> thing' + (froms.length===1?'':'s') + ', so it suggests ' + (froms.length===1?'it':'all of them') + '. It can\'t see what the arrows say, only that they connect.</p><ul class="ans">';
-      froms.forEach(function(k){
-        by[k].forEach(function(p){
-          html += '<li><b class="sug">Suggests ' + esc(G.N[k].name) + '</b><span class="path">' + esc(G.N[k].name) + p.facts.map(function(f){ return ' → ' + esc(f.b); }).join('') + '</span></li>';
-        });
-      });
-      html += '</ul>';
-    } else {
-      html += '<p class="read">Now it reads each arrow as + (causes or increases) or − (reduces or blocks) and multiplies along the path. Two minuses make a plus, the way blocking something that keeps you awake makes you sleepy.</p><ul class="ans">';
+    {
+      html += '<p class="read"><b>' + froms.length + '</b> thing' + (froms.length===1?' connects':'s connect') + ' to <b>' + esc(target) + '</b>.' + (froms.length>1 ? ' A graph that only checked for connections would suggest all of them.' : '') + ' This one reads each arrow as + (causes) or &minus; (blocks or reduces) and multiplies along the path. Two minuses make a plus, the way blocking something that keeps you awake makes you sleepy.</p><ul class="ans">';
       froms.forEach(function(k){
         by[k].forEach(function(p){
           var s = p.facts.reduce(function(m,f){ return m*f.s; }, 1);
@@ -942,13 +932,6 @@ ul.ideas li{margin:8px 0}
   });
   document.getElementById('kg-all').addEventListener('click', function(){ FACTS.forEach(function(f){ f.on = true; }); say('All fourteen facts are in.'); update(); });
   document.getElementById('kg-reset').addEventListener('click', function(){ FACTS.forEach(function(f){ f.on = false; }); mine = []; state.q = null; say('Empty again.'); update(); });
-  [].forEach.call(document.querySelectorAll('#kg [data-read]'), function(b, i, arr){
-    b.addEventListener('click', function(){
-      state.read = b.getAttribute('data-read');
-      [].forEach.call(document.querySelectorAll('#kg [data-read]'), function(x){ var on = x===b; x.classList.toggle('on', on); x.setAttribute('aria-pressed', on?'true':'false'); });
-      update();
-    });
-  });
   document.getElementById('kg-add').addEventListener('click', function(){
     var a = document.getElementById('kg-a').value.trim(), b = document.getElementById('kg-b').value.trim(), s = parseInt(document.getElementById('kg-v').value,10);
     if(!a || !b){ say('Fill in both things first.'); return; }
