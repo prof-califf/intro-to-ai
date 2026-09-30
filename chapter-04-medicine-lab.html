@@ -446,6 +446,12 @@ ul.ideas li{margin:8px 0}
 .kedge.lit.bad{stroke:#FF3D8A}
 .kverb.lit.bad{fill:#FF7AAE}
 .legend .l-bad::before{border-color:#FF3D8A;background:#FF3D8A;border-radius:2px;height:4px;vertical-align:3px}
+.loopfig .acc-grid{grid-template-columns:repeat(3,1fr)}
+@media(max-width:640px){.loopfig .acc-grid{grid-template-columns:1fr}}
+.gcard p.vol{font-size:.88rem;margin:0 0 6px}
+.gcard ul.stakes{list-style:none;margin:0 0 10px;padding:10px 12px;background:#fff;border-left:3px solid var(--pinktext);font-size:.88rem;line-height:1.5}
+.gcard ul.stakes li{margin:2px 0}
+h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;font-weight:700;font-size:.95em;margin-right:.45em}
 </style>
 </head>
 <body>
@@ -572,22 +578,42 @@ ul.ideas li{margin:8px 0}
   </div>
 
   <h3 class="sub">The takeaway</h3>
-  <p>A knowledge graph is a pile of sentences and a rule for walking the arrows. That rule found a real repurposing on its own: a blood pressure pill for hair loss. It also suggested coffee for insomnia until you taught it to read "blocks" and "causes," and it believed your false sentence as readily as the true ones, because every sentence looks the same to it. Remove one line and a discovery disappears. MATRIX is this machine with millions of sentences, which is why it can find what no person would, and why it can only find what somebody wrote down.</p>
+  <p>A knowledge graph is a pile of sentences and a rule for walking the arrows. That rule found a real repurposing on its own: a blood pressure pill for hair loss. It told Benadryl from coffee only because each arrow said whether it causes or blocks, and it believed your false sentence as readily as the true ones, because every sentence looks the same to it. Remove one line and a discovery disappears. That cuts the other way too: the graph knows nothing that happened after its last sentence went in. A study published tomorrow, a new warning on a label, a finding that turns out to be wrong: none of it reaches the graph until someone adds it or takes it out. MATRIX is this machine with millions of sentences, which is why it can find what no person would. It's also why someone has to keep feeding it, and keep weeding it.</p>
 </section>
 
 <section id="gate">
   <div class="shead"><span class="num">2</span><h2>In class: Decide where the doctor stands (a hospital's AI program, in miniature)</h2></div>
-  <p class="lead">New desk. You run the AI program at a hospital, and four tasks need a setting. For each, put the doctor <strong>in</strong> the loop, <strong>on</strong> it, or <strong>out</strong> of it. Each card links the real study or case behind it. The catch: your doctors have seven shifts of time this year, and putting a person in the loop on everything would take eleven. Something has to give. Read the three steps, then do them in the tool below.</p>
+  <p class="lead">Your graph in section 1 suggested coffee for insomnia and believed candy cures pain. Nothing inside it could catch either one. Something has to stand between an AI's answer and a patient, and that something is usually a person. Where that person stands is called <strong>the loop</strong>, and there are three places to put them.</p>
+
+  <figure class="accord loopfig" aria-labelledby="loop-cap">
+    <div class="acc-head">Three places to put the human &middot; shown on your graph from section 1</div>
+    <ol class="acc-grid">
+      <li class="acc-card"><span class="acc-num">Setting 1</span><span class="acc-name">In the loop</span><span class="acc-mean">A doctor reads every suggestion the graph makes before anything happens. Coffee for insomnia gets caught.</span><span class="acc-who co">Costs the most doctor time</span></li>
+      <li class="acc-card"><span class="acc-num">Setting 2</span><span class="acc-name">On the loop</span><span class="acc-mean">The graph's suggestions go ahead, and a doctor reviews only the ones that get flagged. Whatever isn't flagged goes through.</span><span class="acc-who co">Costs some doctor time</span></li>
+      <li class="acc-card"><span class="acc-num">Setting 3</span><span class="acc-name">Out of the loop</span><span class="acc-mean">The graph's answer goes straight to the patient. Candy for pain gets through.</span><span class="acc-who out">Costs no doctor time</span></li>
+    </ol>
+    <div class="acc-flow">
+      <span class="lbl2">The whole loop:</span>
+      <span class="acc-step">People write the facts</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
+      <span class="acc-step">The AI suggests</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
+      <span class="acc-step">A person checks</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
+      <span class="acc-step">The patient</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
+      <span class="acc-step">What happened gets written back in</span>
+    </div>
+  </figure>
+  <p id="loop-cap" class="acc-cap">Every Cure works this way: its graph's matches go to people who decide which ones are worth a trial. The more of the loop a person covers, the more mistakes get caught, and the more doctor time it takes.</p>
+
+  <p>Now the same choice at a real hospital. You run its AI program, and four tasks need a setting. Each card links the real study or case behind it. The catch: <strong>you have 7 doctors to spread across the four tasks</strong>. Each setting shows how many doctors it needs. Putting a doctor in the loop on everything would take 11. Something has to give. Read the three steps, then do them in the tool below.</p>
   <div class="steps">
-    <div class="step"><span class="sn">1</span><p><strong>Decide, with the evidence open.</strong> For each card, click the evidence link, read what was actually tested, then choose in, on, or out. Each setting shows what it costs in doctor shifts. Decide as a pair, and stay inside seven.</p></div>
+    <div class="step"><span class="sn">1</span><p><strong>Decide, with the evidence open.</strong> For each card, click the evidence link, read what was actually tested, then choose in, on, or out. Each setting shows how many doctors it needs. Decide as a pair, and don't use more than 7.</p></div>
     <div class="step"><span class="sn">2</span><p><strong>Run the year.</strong> Look at the map of your hospital it draws. A dark tile shows what a study measured for your setting. A striped tile means nobody has measured it, and your patients are the first test.</p></div>
-    <div class="step"><span class="sn">3</span><p><strong>Move one setting and run it again.</strong> Try to get every tile dark within seven shifts. Write down your final four, how many tiles were striped, and what you gave up to pay for the rest.</p></div>
+    <div class="step"><span class="sn">3</span><p><strong>Move one setting and run it again.</strong> Try to get every tile dark with only 7 doctors. Write down your final four, how many tiles were striped, and what you gave up to pay for the rest.</p></div>
   </div>
   <div class="tool" id="gt">
-    <div class="label">Four tasks · three settings each · seven doctor shifts</div>
+    <div class="label">Four tasks · three settings each · 7 doctors</div>
     <div class="budget" aria-live="polite">
       <div class="btrack" aria-hidden="true"><i id="gt-bar"></i></div>
-      <p class="roundinfo" id="gt-status">0 of 7 shifts used. Set all four cards to run the year.</p>
+      <p class="roundinfo" id="gt-status">0 of 7 doctors assigned. Set all four cards to run the year.</p>
     </div>
     <div id="gt-cards"></div>
     <div class="chips" style="margin-top:16px">
@@ -601,7 +627,7 @@ ul.ideas li{margin:8px 0}
     </div>
   </div>
   <h3 class="sub">The takeaway</h3>
-  <p><b>Where the human stands is a setting, not a rule, and it has a price.</b> Seven shifts could not cover eleven shifts of care, so every map in the room has a trade in it. <b>Some settings have evidence and some don't.</b> The striped tiles are settings nobody has tested, and the only measured setting for the 2 a.m. card is the one where the AI got two in three wrong. That is the external validation question from Chapter 4 applied to your own decisions. <b>Some decisions have no cheaper setting.</b> Joseph's chemotherapy could only be in the loop, with three people saying yes, and no budget changes that.</p>
+  <p><b>Where the human stands is a setting, not a rule, and it has a price.</b> Seven doctors could not cover a job that needed eleven, so every map in the room has a trade in it. <b>Some settings have evidence and some don't.</b> The striped tiles are settings nobody has tested, and the only measured setting for the 2 a.m. card is the one where the AI got two in three wrong. That is the external validation question from Chapter 4 applied to your own decisions. <b>Some decisions have no cheaper setting.</b> Joseph's chemotherapy could only be in the loop, with three people saying yes, and no budget changes that.</p>
 </section>
 
 <section id="hood">
@@ -614,7 +640,7 @@ ul.ideas li{margin:8px 0}
   <p>MATRIX runs this on millions of sentences pulled from published research, and then does what your gate in section 2 did: hands a ranked list to people who decide which ones are worth a trial. The graph can only find what someone wrote down, and what gets written down depends on what someone paid to study.</p>
 
   <h3 class="sub" id="hood-gate"><span>2</span> The gate</h3>
-  <p>The gate has no model at all. Each card's three results are written from the study or case linked on it, and "Run the year" reads back the one you picked. A dark tile means the linked study measured that setting; a striped tile means it didn't, and the tool refuses to make up a number for it. The shift costs are invented, but they keep one real proportion: MASAI's on-the-loop setting cut reading work by 44 percent, so on the loop costs about half of in the loop on that card. The gate is where the chapter puts the human, and section 2 let you feel why moving it in either direction costs something.</p>
+  <p>The gate has no model at all. Each card's three results are written from the study or case linked on it, and "Run the year" reads back the one you picked. A dark tile means the linked study measured that setting; a striped tile means it didn't, and the tool refuses to make up a number for it. The doctor counts are invented, but they keep one real proportion: MASAI's on-the-loop setting cut reading work by 44 percent, so on the loop needs about half the doctors of in the loop on that card. The gate is where the chapter puts the human, and section 2 let you feel why moving it in either direction costs something.</p>
 </section>
 
 <section id="debate">
@@ -693,7 +719,7 @@ ul.ideas li{margin:8px 0}
   <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, October 16.</strong> Answer them as you go today. Written reflections, no screenshots.</p>
   <ol class="writeup">
       <li><strong>The knowledge graph.</strong> In your own words, explain what a knowledge graph is and how yours answered a question. Use two examples from today: a question where two things connected but only one helped, and how the graph told them apart, and what happened to the hair-loss answer when you removed one sentence.</li>
-      <li><strong>The gate.</strong> List your final four settings and how many of your tiles were striped. What did you give up to stay inside seven shifts? Then one sentence on the 2 a.m. card: its only measured setting is the one where the AI got two in three wrong. What would you do with it, and what would that cost?</li>
+      <li><strong>The gate.</strong> List your final four settings and how many of your tiles were striped. What did you give up to make do with 7 doctors? Then one sentence on the 2 a.m. card: its only measured setting is the one where the AI got two in three wrong. What would you do with it, and what would that cost?</li>
       <li><strong>The debate.</strong> Which argument from the other side was hardest to answer, and why? Give the argument, then your best answer to it, in your own words.</li>
       <li><strong>Your sentences.</strong> The true sentence and the false sentence you fed it, and what it did with each. Then one sentence on what that means for a system like MATRIX reading millions of sentences nobody checks one by one.</li>
       <li><strong>Your commitment card.</strong> For which one medical task would you accept a person out of the loop, what would you need to see first, and who answers when it's wrong? Three sentences. Chapter 7 asks this again about a car.</li>
@@ -715,7 +741,7 @@ ul.ideas li{margin:8px 0}
       <dd>Self-contained, no network calls, nothing persists. The fourteen facts are standard pharmacology, simplified to one line each: diphenhydramine (Benadryl) is an antihistamine, and brain histamine promotes wakefulness, which is why it causes drowsiness and is the active ingredient in sleep aids such as ZzzQuil; caffeine blocks adenosine receptors; minoxidil is a blood-pressure drug that widens blood vessels, and hair growth seen in patients taking it led to its use for hair loss (Rogaine); ibuprofen reduces inflammation and can irritate the stomach. The plus-and-minus reading is a teaching simplification, not how MATRIX scores. No links yet; check each line against the drug's label before the next term.</dd>
 
       <dt>The gate (section 2)</dt>
-      <dd>No model. Each card's results are written from its linked source. The seven-shift budget and each setting's shift cost are invented to force a trade; only the roughly half-cost of on the loop for mammograms echoes a real figure, MASAI's 44 percent reduction in reading work. MASAI (The Lancet Digital Health, February 2025); the 74 / 76 / 90 diagnostic reasoning scores (Goh et al., JAMA Network Open, October 2024, as reported in the JAMA viewpoint of August 2026); the Oxford patient-description finding as described in Robert Wachter's August 27, 2026 reply; PROMETHEUS (NEJM AI, 2025); Every Cure's human review of matches, as Fajgenbaum describes it in the film.</dd>
+      <dd>No model. Each card's results are written from its linked source. The 7-doctor budget and each setting's doctor count are invented to force a trade; only the roughly half-cost of on the loop for mammograms echoes a real figure, MASAI's 44 percent reduction in reading work. MASAI (The Lancet Digital Health, February 2025); the 74 / 76 / 90 diagnostic reasoning scores (Goh et al., JAMA Network Open, October 2024, as reported in the JAMA viewpoint of August 2026); the Oxford patient-description finding as described in Robert Wachter's August 27, 2026 reply; PROMETHEUS (NEJM AI, 2025); Every Cure's human review of matches, as Fajgenbaum describes it in the film.</dd>
 
       <dt>Chapter claims used here</dt>
       <dd>The knowledge graph, the score as a claim about the record, the gap, and the debate's case come from <a class="inline" href="chapter-04-medicine.html">Chapter 4</a>, which carries its own verification note.</dd>
@@ -951,25 +977,25 @@ ul.ideas li{margin:8px 0}
   var WHAT = {in:'a person reads every case and decides', on:'the AI decides, a person reviews what it flags', out:'the AI decides, nobody reviews'};
   var SHIFTS_TOTAL = 7;
   var CARDS = [
-    {t:'Screening mammograms', short:'Mammograms', ctx:'The AI sorts scans by cancer risk. Right now two radiologists read every scan.', src:'The MASAI trial, 105,000 women, The Lancet Digital Health, February 2025', url:'https://doi.org/10.1016/S2589-7500(24)00267-X',
+    {t:'Screening mammograms', short:'Mammograms', ctx:'A mammogram is an X-ray of the breast, used to catch cancer early in women who have no symptoms. Here, as in Sweden where the study ran, two radiologists (doctors who read scans) look at every one. The AI would sort scans into lower and higher risk.', vol:'Huge numbers of scans, and almost all of them are normal.', stakes:[['If a cancer is missed','it gets found later, when it is harder to treat.'],['If there is a false alarm','a healthy woman is called back for more tests and worries until the results come in.']], src:'The MASAI trial, 105,000 women, The Lancet Digital Health, February 2025', url:'https://doi.org/10.1016/S2589-7500(24)00267-X',
      cost:{in:4, on:2, out:0},
      head:{in:'Today\'s standard: two readers on every scan', on:'29% more cancers found, 44% less reading', out:null},
      in:'Two radiologists read everything, the standard the MASAI trial compared against. It works, and it costs the most reading time.',
      on:'This is what MASAI tested with 105,000 women: the AI sorted scans and one radiologist read the low-risk ones. <b>29 percent more cancers found, no more false alarms, 44 percent less reading work.</b>',
      out:'Not what the trial tested. Nobody in it read scans with no radiologist at all, so the honest result is <b>unknown</b>.'},
-    {t:'Diagnosis from clean case notes', short:'Clean case notes', ctx:'A doctor has already written up the facts that matter. The AI proposes a diagnosis.', src:'Goh et al., JAMA Network Open, October 2024, as cited in the JAMA viewpoint of August 2026', url:'https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2825395',
+    {t:'Diagnosis from clean case notes', short:'Clean case notes', ctx:'A doctor has already examined the patient and written up the facts that matter. The AI reads the write-up and proposes what is wrong. The study tested this on written practice cases, not on real patients.', vol:'Every patient a doctor sees. The doctor has already done the hard part: deciding which facts matter.', stakes:[['If the diagnosis is wrong','the patient can get the wrong treatment, or the right one too late.'],['The catch','real notes are not always this clean.']], src:'Goh et al., JAMA Network Open, October 2024, as cited in the JAMA viewpoint of August 2026', url:'https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2825395',
      cost:{in:2, on:1, out:0},
      head:{in:'Doctor plus AI scored 76', on:null, out:'AI alone scored about 90'},
      in:'Doctors using the AI scored <b>76</b>, barely above doctors alone at 74. Adding the doctor pulled the AI\'s answer down.',
      on:'Not tested in the 2024 study. The result sits somewhere between 76 and 90, and <b>nobody measured where</b>.',
      out:'The AI alone scored <b>about 90</b>, the best result on this card. This is the JAMA authors\' case for stepping the doctor out.'},
-    {t:'Diagnosis from a patient\'s own words, 2 a.m.', short:'The 2 a.m. app', ctx:'No doctor has written anything up. A worried patient opens an app in the middle of the night and describes what is wrong in their own words, and the AI has to work from that.', src:'Bean et al., Nature Medicine, 2026, the Oxford study Robert Wachter cites', url:'https://doi.org/10.1038/s41591-025-04074-y',
+    {t:'Diagnosis from a patient\'s own words, 2 a.m.', short:'The 2 a.m. app', ctx:'No doctor has seen the patient. A worried person opens an app in the middle of the night, describes what is wrong in their own words, and the AI tells them what to do: go to the ER, see a doctor tomorrow, or rest at home.', vol:'Anyone with a phone, at any hour. Far more people than there are doctors awake.', stakes:[['If it says stay home and it is serious','the patient does not get care in time.'],['If it sends everyone to the ER','people who did not need to go wait for hours, and the ER fills up.']], src:'Bean et al., Nature Medicine, 2026, the Oxford study Robert Wachter cites', url:'https://doi.org/10.1038/s41591-025-04074-y',
      cost:{in:4, on:2, out:0},
      head:{in:null, on:null, out:'Wrong call about 2 times in 3'},
      in:'Not tested in the study. Wachter\'s argument is that sorting out which facts matter is the doctor\'s job, and it\'s exactly what this card is missing. <b>Plausible safeguard, unmeasured.</b>',
      on:'Not tested. A person reviewing only the flagged cases still depends on the AI flagging the right ones from messy input. <b>Unmeasured.</b>',
      out:'In the Oxford study, ordinary people were given real illnesses to describe in their own words and asked the AI what to do. With no doctor sorting out which details mattered, the AI made the <b>wrong call about two times in three</b>.'},
-    {t:'Chemotherapy for a patient too sick for standard care', short:'Joseph\'s chemotherapy', ctx:'Every Cure\'s graph ranked three drugs highly for Joseph, a patient too sick for standard care. The chemotherapy could kill him.', src:'Joseph\'s case, Penn Medicine\'s film on Every Cure', url:'https://www.youtube.com/watch?v=4FxwoOuPGWs',
+    {t:'Chemotherapy for a patient too sick for standard care', short:'Joseph\'s chemotherapy', ctx:'Joseph was too sick for standard care. Every Cure\'s graph ranked three drugs highly for him, and one option was chemotherapy that could kill him.', vol:'One patient, one decision.', stakes:[['If the choice is wrong','the treatment could kill him.'],['If nobody tries','he had already run out of standard options.']], src:'Joseph\'s case, Penn Medicine\'s film on Every Cure', url:'https://www.youtube.com/watch?v=4FxwoOuPGWs',
      cost:{in:1, on:0, out:0}, refuse:{on:true, out:true},
      head:{in:'One patient, recovered. A story, not a trial', on:'No hospital would do this', out:'No hospital would do this'},
      in:'What happened for Joseph: the team, the oncologists, and Joseph all had to say yes. <b>He recovered.</b> One case is a story, not a trial.',
@@ -982,13 +1008,13 @@ ul.ideas li{margin:8px 0}
   CARDS.forEach(function(c, i){
     var d = document.createElement('div'); d.className='gcard';
     d.innerHTML = '<div class="top"><h4>'+(i+1)+'. '+c.t+'</h4><span class="kind real">real</span></div>'+
-      '<p class="ctx">'+c.ctx+'</p><p class="src">Evidence: <a class="inline" href="'+c.url+'" target="_blank" rel="noopener">'+c.src+'</a></p><div class="chips" role="group" aria-label="Setting for '+c.t.replace(/"/g,'')+'"></div><div class="out" hidden></div>'+
+      '<p class="ctx">'+c.ctx+'</p><p class="vol"><b>How many:</b> '+c.vol+'</p><ul class="stakes">'+c.stakes.map(function(x){ return '<li><b>'+x[0]+':</b> '+x[1]+'</li>'; }).join('')+'</ul><p class="src">Evidence: <a class="inline" href="'+c.url+'" target="_blank" rel="noopener">'+c.src+'</a></p><div class="chips" role="group" aria-label="Setting for '+c.t.replace(/"/g,'')+'"></div><div class="out" hidden></div>'+
       '<details class="others" hidden><summary>See the other two settings</summary><p></p></details>';
     var chips = d.querySelector('.chips');
     ['in','on','out'].forEach(function(k){
       var b = document.createElement('button'); b.type='button'; b.className='chip'; b.setAttribute('aria-pressed','false');
       var cs = c.cost[k];
-      b.innerHTML = '<b>' + LABEL[k] + '</b><small>' + WHAT[k] + '</small><small class="cost">' + cs + ' shift' + (cs===1?'':'s') + '</small>';
+      b.innerHTML = '<b>' + LABEL[k] + '</b><small>' + WHAT[k] + '</small><small class="cost">' + (cs===0 ? 'no doctors' : cs + ' doctor' + (cs===1?'':'s')) + '</small>';
       b.addEventListener('click', function(){ picks[i] = (picks[i]===k ? null : k); gateSync(); });
       b.setAttribute('data-k', k); chips.appendChild(b);
     });
@@ -1007,8 +1033,8 @@ ul.ideas li{margin:8px 0}
     var s = spent(), left = picks.filter(function(k){ return !k; }).length;
     gBar.style.width = Math.min(100, 100*s/SHIFTS_TOTAL) + '%';
     gBar.parentNode.classList.toggle('over', s > SHIFTS_TOTAL);
-    var msg = s + ' of ' + SHIFTS_TOTAL + ' shifts used.';
-    if(s > SHIFTS_TOTAL) msg += ' Over by ' + (s-SHIFTS_TOTAL) + '. Something has to move.';
+    var msg = s + ' of ' + SHIFTS_TOTAL + ' doctors assigned.';
+    if(s > SHIFTS_TOTAL) msg += ' That is ' + (s-SHIFTS_TOTAL) + ' more than you have. Something has to move.';
     else if(left) msg += ' ' + left + ' card' + (left===1?'':'s') + ' still to set.';
     else msg += ' Ready to run the year.';
     gStatus.textContent = msg;
@@ -1016,7 +1042,7 @@ ul.ideas li{margin:8px 0}
   document.getElementById('gt-run').addEventListener('click', function(){
     var s = spent(), left = picks.filter(function(k){ return !k; }).length;
     if(left){ gStatus.textContent = 'Set all four cards first. ' + left + ' to go.'; return; }
-    if(s > SHIFTS_TOTAL){ gStatus.textContent = 'You are ' + (s-SHIFTS_TOTAL) + ' shift' + (s-SHIFTS_TOTAL===1?'':'s') + ' over. Your doctors only have ' + SHIFTS_TOTAL + '. Move a setting first.'; return; }
+    if(s > SHIFTS_TOTAL){ gStatus.textContent = 'That needs ' + s + ' doctors, and you only have ' + SHIFTS_TOTAL + '. Move a setting first.'; return; }
     var fog = 0, refused = 0, tiles = '';
     [].forEach.call(box.querySelectorAll('.gcard'), function(d, i){
       var k = picks[i], c = CARDS[i];
@@ -1026,10 +1052,10 @@ ul.ideas li{margin:8px 0}
       oth.querySelector('p').innerHTML = ['in','on','out'].filter(function(x){ return x!==k; }).map(function(x){ return '<strong>' + LABEL[x] + ':</strong> ' + c[x]; }).join('<br>');
       var kind = (c.refuse && c.refuse[k]) ? 'no' : (c.head[k] ? 'known' : 'fog');
       if(kind==='fog') fog++; if(kind==='no') refused++;
-      tiles += '<div class="gtile ' + kind + '"><span class="tt">' + c.short + '</span><span class="ts">' + LABEL[k] + ' · ' + c.cost[k] + ' shift' + (c.cost[k]===1?'':'s') + '</span><span class="th">' + (kind==='fog' ? 'Nobody has measured this. Your patients are the first test.' : c.head[k]) + '</span></div>';
+      tiles += '<div class="gtile ' + kind + '"><span class="tt">' + c.short + '</span><span class="ts">' + LABEL[k] + ' · ' + (c.cost[k]===0 ? 'no doctors' : c.cost[k] + ' doctor' + (c.cost[k]===1?'':'s')) + '</span><span class="th">' + (kind==='fog' ? 'Nobody has measured this. Your patients are the first test.' : c.head[k]) + '</span></div>';
     });
     gMap.innerHTML = tiles;
-    var read = 'You used <b>' + s + ' of ' + SHIFTS_TOTAL + '</b> shifts. <b>' + fog + ' of 4</b> tasks run on a setting nobody has measured.';
+    var read = 'You assigned <b>' + s + ' of ' + SHIFTS_TOTAL + '</b> doctors. <b>' + fog + ' of 4</b> tasks run on a setting nobody has measured.';
     if(refused) read += ' And one setting is one no hospital would allow, however much it saves.';
     if(picks[2]==='out') read += ' Your 2 a.m. app is measured, and what was measured is the AI getting it wrong about two times in three. Measured is not the same as good.';
     else if(picks[2]) read += ' Your 2 a.m. app keeps a person involved, and nobody knows yet what that buys.';
