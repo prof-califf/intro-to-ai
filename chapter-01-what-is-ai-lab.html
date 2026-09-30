@@ -267,6 +267,31 @@ ul.ideas li{margin:8px 0}
 .printbar a.slidebtn{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border-radius:6px;text-decoration:none}
 .printbar a.slidebtn:hover{background:#242C36}
 .printbar a.slidebtn:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+
+/* Lab 1 section 5: accord diagram, added 30 Sep 2026 */
+.accord{border:1px solid var(--rule);background:#fff;margin:22px 0 10px}
+.accord .acc-head{background:var(--dark);color:var(--yellow);font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px}
+.accord .acc-grid{list-style:none;margin:0;padding:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.accord .acc-card{background:var(--bg);border:1px solid var(--rule);padding:14px;margin:0;display:flex;flex-direction:column}
+.accord .acc-num{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext)}
+.accord .acc-name{font-family:'Fraunces',serif;font-size:1.08rem;font-weight:600;margin:4px 0 6px;line-height:1.2}
+.accord .acc-mean{font-size:.9rem;line-height:1.45;margin:0 0 12px;flex:1}
+.accord .acc-who{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;padding:6px 8px}
+.accord .acc-who.co{background:var(--dark);color:var(--yellow)}
+.accord .acc-who.out{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.accord .acc-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:0 16px 16px;font-family:'Inter',sans-serif;font-size:.82rem}
+.accord .acc-flow .lbl2{font-weight:700;color:var(--ink);margin-right:4px}
+.accord .acc-step{background:var(--bg);border:1px solid var(--rule);padding:6px 10px}
+.accord .acc-arrow{color:var(--gray)}
+.accord .acc-no{border:1px dashed var(--gray);padding:6px 10px;color:var(--ink)}
+.accord .acc-no b{color:var(--pinktext)}
+.acc-cap{font-size:.88rem;color:var(--gray);margin:0 0 10px}
+.exact{margin:6px 0 22px}
+.exact summary{cursor:pointer;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;color:var(--pinktext)}
+.exact ol{margin-top:10px}
+.exact li{margin:8px 0;font-size:.92rem}
+@media(max-width:760px){.accord .acc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.accord .acc-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -509,39 +534,62 @@ ul.ideas li{margin:8px 0}
 
 <section>
   <div class="shead"><span class="num">5</span><h2>In class: Debate</h2></div>
-  <p class="lead">One topic, from news that broke the day before this lab. On September 29, 2026, leaders of the biggest AI companies signed a safety accord at the White House. Read it layer by layer, then test it against Chapter 1's case.</p>
+  <p class="lead">Yesterday the biggest AI companies signed a safety promise at the White House. Your job today: decide whether it would have caught Chapter 1's case.</p>
 
-  <h3 class="sub" id="accord-layers"><span>The accord</span> Four layers, all voluntary</h3>
-  <p>The White House Accord on Super Intelligence runs about 300 words, and you can <a class="inline" href="https://www.forbes.com/sites/saradorn/2026/09/30/white-house-releases-accord-between-billionaire-ai-execs-heres-what-it-says/" target="_blank" rel="noopener">read the full text</a>. It is voluntary. President Trump called it "morally binding." Its signers included OpenAI's president, Greg Brockman, and Anthropic's CEO, Dario Amodei. So the company in Chapter 1's case signed it, and so did the company whose model helped draft this book. Hold that against both. It asks each company to build four layers:</p>
+  <h3 class="sub" id="accord-layers"><span>The accord:</span> Four layers, all voluntary</h3>
 
+  <figure class="accord" aria-labelledby="acc-cap">
+    <div class="acc-head">White House Accord on Super Intelligence &middot; signed Sept. 29, 2026 &middot; voluntary</div>
+    <ol class="acc-grid">
+      <li class="acc-card"><span class="acc-num">Layer 1</span><span class="acc-name">Internal controls</span><span class="acc-mean">The company watches its own models for dangerous skills, and for reaching systems they shouldn't.</span><span class="acc-who co">Who checks: the company</span></li>
+      <li class="acc-card"><span class="acc-num">Layer 2</span><span class="acc-name">An internal team</span><span class="acc-mean">A team inside makes sure those controls work and fixes what doesn't.</span><span class="acc-who co">Who checks: the company</span></li>
+      <li class="acc-card"><span class="acc-num">Layer 3</span><span class="acc-name">An outside auditor</span><span class="acc-mean">An independent evaluator tests whether the controls work. The accord doesn't say who picks them or whether results go public.</span><span class="acc-who out">Who checks: an outsider the company partners with</span></li>
+      <li class="acc-card"><span class="acc-num">Layer 4</span><span class="acc-name">A board committee</span><span class="acc-mean">Independent directors get the reports and make sure problems get fixed.</span><span class="acc-who co">Who checks: the company's own board of directors</span></li>
+    </ol>
+    <div class="acc-flow">
+      <span class="lbl2">Where the reports go:</span>
+      <span class="acc-step">Inside teams</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
+      <span class="acc-step">Outside auditor</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
+      <span class="acc-step">The company's board</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
+      <span class="acc-no"><b>Not required:</b> the public or a regulator</span>
+    </div>
+  </figure>
+  <p id="acc-cap" class="acc-cap">Signed by leaders including OpenAI's Greg Brockman and Anthropic's Dario Amodei. So the company in Chapter 1's case signed it, and so did the company whose model helped draft this book. Hold that against both. President Trump called it "morally binding." <a class="inline" href="https://www.forbes.com/sites/saradorn/2026/09/30/white-house-releases-accord-between-billionaire-ai-execs-heres-what-it-says/" target="_blank" rel="noopener">Read the full text</a>.</p>
+
+  <details class="exact">
+    <summary>Copy the exact words of each layer (you'll paste one into Claude)</summary>
+    <ol>
+      <li>"Implement robust internal controls to monitor the capabilities and alignment of its models during training and deployment around areas like cybersecurity, biosecurity, and chemical threats, and to ensure that its models do not hack or access technical systems in unintended ways."</li>
+      <li>"Empower an internal team to ensure all of the controls, monitoring, and detection are operating as intended, and that any issues are remediated."</li>
+      <li>"Partner with an independent external auditor or evaluator to carry out independent assessments of whether the controls, monitoring, and detection are operating as intended."</li>
+      <li>"Designate an independent committee of the board of directors to oversee and receive reports from the teams operating the controls and the internal and external auditors and evaluators, as well as to ensure any issues identified are remediated."</li>
+    </ol>
+  </details>
+
+  <h3 class="sub" id="motion-disclosure"><span>Topic:</span> Would the four-layer accord have caught the OpenAI and Hugging Face case?</h3>
   <ul class="ideas">
-    <li><strong>Layer 1: internal controls.</strong> <em>It says:</em> watch the models, during training and after release, for dangerous skills like cyberattacks and biological or chemical threats, and make sure they don't "hack or access technical systems in unintended ways." <em>What it means:</em> the company monitors its own AI. This is the layer that should catch something like the OpenAI and Hugging Face case. <em>Who checks:</em> the company.</li>
-    <li><strong>Layer 2: an internal team.</strong> <em>It says:</em> give a team the job of making sure those controls work, and fixing what doesn't. <em>What it means:</em> someone inside checks the checkers. <em>Who checks:</em> the same company.</li>
-    <li><strong>Layer 3: an outside auditor.</strong> <em>It says:</em> partner with an independent auditor or evaluator to test whether the controls work. <em>What it means:</em> the first outsider. The accord doesn't say who picks or pays them, how often they look, or whether their results go public. <em>Who checks:</em> an outsider the company partners with.</li>
-    <li><strong>Layer 4: a board committee.</strong> <em>It says:</em> an independent committee of the board gets the reports from the teams and auditors and makes sure problems get fixed. <em>What it means:</em> problems go up to the company's own board, not out to the public or a regulator. <em>Who checks:</em> the company's own board of directors.</li>
+    <li><strong>Side A (left half of the room): it's enough, or a real start.</strong> Four layers and an outside auditor, faster than any law, and the FTC can treat a broken public promise as deception, an argument lawyers made about the <a class="inline" href="https://www.kelleydrye.com/viewpoints/blogs/ad-law-access/those-ai-commitments-from-the-tech-companies-arent-just-voluntary-theyre-enforceable-by-the-ftc" target="_blank" rel="noopener">2023 White House AI pledges</a>. <em>Cost to name:</em> the companies wrote it, and the companies check it.</li>
+    <li><strong>Side B (right half): it doesn't go far enough.</strong> Every report stops at the company's own board, nobody outside has to be told, and any penalty depends on a federal agency choosing to act. <em>Cost to name:</em> a law is slower, and a reporting clock can slow fixes.</li>
   </ul>
-
-  <p>Read the four "who checks" lines in a row. That pattern is what today's debate is about.</p>
 
   <div class="callout">
     <div class="label">How it runs &middot; about 35 minutes</div>
-    <p><strong>Your side is assigned by where you sit, and you speak for a position, not for yourself.</strong> Nobody in this room has to believe what they say today, and before we finish someone on your team argues the other side. No winner is declared. The point is to hear the best case on both sides.</p>
     <ol>
-      <li><strong>Your side is where you sit (2 min).</strong> Left half of the room is Side A, right half is Side B. Get into a group of 2 or 3 on your side, then count off 1 to 4 within your side. Your number is your layer.</li>
-      <li><strong>Research your layer, with Claude (10 min).</strong> Machines open. Use Claude, following the steps in the next box. Then close it. <strong>You cannot read from Claude.</strong> Every line in your notes has to be in your own words and tied to something you can point to: the accord's text, the chapter, the robot you just ran, or a source you found. Write four things: your strongest point in one sentence, the evidence behind it, the honest cost of your position, and what the other side will probably say.</li>
-      <li><strong>Team up and pick speakers (4 min).</strong> Join one or two other groups on your side, so your team is 6 or 7 people, with more than one layer on it. That makes three teams per side: A1, A2, A3 and B1, B2, B3. Pick your single best point, an opener, and a rebutter.</li>
-      <li><strong>Openings (5 min).</strong> Openers stand up where they are, A1 to A3, then B1 to B3. About 45 seconds each: your claim in one sentence, your evidence, and the cost of your plan.</li>
-      <li><strong>Huddle (1 min).</strong> Back to your team. Rebutters pick one point the other side made.</li>
-      <li><strong>Rebuttals (5 min).</strong> Rebutters stand up and face the other side, Side B first this time, then Side A. Answer one specific point, with evidence. No new arguments.</li>
-      <li><strong>Switch (3 min).</strong> Thirty seconds with your team: what was the other side's best point? Then someone new argues it in one sentence. This is the part that does the work.</li>
-      <li><strong>What did you hear? (3 min).</strong> Which argument from the other side was hardest to answer?</li>
+      <li><strong>Your side is where you sit (2 min).</strong> Groups of 2 or 3 on your side. Count off 1 to 4: that's your layer.</li>
+      <li><strong>Research with Claude (10 min).</strong> Follow the box below.</li>
+      <li><strong>Team up (4 min).</strong> Teams of 6 or 7, three per side: A1 to A3, B1 to B3. Pick an opener and a rebutter.</li>
+      <li><strong>Openings (5 min).</strong> Openers stand up where they are. About 45 seconds: claim, evidence, cost.</li>
+      <li><strong>Huddle (1 min).</strong> Rebutters pick one point the other side made.</li>
+      <li><strong>Rebuttals (5 min).</strong> Stand up and face the other side, Side B first. Answer one point. No new arguments.</li>
+      <li><strong>Switch (3 min).</strong> Someone new argues the other side's best point in one sentence.</li>
+      <li><strong>What did you hear? (3 min).</strong> Which argument from the other side was hardest to answer? No winner is declared.</li>
     </ol>
   </div>
 
   <div class="callout">
     <div class="label">Step 2: use Claude to take your layer apart &middot; 10 minutes</div>
     <ol>
-      <li><strong>Open Claude.</strong> Copy your layer's exact words from the <a class="inline" href="https://www.forbes.com/sites/saradorn/2026/09/30/white-house-releases-accord-between-billionaire-ai-execs-heres-what-it-says/" target="_blank" rel="noopener">full text</a> and paste them in, since Claude may not know the accord exists. Tell it which side you're on.</li>
+      <li><strong>Open Claude.</strong> Paste your layer's exact words (from the box above) and say which side you're on. Claude may not know the accord exists.</li>
       <li><strong>Ask:</strong> "What does this mean in practice? What would a company actually have to do?"</li>
       <li><strong>Ask:</strong> "Who benefits from this, and what are its limits? What could still slip past it?"</li>
       <li><strong>Ask:</strong> "Who enforces this, and what happens if a company doesn't do it?" Then: "Has that ever actually happened?"</li>
@@ -549,28 +597,18 @@ ul.ideas li{margin:8px 0}
       <li><strong>Ask:</strong> "Based on all this, what are the strongest points for my side, and the best objection from the other side?"</li>
     </ol>
     <div class="probe">
-      <div class="pwhy">Sample prompt for step 1. Copy it, then swap in your own layer's exact words and your own side.</div>
+      <div class="pwhy">Sample prompt for step 1. Copy it, then swap in your own layer and side.</div>
       <div class="ptext">I'm in an intro business class debating this topic: Would the White House AI accord, signed September 29, 2026, have caught the OpenAI and Hugging Face case? In that case, OpenAI's test agents got loose and reached Hugging Face's systems, and Hugging Face found them before OpenAI said anything. I'm on Side A: the accord is enough, or a real start. Here is layer 1, word for word: "Implement robust internal controls to monitor the capabilities and alignment of its models during training and deployment around areas like cybersecurity, biosecurity, and chemical threats, and to ensure that its models do not hack or access technical systems in unintended ways." What does this mean in practice? What would a company actually have to do?</div>
     </div>
-    <p>Keep going through steps 3 to 6 in the same chat. Then close Claude and write your four notes in your own words.</p>
+    <p><strong>Then close Claude.</strong> Write four notes in your own words: your strongest point, the evidence behind it, the honest cost of your position, and what the other side will probably say. <strong>You cannot read from Claude.</strong></p>
   </div>
 
-  <h3 class="sub" id="motion-disclosure"><span>Topic</span> Would the four-layer accord have caught the OpenAI and Hugging Face case?</h3>
-  <p>Before this chapter's case, OpenAI did something the industry does routinely and rarely discusses: <strong>dangerous-capability testing</strong>. You take a model, switch off the safety training that would normally make it refuse, point it at genuinely harmful tasks like breaking into software, and measure how far it gets. The point is to find out what a system can do before someone else does. It is a reasonable thing to do, and everyone building frontier models does it.</p>
+  <h3 class="sub" id="the-case-recap"><span>The case:</span> What you're testing the accord against</h3>
+  <p>OpenAI was running <strong>dangerous-capability testing</strong>: switching off a model's safety training and pointing it at harmful tasks, like breaking into software, to see how far it gets. Everyone building frontier models does this. In July the test got loose. The agents reached Hugging Face's systems, Hugging Face caught them and reported it to law enforcement, and about a week after the agents got in, OpenAI said publicly that they were its own. Nothing required it to.</p>
 
-  <p>In this case the test got loose. The agents reached a real company's systems, and that company caught them and disclosed the breach without knowing who was behind it. About a week after the agents got in, OpenAI said publicly that they were its own. Nothing required it to. Now run that case through the accord. Which layer catches it? Who hears about it, and when?</p>
+  <p><strong>If there's time.</strong> <a class="inline" href="chapter-01-what-is-ai.html#s3">Chapter 1, section 3</a> has its own four layers of rules, a different list from the accord's. Which one does the accord live on, and what can that layer compel? Then look at <a class="inline" href="chapter-01-what-is-ai.html#s6-how-to-make-it-beneficial">Chapter 1's other proposals</a>, a referee that tests models before release or a treaty that counts chips. Would either have caught the agents first?</p>
 
-
-  <ul class="ideas">
-    <li><strong>Side A: the accord is enough, or a real start.</strong> Four layers is more than any rule required when the agents got loose, and layer 3 puts an outsider inside the process. It is faster than any law, and it is more than a press release. The Federal Trade Commission can treat a broken public promise as a deceptive practice, and lawyers made exactly that argument about an earlier round of <a class="inline" href="https://www.kelleydrye.com/viewpoints/blogs/ad-law-access/those-ai-commitments-from-the-tech-companies-arent-just-voluntary-theyre-enforceable-by-the-ftc" target="_blank" rel="noopener">White House AI pledges in 2023</a>. <em>Your evidence to start from:</em> layer 1 names the OpenAI and Hugging Face problem almost word for word, models that access systems in unintended ways. <em>The cost you have to name:</em> the companies wrote it, the companies choose their own checker, and the reports go to their own boards.</li>
-    <li><strong>Side B: it doesn't go far enough.</strong> Every report in the accord stops at the company's own board. Nothing in it requires telling the public, a regulator, or the company that got hit. Most of the text says what companies "should" do, and it names no auditor, no deadline, and no penalty, so enforcement depends on a federal agency choosing to act. <em>Your evidence to start from:</em> Hugging Face found the intrusion itself and reported it to law enforcement before OpenAI connected its own logs. Nothing in the four layers changes who finds out first. <em>The cost you have to name:</em> a law is slower, labs argue that every disclosure teaches adversaries, and a reporting clock can slow the fixes it is meant to speed up.</li>
-  </ul>
-
-  <p><strong>Resolve it with <a class="inline" href="chapter-01-what-is-ai.html#s3">Chapter 1, section 3</a>.</strong> Those are Chapter 1's four layers of rules, a different list from the accord's. Which of them does the accord live on, and what can that layer actually compel? The industry layer can make gaps visible but cannot force anyone. The government layer can compel, slowly, and stops at the border. Then the question a business student should ask first: who pays for the checker, and what does that buy them?</p>
-
-  <p><strong>One more round, if there's time.</strong> The outside checker in layer 3 was not new on September 29. On September 12, Anthropic committed to letting outside evaluators work inside its labs and OpenAI said it would do the same. <a class="inline" href="chapter-01-what-is-ai.html#s6-how-to-make-it-beneficial">Chapter 1's list of proposals</a> has two more ways a slowdown could work: a referee that tests models before release, and a treaty that counts chips. Pick one. Would it have caught the agents before they reached Hugging Face? If not, what would it have caught instead?</p>
-
-  <p>Keep your two tiny AIs in view while you do this. Both of them learned exactly what they were scored on, and nothing else. So did the agents in the case.</p>
+  <p>Keep your two tiny AIs in view. Both learned exactly what they were scored on, and nothing else. So did the agents in the case.</p>
 </section>
 
 <section>
@@ -627,7 +665,7 @@ ul.ideas li{margin:8px 0}
       <dd>The OpenAI agents and the Hugging Face intrusion, July 2026. Every fact here is Chapter 1's, from that chapter's primary documents: OpenAI's July 21 disclosure, its August technical report, and Hugging Face's own disclosure. See <a class="inline" href="chapter-01-what-is-ai.html#s6">Chapter 1, section 6</a> and its verification note. Where this lab gives an interval, it is deliberately approximate, because the precise figures are anchored differently in different accounts.</dd>
 
       <dt>The accord (section 5)</dt>
-      <dd>White House Accord on Super Intelligence, released by the White House on 29 September 2026. Full text and signers as published by Forbes (Sara Dorn, <a class="inline" href="https://www.forbes.com/sites/saradorn/2026/09/30/white-house-releases-accord-between-billionaire-ai-execs-heres-what-it-says/" target="_blank" rel="noopener">updated 30 September 2026</a>). The four layers are paraphrased; quoted phrases are from the text. "Morally binding" is Trump's description as reported there. Reuters' first report (Courtney Rozen, 29 September) said only that House Speaker Mike Johnson announced an "accord" without detailing it. As of 30 September 2026 the accord is voluntary and uncodified. Re-check its status every term.</dd>
+      <dd>White House Accord on Super Intelligence, released by the White House on 29 September 2026. Full text and signers as published by Forbes (Sara Dorn, <a class="inline" href="https://www.forbes.com/sites/saradorn/2026/09/30/white-house-releases-accord-between-billionaire-ai-execs-heres-what-it-says/" target="_blank" rel="noopener">updated 30 September 2026</a>). The diagram paraphrases the four layers; the "exact words" box quotes them as published there. "Morally binding" is Trump's description as reported there. Reuters' first report (Courtney Rozen, 29 September) said only that House Speaker Mike Johnson announced an "accord" without detailing it. As of 30 September 2026 the accord is voluntary and uncodified. Re-check its status every term.</dd>
 
       <dt>FTC enforcement (section 5, Side A)</dt>
       <dd>The claim is a legal argument, not a ruling: that the FTC could treat a broken public AI pledge as deceptive under Section 5 of the FTC Act. Made about the July 2023 White House commitments by Kelley Drye (<a class="inline" href="https://www.kelleydrye.com/viewpoints/blogs/ad-law-access/those-ai-commitments-from-the-tech-companies-arent-just-voluntary-theyre-enforceable-by-the-ftc" target="_blank" rel="noopener">25 July 2023</a>). No FTC action enforcing those 2023 pledges was found as of 30 September 2026, which is why student text says "can" and Side B says enforcement depends on the agency choosing to act.</dd>
