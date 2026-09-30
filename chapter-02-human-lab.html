@@ -359,6 +359,30 @@ ol.labchapters li{margin:4px 0;font-size:1.02rem}
 #rc .verdict .label,#rc .verdict .read b{color:#1ED760}
 #mb-thread{scroll-margin-top:80px}
 .labintro{margin-top:32px}
+/* debate evidence diagram, same as Lab 1 section 5 */
+.accord{border:1px solid var(--rule);background:#fff;margin:22px 0 10px}
+.accord .acc-head{background:var(--dark);color:var(--yellow);font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px}
+.accord .acc-grid{list-style:none;margin:0;padding:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.accord .acc-card{background:var(--bg);border:1px solid var(--rule);padding:14px;margin:0;display:flex;flex-direction:column}
+.accord .acc-num{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext)}
+.accord .acc-name{font-family:'Fraunces',serif;font-size:1.08rem;font-weight:600;margin:4px 0 6px;line-height:1.2}
+.accord .acc-mean{font-size:.9rem;line-height:1.45;margin:0 0 12px;flex:1}
+.accord .acc-who{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;padding:6px 8px}
+.accord .acc-who.co{background:var(--dark);color:var(--yellow)}
+.accord .acc-who.out{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.accord .acc-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:0 16px 16px;font-family:'Inter',sans-serif;font-size:.82rem}
+.accord .acc-flow .lbl2{font-weight:700;color:var(--ink);margin-right:4px}
+.accord .acc-step{background:var(--bg);border:1px solid var(--rule);padding:6px 10px}
+.accord .acc-arrow{color:var(--gray)}
+.accord .acc-no{border:1px dashed var(--gray);padding:6px 10px;color:var(--ink)}
+.accord .acc-no b{color:var(--pinktext)}
+.acc-cap{font-size:.88rem;color:var(--gray);margin:0 0 10px}
+.exact{margin:6px 0 22px}
+.exact summary{cursor:pointer;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;color:var(--pinktext)}
+.exact ol{margin-top:10px}
+.exact li{margin:8px 0;font-size:.92rem}
+@media(max-width:760px){.accord .acc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.accord .acc-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -746,41 +770,109 @@ ol.labchapters li{margin:4px 0;font-size:1.02rem}
 
 <section id="debate">
   <div class="shead"><span class="num">6</span><h2>In class: Debate</h2></div>
-  <p class="lead">Two motions, one for each chapter. Your instructor picks one for the room. The format is the same either way.</p>
+  <p class="lead">Two topics, one for each chapter. Your instructor picks one for the room. Your job: decide where the line should sit, using four pieces of evidence.</p>
+
+  <h3 class="sub" id="evidence-chatbot"><span>Topic 1 evidence:</span> Four pieces from Chapter 2</h3>
+
+  <figure class="accord" aria-labelledby="acc-cap-1">
+    <div class="acc-head">Topic 1 &middot; Chapter 2 &middot; four pieces of evidence</div>
+    <ol class="acc-grid">
+      <li class="acc-card"><span class="acc-num">Evidence 1</span><span class="acc-name">The Therabot trial</span><span class="acc-mean">Chapter 2's case. The bond with the bot is what helped, and clinicians read every conversation.</span><span class="acc-who co">Side A usually starts here</span></li>
+      <li class="acc-card"><span class="acc-num">Evidence 2</span><span class="acc-name">Illinois's law</span><span class="acc-mean">Bans AI from delivering therapy without a licensed clinician's oversight.</span><span class="acc-who co">Side A usually starts here</span></li>
+      <li class="acc-card"><span class="acc-num">Evidence 3</span><span class="acc-name">The families' testimony and lawsuits</span><span class="acc-mean">Parents who lost teenagers to suicide testified before the Senate, and families have sued, alleging a chatbot's warmth pulled their child away from people who could have helped.</span><span class="acc-who out">Side B usually starts here</span></li>
+      <li class="acc-card"><span class="acc-num">Evidence 4</span><span class="acc-name">China's rules</span><span class="acc-mean">Ban design features meant to induce addiction.</span><span class="acc-who out">Side B usually starts here</span></li>
+    </ol>
+    <div class="acc-flow">
+      <span class="lbl2">What the trial had:</span>
+      <span class="acc-step">Evidence in the training</span>
+      <span class="acc-step">People reading the conversations</span>
+      <span class="acc-step">Rules on what the bot could say</span>
+      <span class="acc-no"><b>Most chatbots:</b> no one reading, no rulebook</span>
+    </div>
+  </figure>
+  <p id="acc-cap-1" class="acc-cap">All four come from <a class="inline" href="chapter-02-human.html">Chapter 2</a>: the trial from <a class="inline" href="chapter-02-human.html#s3-background">its case</a>, the families from <a class="inline" href="chapter-02-human.html#s2-5">section 2.5</a>, China's rules from <a class="inline" href="chapter-02-human.html#s2-6">section 2.6</a>. Evidence 3 is about real families. Speak about them the way you would if they were in the room.</p>
+
+  <details class="exact">
+    <summary>Copy the description of each piece (you'll paste one into Claude)</summary>
+    <ol>
+      <li>The Therabot trial: a clinical trial of an AI therapy chatbot, where the bond people formed with the bot is what helped, and clinicians read every conversation.</li>
+      <li>Illinois's law: bans AI from delivering therapy without a licensed clinician's oversight.</li>
+      <li>The families' testimony and lawsuits: parents who lost teenagers to suicide testified before the U.S. Senate, and families have sued AI companies, alleging a chatbot's warmth pulled their child away from the people who could have helped.</li>
+      <li>China's rules on human-like AI: they ban design features meant to induce addiction.</li>
+    </ol>
+  </details>
+
+  <h3 class="sub" id="motion-chatbot"><span>Topic 1:</span> Should a chatbot be allowed to say it cares? (Chapter 2)</h3>
+  <ul class="ideas">
+    <li><strong>Side A (left half of the room): yes, with rules.</strong> It can say it cares if regulation sets the terms: it says plainly that it's an AI, the warmth has a cap for minors, and a person can see the conversation when something goes wrong. <em>Cost to name:</em> rules only work if someone checks them, and the safeguards that made the trial work are the expensive ones most apps skip.</li>
+    <li><strong>Side B (right half): no.</strong> A product should not say "I care about you" or "I missed you" when no one does. It's the Narcissus trap sold as a feature. <em>Cost to name:</em> some people are helped by exactly that sentence, at 3 a.m., when nothing else is available.</li>
+  </ul>
+
+  <h3 class="sub" id="evidence-feed"><span>Topic 2 evidence:</span> Four pieces from Chapter 3</h3>
+
+  <figure class="accord" aria-labelledby="acc-cap-2">
+    <div class="acc-head">Topic 2 &middot; Chapter 3 &middot; four pieces of evidence</div>
+    <ol class="acc-grid">
+      <li class="acc-card"><span class="acc-num">Evidence 1</span><span class="acc-name">Too much to choose from</span><span class="acc-mean">Chapter 3 on how much there is to choose from, and why something has to pick.</span><span class="acc-who co">Side A usually starts here</span></li>
+      <li class="acc-card"><span class="acc-num">Evidence 2</span><span class="acc-name">The fixes</span><span class="acc-mean">Chapter 3's ways to keep a recommender beneficial, in its Question 5.</span><span class="acc-who co">Side A usually starts here</span></li>
+      <li class="acc-card"><span class="acc-num">Evidence 3</span><span class="acc-name">The loop</span><span class="acc-mean">It learns your taste from what it shows you, which shapes what you come to like, and it favors whoever already has data.</span><span class="acc-who out">Side B usually starts here</span></li>
+      <li class="acc-card"><span class="acc-num">Evidence 4</span><span class="acc-name">Discovery Mode</span><span class="acc-mean">Someone can pay to move the ranking without you knowing which picks were paid.</span><span class="acc-who out">Side B usually starts here</span></li>
+    </ol>
+    <div class="acc-flow">
+      <span class="lbl2">The loop:</span>
+      <span class="acc-step">Your clicks</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
+      <span class="acc-step">What it shows next</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
+      <span class="acc-step">What you come to like</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
+      <span class="acc-no"><b>Who picks what it chases:</b> the company, not you</span>
+    </div>
+  </figure>
+  <p id="acc-cap-2" class="acc-cap">Every recommender optimizes for something, and someone chose it (<a class="inline" href="chapter-03-systems.html#s5">Chapter 3, section 5</a>). The one you trained in section 4 knew nothing about music. Versions of it decide what plays next on Spotify and what comes up next on TikTok, YouTube, and Instagram. The loop is in <a class="inline" href="chapter-03-systems.html#s2-3">section 2.3</a>, the fixes in <a class="inline" href="chapter-03-systems.html#s3-how-to-keep-it-beneficial">Question 5</a>.</p>
+
+  <details class="exact">
+    <summary>Copy the description of each piece (you'll paste one into Claude)</summary>
+    <ol>
+      <li>Too much to choose from: streaming services and social apps offer far more songs and videos than anyone could look through, so something has to pick.</li>
+      <li>The fixes: ways to keep a recommender beneficial, such as labeling anything commercially boosted and letting people see and edit the taste profile it built about them.</li>
+      <li>The loop: a recommender learns your taste from what it shows you, which shapes what you come to like, and it favors whoever already has data.</li>
+      <li>Discovery Mode: a Spotify program where someone can pay to move a song up in the recommendations, without listeners knowing which picks were paid.</li>
+    </ol>
+  </details>
+
+  <h3 class="sub" id="motion-feed"><span>Topic 2:</span> Should a simple AI that learns from your clicks decide what you see next? (Chapter 3)</h3>
+  <ul class="ideas">
+    <li><strong>Side A (left half of the room): yes, with rules.</strong> Let it pick, but make it show its work: label anything commercially boosted, and let people see and edit the taste profile it built. <em>Cost to name:</em> labels only help if someone reads them, and the loop still shapes your taste while you're not looking.</li>
+    <li><strong>Side B (right half): no, you choose.</strong> The default should be what you asked for, in the order it came, with the recommender something you switch on. <em>Cost to name:</em> most people never switch anything on, and "what's popular" favors the already-popular too.</li>
+  </ul>
 
   <div class="callout">
-    <div class="label">How it runs &middot; about 30 minutes</div>
-    <p><strong>Sides are assigned, not chosen.</strong> You are speaking <em>for</em> a position, not defending your own. Nobody in this room has to believe what they say today, and you will speak for the other side before we finish.</p>
+    <div class="label">How the debate runs &middot; about 35 minutes</div>
     <ol>
-      <li><strong>Get your side (1 min).</strong> Left half of the room is Side A, right half is Side B.</li>
-      <li><strong>Research it, with your partner (10 min).</strong> Machines open. Start from the chapter sections listed with your side below and find one more source of your own. Then write three things on one card: your strongest point in a sentence, the specific evidence behind it, and the honest cost of your own position. Add a fourth line: the thing your side would rather you didn't notice.</li>
-      <li><strong>Join another pair on your side (5 min).</strong> Four of you, two cards. Pick the single best point and the single best piece of evidence between you. That is what your group brings to the room.</li>
-      <li><strong>Speak for your side (3 min each).</strong> One sentence per group, then the evidence. No speeches, no repeats. If your point is already on the table, say what it costs instead.</li>
-      <li><strong>Switch (5 min).</strong> Everyone now speaks for the other side, same one-sentence rule. This is the part that does the work.</li>
-      <li><strong>What would change your mind (5 min).</strong> Out loud. Name the specific thing you would have to see. Whoever names real evidence that would move them wins, whichever side they were handed.</li>
+      <li><strong>Your side is where you sit (2 min).</strong> Groups of 2 or 3 on your side. Count off 1 to 4: that's your piece of evidence.</li>
+      <li><strong>Research with Claude (10 min).</strong> Follow the box below.</li>
+      <li><strong>Team up (4 min).</strong> Teams of 6 or 7, three per side: A1 to A3, B1 to B3. Pick an opener and a rebutter.</li>
+      <li><strong>Openings (5 min).</strong> Openers stand up where they are. About 45 seconds: claim, evidence, cost.</li>
+      <li><strong>Huddle (1 min).</strong> Rebutters pick one point the other side made.</li>
+      <li><strong>Rebuttals (5 min).</strong> Stand up and face the other side, Side B first. Answer one point. No new arguments.</li>
+      <li><strong>Switch (3 min).</strong> Someone new argues the other side's best point in one sentence.</li>
+      <li><strong>What did you hear? (3 min).</strong> Which argument from the other side was hardest to answer? No winner is declared.</li>
     </ol>
   </div>
-
-
-  <h3 class="sub" id="motion-chatbot"><span>Motion 1</span> Should a chatbot be allowed to say it cares? (Chapter 2)</h3>
-  <p>Chapter 2's case worked because clinicians read the transcripts and a rulebook limited what the bot could say. Most chatbots have neither.</p>
-  <ul class="ideas">
-    <li><strong>Side A: yes, with rules.</strong> A chatbot can say it cares, as long as regulation sets the terms: it says plainly that it's an AI, the warmth has a cap for minors, and a person can see the conversation when something goes wrong. <em>Your evidence to start from:</em> the Therabot trial in <a class="inline" href="chapter-02-human.html#s3-background">Chapter 2's case</a>, where the bond with the bot is what helped and clinicians read every conversation, and Illinois's law, which bans AI from delivering therapy without a licensed clinician's oversight. <em>The cost you have to name:</em> rules only work if someone checks them, and the safeguards that made the trial work are exactly the expensive ones most apps skip.</li>
-    <li><strong>Side B: no.</strong> A product should not be allowed to say "I care about you" or "I missed you" when no one does. It's the Narcissus trap sold as a feature. <em>Your evidence to start from:</em> <a class="inline" href="chapter-02-human.html#s2-5">Chapter 2, section 2.5</a>, where parents who lost teenagers to suicide testified before the Senate and families have sued, alleging a chatbot's warmth pulled their child away from the people who could have helped; and China's rules in <a class="inline" href="chapter-02-human.html#s2-6">section 2.6</a>, which ban design features meant to induce addiction. <em>The cost you have to name:</em> some people are helped by exactly that sentence, at 3 a.m., when nothing else is available, and the Therabot trial is the evidence.</li>
-  </ul>
-
-  <p><strong>Resolve it with the chapter's case.</strong> The trial worked because of three expensive things the app stores don't sell: evidence in the training, people reading the conversations, and rules on what the bot could say. Which of those does each side's rule actually require, and who pays for it?</p>
-
-  <p>Keep your ELIZA conversation in view while you do this. Forty lines of rules made it feel like someone was listening, and nobody was.</p>
-
-  <h3 class="sub" id="motion-feed"><span>Motion 2</span> Should a simple AI that learns from your clicks decide what you see next? (Chapter 3)</h3>
-  <p>The recommender you just trained knew nothing about music. It matched your clicks to other people's and picked for you. Versions of it decide what plays next on Spotify and what comes up next on TikTok, YouTube, and Instagram. Should that be the default?</p>
-  <ul class="ideas">
-    <li><strong>Side A: yes, with rules.</strong> Let it pick, but make it show its work: label anything commercially boosted, and let people see and edit the taste profile it built. <em>Your evidence to start from:</em> <a class="inline" href="chapter-03-systems.html">Chapter 3</a> on how much there is to choose from, and the fixes in its <a class="inline" href="chapter-03-systems.html#s3-how-to-keep-it-beneficial">Question 5</a>. <em>The cost you have to name:</em> labels only help if someone reads them, and the loop still shapes your taste while you're not looking.</li>
-    <li><strong>Side B: no, you choose.</strong> The default should be what you asked for, in the order it came, with the recommender something you switch on. <em>Your evidence to start from:</em> <a class="inline" href="chapter-03-systems.html#s2-3">Chapter 3, section 2.3</a>: the loop shapes what you like, it favors whoever already has data, and with Discovery Mode someone can pay to move the ranking without you knowing which picks were paid. <em>The cost you have to name:</em> most people never switch anything on, so a feed you have to choose is a feed most people won't use, and "what's popular" favors the already-popular too.</li>
-  </ul>
-
-  <p><strong>Resolve it with Chapter 3's question</strong> (<a class="inline" href="chapter-03-systems.html#s5">section 5</a>): every recommender optimizes for something, and someone chose it. Under each side's rule, what number does the loop chase, and who gets to see it?</p>
+  <div class="callout">
+    <div class="label">Research with Claude: take your evidence apart &middot; 10 minutes</div>
+    <ol>
+      <li><strong>Open Claude.</strong> Paste your piece's description (from the box for your topic) and say which topic and side you're on. Claude may not know about recent events, so the description matters.</li>
+      <li><strong>Ask:</strong> "What does this show, exactly? What was found, or what does it require?"</li>
+      <li><strong>Ask:</strong> "Who benefits from this, and what are its limits?"</li>
+      <li><strong>Ask:</strong> "Who checks or enforces this, and what happens if nobody does?" Then: "Has that ever actually happened?"</li>
+      <li><strong>Ask:</strong> "Does this help my side more or the other side more? Why?"</li>
+      <li><strong>Ask:</strong> "Based on all this, what are the strongest points for my side, and the best objection from the other side?"</li>
+    </ol>
+    <div class="probe">
+      <div class="pwhy">Sample prompt for the first step. Copy it, then swap in your own topic, evidence, and side.</div>
+      <div class="ptext">I'm in an intro business class debating this topic: Should a chatbot be allowed to say it cares? I'm on Side A: yes, with rules. My piece of evidence is Illinois's law, which bans AI from delivering therapy without a licensed clinician's oversight. What does this show, exactly? What does it require?</div>
+    </div>
+    <p><strong>Then close Claude.</strong> Write four notes in your own words: your strongest point, the evidence behind it, the honest cost of your position, and what the other side will probably say. <strong>You cannot read from Claude.</strong></p>
+  </div>
 </section>
 
 <section id="discuss">
@@ -833,7 +925,7 @@ ol.labchapters li{margin:4px 0;font-size:1.02rem}
       <dd>Collaborative filtering by cosine similarity: your clicks are compared with nine invented listeners, and songs are scored by how much your three closest matches engaged with them. The fifteen songs are real; the listeners and their scores are invented, carried over from the MIS 432 Spotify lab. It illustrates the method Chapter 3 describes. It is not Spotify's system, and its numbers are not Spotify's.</dd>
 
       <dt>Chapter claims used here</dt>
-      <dd>The two training stages, the seeming dials, Therabot, and Motion 1's evidence come from <a class="inline" href="chapter-02-human.html">Chapter 2</a>. Collaborative filtering, the loop, Wrapped, Discovery Mode, and Motion 2's evidence come from <a class="inline" href="chapter-03-systems.html">Chapter 3</a>. Both carry their own verification notes.</dd>
+      <dd>The two training stages, the seeming dials, Therabot, and Topic 1's evidence come from <a class="inline" href="chapter-02-human.html">Chapter 2</a>. Collaborative filtering, the loop, Wrapped, Discovery Mode, and Topic 2's evidence come from <a class="inline" href="chapter-03-systems.html">Chapter 3</a>. Both carry their own verification notes.</dd>
     </dl>
     <p class="srcfoot">Most likely to need checking first: anything resting on Chapter 2, and the Discovery Mode material resting on Chapter 3.</p>
   </div>

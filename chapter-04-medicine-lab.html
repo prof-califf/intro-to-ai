@@ -198,9 +198,6 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 
 /* ---- lab 3: inside the graph ---- */
-ul.plan{list-style:none;margin:0}
-ul.plan li{padding:4px 0;border-bottom:1px solid var(--rule)}
-ul.plan li:last-child{border-bottom:none}
 .chiplbl{font-size:.85rem;color:var(--gray);margin-right:4px}
 .graphscroll{overflow-x:auto;margin:16px 0 0;border:1px solid var(--rule)}
 .graphscroll:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
@@ -246,9 +243,17 @@ ul.plan li:last-child{border-bottom:none}
 ol.discuss{padding-left:1.2rem}
 ol.discuss li{margin-bottom:12px;line-height:1.65}
 ol.discuss li:last-child{margin-bottom:0}
-.srcnote{margin:26px 0;border:1px solid var(--rule);background:#fff;padding:14px 18px;font-size:.88rem;color:var(--gray)}
-.srcnote summary{cursor:pointer;color:var(--ink);font-weight:600}
-.srcnote p{margin:10px 0 0}
+  .srcnote{border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0;margin:34px 0}
+  .srcnote > summary{cursor:pointer;padding:14px 20px;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1rem;color:var(--ink);list-style:none}
+  .srcnote > summary::-webkit-details-marker{display:none}
+  .srcnote > summary::after{content:"\25BE";float:right;color:var(--pinktext);font-size:.8rem}
+  .srcnote[open] > summary::after{content:"\25B4"}
+  .srcnote .srcbody{padding:0 20px 18px}
+  .srcnote .srcintro{font-size:.9rem;color:var(--gray);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+  .srcnote dl{margin:0}
+  .srcnote dt{font-family:'Inter',Arial,sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:14px 0 4px}
+  .srcnote dd{margin:0;font-size:.9rem;line-height:1.55;color:var(--gray)}
+  .srcnote .srcfoot{margin-top:18px;padding-top:12px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--gray)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 .ranked .r{width:100%;background:none;border:0;border-bottom:1px solid #242C36;color:#E7EAEF;font:inherit;font-size:.9rem;cursor:pointer;text-align:left;padding:9px 0;align-items:center}
 .ranked .r:hover,.ranked .r.on{color:var(--yellow)}
@@ -322,6 +327,122 @@ ol.discuss li:last-child{margin-bottom:0}
 .scorestrip .ss:focus-visible{outline:2px solid var(--pink);outline-offset:1px}
 ul.ideas{padding-left:1.2em;margin:10px 0}
 ul.ideas li{margin:8px 0}
+
+.gnode.dim circle{opacity:1;stroke:#2A323C}
+.gnode.dim text{opacity:1;fill:#8A919B}
+.gnode.fundable circle{stroke:#7FD4FF;stroke-width:3;cursor:pointer}
+.gnode.fundable{cursor:pointer}
+.gnode.fundable:focus-visible circle{stroke:#fff}
+.ghit{stroke:transparent;stroke-width:14;fill:none;cursor:pointer;pointer-events:stroke}
+.ghit:hover,.ghit:focus-visible{stroke:rgba(255,61,138,.35);outline:none}
+.gedge.gone{opacity:1;stroke:#FF3D8A}
+.legend .l-gone::before{border-color:#FF3D8A;background:transparent;border-style:dashed;border-radius:2px;height:4px;vertical-align:3px}
+.kgunit .legend .l-gone::before{border-color:#FF3D8A}
+.scorestrip .ss.zero{opacity:1;background:#12171D;color:#AEB6C0}
+.modehint{font-size:.88rem;color:var(--gray);margin:10px 0 0}
+.budget{margin:0 0 6px}
+.btrack{height:10px;background:var(--bg);border:1px solid var(--rule);border-radius:999px;overflow:hidden;margin-bottom:6px}
+.btrack i{display:block;height:100%;background:var(--dark);transition:width .25s ease}
+.btrack.over i{background:var(--pinktext)}
+.gcard .chips .chip small.cost{font-weight:600;color:var(--pinktext)}
+.gcard .chips .chip.on small.cost{color:var(--yellow)}
+.gmap{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:4px 0 16px}
+.gtile{display:flex;flex-direction:column;gap:4px;padding:12px;border:1px solid #39424D;min-height:118px}
+.gtile .tt{font-weight:700;font-size:.92rem;color:#fff}
+.gtile .ts{font-size:.76rem;color:#AEB6C0}
+.gtile .th{font-size:.86rem;line-height:1.45;margin-top:auto}
+.gtile.known{background:#1B222B}
+.gtile.known .th{color:var(--yellow);font-weight:600}
+.gtile.fog{background:repeating-linear-gradient(135deg,#1B222B 0 8px,#252D37 8px 16px)}
+.gtile.fog .th{color:#E7EAEF}
+.gtile.no{background:#1B222B;border-color:#FF3D8A}
+.gtile.no .th{color:#FF3D8A;font-weight:600}
+#gt-verdict:focus{outline:none}
+
+.kglbl{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:0 0 8px}
+.factdeck{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+.fact{text-align:left;font:inherit;font-size:.88rem;line-height:1.35;padding:9px 12px;background:#fff;border:1px solid var(--rule);color:var(--ink);cursor:pointer}
+.fact small{display:block;color:var(--gray);font-size:.76rem;margin-top:3px}
+.fact:hover{border-color:var(--pinktext)}
+.fact:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.fact.on{background:var(--dark);color:#fff;border-color:var(--dark)}
+.fact.on small{color:#AEB6C0}
+.fact.on .ft::before{content:"\2713  ";color:var(--yellow)}
+#kg .kgunit{margin-top:14px}
+.kedge{stroke:#6B7480;stroke-width:1.6}
+.kedge.neg{stroke-dasharray:5 4}
+.kedge.lit{stroke:var(--yellow);stroke-width:2.6}
+.kedge.faint{stroke:#39424D}
+.kverb{font-family:'Inter',sans-serif;font-size:10px;paint-order:stroke;stroke:#0E1116;stroke-width:4px}
+.kverb.pos{fill:#C9CED6}
+.kverb.neg{fill:#FF7AAE}
+.kverb.lit{fill:var(--yellow);font-weight:700}
+.knode circle{fill:#1B222B;stroke:#6B7480;stroke-width:2}
+.knode.drug circle{stroke:var(--yellow)}
+.knode.dis circle{stroke:var(--pink)}
+.knode text{font-family:'Inter',sans-serif;font-size:12px;fill:#C9CED6}
+.knode.lit circle{fill:#2A3440;stroke:#fff}
+.knode.lit text{fill:#fff;font-weight:600}
+.knode.sel circle{fill:var(--pink);stroke:var(--pink)}
+.knode.sel text{fill:#fff;font-weight:700}
+.knode.faint text{fill:#8A919B}
+.knode.faint circle{stroke:#39424D}
+#kg .verdict ul.ans{list-style:none;padding:0;margin:10px 0 0}
+#kg .verdict ul.ans li{padding:10px 0;border-top:1px solid #242C36;display:flex;flex-direction:column;gap:3px}
+#kg .verdict .sug{color:var(--yellow)}
+#kg .verdict li.bad .sug{color:#FF7AAE}
+#kg .verdict .path{font-size:.88rem;color:#E7EAEF}
+#kg .verdict .math{font-size:.82rem;color:#AEB6C0;font-variant-numeric:tabular-nums}
+.knows{margin:0;padding-left:22px;font-size:.9rem}
+.knows li{padding:5px 0;border-bottom:1px solid var(--rule)}
+.knows li > span{margin-right:10px}
+.knows li .chip{font-size:.74rem;padding:2px 10px}
+.knows li.yours > span{color:var(--pinktext);font-weight:600}
+.knows li.empty{list-style:none;margin-left:-22px;color:var(--gray)}
+.mine{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.mine label{display:flex;flex-direction:column;font-size:.78rem;color:var(--gray);gap:3px}
+.mine input,.mine select{font:inherit;font-size:.9rem;padding:7px 9px;border:1px solid var(--rule);background:#fff;color:var(--ink);min-width:140px}
+.mine input:focus-visible,.mine select:focus-visible{outline:2px solid var(--pink);outline-offset:1px}
+#kg .verdict .path i.vb{font-style:normal;font-size:.78rem;padding:1px 6px;border:1px solid #39424D;border-radius:999px;color:#C9CED6}
+#kg .verdict .path i.vb.neg{color:#FF7AAE;border-color:#5A2A3D}
+
+.kglayout{display:flex;flex-direction:column;gap:22px}
+.kgmain #kg-qs{display:inline-flex}
+@media(min-width:980px){
+  #kg{width:min(1160px,calc(100vw - 48px));margin-left:calc((100% - min(1160px,calc(100vw - 48px)))/2)}
+  .kglayout{display:grid;grid-template-columns:300px 1fr;gap:24px;align-items:start}
+  .kgside{grid-column:1;grid-row:1}
+  .kgmain{grid-column:2;grid-row:1;position:sticky;top:76px;max-height:calc(100vh - 92px);overflow-y:auto}
+  .kgside .factdeck{grid-template-columns:1fr}
+  #kg .kgunit{margin-top:10px}
+  #kg .graphscroll .graphbox,#kg .graphscroll .legend{min-width:0}
+  #kg .swipehint{display:none}
+}
+.kgsrc{font-size:.85rem;color:var(--gray);line-height:1.5;margin:0 0 10px}
+/* debate evidence diagram, same as Lab 1 section 5 */
+.accord{border:1px solid var(--rule);background:#fff;margin:22px 0 10px}
+.accord .acc-head{background:var(--dark);color:var(--yellow);font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px}
+.accord .acc-grid{list-style:none;margin:0;padding:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.accord .acc-card{background:var(--bg);border:1px solid var(--rule);padding:14px;margin:0;display:flex;flex-direction:column}
+.accord .acc-num{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext)}
+.accord .acc-name{font-family:'Fraunces',serif;font-size:1.08rem;font-weight:600;margin:4px 0 6px;line-height:1.2}
+.accord .acc-mean{font-size:.9rem;line-height:1.45;margin:0 0 12px;flex:1}
+.accord .acc-who{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;padding:6px 8px}
+.accord .acc-who.co{background:var(--dark);color:var(--yellow)}
+.accord .acc-who.out{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.accord .acc-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:0 16px 16px;font-family:'Inter',sans-serif;font-size:.82rem}
+.accord .acc-flow .lbl2{font-weight:700;color:var(--ink);margin-right:4px}
+.accord .acc-step{background:var(--bg);border:1px solid var(--rule);padding:6px 10px}
+.accord .acc-arrow{color:var(--gray)}
+.accord .acc-no{border:1px dashed var(--gray);padding:6px 10px;color:var(--ink)}
+.accord .acc-no b{color:var(--pinktext)}
+.acc-cap{font-size:.88rem;color:var(--gray);margin:0 0 10px}
+.exact{margin:6px 0 22px}
+.exact summary{cursor:pointer;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;color:var(--pinktext)}
+.exact ol{margin-top:10px}
+.exact li{margin:8px 0;font-size:.92rem}
+@media(max-width:760px){.accord .acc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.accord .acc-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -370,196 +491,264 @@ ul.ideas li{margin:8px 0}
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 4 · Week 4, Wednesday, in class</div>
     <h1>Inside the <b>Graph</b></h1>
-    <p class="kicker">Chapter 4 said a predictive AI can only find what its record contains, and that where the doctor stands is a setting with a price. Today you work both halves with your own hands. First you run a small version of Every Cure's knowledge graph: pick a disease, see what the record connects it to, read the scores, and decide what you'd send to the science team. Then you run a hospital's AI program and decide where the doctor stands on four real tasks. Then the room argues about it.</p>
-    <p class="factline">Pick a disease · read the score · decide · set the gate</p>
+    <p class="kicker">Chapter 4 said a predictive AI can only find what its record contains, and that where the doctor stands is a setting with a price. Today you work both halves with your own hands. First you build a small knowledge graph out of things from a medicine cabinet, ask it what might help, and find out what it can and can't tell apart. Then you run a hospital's AI program and decide where the doctor stands on four real tasks. Then the room argues about it.</p>
+    <p class="factline">a knowledge graph you build · the doctor's gate · under the hood · one debate · five questions on your own choices</p>
   </div>
 </header>
 
 <main class="wrap">
-<div class="callout">
-  <div class="label">How today runs</div>
-  <p>Almost all of this lab happens in class, right now, at the machine in front of you. Work through the sections in order. At the end there are five questions to upload to Canvas by 11:59 p.m. Friday, and most people finish most of them before they leave, so answer them as you go rather than saving them for later.</p>
-</div>
+
 <div class="callout">
   <div class="label">From Chapter 4 · what this lab runs on</div>
-  <p>The graph you'll click through is section 2.2's knowledge graph, the record turned into connections. Every score you see is a claim about the record, not a verdict about a patient (2.5). When you rewind history and watch a cure vanish, you're watching section 2.3's gap: the system can only find what someone bothered to write down. Your decisions are the analyst's, not the doctor's, which is where the chapter says the human belongs.</p>
+  <p><strong>How today runs.</strong> Almost all of this lab happens in class, right now, at the machine in front of you. Work through the sections in order. At the end there are five questions to upload to Canvas by 11:59 p.m. Friday, and most people finish most of them before they leave, so answer them as you go rather than saving them for later.</p>
+  <p>The graph you'll build is <a class="inline" href="chapter-04-medicine.html#s2-2">section 2.2</a>'s knowledge graph, small enough to read in one screen. Every answer it gives is a claim about what's written in it, not a verdict about a patient (<a class="inline" href="chapter-04-medicine.html#s2-5">2.5</a>). When you remove one sentence and a discovery disappears, you're watching <a class="inline" href="chapter-04-medicine.html#s2-3">section 2.3</a>'s gap: the system can only find what someone bothered to write down.</p>
 </div>
 
 
-<section id="today">
-  <div class="shead"><span class="num">1</span><h2>In class: Today, and what you're working with</h2></div>
-  <div class="callout">
-    <div class="label">The plan · 110 minutes</div>
-    <ul class="plan">
-      <li><b>Part 1, the graph</b> · 35 minutes, including this intro</li>
-      <li><b>Break</b> · 5 minutes</li>
-      <li><b>Part 2, the gate</b> · 30 minutes</li>
-      <li><b>Discussion</b> · 10 minutes after Part 2, plus 10 to close</li>
-      <li><b>Five questions on your own choices</b> · 10 minutes, then the writeup is homework</li>
-    </ul>
-  </div>
-  <p class="lead">The graph below is a toy. It has 22 dots, where Every Cure's MATRIX has about 8.9 million. The mechanism is the same one from the chapter: a drug scores against a disease when research lines connect them, and more and stronger paths mean a higher score.</p>
-  <p>What's real and what isn't: sirolimus, mTOR, immune signaling, and Castleman disease are the chapter's real path. POEMS syndrome, multiple myeloma, and ROHHAD syndrome are real diseases, and propranolol for infantile hemangioma is a real repurposing. The two myeloma drugs are stand-ins. Anything marked with an asterisk is invented for this lab, and every study count and score is simulated. Nothing here is medical advice.</p>
+<section id="graph">
+  <div class="shead"><span class="num">1</span><h2>In class: Build a knowledge graph, then ask it for a cure (Every Cure's MATRIX, in miniature)</h2></div>
+  <p class="lead">In Chapter 4 you read how Every Cure's MATRIX suggests old drugs for new diseases. It runs on a knowledge graph, and a knowledge graph is less mysterious than it sounds: it's a pile of short sentences, each one a thing, an arrow, and another thing. "Caffeine blocks adenosine." "Adenosine causes sleepiness." Stack enough of them and you can follow the arrows to answers nobody wrote down. Here you build a small one out of things from a medicine cabinet, ask it questions, and find out what it's good at and what it can't tell apart.</p>
+  <p>Every fact on the cards is real, simplified to one line. Nothing here is medical advice.</p>
   <p>Work in pairs. Keep notes as you go; Friday's writeup asks for what you saw, in your own words. <em>(Rough notes are fine. Precision is what the discussion is for.)</em></p>
+
+  <div class="steps">
+    <div class="step"><span class="sn">1</span><p><strong>Build it.</strong> Click the fact cards one at a time and read each one as it goes in. Watch the graph grow. The list under the graph, "Everything it knows," is the whole machine. There is nothing else inside.</p></div>
+    <div class="step"><span class="sn">2</span><p><strong>Ask it.</strong> Leave it on <em>Just follow the arrows</em>. Ask about <em>trouble sleeping</em>. What does it suggest? Then ask about <em>drowsy driving</em>. Would you take either answer?</p></div>
+    <div class="step"><span class="sn">3</span><p><strong>Teach it to read.</strong> Switch to <em>Read the words too</em> and ask both questions again. What changed, and why? The answer box shows the math.</p></div>
+    <div class="step"><span class="sn">4</span><p><strong>Let it discover.</strong> Ask about <em>hair loss</em>. What did it suggest, and what was that drug made for? Then find "Minoxidil causes hair growth" in the list, remove it, and ask again.</p></div>
+    <div class="step"><span class="sn">5</span><p><strong>Feed it.</strong> Write your own sentence at the bottom of the tool. First a true one you know, then a false one, like "Candy reduces pain." Ask again. Can it tell which is which?</p></div>
+  </div>
+
+  <div class="tool" id="kg">
+    <div class="label">Mini knowledge graph · 14 facts · you add the rest</div>
+    <div class="kglayout">
+      <div class="kgmain">
+        <div class="kglbl">Ask it a question</div>
+    <div class="chips" role="group" aria-label="How the graph reads">
+      <span class="chiplbl">How it reads:</span>
+      <button type="button" class="chip on" data-read="lines" aria-pressed="true">Just follow the arrows</button>
+      <button type="button" class="chip" data-read="words" aria-pressed="false">Read the words too</button>
+    </div>
+    <div class="chips" role="group" aria-label="What might reduce">
+      <span class="chiplbl">What might reduce:</span>
+      <span id="kg-qs" class="chips"></span>
+    </div>
+        <p class="swipehint">Swipe the graph sideways to see all of it.</p>
+        <div class="kgunit">
+      <div class="graphscroll" tabindex="0" role="region" aria-label="The knowledge graph. Scrolls sideways on small screens. The list below it holds the same facts as text.">
+        <div class="graphbox"><svg id="kg-svg" viewBox="0 0 780 200" role="img" aria-label="The knowledge graph"><defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6B7480"/></marker>
+          <marker id="ahl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E4FF32"/></marker>
+        </defs><g id="kg-edges"></g><g id="kg-nodes"></g></svg></div>
+      </div>
+      <div class="legend"><span class="l-drug">something you can take</span><span class="l-mid">something in the body</span><span class="l-disease">a problem to reduce</span><span class="l-path">the path it used</span></div>
+      <div class="verdict" aria-live="polite">
+        <div class="label" id="kg-title">No question yet</div>
+        <div id="kg-answer"><p class="read">Add some facts, then pick a problem above.</p></div>
+      </div>
+    </div>
+      </div>
+      <div class="kgside">
+        <div class="kglbl">What the research says · click a fact to add it</div>
+        <p class="kgsrc">Each card is one finding from medical research and drug labels, cut down to a single sentence. A real system like MATRIX builds its graph the same way, from millions of sentences pulled out of published studies and medical databases. The graph never reads the studies. It only gets the sentences.</p>
+    <div class="factdeck" id="kg-deck"></div>
+    <div class="chips" style="margin-top:10px">
+      <button type="button" class="btn" id="kg-next">Add the next fact</button>
+      <button type="button" class="btn alt" id="kg-all">Add all the rest</button>
+      <button type="button" class="btn alt" id="kg-reset">Start over</button>
+    </div>
+        <div class="kglbl" style="margin-top:22px">Everything it knows</div>
+    <ol class="knows" id="kg-knows"></ol>
+        <div class="kglbl" style="margin-top:22px">Feed it a sentence of your own</div>
+        <p class="kgsrc">Yours doesn't come from any research. Watch whether the graph can tell.</p>
+    <div class="mine">
+      <label>Thing <input type="text" id="kg-a" list="kg-names" maxlength="30" placeholder="Candy"></label>
+      <label>Arrow <select id="kg-v"><option value="1">causes or increases</option><option value="-1">reduces or blocks</option></select></label>
+      <label>Thing <input type="text" id="kg-b" list="kg-names" maxlength="30" placeholder="pain"></label>
+      <button type="button" class="btn" id="kg-add">Add my sentence</button>
+      <datalist id="kg-names"></datalist>
+    </div>
+    <p class="tis-note" id="kg-status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub">The takeaway</h3>
+  <p>A knowledge graph is a pile of sentences and a rule for walking the arrows. That rule found a real repurposing on its own: a blood pressure pill for hair loss. It also suggested coffee for insomnia until you taught it to read "blocks" and "causes," and it believed your false sentence as readily as the true ones, because every sentence looks the same to it. Remove one line and a discovery disappears. MATRIX is this machine with millions of sentences, which is why it can find what no person would, and why it can only find what somebody wrote down.</p>
 </section>
 
-<section id="graph">
-  <div class="shead"><span class="num">2</span><h2>In class: Part 1, run the graph · 35 minutes</h2></div>
-
-    <p><strong>What you are working with.</strong> Below is Mini-MATRIX: seven drugs on the left, eight pieces of biology in the middle, seven diseases on the right, and every line a piece of published research. Each disease shows how many studies stand behind it. Pick a disease and every drug gets scored against it; the paths behind the top drug light up. Your job is in the panel: four diseases, four decisions.</p>
-  <div class="tool" id="kg">
-    <div class="label">Mini-MATRIX · 7 drugs, 8 biology dots, 7 diseases</div>
-    <details class="stepsin" open>
-      <summary>How it works, and the four decisions <span>click to fold this away once you know it</span></summary>
-      <div class="stepslbl">How the tool works</div>
-    <ol class="howto">
-      <li><b>Pick a disease</b> below, or click a pink dot. Every drug gets scored against it and the top drug's path lights up.</li>
-      <li><b>Click a drug</b> on the left, or in the score list, to see only its paths.</li>
-      <li><b>Read the study count</b> next to each disease dot. That is how much research the scores rest on. <em>Clear everything</em> starts over.</li>
-    </ol>
-      <div class="stepslbl">Your job: four diseases, four decisions</div>
-      <p>You are the analyst. For each disease, the science team can afford to investigate one drug this year, or none. Your boss wants a name and a reason.</p>
-      <div class="steps">
-    <div class="step"><span class="sn">1</span><p><strong>Castleman disease.</strong> Pick it. Read the top score in the strip, then click that drug and follow its lit path hop by hop through the graph. Note the study count under the disease. Decision: would you send sirolimus to the science team? Write the drug, the number, the path in three hops, and one sentence on why.</p></div>
-    <div class="step"><span class="sn">2</span><p><strong>Migraine.</strong> Pick it. Corvanol* scores 96, the highest number on the board. Look at what Corvanol* connects to on the graph: it touches more biology than any other drug, and migraine has more studies than any other disease here. Decision: send it? Write the number and one sentence on whether that 96 is about the biology or about how much everyone has studied both ends.</p></div>
-    <div class="step"><span class="sn">3</span><p><strong>ROHHAD syndrome.</strong> Pick it. Every drug scores zero. Look at the dot: nine studies, almost no lines. Decision: you have nothing to send. Write the two sentences you'd say to your boss: what the zeros mean, and what would have to exist before this screen could help this disease.</p></div>
-    <div class="step"><span class="sn">4</span><p><strong>Joseph.</strong> Pick POEMS syndrome. It's thin (600 studies), but it sits next to multiple myeloma on the graph, so the myeloma drugs have paths in and score in the 70s. In the real case, this is the match that reached Joseph's doctors. Your decision is not whether to give him chemotherapy; that's the doctors' and Joseph's. Yours is what to put in front of them. Pick one: (a) send the match with its score, its path, and the study count, and flag that the path runs through a neighboring disease, not POEMS itself; (b) send only the score; (c) don't send it, because 600 studies is too thin. Write your letter and one sentence on what the doctors would still have to decide that no score can decide for them.</p></div>
-      </div>
-    </details>
-    <div class="chips" role="group" aria-label="Pick a disease">
-      <span class="chiplbl">Pick a disease:</span>
-      <span id="kg-dis-chips" class="chips"><button type="button" class="chip" data-id="cas" aria-pressed="false">Castleman disease</button><button type="button" class="chip" data-id="poe" aria-pressed="false">POEMS syndrome</button><button type="button" class="chip" data-id="mm" aria-pressed="false">Multiple myeloma</button><button type="button" class="chip" data-id="hem" aria-pressed="false">Infantile hemangioma</button><button type="button" class="chip" data-id="mig" aria-pressed="false">Migraine</button><button type="button" class="chip" data-id="roh" aria-pressed="false">ROHHAD syndrome</button><button type="button" class="chip" data-id="kes" aria-pressed="false">Kessler-Lund syndrome*</button></span>
-    </div>
-    <div class="chips ctrlrow" role="group" aria-label="Graph controls">
-      <span class="chiplbl">Then:</span>
-                              <button type="button" class="chip" id="kg-clear">Clear everything</button>
-    </div>
-    <p class="swipehint">Swipe the graph sideways to see the diseases.</p>
-    <div class="kgunit">
-      <div class="scorestrip" id="kg-strip" aria-live="polite"><span class="ss-hint">Scores appear here as soon as you pick a disease.</span></div>
-      <div class="scorekey"><b>What the number means:</b> potential match, 0 to 100. Zero means no published research connects this drug to this disease. Higher means more, and stronger, published paths between them. It is a claim about the record, not a verdict about a patient.</div>
-      <div class="graphscroll" tabindex="0" role="region" aria-label="Knowledge graph, scrolls sideways on small screens">
-      <div class="graphbox">
-        <svg id="kg-svg" viewBox="0 0 780 540" role="group" aria-label="Knowledge graph. Drugs on the left, biology in the middle, diseases on the right. Each disease and drug is a button.">
-          <g id="kg-edges"><path d="M150,60 L390,40" class="gedge" stroke-width="2.6"/><path d="M390,40 L390,104" class="gedge" stroke-width="2.0"/><path d="M390,104 L600,60" class="gedge" stroke-width="2.6"/><path d="M150,130 L390,232" class="gedge" stroke-width="2.0"/><path d="M390,232 L600,270" class="gedge" stroke-width="2.6"/><path d="M150,200 L390,168" class="gedge" stroke-width="2.6"/><path d="M150,270 L390,168" class="gedge" stroke-width="2.6"/><path d="M390,168 L600,200" class="gedge" stroke-width="2.6"/><path d="M600,130 L600,200" class="gedge" stroke-width="2.0"/><path d="M600,130 L600,60" class="gedge" stroke-width="1.4"/><path d="M150,340 L390,296" class="gedge" stroke-width="2.6"/><path d="M150,340 L390,360" class="gedge" stroke-width="2.0"/><path d="M150,340 L390,232" class="gedge" stroke-width="1.4"/><path d="M150,340 L390,424" class="gedge" stroke-width="1.4"/><path d="M390,296 L600,340" class="gedge" stroke-width="2.0"/><path d="M390,360 L600,340" class="gedge" stroke-width="2.6"/><path d="M390,424 L600,340" class="gedge" stroke-width="2.6"/><path d="M390,296 L600,60" class="gedge" stroke-width="1.4"/><path d="M390,296 L600,200" class="gedge" stroke-width="1.4"/><path d="M150,410 L390,424" class="gedge" stroke-width="2.0"/><path d="M150,410 L390,360" class="gedge" stroke-width="1.4"/><path d="M150,480 L390,488" class="gedge" stroke-width="1.1"/><path d="M390,488 L600,410" class="gedge" stroke-width="1.1"/><path d="M390,488 L600,340" class="gedge" stroke-width="1.1"/></g>
-          <g id="kg-nodes"><g class="gnode drug" data-id="sir"><circle cx="150" cy="60" r="9"/><text x="132" y="64" text-anchor="end">Sirolimus</text></g><g class="gnode drug" data-id="pro"><circle cx="150" cy="130" r="9"/><text x="132" y="134" text-anchor="end">Propranolol</text></g><g class="gnode drug" data-id="mya"><circle cx="150" cy="200" r="9"/><text x="132" y="204" text-anchor="end">Myeloma drug A</text></g><g class="gnode drug" data-id="myb"><circle cx="150" cy="270" r="9"/><text x="132" y="274" text-anchor="end">Myeloma drug B</text></g><g class="gnode drug" data-id="cor"><circle cx="150" cy="340" r="9"/><text x="132" y="344" text-anchor="end">Corvanol*</text></g><g class="gnode drug" data-id="bri"><circle cx="150" cy="410" r="9"/><text x="132" y="414" text-anchor="end">Brivamide*</text></g><g class="gnode drug" data-id="tes"><circle cx="150" cy="480" r="9"/><text x="132" y="484" text-anchor="end">Tessolin*</text></g><g class="gnode bio" data-id="mtor"><circle cx="390" cy="40" r="7"/><text x="390" y="66" text-anchor="middle">mTOR</text></g><g class="gnode bio" data-id="imm"><circle cx="390" cy="104" r="7"/><text x="390" y="130" text-anchor="middle">immune signaling</text></g><g class="gnode bio" data-id="pla"><circle cx="390" cy="168" r="7"/><text x="390" y="194" text-anchor="middle">plasma cells</text></g><g class="gnode bio" data-id="ves"><circle cx="390" cy="232" r="7"/><text x="390" y="258" text-anchor="middle">blood vessel growth</text></g><g class="gnode bio" data-id="inf"><circle cx="390" cy="296" r="7"/><text x="390" y="322" text-anchor="middle">inflammation</text></g><g class="gnode bio" data-id="ser"><circle cx="390" cy="360" r="7"/><text x="390" y="386" text-anchor="middle">serotonin</text></g><g class="gnode bio" data-id="ner"><circle cx="390" cy="424" r="7"/><text x="390" y="450" text-anchor="middle">nerve signaling</text></g><g class="gnode bio" data-id="hor"><circle cx="390" cy="488" r="7"/><text x="390" y="514" text-anchor="middle">brain hormone control</text></g><g class="gnode disease" data-id="cas"><circle cx="600" cy="60" r="9"/><text x="620" y="64">Castleman disease</text></g><g class="gnode disease" data-id="poe"><circle cx="600" cy="130" r="9"/><text x="620" y="134">POEMS syndrome</text></g><g class="gnode disease" data-id="mm"><circle cx="600" cy="200" r="9"/><text x="620" y="204">Multiple myeloma</text></g><g class="gnode disease" data-id="hem"><circle cx="600" cy="270" r="9"/><text x="620" y="274">Infantile hemangioma</text></g><g class="gnode disease" data-id="mig"><circle cx="600" cy="340" r="9"/><text x="620" y="344">Migraine</text></g><g class="gnode disease" data-id="roh"><circle cx="600" cy="410" r="9"/><text x="620" y="414">ROHHAD syndrome</text></g><g class="gnode disease" data-id="kes"><circle cx="600" cy="480" r="9"/><text x="620" y="484">Kessler-Lund syndrome*</text></g></g>
-        </svg>
-      </div>
-          </div>
-      <div class="verdict" aria-live="polite">
-      <div class="label" id="kg-title">Pick a disease to rank every drug against it</div>
-      <p class="read" id="kg-note">Click a pink dot or a disease button above. Without scripts, the graph is a picture: the path from sirolimus to Castleman disease runs sirolimus, mTOR, immune signaling, Castleman disease.</p>
-      <div class="ranked" id="kg-list"></div>
-    </div>
-                  <div class="legend">
-        <span class="l-drug">drug</span><span class="l-mid">biology</span><span class="l-disease">disease</span><span class="l-path">lit path</span>
-      </div>
-    </div>
-      </div>
-
-    <div class="ticket">
-    <div class="label">Part 1 · answer this question for submission</div>
-    <p>Sirolimus scored 74 for Castleman disease (900 studies). Corvanol* scored 96 for migraine (12,000 studies). Every drug scored zero for ROHHAD (9 studies). Which match would you send to the science team, and why does the higher number not automatically win? Use the paths and the study counts, and end with one sentence on what the ROHHAD zeros actually mean.</p>
-  </div>
-  <div class="concept">
-    <div class="term">What to take away from Part 1</div>
-    <p>A score is a count of published paths, nothing more. The same number means different things depending on how much research sits behind it. And a disease nobody has studied scores zero against everything, not because no drug would work, but because the record has nothing to say. Your graph has 22 dots; MATRIX has about 8.9 million. Same mechanism. Nobody could run it by hand at that size, and that is why it's worth building even with everything you just saw about its blind spots.</p>
-  </div>
-  </section>
-
 <section id="gate">
-  <div class="shead"><span class="num">3</span><h2>In class: Part 2, set the gate · 30 minutes</h2></div>
-  <p class="lead">New desk. You run the AI program at a hospital, and four tasks need a setting. For each, put the doctor <strong>in</strong> the loop, <strong>on</strong> it, or <strong>out</strong> of it. Each card links the real study or case behind it. Read the evidence before you decide, and remember that in the loop is the expensive setting: a person touches every case.</p>
+  <div class="shead"><span class="num">2</span><h2>In class: Decide where the doctor stands (a hospital's AI program, in miniature)</h2></div>
+  <p class="lead">New desk. You run the AI program at a hospital, and four tasks need a setting. For each, put the doctor <strong>in</strong> the loop, <strong>on</strong> it, or <strong>out</strong> of it. Each card links the real study or case behind it. The catch: your doctors have seven shifts of time this year, and putting a person in the loop on everything would take eleven. Something has to give. Read the three steps, then do them in the tool below.</p>
   <div class="steps">
-    <div class="step"><span class="sn">1</span><p><strong>Decide, with the evidence open.</strong> For each card, click the evidence link, read what was actually tested, then choose in, on, or out. Decide as a pair. When all four are set, press <em>Run the year</em>.</p></div>
+    <div class="step"><span class="sn">1</span><p><strong>Decide, with the evidence open.</strong> For each card, click the evidence link, read what was actually tested, then choose in, on, or out. Each setting shows what it costs in doctor shifts. Decide as a pair, and stay inside seven.</p></div>
+    <div class="step"><span class="sn">2</span><p><strong>Run the year.</strong> Look at the map of your hospital it draws. A dark tile shows what a study measured for your setting. A striped tile means nobody has measured it, and your patients are the first test.</p></div>
+    <div class="step"><span class="sn">3</span><p><strong>Move one setting and run it again.</strong> Try to get every tile dark within seven shifts. Write down your final four, how many tiles were striped, and what you gave up to pay for the rest.</p></div>
   </div>
   <div class="tool" id="gt">
-    <div class="label">Four tasks, three settings each, and the evidence for each one linked on the card</div>
-    <div id="gt-cards"><div class="gcard"><div class="top"><h4>1. Screening mammograms</h4><span class="kind real">real</span></div><p class="ctx">The AI sorts scans by cancer risk. Right now two radiologists read every scan.</p><p class="src">Evidence: <a class="inline" href="https://doi.org/10.1016/S2589-7500(24)00267-X" target="_blank" rel="noopener">The MASAI trial, 105,000 women, The Lancet Digital Health, February 2025</a></p><div class="chips"><button type="button" class="chip"><b>In the loop</b><small>a person reads every case and decides</small></button><button type="button" class="chip"><b>On the loop</b><small>the AI decides, a person reviews what it flags</small></button><button type="button" class="chip"><b>Out of the loop</b><small>the AI decides, nobody reviews</small></button></div></div><div class="gcard"><div class="top"><h4>2. Diagnosis from clean case notes</h4><span class="kind real">real</span></div><p class="ctx">A doctor has already written up the facts that matter. The AI proposes a diagnosis.</p><p class="src">Evidence: <a class="inline" href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2825395" target="_blank" rel="noopener">Goh et al., JAMA Network Open, October 2024</a></p><div class="chips"><button type="button" class="chip"><b>In the loop</b><small>a person reads every case and decides</small></button><button type="button" class="chip"><b>On the loop</b><small>the AI decides, a person reviews what it flags</small></button><button type="button" class="chip"><b>Out of the loop</b><small>the AI decides, nobody reviews</small></button></div></div><div class="gcard"><div class="top"><h4>3. Diagnosis from a patient's own words, 2 a.m.</h4><span class="kind real">real</span></div><p class="ctx">No doctor has written anything up. A worried patient opens an app in the middle of the night and describes what is wrong in their own words, and the AI has to work from that.</p><p class="src">Evidence: <a class="inline" href="https://doi.org/10.1038/s41591-025-04074-y" target="_blank" rel="noopener">Bean et al., Nature Medicine, 2026</a></p><div class="chips"><button type="button" class="chip"><b>In the loop</b><small>a person reads every case and decides</small></button><button type="button" class="chip"><b>On the loop</b><small>the AI decides, a person reviews what it flags</small></button><button type="button" class="chip"><b>Out of the loop</b><small>the AI decides, nobody reviews</small></button></div></div><div class="gcard"><div class="top"><h4>4. Chemotherapy for a patient too sick for standard care</h4><span class="kind real">real</span></div><p class="ctx">The graph ranks three drugs highly. The chemotherapy could kill him.</p><p class="src">Evidence: <a class="inline" href="https://www.youtube.com/watch?v=4FxwoOuPGWs" target="_blank" rel="noopener">Joseph's case, Penn Medicine's film on Every Cure</a></p><div class="chips"><button type="button" class="chip"><b>In the loop</b><small>a person reads every case and decides</small></button><button type="button" class="chip"><b>On the loop</b><small>the AI decides, a person reviews what it flags</small></button><button type="button" class="chip"><b>Out of the loop</b><small>the AI decides, nobody reviews</small></button></div></div></div>
+    <div class="label">Four tasks · three settings each · seven doctor shifts</div>
+    <div class="budget" aria-live="polite">
+      <div class="btrack" aria-hidden="true"><i id="gt-bar"></i></div>
+      <p class="roundinfo" id="gt-status">0 of 7 shifts used. Set all four cards to run the year.</p>
+    </div>
+    <div id="gt-cards"></div>
     <div class="chips" style="margin-top:16px">
       <button type="button" class="btn" id="gt-run">Run the year</button>
       <button type="button" class="btn alt" id="gt-reset">Clear my settings</button>
     </div>
-    <p class="roundinfo" id="gt-status" aria-live="polite" style="margin-top:10px">Set all four cards to run the year.</p>
-    <div class="verdict" id="gt-verdict" aria-live="polite" hidden>
-      <div class="label">Your year</div>
+    <div class="verdict" id="gt-verdict" hidden tabindex="-1">
+      <div class="label">Your hospital, after one year</div>
+      <div class="gmap" id="gt-map"></div>
       <p class="read" id="gt-read"></p>
     </div>
   </div>
-  <div class="steps">
-    <div class="step"><span class="sn">2</span><p><strong>Read every result, including the ones you didn't pick.</strong> Change one setting and run it again. Write down your final four and what the year said.</p></div>
-  </div>
-  <div class="ticket">
-    <div class="label">Part 2 · answer this question for submission</div>
-    <p>List your four settings. For each, say in a few words what the evidence on the card supports, and mark any setting that no trial has tested. Then one sentence on the 2 a.m. card: what changed between it and the doctor-written-notes card, and where does that put the doctor?</p>
-  </div>
-  <div class="concept">
-    <div class="term">What you just saw, in three sentences</div>
-    <p><b>Where the human stands is a setting, not a rule.</b> The same kind of AI scored 90 alone and 76 with a doctor on clean notes, and got two in three wrong when the patient typed the story, so the right setting changed from card to card. <b>Some settings have evidence and some don't.</b> "Run the year" told you which of your four choices matched a real trial and which rested on nobody's data yet, and that is the external validation question from Chapter 4 applied to your own decisions. <b>Some decisions have no cheaper setting.</b> Joseph's chemotherapy could only be in the loop, with three people saying yes, and no budget changes that.</p>
+  <h3 class="sub">The takeaway</h3>
+  <p><b>Where the human stands is a setting, not a rule, and it has a price.</b> Seven shifts could not cover eleven shifts of care, so every map in the room has a trade in it. <b>Some settings have evidence and some don't.</b> The striped tiles are settings nobody has tested, and the only measured setting for the 2 a.m. card is the one where the AI got two in three wrong. That is the external validation question from Chapter 4 applied to your own decisions. <b>Some decisions have no cheaper setting.</b> Joseph's chemotherapy could only be in the loop, with three people saying yes, and no budget changes that.</p>
+</section>
+
+<section id="hood">
+  <div class="shead"><span class="num">3</span><h2>In class: Under the hood, how each one worked</h2></div>
+  <p class="lead">You just used two machines. Here's what was inside each one, and how it maps to the real thing.</p>
+
+  <h3 class="sub" id="hood-graph"><span>1</span> The knowledge graph</h3>
+  <p>Look at "Everything it knows." That list is the whole machine. Each line is one sentence with three parts, a thing, an arrow, and another thing, and the picture is just those sentences drawn as dots and lines. Asking a question is one move repeated: start from anything you can take, follow the arrows, and see what reaches the problem. That's how it found minoxidil for hair loss without anyone telling it. The blood pressure pill had a side effect, somebody wrote it down, and the arrows did the rest. That's drug repurposing, the same thing Every Cure does in <a class="inline" href="chapter-04-medicine.html#s2-2">section 2.2</a>, and in real life it's how a blood pressure pill became Rogaine.</p>
+  <p>When it only followed the arrows, it suggested coffee for insomnia and Benadryl for drowsy driving, because a connection is a connection. When you had it read the words, it multiplied pluses and minuses along each path, and the same two drugs flipped. Real systems like MATRIX read far more than plus and minus, and weight each line by how strong the evidence is, but the idea is the same. And it believed "Candy reduces pain" as readily as anything on the cards, because it has no way to check a sentence. It only has the sentences.</p>
+  <p>MATRIX runs this on millions of sentences pulled from published research, and then does what your gate in section 2 did: hands a ranked list to people who decide which ones are worth a trial. The graph can only find what someone wrote down, and what gets written down depends on what someone paid to study.</p>
+
+  <h3 class="sub" id="hood-gate"><span>2</span> The gate</h3>
+  <p>The gate has no model at all. Each card's three results are written from the study or case linked on it, and "Run the year" reads back the one you picked. A dark tile means the linked study measured that setting; a striped tile means it didn't, and the tool refuses to make up a number for it. The shift costs are invented, but they keep one real proportion: MASAI's on-the-loop setting cut reading work by 44 percent, so on the loop costs about half of in the loop on that card. The gate is where the chapter puts the human, and section 2 let you feel why moving it in either direction costs something.</p>
+</section>
+
+<section id="debate">
+  <div class="shead"><span class="num">4</span><h2>In class: Debate</h2></div>
+  <p class="lead">Chapter 4's case exists because no drug company had a reason to build it. Your job today: decide who should pay for the next one.</p>
+
+  <h3 class="sub" id="debate-options"><span>The options:</span> Four ways to pay for cures nobody profits from</h3>
+
+  <figure class="accord" aria-labelledby="acc-cap">
+    <div class="acc-head">Four ideas people argue about &middot; each one pays someone to look</div>
+    <ol class="acc-grid">
+      <li class="acc-card"><span class="acc-num">Idea 1</span><span class="acc-name">Public funding</span><span class="acc-mean">The government pays for searches like Every Cure's, and for the trials that follow.</span><span class="acc-who co">Side A's idea</span></li>
+      <li class="acc-card"><span class="acc-num">Idea 2</span><span class="acc-name">Open trial data</span><span class="acc-mean">Drug companies have to release the results of their trials, so the graph has more to read.</span><span class="acc-who co">Side A's idea</span></li>
+      <li class="acc-card"><span class="acc-num">Idea 3</span><span class="acc-name">Longer exclusivity</span><span class="acc-mean">A company that proves an old drug works for something new gets extra years to sell it without competition.</span><span class="acc-who out">Side B's idea</span></li>
+      <li class="acc-card"><span class="acc-num">Idea 4</span><span class="acc-name">Prizes</span><span class="acc-mean">A cash reward for whoever proves an old drug works for something new.</span><span class="acc-who out">Side B's idea</span></li>
+    </ol>
+    <div class="acc-flow">
+      <span class="lbl2">Where a cure comes from:</span>
+      <span class="acc-step">Someone pays to study it</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
+      <span class="acc-step">A finding gets written down</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
+      <span class="acc-step">The graph can find it</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
+      <span class="acc-no"><b>If nobody pays:</b> the graph stays silent</span>
+    </div>
+  </figure>
+  <p id="acc-cap" class="acc-cap">You saw the last step in section 1: remove one sentence and a discovery disappears. Each of these ideas is a real one people argue about. Your research finds out whether, and where, it has been tried.</p>
+
+  <details class="exact">
+    <summary>Copy the description of each idea (you'll paste one into Claude)</summary>
+    <ol>
+      <li>Public funding: the government pays for searches that look for new uses of old, cheap drugs, and for the clinical trials that test what the searches find.</li>
+      <li>Open trial data: drug companies are required to publicly release the results of their clinical trials, including trials that failed, so researchers and AI systems have more to read.</li>
+      <li>Longer exclusivity: a company that proves an old drug works for a new disease gets extra years to sell the drug for that use without generic competition.</li>
+      <li>Prizes: a cash reward, paid by a government or a foundation, to whoever proves an old drug works for a new disease.</li>
+    </ol>
+  </details>
+
+  <h3 class="sub" id="motion-cures"><span>Topic:</span> Who should pay for the cures nobody profits from?</h3>
+  <ul class="ideas">
+    <li><strong>Side A (left half of the room): public money, public data.</strong> The record is thin where the profit is thin, and only someone outside the market fixes that. <em>Cost to name:</em> public trials are slow, and a government that funds the search picks which diseases count.</li>
+    <li><strong>Side B (right half): fix the incentive, not the funder.</strong> Pay for results, and the market builds the graph itself. <em>Cost to name:</em> exclusivity raises the price of a cheap generic, the opposite of the case's happy ending.</li>
+  </ul>
+
+  <div class="callout">
+    <div class="label">How the debate runs &middot; about 35 minutes</div>
+    <ol>
+      <li><strong>Your side is where you sit (2 min).</strong> Groups of 2 or 3 on your side. Count off 1 to 4: that's your idea.</li>
+      <li><strong>Research with Claude (10 min).</strong> Follow the box below.</li>
+      <li><strong>Team up (4 min).</strong> Teams of 6 or 7, three per side: A1 to A3, B1 to B3. Pick an opener and a rebutter.</li>
+      <li><strong>Openings (5 min).</strong> Openers stand up where they are. About 45 seconds: claim, evidence, cost.</li>
+      <li><strong>Huddle (1 min).</strong> Rebutters pick one point the other side made.</li>
+      <li><strong>Rebuttals (5 min).</strong> Stand up and face the other side, Side B first. Answer one point. No new arguments.</li>
+      <li><strong>Switch (3 min).</strong> Someone new argues the other side's best point in one sentence.</li>
+      <li><strong>What did you hear? (3 min).</strong> Which argument from the other side was hardest to answer? No winner is declared.</li>
+    </ol>
   </div>
   <div class="callout">
-    <div class="label">Discuss · Part 2 · 10 minutes, pairs then the room</div>
-    <p><b>The 2 a.m. patient, and the doctor as noise.</b> On case notes a doctor had already written up, the AI scores about 90 percent. When ordinary people described the same illnesses in their own words, with no doctor to sort out which details mattered, it got about two in three wrong. The JAMA authors say adding a doctor to the clean-notes case makes the answer worse. Two questions, and your card settings are your evidence. As a patient, would you want the more accurate answer or the human one, and does your answer change between the clean-notes card and the 2 a.m. card? And if you ran the hospital, would you let patients use the 2 a.m. version at all, under what condition, and what would that condition cost?</p>
+    <div class="label">Research with Claude: take your idea apart &middot; 10 minutes</div>
+    <ol>
+      <li><strong>Open Claude.</strong> Paste your idea's description (from the box above) and say which side you're on.</li>
+      <li><strong>Ask:</strong> "What does this mean in practice? Who pays, and who decides which diseases get studied?"</li>
+      <li><strong>Ask:</strong> "Has this ever actually been tried? What happened?"</li>
+      <li><strong>Ask:</strong> "Who benefits from this, and who could still be left out?"</li>
+      <li><strong>Ask:</strong> "Would this get an old drug studied for a rare disease that no company would profit from? Why or why not?"</li>
+      <li><strong>Ask:</strong> "Based on all this, what are the strongest points for my side, and the best objection from the other side?"</li>
+    </ol>
+    <div class="probe">
+      <div class="pwhy">Sample prompt for the first step. Copy it, then swap in your own idea and side.</div>
+      <div class="ptext">I'm in an intro business class debating this topic: Who should pay for the cures nobody profits from, when an old, cheap drug might work for a rare disease but no drug company would make money testing it? I'm on Side B: fix the incentive, not the funder. My idea is longer exclusivity: a company that proves an old drug works for a new disease gets extra years to sell the drug for that use without generic competition. What does this mean in practice? Who pays, and who decides which diseases get studied?</div>
+    </div>
+    <p><strong>Then close Claude.</strong> Write four notes in your own words: your strongest point, the evidence behind it, the honest cost of your position, and what the other side will probably say. <strong>You cannot read from Claude.</strong></p>
   </div>
 </section>
 
-<section>
-  <div class="shead"><span class="num">4</span><h2>In class: Inside the machine, how a knowledge graph scores a drug</h2></div>
-  <p>The graph you clicked is a small version of Chapter 4's section 2.2, and the score next to each drug came from a rule you can state in a sentence: count the paths from this drug to this disease, weight each path by how strong its links are, and add. A drug that reaches the disease through a protein that many papers connect to it scores high. A drug that reaches it through one weak paper scores low. There's no biology in the machine, only a record of biology and the paths through it. That's why the rewind button is the lesson: erase the papers and the paths vanish, and so does the score, and so does the cure.</p><p>The real system, Every Cure's MATRIX, scores every approved drug against every disease the same way, at a scale no person could read, and then does the thing your gate in Part 2 did: hands a ranked list to a human who decides which ones are worth a trial. The score is a claim about the record (2.5). The gate is where the chapter puts the human, and Part 2 let you feel why moving it in either direction costs something.</p>
-</section>
-
-<section>
-  <div class="shead"><span class="num">5</span><h2>In class: Who should pay for the cures nobody profits from?</h2></div>
+<section id="discuss">
+  <div class="shead"><span class="num">5</span><h2>In class: Discussion</h2></div>
+  <p class="lead">Pairs, then the room. Bring what you just saw on your own screen; your card settings are your evidence.</p>
   <div class="callout">
-    <div class="label">Debate · in class, about 20 minutes · sides assigned, speak for one, then switch</div>
-    <p><strong>How it runs, every week.</strong> Sides are assigned, not chosen, so you're never defending your own belief. Two minutes with your partner to find your side's best point and its honest cost. Three minutes a side. Then everyone switches and does it again. Last five minutes: what would change your mind? Say it out loud. The person who names the evidence that would move them wins, whichever side they were on.</p>
-    <p>The chapter's case exists because no drug company had a reason to build it. Argue the fix.</p><ul class="ideas"><li><strong>Side A: public money, public data.</strong> Governments should fund repurposing searches and the trials that follow, and require companies to release trial data so the graph has more to read. The record is thin where the profit is thin; only a non-market actor fixes that. Cost: public trials are slow, and a government that funds the search picks which diseases count.</li><li><strong>Side B: fix the incentive, not the funder.</strong> Extend exclusivity or offer prizes for a proven second use of an old drug, so the market builds the graph itself. Cost: exclusivity raises prices on a cheap generic, which is the opposite of the case's happy ending.</li></ul><p>Resolve it with the chapter's gap (2.3): whichever side you take, name the disease or group that still goes unread under your plan, because one always does.</p>
-  </div>
-</section>
-
-<section id="room">
-  <div class="shead"><span class="num">6</span><h2>In class: The room · 10 minutes</h2></div>
-  <p class="lead">One question to close, everyone in.</p>
-  <div class="callout">
-    <div class="label">Who has to notice</div>
-    <p>Pick the card you set to out of the loop, or a disease no drug can reach on the graph. Something there will eventually go wrong: a case the AI misses, a cure nobody looks for. Name the one person who would find out first, and how long it would take them. Was that person in the room when the decision got made? That is the question Chapter 4 keeps asking, and it's the one to carry into the writeup.</p>
+    <div class="label">Discussion questions · about 20 minutes</div>
+    <p><b>1. The 2 a.m. patient.</b> On case notes a doctor had already written up, the AI scores about 90 percent. When ordinary people described the same illnesses in their own words, with no doctor to sort out which details mattered, it got about two in three wrong. As a patient, would you want the more accurate answer or the human one, and does your answer change between the clean-notes card and the 2 a.m. card?</p>
+    <p><b>2. The doctor as noise.</b> The JAMA authors say adding a doctor to the clean-notes case makes the answer worse. If you ran the hospital, would you let patients use the 2 a.m. version at all, under what condition, and what would that condition cost?</p>
+    <p><b>3. Who has to notice.</b> Pick the card you set to out of the loop, or the false sentence you fed the graph. Something there will eventually go wrong: a case the AI misses, a bad suggestion nobody catches. Name the one person who would find out first, and how long it would take them. Was that person in the room when the decision got made? That is the question Chapter 4 keeps asking, and it's the one to carry into the writeup.</p>
   </div>
 </section>
 
 <section id="fiveq">
-  <div class="shead"><span class="num">7</span><h2>In class: Run the five questions on your own choices · 10 minutes</h2></div>
-  <p>Not on MATRIX in general. On the scores you weighed and the four settings you chose.</p>
+  <div class="shead"><span class="num">6</span><h2>In class: Run the five questions on your own choices</h2></div>
+  <p>Not on MATRIX in general. On the graph you built in section 1 and the four settings you chose in section 2. Pairs, about ten minutes.</p>
   <div class="fourq">
-    <div class="q"><span class="qn">1</span><p><strong>What is the AI system, and what does it do?</strong> Name the two you ran today and their kind. For the graph, run the five parts: the data (and what it leaves out), the model, the output, the feedback loop (what would happen to the graph if someone studied ROHHAD), and the humans (you).</p></div>
-    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> Who benefits when a famous, heavily studied drug lands at the top of the list, and who benefits from each setting you chose on the gate?</p></div>
-    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> Name a disease no drug can reach on the graph, and the card you set to out of the loop. For each, who would ever notice a failure there?</p></div>
+    <div class="q"><span class="qn">1</span><p><strong>What is the AI system, and what does it do?</strong> Name the two you ran today and their kind. For the graph, run the five parts: the data (the sentences, and what they leave out), the model (the rule for walking the arrows), the output, the feedback loop (what happens to its answers when someone adds a sentence), and the humans (you).</p></div>
+    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> Who benefits when an old drug turns out to have a new use, like minoxidil, and who benefits from each setting you chose on the gate?</p></div>
+    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> Think of the coffee-for-insomnia answer, and the card you set to out of the loop. For each, who would ever notice a failure there?</p></div>
     <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> Which of your four settings rests on a real trial, and which on a guess? For the ones no trial tested, whose number would you be trusting, and who has checked it from outside? What evidence would change your least certain one?</p></div>
     <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Pick one of your settings and defend it with its price and the failure it accepts.</p></div>
   </div>
 </section>
 
 <section id="writeup">
-  <div class="shead"><span class="num">8</span><h2>For homework: The writeup</h2></div>
-    <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday.</strong> Written reflections, no screenshots. Your Part 1 and Part 2 answers are items 1 and 2.</p>
+  <div class="shead"><span class="num">7</span><h2>For homework: The writeup</h2></div>
+  <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, October 16.</strong> Answer them as you go today. Written reflections, no screenshots.</p>
   <ol class="writeup">
-      <li><b>Part 1.</b> Your submission answer: which match you'd send, why the higher number doesn't automatically win, and what the ROHHAD zeros mean.</li>
-      <li><b>Part 2.</b> Your submission answer: the four settings, what each card's evidence supports, which settings no trial tested, and the 2 a.m. sentence.</li>
-      <li><b>After the room.</b> The one setting you'd change after hearing the discussion, and why.</li>
-      <li><b>Joseph.</b> Your letter from decision 4: (a), (b), or (c), and one sentence on what the doctors would still have to decide that no score can decide for them.</li>
-      <li><b>Your commitment card.</b> For which one medical task would you accept a person out of the loop, what would you need to see first, and who answers when it's wrong? Three sentences. Chapter 7 asks this again about a car.</li>
-    </ol>
+      <li><strong>The knowledge graph.</strong> In your own words, explain what a knowledge graph is and how yours answered a question. Use two examples from today: the question where following the arrows gave a bad answer and reading the words fixed it, and what happened to the hair-loss answer when you removed one sentence.</li>
+      <li><strong>The gate.</strong> List your final four settings and how many of your tiles were striped. What did you give up to stay inside seven shifts? Then one sentence on the 2 a.m. card: its only measured setting is the one where the AI got two in three wrong. What would you do with it, and what would that cost?</li>
+      <li><strong>The talk.</strong> The one setting you'd change after hearing the discussion in section 5, and why.</li>
+      <li><strong>Your sentences.</strong> The true sentence and the false sentence you fed it, and what it did with each. Then one sentence on what that means for a system like MATRIX reading millions of sentences nobody checks one by one.</li>
+      <li><strong>Your commitment card.</strong> For which one medical task would you accept a person out of the loop, what would you need to see first, and who answers when it's wrong? Three sentences. Chapter 7 asks this again about a car.</li>
+  </ol>
   <div class="callout">
     <div class="label">Using AI on this writeup</div>
     <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
     <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
     <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
   </div>
-
-  <details class="srcnote">
-    <summary>Sources &amp; what's simulated</summary>
-    <p>The sirolimus path, POEMS's resemblance to Castleman disease and multiple myeloma, the three highly ranked myeloma drugs, and Joseph's case are from Chapter 4 and Penn Medicine's film. Propranolol for infantile hemangioma is a documented repurposing (2008). ROHHAD's nine published studies and migraine's 12,000 follow the chapter's worked example; all other study counts, weights, scores are simulated. Tessolin*, Corvanol*, Brivamide*, and Kessler-Lund syndrome* are invented. Real gate cards: MASAI (The Lancet Digital Health, February 2025); the 74 / 76 / 90 diagnostic reasoning scores (Goh et al., JAMA Network Open, October 2024, as reported in the JAMA viewpoint of August 2026); the Oxford patient-description finding as described in Robert Wachter's August 27, 2026 reply; PROMETHEUS (NEJM AI, 2025); Every Cure's human review of matches, as Fajgenbaum describes it in the film.</p>
-  </details>
 </section>
+
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <div class="srcbody">
+    <p class="srcintro">This lab's own outside claims have not yet had a dated verification pass; the gate cards' links and the figures on them are the first things to check. Everything else comes from Chapter 4, which carries its own dated note.</p>
+    <dl>
+      <dt>The knowledge graph (section 1)</dt>
+      <dd>Self-contained, no network calls, nothing persists. The fourteen facts are standard pharmacology, simplified to one line each: diphenhydramine (Benadryl) is an antihistamine, and brain histamine promotes wakefulness, which is why it causes drowsiness and is the active ingredient in sleep aids such as ZzzQuil; caffeine blocks adenosine receptors; minoxidil is a blood-pressure drug that widens blood vessels, and hair growth seen in patients taking it led to its use for hair loss (Rogaine); ibuprofen reduces inflammation and can irritate the stomach. The plus-and-minus reading is a teaching simplification, not how MATRIX scores. No links yet; check each line against the drug's label before the next term.</dd>
+
+      <dt>The gate (section 2)</dt>
+      <dd>No model. Each card's results are written from its linked source. The seven-shift budget and each setting's shift cost are invented to force a trade; only the roughly half-cost of on the loop for mammograms echoes a real figure, MASAI's 44 percent reduction in reading work. MASAI (The Lancet Digital Health, February 2025); the 74 / 76 / 90 diagnostic reasoning scores (Goh et al., JAMA Network Open, October 2024, as reported in the JAMA viewpoint of August 2026); the Oxford patient-description finding as described in Robert Wachter's August 27, 2026 reply; PROMETHEUS (NEJM AI, 2025); Every Cure's human review of matches, as Fajgenbaum describes it in the film.</dd>
+
+      <dt>Chapter claims used here</dt>
+      <dd>The knowledge graph, the score as a claim about the record, the gap, and the debate's case come from <a class="inline" href="chapter-04-medicine.html">Chapter 4</a>, which carries its own verification note.</dd>
+    </dl>
+    <p class="srcfoot">Most likely to need checking first: the fourteen fact cards, which have no links yet, and the gate cards' figures, since the Oxford finding and the JAMA scores reach this lab secondhand. If Chapter 4's case is corrected, sections 1 and 2 have to be checked against it.</p>
+  </div>
+</details>
+
 
 <div class="nextbar">
   <a href="chapter-04-medicine.html"><span class="dir">← Back</span>Chapter 4 · Medicine</a>
@@ -580,298 +769,272 @@ ul.ideas li{margin:8px 0}
 <script>
 (function(){
   var SVGNS = 'http://www.w3.org/2000/svg';
-  // ---------- data ----------
-  var DRUGS = [
-    {id:'sir', name:'Sirolimus', note:'approved for organ transplants'},
-    {id:'pro', name:'Propranolol', note:'approved for blood pressure'},
-    {id:'mya', name:'Myeloma drug A', note:'a chemo drug for multiple myeloma, standing in for a real one'},
-    {id:'myb', name:'Myeloma drug B', note:'a chemo drug for multiple myeloma, standing in for a real one'},
-    {id:'cor', name:'Corvanol*', note:'invented: an old, famous, heavily studied drug'},
-    {id:'bri', name:'Brivamide*', note:'invented: a nerve drug'},
-    {id:'tes', name:'Tessolin*', note:'invented: a hormone drug'}
+  // Each fact: a thing, an arrow (+1 causes or increases, -1 reduces or blocks), a thing. Real, simplified.
+  var FACTS = [
+    {a:'Benadryl', v:'blocks', s:-1, b:'histamine'},
+    {a:'histamine', v:'causes', s:1, b:'allergy symptoms', note:'sneezing, itchy eyes'},
+    {a:'histamine', v:'reduces', s:-1, b:'sleepiness', note:'in the brain it keeps you awake'},
+    {a:'Caffeine', v:'blocks', s:-1, b:'adenosine'},
+    {a:'adenosine', v:'causes', s:1, b:'sleepiness'},
+    {a:'sleepiness', v:'reduces', s:-1, b:'trouble sleeping'},
+    {a:'sleepiness', v:'causes', s:1, b:'drowsy driving'},
+    {a:'Minoxidil', v:'causes', s:1, b:'wider blood vessels'},
+    {a:'wider blood vessels', v:'reduce', s:-1, b:'high blood pressure', short:'reduces'},
+    {a:'Minoxidil', v:'causes', s:1, b:'hair growth', note:'doctors noticed it in blood pressure patients'},
+    {a:'hair growth', v:'reduces', s:-1, b:'hair loss'},
+    {a:'Ibuprofen', v:'reduces', s:-1, b:'inflammation'},
+    {a:'inflammation', v:'causes', s:1, b:'pain'},
+    {a:'Ibuprofen', v:'causes', s:1, b:'stomach upset'}
   ];
-  var BIO = [
-    {id:'mtor', name:'mTOR'},
-    {id:'imm', name:'immune signaling'},
-    {id:'pla', name:'plasma cells'},
-    {id:'ves', name:'blood vessel growth'},
-    {id:'inf', name:'inflammation'},
-    {id:'ser', name:'serotonin'},
-    {id:'ner', name:'nerve signaling'},
-    {id:'hor', name:'brain hormone control'}
-  ];
-  var DIS = [
-    {id:'cas', name:'Castleman disease', studies:900},
-    {id:'poe', name:'POEMS syndrome', studies:600},
-    {id:'mm',  name:'Multiple myeloma', studies:60000},
-    {id:'hem', name:'Infantile hemangioma', studies:1900},
-    {id:'mig', name:'Migraine', studies:12000},
-    {id:'roh', name:'ROHHAD syndrome', studies:9},
-    {id:'kes', name:'Kessler-Lund syndrome*', studies:14}
-  ];
-  // weights: evidence strength, 0.5 (thin) to 3 (strong). Simulated.
-  var BASE_EDGES = [
-    ['sir','mtor',3], ['mtor','imm',2], ['imm','cas',3],
-    ['pro','ves',2], ['ves','hem',3],
-    ['mya','pla',3], ['myb','pla',3], ['pla','mm',3],
-    ['poe','mm',2], ['poe','cas',1],
-    ['cor','inf',3], ['cor','ser',2], ['cor','ves',1], ['cor','ner',1],
-    ['inf','mig',2], ['ser','mig',3], ['ner','mig',3], ['inf','cas',1], ['inf','mm',1],
-    ['bri','ner',2], ['bri','ser',1],
-    ['tes','hor',0.5], ['hor','roh',0.5], ['hor','mig',0.5]
-  ];
-  var REWIND_EDGE = 'imm|cas';
+  FACTS.forEach(function(f,i){ f.id='f'+i; f.on=false; f.mine=false; if(!f.short) f.short=f.v; });
+  var mine = [];
+  var state = {read:'lines', q:null};
+  function all(){ return FACTS.concat(mine); }
+  function live(){ return all().filter(function(f){ return f.on; }); }
+  function norm(x){ return x.trim().toLowerCase(); }
+  function sentence(f){ return f.a.charAt(0).toUpperCase() + f.a.slice(1) + ' ' + f.v + ' ' + f.b + '.'; }
 
-  var pos = {};
-  DRUGS.forEach(function(d,i){ d.kind='drug'; pos[d.id]={x:150, y:60+i*70}; });
-  BIO.forEach(function(d,i){ d.kind='bio'; pos[d.id]={x:390, y:40+i*64}; });
-  DIS.forEach(function(d,i){ d.kind='dis'; pos[d.id]={x:600, y:60+i*70}; });
-  var NODES = {};
-  DRUGS.concat(BIO, DIS).forEach(function(n){ NODES[n.id]=n; });
-
-  var state = {dis:null, drug:null, vol:true, rewind:false, tilt:false, funded:[]};
-
-  function key(a,b){ return a+'|'+b; }
-  function edges(){
-    var list = BASE_EDGES.map(function(e){ return {a:e[0], b:e[1], w:e[2], isNew:false}; });
-    state.funded.forEach(function(f){ list.push({a:f.bio, b:f.dis, w:1, isNew:true}); });
-    return list.filter(function(e){ return !(state.rewind && key(e.a,e.b)===REWIND_EDGE); });
+  // ---------- graph structure from live facts ----------
+  function build(){
+    var E = live(), names = {}, order = [];
+    E.forEach(function(f){ [f.a,f.b].forEach(function(n){ var k=norm(n); if(!names[k]){ names[k]={key:k, name:n, ins:[], outs:[]}; order.push(k); } }); });
+    E.forEach(function(f){ names[norm(f.a)].outs.push(f); names[norm(f.b)].ins.push(f); });
+    return {E:E, N:names, order:order};
   }
-  function studiesOf(id){
-    var n = NODES[id].studies;
-    state.funded.forEach(function(f){ if(f.dis===id) n += 1; });
-    return n;
-  }
-  function degree(id, E){ return E.filter(function(e){ return e.a===id || e.b===id; }).length; }
+  function kindOf(n){ if(!n.ins.length) return 'drug'; if(!n.outs.length) return 'dis'; return 'bio'; }
 
-  // all simple paths drug -> disease, up to 3 hops, never passing through another drug
-  function paths(drug, dis, E){
-    var adj = {};
-    E.forEach(function(e){
-      (adj[e.a]=adj[e.a]||[]).push({to:e.b, e:e});
-      (adj[e.b]=adj[e.b]||[]).push({to:e.a, e:e});
-    });
+  // every simple path from a starting thing to the target, following arrows, up to 5 hops
+  function pathsTo(G, target){
     var out = [];
-    (function walk(node, seen, trail){
-      if(trail.length>3) return;
-      if(node===dis && trail.length>0){ out.push(trail.slice()); return; }
-      (adj[node]||[]).forEach(function(n){
-        if(seen[n.to]) return;
-        if(NODES[n.to].kind==='drug') return;
-        seen[n.to]=1; trail.push(n.e);
-        walk(n.to, seen, trail);
-        trail.pop(); delete seen[n.to];
-      });
-    })(drug, (function(){var s={}; s[drug]=1; return s;})(), []);
+    G.order.forEach(function(k){
+      var n = G.N[k]; if(n.ins.length || k===target) return;
+      (function walk(node, seen, trail){
+        if(trail.length>5) return;
+        if(node===target && trail.length){ out.push({from:k, facts:trail.slice()}); return; }
+        G.N[node].outs.forEach(function(f){
+          var nx = norm(f.b); if(seen[nx]) return;
+          seen[nx]=1; trail.push(f); walk(nx, seen, trail); trail.pop(); delete seen[nx];
+        });
+      })(k, (function(){ var s={}; s[k]=1; return s; })(), []);
+    });
     return out;
-  }
-  function score(drug, dis, E){
-    var ps = paths(drug, dis, E), raw = 0;
-    ps.forEach(function(p){ var v=1; p.forEach(function(e){ v *= e.w/3; }); raw += v; });
-    if(state.tilt && raw>0) raw *= 1 + 0.5*(degree(drug,E)-1);
-    return {s: Math.round(100*(1-Math.exp(-2*raw))), paths: ps};
   }
 
   // ---------- drawing ----------
-  var gE = document.getElementById('kg-edges'), gN = document.getElementById('kg-nodes');
+  var svg = document.getElementById('kg-svg'), gE = document.getElementById('kg-edges'), gN = document.getElementById('kg-nodes');
   function el(tag, attrs){ var x=document.createElementNS(SVGNS, tag); for(var k in attrs) x.setAttribute(k, attrs[k]); return x; }
-  function edgePath(e){
-    var p=pos[e.a], q=pos[e.b];
-    if(NODES[e.a].kind==='dis' && NODES[e.b].kind==='dis'){
-      var mx = Math.max(p.x,q.x) + 70 + Math.abs(p.y-q.y)*0.15;
-      return 'M'+p.x+' '+p.y+' Q'+mx+' '+((p.y+q.y)/2)+' '+q.x+' '+q.y;
-    }
-    return 'M'+p.x+' '+p.y+' L'+q.x+' '+q.y;
-  }
-  function radius(n){
-    if(n.kind!=='dis') return 11;
-    if(!state.vol) return 12;
-    return 6 + 4*Math.log10(studiesOf(n.id)+1);
-  }
-
-  function draw(res){
-    var E = edges();
-    var lit = {}, litNodes = {};
-    if(res){
-      res.forEach(function(r){
-        if(state.drug && r.id!==state.drug) return;
-        r.paths.forEach(function(p){ p.forEach(function(e){ lit[key(e.a,e.b)]=1; litNodes[e.a]=1; litNodes[e.b]=1; }); });
-      });
-    }
-    gE.textContent='';
-    E.forEach(function(e){
-      var c = 'gedge' + (e.isNew?' new':'') + (lit[key(e.a,e.b)]?' lit':'') + (res && !lit[key(e.a,e.b)]?' dim':'');
-      gE.appendChild(el('path', {d:edgePath(e), 'class':c, 'stroke-width': lit[key(e.a,e.b)] ? 3 : (0.8+e.w*0.6)}));
+  function layout(G){
+    var depth = {};
+    G.order.forEach(function(k){ depth[k]=0; });
+    for(var it=0; it<12; it++){ G.E.forEach(function(f){ var a=norm(f.a), b=norm(f.b); if(depth[b] < depth[a]+1 && depth[a] < 6) depth[b] = depth[a]+1; }); }
+    var cols = [];
+    G.order.forEach(function(k){ (cols[depth[k]] = cols[depth[k]] || []).push(k); });
+    cols = cols.filter(Boolean);
+    var pos = {}, rowH = 62, top = 40;
+    cols.forEach(function(col, ci){
+      if(ci>0){
+        col.sort(function(p,q){
+          function bary(k){ var ys = G.N[k].ins.map(function(f){ var y = pos[norm(f.a)]; return y ? y.y : 0; }); return ys.length ? ys.reduce(function(s,y){return s+y;},0)/ys.length : 0; }
+          return bary(p)-bary(q);
+        });
+      }
+      var x = cols.length===1 ? 390 : 90 + ci*(600/(cols.length-1));
+      col.forEach(function(k, ri){ pos[k] = {x:x, y:top + ri*rowH}; });
     });
-    if(state.rewind){
-      var g = el('path', {d:edgePath({a:'imm', b:'cas'}), 'class':'gedge gone'});
-      gE.appendChild(g);
-    }
-    gN.textContent='';
-    Object.keys(NODES).forEach(function(id){
-      var n=NODES[id], p=pos[id];
-      var cls = 'gnode ' + (n.kind==='dis'?'disease':n.kind) + (id===state.dis||id===state.drug?' sel':'') + (litNodes[id]?' lit':'') + (res && !litNodes[id] && id!==state.dis?' dim':'');
-      var attrs = {'class':cls, 'data-id':id};
-      if(n.kind!=='bio'){
-        attrs.tabindex='0'; attrs.role='button';
-        attrs['aria-label'] = n.kind==='dis' ? ('Rank drugs for '+n.name) : ('Show paths for '+n.name);
-        attrs['aria-pressed'] = (id===state.dis||id===state.drug) ? 'true' : 'false';
+    var h = top + Math.max.apply(null, cols.map(function(c){ return c.length; }).concat([1]))*rowH;
+    return {pos:pos, h:Math.max(h,160)};
+  }
+  function draw(G, lit){
+    var L = layout(G), pos = L.pos, words = state.read==='words';
+    svg.setAttribute('viewBox', '0 0 780 ' + L.h);
+    gE.textContent=''; gN.textContent='';
+    var litF = {}, litN = {};
+    (lit||[]).forEach(function(p){ p.facts.forEach(function(f){ litF[f.id]=1; litN[norm(f.a)]=1; litN[norm(f.b)]=1; }); });
+    G.E.forEach(function(f){
+      var p = pos[norm(f.a)], q = pos[norm(f.b)];
+      var dx = q.x-p.x, dy = q.y-p.y, d = Math.sqrt(dx*dx+dy*dy)||1, r = 10;
+      var x1 = p.x + dx/d*r, y1 = p.y + dy/d*r, x2 = q.x - dx/d*(r+3), y2 = q.y - dy/d*(r+3);
+      var on = !!litF[f.id];
+      var cls = 'kedge' + (on?' lit':'') + (lit && !on?' faint':'') + (words && f.s<0?' neg':'');
+      gE.appendChild(el('line', {x1:x1, y1:y1, x2:x2, y2:y2, 'class':cls, 'marker-end': on?'url(#ahl)':'url(#ah)'}));
+      if(words){
+        var mx = (x1+x2)/2, my = (y1+y2)/2 - 4;
+        var t = el('text', {x:mx, y:my, 'text-anchor':'middle', 'class':'kverb' + (f.s<0?' neg':' pos') + (on?' lit':'')});
+        t.textContent = f.short; gE.appendChild(t);
       }
-      var g = el('g', attrs);
-      g.appendChild(el('circle', {cx:p.x, cy:p.y, r:radius(n)}));
-      var t;
-      if(n.kind==='drug') t = el('text', {x:p.x-18, y:p.y+4, 'text-anchor':'end'});
-      else if(n.kind==='dis') t = el('text', {x:p.x+ (state.vol? radius(n)+8 : 20), y:p.y+4});
-      else t = el('text', {x:p.x, y:p.y+26, 'text-anchor':'middle'});
-      t.textContent = n.name;
-      g.appendChild(t);
-      if(n.kind==='dis' && state.vol){
-        var s = el('text', {x:p.x + radius(n)+8, y:p.y+19, 'class':'gverb'});
-        s.textContent = studiesOf(id).toLocaleString()+' studies';
-        g.appendChild(s);
-      }
+    });
+    G.order.forEach(function(k){
+      var n = G.N[k], p = pos[k], kd = kindOf(n);
+      var g = el('g', {'class':'knode ' + kd + (litN[k]?' lit':'') + (k===state.q?' sel':'') + (lit && !litN[k] && k!==state.q?' faint':'')});
+      g.appendChild(el('circle', {cx:p.x, cy:p.y, r:9}));
+      var t = el('text', {x:p.x, y:p.y+24, 'text-anchor':'middle'}); t.textContent = n.name; g.appendChild(t);
       gN.appendChild(g);
     });
+    svg.setAttribute('aria-label', 'The knowledge graph, ' + G.E.length + ' facts and ' + G.order.length + ' things. The list below the graph holds the same facts as text.');
   }
 
-  // ---------- ranking ----------
-  var listEl = document.getElementById('kg-list'), noteEl = document.getElementById('kg-note'), titleEl = document.getElementById('kg-title');
-  function rank(){
-    if(!state.dis){ draw(null); if(typeof renderUnlock==='function') renderUnlock(); return; }
-    var E = edges();
-    var res = DRUGS.map(function(d){ var r = score(d.id, state.dis, E); return {id:d.id, name:d.name, note:d.note, s:r.s, paths:r.paths}; });
-    res.sort(function(a,b){ return b.s-a.s || a.name.localeCompare(b.name); });
-    var strip = document.getElementById('kg-strip');
-    if(strip){
-      strip.textContent = '';
-      var lbl = document.createElement('span'); lbl.className='ss-lbl'; lbl.textContent = NODES[state.dis].name + ':'; strip.appendChild(lbl);
-      res.forEach(function(r){
-        var b = document.createElement('button'); b.type='button'; b.className='ss' + (r.s? '':' zero') + (state.drug===r.id?' on':'');
-        b.innerHTML = r.name + ' <b>' + r.s + '</b><span class="pct">%</span>';
-        b.setAttribute('aria-pressed', state.drug===r.id ? 'true':'false');
-        b.addEventListener('click', function(){ pickDrug(r.id); });
-        strip.appendChild(b);
+  // ---------- UI ----------
+  var deck = document.getElementById('kg-deck'), knows = document.getElementById('kg-knows'), qs = document.getElementById('kg-qs');
+  var titleEl = document.getElementById('kg-title'), ansEl = document.getElementById('kg-answer'), statusEl = document.getElementById('kg-status');
+  var names = document.getElementById('kg-names');
+  function renderDeck(){
+    deck.textContent='';
+    FACTS.forEach(function(f){
+      var b = document.createElement('button'); b.type='button'; b.className='fact' + (f.on?' on':'');
+      b.setAttribute('aria-pressed', f.on?'true':'false');
+      b.innerHTML = '<span class="ft"></span>' + (f.note ? '<small></small>' : '');
+      b.querySelector('.ft').textContent = sentence(f);
+      if(f.note) b.querySelector('small').textContent = f.note;
+      b.addEventListener('click', function(){ f.on = !f.on; say((f.on?'Added: ':'Removed: ') + sentence(f)); update(); focusFact(f.id); });
+      b.setAttribute('data-id', f.id);
+      deck.appendChild(b);
+    });
+  }
+  function focusFact(id){ var b = deck.querySelector('[data-id="'+id+'"]'); if(b) b.focus(); }
+  function renderKnows(G){
+    knows.textContent='';
+    if(!G.E.length){ var li=document.createElement('li'); li.className='empty'; li.textContent='Nothing yet. An empty graph knows nothing at all.'; knows.appendChild(li); return; }
+    G.E.forEach(function(f){
+      var li = document.createElement('li'); li.className = f.mine ? 'yours' : '';
+      var s = document.createElement('span'); s.textContent = sentence(f) + (f.mine ? '  (yours)' : ''); li.appendChild(s);
+      var b = document.createElement('button'); b.type='button'; b.className='chip'; b.textContent='Remove';
+      b.setAttribute('aria-label', 'Remove: ' + sentence(f));
+      b.addEventListener('click', function(){ f.on = false; say('Removed: ' + sentence(f)); update(); });
+      li.appendChild(b); knows.appendChild(li);
+    });
+  }
+  function renderQs(G){
+    qs.textContent='';
+    var ends = G.order.filter(function(k){ return G.N[k].ins.length && !G.N[k].outs.length; });
+    if(state.q && ends.indexOf(state.q)<0 && !G.N[state.q]) state.q = null;
+    if(!ends.length){ var s=document.createElement('span'); s.className='chiplbl'; s.textContent='add a few facts first'; qs.appendChild(s); }
+    ends.forEach(function(k){
+      var b = document.createElement('button'); b.type='button'; b.className='chip' + (state.q===k?' on':''); b.textContent = G.N[k].name;
+      b.setAttribute('aria-pressed', state.q===k?'true':'false');
+      b.addEventListener('click', function(){ state.q = (state.q===k? null : k); update(); });
+      qs.appendChild(b);
+    });
+    names.textContent='';
+    G.order.forEach(function(k){ var o=document.createElement('option'); o.value=G.N[k].name; names.appendChild(o); });
+  }
+  function signWord(s){ return s<0 ? 'reduces' : 'increases'; }
+  function answer(G){
+    if(!state.q || !G.N[state.q]){ titleEl.textContent = 'No question yet'; ansEl.innerHTML = '<p class="read">' + (G.E.length ? 'Pick a problem above.' : 'Add some facts, then pick a problem above.') + '</p>'; return null; }
+    var target = G.N[state.q].name, P = pathsTo(G, state.q);
+    titleEl.textContent = 'What might reduce ' + target + '?';
+    if(!P.length){ ansEl.innerHTML = '<p class="read">Nothing reaches <b></b>. No arrows lead here from anything you can take, so the graph has nothing to say. That doesn\'t mean nothing would work.</p>'; ansEl.querySelector('b').textContent = target; return []; }
+    var by = {};
+    P.forEach(function(p){ (by[p.from] = by[p.from] || []).push(p); });
+    var html = '';
+    var froms = Object.keys(by);
+    if(state.read==='lines'){
+      html += '<p class="read">Following the arrows, it can reach <b>' + target + '</b> from <b>' + froms.length + '</b> thing' + (froms.length===1?'':'s') + ', so it suggests ' + (froms.length===1?'it':'all of them') + '. It can\'t see what the arrows say, only that they connect.</p><ul class="ans">';
+      froms.forEach(function(k){
+        by[k].forEach(function(p){
+          html += '<li><b class="sug">Suggests ' + esc(G.N[k].name) + '</b><span class="path">' + esc(G.N[k].name) + p.facts.map(function(f){ return ' → ' + esc(f.b); }).join('') + '</span></li>';
+        });
       });
+      html += '</ul>';
+    } else {
+      html += '<p class="read">Now it reads each arrow as + (causes or increases) or − (reduces or blocks) and multiplies along the path. Two minuses make a plus, the way blocking something that keeps you awake makes you sleepy.</p><ul class="ans">';
+      froms.forEach(function(k){
+        by[k].forEach(function(p){
+          var s = p.facts.reduce(function(m,f){ return m*f.s; }, 1);
+          var math = p.facts.map(function(f){ return esc(f.short) + ' (' + (f.s<0?'−':'+') + ')'; }).join(' × ');
+          html += '<li class="' + (s<0?'good':'bad') + '"><b class="sug">' + (s<0 ? 'Suggests ' + esc(G.N[k].name) : 'Warning: ' + esc(G.N[k].name) + ' makes it worse') + '</b><span class="path">' + esc(G.N[k].name) + p.facts.map(function(f){ return ' <i class="vb' + (f.s<0?' neg':'') + '">' + esc(f.short) + '</i> ' + esc(f.b); }).join('') + '</span><span class="math">' + math + ' = ' + (s<0?'−, it ':'+, it ') + signWord(s) + ' ' + esc(target) + '</span></li>';
+        });
+      });
+      html += '</ul>';
     }
-    var dis = NODES[state.dis], n = studiesOf(state.dis);
-    titleEl.textContent = 'Every drug, scored against ' + dis.name;
-    var msg = [];
-    if(n < 50) msg.push('<b>Thin record: ' + n + ' studies.</b> With this few lines, almost any drug scores low whether or not it would work. A low score here means unknown, not no.');
-    else if(n < 5000) msg.push('<b>Some record: ' + n.toLocaleString() + ' studies.</b> Enough lines to find strong paths, not enough to rule much out. A low score here is weak evidence either way.');
-    else msg.push('<b>Dense record: ' + n.toLocaleString() + ' studies.</b> If a path existed, the graph had plenty of lines to find it with, so a low score here probably means no.');
-    if(state.rewind && state.dis==='cas') msg.push('The rewind is on. In the real world sirolimus still works on Castleman disease. The record just lost the line.');
-    if(state.tilt) msg.push('The popularity boost is on: drugs with more lines get extra points, whatever the biology.');
-    var mine = state.funded.filter(function(f){ return f.dis===state.dis; }).length;
-;
-    msg.push(state.drug ? 'Showing paths for ' + NODES[state.drug].name + '. Click it again to show all.' : 'Click a drug to see only its paths.');
-    noteEl.innerHTML = msg.join(' ');
-    listEl.textContent = '';
-    res.forEach(function(r){
-      var b = document.createElement('button');
-      b.type='button'; b.className = 'r' + (r.s===0?' zero':'') + (state.drug===r.id?' on':'');
-      b.setAttribute('aria-pressed', state.drug===r.id ? 'true':'false');
-      b.innerHTML = '<span class="nm">'+r.name+'<small>'+r.note+'</small></span><span class="trk"><i style="width:'+r.s+'%"></i></span><span class="s">'+(r.s===0?'0':r.s)+'</span>';
-      b.setAttribute('aria-label', r.name + ', score ' + r.s + (r.s===0 ? ', no path' : ', ' + r.paths.length + ' path' + (r.paths.length>1?'s':'')));
-      b.addEventListener('click', function(){ state.drug = (state.drug===r.id? null : r.id); rank(); });
-      listEl.appendChild(b);
-    });
-    draw(res); if(typeof renderUnlock==='function') renderUnlock();
+    ansEl.innerHTML = html;
+    return P;
+  }
+  function esc(t){ var d=document.createElement('div'); d.textContent=t; return d.innerHTML; }
+  function say(t){ statusEl.textContent = t; }
+  function update(){
+    var G = build();
+    renderDeck(); renderKnows(G); renderQs(G);
+    var lit = answer(G);
+    draw(G, lit && lit.length ? lit : null);
   }
 
-  function pickDisease(id){ state.dis = id; state.drug = null; rank(); syncChips(); }
-  function pickDrug(id){ if(!state.dis){ noteEl.textContent='Pick a disease first, then click a drug to see its paths.'; return; } state.drug = (state.drug===id?null:id); rank(); }
-
-  gN.addEventListener('click', function(e){
-    var g = e.target.closest('.gnode'); if(!g) return;
-    var id = g.getAttribute('data-id'), k = NODES[id].kind;
-    if(k==='dis') pickDisease(id); else if(k==='drug') pickDrug(id);
+  document.getElementById('kg-next').addEventListener('click', function(){
+    var f = FACTS.filter(function(x){ return !x.on; })[0];
+    if(!f){ say('Every card is in. Try writing your own sentence at the bottom.'); return; }
+    f.on = true; say('Added: ' + sentence(f)); update();
   });
-  gN.addEventListener('keydown', function(e){
-    if(e.key!=='Enter' && e.key!==' ') return;
-    var g = e.target.closest('.gnode'); if(!g) return;
-    e.preventDefault();
-    var id = g.getAttribute('data-id'), k = NODES[id].kind;
-    if(k==='dis') pickDisease(id); else if(k==='drug') pickDrug(id);
-    var again = gN.querySelector('[data-id="'+id+'"]'); if(again) again.focus();
-  });
-
-  var chipBox = document.getElementById('kg-dis-chips'); document.getElementById('kg-dis-chips').textContent='';
-  DIS.forEach(function(d){
-    var b = document.createElement('button');
-    b.type='button'; b.className='chip'; b.textContent=d.name; b.setAttribute('data-id', d.id); b.setAttribute('aria-pressed','false');
-    b.addEventListener('click', function(){ pickDisease(d.id); });
-    chipBox.appendChild(b);
-  });
-  function syncChips(){
-    [].forEach.call(chipBox.querySelectorAll('.chip'), function(b){
-      var on = b.getAttribute('data-id')===state.dis;
-      b.classList.toggle('on', on); b.setAttribute('aria-pressed', on?'true':'false');
-    });
-  }
-  function toggle(btnId, prop){
-    var b = document.getElementById(btnId);
+  document.getElementById('kg-all').addEventListener('click', function(){ FACTS.forEach(function(f){ f.on = true; }); say('All fourteen facts are in.'); update(); });
+  document.getElementById('kg-reset').addEventListener('click', function(){ FACTS.forEach(function(f){ f.on = false; }); mine = []; state.q = null; say('Empty again.'); update(); });
+  [].forEach.call(document.querySelectorAll('#kg [data-read]'), function(b, i, arr){
     b.addEventListener('click', function(){
-      state[prop] = !state[prop];
-      b.classList.toggle('on', state[prop]); b.setAttribute('aria-pressed', state[prop]?'true':'false');
-      rank();
+      state.read = b.getAttribute('data-read');
+      [].forEach.call(document.querySelectorAll('#kg [data-read]'), function(x){ var on = x===b; x.classList.toggle('on', on); x.setAttribute('aria-pressed', on?'true':'false'); });
+      update();
     });
-  }
-
-  // ---------- discovery: scan ----------
-  document.getElementById('kg-clear').addEventListener('click', function(){
-    state.dis = null; state.drug = null; state.rewind = false; state.funded = [];
-    titleEl.textContent = 'Pick a disease to rank every drug against it';
-    noteEl.textContent = 'Click a pink dot or a disease button above.';
-    listEl.textContent = '';
-    var st = document.getElementById('kg-strip'); if(st) st.innerHTML = '<span class="ss-hint">Scores appear here as soon as you pick a disease. Full list and paths are below the graph.</span>';
-    if(typeof syncChips==='function') syncChips();
-    rank();
   });
-  draw(null);
+  document.getElementById('kg-add').addEventListener('click', function(){
+    var a = document.getElementById('kg-a').value.trim(), b = document.getElementById('kg-b').value.trim(), s = parseInt(document.getElementById('kg-v').value,10);
+    if(!a || !b){ say('Fill in both things first.'); return; }
+    if(norm(a)===norm(b)){ say('The two things have to be different.'); return; }
+    var f = {id:'m'+mine.length, a:a, b:b, s:s, v:(s<0?'reduces':'causes'), short:(s<0?'reduces':'causes'), on:true, mine:true};
+    mine.push(f);
+    document.getElementById('kg-a').value=''; document.getElementById('kg-b').value='';
+    say('Added yours: ' + sentence(f) + ' It went in exactly like the others.');
+    update();
+  });
+  update();
+})();
 
-  // ---------- gate ----------
-  var COST = {in:0, on:0, out:0};
+(function(){
+  // ---------- the gate ----------
   var LABEL = {in:'In the loop', on:'On the loop', out:'Out of the loop'};
   var WHAT = {in:'a person reads every case and decides', on:'the AI decides, a person reviews what it flags', out:'the AI decides, nobody reviews'};
+  var SHIFTS_TOTAL = 7;
   var CARDS = [
-    {t:'Screening mammograms', real:true, ctx:'The AI sorts scans by cancer risk. Right now two radiologists read every scan.', src:'The MASAI trial, 105,000 women, The Lancet Digital Health, February 2025', url:'https://doi.org/10.1016/S2589-7500(24)00267-X',
+    {t:'Screening mammograms', short:'Mammograms', ctx:'The AI sorts scans by cancer risk. Right now two radiologists read every scan.', src:'The MASAI trial, 105,000 women, The Lancet Digital Health, February 2025', url:'https://doi.org/10.1016/S2589-7500(24)00267-X',
+     cost:{in:4, on:2, out:0},
+     head:{in:'Today\'s standard: two readers on every scan', on:'29% more cancers found, 44% less reading', out:null},
      in:'Two radiologists read everything, the standard the MASAI trial compared against. It works, and it costs the most reading time.',
      on:'This is what MASAI tested with 105,000 women: the AI sorted scans and one radiologist read the low-risk ones. <b>29 percent more cancers found, no more false alarms, 44 percent less reading work.</b>',
      out:'Not what the trial tested. Nobody in it read scans with no radiologist at all, so the honest result is <b>unknown</b>.'},
-    {t:'Diagnosis from clean case notes', real:true, ctx:'A doctor has already written up the facts that matter. The AI proposes a diagnosis.', src:'Goh et al., JAMA Network Open, October 2024, as cited in the JAMA viewpoint of August 2026', url:'https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2825395',
+    {t:'Diagnosis from clean case notes', short:'Clean case notes', ctx:'A doctor has already written up the facts that matter. The AI proposes a diagnosis.', src:'Goh et al., JAMA Network Open, October 2024, as cited in the JAMA viewpoint of August 2026', url:'https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2825395',
+     cost:{in:2, on:1, out:0},
+     head:{in:'Doctor plus AI scored 76', on:null, out:'AI alone scored about 90'},
      in:'Doctors using the AI scored <b>76</b>, barely above doctors alone at 74. Adding the doctor pulled the AI\'s answer down.',
      on:'Not tested in the 2024 study. The result sits somewhere between 76 and 90, and <b>nobody measured where</b>.',
      out:'The AI alone scored <b>about 90</b>, the best result on this card. This is the JAMA authors\' case for stepping the doctor out.'},
-    {t:'Diagnosis from a patient\'s own words, 2 a.m.', real:true, ctx:'No doctor has written anything up. A worried patient opens an app in the middle of the night and describes what is wrong in their own words, and the AI has to work from that.', src:'Bean et al., Nature Medicine, 2026, the Oxford study Robert Wachter cites', url:'https://doi.org/10.1038/s41591-025-04074-y',
+    {t:'Diagnosis from a patient\'s own words, 2 a.m.', short:'The 2 a.m. app', ctx:'No doctor has written anything up. A worried patient opens an app in the middle of the night and describes what is wrong in their own words, and the AI has to work from that.', src:'Bean et al., Nature Medicine, 2026, the Oxford study Robert Wachter cites', url:'https://doi.org/10.1038/s41591-025-04074-y',
+     cost:{in:4, on:2, out:0},
+     head:{in:null, on:null, out:'Wrong call about 2 times in 3'},
      in:'Not tested in the study. Wachter\'s argument is that sorting out which facts matter is the doctor\'s job, and it\'s exactly what this card is missing. <b>Plausible safeguard, unmeasured.</b>',
      on:'Not tested. A person reviewing only the flagged cases still depends on the AI flagging the right ones from messy input. <b>Unmeasured.</b>',
      out:'In the Oxford study, ordinary people were given real illnesses to describe in their own words and asked the AI what to do. With no doctor sorting out which details mattered, the AI made the <b>wrong call about two times in three</b>.'},
-    {t:'Chemotherapy for a patient too sick for standard care', real:true, ctx:'The graph ranks three drugs highly. The chemotherapy could kill him.', src:'Joseph\'s case, Penn Medicine\'s film on Every Cure', url:'https://www.youtube.com/watch?v=4FxwoOuPGWs',
+    {t:'Chemotherapy for a patient too sick for standard care', short:'Joseph\'s chemotherapy', ctx:'Every Cure\'s graph ranked three drugs highly for Joseph, a patient too sick for standard care. The chemotherapy could kill him.', src:'Joseph\'s case, Penn Medicine\'s film on Every Cure', url:'https://www.youtube.com/watch?v=4FxwoOuPGWs',
+     cost:{in:1, on:0, out:0}, refuse:{on:true, out:true},
+     head:{in:'One patient, recovered. A story, not a trial', on:'No hospital would do this', out:'No hospital would do this'},
      in:'What happened for Joseph: the team, the oncologists, and Joseph all had to say yes. <b>He recovered.</b> One case is a story, not a trial.',
      on:'<b>No hospital would do this.</b> Nobody can consent to a treatment that only gets reviewed if the AI flags it. Some decisions have no cheaper setting.',
      out:'<b>No hospital would do this.</b> Some decisions have no cheaper setting.'}
   ];
-  var TESTED = [
-    {in:true,on:true,out:false},{in:true,on:false,out:true},{in:false,on:false,out:true},{in:true,on:false,out:false}
-  ];
   var picks = CARDS.map(function(){ return null; });
-  var box = document.getElementById('gt-cards'); box.innerHTML=''; var _u = null, used = document.getElementById('gt-used'), gStatus = document.getElementById('gt-status');
-  var gVerdict = document.getElementById('gt-verdict'), gRead = document.getElementById('gt-read');
+  var box = document.getElementById('gt-cards'), gStatus = document.getElementById('gt-status'), gBar = document.getElementById('gt-bar');
+  var gVerdict = document.getElementById('gt-verdict'), gRead = document.getElementById('gt-read'), gMap = document.getElementById('gt-map');
   CARDS.forEach(function(c, i){
     var d = document.createElement('div'); d.className='gcard';
-    d.innerHTML = '<div class="top"><h4>'+(i+1)+'. '+c.t+'</h4><span class="kind'+(c.real?' real':'')+'">'+(c.real?'real':'simulated')+'</span></div>'+
+    d.innerHTML = '<div class="top"><h4>'+(i+1)+'. '+c.t+'</h4><span class="kind real">real</span></div>'+
       '<p class="ctx">'+c.ctx+'</p><p class="src">Evidence: <a class="inline" href="'+c.url+'" target="_blank" rel="noopener">'+c.src+'</a></p><div class="chips" role="group" aria-label="Setting for '+c.t.replace(/"/g,'')+'"></div><div class="out" hidden></div>'+
       '<details class="others" hidden><summary>See the other two settings</summary><p></p></details>';
     var chips = d.querySelector('.chips');
     ['in','on','out'].forEach(function(k){
       var b = document.createElement('button'); b.type='button'; b.className='chip'; b.setAttribute('aria-pressed','false');
-      b.innerHTML = '<b>' + LABEL[k] + '</b><small>' + WHAT[k] + '</small>';
+      var cs = c.cost[k];
+      b.innerHTML = '<b>' + LABEL[k] + '</b><small>' + WHAT[k] + '</small><small class="cost">' + cs + ' shift' + (cs===1?'':'s') + '</small>';
       b.addEventListener('click', function(){ picks[i] = (picks[i]===k ? null : k); gateSync(); });
       b.setAttribute('data-k', k); chips.appendChild(b);
     });
     box.appendChild(d);
   });
-  function spent(){ return picks.reduce(function(s,k){ return s + (k?COST[k]:0); }, 0); }
+  function spent(){ return picks.reduce(function(s,k,i){ return s + (k?CARDS[i].cost[k]:0); }, 0); }
   function gateSync(){
     [].forEach.call(box.querySelectorAll('.gcard'), function(d, i){
       [].forEach.call(d.querySelectorAll('.chip'), function(b){
@@ -881,27 +1044,40 @@ ul.ideas li{margin:8px 0}
       d.querySelector('.out').hidden = true; d.querySelector('.others').hidden = true;
     });
     gVerdict.hidden = true;
-    var s = spent(); if(used) used.textContent = s;
-    var left = picks.filter(function(k){ return !k; }).length;
-    if(left) gStatus.textContent = left + ' card' + (left>1?'s':'') + ' still need a setting.';
-    else gStatus.textContent = 'All four set. Run the year.';
+    var s = spent(), left = picks.filter(function(k){ return !k; }).length;
+    gBar.style.width = Math.min(100, 100*s/SHIFTS_TOTAL) + '%';
+    gBar.parentNode.classList.toggle('over', s > SHIFTS_TOTAL);
+    var msg = s + ' of ' + SHIFTS_TOTAL + ' shifts used.';
+    if(s > SHIFTS_TOTAL) msg += ' Over by ' + (s-SHIFTS_TOTAL) + '. Something has to move.';
+    else if(left) msg += ' ' + left + ' card' + (left===1?'':'s') + ' still to set.';
+    else msg += ' Ready to run the year.';
+    gStatus.textContent = msg;
   }
   document.getElementById('gt-run').addEventListener('click', function(){
     var s = spent(), left = picks.filter(function(k){ return !k; }).length;
     if(left){ gStatus.textContent = 'Set all four cards first. ' + left + ' to go.'; return; }
-    var tested = 0, untested = 0;
+    if(s > SHIFTS_TOTAL){ gStatus.textContent = 'You are ' + (s-SHIFTS_TOTAL) + ' shift' + (s-SHIFTS_TOTAL===1?'':'s') + ' over. Your doctors only have ' + SHIFTS_TOTAL + '. Move a setting first.'; return; }
+    var fog = 0, refused = 0, tiles = '';
     [].forEach.call(box.querySelectorAll('.gcard'), function(d, i){
       var k = picks[i], c = CARDS[i];
       var o = d.querySelector('.out'); o.hidden = false;
       o.innerHTML = '<b>' + LABEL[k] + ':</b> ' + c[k];
       var oth = d.querySelector('.others'); oth.hidden = false;
       oth.querySelector('p').innerHTML = ['in','on','out'].filter(function(x){ return x!==k; }).map(function(x){ return '<strong>' + LABEL[x] + ':</strong> ' + c[x]; }).join('<br>');
-      if(c.real){ if(TESTED[i][k]) tested++; else untested++; }
+      var kind = (c.refuse && c.refuse[k]) ? 'no' : (c.head[k] ? 'known' : 'fog');
+      if(kind==='fog') fog++; if(kind==='no') refused++;
+      tiles += '<div class="gtile ' + kind + '"><span class="tt">' + c.short + '</span><span class="ts">' + LABEL[k] + ' · ' + c.cost[k] + ' shift' + (c.cost[k]===1?'':'s') + '</span><span class="th">' + (kind==='fog' ? 'Nobody has measured this. Your patients are the first test.' : c.head[k]) + '</span></div>';
     });
-    gRead.innerHTML = 'Across the four cards, <b>' + tested + '</b> of your settings ' + (tested===1?'matches':'match') + ' something that was actually tried, and <b>' + untested + '</b> ' + (untested===1?'rests':'rest') + ' on nobody\'s evidence yet. ' +
-      'That isn\'t a grade. Some of the best-defended settings in the room will be untested ones, because the evidence doesn\'t exist. The point is to know which of yours are which, and to say what you gave up to afford them.';
+    gMap.innerHTML = tiles;
+    var read = 'You used <b>' + s + ' of ' + SHIFTS_TOTAL + '</b> shifts. <b>' + fog + ' of 4</b> tasks run on a setting nobody has measured.';
+    if(refused) read += ' And one setting is one no hospital would allow, however much it saves.';
+    if(picks[2]==='out') read += ' Your 2 a.m. app is measured, and what was measured is the AI getting it wrong about two times in three. Measured is not the same as good.';
+    else if(picks[2]) read += ' Your 2 a.m. app keeps a person involved, and nobody knows yet what that buys.';
+    read += ' This isn\'t a grade. Some of the best-defended maps in the room will have striped tiles, because the evidence doesn\'t exist. The point is to know which of yours are which, and what you gave up to pay for the rest.';
+    gRead.innerHTML = read;
     gVerdict.hidden = false;
     gStatus.textContent = 'Year complete. Each card now shows what happened under your setting.';
+    gVerdict.focus();
   });
   document.getElementById('gt-reset').addEventListener('click', function(){ picks = CARDS.map(function(){ return null; }); gateSync(); });
   gateSync();
