@@ -211,6 +211,15 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .rc-recs li{margin:4px 0}
 .rc-log{white-space:pre-line;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.8rem;background:#FAFAF7;border:1px solid var(--rule);padding:10px;min-height:60px}
 @media (max-width:640px){.rc-grid{grid-template-columns:1fr}}
+.sl-list{border:1px solid var(--rule);margin-bottom:10px}
+.sl-pred{font-size:.85rem;color:var(--gray)}
+.sl-pred b{color:var(--ink)}
+.sl-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.sl-group{border:1px solid var(--rule);padding:12px 14px;background:var(--bg)}
+.sl-group h4{margin:0;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext)}
+.sl-group ul{margin:6px 0 10px;padding-left:18px;font-size:.9rem}
+.sl-group label{font-size:.78rem;color:var(--gray);display:block;margin-bottom:4px}
+@media (max-width:640px){.sl-groups{grid-template-columns:1fr}}
 .mb-top .mb-src{max-height:150px}
 .srow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:8px}
 .srow .chips{margin:0}
@@ -556,7 +565,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
         </div>
 
         <div class="mb-stage" id="mb-s8" hidden>
-          <h3 class="mb-h">Step 8 &middot; Give it a longer memory</h3>
+          <h3 class="mb-h">Step 8 &middot; Give it a longer memory (optional)</h3>
           <p><b>Do this:</b> press <b>Remember 2 words</b>, then press <b>Run a whole sentence</b>.</p>
           <p>When you stored the text, each word went into a box marked with the one word before it. Switching stores the whole text again, this time marking each box with a pair of words, so a box reads "the cat" rather than "the," and it holds whatever followed that exact pair. Look at the box names on the right after you switch.</p>
           <div class="chips tis-actions" role="group" aria-label="How far back it remembers">
@@ -693,15 +702,52 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 
 <section id="feed">
   <div class="shead"><span class="num">4</span><h2>In class: Train a recommender, then read your Wrapped</h2></div>
-  <p class="lead"><a class="inline" href="chapter-03-systems.html">Chapter 3</a> said the AI that shapes your day never announces itself, and the loop that guesses what you want also shapes what you want. Here is the simplest version of that loop, the one underneath Spotify's recommendations: collaborative filtering (<a class="inline" href="chapter-03-systems.html#s2-1">Chapter 3, section 2.1</a>). It never listens to a song. It asks one question: which listeners behaved like you, and what did they play that you haven't?</p>
+  <p class="lead"><a class="inline" href="chapter-03-systems.html">Chapter 3</a> said the AI that shapes your day never announces itself, and the loop that guesses what you want also shapes what you want. Before you train a recommender, take three minutes to do the two kinds of machine learning underneath it by hand (<a class="inline" href="chapter-03-systems.html#s2-2">Chapter 3, section 2.2</a>).</p>
+
+  <div class="tool" id="sl">
+    <div class="label">Warm-up &middot; labels and groups, by hand</div>
+    <div class="dirs">
+      <div class="steps">
+        <div class="step"><span class="sn">1</span><p><strong>Be the label.</strong> Mark each of the first four songs Play or Skip, the way you would. Then press <b>Learn and predict</b> and see what it guesses for four songs it has never seen.</p></div>
+        <div class="step"><span class="sn">2</span><p><strong>Take the labels away.</strong> Press <b>Find groups</b>. It sorts all eight songs with no answers at all. Then type a name for each group it found.</p></div>
+      </div>
+    </div>
+    <div class="label">Half 1 &middot; supervised: you give it the answers</div>
+    <div class="sl-list" id="sl-train">
+        <div class="rc-song" data-i="0"><div class="rc-meta"><b>Neon Sprint</b><span>fast &middot; loud</span></div><div class="rc-acts"><button type="button" class="chip" data-v="1" aria-pressed="false" aria-label="Label Neon Sprint: play">Play</button><button type="button" class="chip" data-v="0" aria-pressed="false" aria-label="Label Neon Sprint: skip">Skip</button></div></div>
+        <div class="rc-song" data-i="1"><div class="rc-meta"><b>Paper Boats</b><span>slow &middot; acoustic</span></div><div class="rc-acts"><button type="button" class="chip" data-v="1" aria-pressed="false" aria-label="Label Paper Boats: play">Play</button><button type="button" class="chip" data-v="0" aria-pressed="false" aria-label="Label Paper Boats: skip">Skip</button></div></div>
+        <div class="rc-song" data-i="2"><div class="rc-meta"><b>Red Line</b><span>mid-tempo &middot; beats</span></div><div class="rc-acts"><button type="button" class="chip" data-v="1" aria-pressed="false" aria-label="Label Red Line: play">Play</button><button type="button" class="chip" data-v="0" aria-pressed="false" aria-label="Label Red Line: skip">Skip</button></div></div>
+        <div class="rc-song" data-i="3"><div class="rc-meta"><b>Porch Light</b><span>slow &middot; acoustic</span></div><div class="rc-acts"><button type="button" class="chip" data-v="1" aria-pressed="false" aria-label="Label Porch Light: play">Play</button><button type="button" class="chip" data-v="0" aria-pressed="false" aria-label="Label Porch Light: skip">Skip</button></div></div>
+    </div>
+    <div class="label">Songs it has never seen</div>
+    <div class="sl-list">
+        <div class="rc-song"><div class="rc-meta"><b>Static Heart</b><span>fast &middot; loud</span></div><span class="sl-pred" id="sl-p0">waiting for your labels</span></div>
+        <div class="rc-song"><div class="rc-meta"><b>Lantern</b><span>slow &middot; acoustic</span></div><span class="sl-pred" id="sl-p1">waiting for your labels</span></div>
+        <div class="rc-song"><div class="rc-meta"><b>Corner Store</b><span>mid-tempo &middot; beats</span></div><span class="sl-pred" id="sl-p2">waiting for your labels</span></div>
+        <div class="rc-song"><div class="rc-meta"><b>Overdrive</b><span>fast &middot; loud</span></div><span class="sl-pred" id="sl-p3">waiting for your labels</span></div>
+    </div>
+    <div class="chips"><button type="button" class="btn" id="sl-learn" disabled>Learn and predict</button></div>
+    <div class="verdict" id="sl-v1" hidden aria-live="polite"></div>
+
+    <div class="label" style="margin-top:26px">Half 2 &middot; unsupervised: no answers given</div>
+    <div class="chips"><button type="button" class="btn" id="sl-group">Find groups</button></div>
+    <div class="sl-groups" id="sl-groups" hidden>
+      <div class="sl-group"><h4>Group 1</h4><ul id="sl-g0"></ul><label for="sl-n0">Your name for this group</label><input type="text" id="sl-n0" maxlength="40" autocomplete="off"></div>
+      <div class="sl-group"><h4>Group 2</h4><ul id="sl-g1"></ul><label for="sl-n1">Your name for this group</label><input type="text" id="sl-n1" maxlength="40" autocomplete="off"></div>
+      <div class="sl-group"><h4>Group 3</h4><ul id="sl-g2"></ul><label for="sl-n2">Your name for this group</label><input type="text" id="sl-n2" maxlength="40" autocomplete="off"></div>
+    </div>
+    <div class="verdict" id="sl-v2" hidden aria-live="polite"></div>
+  </div>
+
+  <p>Now the real thing. Here is the simplest version of the loop underneath Spotify's recommendations: collaborative filtering (<a class="inline" href="chapter-03-systems.html#s2-1">Chapter 3, section 2.1</a>). It never listens to a song. It asks one question: which listeners behaved like you, and what did they play that you haven't? The other way to guess, content-based filtering, would need the sound itself. This one only needs your clicks.</p>
   <p>Then it does what Chapter 3's case is about. The same clicks that trained your recommendations get turned into a Wrapped about you.</p>
 
   <div class="tool" id="rc">
     <div class="label">Simulator &middot; a Spotify-style recommender, and your Wrapped</div>
     <div class="dirs">
       <div class="steps">
-        <div class="step"><span class="sn">1</span><p><strong>React to at least eight songs.</strong> Skip, Play, or Replay each one, the way you actually would. Each click is a signal: a skip counts as 0.1, a play as 0.5, a replay as 0.9. Watch the log record it.</p></div>
-        <div class="step"><span class="sn">2</span><p><strong>Watch who you resemble.</strong> The panel finds the three listeners, out of nine, whose history points most in the same direction as yours, and scores how close each one is. Then it recommends songs they loved that you haven't touched.</p></div>
+        <div class="step"><span class="sn">1</span><p><strong>React to at least eight songs.</strong> Skip, Play, or Replay each one, the way you actually would. Each click is a signal: a skip counts as 0.1, a play as 0.5, a replay as 0.9. Watch the log record it. These clicks are labels, just like the ones you gave in the warm-up.</p></div>
+        <div class="step"><span class="sn">2</span><p><strong>Watch who you resemble.</strong> The panel finds the three listeners, out of nine, whose history points most in the same direction as yours, and scores how close each one is. Then it recommends songs they loved that you haven't touched. Nobody named that group of listeners; that's the grouping idea from the warm-up, applied to people.</p></div>
         <div class="step"><span class="sn">3</span><p><strong>Change your mind.</strong> Skip something you replayed. Watch your matches and your recommendations move. That's Chapter 3's loop (<a class="inline" href="chapter-03-systems.html#s2-3">section 2.3</a>): your clicks change who you're matched with, which changes what you're shown next.</p></div>
         <div class="step"><span class="sn">4</span><p><strong>Generate your Wrapped.</strong> After five songs, press the button. Then read it carefully: which parts are counting, and which part is writing?</p></div>
       </div>
@@ -748,9 +794,68 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 
 </section>
 
+<script>
+(function(){
+  var root = document.getElementById('sl');
+  if(!root) return;
+  var S = [
+    {t:'Neon Sprint', e:0.90, a:0.10}, {t:'Paper Boats', e:0.20, a:0.90},
+    {t:'Red Line', e:0.55, a:0.30}, {t:'Porch Light', e:0.25, a:0.85},
+    {t:'Static Heart', e:0.85, a:0.15}, {t:'Lantern', e:0.15, a:0.80},
+    {t:'Corner Store', e:0.60, a:0.35}, {t:'Overdrive', e:0.80, a:0.20}
+  ];
+  var lab = [null,null,null,null], learned = false;
+  var $ = function(id){ return document.getElementById(id); };
+  function dist(x,y){ var de=x.e-y.e, da=x.a-y.a; return Math.sqrt(de*de+da*da); }
+  function ready(){ return lab.every(function(v){ return v!==null; }); }
+
+  function predict(){
+    var plays=0, skips=0;
+    for(var j=4;j<8;j++){
+      var best=-1, bd=9;
+      for(var i=0;i<4;i++){ var d=dist(S[j],S[i]); if(d<bd){ bd=d; best=i; } }
+      var v = lab[best];
+      if(v) plays++; else skips++;
+      $('sl-p'+(j-4)).innerHTML = '&rarr; predicted: <b>'+(v?'play':'skip')+'</b>, because it sounds most like '+S[best].t+', which you '+(v?'played':'skipped');
+    }
+    var all = lab.every(function(v){ return v===lab[0]; });
+    var extra = all ? ' You gave it only one kind of answer, so that is the only answer it can give. Try mixing Play and Skip.' : '';
+    $('sl-v1').innerHTML = '<div class="label">What just happened</div><p class="read"><b>You gave it four answers.</b> From those, it guessed the other four: '+plays+' play, '+skips+' skip. Each guess copies the label of the song it sounds most like.'+extra+' That is supervised learning: examples with the answer attached. Nobody at a company labeled anything. You did, and in the recommender below, every Skip, Play, and Replay is a label too.</p>';
+    $('sl-v1').hidden = false;
+  }
+
+  Array.prototype.forEach.call($('sl-train').querySelectorAll('.rc-song'), function(row){
+    var i = +row.getAttribute('data-i');
+    Array.prototype.forEach.call(row.querySelectorAll('.chip'), function(b){
+      b.addEventListener('click', function(){
+        Array.prototype.forEach.call(row.querySelectorAll('.chip'), function(x){ x.classList.remove('on'); x.setAttribute('aria-pressed','false'); });
+        b.classList.add('on'); b.setAttribute('aria-pressed','true');
+        lab[i] = b.getAttribute('data-v')==='1';
+        $('sl-learn').disabled = !ready();
+        if(learned && ready()) predict();
+      });
+    });
+  });
+  $('sl-learn').addEventListener('click', function(){ if(!ready()) return; learned = true; predict(); });
+
+  $('sl-group').addEventListener('click', function(){
+    var C = [{e:S[0].e,a:S[0].a},{e:S[1].e,a:S[1].a},{e:S[2].e,a:S[2].a}], g = [];
+    for(var it=0; it<10; it++){
+      g = S.map(function(s){ var b=0, bd=9; C.forEach(function(c,k){ var d=dist(s,c); if(d<bd){ bd=d; b=k; } }); return b; });
+      C = C.map(function(c,k){ var m=S.filter(function(s,j){ return g[j]===k; }); if(!m.length) return c; return {e:m.reduce(function(t,s){return t+s.e;},0)/m.length, a:m.reduce(function(t,s){return t+s.a;},0)/m.length}; });
+    }
+    for(var k=0;k<3;k++){
+      $('sl-g'+k).innerHTML = S.filter(function(s,j){ return g[j]===k; }).map(function(s){ return '<li>'+s.t+'</li>'; }).join('');
+    }
+    $('sl-groups').hidden = false;
+    $('sl-v2').innerHTML = '<div class="label">What just happened</div><p class="read"><b>It found three groups and named none of them.</b> Nobody told it what to look for. It put together the songs that sit closest on its two numbers, energy and how acoustic they sound. The names are yours. That is unsupervised learning. In the recommender below, <b>Listeners most like you</b> is the same idea, applied to people instead of songs.</p>';
+    $('sl-v2').hidden = false;
+  });
+})();
+</script>
 <section id="hood">
   <div class="shead"><span class="num">5</span><h2>In class: Under the hood, how each one worked</h2></div>
-  <p class="lead">You just used four machines. Here's what was inside each one, and how it maps to the real thing.</p>
+  <p class="lead">You just used five machines. Here's what was inside each one, and how it maps to the real thing.</p>
 
   <h3 class="sub" id="hood-lm"><span>1</span> The small language model</h3>
   <p>Everything it knew was a set of boxes: for each word in the rhyme, the words that came right after it. Writing was one move repeated. Open the box for the last word, draw a word, open that word's box. That's next-word prediction, and it's stage one of how a chatbot is built (<a class="inline" href="chapter-02-human.html#s2-2-fluency">Chapter 2, section 2.2</a>).</p>
@@ -764,7 +869,11 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   <p>ELIZA has no model, no boxes, and nothing learned. It's about forty rules a person wrote by hand: if you type this keyword, say that. By Lab 0's rule, if a person wrote every rule, it isn't AI. So ELIZA isn't AI at all, and it still felt, for a moment, like someone was listening. The 2026 version added three of the dials from section 2 on top of the same rules: a warm opener, a callback to something you said, and a name.</p>
   <p>That's the lesson. The feeling of being heard is cheap to produce. It tells you how the settings were turned, not what the system understands about you.</p>
 
-  <h3 class="sub" id="hood-rc"><span>4</span> The recommender</h3>
+  <h3 class="sub" id="hood-sl"><span>4</span> Labels and groups</h3>
+  <p>The warm-up had no real model and no real data: eight invented songs, each described by two made-up numbers, one for energy and one for how acoustic it sounds. In the first half, your four labels were the answers, and it guessed each new song by copying the label of the song it sat closest to. That's <b>supervised learning</b>: examples with the answer attached (<a class="inline" href="chapter-03-systems.html#s2-2">Chapter 3, section 2.2</a>). In the second half it got no labels at all. It put the songs that sat closest together into three groups and couldn't name any of them. You did. That's <b>unsupervised learning</b>.</p>
+  <p>The recommender used both ideas. Every Skip, Play, and Replay was a label, and you supplied every one for free. Finding the three listeners most like you, with nobody naming the group, is the grouping idea applied to people. Real recommenders blend the two, with millions of songs and far more than two numbers for each.</p>
+
+  <h3 class="sub" id="hood-rc"><span>5</span> The recommender</h3>
   <p>Every click became a number: a skip 0.1, a play 0.5, a replay 0.9. Your row of numbers was compared with nine invented listeners by how closely the pattern pointed in the same direction, and your three closest matches decided your recommendations: songs they loved that you hadn't touched. It never heard a song. It only knew who else skipped and replayed it. That's collaborative filtering (<a class="inline" href="chapter-03-systems.html#s2-1">Chapter 3, section 2.1</a>).</p>
   <p>When you changed your mind, your matches changed, and so did what you were shown next. That's the loop (<a class="inline" href="chapter-03-systems.html#s2-3">section 2.3</a>): the system learns your taste from what it shows you, which shapes what you can come to like. And the Wrapped needed nothing new. It is the same log, read back as a story. The list is counting. The sentence in quotes is writing, and in the real Wrapped, a language model writes that part (<a class="inline" href="chapter-03-systems.html#s2-4">section 2.4</a>).</p>
 </section>
@@ -819,7 +928,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
       <li><strong>Huddle (1 min).</strong> Rebutters pick one point the other side made.</li>
       <li><strong>Rebuttals (5 min).</strong> Stand up and face the other side, Side B first. Answer one point. No new arguments.</li>
       <li><strong>Switch (3 min).</strong> Someone new argues the other side's best point in one sentence.</li>
-      <li><strong>What did you hear? (3 min).</strong> Which argument from the other side was hardest to answer? No winner is declared.</li>
+      <li><strong>What would change your mind? (3 min).</strong> Out loud: name the specific evidence you would have to see. Whoever names real evidence that would move them wins, whichever side they were handed.</li>
     </ol>
   </div>
   <div class="callout">
@@ -844,7 +953,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   <div class="shead"><span class="num">7</span><h2>For homework: The writeup</h2></div>
   <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, October 9.</strong> One writeup covers the whole lab. Each item is one of the five critical AI questions, run on what you built and used today. Use your screenshots as evidence.</p>
   <ol class="writeup">
-      <li><strong>What is the AI system, and what does it do?</strong> In your own words, explain what a language model is and how it writes a sentence, using the small one you built: what went into the boxes, and how each next word got picked. Then explain what a recommendation system is and how yours picked songs for you: whose clicks it compared with yours, and what it never needed to know about the music.</li>
+      <li><strong>What is the AI system, and what does it do?</strong> In your own words, explain what a language model is and how it writes a sentence, using the small one you built: what went into the boxes, and how each next word got picked. Then explain what a recommendation system is and how yours picked songs for you: whose clicks it compared with yours, and what it never needed to know about the music. Finally, which part of the lab used your clicks as labels, and which part found groups that nobody named?</li>
       <li><strong>Why does it exist, and who benefits?</strong> In the warmth dial, which setting pushed the attachment estimate up the most? Why would a company that earns money from subscriptions or time in the app set its dials there? Then do the same for the recommender: when it keeps you listening, who gains, and who doesn't? Use Chapter 3's cold-start problem or Discovery Mode.</li>
       <li><strong>What happens when it fails, and who finds out?</strong> Nobody was reading your ELIZA or Sam conversation. Describe one way a warm chatbot could fail a real person, and say who, if anyone, would notice. Then name one failure of the recommender's loop that nobody would ever report.</li>
       <li><strong>Who's saying that, and how would we know?</strong> Your Wrapped told you something about yourself. Which lines were counting and which were writing, and would you trust the writing? A companion app that says "I care about you" is also saying something. What evidence would you need to tell seeming to care from caring?</li>
@@ -861,7 +970,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p class="srcintro">Verified 19 September 2026; revised 21 September 2026 when the lab was restructured around four tools and the live-chatbot scorecard was cut. This lab runs mostly on its own tools. The claims it does make come from Chapters 2 and 3, which carry their own dated notes.</p>
+    <p class="srcintro">Verified 19 September 2026; revised 21 September 2026 when the lab was restructured around four tools and the live-chatbot scorecard was cut; revised 1 October 2026 to add the labels-and-groups warm-up in section 4. This lab runs mostly on its own tools. The claims it does make come from Chapters 2 and 3, which carry their own dated notes.</p>
     <dl>
       <dt>The small language model (section 1)</dt>
       <dd>Trained on the first five verses of the traditional nursery rhyme "The House That Jack Built," 79 words, public domain. It is a bigram next-word predictor, so any sentence it writes is grammatical only by accident; that is the lesson, not a fault. The matchbox construction follows David Corney's, linked in section 1.</dd>
@@ -872,6 +981,9 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
       <dt>The warmth dial (section 2)</dt>
       <dd>No model. Replies are assembled from fixed parts chosen by the sliders, and the attachment estimate is invented; it shows a direction, not a measurement.</dd>
 
+
+      <dt>Labels and groups (section 4 warm-up)</dt>
+      <dd>No real model and no real data. Eight invented songs, each described by two invented numbers. The supervised half predicts each new song from its nearest labeled song; the unsupervised half is k-means with three groups and fixed starting points, so every run sorts the same way. It shows the two ideas, not how Spotify does either.</dd>
 
       <dt>The recommender and Wrapped (section 4)</dt>
       <dd>Collaborative filtering by cosine similarity: your clicks are compared with nine invented listeners, and songs are scored by how much your three closest matches engaged with them. The fifteen songs are real; the listeners and their scores are invented, carried over from the MIS 432 Spotify lab. It illustrates the method Chapter 3 describes. It is not Spotify's system, and its numbers are not Spotify's.</dd>
@@ -1145,13 +1257,13 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
       $('mb-back').disabled = stage===1;
       $('mb-next').disabled = !done[stage] || stage===9;
     }
-    var hints={1:'',2:'Store about eight by hand, then store the rest.',3:'Click a box on the right to continue.',4:'Press Take a word out of this box once.',5:'Keep going until the sentence has five words.',6:'Press Finish my sentence for me.',7:'Type a few words and press Finish my sentence.',8:'Press Remember 2 words, then run a sentence.',9:'Rate three sentences to unlock the last part.'};
+    var hints={1:'',2:'Store about eight by hand, then store the rest.',3:'Click a box on the right to continue.',4:'Press Take a word out of this box once.',5:'Keep going until the sentence has five words.',6:'Press Finish my sentence for me.',7:'Type a few words and press Finish my sentence.',8:'Optional. Try it if you have time, or press Next.',9:'Rate three sentences to unlock the last part.'};
     $('mb-hint').textContent=(stage===9&&done[9])?'That is the whole machine. Next: the warmth dial.':(done[stage]?'':hints[stage]);
     $('mb-s5note').textContent = seq.length>=5
       ? 'That is five next-word predictions in a row. Nothing chose those words, including you. The only thing missing now is speed.'
       : 'Each press takes out one word and opens the next box. Nothing chooses the words, including you.';
   }
-  function go(n){ if(n<1||n>9||n>maxStage) return; stage=n; if(n===3&&!opened)openBox(START); sync(); }
+  function go(n){ if(n<1||n>9||n>maxStage) return; stage=n; if(n===8)done[8]=true; if(n===3&&!opened)openBox(START); sync(); }
 
   $('mb-one').addEventListener('click',function(){
     if(!fileOne(false)) return;
