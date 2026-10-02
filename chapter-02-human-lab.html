@@ -248,6 +248,25 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .mb-tab[disabled]{opacity:1;background:#F4F4F0;color:#A7ADB5;border-style:dashed;cursor:not-allowed}
 .mb-tab[disabled] span{color:#A7ADB5}
 .mb-tab:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.at-stage{background:var(--dark);margin:16px 0 12px;padding:18px 18px 8px}
+.at-scroll{overflow-x:auto}
+#at-svg{display:block;width:100%;min-width:620px;height:auto}
+#at-svg .at-w{cursor:pointer}
+#at-svg .at-w rect{fill:#1B222B;stroke:#3A4350;stroke-width:1}
+#at-svg .at-w text{font:15px Inter,Arial,sans-serif;fill:#E7EAEF}
+#at-svg .at-w:hover rect{stroke:#FF3D8A}
+#at-svg .at-w.on rect{fill:#E4FF32;stroke:#E4FF32}
+#at-svg .at-w.on text{fill:#0E1116;font-weight:700}
+#at-svg .at-w:focus{outline:none}
+#at-svg .at-w:focus-visible rect{stroke:#FF3D8A;stroke-width:3}
+#at-svg .at-blank rect{fill:none;stroke:#FF3D8A;stroke-width:1.5;stroke-dasharray:4 3}
+#at-svg .at-blank text{font:700 15px Inter,Arial,sans-serif;fill:#FF3D8A}
+#at-svg .at-blank.filled rect{stroke:#E4FF32}
+#at-svg .at-blank.filled text{fill:#E4FF32}
+.at-panel{color:#E7EAEF;padding:6px 0 10px}
+.at-panel .label{color:var(--yellow)}
+.at-panel .read{font-size:.95rem;line-height:1.6}
+.at-panel .read b{color:var(--yellow)}
 .mb-h{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;margin:0 0 8px;color:var(--ink)}
 .mb-h2{font-family:'Fraunces',serif;font-weight:600;font-size:.98rem;margin:20px 0 6px;color:var(--ink)}
 .mb-stage p{font-size:.95rem;margin-bottom:10px}
@@ -442,7 +461,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 2 &amp; 3 · Week 3, Wednesday · covers Chapters 2 and 3</div>
     <h1>Build the Bot, Train the <b>Feed</b></h1>
     <p class="kicker">Chapter 2 said a language model is a prediction machine, that the warmth is tuned in by a company, and that we're wired to see a person anyway. Chapter 3 said the AI that shapes your day never announces itself. This lab has you see both with your own hands: build a tiny language model and tune it, turn the warmth dial on a fake companion app, talk to ELIZA, then train a Spotify-style recommender with your own clicks and read the Wrapped it writes about you.</p>
-    <p class="factline">a small language model · the warmth dial · ELIZA · a recommender and your Wrapped · under the hood · one debate · one writeup</p>
+    <p class="factline">a small language model · the warmth dial · ELIZA · labels and groups · a recommender and your Wrapped · under the hood · one debate · one writeup</p>
   </div>
 </header>
 
@@ -576,6 +595,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
             <button class="btn" type="button" id="mb-run5">Run a whole sentence</button>
           </div>
           <p class="tis-note" id="mb-s8note" aria-live="polite"></p>
+
         </div>
 
         <div class="mb-stage" id="mb-s9" hidden>
@@ -630,9 +650,127 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 
   </div>
 
-  <p>That machine has fluency and nothing else. Next, the warmth: the settings a company wraps around a model like this one.</p>
+  <div class="tool" id="at">
+    <div class="label">Before the dial &middot; attention, the &ldquo;T&rdquo; in GPT</div>
+    <p>Your matchbox model looked back one or two words. Real chatbots look back at everything. They're built on a <b>transformer</b>, the "T" in GPT, and its trick is <b>attention</b>: before each guess, it looks back at every earlier word and decides which ones matter for filling the blank.</p>
+    <div class="dirs">
+      <div class="steps">
+        <div class="step"><span class="sn">1</span><p><strong>You be the attention.</strong> Tap words in the sentence. A line runs from the blank back to every word you tap, and the guesses underneath change right away. Try <b>trophy</b> alone, then <b>suitcase</b> alone, then only <b>too</b>.</p></div>
+        <div class="step"><span class="sn">2</span><p><strong>Then let a trained model do it.</strong> Press <b>Use a trained transformer's attention</b> and compare its lines and its guess with yours.</p></div>
+      </div>
+    </div>
+    <div class="at-stage">
+      <div class="at-scroll"><svg id="at-svg" viewBox="0 0 760 190" role="group" aria-label="The sentence: The trophy didn't fit in the suitcase because it was too, blank. Each word is a button."></svg></div>
+      <div class="at-panel">
+        <div class="label">Its top guesses for the blank</div>
+        <div class="bars" id="at-bars"></div>
+        <p class="read" id="at-out" aria-live="polite"></p>
+      </div>
+    </div>
+    <div class="chips tis-actions">
+      <button class="btn" type="button" id="at-train">Use a trained transformer's attention</button>
+      <button class="chip" type="button" id="at-clear">Clear</button>
+    </div>
+    <p class="tis-note">The numbers are illustrative, not measured from a real model. The point is the direction: what it attends to changes what it predicts.</p>
+  </div>
+
+  <p><b>What just happened.</b> You chose the attention by hand. A real transformer learns it from its training data. It has read millions of sentences where a word like "it" pointed back to one thing or another, and from those it learned which earlier words usually matter for the next guess. Nobody wrote a rule about trophies.</p>
+  <p><b>Try it in your head.</b> The same pattern works on any sentence: some words narrow the category, and one or two pick the answer inside it.</p>
+  <ul class="ideas" style="margin:0 0 1.1em;padding-left:1.4em">
+    <li>"I grew up in France, so I speak fluent ___." "Speak fluent" narrows it to a language; "France," five words back, picks it: <b>French</b>. A matchbox model sees only "fluent" and might guess English.</li>
+    <li>"I went to the bank to deposit my ___." "Deposit" says which kind of bank: <b>paycheck</b>. In "I sat on the bank of the ___," the same word points to a <b>river</b>.</li>
+    <li>"The chef tasted the soup and said it needed more ___." "Chef," "tasted," and "soup" say this is about flavor: <b>salt</b>. Swap in "the coach watched the team" and the same ending becomes <b>practice</b>.</li>
+  </ul>
+  <p>That's also a transformer's limit. It can only learn the patterns its training text contains. If the text is lopsided, outdated, or wrong, it learns lopsided, outdated, or wrong patterns, and nobody can check the billions of learned weights one by one. It hasn't learned what a trophy is. It has seen a lot of sentences like this one.</p>
+  <h3 class="sub"><span>The takeaway</span></h3>
+  <p>Everything you built in this section is prediction. The matchbox model guessed the next word from the last one or two; a transformer guesses from all of them, weighing which ones matter. Both learned only from the text they were given, and neither understands a word of it. That's stage one: fluency.</p>
+  <p>Both machines have fluency and nothing else. Next, the warmth: the settings a company wraps around a model like this one.</p>
 </section>
 
+<script>
+(function(){
+  var root = document.getElementById('at');
+  if(!root) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  var svg = document.getElementById('at-svg');
+  var $ = function(id){ return document.getElementById(id); };
+  var WORDS = ["The","trophy","didn\u2019t","fit","in","the","suitcase","because","it","was","too"];
+  var KEY = {1:'trophy',3:'fit',6:'suitcase'};
+  var LINE = {1:6,6:6,3:4,8:3,10:3};          // line weight when you tap a word
+  var TRAINED = {1:1,6:0.5,3:0.8,9:0.35,10:0.35,8:0.3,7:0.2,0:0.1,2:0.15,4:0.1,5:0.1}; // illustrative learned attention
+  var sel = {}, trained = false, boxes = [], blank = null, Y = 140, H = 32;
+
+  function el(n,a){ var x=document.createElementNS(NS,n); for(var k in a) x.setAttribute(k,a[k]); return x; }
+  // build words
+  var x = 20;
+  var arcs = el('g',{}); svg.appendChild(arcs);
+  WORDS.forEach(function(w,i){
+    var g = el('g',{'class':'at-w','tabindex':'0','role':'button','aria-pressed':'false','aria-label':'Attend to '+w});
+    var r = el('rect',{y:Y,height:H,rx:16});
+    var t = el('text',{y:Y+21,'text-anchor':'middle'}); t.textContent = w;
+    g.appendChild(r); g.appendChild(t); svg.appendChild(g);
+    var wd = Math.max(38, t.getComputedTextLength ? t.getComputedTextLength()+24 : w.length*9+24);
+    r.setAttribute('x',x); r.setAttribute('width',wd); t.setAttribute('x',x+wd/2);
+    boxes.push({g:g,cx:x+wd/2}); x += wd+6;
+    function toggle(){ trained=false; sel[i]=!sel[i]; render(); }
+    g.addEventListener('click',toggle);
+    g.addEventListener('keydown',function(ev){ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); toggle(); } });
+  });
+  var bg = el('g',{'class':'at-blank'});
+  var br = el('rect',{x:x,y:Y,width:74,height:H,rx:16});
+  var bt = el('text',{x:x+37,y:Y+21,'text-anchor':'middle'}); bt.textContent='___';
+  bg.appendChild(br); bg.appendChild(bt); svg.appendChild(bg);
+  blank = x+37;
+  svg.setAttribute('viewBox','0 0 '+(x+94)+' 190');
+
+  function weights(){
+    if(trained) return TRAINED;
+    var w={}; for(var i in sel) if(sel[i]) w[i]=1; return w;
+  }
+  function guesses(w){
+    var tr=w[1]||0, su=w[6]||0, fi=w[3]||0, any=0; for(var k in w) any+=w[k];
+    var L = {big:0.6+2.2*tr+0.6*fi, small:0.6+2.2*su+0.6*fi, much:1.2-((tr||su||fi)?0.6:0), late:0.3};
+    var z=0, out=[]; for(var k in L) z+=Math.exp(L[k]);
+    for(var k in L) out.push({w:k,p:Math.exp(L[k])/z});
+    return out.sort(function(a,b){return b.p-a.p;});
+  }
+  function render(){
+    var w = weights();
+    while(arcs.firstChild) arcs.removeChild(arcs.firstChild);
+    boxes.forEach(function(b,i){
+      var on = !!w[i];
+      b.g.setAttribute('aria-pressed', (!trained && sel[i]) ? 'true':'false');
+      b.g.classList.toggle('on', trained ? w[i]>=0.5 : on);
+      if(!on) return;
+      var width = trained ? 1+6*w[i] : (LINE[i]||1.5);
+      var h = Math.min(110, 30+(blank-b.cx)*0.16);
+      var p = el('path',{d:'M'+blank+','+Y+' Q'+((blank+b.cx)/2)+','+(Y-h*1.5)+' '+b.cx+','+Y,
+        fill:'none',stroke:KEY[i]?'#E4FF32':'#9AA1AB','stroke-width':width,'stroke-linecap':'round'});
+      arcs.appendChild(p);
+    });
+    var g = guesses(w), top = g[0];
+    var n = 0; for(var k in w) n++;
+    var tie = g.length>1 && Math.abs(g[0].p-g[1].p)<0.02;
+    bt.textContent = n ? (tie ? g[0].w+'/'+g[1].w+'?' : top.w) : '___';
+    bg.classList.toggle('filled', !!n);
+    $('at-bars').innerHTML = g.map(function(o,idx){
+      return '<div class="bar'+(idx===0?' safe':'')+'"><span>too '+o.w+'</span><div class="track"><div class="fill" style="width:'+Math.round(o.p*100)+'%"></div></div><span class="n">'+Math.round(o.p*100)+'%</span></div>';
+    }).join('');
+    var tr=!!w[1], su=!!w[6], msg;
+    if(trained) msg='<b>A trained transformer</b> spreads its attention over every word but leans hardest on <b>trophy</b>, then <b>fit</b> and <b>suitcase</b>. So <b>big</b> wins, but <b>small</b> still gets a share. It is a probability, not a certainty, and it was learned from text, not from understanding trophies.';
+    else if(!n) msg='Nothing tapped yet. With no attention at all, it falls back on what usually follows "too."';
+    else if(tr && su) msg='You pointed it at <b>both</b> nouns, so it can\u2019t tell which one "it" is, and <b>big</b> and <b>small</b> split the vote.';
+    else if(tr) msg='You pointed it at the <b>trophy</b>, so "it" is the trophy, and a trophy that doesn\u2019t fit is too <b>big</b>.';
+    else if(su) msg='You pointed it at the <b>suitcase</b>, so "it" is the suitcase, and a suitcase the trophy doesn\u2019t fit in is too <b>small</b>.';
+    else if(w[3]) msg='<b>Fit</b> says the answer is about size, so <b>big</b> and <b>small</b> pull ahead together. But it doesn\u2019t say which. Tap <b>trophy</b> or <b>suitcase</b> to settle it.';
+    else msg='None of the words you tapped say what "it" is, so it falls back on <b>much</b>, what usually follows "too." That is the one-word matchbox model\u2019s guess.';
+    $('at-out').innerHTML = msg + (n && !trained ? ' Same sentence, different guess, depending on what it paid attention to.' : '');
+  }
+  $('at-train').addEventListener('click',function(){ trained=true; sel={}; render(); });
+  $('at-clear').addEventListener('click',function(){ trained=false; sel={}; render(); });
+  render();
+})();
+</script>
 <section id="dial">
   <div class="shead"><span class="num">2</span><h2>In class: The warmth dial</h2></div>
   <p class="lead"><a class="inline" href="chapter-02-human.html#s2-2-warmth">Chapter 2</a>'s claim is that how much a chatbot seems to care is a setting, chosen by a company, for a reason. Below is a fake companion app with those settings showing. There's no AI in it; every reply is assembled from parts, which is the point. You'll say one thing to it, turn four dials, and watch the reply and the meter change.</p>
@@ -697,15 +835,15 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   </div>
   <h3 class="sub"><span>The takeaway</span></h3>
   <p>ELIZA fooled people in 1966 with forty lines of rules, and it fooled some of them after they were told exactly how it worked. Nothing in this page understands a word you typed. It matched a keyword, swapped "I" for "you," and handed your own sentence back as a question.</p>
-  <p>Then a warm phrase, a callback and a name turned that into something that felt like it cared. Three settings. No new intelligence, no new knowledge, nothing under the hood that was not there in 1966. If that is all it takes, then feeling understood by a chatbot tells you how the settings were turned, not what the system knows about you. Section 5 shows what was under the hood.</p>
+  <p>Then a warm phrase, a callback and a name turned that into something that felt like it cared. Three settings. No new intelligence, no new knowledge, nothing under the hood that was not there in 1966. If that is all it takes, then feeling understood by a chatbot tells you how the settings were turned, not what the system knows about you. Section 6 shows what was under the hood.</p>
 </section>
 
-<section id="feed">
-  <div class="shead"><span class="num">4</span><h2>In class: Train a recommender, then read your Wrapped</h2></div>
-  <p class="lead"><a class="inline" href="chapter-03-systems.html">Chapter 3</a> said the AI that shapes your day never announces itself, and the loop that guesses what you want also shapes what you want. Before you train a recommender, take three minutes to do the two kinds of machine learning underneath it by hand (<a class="inline" href="chapter-03-systems.html#s2-2">Chapter 3, section 2.2</a>).</p>
+<section id="learn">
+  <div class="shead"><span class="num">4</span><h2>In class: Labels and groups, two ways a model learns</h2></div>
+  <p class="lead">Now <a class="inline" href="chapter-03-systems.html">Chapter 3</a>. Before you train a recommender, take three minutes to do the two kinds of machine learning underneath it by hand (<a class="inline" href="chapter-03-systems.html#s2-2">Chapter 3, section 2.2</a>): one where you give it the answers, and one where it gets none.</p>
 
   <div class="tool" id="sl">
-    <div class="label">Warm-up &middot; labels and groups, by hand</div>
+    <div class="label">Labels and groups, by hand</div>
     <div class="dirs">
       <div class="steps">
         <div class="step"><span class="sn">1</span><p><strong>Be the label.</strong> Mark each of the first four songs Play or Skip, the way you would. Then press <b>Learn and predict</b> and see what it guesses for four songs it has never seen.</p></div>
@@ -739,15 +877,21 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
     <div class="verdict" id="sl-v2" hidden aria-live="polite"></div>
   </div>
 
-  <p>Now the real thing. Here is the simplest version of the loop underneath Spotify's recommendations: collaborative filtering (<a class="inline" href="chapter-03-systems.html#s2-1">Chapter 3, section 2.1</a>). It never listens to a song. It asks one question: which listeners behaved like you, and what did they play that you haven't? The other way to guess, content-based filtering, would need the sound itself. This one only needs your clicks.</p>
+  <h3 class="sub"><span>The takeaway</span></h3>
+  <p>Supervised learning learns from examples with the answer attached, and you supplied every answer. Unsupervised learning gets no answers and finds groups nobody named. Real recommenders use both. In the next section you'll be labeling again, with every Skip, Play, and Replay, and the system will be grouping you with listeners you've never met.</p>
+</section>
+
+<section id="feed">
+  <div class="shead"><span class="num">5</span><h2>In class: Train a recommender, then read your Wrapped</h2></div>
+  <p class="lead"><a class="inline" href="chapter-03-systems.html">Chapter 3</a> said the AI that shapes your day never announces itself, and the loop that guesses what you want also shapes what you want. Here is the simplest version of that loop, the one underneath Spotify's recommendations: collaborative filtering (<a class="inline" href="chapter-03-systems.html#s2-1">Chapter 3, section 2.1</a>). It never listens to a song. It asks one question: which listeners behaved like you, and what did they play that you haven't? The other way to guess, content-based filtering, would need the sound itself. This one only needs your clicks.</p>
   <p>Then it does what Chapter 3's case is about. The same clicks that trained your recommendations get turned into a Wrapped about you.</p>
 
   <div class="tool" id="rc">
     <div class="label">Simulator &middot; a Spotify-style recommender, and your Wrapped</div>
     <div class="dirs">
       <div class="steps">
-        <div class="step"><span class="sn">1</span><p><strong>React to at least eight songs.</strong> Skip, Play, or Replay each one, the way you actually would. Each click is a signal: a skip counts as 0.1, a play as 0.5, a replay as 0.9. Watch the log record it. These clicks are labels, just like the ones you gave in the warm-up.</p></div>
-        <div class="step"><span class="sn">2</span><p><strong>Watch who you resemble.</strong> The panel finds the three listeners, out of nine, whose history points most in the same direction as yours, and scores how close each one is. Then it recommends songs they loved that you haven't touched. Nobody named that group of listeners; that's the grouping idea from the warm-up, applied to people.</p></div>
+        <div class="step"><span class="sn">1</span><p><strong>React to at least eight songs.</strong> Skip, Play, or Replay each one, the way you actually would. Each click is a signal: a skip counts as 0.1, a play as 0.5, a replay as 0.9. Watch the log record it. These clicks are labels, just like the ones you gave in section 4.</p></div>
+        <div class="step"><span class="sn">2</span><p><strong>Watch who you resemble.</strong> The panel finds the three listeners, out of nine, whose history points most in the same direction as yours, and scores how close each one is. Then it recommends songs they loved that you haven't touched. Nobody named that group of listeners; that's the grouping idea from section 4, applied to people.</p></div>
         <div class="step"><span class="sn">3</span><p><strong>Change your mind.</strong> Skip something you replayed. Watch your matches and your recommendations move. That's Chapter 3's loop (<a class="inline" href="chapter-03-systems.html#s2-3">section 2.3</a>): your clicks change who you're matched with, which changes what you're shown next.</p></div>
         <div class="step"><span class="sn">4</span><p><strong>Generate your Wrapped.</strong> After five songs, press the button. Then read it carefully: which parts are counting, and which part is writing?</p></div>
       </div>
@@ -820,7 +964,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
     }
     var all = lab.every(function(v){ return v===lab[0]; });
     var extra = all ? ' You gave it only one kind of answer, so that is the only answer it can give. Try mixing Play and Skip.' : '';
-    $('sl-v1').innerHTML = '<div class="label">What just happened</div><p class="read"><b>You gave it four answers.</b> From those, it guessed the other four: '+plays+' play, '+skips+' skip. Each guess copies the label of the song it sounds most like.'+extra+' That is supervised learning: examples with the answer attached. Nobody at a company labeled anything. You did, and in the recommender below, every Skip, Play, and Replay is a label too.</p>';
+    $('sl-v1').innerHTML = '<div class="label">What just happened</div><p class="read"><b>You gave it four answers.</b> From those, it guessed the other four: '+plays+' play, '+skips+' skip. Each guess copies the label of the song it sounds most like.'+extra+' That is supervised learning: examples with the answer attached. Nobody at a company labeled anything. You did, and in the recommender in the next section, every Skip, Play, and Replay is a label too.</p>';
     $('sl-v1').hidden = false;
   }
 
@@ -848,18 +992,18 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
       $('sl-g'+k).innerHTML = S.filter(function(s,j){ return g[j]===k; }).map(function(s){ return '<li>'+s.t+'</li>'; }).join('');
     }
     $('sl-groups').hidden = false;
-    $('sl-v2').innerHTML = '<div class="label">What just happened</div><p class="read"><b>It found three groups and named none of them.</b> Nobody told it what to look for. It put together the songs that sit closest on its two numbers, energy and how acoustic they sound. The names are yours. That is unsupervised learning. In the recommender below, <b>Listeners most like you</b> is the same idea, applied to people instead of songs.</p>';
+    $('sl-v2').innerHTML = '<div class="label">What just happened</div><p class="read"><b>It found three groups and named none of them.</b> Nobody told it what to look for. It put together the songs that sit closest on its two numbers, energy and how acoustic they sound. The names are yours. That is unsupervised learning. In the next section\u2019s recommender, <b>Listeners most like you</b> is the same idea, applied to people instead of songs.</p>';
     $('sl-v2').hidden = false;
   });
 })();
 </script>
 <section id="hood">
-  <div class="shead"><span class="num">5</span><h2>In class: Under the hood, how each one worked</h2></div>
+  <div class="shead"><span class="num">6</span><h2>In class: Under the hood, how each one worked</h2></div>
   <p class="lead">You just used five machines. Here's what was inside each one, and how it maps to the real thing.</p>
 
   <h3 class="sub" id="hood-lm"><span>1</span> The small language model</h3>
   <p>Everything it knew was a set of boxes: for each word in the rhyme, the words that came right after it. Writing was one move repeated. Open the box for the last word, draw a word, open that word's box. That's next-word prediction, and it's stage one of how a chatbot is built (<a class="inline" href="chapter-02-human.html#s2-2-fluency">Chapter 2, section 2.2</a>).</p>
-  <p>The draw is weighted, not fixed. A word that followed "the" four times comes out four times as often as one that followed it once, but the rarer word still gets its turn. That's why your model sometimes skipped the most common word, and why it could write sentences the rhyme never had. A real chatbot does the same thing with boxes built from trillions of words instead of 79, looking back across whole paragraphs instead of one or two words. That's where its fluency comes from. Fluency comes free with prediction. Nothing in the boxes understands anything.</p>
+  <p>The draw is weighted, not fixed. A word that followed "the" four times comes out four times as often as one that followed it once, but the rarer word still gets its turn. That's why your model sometimes skipped the most common word, and why it could write sentences the rhyme never had. A real chatbot does the same thing with boxes built from trillions of words instead of 79, looking back across whole paragraphs instead of one or two words. The design that does that looking back is called a <b>transformer</b>, the "T" in GPT; its trick, <b>attention</b>, weighs which earlier words matter most for each guess, the way you chose words in the attention guess. That's where its fluency comes from. Fluency comes free with prediction. Nothing in the boxes understands anything.</p>
 
   <h3 class="sub" id="hood-dial"><span>2</span> The warmth dial</h3>
   <p>The simulator in section 2 had no model at all. Its replies were assembled from fixed parts, and the sliders picked which parts. In a real chatbot, the warmth comes from stage two: people rate the model's answers, and the model is adjusted toward the answers people preferred (<a class="inline" href="chapter-02-human.html#s2-2-warmth">Chapter 2, section 2.2</a>). People prefer warm, agreeable, confident answers, so the model learns warmth the way your small model learned what follows "the": as a pattern that got rewarded. You did a tiny version of this in Step 9, when <b>More like this</b> changed which words won.</p>
@@ -870,7 +1014,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   <p>That's the lesson. The feeling of being heard is cheap to produce. It tells you how the settings were turned, not what the system understands about you.</p>
 
   <h3 class="sub" id="hood-sl"><span>4</span> Labels and groups</h3>
-  <p>The warm-up had no real model and no real data: eight invented songs, each described by two made-up numbers, one for energy and one for how acoustic it sounds. In the first half, your four labels were the answers, and it guessed each new song by copying the label of the song it sat closest to. That's <b>supervised learning</b>: examples with the answer attached (<a class="inline" href="chapter-03-systems.html#s2-2">Chapter 3, section 2.2</a>). In the second half it got no labels at all. It put the songs that sat closest together into three groups and couldn't name any of them. You did. That's <b>unsupervised learning</b>.</p>
+  <p>Section 4 had no real model and no real data: eight invented songs, each described by two made-up numbers, one for energy and one for how acoustic it sounds. In the first half, your four labels were the answers, and it guessed each new song by copying the label of the song it sat closest to. That's <b>supervised learning</b>: examples with the answer attached (<a class="inline" href="chapter-03-systems.html#s2-2">Chapter 3, section 2.2</a>). In the second half it got no labels at all. It put the songs that sat closest together into three groups and couldn't name any of them. You did. That's <b>unsupervised learning</b>.</p>
   <p>The recommender used both ideas. Every Skip, Play, and Replay was a label, and you supplied every one for free. Finding the three listeners most like you, with nobody naming the group, is the grouping idea applied to people. Real recommenders blend the two, with millions of songs and far more than two numbers for each.</p>
 
   <h3 class="sub" id="hood-rc"><span>5</span> The recommender</h3>
@@ -879,7 +1023,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 </section>
 
 <section id="debate">
-  <div class="shead"><span class="num">6</span><h2>In class: Debate</h2></div>
+  <div class="shead"><span class="num">7</span><h2>In class: Debate</h2></div>
   <p class="lead">One topic, from Chapter 2. Your job today: decide whether a chatbot should be allowed to say it cares, after you've taken apart the evidence on both sides.</p>
 
   <h3 class="sub" id="evidence-chatbot"><span>The evidence:</span> Four pieces from Chapter 2</h3>
@@ -950,7 +1094,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 </section>
 
 <section id="writeup">
-  <div class="shead"><span class="num">7</span><h2>For homework: The writeup</h2></div>
+  <div class="shead"><span class="num">8</span><h2>For homework: The writeup</h2></div>
   <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, October 9.</strong> One writeup covers the whole lab. Each item is one of the five critical AI questions, run on what you built and used today. Use your screenshots as evidence.</p>
   <ol class="writeup">
       <li><strong>What is the AI system, and what does it do?</strong> In your own words, explain what a language model is and how it writes a sentence, using the small one you built: what went into the boxes, and how each next word got picked. Then explain what a recommendation system is and how yours picked songs for you: whose clicks it compared with yours, and what it never needed to know about the music. Finally, which part of the lab used your clicks as labels, and which part found groups that nobody named?</li>
@@ -970,10 +1114,13 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p class="srcintro">Verified 19 September 2026; revised 21 September 2026 when the lab was restructured around four tools and the live-chatbot scorecard was cut; revised 1 October 2026 to add the labels-and-groups warm-up in section 4. This lab runs mostly on its own tools. The claims it does make come from Chapters 2 and 3, which carry their own dated notes.</p>
+    <p class="srcintro">Verified 19 September 2026; revised 21 September 2026 when the lab was restructured around four tools and the live-chatbot scorecard was cut; revised 1 October 2026 to add the labels-and-groups section (now section 4) and the attention guess at the end of section 1. This lab runs mostly on its own tools. The claims it does make come from Chapters 2 and 3, which carry their own dated notes.</p>
     <dl>
       <dt>The small language model (section 1)</dt>
       <dd>Trained on the first five verses of the traditional nursery rhyme "The House That Jack Built," 79 words, public domain. It is a bigram next-word predictor, so any sentence it writes is grammatical only by accident; that is the lesson, not a fault. The matchbox construction follows David Corney's, linked in section 1.</dd>
+
+      <dt>Attention guess (end of section 1)</dt>
+      <dd>No model. The guess follows a few rules written by hand from the sentence's classic reading: point at the trophy and "big" wins, point at the suitcase and "small" wins, point at both and they split. The guess percentages and the "trained" attention lines are illustrative, not measured from any real model.</dd>
 
       <dt>ELIZA (section 3)</dt>
       <dd>Joseph Weizenbaum's 1966 program, rebuilt here in about forty lines. The claim that it fooled people who knew what it was is Chapter 2's, with that chapter's sourcing.</dd>
@@ -982,10 +1129,10 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
       <dd>No model. Replies are assembled from fixed parts chosen by the sliders, and the attachment estimate is invented; it shows a direction, not a measurement.</dd>
 
 
-      <dt>Labels and groups (section 4 warm-up)</dt>
+      <dt>Labels and groups (section 4)</dt>
       <dd>No real model and no real data. Eight invented songs, each described by two invented numbers. The supervised half predicts each new song from its nearest labeled song; the unsupervised half is k-means with three groups and fixed starting points, so every run sorts the same way. It shows the two ideas, not how Spotify does either.</dd>
 
-      <dt>The recommender and Wrapped (section 4)</dt>
+      <dt>The recommender and Wrapped (section 5)</dt>
       <dd>Collaborative filtering by cosine similarity: your clicks are compared with nine invented listeners, and songs are scored by how much your three closest matches engaged with them. The fifteen songs are real; the listeners and their scores are invented, carried over from the MIS 432 Spotify lab. It illustrates the method Chapter 3 describes. It is not Spotify's system, and its numbers are not Spotify's.</dd>
 
       <dt>Chapter claims used here</dt>
