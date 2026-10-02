@@ -460,6 +460,73 @@ figure.diagram figcaption b.fig{color:var(--pinktext)}
   <h3 class="sub" id="s2-2"><span>2.2</span> The signals, and the taste profile</h3>
   <p>What counts as "liking" something? The system can't ask, so it watches. Spotify has been open about some of this: <a class="inline" href="https://newsroom.spotify.com/2025-12-05/wrapped-methodology-explained/" target="_blank" rel="noopener">a play counts as a listen after 30 seconds</a>, and a skip before that counts against the song. Each of those actions is a <strong>signal</strong>: a piece of behavior the system treats as evidence of what we like, because it can't ask. Skipping a song after ten seconds is a signal we didn't want it. Saving it is a signal we did. Some signals say more than others: saving a song, replaying it, or adding it to one of our own playlists tells a recommender much more than simply letting the song play once in the background. Skips matter enormously. A song that gets skipped early is a song the model learns to stop suggesting.</p>
   <p>All of this is <strong>machine learning</strong>: the system learns patterns from data instead of following rules someone wrote. Recommenders use both of the main kinds. <strong>Supervised learning</strong> learns from examples that come with the answer attached, and those answers are called labels. Every play, skip, and save is a labeled example: this listener, this song, played or skipped. From millions of them, the model learns to predict whether we'll play the next one. <strong>Unsupervised learning</strong> gets no answers at all and finds the patterns on its own. Finding our neighbors in collaborative filtering is the classic case: nobody tags listeners as "SZA fans"; the system notices whose histories overlap. Real recommenders blend the two, and in practice the line blurs. The part worth keeping: nobody at Spotify labels our taste by hand. We do it for them, for free, every time we skip a song in the first ten seconds.</p>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 760 292" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="rsml-t rsml-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="rsml-t">Two ways a model learns: supervised and unsupervised</title>
+      <desc id="rsml-d">Two panels. Left, supervised learning: four songs, each described as fast and loud or slow and acoustic, each with a label showing whether you played it or skipped it. The model learns the pattern and predicts that you will play a new fast, loud song. Right, unsupervised learning: twelve listeners shown as unlabeled gray dots, then the same dots sorted into three color-coded groups the system found on its own. One group is marked as you and your neighbors.</desc>
+      <text x="14" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">SUPERVISED LEARNING · with the answers</text>
+      <rect x="14" y="32" width="350" height="250" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="28" y="56" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">the example (a song)</text>
+      <text x="250" y="56" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C">the label</text>
+      <line x1="28" y1="64" x2="350" y2="64" stroke="#E3E3DD"/>
+      <text x="28" y="86" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D" font-weight="700">song A</text><text x="100" y="86" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D">fast · loud</text>
+      <rect x="250" y="71" width="86" height="21" rx="10.5" fill="#0E1116"/><text x="293" y="86" font-family="Inter,Arial,sans-serif" font-size="11" fill="#E4FF32" font-weight="700" text-anchor="middle">played ✓</text>
+      <text x="28" y="114" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D" font-weight="700">song B</text><text x="100" y="114" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D">slow · acoustic</text>
+      <rect x="250" y="99" width="86" height="21" rx="10.5" fill="#FFFFFF" stroke="#D61F69" stroke-width="1.2"/><text x="293" y="114" font-family="Inter,Arial,sans-serif" font-size="11" fill="#D61F69" font-weight="700" text-anchor="middle">skipped ✗</text>
+      <text x="28" y="142" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D" font-weight="700">song C</text><text x="100" y="142" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D">fast · loud</text>
+      <rect x="250" y="127" width="86" height="21" rx="10.5" fill="#0E1116"/><text x="293" y="142" font-family="Inter,Arial,sans-serif" font-size="11" fill="#E4FF32" font-weight="700" text-anchor="middle">played ✓</text>
+      <text x="28" y="170" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D" font-weight="700">song D</text><text x="100" y="170" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D">slow · acoustic</text>
+      <rect x="250" y="155" width="86" height="21" rx="10.5" fill="#FFFFFF" stroke="#D61F69" stroke-width="1.2"/><text x="293" y="170" font-family="Inter,Arial,sans-serif" font-size="11" fill="#D61F69" font-weight="700" text-anchor="middle">skipped ✗</text>
+      <line x1="28" y1="184" x2="350" y2="184" stroke="#E3E3DD"/>
+      <text x="28" y="206" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D" font-weight="700">new song</text><text x="100" y="206" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D">fast · loud</text>
+      <rect x="250" y="191" width="86" height="21" rx="10.5" fill="#FFFFFF" stroke="#D61F69" stroke-width="1.2" stroke-dasharray="4 3"/><text x="293" y="206" font-family="Inter,Arial,sans-serif" font-size="11" fill="#D61F69" font-weight="700" text-anchor="middle">? → play</text>
+      <text x="28" y="236" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">The model learns the pattern from the labels,</text>
+      <text x="28" y="254" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">then predicts the answer for a song it hasn't seen.</text>
+      <text x="28" y="272" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#D61F69">You supplied every label, for free.</text>
+      <text x="388" y="22" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">UNSUPERVISED LEARNING · no answers given</text>
+      <rect x="388" y="32" width="358" height="250" rx="6" fill="#0E1116"/>
+      <text x="402" y="56" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#9AA1AB">listeners, no labels</text>
+      <text x="588" y="56" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#9AA1AB">groups it found on its own</text>
+      <circle cx="432" cy="102" r="6" fill="#9AA1AB"/>
+      <circle cx="450" cy="92" r="6" fill="#9AA1AB"/>
+      <circle cx="442" cy="120" r="6" fill="#9AA1AB"/>
+      <circle cx="462" cy="110" r="6" fill="#9AA1AB"/>
+      <circle cx="512" cy="104" r="6" fill="#9AA1AB"/>
+      <circle cx="528" cy="122" r="6" fill="#9AA1AB"/>
+      <circle cx="506" cy="132" r="6" fill="#9AA1AB"/>
+      <circle cx="530" cy="98" r="6" fill="#9AA1AB"/>
+      <circle cx="502" cy="180" r="6" fill="#9AA1AB"/>
+      <circle cx="524" cy="190" r="6" fill="#9AA1AB"/>
+      <circle cx="510" cy="204" r="6" fill="#9AA1AB"/>
+      <circle cx="532" cy="172" r="6" fill="#9AA1AB"/>
+      <text x="560" y="154" font-family="Inter,Arial,sans-serif" font-size="18" fill="#E4FF32" font-weight="700" text-anchor="middle">→</text>
+      <circle cx="633" cy="107" r="30" fill="none" stroke="#E4FF32" stroke-width="1.2" stroke-dasharray="4 3"/>
+      <circle cx="705" cy="114" r="30" fill="none" stroke="#FF3D8A" stroke-width="1.2" stroke-dasharray="4 3"/>
+      <circle cx="703" cy="188" r="30" fill="none" stroke="#C9CED6" stroke-width="1.2" stroke-dasharray="4 3"/>
+      <circle cx="618" cy="102" r="6" fill="#E4FF32"/>
+      <circle cx="636" cy="92" r="6" fill="#E4FF32"/>
+      <circle cx="628" cy="120" r="6" fill="#E4FF32"/>
+      <circle cx="648" cy="110" r="6" fill="#E4FF32"/>
+      <circle cx="698" cy="104" r="6" fill="#FF3D8A"/>
+      <circle cx="714" cy="122" r="6" fill="#FF3D8A"/>
+      <circle cx="692" cy="132" r="6" fill="#FF3D8A"/>
+      <circle cx="716" cy="98" r="6" fill="#FF3D8A"/>
+      <circle cx="688" cy="180" r="6" fill="#C9CED6"/>
+      <circle cx="710" cy="190" r="6" fill="#C9CED6"/>
+      <circle cx="696" cy="204" r="6" fill="#C9CED6"/>
+      <circle cx="718" cy="172" r="6" fill="#C9CED6"/>
+      <circle cx="618" cy="102" r="8.5" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+      <text x="592" y="166" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#E4FF32" font-weight="700">you + your</text>
+      <text x="592" y="180" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#E4FF32" font-weight="700">neighbors</text>
+      <line x1="618" y1="154" x2="621" y2="138" stroke="#E4FF32" stroke-width="1"/>
+      <text x="402" y="236" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#C9CED6">Nobody named the groups. It noticed whose</text>
+      <text x="402" y="254" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#C9CED6">listening histories overlap. That's how</text>
+      <text x="402" y="272" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#C9CED6">collaborative filtering finds your neighbors.</text>
+      </svg>
+    <figcaption><b class="fig">Figure 3.2. Two ways a model learns.</b> On the left, supervised learning: every example comes with its answer, and on Spotify you supply the answers by playing and skipping. The model learns the pattern and predicts the answer for a song it hasn't seen. On the right, unsupervised learning: no answers at all. The system sorts listeners into groups by whose histories overlap, which is how collaborative filtering finds your neighbors. Real recommenders blend both.</figcaption>
+  </figure>
+
   <p>All of those signals get compressed into a <strong>taste profile</strong>: a mathematical summary of a listener, a long list of numbers that places them near listeners and songs they're likely to enjoy and far from the ones they're not. Say you save a lot of Bad Bunny, skip most country songs in the first ten seconds, and play lo-fi beats every weekday afternoon. Your taste profile doesn't store any of those sentences. It stores numbers that happen to put you close to other reggaeton listeners, far from country fans, and near the lo-fi crowd. Nobody sees their own.</p>
   <p>The system also learns that each of us is several people: the workout self, the studying self, the 1 a.m. self. Modern recommenders keep a few of these profiles and guess which one is listening from the time, the device, and the last song played. That is what <strong>personalization</strong> means in practice: the same app showing each person, and each version of that person, a different screen.</p>
 
@@ -488,7 +555,7 @@ figure.diagram figcaption b.fig{color:var(--pinktext)}
       <rect x="552" y="111" width="194" height="62" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="649" y="137" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D" text-anchor="middle">the studying you</text><text x="649" y="155" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle">no vocals, afternoons</text>
       <rect x="552" y="190" width="194" height="62" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/><text x="649" y="216" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D" text-anchor="middle">the 1 a.m. you</text><text x="649" y="234" font-family="Inter,Arial,sans-serif" font-size="10.5" fill="#5A626C" text-anchor="middle">slow, sad, phone</text>
     </svg>
-    <figcaption><b class="fig">Figure 3.2. From signals to a taste profile.</b> On the left, the signals: what you did. In the middle, the taste profile: the numbers that are the model's only picture of you. On the right, personalization: the system keeps a few profiles per person and guesses which one is listening from the time, the device, and the last song played. Every recommendation is a bet placed on those numbers.</figcaption>
+    <figcaption><b class="fig">Figure 3.3. From signals to a taste profile.</b> On the left, the signals: what you did. In the middle, the taste profile: the numbers that are the model's only picture of you. On the right, personalization: the system keeps a few profiles per person and guesses which one is listening from the time, the device, and the last song played. Every recommendation is a bet placed on those numbers.</figcaption>
   </figure>
   <p>Run the five components of an AI system on this (Chapter 1's <a class="inline" href="chapter-01-what-is-ai.html#s4">AI systems model</a>) and the shape is clear. <strong>Data:</strong> every play, skip, and save, from each of us and from hundreds of millions of others. <strong>Model:</strong> the filters above, which turn the data into a taste profile and a ranking. <strong>Output:</strong> the next song, the Monday playlist, the top of the home screen. <strong>Feedback loop:</strong> what we do with the output becomes tomorrow's data, which is the next section's subject. <strong>Humans:</strong> the listener, the data scientists who choose what the model rewards, and the people who make the music.</p>
 
@@ -513,7 +580,7 @@ figure.diagram figcaption b.fig{color:var(--pinktext)}
       <rect x="628" y="192" width="136" height="78" rx="6" fill="#0E1116" stroke="#FF3D8A" stroke-width="1.5"/><text x="696" y="216" font-family="Inter,Arial,sans-serif" font-size="13.5" fill="#FF3D8A" font-weight="700" text-anchor="middle">Discovery Mode</text><text x="696" y="237" font-family="Inter,Arial,sans-serif" font-size="12.5" fill="#FFFFFF" text-anchor="middle">lower royalty,</text><text x="696" y="254" font-family="Inter,Arial,sans-serif" font-size="12.5" fill="#FFFFFF" text-anchor="middle">favored in the loop</text>
       <path d="M626,231 Q590,231 578,176" fill="none" stroke="#D61F69" stroke-width="1.5" marker-end="url(#rsc-ar2)"/>
     </svg>
-    <figcaption><b class="fig">Figure 3.3. The feedback loop, with two thumbs on the scale.</b> Popularity is structural: whoever has data gets more. Discovery Mode is commercial: whoever accepts less royalty gets favored. Neither is visible from inside the app, and the loop optimizes for more than one thing. Only one of them is the listener.</figcaption>
+    <figcaption><b class="fig">Figure 3.4. The feedback loop, with two thumbs on the scale.</b> Popularity is structural: whoever has data gets more. Discovery Mode is commercial: whoever accepts less royalty gets favored. Neither is visible from inside the app, and the loop optimizes for more than one thing. Only one of them is the listener.</figcaption>
   </figure>
   <p>The loop also has a direction: it favors whoever already has data. A popular artist generates millions of signals, which puts them in more neighborhoods, which generates more plays, which generates more signals. A new artist, by definition, has few. That's the cold start problem with a paycheck attached. The system doesn't dislike new artists. It just can't see them, and invisibility on a platform where the algorithm drives a large share of listening is a business problem with a real dollar cost.</p>
 
@@ -618,7 +685,7 @@ figure.diagram figcaption b.fig{color:var(--pinktext)}
       <text x="380" y="256" font-family="Inter,Arial,sans-serif" font-size="11" fill="#D61F69" text-anchor="middle" font-style="italic">the feedback loop: sharing is the marketing, and the marketing is next year's data</text>
       <rect x="14" y="276" width="732" height="66" rx="6" fill="#F3F3EE" stroke="#C9CED6"/><text x="28" y="300" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C" font-weight="600">5 · HUMANS</text><text x="28" y="322" font-family="Inter,Arial,sans-serif" font-size="11" fill="#5A626C">at every step</text><text x="150" y="300" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D" font-weight="700">you</text><text x="150" y="320" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">choose what to post</text><text x="330" y="300" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D" font-weight="700">data scientists</text><text x="330" y="320" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">choose what counts as a</text><text x="330" y="335" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">listen and a remarkable day</text><text x="540" y="300" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D" font-weight="700">product team</text><text x="540" y="320" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">decides what the model</text><text x="540" y="335" font-family="Inter,Arial,sans-serif" font-size="11.5" fill="#14181D">is allowed to say</text>
     </svg>
-    <figcaption><b class="fig">Figure 3.4. Wrapped, taken apart.</b> The numbers come from counting, in the predictive layer, which is arithmetic anyone could check. The sentences come from the generative layer, which wrote 1.4 billion paragraphs nobody can check one by one. If a line is wrong about what you did, the predictive layer made the mistake. If it's wrong about what your day meant, the generative layer did. Knowing which layer produced a line tells you who has to fix it.</figcaption>
+    <figcaption><b class="fig">Figure 3.5. Wrapped, taken apart.</b> The numbers come from counting, in the predictive layer, which is arithmetic anyone could check. The sentences come from the generative layer, which wrote 1.4 billion paragraphs nobody can check one by one. If a line is wrong about what you did, the predictive layer made the mistake. If it's wrong about what your day meant, the generative layer did. Knowing which layer produced a line tells you who has to fix it.</figcaption>
   </figure>
 
   <h3 class="sub" id="s3-who-benefits-and-who-doesn-t"><span class="qlab">Who benefits, and who doesn't</span><em class="qtext">Question 2: why does it exist, and who benefits?</em></h3>
