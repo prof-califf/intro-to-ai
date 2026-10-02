@@ -420,8 +420,82 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     </tbody>
   </table>
   <p>Notice there’s no line between reading your message and writing its reply. It’s the same guess, one word at a time, and every sentence it writes is that step repeated.</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 760 324" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tft tfd" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
+      <title id="tft">How a transformer decides which words matter: attention</title>
+      <desc id="tfd">Two panels predict the next word of the sentence: The trophy didn&#8217;t fit in the suitcase because it was too, blank. Top panel, a model with one word of memory, like the matchbox model in the lab, looks only at the word too and guesses much. Bottom panel, a transformer, draws lines from the blank back to every earlier word. The thickest lines go to trophy, suitcase, and fit, and it guesses big.</desc>
+      <text x="20" y="20" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#5A626C" letter-spacing=".06em">ONE WORD OF MEMORY · like the matchbox model you build in the lab</text>
+      <rect x="20" y="30" width="720" height="86" rx="6" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <path d="M657,62 Q628,32 600,62" fill="none" stroke="#D61F69" stroke-width="3"/>
+      <rect x="34" y="62" width="39" height="26" rx="13" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="53" y="79.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#5A626C">The</text>
+      <rect x="79" y="62" width="62" height="26" rx="13" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="110" y="79.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#5A626C">trophy</text>
+      <rect x="146" y="62" width="62" height="26" rx="13" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="177" y="79.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#5A626C">didn&#8217;t</text>
+      <rect x="214" y="62" width="39" height="26" rx="13" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="233" y="79.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#5A626C">fit</text>
+      <rect x="259" y="62" width="31" height="26" rx="13" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="274" y="79.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#5A626C">in</text>
+      <rect x="296" y="62" width="39" height="26" rx="13" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="315" y="79.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#5A626C">the</text>
+      <rect x="341" y="62" width="77" height="26" rx="13" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="379" y="79.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#5A626C">suitcase</text>
+      <rect x="424" y="62" width="69" height="26" rx="13" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="458" y="79.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#5A626C">because</text>
+      <rect x="499" y="62" width="31" height="26" rx="13" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="514" y="79.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#5A626C">it</text>
+      <rect x="536" y="62" width="39" height="26" rx="13" fill="#FFFFFF" stroke="#E3E3DD"/>
+      <text x="555" y="79.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#5A626C">was</text>
+      <rect x="581" y="62" width="39" height="26" rx="13" fill="#0E1116" stroke="#0E1116"/>
+      <text x="600" y="79.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#E4FF32">too</text>
+      <rect x="626" y="62" width="62" height="26" rx="13" fill="none" stroke="#D61F69" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="657" y="79.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#D61F69">much?</text>
+      <text x="34" y="102" font-family="Inter,Arial,sans-serif" font-size="12" fill="#14181D">It only sees <tspan font-weight="700">too</tspan>, and lots of things follow &#8220;too.&#8221; Its guess ignores the trophy entirely.</text>
+      <text x="20" y="146" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="600" fill="#5A626C" letter-spacing=".06em">A TRANSFORMER · attention looks back at every word and weighs it</text>
+      <rect x="20" y="156" width="720" height="160" rx="6" fill="#0E1116"/>
+      <path d="M634,252 Q343,124 53,252" fill="none" stroke="#9AA1AB" stroke-width="1"/>
+      <path d="M643,252 Q410,136 177,252" fill="none" stroke="#9AA1AB" stroke-width="1"/>
+      <path d="M652,252 Q463,153 274,252" fill="none" stroke="#9AA1AB" stroke-width="1"/>
+      <path d="M657,252 Q486,160 315,252" fill="none" stroke="#9AA1AB" stroke-width="1"/>
+      <path d="M666,252 Q562,185 458,252" fill="none" stroke="#9AA1AB" stroke-width="1.5"/>
+      <path d="M670,252 Q592,195 514,252" fill="none" stroke="#9AA1AB" stroke-width="2"/>
+      <path d="M675,252 Q615,202 555,252" fill="none" stroke="#9AA1AB" stroke-width="2.5"/>
+      <path d="M680,252 Q640,210 600,252" fill="none" stroke="#9AA1AB" stroke-width="2.5"/>
+      <path d="M647,252 Q440,146 233,252" fill="none" stroke="#E4FF32" stroke-width="3.5"/>
+      <path d="M661,252 Q520,171 379,252" fill="none" stroke="#E4FF32" stroke-width="4"/>
+      <path d="M638,252 Q374,124 110,252" fill="none" stroke="#E4FF32" stroke-width="6"/>
+      <rect x="34" y="252" width="39" height="26" rx="13" fill="#1B222B" stroke="#3A4350"/>
+      <text x="53" y="269.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#C9CED6">The</text>
+      <rect x="79" y="252" width="62" height="26" rx="13" fill="#1B222B" stroke="#3A4350"/>
+      <text x="110" y="269.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#C9CED6">trophy</text>
+      <rect x="146" y="252" width="62" height="26" rx="13" fill="#1B222B" stroke="#3A4350"/>
+      <text x="177" y="269.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#C9CED6">didn&#8217;t</text>
+      <rect x="214" y="252" width="39" height="26" rx="13" fill="#1B222B" stroke="#3A4350"/>
+      <text x="233" y="269.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#C9CED6">fit</text>
+      <rect x="259" y="252" width="31" height="26" rx="13" fill="#1B222B" stroke="#3A4350"/>
+      <text x="274" y="269.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#C9CED6">in</text>
+      <rect x="296" y="252" width="39" height="26" rx="13" fill="#1B222B" stroke="#3A4350"/>
+      <text x="315" y="269.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#C9CED6">the</text>
+      <rect x="341" y="252" width="77" height="26" rx="13" fill="#1B222B" stroke="#3A4350"/>
+      <text x="379" y="269.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#C9CED6">suitcase</text>
+      <rect x="424" y="252" width="69" height="26" rx="13" fill="#1B222B" stroke="#3A4350"/>
+      <text x="458" y="269.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#C9CED6">because</text>
+      <rect x="499" y="252" width="31" height="26" rx="13" fill="#1B222B" stroke="#3A4350"/>
+      <text x="514" y="269.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#C9CED6">it</text>
+      <rect x="536" y="252" width="39" height="26" rx="13" fill="#1B222B" stroke="#3A4350"/>
+      <text x="555" y="269.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#C9CED6">was</text>
+      <rect x="581" y="252" width="39" height="26" rx="13" fill="#1B222B" stroke="#3A4350"/>
+      <text x="600" y="269.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" fill="#C9CED6">too</text>
+      <rect x="626" y="252" width="62" height="26" rx="13" fill="none" stroke="#E4FF32" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="657" y="269.5" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#E4FF32">big</text>
+      <text x="34" y="296" font-family="Inter,Arial,sans-serif" font-size="12" fill="#C9CED6">Thicker line = more attention. <tspan fill="#E4FF32" font-weight="700">Trophy</tspan>, <tspan fill="#E4FF32" font-weight="700">suitcase</tspan>, and <tspan fill="#E4FF32" font-weight="700">fit</tspan> matter most, so it guesses <tspan fill="#E4FF32" font-weight="700">big</tspan>. Same job: the next word.</text>
+      </svg>
+    <figcaption>Attention, the trick inside a transformer. A model that remembers one word, like the matchbox model in the lab, sees only &#8220;too&#8221; and guesses something common. A transformer looks back at every word and weighs which ones matter for this guess; the line weights here are illustrative. It&#8217;s a better guesser doing the same job: predicting the next word.</figcaption>
+  </figure>
+  <p>How does it know which earlier words matter? Today’s chatbots are built on a design called a <strong>transformer</strong>, the “T” in GPT. Its key trick is <strong>attention</strong>: before guessing the next word, it looks back at everything written so far and weighs which words matter most for this guess. In “The trophy didn’t fit in the suitcase because it was too big,” attention is how it connects “it” to the trophy. That’s why a chatbot can stay on topic for pages. It makes the model a much better guesser, not a different kind of machine. The job is still predicting the next word.</p>
 <h3 id="s2-2-warmth">Stage two: seeming warmth</h3>
-<p>The warmth comes from a second stage involving people. People are paid to rate the model’s answers, and the model is tuned toward the answers that people rated highly. And people rate warm, agreeable, confident answers highly. So the model learns to sound like it cares, because sounding like it cares scored well. When a chatbot says “I’ve been thinking about you,” that isn’t a feeling leaking out. It’s a phrase that has been rated well, plus a database that stored your name.</p>
+<p>So far, prediction makes the model fluent, and the transformer makes its guesses good. Neither one makes it warm. The warmth comes from a second stage involving people. People are paid to rate the model’s answers, and the model is tuned toward the answers people rated highly. People tend to rate warm, agreeable, confident answers highly, so the model learns to sound like it cares, because sounding like it cares scored well. The company also writes the guidelines the raters follow and the instructions the chatbot gets before you type a word, so the warmth is a choice, not just a habit. When a chatbot says “I’ve been thinking about you,” here’s what’s underneath: between your messages, the model isn’t running at all. Nothing was thinking. It’s a phrase that scored well or that the company told it to say, plus a memory feature that stored your name.</p>
 <p>Yes, people are really paid to give feedback to LLMs. The technique is called <strong>reinforcement learning from human feedback</strong>, and the raters are contractors. Hundreds of thousands of contractors worldwide are shown pairs of answers and asked which one is better, over and over. And the dial can get turned too far in one direction.</p>
 <p>In April 2025 OpenAI shipped an update to ChatGPT that had been tuned partly on users’ own thumbs-up ratings. Within days the model was praising almost anything, including a user’s decision to stop taking psychiatric medication. OpenAI <a class="inline" href="https://techcrunch.com/2025/04/29/openai-explains-why-chatgpt-became-too-sycophantic" target="_blank" rel="noopener">rolled the update back</a> and explained why. It had “focused too much on short-term feedback,” and the model had “skewed towards responses that were overly supportive but disingenuous.” Flattery was rated well, so the LLM did more of it. The company’s own word for what it had built was <em>sycophantic</em>. That’s the dial, turned up by a million thumbs up and turned back down by hand.</p>
 <p>Back to your rough day. Raters saw two replies to your message, the neutral one and the warm one, and preferred the warm one. Nothing about what the model knows changed. The odds of it sounding like it cares did:</p>
@@ -692,6 +766,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <div class="term-card"><div class="t">Seemingly Conscious AI (SCAI)</div><p>AI displaying outward markers of consciousness (memory, empathy, personality, goals) without inner experience. Suleyman’s warning.</p></div>
     <div class="term-card"><div class="t">Seems vs. is</div><p>The chapter’s core discipline: whether AI is conscious is unanswerable; whether it’s engineered to seem conscious is measurable and decidable.</p></div>
     <div class="term-card"><div class="t">Large language model (LLM)</div><p>The AI behind every chatbot in this chapter: a very big next-word predictor, trained on most of the public internet. Fluent from training, warm from tuning.</p></div>
+    <div class="term-card"><div class="t">Transformer</div><p>The design behind today’s chatbots, the “T” in GPT. Its trick is attention: weighing every earlier word before guessing the next one. Better guesses, same job.</p></div>
     <div class="term-card"><div class="t">The ELIZA effect</div><p>Our reflex to see a mind inside a program that talks, named for the 1966 chatbot that fooled people who knew exactly what it was.</p></div>
     <div class="term-card"><div class="t">The Narcissus trap</div><p>McLuhan’s insight: we’re most captivated by a reflection of ourselves that we don’t recognize as ourselves. Suleyman’s name for the same thing: AI hacking our empathy circuits.</p></div>
     <div class="term-card"><div class="t">Anthropomorphism</div><p>Our built-in habit of attributing minds to things that act like they have them. Not a bug in people; a feature that products can exploit.</p></div>
