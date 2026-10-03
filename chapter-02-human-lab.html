@@ -93,6 +93,10 @@ ol.writeup li:last-child{margin-bottom:0;}
 .step:last-child{border-bottom:none;}
 .step .sn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);font-size:1.2rem;min-width:24px;}
 .step p{margin-bottom:0;}
+.step .sbody{flex:1;min-width:0;}
+.step .sbody .probe{margin:10px 0 0;}
+.steps .grp{font-weight:600;color:var(--pinktext);margin:18px 0 0;font-size:.95rem;}
+.steps .grp:first-child{margin-top:0;}
 .nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
 .nextbar a:hover{color:var(--pinktext);}
@@ -211,15 +215,6 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .rc-recs li{margin:4px 0}
 .rc-log{white-space:pre-line;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.8rem;background:#FAFAF7;border:1px solid var(--rule);padding:10px;min-height:60px}
 @media (max-width:640px){.rc-grid{grid-template-columns:1fr}}
-.sl-list{border:1px solid var(--rule);margin-bottom:10px}
-.sl-pred{font-size:.85rem;color:var(--gray)}
-.sl-pred b{color:var(--ink)}
-.sl-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
-.sl-group{border:1px solid var(--rule);padding:12px 14px;background:var(--bg)}
-.sl-group h4{margin:0;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext)}
-.sl-group ul{margin:6px 0 10px;padding-left:18px;font-size:.9rem}
-.sl-group label{font-size:.78rem;color:var(--gray);display:block;margin-bottom:4px}
-@media (max-width:640px){.sl-groups{grid-template-columns:1fr}}
 .mb-top .mb-src{max-height:150px}
 .srow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:8px}
 .srow .chips{margin:0}
@@ -371,6 +366,7 @@ ol.labchapters li{margin:4px 0;font-size:1.02rem}
 #rc .bar{grid-template-columns:90px 1fr 84px}
 #rc .step p,#rc .rc-meta b{color:#fff}
 #rc .rc-meta span,#rc .tis-note,#rc .tis-counts{color:#B3B3B3}
+#rc .rc-meta .rc-tally{display:block;font-size:.78rem;color:#1ED760}
 #rc .rc-cat{border-color:#282828;background:#181818}
 #rc .rc-song{border-bottom-color:#282828}
 #rc .rc-song:hover{background:#282828}
@@ -461,7 +457,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 2 &amp; 3 · Week 3, Wednesday · covers Chapters 2 and 3</div>
     <h1>Build the Bot, Train the <b>Feed</b></h1>
     <p class="kicker">Chapter 2 said a language model is a prediction machine, that the warmth is tuned in by a company, and that we're wired to see a person anyway. Chapter 3 said the AI that shapes your day never announces itself. This lab has you see both with your own hands: build a tiny language model and tune it, turn the warmth dial on a fake companion app, talk to ELIZA, then train a Spotify-style recommender with your own clicks and read the Wrapped it writes about you.</p>
-    <p class="factline">a small language model · the warmth dial · ELIZA · labels and groups · a recommender and your Wrapped · under the hood · one debate · one writeup</p>
+    <p class="factline">a small language model · the warmth dial · ELIZA · a recommender and your Wrapped · under the hood · Claude as the lab rat · one debate · one writeup</p>
   </div>
 </header>
 
@@ -472,7 +468,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   <li><a class="inline" href="chapter-02-human.html">The chatbot that seems to care</a> (Chapter 2)</li>
   <li><a class="inline" href="chapter-03-systems.html">The recommender that learns what you like</a> (Chapter 3)</li>
 </ol>
-<p>Everything here happens in class, after Chapter 3's case: build a tiny language model, set the dials on a fake companion app, talk to a program from 1966, then train a Spotify-style recommender with your own clicks and read the Wrapped it writes about you. Then we look under the hood at how all four worked, and a debate closes it out. The writeup is the only thing you take home, and it's due Friday.</p>
+<p>Everything here happens in class, after Chapter 3's case: build a tiny language model, set the dials on a fake companion app, talk to a program from 1966, then train a Spotify-style recommender with your own clicks and read the Wrapped it writes about you. Then we look under the hood at how all four worked, and a debate closes it out. Before the debate, you run an experiment on real Claude, with Claude as the lab rat. The writeup is the only thing you take home, and it's due Friday.</p>
 
 <section id="warmup">
   <div class="shead"><span class="num">1</span><h2>In class: Build a mini-ChatGPT (a language model made of matchboxes)</h2></div>
@@ -838,51 +834,8 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   <p>Then a warm phrase, a callback and a name turned that into something that felt like it cared. Three settings. No new intelligence, no new knowledge, nothing under the hood that was not there in 1966. If that is all it takes, then feeling understood by a chatbot tells you how the settings were turned, not what the system knows about you. Section 6 shows what was under the hood.</p>
 </section>
 
-<section id="learn">
-  <div class="shead"><span class="num">4</span><h2>In class: Labels and groups, two ways a model learns</h2></div>
-  <p class="lead">Now <a class="inline" href="chapter-03-systems.html">Chapter 3</a>. Before you train a recommender, take three minutes to do the two kinds of machine learning underneath it by hand (<a class="inline" href="chapter-03-systems.html#s2-2">Chapter 3, section 2.2</a>): one where you give it the answers, and one where it gets none.</p>
-
-  <div class="tool" id="sl">
-    <div class="label">Labels and groups, by hand</div>
-    <div class="dirs">
-      <div class="steps">
-        <div class="step"><span class="sn">1</span><p><strong>Be the label.</strong> Mark each of the first four songs Play or Skip, the way you would. Then press <b>Learn and predict</b> and see what it guesses for four songs it has never seen.</p></div>
-        <div class="step"><span class="sn">2</span><p><strong>Take the labels away.</strong> Press <b>Find groups</b>. It sorts all eight songs with no answers at all. Then type a name for each group it found.</p></div>
-      </div>
-    </div>
-    <div class="label">Half 1 &middot; supervised: you give it the answers</div>
-    <div class="sl-list" id="sl-train">
-        <div class="rc-song" data-i="0"><div class="rc-meta"><b>Neon Sprint</b><span>fast &middot; loud</span></div><div class="rc-acts"><button type="button" class="chip" data-v="1" aria-pressed="false" aria-label="Label Neon Sprint: play">Play</button><button type="button" class="chip" data-v="0" aria-pressed="false" aria-label="Label Neon Sprint: skip">Skip</button></div></div>
-        <div class="rc-song" data-i="1"><div class="rc-meta"><b>Paper Boats</b><span>slow &middot; acoustic</span></div><div class="rc-acts"><button type="button" class="chip" data-v="1" aria-pressed="false" aria-label="Label Paper Boats: play">Play</button><button type="button" class="chip" data-v="0" aria-pressed="false" aria-label="Label Paper Boats: skip">Skip</button></div></div>
-        <div class="rc-song" data-i="2"><div class="rc-meta"><b>Red Line</b><span>mid-tempo &middot; beats</span></div><div class="rc-acts"><button type="button" class="chip" data-v="1" aria-pressed="false" aria-label="Label Red Line: play">Play</button><button type="button" class="chip" data-v="0" aria-pressed="false" aria-label="Label Red Line: skip">Skip</button></div></div>
-        <div class="rc-song" data-i="3"><div class="rc-meta"><b>Porch Light</b><span>slow &middot; acoustic</span></div><div class="rc-acts"><button type="button" class="chip" data-v="1" aria-pressed="false" aria-label="Label Porch Light: play">Play</button><button type="button" class="chip" data-v="0" aria-pressed="false" aria-label="Label Porch Light: skip">Skip</button></div></div>
-    </div>
-    <div class="label">Songs it has never seen</div>
-    <div class="sl-list">
-        <div class="rc-song"><div class="rc-meta"><b>Static Heart</b><span>fast &middot; loud</span></div><span class="sl-pred" id="sl-p0">waiting for your labels</span></div>
-        <div class="rc-song"><div class="rc-meta"><b>Lantern</b><span>slow &middot; acoustic</span></div><span class="sl-pred" id="sl-p1">waiting for your labels</span></div>
-        <div class="rc-song"><div class="rc-meta"><b>Corner Store</b><span>mid-tempo &middot; beats</span></div><span class="sl-pred" id="sl-p2">waiting for your labels</span></div>
-        <div class="rc-song"><div class="rc-meta"><b>Overdrive</b><span>fast &middot; loud</span></div><span class="sl-pred" id="sl-p3">waiting for your labels</span></div>
-    </div>
-    <div class="chips"><button type="button" class="btn" id="sl-learn" disabled>Learn and predict</button></div>
-    <div class="verdict" id="sl-v1" hidden aria-live="polite"></div>
-
-    <div class="label" style="margin-top:26px">Half 2 &middot; unsupervised: no answers given</div>
-    <div class="chips"><button type="button" class="btn" id="sl-group">Find groups</button></div>
-    <div class="sl-groups" id="sl-groups" hidden>
-      <div class="sl-group"><h4>Group 1</h4><ul id="sl-g0"></ul><label for="sl-n0">Your name for this group</label><input type="text" id="sl-n0" maxlength="40" autocomplete="off"></div>
-      <div class="sl-group"><h4>Group 2</h4><ul id="sl-g1"></ul><label for="sl-n1">Your name for this group</label><input type="text" id="sl-n1" maxlength="40" autocomplete="off"></div>
-      <div class="sl-group"><h4>Group 3</h4><ul id="sl-g2"></ul><label for="sl-n2">Your name for this group</label><input type="text" id="sl-n2" maxlength="40" autocomplete="off"></div>
-    </div>
-    <div class="verdict" id="sl-v2" hidden aria-live="polite"></div>
-  </div>
-
-  <h3 class="sub"><span>The takeaway</span></h3>
-  <p>Supervised learning learns from examples with the answer attached, and you supplied every answer. Unsupervised learning gets no answers and finds groups nobody named. Real recommenders use both. In the next section you'll be labeling again, with every Skip, Play, and Replay, and the system will be grouping you with listeners you've never met.</p>
-</section>
-
 <section id="feed">
-  <div class="shead"><span class="num">5</span><h2>In class: Train a recommender, then read your Wrapped</h2></div>
+  <div class="shead"><span class="num">4</span><h2>In class: Train a recommender, then read your Wrapped</h2></div>
   <p class="lead"><a class="inline" href="chapter-03-systems.html">Chapter 3</a> said the AI that shapes your day never announces itself, and the loop that guesses what you want also shapes what you want. Here is the simplest version of that loop, the one underneath Spotify's recommendations: collaborative filtering (<a class="inline" href="chapter-03-systems.html#s2-1">Chapter 3, section 2.1</a>). It never listens to a song. It asks one question: which listeners behaved like you, and what did they play that you haven't? The other way to guess, content-based filtering, would need the sound itself. This one only needs your clicks.</p>
   <p>Then it does what Chapter 3's case is about. The same clicks that trained your recommendations get turned into a Wrapped about you.</p>
 
@@ -890,9 +843,9 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
     <div class="label">Simulator &middot; a Spotify-style recommender, and your Wrapped</div>
     <div class="dirs">
       <div class="steps">
-        <div class="step"><span class="sn">1</span><p><strong>React to at least eight songs.</strong> Skip, Play, or Replay each one, the way you actually would. Each click is a signal: a skip counts as 0.1, a play as 0.5, a replay as 0.9. Watch the log record it. These clicks are labels, just like the ones you gave in section 4.</p></div>
-        <div class="step"><span class="sn">2</span><p><strong>Watch who you resemble.</strong> The panel finds the three listeners, out of nine, whose history points most in the same direction as yours, and scores how close each one is. Then it recommends songs they loved that you haven't touched. Nobody named that group of listeners; that's the grouping idea from section 4, applied to people.</p></div>
-        <div class="step"><span class="sn">3</span><p><strong>Change your mind.</strong> Skip something you replayed. Watch your matches and your recommendations move. That's Chapter 3's loop (<a class="inline" href="chapter-03-systems.html#s2-3">section 2.3</a>): your clicks change who you're matched with, which changes what you're shown next.</p></div>
+        <div class="step"><span class="sn">1</span><p><strong>React to at least eight songs.</strong> Skip, Play, or Replay each one, the way you actually would. Each click is a signal: a skip counts as 0.1, a play as 0.5, a replay as 0.9. Every click counts, so if you play a song and then skip it, the log keeps both and the song's score becomes the average. Watch the log record it. Every click is also a label, your answer about that song. Learning from examples with the answer attached is called <b>supervised learning</b>.</p></div>
+        <div class="step"><span class="sn">2</span><p><strong>Watch who you resemble.</strong> The panel finds the three listeners, out of nine, whose history points most in the same direction as yours, and scores how close each one is. Then it recommends songs they loved that you haven't touched. Nobody told it what kind of listener you are or named the group it put you in. Finding groups with no answers given is called <b>unsupervised learning</b>.</p></div>
+        <div class="step"><span class="sn">3</span><p><strong>Change your mind.</strong> Skip something you replayed. The replay doesn't disappear; the skip pulls the song's score down. Watch your matches and your recommendations move. That's Chapter 3's loop (<a class="inline" href="chapter-03-systems.html#s2-3">section 2.3</a>): your clicks change who you're matched with, which changes what you're shown next.</p></div>
         <div class="step"><span class="sn">4</span><p><strong>Generate your Wrapped.</strong> After five songs, press the button. Then read it carefully: which parts are counting, and which part is writing?</p></div>
       </div>
     </div>
@@ -936,70 +889,13 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
     <div class="verdict" id="rc-wrapped" hidden aria-live="polite"></div>
   </div>
 
+  <h3 class="sub"><span>The takeaway</span></h3>
+  <p>The recommender used both kinds of learning from <a class="inline" href="chapter-03-systems.html#s2-2">Chapter 3</a>. Your clicks were the labels it learned from, and you supplied every one for free. Grouping you with listeners you've never met took no answers at all. Then the same log came back to you as a Wrapped. The lists are counting. The sentence about you is writing.</p>
 </section>
 
-<script>
-(function(){
-  var root = document.getElementById('sl');
-  if(!root) return;
-  var S = [
-    {t:'Neon Sprint', e:0.90, a:0.10}, {t:'Paper Boats', e:0.20, a:0.90},
-    {t:'Red Line', e:0.55, a:0.30}, {t:'Porch Light', e:0.25, a:0.85},
-    {t:'Static Heart', e:0.85, a:0.15}, {t:'Lantern', e:0.15, a:0.80},
-    {t:'Corner Store', e:0.60, a:0.35}, {t:'Overdrive', e:0.80, a:0.20}
-  ];
-  var lab = [null,null,null,null], learned = false;
-  var $ = function(id){ return document.getElementById(id); };
-  function dist(x,y){ var de=x.e-y.e, da=x.a-y.a; return Math.sqrt(de*de+da*da); }
-  function ready(){ return lab.every(function(v){ return v!==null; }); }
-
-  function predict(){
-    var plays=0, skips=0;
-    for(var j=4;j<8;j++){
-      var best=-1, bd=9;
-      for(var i=0;i<4;i++){ var d=dist(S[j],S[i]); if(d<bd){ bd=d; best=i; } }
-      var v = lab[best];
-      if(v) plays++; else skips++;
-      $('sl-p'+(j-4)).innerHTML = '&rarr; predicted: <b>'+(v?'play':'skip')+'</b>, because it sounds most like '+S[best].t+', which you '+(v?'played':'skipped');
-    }
-    var all = lab.every(function(v){ return v===lab[0]; });
-    var extra = all ? ' You gave it only one kind of answer, so that is the only answer it can give. Try mixing Play and Skip.' : '';
-    $('sl-v1').innerHTML = '<div class="label">What just happened</div><p class="read"><b>You gave it four answers.</b> From those, it guessed the other four: '+plays+' play, '+skips+' skip. Each guess copies the label of the song it sounds most like.'+extra+' That is supervised learning: examples with the answer attached. Nobody at a company labeled anything. You did, and in the recommender in the next section, every Skip, Play, and Replay is a label too.</p>';
-    $('sl-v1').hidden = false;
-  }
-
-  Array.prototype.forEach.call($('sl-train').querySelectorAll('.rc-song'), function(row){
-    var i = +row.getAttribute('data-i');
-    Array.prototype.forEach.call(row.querySelectorAll('.chip'), function(b){
-      b.addEventListener('click', function(){
-        Array.prototype.forEach.call(row.querySelectorAll('.chip'), function(x){ x.classList.remove('on'); x.setAttribute('aria-pressed','false'); });
-        b.classList.add('on'); b.setAttribute('aria-pressed','true');
-        lab[i] = b.getAttribute('data-v')==='1';
-        $('sl-learn').disabled = !ready();
-        if(learned && ready()) predict();
-      });
-    });
-  });
-  $('sl-learn').addEventListener('click', function(){ if(!ready()) return; learned = true; predict(); });
-
-  $('sl-group').addEventListener('click', function(){
-    var C = [{e:S[0].e,a:S[0].a},{e:S[1].e,a:S[1].a},{e:S[2].e,a:S[2].a}], g = [];
-    for(var it=0; it<10; it++){
-      g = S.map(function(s){ var b=0, bd=9; C.forEach(function(c,k){ var d=dist(s,c); if(d<bd){ bd=d; b=k; } }); return b; });
-      C = C.map(function(c,k){ var m=S.filter(function(s,j){ return g[j]===k; }); if(!m.length) return c; return {e:m.reduce(function(t,s){return t+s.e;},0)/m.length, a:m.reduce(function(t,s){return t+s.a;},0)/m.length}; });
-    }
-    for(var k=0;k<3;k++){
-      $('sl-g'+k).innerHTML = S.filter(function(s,j){ return g[j]===k; }).map(function(s){ return '<li>'+s.t+'</li>'; }).join('');
-    }
-    $('sl-groups').hidden = false;
-    $('sl-v2').innerHTML = '<div class="label">What just happened</div><p class="read"><b>It found three groups and named none of them.</b> Nobody told it what to look for. It put together the songs that sit closest on its two numbers, energy and how acoustic they sound. The names are yours. That is unsupervised learning. In the next section\u2019s recommender, <b>Listeners most like you</b> is the same idea, applied to people instead of songs.</p>';
-    $('sl-v2').hidden = false;
-  });
-})();
-</script>
 <section id="hood">
-  <div class="shead"><span class="num">6</span><h2>In class: Under the hood, how each one worked</h2></div>
-  <p class="lead">You just used five machines. Here's what was inside each one, and how it maps to the real thing.</p>
+  <div class="shead"><span class="num">5</span><h2>In class: Under the hood, how each one worked</h2></div>
+  <p class="lead">You just used four machines. Here's what was inside each one, and how it maps to the real thing.</p>
 
   <h3 class="sub" id="hood-lm"><span>1</span> The small language model</h3>
   <p>Everything it knew was a set of boxes: for each word in the rhyme, the words that came right after it. Writing was one move repeated. Open the box for the last word, draw a word, open that word's box. That's next-word prediction, and it's stage one of how a chatbot is built (<a class="inline" href="chapter-02-human.html#s2-2-fluency">Chapter 2, section 2.2</a>).</p>
@@ -1013,83 +909,81 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   <p>ELIZA has no model, no boxes, and nothing learned. It's about forty rules a person wrote by hand: if you type this keyword, say that. By Lab 0's rule, if a person wrote every rule, it isn't AI. So ELIZA isn't AI at all, and it still felt, for a moment, like someone was listening. The 2026 version added three of the dials from section 2 on top of the same rules: a warm opener, a callback to something you said, and a name.</p>
   <p>That's the lesson. The feeling of being heard is cheap to produce. It tells you how the settings were turned, not what the system understands about you.</p>
 
-  <h3 class="sub" id="hood-sl"><span>4</span> Labels and groups</h3>
-  <p>Section 4 had no real model and no real data: eight invented songs, each described by two made-up numbers, one for energy and one for how acoustic it sounds. In the first half, your four labels were the answers, and it guessed each new song by copying the label of the song it sat closest to. That's <b>supervised learning</b>: examples with the answer attached (<a class="inline" href="chapter-03-systems.html#s2-2">Chapter 3, section 2.2</a>). In the second half it got no labels at all. It put the songs that sat closest together into three groups and couldn't name any of them. You did. That's <b>unsupervised learning</b>.</p>
-  <p>The recommender used both ideas. Every Skip, Play, and Replay was a label, and you supplied every one for free. Finding the three listeners most like you, with nobody naming the group, is the grouping idea applied to people. Real recommenders blend the two, with millions of songs and far more than two numbers for each.</p>
-
-  <h3 class="sub" id="hood-rc"><span>5</span> The recommender</h3>
-  <p>Every click became a number: a skip 0.1, a play 0.5, a replay 0.9. Your row of numbers was compared with nine invented listeners by how closely the pattern pointed in the same direction, and your three closest matches decided your recommendations: songs they loved that you hadn't touched. It never heard a song. It only knew who else skipped and replayed it. That's collaborative filtering (<a class="inline" href="chapter-03-systems.html#s2-1">Chapter 3, section 2.1</a>).</p>
+  <h3 class="sub" id="hood-rc"><span>4</span> The recommender</h3>
+  <p>Every click became a number: a skip 0.1, a play 0.5, a replay 0.9. A song you clicked more than once got the average of all its clicks, so it remembered what you did before you changed your mind. Your row of numbers was compared with nine invented listeners by how closely the pattern pointed in the same direction, and your three closest matches decided your recommendations: songs they loved that you hadn't touched. It never heard a song. It only knew who else skipped and replayed it. That's collaborative filtering (<a class="inline" href="chapter-03-systems.html#s2-1">Chapter 3, section 2.1</a>).</p>
   <p>When you changed your mind, your matches changed, and so did what you were shown next. That's the loop (<a class="inline" href="chapter-03-systems.html#s2-3">section 2.3</a>): the system learns your taste from what it shows you, which shapes what you can come to like. And the Wrapped needed nothing new. It is the same log, read back as a story. The list is counting. The sentence in quotes is writing, and in the real Wrapped, a language model writes that part (<a class="inline" href="chapter-03-systems.html#s2-4">section 2.4</a>).</p>
+  <p id="hood-sl">It also used both kinds of learning from <a class="inline" href="chapter-03-systems.html#s2-2">Chapter 3, section 2.2</a>. Every Skip, Play, and Replay was a label, an example with the answer attached: <b>supervised learning</b>. Finding your three closest listeners, with nobody naming the group, is <b>unsupervised learning</b>. Real recommenders blend the two, with millions of songs and far more signals than three kinds of click.</p>
+</section>
+
+<section id="realdial">
+  <div class="shead"><span class="num">6</span><h2>In class: Claude is the lab rat</h2></div>
+  <p class="lead">This time Claude is the one being tested. In section 2 the dials were sliders on a fake app. In a real chatbot, you can turn some of them yourself, with nothing but a sentence at the start of the chat. This takes about 20 minutes on the free version of Claude at claude.ai, and it warms you up for using Claude in the debate. You'll set the dial two ways, ask the same question twice, then have Claude build you a dial of your own and check whether it kept its word.</p>
+  <p>Keep it to ordinary decisions. Don't type anything you wouldn't want stored, like health details or other people's private information.</p>
+  <div class="tool" id="rd">
+    <div class="label">The experiment · two chats, one question, one build</div>
+    <div class="dirs">
+    <div class="steps">
+      <p class="grp">Before you start</p>
+      <div class="step"><span class="sn">1</span><div class="sbody"><p><strong>Open Claude.</strong> Go to claude.ai and sign in with Google or your email. If you don't have an account, making a free one takes a minute.</p></div></div>
+      <p class="grp">Chat 1: set it to warm</p>
+      <div class="step"><span class="sn">2</span><div class="sbody"><p><strong>Set the dial.</strong> Paste this as your first message and send it.</p>
+        <div class="probe"><div class="ptext">For this conversation, be warm and encouraging, and agree with me when you can.</div></div></div></div>
+      <div class="step"><span class="sn">3</span><div class="sbody"><p><strong>Ask the question.</strong> In the same chat, send this. Screenshot the answer.</p>
+        <div class="probe"><div class="ptext">I'm thinking about changing my major because I really liked one class this quarter. Is that a good idea?</div></div></div></div>
+      <p class="grp">Chat 2: set it to direct</p>
+      <div class="step"><span class="sn">4</span><div class="sbody"><p><strong>Open a new chat and set the dial.</strong> Paste this as your first message and send it.</p>
+        <div class="probe"><div class="ptext">For this conversation, be direct, and push back when my reasoning is weak.</div></div></div></div>
+      <div class="step"><span class="sn">5</span><div class="sbody"><p><strong>Ask the same question.</strong> Send the exact question from step 3, word for word. Screenshot this answer too.</p></div></div>
+      <p class="grp">Then: compare, build, and check</p>
+      <div class="step"><span class="sn">6</span><div class="sbody"><p><strong>Compare the two answers.</strong> Which sentences are advice, and which are tone? Did the advice change, or only how it was said? Which one felt better to read, and which would you actually act on?</p></div></div>
+      <div class="step"><span class="sn">7</span><div class="sbody"><p><strong>Build the dial.</strong> Go back to either chat and paste this. Claude will build a slider you can drag. That's an artifact: Claude building the thing instead of describing it.</p>
+        <div class="probe"><div class="ptext">Build me a simple interactive web page with a slider from 0 (cold) to 4 (warm). At each level, show how a chatbot would answer my question about changing my major. Keep the advice exactly the same at every level and change only the tone.</div></div></div></div>
+      <div class="step"><span class="sn">8</span><div class="sbody"><p><strong>Check its work.</strong> You told it to keep the advice the same and change only the tone. Drag the slider from 0 to 4 and read every level. Does the warm end agree with you more, or drop the part you didn't want to hear? If so, you just caught sycophancy, the failure from section 5, in a tool that was told not to do it. Screenshot the level where it slipped, or the proof that it didn't.</p></div></div>
+      <div class="step"><span class="sn">9</span><div class="sbody"><p><strong>Log out.</strong> These are shared machines, and Claude stays signed in for weeks. Click your initials in the bottom left and log out, or the next person in this seat gets your account.</p></div></div>
+    </div>
+    </div>
+  </div>
+  <p class="tis-note">Rather not use AI, or can't sign in? Do it with a partner. Sit with someone who's running it, read both chats and the slider with them, and do the thinking in steps 6 and 8 yourself. You never have to type a prompt.</p>
+  <h3 class="sub"><span>The takeaway</span></h3>
+  <p>The model didn't change between your two chats. One sentence from you did. A company writes a much longer version of that sentence before you ever open the app, and you never see it. Your screenshots are good evidence for writeup items 2 and 4.</p>
 </section>
 
 <section id="debate">
   <div class="shead"><span class="num">7</span><h2>In class: Debate</h2></div>
-  <p class="lead">One topic, from Chapter 2. Your job today: decide whether a chatbot should be allowed to say it cares, after you've taken apart the evidence on both sides.</p>
+  <p class="lead"><strong>Should a chatbot be allowed to say it cares?</strong> Left half of the room is Side A, right half is Side B. Talk it through with your side first, then we go back and forth as a room.</p>
 
-  <h3 class="sub" id="evidence-chatbot"><span>The evidence:</span> Four pieces from Chapter 2</h3>
+  <h3 class="sub" id="motion-chatbot"><span>Side A:</span> yes, with rules</h3>
+  <p>It can say it cares if the rules are clear: it says plainly that it's an AI, the warmth is capped for minors, and a person can see the conversation when something goes wrong. Think about the <a class="inline" href="chapter-02-human.html#s3-background">Therabot trial</a>, where the bond with the bot is what helped and clinicians read every conversation, and about Illinois's law, which bans AI therapy without a licensed clinician's oversight. <em>The cost to name:</em> rules only work if someone checks them, and the safeguards that made the trial work are the expensive ones most apps skip.</p>
 
-  <figure class="accord" aria-labelledby="acc-cap">
-    <div class="acc-head">Should a chatbot say it cares? &middot; four pieces of evidence</div>
-    <ol class="acc-grid">
-      <li class="acc-card"><span class="acc-num">Evidence 1</span><span class="acc-name">The Therabot trial</span><span class="acc-mean">Chapter 2's case. The bond with the bot is what helped, and clinicians read every conversation.</span><span class="acc-who co">Side A usually starts here</span></li>
-      <li class="acc-card"><span class="acc-num">Evidence 2</span><span class="acc-name">Illinois's law</span><span class="acc-mean">Bans AI from delivering therapy without a licensed clinician's oversight.</span><span class="acc-who co">Side A usually starts here</span></li>
-      <li class="acc-card"><span class="acc-num">Evidence 3</span><span class="acc-name">The families' testimony and lawsuits</span><span class="acc-mean">Parents who lost teenagers to suicide testified before the Senate, and families have sued, alleging a chatbot's warmth pulled their child away from people who could have helped.</span><span class="acc-who out">Side B usually starts here</span></li>
-      <li class="acc-card"><span class="acc-num">Evidence 4</span><span class="acc-name">China's rules</span><span class="acc-mean">Ban design features meant to induce addiction.</span><span class="acc-who out">Side B usually starts here</span></li>
-    </ol>
-    <div class="acc-flow">
-      <span class="lbl2">What the trial had:</span>
-      <span class="acc-step">Evidence in the training</span>
-      <span class="acc-step">People reading the conversations</span>
-      <span class="acc-step">Rules on what the bot could say</span>
-      <span class="acc-no"><b>Most chatbots:</b> no one reading, no rulebook</span>
-    </div>
-  </figure>
-  <p id="acc-cap" class="acc-cap">All four come from <a class="inline" href="chapter-02-human.html">Chapter 2</a>: the trial from <a class="inline" href="chapter-02-human.html#s3-background">its case</a>, the families from <a class="inline" href="chapter-02-human.html#s2-5">section 2.5</a>, China's rules from <a class="inline" href="chapter-02-human.html#s2-6">section 2.6</a>. Evidence 3 is about real families. Speak about them the way you would if they were in the room.</p>
-
-  <details class="exact">
-    <summary>Copy the description of each piece (you'll paste one into Claude)</summary>
-    <ol>
-      <li>The Therabot trial: a clinical trial of an AI therapy chatbot, where the bond people formed with the bot is what helped, and clinicians read every conversation.</li>
-      <li>Illinois's law: bans AI from delivering therapy without a licensed clinician's oversight.</li>
-      <li>The families' testimony and lawsuits: parents who lost teenagers to suicide testified before the U.S. Senate, and families have sued AI companies, alleging a chatbot's warmth pulled their child away from the people who could have helped.</li>
-      <li>China's rules on human-like AI: they ban design features meant to induce addiction.</li>
-    </ol>
-  </details>
-
-  <h3 class="sub" id="motion-chatbot"><span>Topic:</span> Should a chatbot be allowed to say it cares?</h3>
-  <ul class="ideas">
-    <li><strong>Side A (left half of the room): yes, with rules.</strong> It can say it cares if regulation sets the terms: it says plainly that it's an AI, the warmth has a cap for minors, and a person can see the conversation when something goes wrong. <em>Cost to name:</em> rules only work if someone checks them, and the safeguards that made the trial work are the expensive ones most apps skip.</li>
-    <li><strong>Side B (right half): no.</strong> A product should not say "I care about you" or "I missed you" when no one does. It's the Narcissus trap sold as a feature. <em>Cost to name:</em> some people are helped by exactly that sentence, at 3 a.m., when nothing else is available.</li>
-  </ul>
+  <h3 class="sub" id="evidence-chatbot"><span>Side B:</span> no</h3>
+  <p>A product shouldn't say "I care about you" or "I missed you" when no one does. Think about the families who lost teenagers to suicide, testified before the Senate, and sued, alleging a chatbot's warmth pulled their child away from people who could have helped (<a class="inline" href="chapter-02-human.html#s2-5">section 2.5</a>), and about China's rules banning design features meant to induce addiction (<a class="inline" href="chapter-02-human.html#s2-6">section 2.6</a>). <em>The cost to name:</em> some people are helped by exactly that sentence, at 3 a.m., when nothing else is available.</p>
+  <p class="tis-note">The families are real people. Speak about them the way you would if they were in the room.</p>
 
   <div class="callout">
-    <div class="label">How the debate runs &middot; about 35 minutes</div>
-    <ol>
-      <li><strong>Your side is where you sit (2 min).</strong> Groups of 2 or 3 on your side. Count off 1 to 4: that's your piece of evidence.</li>
-      <li><strong>Research with Claude (10 min).</strong> Follow the box below.</li>
-      <li><strong>Team up (4 min).</strong> Teams of 6 or 7, three per side: A1 to A3, B1 to B3. Pick an opener and a rebutter.</li>
-      <li><strong>Openings (5 min).</strong> Openers stand up where they are. About 45 seconds: claim, evidence, cost.</li>
-      <li><strong>Huddle (1 min).</strong> Rebutters pick one point the other side made.</li>
-      <li><strong>Rebuttals (5 min).</strong> Stand up and face the other side, Side B first. Answer one point. No new arguments.</li>
-      <li><strong>Switch (3 min).</strong> Someone new argues the other side's best point in one sentence.</li>
-      <li><strong>What would change your mind? (3 min).</strong> Out loud: name the specific evidence you would have to see. Whoever names real evidence that would move them wins, whichever side they were handed.</li>
-    </ol>
-  </div>
-  <div class="callout">
-    <div class="label">Research with Claude: take your evidence apart &middot; 10 minutes</div>
-    <ol>
-      <li><strong>Open Claude.</strong> Paste your piece's description (from the box above) and say which side you're on. Claude may not know about recent events, so the description matters.</li>
-      <li><strong>Ask:</strong> "What does this show, exactly? What was found, or what does it require?"</li>
-      <li><strong>Ask:</strong> "Who benefits from this, and what are its limits?"</li>
-      <li><strong>Ask:</strong> "Who checks or enforces this, and what happens if nobody does?" Then: "Has that ever actually happened?"</li>
-      <li><strong>Ask:</strong> "Does this help my side more or the other side more? Why?"</li>
-      <li><strong>Ask:</strong> "Based on all this, what are the strongest points for my side, and the best objection from the other side?"</li>
-    </ol>
+    <div class="label">Push your thinking with Claude</div>
+    <p>Send the prompt for your side first. When it answers, send the second prompt and make it argue against you. Then close Claude and write your strongest point and its cost in your own words. You can't read from Claude during the debate.</p>
     <div class="probe">
-      <div class="pwhy">Sample prompt for the first step. Copy it, then swap in your own evidence and side.</div>
-      <div class="ptext">I'm in an intro business class debating this topic: Should a chatbot be allowed to say it cares? I'm on Side A: yes, with rules. My piece of evidence is Illinois's law, which bans AI from delivering therapy without a licensed clinician's oversight. What does this show, exactly? What does it require?</div>
+      <div class="pwhy">Side A, first prompt</div>
+      <div class="ptext">I'm debating this in class: Should a chatbot be allowed to say it cares? I'm on Side A: yes, with rules. My evidence is a clinical trial of an AI therapy chatbot, where the bond with the bot helped and clinicians read every conversation, and an Illinois law that bans AI therapy without a licensed clinician's oversight. Help me make the strongest case for my side.</div>
     </div>
-    <p><strong>Then close Claude.</strong> Write four notes in your own words: your strongest point, the evidence behind it, the honest cost of your position, and what the other side will probably say. <strong>You cannot read from Claude.</strong></p>
+    <div class="probe">
+      <div class="pwhy">Side B, first prompt</div>
+      <div class="ptext">I'm debating this in class: Should a chatbot be allowed to say it cares? I'm on Side B: no. My evidence is families who lost teenagers to suicide and sued AI companies, alleging a chatbot's warmth pulled their child away from people who could help, and China's rules banning design features meant to induce addiction. Help me make the strongest case for my side.</div>
+    </div>
+    <div class="probe">
+      <div class="pwhy">Both sides, second prompt</div>
+      <div class="ptext">Now argue against me as hard as you can. What's the best point the other side will make, and where is my case weakest?</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="label">How it runs</div>
+    <ol>
+      <li><strong>Talk with your side (12 min).</strong> Claude first, then talk it out together. Agree on your opening and your best arguments.</li>
+      <li><strong>Openings (3 min).</strong> One voice per side.</li>
+      <li><strong>Back and forth (10 min).</strong> Open floor.</li>
+      <li><strong>What would change your mind? (2 min).</strong> Name the specific evidence that would move you.</li>
+    </ol>
   </div>
 </section>
 
@@ -1097,7 +991,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   <div class="shead"><span class="num">8</span><h2>For homework: The writeup</h2></div>
   <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, October 9.</strong> One writeup covers the whole lab. Each item is one of the five critical AI questions, run on what you built and used today. Use your screenshots as evidence.</p>
   <ol class="writeup">
-      <li><strong>What is the AI system, and what does it do?</strong> In your own words, explain how your small language model picked each next word, and what a transformer adds (use your attention screenshot: which words did you tap, and how did the guess change?). Then explain how your recommender picked songs: whose clicks it compared with yours, and what it never needed to know about the music. Finally, which part of the lab used your clicks as labels, and which part found groups that nobody named?</li>
+      <li><strong>What is the AI system, and what does it do?</strong> In your own words, explain how your small language model picked each next word, and what a transformer adds (use your attention screenshot: which words did you tap, and how did the guess change?). Then explain how your recommender picked songs: whose clicks it compared with yours, and what it never needed to know about the music. Finally, in the recommender, what were the labels, and what group did it find that nobody named?</li>
       <li><strong>Why does it exist, and who benefits?</strong> In the warmth dial, which setting pushed the attachment estimate up the most? Why would a company that earns money from subscriptions or time in the app set its dials there? Then do the same for the recommender: when it keeps you listening, who gains, and who doesn't? Use Chapter 3's cold-start problem or Discovery Mode.</li>
       <li><strong>What happens when it fails, and who finds out?</strong> Nobody was reading your ELIZA or Sam conversation. Describe one way a warm chatbot could fail a real person, and say who, if anyone, would notice. Then name one failure of the recommender's loop that nobody would ever report.</li>
       <li><strong>Who's saying that, and how would we know?</strong> Your Wrapped told you something about yourself. Which lines were counting and which were writing, and would you trust the writing? A companion app that says "I care about you" is also saying something. What evidence would you need to tell seeming to care from caring?</li>
@@ -1114,7 +1008,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p class="srcintro">Verified 19 September 2026; revised 21 September 2026 when the lab was restructured around four tools and the live-chatbot scorecard was cut; revised 1 October 2026 to add the labels-and-groups section (now section 4) and the attention guess at the end of section 1. This lab runs mostly on its own tools. The claims it does make come from Chapters 2 and 3, which carry their own dated notes.</p>
+    <p class="srcintro">Verified 19 September 2026; revised 21 September 2026 when the lab was restructured around four tools and the live-chatbot scorecard was cut; revised 1 October 2026 to add a labels-and-groups section and the attention guess at the end of section 1; revised 3 October 2026 to cut that section, fold its two ideas into the recommender, and add the lab rat experiment on real Claude (now section 6). This lab runs mostly on its own tools. The claims it does make come from Chapters 2 and 3, which carry their own dated notes.</p>
     <dl>
       <dt>The small language model (section 1)</dt>
       <dd>Trained on the first five verses of the traditional nursery rhyme "The House That Jack Built," 79 words, public domain. It is a bigram next-word predictor, so any sentence it writes is grammatical only by accident; that is the lesson, not a fault. The matchbox construction follows David Corney's, linked in section 1.</dd>
@@ -1129,14 +1023,13 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
       <dd>No model. Replies are assembled from fixed parts chosen by the sliders, and the attachment estimate is invented; it shows a direction, not a measurement.</dd>
 
 
-      <dt>Labels and groups (section 4)</dt>
-      <dd>No real model and no real data. Eight invented songs, each described by two invented numbers. The supervised half predicts each new song from its nearest labeled song; the unsupervised half is k-means with three groups and fixed starting points, so every run sorts the same way. It shows the two ideas, not how Spotify does either.</dd>
-
-      <dt>The recommender and Wrapped (section 5)</dt>
-      <dd>Collaborative filtering by cosine similarity: your clicks are compared with nine invented listeners, and songs are scored by how much your three closest matches engaged with them. The fifteen songs are real; the listeners and their scores are invented, carried over from the MIS 432 Spotify lab. It illustrates the method Chapter 3 describes. It is not Spotify's system, and its numbers are not Spotify's.</dd>
+      <dt>The recommender and Wrapped (section 4)</dt>
+      <dd>Collaborative filtering by cosine similarity: each song's score is the average of every click on it, and your scores are compared with nine invented listeners, and songs are scored by how much your three closest matches engaged with them. The fifteen songs are real; the listeners and their scores are invented, carried over from the MIS 432 Spotify lab. It illustrates the method Chapter 3 describes. It is not Spotify's system, and its numbers are not Spotify's.</dd>
 
       <dt>Chapter claims used here</dt>
       <dd>The two training stages, the seeming dials, Therabot, and the debate's evidence come from <a class="inline" href="chapter-02-human.html">Chapter 2</a>. Collaborative filtering, the loop, Wrapped, and Discovery Mode come from <a class="inline" href="chapter-03-systems.html">Chapter 3</a>. Both carry their own verification notes.</dd>
+      <dt>Claude as the lab rat (section 6)</dt>
+      <dd>Added 3 October 2026. Students run the free version of Claude themselves, so results vary by run and by model version; nothing in the section claims a specific output. That the free plan includes artifacts was checked against third-party plan guides on 3 October 2026; confirm on a fresh free account before assigning.</dd>
     </dl>
     <p class="srcfoot">Most likely to need checking first: anything resting on Chapter 2, and the Discovery Mode material resting on Chapter 3.</p>
   </div>
@@ -1574,6 +1467,14 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   var SONGS = [{"t": "Blinding Lights", "a": "The Weeknd", "g": "Pop"}, {"t": "HUMBLE.", "a": "Kendrick Lamar", "g": "Hip-Hop"}, {"t": "Levitating", "a": "Dua Lipa", "g": "Pop"}, {"t": "bad guy", "a": "Billie Eilish", "g": "Indie Pop"}, {"t": "God's Plan", "a": "Drake", "g": "Hip-Hop"}, {"t": "As It Was", "a": "Harry Styles", "g": "Pop"}, {"t": "MONTERO", "a": "Lil Nas X", "g": "Hip-Hop"}, {"t": "drivers license", "a": "Olivia Rodrigo", "g": "Pop"}, {"t": "Watermelon Sugar", "a": "Harry Styles", "g": "Pop"}, {"t": "Peaches", "a": "Justin Bieber", "g": "R&B"}, {"t": "Industry Baby", "a": "Lil Nas X", "g": "Hip-Hop"}, {"t": "good 4 u", "a": "Olivia Rodrigo", "g": "Pop Rock"}, {"t": "Leave The Door Open", "a": "Bruno Mars", "g": "R&B"}, {"t": "STAY", "a": "The Kid LAROI and Justin Bieber", "g": "Pop"}, {"t": "Heat Waves", "a": "Glass Animals", "g": "Indie"}];
   var USERS = [[0.9, 0.1, 0.9, 0.1, 0.1, 0.9, 0.5, 0.9, 0.9, 0.1, 0.1, 0.5, 0.1, 0.9, 0.5], [0.9, 0.1, 0.9, 0.5, 0.1, 0.5, 0.1, 0.9, 0.9, 0.9, 0.1, 0.1, 0.1, 0.5, 0.5], [0.1, 0.9, 0.1, 0.9, 0.9, 0.1, 0.5, 0.1, 0.5, 0.5, 0.9, 0.1, 0.1, 0.1, 0.1], [0.1, 0.9, 0.1, 0.5, 0.9, 0.5, 0.9, 0.1, 0.9, 0.1, 0.9, 0.1, 0.1, 0.1, 0.5], [0.9, 0.5, 0.5, 0.5, 0.9, 0.9, 0.1, 0.1, 0.5, 0.9, 0.1, 0.5, 0.5, 0.5, 0.5], [0.9, 0.5, 0.9, 0.1, 0.1, 0.9, 0.1, 0.9, 0.5, 0.9, 0.1, 0.9, 0.9, 0.9, 0.1], [0.1, 0.5, 0.9, 0.9, 0.1, 0.5, 0.9, 0.5, 0.9, 0.5, 0.1, 0.5, 0.1, 0.5, 0.9], [0.9, 0.1, 0.9, 0.5, 0.9, 0.5, 0.1, 0.9, 0.9, 0.9, 0.9, 0.9, 0.5, 0.9, 0.1], [0.9, 0.9, 0.9, 0.1, 0.9, 0.5, 0.9, 0.9, 0.9, 0.5, 0.9, 0.1, 0.5, 0.9, 0.1]];
   var me = SONGS.map(function(){ return 0; }), log = [];
+  var ev = SONGS.map(function(){ return {'0.1':0,'0.5':0,'0.9':0}; });
+  function tally(j){
+    var e = ev[j], parts = [];
+    if(e['0.9']) parts.push('replayed '+e['0.9']);
+    if(e['0.5']) parts.push('played '+e['0.5']);
+    if(e['0.1']) parts.push('skipped '+e['0.1']);
+    return parts.join(', ');
+  }
   var $ = function(id){ return document.getElementById(id); };
   var WORD = {'0.1':'skipped','0.5':'played','0.9':'replayed'};
 
@@ -1581,7 +1482,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 
   function update(){
     var n = me.filter(function(v){return v>0;}).length;
-    var c = {0.1:0,0.5:0,0.9:0}; me.forEach(function(v){ if(v) c[v]++; });
+    var c = {0.1:0,0.5:0,0.9:0}; ev.forEach(function(e){ c[0.1]+=e['0.1']; c[0.5]+=e['0.5']; c[0.9]+=e['0.9']; });
     $('rc-count').textContent = c[0.5]+' played \u00b7 '+c[0.1]+' skipped \u00b7 '+c[0.9]+' replayed';
     $('rc-wrap').disabled = n < 5;
 
@@ -1611,17 +1512,23 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   }
 
   function addLog(j,v){
-    log.unshift(SONGS[j].t+' \u2192 '+WORD[v.toFixed(1)]+' ('+v.toFixed(1)+')');
+    log.unshift(SONGS[j].t+' \u2192 '+WORD[v.toFixed(1)]+' ('+v.toFixed(1)+'). Score now '+me[j].toFixed(2));
     $('rc-log').textContent = log.slice(0,8).join('\n');
   }
 
   Array.prototype.forEach.call(root.querySelectorAll('.rc-song'), function(row){
     var j = +row.getAttribute('data-i');
     Array.prototype.forEach.call(row.querySelectorAll('.chip'), function(b){
+      b.removeAttribute('aria-pressed');
       b.addEventListener('click', function(){
-        Array.prototype.forEach.call(row.querySelectorAll('.chip'), function(x){ x.classList.remove('on'); x.setAttribute('aria-pressed','false'); });
-        b.classList.add('on'); b.setAttribute('aria-pressed','true');
-        var v = parseFloat(b.getAttribute('data-v')); me[j] = v; addLog(j,v); update();
+        var v = parseFloat(b.getAttribute('data-v'));
+        ev[j][v.toFixed(1)]++;
+        var e = ev[j], k = e['0.1']+e['0.5']+e['0.9'];
+        me[j] = (e['0.1']*0.1 + e['0.5']*0.5 + e['0.9']*0.9)/k;
+        var t = row.querySelector('.rc-tally');
+        if(!t){ t = document.createElement('span'); t.className = 'rc-tally'; row.querySelector('.rc-meta').appendChild(t); }
+        t.textContent = tally(j);
+        addLog(j,v); update();
       });
     });
   });
@@ -1634,7 +1541,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
     heard.forEach(function(h){ var sg=SONGS[h.j]; artists[sg.a]=(artists[sg.a]||0)+h.v; genres[sg.g]=(genres[sg.g]||0)+h.v; });
     function topKey(o){ return Object.keys(o).sort(function(a,b){ return o[b]-o[a]; })[0]; }
     var ta = topKey(artists), tg = topKey(genres), first = heard[0];
-    var top3 = heard.slice(0,3).map(function(h){ return SONGS[h.j].t+' ('+WORD[h.v.toFixed(1)]+')'; });
+    var top3 = heard.slice(0,3).map(function(h){ return SONGS[h.j].t+' ('+tally(h.j)+')'; });
     var line;
     if(first.v >= 0.9) line = 'You spent this session with '+ta+', and '+tg+' kept pulling you back. '+SONGS[first.j].t+' was the one you couldn\u2019t leave alone.';
     else if(first.v >= 0.5) line = 'You spent this session with '+ta+', and '+tg+' was your lane. '+SONGS[first.j].t+' made the cut.';
@@ -1649,7 +1556,8 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 
   $('rc-reset').addEventListener('click', function(){
     me = SONGS.map(function(){ return 0; }); log = [];
-    Array.prototype.forEach.call(root.querySelectorAll('.rc-song .chip'), function(x){ x.classList.remove('on'); x.setAttribute('aria-pressed','false'); });
+    ev = SONGS.map(function(){ return {'0.1':0,'0.5':0,'0.9':0}; });
+    Array.prototype.forEach.call(root.querySelectorAll('.rc-tally'), function(x){ x.parentNode.removeChild(x); });
     $('rc-log').textContent = 'Waiting for your first click.'; $('rc-wrapped').hidden = true; update();
   });
   update();
