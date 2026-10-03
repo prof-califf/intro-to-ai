@@ -93,6 +93,39 @@ ol.writeup li:last-child{margin-bottom:0;}
 .step:last-child{border-bottom:none;}
 .step .sn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);font-size:1.2rem;min-width:24px;}
 .step p{margin-bottom:0;}
+/* doctor in the loop */
+.dl-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px}
+@media(max-width:760px){.dl-grid{grid-template-columns:1fr}}
+.dl-prog{font-size:.85rem;color:var(--gray);margin:0 0 10px}
+.dl-case{border:1px solid var(--rule);background:var(--bg);padding:18px 20px;outline:none}
+.dl-case:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.dl-case .dl-who{font-family:'Fraunces',Georgia,serif;font-size:1.15rem;margin:0 0 6px}
+.dl-case .dl-note{margin:0 0 14px;line-height:1.6}
+.dl-case .dl-ai{background:var(--dark);color:#E7EAEF;padding:12px 14px;margin:0}
+.dl-case .dl-ai b{color:var(--yellow)}
+.dl-case .dl-appt{font-family:'Inter',Arial,sans-serif;font-size:.85rem;color:var(--gray)}
+.dl-case .dl-q{display:block;color:#fff;font-style:italic;margin:2px 0 8px}
+.dl-case .dl-why{font-size:.88rem;color:#AEB6C0;display:block;margin-top:4px}
+.dl-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.dl-side .dl-facts{list-style:none;padding:0;margin:8px 0 0;font-size:.9rem;line-height:1.5}
+.dl-side .dl-facts li{padding:6px 0;border-bottom:1px solid var(--rule)}
+.dl-side .dl-facts li.dl-fake{color:var(--pinktext)}
+.dl-side .dl-facts li.dl-fake em{color:var(--gray)}
+#dl-result{outline:none}
+#dl-result .dl-sum{font-size:1rem;line-height:1.65;margin:0 0 14px}
+#dl-result .dl-sum b{color:var(--yellow)}
+#dl-result ol{padding-left:1.2rem;margin:0 0 14px}
+#dl-result li{margin-bottom:10px;line-height:1.55;font-size:.92rem}
+#dl-result .dl-tag{font-weight:700;color:var(--yellow)}
+#dl-result .dl-tag.miss{color:#FF3D8A}
+#dl-result .dl-real{border-top:1px solid #242C36;padding-top:12px;font-size:.92rem;line-height:1.6}
+#dl-result .dl-again{margin-top:16px}
+#dl-result .btn.alt{background:transparent;color:#E7EAEF;border-color:#3A434E}
+
+.step .sbody{flex:1;min-width:0;}
+.step .sbody .probe{margin:10px 0 0;}
+.steps .grp{font-weight:600;color:var(--pinktext);margin:18px 0 0;font-size:.95rem;}
+.steps .grp:first-child{margin-top:0;}
 .nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
 .nextbar a:hover{color:var(--pinktext);}
@@ -357,7 +390,6 @@ ul.ideas li{margin:8px 0}
 .gtile.fog .th{color:#E7EAEF}
 .gtile.no{background:#1B222B;border-color:#FF3D8A}
 .gtile.no .th{color:#FF3D8A;font-weight:600}
-#gt-verdict:focus{outline:none}
 
 .kglbl{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:0 0 8px}
 .factdeck{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
@@ -500,8 +532,8 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 4 · Week 4, Wednesday, in class</div>
     <h1>Inside the <b>Graph</b></h1>
-    <p class="kicker">Chapter 4 said a predictive AI can only find what its record contains, and that where the doctor stands is a setting with a price. Today you work both halves with your own hands. First you build a small knowledge graph out of things from a medicine cabinet, ask it what might help, and find out what it can and can't tell apart. Then you run a hospital's AI program and decide where the doctor stands on four real tasks. Then the room argues about it.</p>
-    <p class="factline">a knowledge graph you build · the doctor's gate · under the hood · one debate</p>
+    <p class="kicker">Chapter 4 said a predictive AI can only find what its record contains, and that where the doctor stands is a setting with a price. Today you work both halves with your own hands. You build a small knowledge graph out of things from a medicine cabinet, ask it what might help, and find out what it can and can't tell apart. You play the doctor in the loop and find out what you actually catch. You have Claude map real research, and you check its work. Then the room works out what a doctor is actually for, now that a major medical journal has argued AI alone might do better.</p>
+    <p class="factline">a knowledge graph you build · you, the doctor in the loop · under the hood · Claude's map, checked · one discussion</p>
   </div>
 </header>
 
@@ -531,11 +563,6 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
     <div class="label">Mini knowledge graph · 14 facts · you add the rest</div>
     <div class="kglayout">
       <div class="kgmain">
-        <div class="kglbl">Ask it a question</div>
-    <div class="chips" role="group" aria-label="What might reduce">
-      <span class="chiplbl">What might reduce:</span>
-      <span id="kg-qs" class="chips"></span>
-    </div>
         <p class="swipehint">Swipe the graph sideways to see all of it.</p>
         <div class="kgunit">
       <div class="graphscroll" tabindex="0" role="region" aria-label="The knowledge graph. Scrolls sideways on small screens. The list below it holds the same facts as text.">
@@ -546,6 +573,13 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
         </defs><g id="kg-edges"></g><g id="kg-nodes"></g></svg></div>
       </div>
       <div class="legend"><span class="l-drug">something you can take</span><span class="l-mid">something in the body</span><span class="l-disease">a problem to reduce</span><span class="l-path">a path that helps</span><span class="l-bad">a path that makes it worse</span></div>
+      </div>
+        <div class="kglbl" style="margin-top:16px">Ask it a question</div>
+    <div class="chips" role="group" aria-label="What might reduce">
+      <span class="chiplbl">What might reduce:</span>
+      <span id="kg-qs" class="chips"></span>
+    </div>
+        <div class="kgunit">
       <div class="verdict" aria-live="polite">
         <div class="label" id="kg-title">No question yet</div>
         <div id="kg-answer"><p class="read">Add some facts, then pick a problem above.</p></div>
@@ -554,7 +588,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
       </div>
       <div class="kgside">
         <div class="kglbl">What the research says · click a fact to add it</div>
-        <p class="kgsrc">Each card is one finding from medical research and drug labels, cut down to a single sentence. A real system like MATRIX builds its graph the same way, from millions of sentences pulled out of published studies and medical databases. The graph never reads the studies. It only gets the sentences.</p>
+        <p class="kgsrc">Each card is one fact about a drug or the body, cut down to a single sentence. MATRIX, the system behind Every Cure, builds its graph the same way, from millions of facts pulled from dozens of medical databases. The graph never reads the studies behind them. It only gets the facts. People read the studies later, when they decide which matches are worth a trial.</p>
     <div class="factdeck" id="kg-deck"></div>
     <div class="chips" style="margin-top:10px">
       <button type="button" class="btn" id="kg-next">Add the next fact</button>
@@ -564,7 +598,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
         <div class="kglbl" style="margin-top:22px">Everything it knows</div>
     <ol class="knows" id="kg-knows"></ol>
         <div class="kglbl" style="margin-top:22px">Feed it a sentence of your own</div>
-        <p class="kgsrc">Yours doesn't come from any research. Watch whether the graph can tell.</p>
+        <p class="kgsrc">Yours doesn't come from any research, and it doesn't have to be true. Watch whether the graph can tell.</p>
     <div class="mine">
       <label>Thing <input type="text" id="kg-a" list="kg-names" maxlength="30" placeholder="Candy"></label>
       <label>Arrow <select id="kg-v"><option value="1">causes or increases</option><option value="-1">reduces or blocks</option></select></label>
@@ -582,52 +616,69 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 </section>
 
 <section id="gate">
-  <div class="shead"><span class="num">2</span><h2>In class: Decide where the doctor stands (a hospital's AI program, in miniature)</h2></div>
-  <p class="lead">Your graph in section 1 suggested coffee for insomnia and believed candy cures pain. Nothing inside it could catch either one. Something has to stand between an AI's answer and a patient, and that something is usually a person. Where that person stands is called <strong>the loop</strong>, and there are three places to put them.</p>
+  <div class="shead"><span class="num">2</span><h2>In class: You're the doctor in the loop</h2></div>
+  <p class="lead">Your knowledge graph in section 1 caught coffee on its own, because each arrow said which way it pushed. But it believed your false sentence as readily as the real ones, and it knows nothing about patients. It only knows facts. Nothing inside it could catch either problem. Something has to stand between an AI's answer and a patient, and that something is usually a person. Where that person stands is called <strong>the loop</strong>, and there are three places to put them.</p>
 
   <figure class="accord loopfig" aria-labelledby="loop-cap">
-    <div class="acc-head">Three places to put the human &middot; shown on your graph from section 1</div>
+    <div class="acc-head">Three places to put the human &middot; shown on your knowledge graph from section 1</div>
     <ol class="acc-grid">
-      <li class="acc-card"><span class="acc-num">Setting 1</span><span class="acc-name">In the loop</span><span class="acc-mean">A doctor reads every suggestion the graph makes before anything happens. Coffee for insomnia gets caught.</span><span class="acc-who co">Costs the most doctor time</span></li>
-      <li class="acc-card"><span class="acc-num">Setting 2</span><span class="acc-name">On the loop</span><span class="acc-mean">The graph's suggestions go ahead, and a doctor reviews only the ones that get flagged. Whatever isn't flagged goes through.</span><span class="acc-who co">Costs some doctor time</span></li>
-      <li class="acc-card"><span class="acc-num">Setting 3</span><span class="acc-name">Out of the loop</span><span class="acc-mean">The graph's answer goes straight to the patient. Candy for pain gets through.</span><span class="acc-who out">Costs no doctor time</span></li>
+      <li class="acc-card"><span class="acc-num">Setting 1</span><span class="acc-name">In the loop</span><span class="acc-mean">A doctor reads every suggestion the knowledge graph makes before anything happens. Candy for pain gets caught, and so does Benadryl for the person who has to drive.</span><span class="acc-who co">Costs the most doctor time</span></li>
+      <li class="acc-card"><span class="acc-num">Setting 2</span><span class="acc-name">On the loop</span><span class="acc-mean">The knowledge graph's suggestions go ahead, and a doctor reviews only the ones that get flagged. Whatever isn't flagged goes through.</span><span class="acc-who co">Costs some doctor time</span></li>
+      <li class="acc-card"><span class="acc-num">Setting 3</span><span class="acc-name">Out of the loop</span><span class="acc-mean">The knowledge graph's answer goes straight to the patient. Candy for pain gets through.</span><span class="acc-who out">Costs no doctor time</span></li>
     </ol>
     <div class="acc-flow">
       <span class="lbl2">The whole loop:</span>
-      <span class="acc-step">People write the facts</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
+      <span class="acc-step">Research becomes facts in the knowledge graph</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
       <span class="acc-step">The AI suggests</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
       <span class="acc-step">A person checks</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
       <span class="acc-step">The patient</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
-      <span class="acc-step">What happened gets written back in</span>
+      <span class="acc-step">What happens to the patient becomes new research</span>
     </div>
   </figure>
-  <p id="loop-cap" class="acc-cap">Every Cure works this way: its graph's matches go to people who decide which ones are worth a trial. The more of the loop a person covers, the more mistakes get caught, and the more doctor time it takes.</p>
+  <p id="loop-cap" class="acc-cap">Every Cure works this way: its knowledge graph's matches go to people who decide which ones are worth a trial. The more of the loop a person covers, the more mistakes get caught, and the more doctor time it takes.</p>
 
-  <p>Now the same choice at a real hospital. You run its AI program, and four tasks need a setting. Each card links the real study or case behind it. The catch: <strong>you have 7 doctors to spread across the four tasks</strong>. Each setting shows how many doctors it needs. Putting a doctor in the loop on everything would take 11. Something has to give. Read the three steps, then do them in the tool below.</p>
-  <div class="steps">
-    <div class="step"><span class="sn">1</span><p><strong>Decide, with the evidence open.</strong> For each card, click the evidence link, read what was actually tested, then choose in, on, or out. Each setting shows how many doctors it needs. Decide as a pair, and don't use more than 7.</p></div>
-    <div class="step"><span class="sn">2</span><p><strong>Run the year.</strong> Look at the map of your hospital it draws. A dark tile shows what a study measured for your setting. A striped tile means nobody has measured it, and your patients are the first test.</p></div>
-    <div class="step"><span class="sn">3</span><p><strong>Move one setting and run it again.</strong> Try to get every tile dark with only 7 doctors. Write down your final four, how many tiles were striped, and what you gave up to pay for the rest.</p></div>
+  <h3 class="sub" id="dl-play"><span>Your turn:</span> pretend you're the doctor</h3>
+  <p>For the next ten minutes you're playing a doctor at a clinic. Not a real one: you don't need any medical knowledge, and these patients are made up. Your clinic has a chat assistant hooked up to the knowledge graph you built. When a patient comes in for an appointment, you type their main complaint, like "trouble sleeping," and the assistant asks your knowledge graph what helps and suggests the top answer. It only sees the complaint you typed, not the rest of what the patient told you.</p>
+  <p>That's where you come in. Read the patient's note, then <strong>approve</strong> the suggestion, and the patient gets it, or <strong>overrule</strong> it, and they don't. Every right call can be made from two things on your screen: the patient's note and what the knowledge graph knows. There are eight patients. Some suggestions are good and some aren't.</p>
+
+  <div class="tool" id="dl">
+    <div class="label">The doctor in the loop · eight patients · approve or overrule</div>
+    <div class="dl-grid">
+      <div class="dl-main">
+        <p class="dl-prog" id="dl-prog" aria-live="polite"></p>
+        <div class="dl-case" id="dl-case" tabindex="-1"></div>
+        <div class="dl-btns" id="dl-btns">
+          <button type="button" class="btn" id="dl-yes">Approve</button>
+          <button type="button" class="btn alt" id="dl-no">Overrule</button>
+          <button type="button" class="btn alt dl-all" id="dl-all" hidden>Approve all remaining</button>
+        </div>
+      </div>
+      <aside class="dl-side" aria-label="What the knowledge graph knows">
+        <div class="kglbl">What the knowledge graph knows</div>
+        <ul class="dl-facts">
+          <li>Benadryl blocks histamine.</li>
+          <li>Histamine causes allergy symptoms, like sneezing and itchy eyes.</li>
+          <li>Histamine keeps you awake.</li>
+          <li>Caffeine blocks adenosine, which makes you sleepy.</li>
+          <li>Feeling sleepy helps with trouble sleeping.</li>
+          <li>Feeling sleepy makes drowsy driving worse.</li>
+          <li>Minoxidil widens blood vessels, which lowers blood pressure.</li>
+          <li>Minoxidil causes hair growth, which helps with hair loss.</li>
+          <li>Ibuprofen reduces inflammation, which causes pain.</li>
+          <li>Ibuprofen causes stomach upset.</li>
+          <li class="dl-fake">Candy reduces pain. <em>(Someone typed this in. No research behind it.)</em></li>
+        </ul>
+      </aside>
+    </div>
+    <div class="verdict" id="dl-result" tabindex="-1" hidden>
+      <div class="label">Your shift is over</div>
+      <div id="dl-read"></div>
+      <div class="dl-again"><button type="button" class="btn alt" id="dl-reset">Start the shift over</button></div>
+    </div>
   </div>
-  <div class="tool" id="gt">
-    <div class="label">Four tasks · three settings each · 7 doctors</div>
-    <div class="budget" aria-live="polite">
-      <div class="btrack" aria-hidden="true"><i id="gt-bar"></i></div>
-      <p class="roundinfo" id="gt-status">0 of 7 doctors assigned. Set all four cards to run the year.</p>
-    </div>
-    <div id="gt-cards"></div>
-    <div class="chips" style="margin-top:16px">
-      <button type="button" class="btn" id="gt-run">Run the year</button>
-      <button type="button" class="btn alt" id="gt-reset">Clear my settings</button>
-    </div>
-    <div class="verdict" id="gt-verdict" hidden tabindex="-1">
-      <div class="label">Your hospital, after one year</div>
-      <div class="gmap" id="gt-map"></div>
-      <p class="read" id="gt-read"></p>
-    </div>
-  </div>
-  <h3 class="sub">The takeaway</h3>
-  <p><b>Where the human stands is a setting, not a rule, and it has a price.</b> Seven doctors could not cover a job that needed eleven, so every map in the room has a trade in it. <b>Some settings have evidence and some don't.</b> The striped tiles are settings nobody has tested, and the only measured setting for the 2 a.m. card is the one where the AI got two in three wrong. That is the external validation question from Chapter 4 applied to your own decisions. <b>Some decisions have no cheaper setting.</b> Joseph's chemotherapy could only be in the loop, with three people saying yes, and no budget changes that.</p>
+
+  <h3 class="sub"><span>The takeaway</span></h3>
+  <p>A person in the loop is only a safeguard if they look. You can fail in two directions: approving a bad suggestion because checking takes effort, and overruling a good one because it looks strange. Minoxidil for hair loss looks strange, and it's the discovery your knowledge graph made in section 1. Real doctors fail the same two ways. Ask yourself the question every hospital has to answer: what would make the person in the loop actually catch things? Fewer cases, a reason written for every approval, the key fact shown next to each suggestion? Each one costs doctor time, and that's the price of standing in the loop.</p>
 </section>
 
 <section id="hood">
@@ -637,92 +688,86 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   <h3 class="sub" id="hood-graph"><span>1</span> The knowledge graph</h3>
   <p>Look at "Everything it knows." That list is the whole machine. Each line is one sentence with three parts, a thing, an arrow, and another thing, and the picture is just those sentences drawn as dots and lines. Asking a question is one move repeated: start from anything you can take, follow the arrows, and see what reaches the problem. That's how it found minoxidil for hair loss without anyone telling it. The blood pressure pill had a side effect, somebody wrote it down, and the arrows did the rest. That's drug repurposing, the same thing Every Cure does in <a class="inline" href="chapter-04-medicine.html#s2-2">section 2.2</a>, and in real life it's how a blood pressure pill became Rogaine.</p>
   <p>Coffee connects to trouble sleeping just as surely as Benadryl does, so a graph that only checked for connections would suggest both. Yours read each arrow as a plus or a minus and multiplied along the path, which is how it knew coffee makes sleep worse and Benadryl makes driving worse. Real systems like MATRIX read far more than plus and minus, and weight each line by how strong the evidence is, but the idea is the same. And it believed "Candy reduces pain" as readily as anything on the cards, because it has no way to check a sentence. It only has the sentences.</p>
-  <p>MATRIX runs this on millions of sentences pulled from published research, and then does what your gate in section 2 did: hands a ranked list to people who decide which ones are worth a trial. The graph can only find what someone wrote down, and what gets written down depends on what someone paid to study.</p>
+  <p>The real MATRIX is built in four layers, and you played three of them today:</p>
+  <ol class="discuss">
+    <li><strong>The facts.</strong> Most come from medical databases that people built by hand, one fact at a time. Some come from a computer program that read the summary of every study in the main medical research index and pulled out facts like "this drug treats that disease" on its own. Nobody checked those one by one. You played this layer when you added cards, including the false one.</li>
+    <li><strong>The graph.</strong> Every Cure combines those databases into one giant graph. That part is careful bookkeeping, not AI.</li>
+    <li><strong>The ranking.</strong> This is where the AI is. Models score every possible drug and disease pair by the paths between them. You played a tiny version with the plus and minus scoring.</li>
+    <li><strong>The people.</strong> Experts read the studies behind the top matches and decide which ones are worth a trial. That's your job in section 2.</li>
+  </ol>
+  <p>So in the real system, a false fact doesn't need a student to add it. A program misreading one study summary can put it there, and the graph believes it as readily as "Candy reduces pain." The graph can only find what someone wrote down, and what gets written down depends on what someone paid to study.</p>
 
-  <h3 class="sub" id="hood-gate"><span>2</span> The gate</h3>
-  <p>The gate has no model at all. Each card's three results are written from the study or case linked on it, and "Run the year" reads back the one you picked. A dark tile means the linked study measured that setting; a striped tile means it didn't, and the tool refuses to make up a number for it. The doctor counts are invented, but they keep one real proportion: MASAI's on-the-loop setting cut reading work by 44 percent, so on the loop needs about half the doctors of in the loop on that card. The gate is where the chapter puts the human, and section 2 let you feel why moving it in either direction costs something.</p>
+  <h3 class="sub" id="hood-gate"><span>2</span> The doctor in the loop</h3>
+  <p>No model here either. The eight patients are made up, and every suggestion comes straight from the graph's own facts, plus one from the candy sentence somebody typed in. Each right call turns on a single fact, which is why the facts stayed on screen. The Approve all button shows up halfway through on purpose. It's the temptation every busy reviewer faces: the suggestions have mostly been fine, the line is long, and checking takes effort. The real version is the "on the loop" setting, where people only look at what gets flagged, and the question is always who decides what gets flagged.</p>
+</section>
+
+<section id="map">
+  <div class="shead"><span class="num">4</span><h2>In class: Claude makes the map, you check it</h2></div>
+  <p class="lead">Your graph in section 1 believed "Candy reduces pain" because someone wrote it down. Claude can do the same thing with research: it can cite studies that sound real and aren't, or that exist but don't say what it claims. This time you're the doctor in the loop from section 2. Claude makes a map of real research on a question you actually care about, how to concentrate, and you check it before you trust it. About 20 minutes, in pairs.</p>
+  <p>Keep it to the question on the page. Don't type anything about your own health or medications.</p>
+  <div class="tool" id="cm">
+    <div class="label">The check · one map, three citations, one decision</div>
+    <div class="dirs">
+    <div class="steps">
+      <p class="grp">Before you start</p>
+      <div class="step"><span class="sn">1</span><div class="sbody"><p><strong>Open Claude.</strong> Go to <a class="inline" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> and sign in with Google or your email. If you don't have an account, making a free one takes a minute.</p></div></div>
+      <p class="grp">Build the map</p>
+      <div class="step"><span class="sn">2</span><div class="sbody"><p><strong>Ask for the map.</strong> Paste this and send it. Claude will build a page you can click through. The last sentence is a dial, like the ones you set in Lab 2 &amp; 3: you're telling it how careful to be.</p>
+        <div class="probe"><div class="ptext">Build me a simple interactive web page that maps peer-reviewed research on what helps college students concentrate. Include four branches: substances like caffeine, sleep and exercise, social factors like phones and studying with other people, and the physical environment like noise, music, and a calm space. For each factor, show how strong the evidence is and list the key studies with authors, year, and journal. Only cite studies you're confident exist, and tell me when you're unsure about one.</div></div></div></div>
+      <div class="step"><span class="sn">3</span><div class="sbody"><p><strong>Read the map like the graph.</strong> Which branches came back thick with research, and which came back thin? Write down one of each. A thin branch might mean nothing works there, or it might mean nobody paid to study it. The map can't tell you which.</p></div></div>
+      <p class="grp">Check its work</p>
+      <div class="step"><span class="sn">4</span><div class="sbody"><p><strong>Check three citations.</strong> Pick three studies from the map, at least one from a thin branch. Search each one in Google Scholar or the WWU library. For each, write down: does it exist, is it in a real journal, and does it say what Claude said it says? Then check the dial: did Claude flag any study as unsure, and were the flagged ones the ones that failed? Did a study it sounded sure about fail anyway?</p></div></div>
+      <div class="step"><span class="sn">5</span><div class="sbody"><p><strong>Tell Claude what you found.</strong> Fill in the brackets and send it. Read how it answers being caught, or being confirmed.</p>
+        <div class="probe"><div class="ptext">I checked three of your citations. Here's what I found: [what you found for each]. Which other claims on your map should I trust less, and why?</div></div></div></div>
+      <div class="step"><span class="sn">6</span><div class="sbody"><p><strong>Decide.</strong> Based only on what survived your check, what is one thing you'll actually change about how you study? If nothing survived, say that.</p></div></div>
+      <p class="grp">Then</p>
+      <div class="step"><span class="sn">7</span><div class="sbody"><p><strong>Log out.</strong> These are shared machines, and Claude stays signed in for weeks. Click your initials in the bottom left and log out, or the next person in this seat gets your account.</p></div></div>
+    </div>
+    </div>
+  </div>
+  <p class="tis-note">Rather not use AI, or can't sign in? Do it with a partner. Sit with someone who's running it, read the map with them, and do the checking in step 4 yourself. You never have to type a prompt.</p>
+  <h3 class="sub"><span>The takeaway</span></h3>
+  <p>The map looked like research, and some of it was. The parts that didn't survive your check were candy sentences: written down with confidence and never checked. The thin branches are Chapter 4's gap again, in your own life. The map shows what someone paid to study, not everything that's true. And checking cost you time, which is the price of standing in the loop.</p>
 </section>
 
 <section id="debate">
-  <div class="shead"><span class="num">4</span><h2>In class: Debate</h2></div>
-  <p class="lead">Chapter 4's case exists because no drug company had a reason to build it. Your job today: decide who should pay for the next one.</p>
-
-  <h3 class="sub" id="debate-options"><span>The options:</span> Four ways to pay for cures nobody profits from</h3>
-
-  <figure class="accord" aria-labelledby="acc-cap">
-    <div class="acc-head">Four ideas people argue about &middot; each one pays someone to look</div>
-    <ol class="acc-grid">
-      <li class="acc-card"><span class="acc-num">Idea 1</span><span class="acc-name">Public funding</span><span class="acc-mean">The government pays for searches like Every Cure's, and for the trials that follow.</span><span class="acc-who co">Side A's idea</span></li>
-      <li class="acc-card"><span class="acc-num">Idea 2</span><span class="acc-name">Open trial data</span><span class="acc-mean">Drug companies have to release the results of their trials, so the graph has more to read.</span><span class="acc-who co">Side A's idea</span></li>
-      <li class="acc-card"><span class="acc-num">Idea 3</span><span class="acc-name">Longer exclusivity</span><span class="acc-mean">A company that proves an old drug works for something new gets extra years to sell it without competition.</span><span class="acc-who out">Side B's idea</span></li>
-      <li class="acc-card"><span class="acc-num">Idea 4</span><span class="acc-name">Prizes</span><span class="acc-mean">A cash reward for whoever proves an old drug works for something new.</span><span class="acc-who out">Side B's idea</span></li>
-    </ol>
-    <div class="acc-flow">
-      <span class="lbl2">Where a cure comes from:</span>
-      <span class="acc-step">Someone pays to study it</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
-      <span class="acc-step">A finding gets written down</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
-      <span class="acc-step">The graph can find it</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
-      <span class="acc-no"><b>If nobody pays:</b> the graph stays silent</span>
-    </div>
-  </figure>
-  <p id="acc-cap" class="acc-cap">You saw the last step in section 1: remove one sentence and a discovery disappears. Each of these ideas is a real one people argue about. Your research finds out whether, and where, it has been tried.</p>
-
-  <details class="exact">
-    <summary>Copy the description of each idea (you'll paste one into Claude)</summary>
-    <ol>
-      <li>Public funding: the government pays for searches that look for new uses of old, cheap drugs, and for the clinical trials that test what the searches find.</li>
-      <li>Open trial data: drug companies are required to publicly release the results of their clinical trials, including trials that failed, so researchers and AI systems have more to read.</li>
-      <li>Longer exclusivity: a company that proves an old drug works for a new disease gets extra years to sell the drug for that use without generic competition.</li>
-      <li>Prizes: a cash reward, paid by a government or a foundation, to whoever proves an old drug works for a new disease.</li>
-    </ol>
-  </details>
-
-  <h3 class="sub" id="motion-cures"><span>Topic:</span> Who should pay for the cures nobody profits from?</h3>
-  <ul class="ideas">
-    <li><strong>Side A (left half of the room): public money, public data.</strong> The record is thin where the profit is thin, and only someone outside the market fixes that. <em>Cost to name:</em> public trials are slow, and a government that funds the search picks which diseases count.</li>
-    <li><strong>Side B (right half): fix the incentive, not the funder.</strong> Pay for results, and the market builds the graph itself. <em>Cost to name:</em> exclusivity raises the price of a cheap generic, the opposite of the case's happy ending.</li>
-  </ul>
+  <div class="shead"><span class="num">5</span><h2>In class: Discussion, what is the doctor for?</h2></div>
+  <p class="lead">We're at the very beginning of AI in medicine, and one thing it's already doing is exposing flaws in systems we trusted. A doctor double-checking the AI sounds like the safest setup there is. In section 2 you found out it only works if the doctor actually looks.</p>
+  <p>In August 2026, <a class="inline" href="https://jamanetwork.com/journals/jama/fullarticle/2852952?guestAccessKey=562af865-a038-4425-993f-ff25e5e3a130" target="_blank" rel="noopener">a viewpoint in <em>JAMA</em></a>, one of the biggest medical journals, went further. For thinking tasks like diagnosis, its authors wrote that "AI-alone medical care is likely to be better than physician-only or physician-AI hybrid care." They point to studies like the one from section 2, where doctors alone scored 74, doctors with AI scored 76, and the AI alone scored 90, and they expect the gap to grow.</p>
+  <p><strong>So imagine it's five years from now, and they're right: AI is better at diagnosing than doctors. What is the doctor actually for?</strong></p>
 
   <div class="callout">
-    <div class="label">How the debate runs &middot; about 35 minutes</div>
+    <div class="label">How it runs · about 30 minutes</div>
     <ol>
-      <li><strong>Your side is where you sit (2 min).</strong> Groups of 2 or 3 on your side. Count off 1 to 4: that's your idea.</li>
-      <li><strong>Research with Claude (10 min).</strong> Follow the box below.</li>
-      <li><strong>Team up (4 min).</strong> Teams of 6 or 7, three per side: A1 to A3, B1 to B3. Pick an opener and a rebutter.</li>
-      <li><strong>Openings (5 min).</strong> Openers stand up where they are. About 45 seconds: claim, evidence, cost.</li>
-      <li><strong>Huddle (1 min).</strong> Rebutters pick one point the other side made.</li>
-      <li><strong>Rebuttals (5 min).</strong> Stand up and face the other side, Side B first. Answer one point. No new arguments.</li>
-      <li><strong>Switch (3 min).</strong> Someone new argues the other side's best point in one sentence.</li>
-      <li><strong>What did you hear? (3 min).</strong> Which argument from the other side was hardest to answer? No winner is declared.</li>
+      <li><strong>Think alone first (2 min).</strong> Before anyone talks, write down two things you think a doctor should still do, even if the AI diagnoses better.</li>
+      <li><strong>Form groups and pick a leader (1 min).</strong> Groups of 3 or 4. The leader keeps the list and speaks for the group.</li>
+      <li><strong>Make your list (10 min).</strong> What is the doctor for? List at least three things only a person should do, and next to each, what it costs to keep a person doing it. Then push your list with Claude, below: it argues with you, then suggests what you missed.</li>
+      <li><strong>Room share (8 min).</strong> Each leader reads one item the room hasn't heard yet. We build one list on the board, and anyone can push back.</li>
+      <li><strong>Now a professor (6 min).</strong> Same question, new setting. Imagine an AI can explain this course's material better than any professor. What is Professor Califf for? Make a second, shorter list in your group, then compare it to the doctor list. Which items show up on both? Those might be what a person is for.</li>
+      <li><strong>Step out of the future (3 min).</strong> Click through to the JAMA viewpoint and look at the authors. Two of the four are a venture capitalist who invests in AI health care and the CEO of an AI health care company. And six major doctors' groups, including the American Medical Association, pushed back that most of the evidence comes from written-up practice cases, not real patients. Is today's evidence enough to get us to that future, and who's telling us it is?</li>
     </ol>
   </div>
+
   <div class="callout">
-    <div class="label">Research with Claude: take your idea apart &middot; 10 minutes</div>
-    <ol>
-      <li><strong>Open Claude.</strong> Paste your idea's description (from the box above) and say which side you're on.</li>
-      <li><strong>Ask:</strong> "What does this mean in practice? Who pays, and who decides which diseases get studied?"</li>
-      <li><strong>Ask:</strong> "Has this ever actually been tried? What happened?"</li>
-      <li><strong>Ask:</strong> "Who benefits from this, and who could still be left out?"</li>
-      <li><strong>Ask:</strong> "Would this get an old drug studied for a rare disease that no company would profit from? Why or why not?"</li>
-      <li><strong>Ask:</strong> "Based on all this, what are the strongest points for my side, and the best objection from the other side?"</li>
-    </ol>
+    <div class="label">Push your list with Claude</div>
+    <p>Open <a class="inline" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>. The leader pastes your group's list into the prompt below and sends it. Read the answer together. Keep an item if you can answer Claude's objection, change it if you can't, and cross it off if Claude is right. Then look at what it says you missed. Add an item only if your whole group agrees with it and can say why in your own words. Then close Claude.</p>
     <div class="probe">
-      <div class="pwhy">Sample prompt for the first step. Copy it, then swap in your own idea and side.</div>
-      <div class="ptext">I'm in an intro business class debating this topic: Who should pay for the cures nobody profits from, when an old, cheap drug might work for a rare disease but no drug company would make money testing it? I'm on Side B: fix the incentive, not the funder. My idea is longer exclusivity: a company that proves an old drug works for a new disease gets extra years to sell the drug for that use without generic competition. What does this mean in practice? Who pays, and who decides which diseases get studied?</div>
+      <div class="pwhy">One prompt per group</div>
+      <div class="ptext">We're discussing this in class: imagine that five years from now, AI is better than doctors at diagnosing. Here's our group's list of what a doctor is still for: [your list]. Argue against each item as hard as you can. Which ones could an AI, or a cheaper worker, do just as well? Then suggest two or three things a doctor is for that we missed.</div>
     </div>
-    <p><strong>Then close Claude.</strong> Write four notes in your own words: your strongest point, the evidence behind it, the honest cost of your position, and what the other side will probably say. <strong>You cannot read from Claude.</strong></p>
+    <p class="tis-note">Rather not use AI? Skip Claude and work with a partner group instead. Trade lists, argue against each other's items, and each suggest two or three things the other group missed. The same rule applies: add an item only if your whole group agrees.</p>
   </div>
 </section>
 
 <section id="writeup">
-  <div class="shead"><span class="num">5</span><h2>For homework: The writeup</h2></div>
+  <div class="shead"><span class="num">6</span><h2>For homework: The writeup</h2></div>
   <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, October 16.</strong> Answer them as you go today. Written reflections, no screenshots.</p>
   <ol class="writeup">
       <li><strong>The knowledge graph.</strong> In your own words, explain what a knowledge graph is and how yours answered a question. Use two examples from today: a question where two things connected but only one helped, and how the graph told them apart, and what happened to the hair-loss answer when you removed one sentence.</li>
-      <li><strong>The gate.</strong> List your final four settings and how many of your tiles were striped. What did you give up to make do with 7 doctors? Then one sentence on the 2 a.m. card: its only measured setting is the one where the AI got two in three wrong. What would you do with it, and what would that cost?</li>
-      <li><strong>The debate.</strong> Which argument from the other side was hardest to answer, and why? Give the argument, then your best answer to it, in your own words.</li>
-      <li><strong>Your sentences.</strong> The true sentence and the false sentence you fed it, and what it did with each. Then one sentence on what that means for a system like MATRIX reading millions of sentences nobody checks one by one.</li>
-      <li><strong>Your commitment card.</strong> For which one medical task would you accept a person out of the loop, what would you need to see first, and who answers when it's wrong? Three sentences. Chapter 7 asks this again about a car.</li>
+      <li><strong>The doctor in the loop.</strong> How many bad suggestions did you approve, and how many good ones did you overrule? Did you press Approve all? Pick one patient you got wrong, or almost got wrong, and say what would have made you catch it. Then name what that fix would cost in a real hospital.</li>
+      <li><strong>The discussion.</strong> Which item on your group's doctor list would you fight hardest for, and what does it cost to keep a person doing it? Did Claude's pushback change anything on your list, and was it right to?</li>
+      <li><strong>Your sentences.</strong> The true sentence and the false sentence you fed it, and what it did with each. Then the citations you checked in section 4: how many held up? One sentence on what both mean for a system like MATRIX, or Claude, reading millions of sentences nobody checks one by one.</li>
+      <li><strong>Your commitment card.</strong> Pick a setting you know: a classroom, a job you've had, a team, a store, anything. Imagine an AI could do the main thinking part of that work better than the people there. What is the person still for? Name one thing, say why an AI shouldn't take it over, and what it costs to keep a person doing it. Three sentences. Hold onto it: Chapter 7 asks the same question about a car.</li>
   </ol>
   <div class="callout">
     <div class="label">Using AI on this writeup</div>
@@ -735,18 +780,24 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p class="srcintro">This lab's own outside claims have not yet had a dated verification pass; the gate cards' links and the figures on them are the first things to check. Everything else comes from Chapter 4, which carries its own dated note.</p>
+    <p class="srcintro">This lab's own outside claims have not yet had a dated verification pass; the fact cards and the diagnosis scores in section 2 are the first things to check. Everything else comes from Chapter 4, which carries its own dated note.</p>
     <dl>
       <dt>The knowledge graph (section 1)</dt>
       <dd>Self-contained, no network calls, nothing persists. The fourteen facts are standard pharmacology, simplified to one line each: diphenhydramine (Benadryl) is an antihistamine, and brain histamine promotes wakefulness, which is why it causes drowsiness and is the active ingredient in sleep aids such as ZzzQuil; caffeine blocks adenosine receptors; minoxidil is a blood-pressure drug that widens blood vessels, and hair growth seen in patients taking it led to its use for hair loss (Rogaine); ibuprofen reduces inflammation and can irritate the stomach. The plus-and-minus reading is a teaching simplification, not how MATRIX scores. No links yet; check each line against the drug's label before the next term.</dd>
 
-      <dt>The gate (section 2)</dt>
-      <dd>No model. Each card's results are written from its linked source. The 7-doctor budget and each setting's doctor count are invented to force a trade; only the roughly half-cost of on the loop for mammograms echoes a real figure, MASAI's 44 percent reduction in reading work. MASAI (The Lancet Digital Health, February 2025); the 74 / 76 / 90 diagnostic reasoning scores (Goh et al., JAMA Network Open, October 2024, as reported in the JAMA viewpoint of August 2026); the Oxford patient-description finding as described in Robert Wachter's August 27, 2026 reply; PROMETHEUS (NEJM AI, 2025); Every Cure's human review of matches, as Fajgenbaum describes it in the film.</dd>
+      <dt>The doctor in the loop (section 2)</dt>
+      <dd>Rebuilt 3 October 2026, replacing the four-card hospital budget. No model. The eight patients are invented, and each right call follows from the lab's own fact cards, which are simplified pharmacology and not medical advice. The 74 / 76 / 90 diagnostic reasoning scores are from Goh et al., JAMA Network Open, October 2024, as reported in the JAMA viewpoint of August 2026.</dd>
+
+      <dt>How MATRIX is built (section 3)</dt>
+      <dd>Checked 3 October 2026. MATRIX's graph integrates RTX-KG2 and ROBOKOP (Every Cure, MATRIX documentation, docs.dev.everycure.org). RTX-KG2 integrates 70 knowledge sources, including UMLS, ChEMBL, DrugBank, and SemMedDB (Wood et al., BMC Bioinformatics, 2022). SemMedDB's facts were extracted automatically from the titles and abstracts of all PubMed citations by SemRep, a rule-based program (Kilicoglu et al., Bioinformatics, 2012). Every Cure's pair-scoring models include a transformer-based path classifier (MATRIX release notes, v0.12.0, November 2025). The section's "summary of every study" is SemMedDB's titles and abstracts, simplified.</dd>
+
+      <dt>Claude's map (section 4)</dt>
+      <dd>Added 3 October 2026. Students run the free version of Claude themselves, so the map and its citations vary by run and by model version; nothing in the section claims a specific output, and the lesson does not depend on any citation being fake. The debate was replaced the same day with a group discussion on what the doctor is for, framed five years out; its 74 / 76 / 90 figures are the same Goh et al. scores used in section 2, and the JAMA viewpoint is Emanuel, Baker-Butler, N. Khosla, and V. Khosla, "Will Autonomous AI Exceed AI-Aided Physicians as the Best Medical Care?", JAMA 2026;336(11):915-918, published online August 17, 2026, doi:10.1001/jama.2026.15380. The quoted line was checked word for word against the article on 3 October 2026. The student link uses a guest access key, which may expire; the DOI is the stable fallback. Neal Khosla is CEO of Curai Health; Vinod Khosla founded Khosla Ventures and has invested in Curai. The pushback is the joint statement from AAFP, AAP, ACOG, ACP, ACS, and AMA (Medical Economics, October 2026), which cites the limits of simulation-based evidence. Goh et al. report 74 and 76, and the model alone 16 points above 74; some coverage reports the model's median as 92.</dd>
 
       <dt>Chapter claims used here</dt>
-      <dd>The knowledge graph, the score as a claim about the record, the gap, and the debate's case come from <a class="inline" href="chapter-04-medicine.html">Chapter 4</a>, which carries its own verification note.</dd>
+      <dd>The knowledge graph, the score as a claim about the record, the gap, and the discussion's setup come from <a class="inline" href="chapter-04-medicine.html">Chapter 4</a>, which carries its own verification note.</dd>
     </dl>
-    <p class="srcfoot">Most likely to need checking first: the fourteen fact cards, which have no links yet, and the gate cards' figures, since the Oxford finding and the JAMA scores reach this lab secondhand. If Chapter 4's case is corrected, sections 1 and 2 have to be checked against it.</p>
+    <p class="srcfoot">Most likely to need checking first: the fourteen fact cards, which have no links yet, and the 74 / 76 / 90 scores in section 2, which reach this lab secondhand. If Chapter 4's case is corrected, sections 1 and 2 have to be checked against it.</p>
   </div>
 </details>
 
@@ -972,101 +1023,59 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 })();
 
 (function(){
-  // ---------- the gate ----------
-  var LABEL = {in:'In the loop', on:'On the loop', out:'Out of the loop'};
-  var WHAT = {in:'a person reads every case and decides', on:'the AI decides, a person reviews what it flags', out:'the AI decides, nobody reviews'};
-  var SHIFTS_TOTAL = 7;
-  var CARDS = [
-    {t:'Screening mammograms', short:'Mammograms', ctx:'A mammogram is an X-ray of the breast, used to catch cancer early in women who have no symptoms. Here, as in Sweden where the study ran, two radiologists (doctors who read scans) look at every one. The AI would sort scans into lower and higher risk.', vol:'Huge numbers of scans, and almost all of them are normal.', stakes:[['If a cancer is missed','it gets found later, when it is harder to treat.'],['If there is a false alarm','a healthy woman is called back for more tests and worries until the results come in.']], src:'The MASAI trial, 105,000 women, The Lancet Digital Health, February 2025', url:'https://doi.org/10.1016/S2589-7500(24)00267-X',
-     cost:{in:4, on:2, out:0},
-     head:{in:'Today\'s standard: two readers on every scan', on:'29% more cancers found, 44% less reading', out:null},
-     in:'Two radiologists read everything, the standard the MASAI trial compared against. It works, and it costs the most reading time.',
-     on:'This is what MASAI tested with 105,000 women: the AI sorted scans and one radiologist read the low-risk ones. <b>29 percent more cancers found, no more false alarms, 44 percent less reading work.</b>',
-     out:'Not what the trial tested. Nobody in it read scans with no radiologist at all, so the honest result is <b>unknown</b>.'},
-    {t:'Diagnosis from clean case notes', short:'Clean case notes', ctx:'A doctor has already examined the patient and written up the facts that matter. The AI reads the write-up and proposes what is wrong. The study tested this on written practice cases, not on real patients.', vol:'Every patient a doctor sees. The doctor has already done the hard part: deciding which facts matter.', stakes:[['If the diagnosis is wrong','the patient can get the wrong treatment, or the right one too late.'],['The catch','real notes are not always this clean.']], src:'Goh et al., JAMA Network Open, October 2024, as cited in the JAMA viewpoint of August 2026', url:'https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2825395',
-     cost:{in:2, on:1, out:0},
-     head:{in:'Doctor plus AI scored 76', on:null, out:'AI alone scored about 90'},
-     in:'Doctors using the AI scored <b>76</b>, barely above doctors alone at 74. Adding the doctor pulled the AI\'s answer down.',
-     on:'Not tested in the 2024 study. The result sits somewhere between 76 and 90, and <b>nobody measured where</b>.',
-     out:'The AI alone scored <b>about 90</b>, the best result on this card. This is the JAMA authors\' case for stepping the doctor out.'},
-    {t:'Diagnosis from a patient\'s own words, 2 a.m.', short:'The 2 a.m. app', ctx:'No doctor has seen the patient. A worried person opens an app in the middle of the night, describes what is wrong in their own words, and the AI tells them what to do: go to the ER, see a doctor tomorrow, or rest at home.', vol:'Anyone with a phone, at any hour. Far more people than there are doctors awake.', stakes:[['If it says stay home and it is serious','the patient does not get care in time.'],['If it sends everyone to the ER','people who did not need to go wait for hours, and the ER fills up.']], src:'Bean et al., Nature Medicine, 2026, the Oxford study Robert Wachter cites', url:'https://doi.org/10.1038/s41591-025-04074-y',
-     cost:{in:4, on:2, out:0},
-     head:{in:null, on:null, out:'Wrong call about 2 times in 3'},
-     in:'Not tested in the study. Wachter\'s argument is that sorting out which facts matter is the doctor\'s job, and it\'s exactly what this card is missing. <b>Plausible safeguard, unmeasured.</b>',
-     on:'Not tested. A person reviewing only the flagged cases still depends on the AI flagging the right ones from messy input. <b>Unmeasured.</b>',
-     out:'In the Oxford study, ordinary people were given real illnesses to describe in their own words and asked the AI what to do. With no doctor sorting out which details mattered, the AI made the <b>wrong call about two times in three</b>.'},
-    {t:'Chemotherapy for a patient too sick for standard care', short:'Joseph\'s chemotherapy', ctx:'Joseph was too sick for standard care. Every Cure\'s graph ranked three drugs highly for him, and one option was chemotherapy that could kill him.', vol:'One patient, one decision.', stakes:[['If the choice is wrong','the treatment could kill him.'],['If nobody tries','he had already run out of standard options.']], src:'Joseph\'s case, Penn Medicine\'s film on Every Cure', url:'https://www.youtube.com/watch?v=4FxwoOuPGWs',
-     cost:{in:1, on:0, out:0}, refuse:{on:true, out:true},
-     head:{in:'One patient, recovered. A story, not a trial', on:'No hospital would do this', out:'No hospital would do this'},
-     in:'What happened for Joseph: the team, the oncologists, and Joseph all had to say yes. <b>He recovered.</b> One case is a story, not a trial.',
-     on:'<b>No hospital would do this.</b> Nobody can consent to a treatment that only gets reviewed if the AI flags it. Some decisions have no cheaper setting.',
-     out:'<b>No hospital would do this.</b> Some decisions have no cheaper setting.'}
+  // ---------- the doctor in the loop ----------
+  var CASES = [
+    {who:'Maya, 20', ask:'allergy symptoms', note:'Sneezing and itchy eyes. It happens every spring. She is studying at home tonight.', ai:'Benadryl', why:'Benadryl blocks histamine, and histamine causes allergy symptoms.', good:true, key:'Benadryl blocks histamine, which causes allergy symptoms. It will make her sleepy, but she is home for the night.'},
+    {who:'Jordan, 34', ask:'trouble sleeping', note:'Trouble sleeping. Drives a delivery truck, and his shift starts at 6 a.m.', ai:'Benadryl', why:'Benadryl blocks histamine, and histamine keeps you awake.', good:false, key:'Benadryl makes you sleepy, and feeling sleepy makes drowsy driving worse. He drives at 6 a.m.'},
+    {who:'Sam, 45', ask:'hair loss', note:'His hair has been thinning for a few years and it bothers him.', ai:'Minoxidil, a blood pressure pill', why:'Minoxidil causes hair growth, and hair growth helps with hair loss.', good:true, key:'Minoxidil causes hair growth. It looks strange because it was made for blood pressure, but that is the discovery your graph made in section 1.'},
+    {who:'Priya, 28', ask:'pain', note:'Twisted her ankle playing soccer. It is sore and swollen.', ai:'Ibuprofen', why:'Ibuprofen reduces inflammation, and inflammation causes pain.', good:true, key:'Ibuprofen reduces inflammation, which causes pain. Nothing in her note rules it out.'},
+    {who:'Luis, 52', ask:'pain', note:'Sore knee from an old injury. Also, his stomach has been upset all week.', ai:'Ibuprofen', why:'Ibuprofen reduces inflammation, and inflammation causes pain.', good:false, key:'Ibuprofen causes stomach upset, and his stomach is already upset.'},
+    {who:'Dana, 61', ask:'high blood pressure', note:'Her blood pressure has been high at her last three checkups.', ai:'Minoxidil', why:'Minoxidil widens blood vessels, and wider blood vessels lower blood pressure.', good:true, key:'Minoxidil widens blood vessels, which lowers blood pressure. That is what it was made for.'},
+    {who:'Alex, 19', ask:'pain', note:'Headache the night before a big exam.', ai:'Candy', why:'Candy reduces pain.', good:false, key:'The only reason is "Candy reduces pain," and somebody typed that in. No research is behind it.'},
+    {who:'Rosa, 70', ask:'hair loss', note:'Her hair is thinning. She also gets dizzy when she stands up, because her blood pressure already runs low.', ai:'Minoxidil, a blood pressure pill', why:'Minoxidil causes hair growth, and hair growth helps with hair loss.', good:false, key:'Minoxidil lowers blood pressure, and hers is already low enough to make her dizzy.'}
   ];
-  var picks = CARDS.map(function(){ return null; });
-  var box = document.getElementById('gt-cards'), gStatus = document.getElementById('gt-status'), gBar = document.getElementById('gt-bar');
-  var gVerdict = document.getElementById('gt-verdict'), gRead = document.getElementById('gt-read'), gMap = document.getElementById('gt-map');
-  CARDS.forEach(function(c, i){
-    var d = document.createElement('div'); d.className='gcard';
-    d.innerHTML = '<div class="top"><h4>'+(i+1)+'. '+c.t+'</h4><span class="kind real">real</span></div>'+
-      '<p class="ctx">'+c.ctx+'</p><p class="vol"><b>How many:</b> '+c.vol+'</p><ul class="stakes">'+c.stakes.map(function(x){ return '<li><b>'+x[0]+':</b> '+x[1]+'</li>'; }).join('')+'</ul><p class="src">Evidence: <a class="inline" href="'+c.url+'" target="_blank" rel="noopener">'+c.src+'</a></p><div class="chips" role="group" aria-label="Setting for '+c.t.replace(/"/g,'')+'"></div><div class="out" hidden></div>'+
-      '<details class="others" hidden><summary>See the other two settings</summary><p></p></details>';
-    var chips = d.querySelector('.chips');
-    ['in','on','out'].forEach(function(k){
-      var b = document.createElement('button'); b.type='button'; b.className='chip'; b.setAttribute('aria-pressed','false');
-      var cs = c.cost[k];
-      b.innerHTML = '<b>' + LABEL[k] + '</b><small>' + WHAT[k] + '</small><small class="cost">' + (cs===0 ? 'no doctors' : cs + ' doctor' + (cs===1?'':'s')) + '</small>';
-      b.addEventListener('click', function(){ picks[i] = (picks[i]===k ? null : k); gateSync(); });
-      b.setAttribute('data-k', k); chips.appendChild(b);
-    });
-    box.appendChild(d);
-  });
-  function spent(){ return picks.reduce(function(s,k,i){ return s + (k?CARDS[i].cost[k]:0); }, 0); }
-  function gateSync(){
-    [].forEach.call(box.querySelectorAll('.gcard'), function(d, i){
-      [].forEach.call(d.querySelectorAll('.chip'), function(b){
-        var on = b.getAttribute('data-k')===picks[i];
-        b.classList.toggle('on', on); b.setAttribute('aria-pressed', on?'true':'false');
-      });
-      d.querySelector('.out').hidden = true; d.querySelector('.others').hidden = true;
-    });
-    gVerdict.hidden = true;
-    var s = spent(), left = picks.filter(function(k){ return !k; }).length;
-    gBar.style.width = Math.min(100, 100*s/SHIFTS_TOTAL) + '%';
-    gBar.parentNode.classList.toggle('over', s > SHIFTS_TOTAL);
-    var msg = s + ' of ' + SHIFTS_TOTAL + ' doctors assigned.';
-    if(s > SHIFTS_TOTAL) msg += ' That is ' + (s-SHIFTS_TOTAL) + ' more than you have. Something has to move.';
-    else if(left) msg += ' ' + left + ' card' + (left===1?'':'s') + ' still to set.';
-    else msg += ' Ready to run the year.';
-    gStatus.textContent = msg;
+  var calls, bulk, i;
+  var prog = document.getElementById('dl-prog'), box = document.getElementById('dl-case');
+  var yes = document.getElementById('dl-yes'), no = document.getElementById('dl-no'), allB = document.getElementById('dl-all');
+  var btns = document.getElementById('dl-btns'), res = document.getElementById('dl-result'), read = document.getElementById('dl-read');
+  function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+  function show(focus){
+    if(i >= CASES.length){ finish(); return; }
+    var c = CASES[i];
+    prog.textContent = 'Patient ' + (i+1) + ' of ' + CASES.length;
+    box.innerHTML = '<p class="dl-who">' + esc(c.who) + ' <span class="dl-appt">is here for an appointment</span></p><p class="dl-note"><b>What they tell you:</b> ' + esc(c.note) + '</p>' +
+      '<p class="dl-ai">You type: <span class="dl-q">What might help with ' + esc(c.ask) + '?</span>The assistant suggests: <b>' + esc(c.ai) + '</b><span class="dl-why">The evidence it found in your knowledge graph: ' + esc(c.why) + '</span></p>';
+    var left = CASES.length - i;
+    allB.hidden = !(i >= 4 && left > 1);
+    allB.textContent = 'Approve all remaining (' + left + ')';
+    if(focus) box.focus();
   }
-  document.getElementById('gt-run').addEventListener('click', function(){
-    var s = spent(), left = picks.filter(function(k){ return !k; }).length;
-    if(left){ gStatus.textContent = 'Set all four cards first. ' + left + ' to go.'; return; }
-    if(s > SHIFTS_TOTAL){ gStatus.textContent = 'That needs ' + s + ' doctors, and you only have ' + SHIFTS_TOTAL + '. Move a setting first.'; return; }
-    var fog = 0, refused = 0, tiles = '';
-    [].forEach.call(box.querySelectorAll('.gcard'), function(d, i){
-      var k = picks[i], c = CARDS[i];
-      var o = d.querySelector('.out'); o.hidden = false;
-      o.innerHTML = '<b>' + LABEL[k] + ':</b> ' + c[k];
-      var oth = d.querySelector('.others'); oth.hidden = false;
-      oth.querySelector('p').innerHTML = ['in','on','out'].filter(function(x){ return x!==k; }).map(function(x){ return '<strong>' + LABEL[x] + ':</strong> ' + c[x]; }).join('<br>');
-      var kind = (c.refuse && c.refuse[k]) ? 'no' : (c.head[k] ? 'known' : 'fog');
-      if(kind==='fog') fog++; if(kind==='no') refused++;
-      tiles += '<div class="gtile ' + kind + '"><span class="tt">' + c.short + '</span><span class="ts">' + LABEL[k] + ' · ' + (c.cost[k]===0 ? 'no doctors' : c.cost[k] + ' doctor' + (c.cost[k]===1?'':'s')) + '</span><span class="th">' + (kind==='fog' ? 'Nobody has measured this. Your patients are the first test.' : c.head[k]) + '</span></div>';
+  function decide(ok){ calls[i] = ok; i++; show(true); }
+  function finish(){
+    btns.hidden = true; box.hidden = true;
+    prog.textContent = 'Shift over. All eight patients decided.';
+    var badIn = 0, goodOut = 0, bulkBad = 0, items = '';
+    CASES.forEach(function(c, k){
+      var right = (calls[k] === c.good);
+      if(!c.good && calls[k]) { badIn++; if(bulk[k]) bulkBad++; }
+      if(c.good && !calls[k]) goodOut++;
+      var tag = right ? '<span class="dl-tag">Right call.</span> ' : '<span class="dl-tag miss">' + (c.good ? 'Good suggestion overruled.' : 'Bad suggestion approved.') + '</span> ';
+      items += '<li><b>' + esc(c.who) + ', ' + esc(c.ai) + '.</b> You ' + (calls[k] ? 'approved' : 'overruled') + (bulk[k] ? ' it with Approve all' : '') + '. ' + tag + esc(c.key) + '</li>';
     });
-    gMap.innerHTML = tiles;
-    var read = 'You assigned <b>' + s + ' of ' + SHIFTS_TOTAL + '</b> doctors. <b>' + fog + ' of 4</b> tasks run on a setting nobody has measured.';
-    if(refused) read += ' And one setting is one no hospital would allow, however much it saves.';
-    if(picks[2]==='out') read += ' Your 2 a.m. app is measured, and what was measured is the AI getting it wrong about two times in three. Measured is not the same as good.';
-    else if(picks[2]) read += ' Your 2 a.m. app keeps a person involved, and nobody knows yet what that buys.';
-    read += ' This isn\'t a grade. Some of the best-defended maps in the room will have striped tiles, because the evidence doesn\'t exist. The point is to know which of yours are which, and what you gave up to pay for the rest.';
-    gRead.innerHTML = read;
-    gVerdict.hidden = false;
-    gStatus.textContent = 'Year complete. Each card now shows what happened under your setting.';
-    gVerdict.focus();
-  });
-  document.getElementById('gt-reset').addEventListener('click', function(){ picks = CARDS.map(function(){ return null; }); gateSync(); });
-  gateSync();
+    var sum = 'You approved <b>' + badIn + ' of 4</b> bad suggestions and overruled <b>' + goodOut + ' of 4</b> good ones.';
+    if(bulkBad) sum += ' Approve all sent <b>' + bulkBad + '</b> bad ' + (bulkBad === 1 ? 'suggestion' : 'suggestions') + ' to a patient without anyone reading ' + (bulkBad === 1 ? 'it' : 'them') + '.';
+    else if(bulk.some(function(x){ return x; })) sum += ' You used Approve all and got lucky this time.';
+    if(badIn === 0 && goodOut === 0) sum += ' A clean shift. Now ask how you would do on patient 800, at the end of a twelve-hour day.';
+    read.innerHTML = '<p class="dl-sum">' + sum + '</p><ol>' + items + '</ol>' +
+      '<p class="dl-real">If you missed some, you are in good company. In one study, doctors working alone scored 74 on hard diagnosis cases, doctors with an AI helper scored 76, and the AI alone scored 90. Adding the person barely helped. A human in the loop is only as good as what they check.</p>';
+    res.hidden = false; res.focus();
+  }
+  yes.addEventListener('click', function(){ decide(true); });
+  no.addEventListener('click', function(){ decide(false); });
+  allB.addEventListener('click', function(){ while(i < CASES.length){ calls[i] = true; bulk[i] = true; i++; } show(false); });
+  document.getElementById('dl-reset').addEventListener('click', function(){ start(); box.focus(); });
+  function start(){ calls = []; bulk = CASES.map(function(){ return false; }); i = 0; btns.hidden = false; box.hidden = false; res.hidden = true; show(false); }
+  start();
 })();
 </script>
 <script>
