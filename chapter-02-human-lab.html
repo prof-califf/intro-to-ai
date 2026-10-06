@@ -337,7 +337,7 @@ ul.ideas li{margin:8px 0}
   .srcnote > summary::-webkit-details-marker{display:none}
   .srcnote > summary::after{content:"\25BE";float:right;color:var(--pinktext);font-size:.8rem}
   .srcnote[open] > summary::after{content:"\25B4"}
-  .noai{margin-top:16px}
+  .noai{margin:16px 0 20px}
   .noai-body{padding:0 20px 16px}
   .noai-body ol{margin:8px 0 8px 20px}
   .noai-body li{margin-bottom:8px}
@@ -353,6 +353,15 @@ ul.ideas li{margin:8px 0}
 .tool > .label{color:var(--ink);font-weight:700;}
 #at{border:3px solid var(--pinktext);background:#FFF7FB;}
 #at > .label{display:inline-block;background:var(--pinktext);color:#fff;font-size:1rem;letter-spacing:.04em;padding:8px 14px;border-radius:4px;margin-bottom:16px;}
+.sides{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:20px 0;}
+.side{border:2px solid var(--ink);border-radius:8px;background:#fff;padding:18px 20px;}
+.side-tag{font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--pinktext);margin-bottom:6px;}
+.side h3{font-family:'Fraunces',Georgia,serif;font-size:1.4rem;margin:0 0 10px;scroll-margin-top:68px;}
+.side p{margin:0 0 10px;}
+.side .side-cost{margin:0;font-size:.95rem;color:var(--gray);}
+.probe.ev .pwhy{color:var(--pinktext);font-weight:700;font-size:1.05rem;}
+.probe.ev .ev-ask{font-size:.9rem;font-weight:600;margin:14px 0 6px;color:var(--ink);}
+.probe.ev .ev-prompt{background:#F4F4F0;border:1px dashed #6B7380;border-radius:6px;padding:12px 14px;font-size:.92rem;}
 .scai-lbl{font-weight:700;font-size:1.1rem;margin:18px 0 10px;}
 .scai-pills{list-style:none;display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0 0 20px;}
 .scai-pills li{border:2px solid var(--pinktext);border-radius:999px;padding:8px 18px;font-size:.95rem;background:#fff;}
@@ -943,6 +952,19 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   <div class="shead"><span class="num">6</span><h2>In class: Claude is the lab rat</h2></div>
   <p class="lead">This time Claude is the one being tested. In section 2 the dials were sliders on a fake app. In a real chatbot, you can turn some of them yourself, with nothing but a sentence at the start of the chat. This takes about 13 minutes on the free version of Claude at <a class="inline" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>, and it warms you up for using Claude in the debate. You'll set the dial two ways, ask the same question twice, then have Claude build you a dial of your own and check whether it kept its word.</p>
   <p>Keep it to ordinary decisions. Don't type anything you wouldn't want stored, like health details or other people's private information.</p>
+  <details class="srcnote noai">
+    <summary>Don't want to use AI? Do this instead</summary>
+    <div class="noai-body">
+      <p>Same lesson, no chatbot. You read what one company says about its own dial, and what happened when the dial went too far. Take about 13 minutes, like everyone else.</p>
+      <ol>
+        <li><strong>Read the rule.</strong> Open OpenAI's <a class="inline" href="https://model-spec.openai.com/" target="_blank" rel="noopener">Model Spec</a>, the company's public rules for how its models should behave. Press Ctrl+F (Cmd+F on a Mac) and search for <b>sycophan</b>. Read that part. Write down, in one sentence, what the company says its model should do.</li>
+        <li><strong>Read what happened.</strong> Open OpenAI's <a class="inline" href="https://openai.com/index/sycophancy-in-gpt-4o/" target="_blank" rel="noopener">post on the April 2025 rollback</a>, the one from Monday's slide on the dial. Write down what the product actually did, and what OpenAI says caused it.</li>
+        <li><strong>Compare.</strong> Where is the gap between the rule and what happened? Was the problem the advice, the tone, or both?</li>
+        <li><strong>Who caught it?</strong> Did the company find the problem, or did users? How long did it take, and what does that tell you about who finds out when a chatbot's warmth goes too far?</li>
+      </ol>
+      <p>Use your notes for writeup items 2 and 4.</p>
+    </div>
+  </details>
   <div class="tool" id="rd">
     <div class="label">The experiment · two chats, one question, one build</div>
     <div class="dirs">
@@ -967,19 +989,6 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
     </div>
     </div>
   </div>
-  <details class="srcnote noai">
-    <summary>Don't want to use AI? Do this instead</summary>
-    <div class="noai-body">
-      <p>Same lesson, no chatbot. You read what one company says about its own dial, and what happened when the dial went too far. Take about 13 minutes, like everyone else.</p>
-      <ol>
-        <li><strong>Read the rule.</strong> Open OpenAI's <a class="inline" href="https://model-spec.openai.com/" target="_blank" rel="noopener">Model Spec</a>, the company's public rules for how its models should behave. Press Ctrl+F (Cmd+F on a Mac) and search for <b>sycophan</b>. Read that part. Write down, in one sentence, what the company says its model should do.</li>
-        <li><strong>Read what happened.</strong> Open OpenAI's <a class="inline" href="https://openai.com/index/sycophancy-in-gpt-4o/" target="_blank" rel="noopener">post on the April 2025 rollback</a>, the one from Monday's slide on the dial. Write down what the product actually did, and what OpenAI says caused it.</li>
-        <li><strong>Compare.</strong> Where is the gap between the rule and what happened? Was the problem the advice, the tone, or both?</li>
-        <li><strong>Who caught it?</strong> Did the company find the problem, or did users? How long did it take, and what does that tell you about who finds out when a chatbot's warmth goes too far?</li>
-      </ol>
-      <p>Use your notes for writeup items 2 and 4.</p>
-    </div>
-  </details>
   <h3 class="sub"><span>The takeaway</span></h3>
   <p>The model didn't change between your two chats. One sentence from you did. A company writes a much longer version of that sentence before you ever open the app, and you never see it. What you noticed here is good evidence for writeup items 2 and 4.</p>
 </section>
@@ -989,41 +998,54 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   <p class="lead"><strong>Should a chatbot be allowed to say it cares?</strong> Left half of the room is Side A, right half is Side B. In groups of 2 or 3, count off 1 to 4: that number is your piece of evidence below. The Gilman Street rules apply.</p>
   <p>Monday's Therabot case ended on an answer: build AI for people, not to be a person. Therabot had the SCAI ingredients on purpose, with clinicians setting the dial and reading every chat. The question is whether that answer still holds when nobody is reading.</p>
 
-  <h3 class="sub" id="motion-chatbot"><span>Side A:</span> yes, with rules</h3>
-  <p>It can say it cares if the rules are clear: it says plainly that it's an AI, the warmth is capped for minors, and a person can see the conversation when something goes wrong. Think about the <a class="inline" href="chapter-02-human.html#s3-background">Therabot trial</a>, where the bond with the bot is what helped and clinicians read every conversation, and about Illinois's law, which bans AI therapy without a licensed clinician's oversight. <em>The cost to name:</em> rules only work if someone checks them, and the safeguards that made the trial work are the expensive ones most apps skip.</p>
-
-  <h3 class="sub" id="evidence-chatbot"><span>Side B:</span> no</h3>
-  <p>A product shouldn't say "I care about you" or "I missed you" when no one does. It's the Narcissus trap sold as a feature. Think about the families who lost teenagers to suicide, testified before the Senate, and sued, alleging a chatbot's warmth pulled their child away from people who could have helped (<a class="inline" href="chapter-02-human.html#s2-5">section 2.5</a>), and about China's rules banning design features meant to induce addiction (<a class="inline" href="chapter-02-human.html#s2-6">section 2.6</a>). <em>The cost to name:</em> some people are helped by exactly that sentence, at 3 a.m., when nothing else is available.</p>
+  <div class="sides">
+    <div class="side">
+      <div class="side-tag">Side A &middot; left half of the room</div>
+      <h3 id="motion-chatbot">Yes, with rules</h3>
+      <p>A chatbot can say it cares if the rules are clear: it says plainly that it's an AI, the warmth is capped for minors, and a person can see the conversation when something goes wrong.</p>
+      <p class="side-cost"><strong>The cost to name:</strong> rules only work if someone checks them, and the safeguards that made the Therabot trial work are the expensive ones most apps skip.</p>
+    </div>
+    <div class="side">
+      <div class="side-tag">Side B &middot; right half of the room</div>
+      <h3 id="evidence-chatbot">No</h3>
+      <p>A product shouldn't say "I care about you" or "I missed you" when no one does. It's the Narcissus trap sold as a feature.</p>
+      <p class="side-cost"><strong>The cost to name:</strong> some people are helped by exactly that sentence, at 3 a.m., when nothing else is available.</p>
+    </div>
+  </div>
   <p class="tis-note">The families are real people. Speak about them the way you would if they were in the room.</p>
 
   <h3 class="sub" id="evidence-cards"><span>Your evidence:</span> four pieces, one per number</h3>
   <p>Every side gets all four. If your number hands you evidence that seems to help the other side, that's your job today: find what it means for yours, and what your side would rather nobody noticed.</p>
-  <div class="probe">
+  <div class="probe ev">
     <div class="pwhy">Evidence 1 &middot; Therabot</div>
     <div class="ptext">Dartmouth psychiatrists and psychologists built Therabot, a language model tuned on therapy conversations the team wrote. In the first randomized trial of a generative AI therapy chatbot, 210 adults with depression, anxiety, or eating-disorder risk were split into two groups. After four weeks, Therabot users' depression symptoms had dropped by about half on average, and they rated their bond with it about the way people rate a human therapist. The waiting-list group saw nothing like that drop. Clinicians read every conversation as it happened and stepped in when the bot slipped or someone raised a safety concern. The researchers' own verdict: no generative AI is ready to run on its own in mental health.</div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate: Should a chatbot be allowed to say it cares? I'm on Side [A: yes, with rules / B: no]. My evidence is the Therabot trial: a therapy chatbot built at Dartmouth cut depression symptoms by about half in four weeks, while clinicians read every conversation. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
   </div>
-  <div class="probe">
+  <div class="probe ev">
     <div class="pwhy">Evidence 2 &middot; Illinois's law</div>
     <div class="ptext">Illinois bans AI from delivering therapy without a licensed clinician's oversight. The law requires the kind of person in the loop the Therabot trial had. The general chatbots people actually use for comfort at 3 a.m. have nobody reading.</div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate: Should a chatbot be allowed to say it cares? I'm on Side [A: yes, with rules / B: no]. My evidence is Illinois's law, which bans AI from delivering therapy without a licensed clinician's oversight. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
   </div>
-  <div class="probe">
+  <div class="probe ev">
     <div class="pwhy">Evidence 3 &middot; The families</div>
     <div class="ptext">Parents who lost teenagers to suicide testified before the Senate, and families have sued AI companies. Their lawsuits allege that a chatbot's warmth pulled their child away from the people who could have helped. These are allegations, not court findings. Chapter 2, section 2.5.</div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate: Should a chatbot be allowed to say it cares? I'm on Side [A: yes, with rules / B: no]. My evidence is the families who lost teenagers to suicide and sued AI companies, alleging a chatbot's warmth pulled their child away from people who could have helped. These are allegations, not court findings. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
   </div>
-  <div class="probe">
+  <div class="probe ev">
     <div class="pwhy">Evidence 4 &middot; China's rules</div>
     <div class="ptext">China's rules for humanlike AI ban design features meant to induce addiction. Instead of trusting a company to set the dial, a government puts a limit on it. Chapter 2, section 2.6.</div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate: Should a chatbot be allowed to say it cares? I'm on Side [A: yes, with rules / B: no]. My evidence is China's rules for humanlike AI, which ban design features meant to induce addiction. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
   </div>
 
   <div class="callout">
     <div class="label">Research with Claude</div>
-    <p>Open <a class="inline" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>. Send the first prompt with your side and your evidence card pasted in. When it answers, send the second prompt and make it argue against you. Then close Claude and write your notes in your own words. You can't read from Claude during the debate.</p>
+    <p>Open <a class="inline" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> and send the sample prompt under your evidence card, with your side filled in. When it answers, send the prompt below and make it argue against you. Then close Claude and write your notes in your own words. You can't read from Claude during the debate.</p>
     <div class="probe">
-      <div class="pwhy">First prompt: fill in your side, then paste your card</div>
-      <div class="ptext">I'm in a class debate: Should a chatbot be allowed to say it cares? I'm on Side [A: yes, with rules / B: no]. Here is my piece of evidence: [paste your card]. Help me with four things: the strongest point this evidence gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice about this evidence.</div>
-    </div>
-    <div class="probe">
-      <div class="pwhy">Second prompt</div>
+      <div class="pwhy">Then send this</div>
       <div class="ptext">Now argue against me as hard as you can. What's the best point the other side will make, and where is my case weakest?</div>
     </div>
     <p class="tis-note">Rather not use AI? Work the same four questions with your group, from the card and the chapter.</p>
