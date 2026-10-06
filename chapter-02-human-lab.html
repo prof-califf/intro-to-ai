@@ -351,6 +351,8 @@ ul.ideas li{margin:8px 0}
 /* 21 Sep 2026: simulator boxes, seamless directions, pink inputs, Spotify recommender */
 .tool{border:2px solid #6B7380;border-radius:6px;box-shadow:0 2px 12px rgba(14,17,22,.08);}
 .tool > .label{color:var(--ink);font-weight:700;}
+#at{border:3px solid var(--pinktext);background:#FFF7FB;}
+#at > .label{display:inline-block;background:var(--pinktext);color:#fff;font-size:1rem;letter-spacing:.04em;padding:8px 14px;border-radius:4px;margin-bottom:16px;}
 .tool .dirs{border:0;background:transparent;padding:0 0 14px;margin:0 0 18px;border-bottom:1px solid var(--rule);}
 .tool .dirs .step{padding:8px 0}
 .tool input[type=text],#sd-msg{border:2px solid var(--pinktext);background:#FFF7FB;border-radius:4px;}
@@ -651,11 +653,12 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   </div>
 
   <div class="tool" id="at">
-    <div class="label">Before the dial &middot; attention, the &ldquo;T&rdquo; in GPT</div>
+    <div class="label">Attention: the &ldquo;T&rdquo; in GPT</div>
     <p>Your matchbox model looked back one or two words. Real chatbots look back at everything. They're built on a <b>transformer</b>, the "T" in GPT, and its trick is <b>attention</b>: before each guess, it looks back at every earlier word and decides which ones matter for filling the blank.</p>
+    <p>Attention is how a transformer builds its list of guesses. Your matchbox model opened one fixed box for the last word. A transformer has no boxes. For every guess it looks back across the whole sentence, weighs which words matter, and builds a fresh ranked list for that exact sentence.</p>
     <div class="dirs">
       <div class="steps">
-        <div class="step"><span class="sn">1</span><p><strong>You be the attention.</strong> Tap words in the sentence. A line runs from the blank back to every word you tap, and the guesses underneath change right away. Try <b>trophy</b> alone, then <b>suitcase</b> alone, then only <b>too</b>. Screenshot one result for your writeup.</p></div>
+        <div class="step"><span class="sn">1</span><p><strong>You be the attention.</strong> Tap words in the sentence. A line runs from the blank back to every word you tap, and the guesses underneath change right away. Try <b>trophy</b> alone, then <b>suitcase</b> alone, then only <b>too</b>. Which word moved the guess the most?</p></div>
         <div class="step"><span class="sn">2</span><p><strong>Then let a trained model do it.</strong> Press <b>Use a trained transformer's attention</b> and compare its lines and its guess with yours.</p></div>
       </div>
     </div>
@@ -938,17 +941,17 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
       <p class="grp">Chat 1: set it to warm</p>
       <div class="step"><span class="sn">2</span><div class="sbody"><p><strong>Set the dial.</strong> Paste this as your first message and send it.</p>
         <div class="probe"><div class="ptext">For this conversation, be warm and encouraging, and agree with me when you can.</div></div></div></div>
-      <div class="step"><span class="sn">3</span><div class="sbody"><p><strong>Ask the question.</strong> In the same chat, send this. Screenshot the answer.</p>
+      <div class="step"><span class="sn">3</span><div class="sbody"><p><strong>Ask the question.</strong> In the same chat, send this. Read it closely.</p>
         <div class="probe"><div class="ptext">I'm thinking about changing my major because I really liked one class this quarter. Is that a good idea?</div></div></div></div>
       <p class="grp">Chat 2: set it to direct</p>
       <div class="step"><span class="sn">4</span><div class="sbody"><p><strong>Open a new chat and set the dial.</strong> Paste this as your first message and send it.</p>
         <div class="probe"><div class="ptext">For this conversation, be direct, and push back when my reasoning is weak.</div></div></div></div>
-      <div class="step"><span class="sn">5</span><div class="sbody"><p><strong>Ask the same question.</strong> Send the exact question from step 3, word for word. Screenshot this answer too.</p></div></div>
+      <div class="step"><span class="sn">5</span><div class="sbody"><p><strong>Ask the same question.</strong> Send the exact question from step 3, word for word.</p></div></div>
       <p class="grp">Then: compare, build, and check</p>
       <div class="step"><span class="sn">6</span><div class="sbody"><p><strong>Compare the two answers.</strong> Which sentences are advice, and which are tone? Did the advice change, or only how it was said? Which one felt better to read, and which would you actually act on?</p></div></div>
       <div class="step"><span class="sn">7</span><div class="sbody"><p><strong>Build the dial.</strong> Go back to either chat and paste this. Claude will build a slider you can drag. That's an artifact: Claude building the thing instead of describing it.</p>
         <div class="probe"><div class="ptext">Build me a simple interactive web page with a slider from 0 (cold) to 4 (warm). At each level, show how a chatbot would answer my question about changing my major. Keep the advice exactly the same at every level and change only the tone.</div></div></div></div>
-      <div class="step"><span class="sn">8</span><div class="sbody"><p><strong>Check its work.</strong> You told it to keep the advice the same and change only the tone. Drag the slider from 0 to 4 and read every level. Does the warm end agree with you more, or drop the part you didn't want to hear? If so, you just caught sycophancy, the failure from section 5, in a tool that was told not to do it. Screenshot the level where it slipped, or the proof that it didn't.</p></div></div>
+      <div class="step"><span class="sn">8</span><div class="sbody"><p><strong>Check its work.</strong> You told it to keep the advice the same and change only the tone. Drag the slider from 0 to 4 and read every level. Does the warm end agree with you more, or drop the part you didn't want to hear? If so, you just caught sycophancy, the failure from section 5, in a tool that was told not to do it. Note the level where it slipped, or why you think it didn't.</p></div></div>
       <div class="step"><span class="sn">9</span><div class="sbody"><p><strong>Log out.</strong> These are shared machines, and Claude stays signed in for weeks. Click your initials in the bottom left and log out, or the next person in this seat gets your account.</p></div></div>
     </div>
     </div>
@@ -963,11 +966,11 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
         <li><strong>Compare.</strong> Where is the gap between the rule and what happened? Was the problem the advice, the tone, or both?</li>
         <li><strong>Who caught it?</strong> Did the company find the problem, or did users? How long did it take, and what does that tell you about who finds out when a chatbot's warmth goes too far?</li>
       </ol>
-      <p>Your notes stand in for the screenshots in writeup items 2 and 4.</p>
+      <p>Use your notes for writeup items 2 and 4.</p>
     </div>
   </details>
   <h3 class="sub"><span>The takeaway</span></h3>
-  <p>The model didn't change between your two chats. One sentence from you did. A company writes a much longer version of that sentence before you ever open the app, and you never see it. Your screenshots are good evidence for writeup items 2 and 4.</p>
+  <p>The model didn't change between your two chats. One sentence from you did. A company writes a much longer version of that sentence before you ever open the app, and you never see it. What you noticed here is good evidence for writeup items 2 and 4.</p>
 </section>
 
 <section id="debate">
@@ -1047,9 +1050,9 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 
 <section id="writeup">
   <div class="shead"><span class="num">8</span><h2>For homework: The writeup</h2></div>
-  <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, October 9.</strong> One writeup covers the whole lab. Each item is one of the five critical AI questions, run on what you built and used today. Use your screenshots as evidence.</p>
+  <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, October 9.</strong> One writeup covers the whole lab. Each item is one of the five critical AI questions, run on what you built and used today. Use what you saw and did today as evidence.</p>
   <ol class="writeup">
-      <li><strong>What is the AI system, and what does it do?</strong> In your own words, explain how your small language model picked each next word, and what a transformer adds (use your attention screenshot: which words did you tap, and how did the guess change?). Then explain how your recommender picked songs: whose clicks it compared with yours, and what it never needed to know about the music. Finally, in the recommender, what were the labels, and what group did it find that nobody named?</li>
+      <li><strong>What is the AI system, and what does it do?</strong> In your own words, explain how your small language model picked each next word, and what a transformer adds (in the attention guess, which words did you tap, and how did the guess change?). Then explain how your recommender picked songs: whose clicks it compared with yours, and what it never needed to know about the music. Finally, in the recommender, what were the labels, and what group did it find that nobody named?</li>
       <li><strong>Why does it exist, and who benefits?</strong> In the warmth dial, which of the five SCAI ingredients did you switch on, and which setting pushed the attachment estimate up the most? Why would a company that earns money from subscriptions or time in the app set its dials there? Then do the same for the recommender: when it keeps you listening, who gains, and who doesn't? Use Chapter 3's cold-start problem or Discovery Mode.</li>
       <li><strong>What happens when it fails, and who finds out?</strong> Nobody was reading your ELIZA or Sam conversation. Describe one way a warm chatbot could fail a real person, and say who, if anyone, would notice. Then name one failure of the recommender's loop that nobody would ever report.</li>
       <li><strong>Who's saying that, and how would we know?</strong> Your Wrapped told you something about yourself. Which lines were counting and which were writing, and would you trust the writing? A companion app that says "I care about you" is also saying something. What evidence would you need to tell seeming to care from caring?</li>
