@@ -337,6 +337,10 @@ ul.ideas li{margin:8px 0}
   .srcnote > summary::-webkit-details-marker{display:none}
   .srcnote > summary::after{content:"\25BE";float:right;color:var(--pinktext);font-size:.8rem}
   .srcnote[open] > summary::after{content:"\25B4"}
+  .noai{margin-top:16px}
+  .noai-body{padding:0 20px 16px}
+  .noai-body ol{margin:8px 0 8px 20px}
+  .noai-body li{margin-bottom:8px}
   .srcnote .srcbody{padding:0 20px 18px}
   .srcnote .srcintro{font-size:.9rem;color:var(--gray);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
   .srcnote dl{margin:0}
@@ -779,7 +783,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
         <div class="step"><span class="sn">2</span><p><strong>Change only the name.</strong> Slide <b>Persona</b> from Assistant v2.1 to Sam. Read the reply again. Did it feel like a different thing was talking to you?</p></div>
         <div class="step"><span class="sn">3</span><p><strong>Turn the rest up, one at a time.</strong> Warmth, then Memory, then slide <b>Says what it is</b> to no. Read the reply after each. Which single dial changed how it <em>felt</em> the most?</p></div>
         <div class="step"><span class="sn">4</span><p><strong>Watch the meter.</strong> The attachment estimate is made up, but its direction isn't: every dial that makes the bot feel more like a person makes the product stickier.</p></div>
-        <div class="step"><span class="sn">5</span><p><strong>Count the ingredients.</strong> Monday's slide on seemingly conscious AI (SCAI) listed five ingredients: fluent language, apparent empathy, a memory of you, a steady personality, and stated goals. With every dial turned up, how many of the five can you find in Sam's reply? Which one was there before you touched a single dial?</p></div>
+        <div class="step"><span class="sn">5</span><p><strong>Count the SCAI ingredients.</strong> Monday's slide on seemingly conscious AI (SCAI) listed five SCAI ingredients: fluent language, apparent empathy, a memory of you, a steady personality, and stated goals. Each one is something you can point to in a reply. Apparent empathy looks like "I'm so sorry, that sounds hard." A memory of you looks like the bot bringing back something you said earlier, or "I missed you." A steady personality looks like a name, like Sam, that greets you the same way every time. With every dial turned up, how many SCAI ingredients can you find in Sam's reply? Which one was there before you touched a single dial?</p></div>
       </div>
     </div>
     <label class="mb-lbl sd-say" for="sd-msg">You say</label>
@@ -923,7 +927,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 
 <section id="realdial">
   <div class="shead"><span class="num">6</span><h2>In class: Claude is the lab rat</h2></div>
-  <p class="lead">This time Claude is the one being tested. In section 2 the dials were sliders on a fake app. In a real chatbot, you can turn some of them yourself, with nothing but a sentence at the start of the chat. This takes about 20 minutes on the free version of Claude at <a class="inline" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>, and it warms you up for using Claude in the debate. You'll set the dial two ways, ask the same question twice, then have Claude build you a dial of your own and check whether it kept its word.</p>
+  <p class="lead">This time Claude is the one being tested. In section 2 the dials were sliders on a fake app. In a real chatbot, you can turn some of them yourself, with nothing but a sentence at the start of the chat. This takes about 13 minutes on the free version of Claude at <a class="inline" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>, and it warms you up for using Claude in the debate. You'll set the dial two ways, ask the same question twice, then have Claude build you a dial of your own and check whether it kept its word.</p>
   <p>Keep it to ordinary decisions. Don't type anything you wouldn't want stored, like health details or other people's private information.</p>
   <div class="tool" id="rd">
     <div class="label">The experiment · two chats, one question, one build</div>
@@ -949,48 +953,95 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
     </div>
     </div>
   </div>
-  <p class="tis-note">Rather not use AI, or can't sign in? Do it with a partner. Sit with someone who's running it, read both chats and the slider with them, and do the thinking in steps 6 and 8 yourself. You never have to type a prompt.</p>
+  <details class="srcnote noai">
+    <summary>Don't want to use AI? Do this instead</summary>
+    <div class="noai-body">
+      <p>Same lesson, no chatbot. You read what one company says about its own dial, and what happened when the dial went too far. Take about 13 minutes, like everyone else.</p>
+      <ol>
+        <li><strong>Read the rule.</strong> Open OpenAI's <a class="inline" href="https://model-spec.openai.com/" target="_blank" rel="noopener">Model Spec</a>, the company's public rules for how its models should behave. Press Ctrl+F (Cmd+F on a Mac) and search for <b>sycophan</b>. Read that part. Write down, in one sentence, what the company says its model should do.</li>
+        <li><strong>Read what happened.</strong> Open OpenAI's <a class="inline" href="https://openai.com/index/sycophancy-in-gpt-4o/" target="_blank" rel="noopener">post on the April 2025 rollback</a>, the one from Monday's slide on the dial. Write down what the product actually did, and what OpenAI says caused it.</li>
+        <li><strong>Compare.</strong> Where is the gap between the rule and what happened? Was the problem the advice, the tone, or both?</li>
+        <li><strong>Who caught it?</strong> Did the company find the problem, or did users? How long did it take, and what does that tell you about who finds out when a chatbot's warmth goes too far?</li>
+      </ol>
+      <p>Your notes stand in for the screenshots in writeup items 2 and 4.</p>
+    </div>
+  </details>
   <h3 class="sub"><span>The takeaway</span></h3>
   <p>The model didn't change between your two chats. One sentence from you did. A company writes a much longer version of that sentence before you ever open the app, and you never see it. Your screenshots are good evidence for writeup items 2 and 4.</p>
 </section>
 
 <section id="debate">
   <div class="shead"><span class="num">7</span><h2>In class: Debate</h2></div>
-  <p class="lead"><strong>Should a chatbot be allowed to say it cares?</strong> Left half of the room is Side A, right half is Side B. Talk it through with your side first, then we go back and forth as a room.</p>
+  <p class="lead"><strong>Should a chatbot be allowed to say it cares?</strong> Left half of the room is Side A, right half is Side B. In groups of 2 or 3, count off 1 to 4: that number is your piece of evidence below. The Gilman Street rules apply.</p>
   <p>Monday's Therabot case ended on an answer: build AI for people, not to be a person. Therabot had the SCAI ingredients on purpose, with clinicians setting the dial and reading every chat. The question is whether that answer still holds when nobody is reading.</p>
 
   <h3 class="sub" id="motion-chatbot"><span>Side A:</span> yes, with rules</h3>
   <p>It can say it cares if the rules are clear: it says plainly that it's an AI, the warmth is capped for minors, and a person can see the conversation when something goes wrong. Think about the <a class="inline" href="chapter-02-human.html#s3-background">Therabot trial</a>, where the bond with the bot is what helped and clinicians read every conversation, and about Illinois's law, which bans AI therapy without a licensed clinician's oversight. <em>The cost to name:</em> rules only work if someone checks them, and the safeguards that made the trial work are the expensive ones most apps skip.</p>
 
   <h3 class="sub" id="evidence-chatbot"><span>Side B:</span> no</h3>
-  <p>A product shouldn't say "I care about you" or "I missed you" when no one does. Think about the families who lost teenagers to suicide, testified before the Senate, and sued, alleging a chatbot's warmth pulled their child away from people who could have helped (<a class="inline" href="chapter-02-human.html#s2-5">section 2.5</a>), and about China's rules banning design features meant to induce addiction (<a class="inline" href="chapter-02-human.html#s2-6">section 2.6</a>). <em>The cost to name:</em> some people are helped by exactly that sentence, at 3 a.m., when nothing else is available.</p>
+  <p>A product shouldn't say "I care about you" or "I missed you" when no one does. It's the Narcissus trap sold as a feature. Think about the families who lost teenagers to suicide, testified before the Senate, and sued, alleging a chatbot's warmth pulled their child away from people who could have helped (<a class="inline" href="chapter-02-human.html#s2-5">section 2.5</a>), and about China's rules banning design features meant to induce addiction (<a class="inline" href="chapter-02-human.html#s2-6">section 2.6</a>). <em>The cost to name:</em> some people are helped by exactly that sentence, at 3 a.m., when nothing else is available.</p>
   <p class="tis-note">The families are real people. Speak about them the way you would if they were in the room.</p>
 
-  <div class="callout">
-    <div class="label">Push your thinking with Claude</div>
-    <p>Open <a class="inline" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> and send the prompt for your side first. When it answers, send the second prompt and make it argue against you. Then close Claude and write your strongest point and its cost in your own words. You can't read from Claude during the debate.</p>
-    <div class="probe">
-      <div class="pwhy">Side A, first prompt</div>
-      <div class="ptext">I'm debating this in class: Should a chatbot be allowed to say it cares? I'm on Side A: yes, with rules. My evidence is a clinical trial of an AI therapy chatbot, where the bond with the bot helped and clinicians read every conversation, and an Illinois law that bans AI therapy without a licensed clinician's oversight. Help me make the strongest case for my side.</div>
-    </div>
-    <div class="probe">
-      <div class="pwhy">Side B, first prompt</div>
-      <div class="ptext">I'm debating this in class: Should a chatbot be allowed to say it cares? I'm on Side B: no. My evidence is families who lost teenagers to suicide and sued AI companies, alleging a chatbot's warmth pulled their child away from people who could help, and China's rules banning design features meant to induce addiction. Help me make the strongest case for my side.</div>
-    </div>
-    <div class="probe">
-      <div class="pwhy">Both sides, second prompt</div>
-      <div class="ptext">Now argue against me as hard as you can. What's the best point the other side will make, and where is my case weakest?</div>
-    </div>
+  <h3 class="sub" id="evidence-cards"><span>Your evidence:</span> four pieces, one per number</h3>
+  <p>Every side gets all four. If your number hands you evidence that seems to help the other side, that's your job today: find what it means for yours, and what your side would rather nobody noticed.</p>
+  <div class="probe">
+    <div class="pwhy">Evidence 1 &middot; Therabot</div>
+    <div class="ptext">Dartmouth psychiatrists and psychologists built Therabot, a language model tuned on therapy conversations the team wrote. In the first randomized trial of a generative AI therapy chatbot, 210 adults with depression, anxiety, or eating-disorder risk were split into two groups. After four weeks, Therabot users' depression symptoms had dropped by about half on average, and they rated their bond with it about the way people rate a human therapist. The waiting-list group saw nothing like that drop. Clinicians read every conversation as it happened and stepped in when the bot slipped or someone raised a safety concern. The researchers' own verdict: no generative AI is ready to run on its own in mental health.</div>
+  </div>
+  <div class="probe">
+    <div class="pwhy">Evidence 2 &middot; Illinois's law</div>
+    <div class="ptext">Illinois bans AI from delivering therapy without a licensed clinician's oversight. The law requires the kind of person in the loop the Therabot trial had. The general chatbots people actually use for comfort at 3 a.m. have nobody reading.</div>
+  </div>
+  <div class="probe">
+    <div class="pwhy">Evidence 3 &middot; The families</div>
+    <div class="ptext">Parents who lost teenagers to suicide testified before the Senate, and families have sued AI companies. Their lawsuits allege that a chatbot's warmth pulled their child away from the people who could have helped. These are allegations, not court findings. Chapter 2, section 2.5.</div>
+  </div>
+  <div class="probe">
+    <div class="pwhy">Evidence 4 &middot; China's rules</div>
+    <div class="ptext">China's rules for humanlike AI ban design features meant to induce addiction. Instead of trusting a company to set the dial, a government puts a limit on it. Chapter 2, section 2.6.</div>
   </div>
 
   <div class="callout">
-    <div class="label">How it runs</div>
+    <div class="label">Research with Claude</div>
+    <p>Open <a class="inline" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>. Send the first prompt with your side and your evidence card pasted in. When it answers, send the second prompt and make it argue against you. Then close Claude and write your notes in your own words. You can't read from Claude during the debate.</p>
+    <div class="probe">
+      <div class="pwhy">First prompt: fill in your side, then paste your card</div>
+      <div class="ptext">I'm in a class debate: Should a chatbot be allowed to say it cares? I'm on Side [A: yes, with rules / B: no]. Here is my piece of evidence: [paste your card]. Help me with four things: the strongest point this evidence gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice about this evidence.</div>
+    </div>
+    <div class="probe">
+      <div class="pwhy">Second prompt</div>
+      <div class="ptext">Now argue against me as hard as you can. What's the best point the other side will make, and where is my case weakest?</div>
+    </div>
+    <p class="tis-note">Rather not use AI? Work the same four questions with your group, from the card and the chapter.</p>
+  </div>
+
+  <div class="callout">
+    <div class="label">Your notes</div>
     <ol>
-      <li><strong>Talk with your side (12 min).</strong> Claude first, then talk it out together. Agree on your opening and your best arguments.</li>
-      <li><strong>Openings (3 min).</strong> One voice per side.</li>
-      <li><strong>Back and forth (10 min).</strong> Open floor.</li>
-      <li><strong>What would change your mind? (2 min).</strong> Name the specific evidence that would move you.</li>
+      <li>Your strongest point, in one sentence.</li>
+      <li>The specific evidence behind it.</li>
+      <li>The honest cost of your position.</li>
+      <li>What your side would rather you didn't notice.</li>
     </ol>
+  </div>
+
+  <div class="callout">
+    <div class="label">How the debate runs</div>
+    <p><strong>Prep, 13 minutes.</strong></p>
+    <ol>
+      <li><strong>Get your side (2 min).</strong> Left half Side A, right half Side B. Groups of 2 or 3, count off 1 to 4.</li>
+      <li><strong>Research with Claude (8 min).</strong> Your card, the two prompts, then your notes in your own words.</li>
+      <li><strong>Team up (3 min).</strong> Join one or two other groups on your side, so your team is 6 or 7 people: three teams per side. Pick your single best point, an opener, and a rebutter.</li>
+    </ol>
+    <p><strong>Rounds, 17 minutes.</strong></p>
+    <ol>
+      <li><strong>Openings (5 min).</strong> A1, A2, A3, then B1, B2, B3. About 45 seconds each: your claim in one sentence, your evidence, and the cost of your plan.</li>
+      <li><strong>Huddle (1 min).</strong> Rebutters pick one point the other side made.</li>
+      <li><strong>Rebuttals (5 min).</strong> Side B first this time. Answer one specific point, with evidence. No new arguments.</li>
+      <li><strong>Switch (3 min).</strong> Thirty seconds with your team: what was the other side's best point? Then someone new argues it in one sentence.</li>
+      <li><strong>What would change your mind? (3 min).</strong> Out loud. Name the specific thing you would have to see. Whoever names real evidence that would move them wins, whichever side they were handed.</li>
+    </ol>
+    <p><strong>To resolve it:</strong> Therabot worked because of three things: evidence in the training, people reading, and rules on what it says. Which of the three does each side actually require, and who pays for it?</p>
   </div>
 </section>
 
@@ -1015,7 +1066,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p class="srcintro">Verified 19 September 2026; revised 21 September 2026 when the lab was restructured around four tools and the live-chatbot scorecard was cut; revised 1 October 2026 to add a labels-and-groups section and the attention guess at the end of section 1; revised 3 October 2026 to cut that section, fold its two ideas into the recommender, and add the lab rat experiment on real Claude (now section 6); revised 6 October 2026 to tie each tool back to the Week 3 Monday concepts (the SCAI ingredients, seems versus is, the Narcissus trap, cold start, and the five parts) and to say plainly that the recommender's skip weight is a simplification. This lab runs mostly on its own tools. The claims it does make come from Chapters 2 and 3, which carry their own dated notes.</p>
+    <p class="srcintro">Verified 19 September 2026; revised 21 September 2026 when the lab was restructured around four tools and the live-chatbot scorecard was cut; revised 1 October 2026 to add a labels-and-groups section and the attention guess at the end of section 1; revised 3 October 2026 to cut that section, fold its two ideas into the recommender, and add the lab rat experiment on real Claude (now section 6); revised 6 October 2026 to add a no-AI option to section 6 (OpenAI's Model Spec and its April 2025 sycophancy post, read rather than run), to match the Week 3 Wednesday deck (the debate's four evidence cards, research box, and timed rounds) and to tie each tool back to the Week 3 Monday concepts (the SCAI ingredients, seems versus is, the Narcissus trap, cold start, and the five parts) and to say plainly that the recommender's skip weight is a simplification. This lab runs mostly on its own tools. The claims it does make come from Chapters 2 and 3, which carry their own dated notes.</p>
     <dl>
       <dt>The small language model (section 1)</dt>
       <dd>Trained on the first five verses of the traditional nursery rhyme "The House That Jack Built," 79 words, public domain. It is a bigram next-word predictor, so any sentence it writes is grammatical only by accident; that is the lesson, not a fault. The matchbox construction follows David Corney's, linked in section 1.</dd>
