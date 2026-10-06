@@ -429,6 +429,10 @@ ol.labchapters li{margin:4px 0;font-size:1.02rem}
 @media(max-width:760px){.accord .acc-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:420px){.accord .acc-grid{grid-template-columns:1fr}}
 h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;font-weight:700;font-size:.95em;margin-right:.45em}
+.printbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 6px;font-size:.9rem;color:var(--gray)}
+.printbar a.slidebtn{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border-radius:6px;text-decoration:none}
+.printbar a.slidebtn:hover{background:#242C36}
+.printbar a.slidebtn:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -483,6 +487,10 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 </header>
 
 <main class="wrap">
+<div class="printbar">
+  <a class="slidebtn" href="slides/week03-wed.pdf">Wednesday slides (PDF)</a>
+</div>
+
 
 <p class="lead labintro">Week 3 covers two chapters, so this one lab covers both:</p>
 <ol class="labchapters">
