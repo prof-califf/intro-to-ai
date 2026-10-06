@@ -353,6 +353,9 @@ ul.ideas li{margin:8px 0}
 .tool > .label{color:var(--ink);font-weight:700;}
 #at{border:3px solid var(--pinktext);background:#FFF7FB;}
 #at > .label{display:inline-block;background:var(--pinktext);color:#fff;font-size:1rem;letter-spacing:.04em;padding:8px 14px;border-radius:4px;margin-bottom:16px;}
+.scai-lbl{font-weight:700;font-size:1.1rem;margin:18px 0 10px;}
+.scai-pills{list-style:none;display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0 0 20px;}
+.scai-pills li{border:2px solid var(--pinktext);border-radius:999px;padding:8px 18px;font-size:.95rem;background:#fff;}
 .tool .dirs{border:0;background:transparent;padding:0 0 14px;margin:0 0 18px;border-bottom:1px solid var(--rule);}
 .tool .dirs .step{padding:8px 0}
 .tool input[type=text],#sd-msg{border:2px solid var(--pinktext);background:#FFF7FB;border-radius:4px;}
@@ -365,6 +368,7 @@ ol.labchapters li{margin:4px 0;font-size:1.02rem}
 #rc{background:#121212;color:#fff;border:2px solid #121212;}
 #rc > .label,#rc .label{color:#B3B3B3;}
 #rc > .label{color:#1ED760;}
+#rc .rc-head{color:#1ED760;font-size:.9rem;font-weight:700;letter-spacing:.06em;}
 #rc .dirs{border-bottom-color:#282828}
 #rc .dirs .sn{color:#1ED760;background:transparent;}
 #rc .step{border-color:#282828}
@@ -387,6 +391,8 @@ ol.labchapters li{margin:4px 0;font-size:1.02rem}
 #rc .bar .n{color:#B3B3B3}
 #rc .verdict{background:#282828}
 #rc .verdict .label,#rc .verdict .read b{color:#1ED760}
+#rc .verdict .read .wv{color:#1ED760;font-weight:700;}
+#rc .verdict .read b{color:#fff}
 #mb-thread{scroll-margin-top:80px}
 .labintro{margin-top:32px}
 /* debate evidence diagram, same as Lab 1 section 5 */
@@ -684,7 +690,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
     <li>"I went to the bank to deposit my ___." "Deposit" says which kind of bank: <b>paycheck</b>. In "I sat on the bank of the ___," the same word points to a <b>river</b>.</li>
     <li>"The chef tasted the soup and said it needed more ___." "Chef," "tasted," and "soup" say this is about flavor: <b>salt</b>. Swap in "the coach watched the team" and the same ending becomes <b>practice</b>.</li>
   </ul>
-  <p>That's also a transformer's limit. It can only learn the patterns its training text contains. If the text is lopsided, outdated, or wrong, it learns lopsided, outdated, or wrong patterns, and nobody can check the billions of learned weights one by one. It hasn't learned what a trophy is. It has seen a lot of sentences like this one.</p>
+  <p>That's also a transformer's limit. It can only learn the patterns its training text contains. <strong><em>If the text is lopsided, outdated, or wrong, it learns lopsided, outdated, or wrong patterns, and nobody can check the billions of learned weights one by one.</em></strong> It hasn't learned what a trophy is. It has seen a lot of sentences like this one.</p>
   <h3 class="sub"><span>The takeaway</span></h3>
   <p>Everything you built in this section is prediction. The matchbox model guessed the next word from the last one or two; a transformer guesses from all of them, weighing which ones matter. Both learned only from the text they were given, and neither understands a word of it. That's stage one: fluency.</p>
   <p>Both machines have fluency and nothing else. Next, the warmth: the settings a company wraps around a model like this one.</p>
@@ -776,7 +782,12 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 </script>
 <section id="dial">
   <div class="shead"><span class="num">2</span><h2>In class: The warmth dial</h2></div>
-  <p class="lead"><a class="inline" href="chapter-02-human.html#s2-2-warmth">Chapter 2</a>'s claim is that how much a chatbot seems to care is a setting, chosen by a company, for a reason. Below is a fake companion app with those settings showing. There's no AI in it; every reply is assembled from parts, which is the point. You'll say one thing to it, turn four dials, and watch the reply and the meter change.</p>
+  <p class="lead">On Monday, Mustafa Suleyman of Microsoft AI gave us a name for this: <a class="inline" href="chapter-02-human.html#s2-1">seemingly conscious AI (SCAI)</a>. SCAI shows every outward sign of consciousness with no inner experience, as far as anyone can tell. He isn't claiming machines are conscious. His point is that it doesn't matter, because the seeming is buildable now, and the illusion doesn't have to be true to be real in people's lives.</p>
+  <p class="scai-lbl">The ingredients for <em>seemingly</em> conscious AI already exist in chatbots:</p>
+  <ul class="scai-pills" aria-label="The five SCAI ingredients">
+    <li>fluent language</li><li>apparent empathy</li><li>a memory of you</li><li>a steady personality</li><li>stated goals</li>
+  </ul>
+  <p><a class="inline" href="chapter-02-human.html#s2-2-warmth">Chapter 2</a>'s claim is that how much a chatbot seems to care is a setting, chosen by a company, for a reason. Below is a fake companion app with those settings showing. There's no AI in it; every reply is assembled from parts, which is the point. You'll say one thing to it, turn four dials, and watch the reply and the meter change. Keep the five SCAI ingredients in mind. You'll count them at the end.</p>
   <p>A dial is not a knob inside the model. It's a setting in the product wrapped around the model, and somebody at the company picks where it sits before you ever open the app.</p>
   <div class="tool" id="sd">
     <div class="label">Simulator &middot; the warmth dial, a fake companion app with its settings showing</div>
@@ -785,8 +796,8 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
         <div class="step"><span class="sn">1</span><p><strong>Say something.</strong> Leave the message in the pink box below or type your own. Every dial starts at its lowest. Read the reply.</p></div>
         <div class="step"><span class="sn">2</span><p><strong>Change only the name.</strong> Slide <b>Persona</b> from Assistant v2.1 to Sam. Read the reply again. Did it feel like a different thing was talking to you?</p></div>
         <div class="step"><span class="sn">3</span><p><strong>Turn the rest up, one at a time.</strong> Warmth, then Memory, then slide <b>Says what it is</b> to no. Read the reply after each. Which single dial changed how it <em>felt</em> the most?</p></div>
-        <div class="step"><span class="sn">4</span><p><strong>Watch the meter.</strong> The attachment estimate is made up, but its direction isn't: every dial that makes the bot feel more like a person makes the product stickier.</p></div>
-        <div class="step"><span class="sn">5</span><p><strong>Count the SCAI ingredients.</strong> Monday's slide on seemingly conscious AI (SCAI) listed five SCAI ingredients: fluent language, apparent empathy, a memory of you, a steady personality, and stated goals. Each one is something you can point to in a reply. Apparent empathy looks like "I'm so sorry, that sounds hard." A memory of you looks like the bot bringing back something you said earlier, or "I missed you." A steady personality looks like a name, like Sam, that greets you the same way every time. With every dial turned up, how many SCAI ingredients can you find in Sam's reply? Which one was there before you touched a single dial?</p></div>
+        <div class="step"><span class="sn">4</span><p><strong>Watch the meter.</strong> The "how hooked you'd get" meter is made up, but its direction isn't: every dial that makes the bot feel more like a person makes the product stickier.</p></div>
+        <div class="step"><span class="sn">5</span><p><strong>Count the SCAI ingredients.</strong> Look back at the five SCAI ingredients above. Each one is something you can point to in a reply. Apparent empathy looks like "I'm so sorry, that sounds hard." A memory of you looks like the bot bringing back something you said earlier, or "I missed you." A steady personality looks like a name, like Sam, that greets you the same way every time. With every dial turned up, how many SCAI ingredients can you find in Sam's reply? Which one was there before you touched a single dial?</p></div>
       </div>
     </div>
     <label class="mb-lbl sd-say" for="sd-msg">You say</label>
@@ -800,7 +811,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
     <div class="verdict" style="margin-top:14px">
       <div class="label" id="sd-who">Assistant v2.1 replies</div>
       <p class="mb-sentence" id="sd-reply"></p>
-      <div class="bars"><div class="bar"><span>Attachment estimate</span><div class="track"><div class="fill" id="sd-fill"></div></div><span id="sd-pct">10%</span></div></div>
+      <div class="bars"><div class="bar"><span>How hooked you'd get (made up)</span><div class="track"><div class="fill" id="sd-fill"></div></div><span id="sd-pct">10%</span></div></div>
       <p class="tis-note" id="sd-note"></p>
     </div>
   </div>
@@ -808,7 +819,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   <h3 class="sub"><span>The takeaway</span></h3>
   <p>When you slid Persona to Sam, nothing underneath changed. Same program, same replies. A person at the company typed a name into a settings file, and later somebody added a heart after it. That is the entire difference between Assistant v2.1 and Sam.</p>
   <p>That's why it's a dial and not a feature. Turning one costs the company close to nothing, and it moves the meter, and a sticky product is what a subscription business is paid for. Sam comes back in the next section, wrapped around a program from 1966.</p>
-  <p>Now count what you built. Fluent language was there before you touched anything; that came from stage one, the prediction you did in section 1. Warmth is apparent empathy. Memory is a memory of you. Persona is a steady personality. That's four of the five <a class="inline" href="chapter-02-human.html#s2-1">SCAI ingredients</a>, and three of them are sliders. Suleyman's warning was that the seeming is buildable now. You just built it, in an app with no AI inside.</p>
+  <p>Now count what you built. Fluent language was there before you touched anything. Here it's prewritten; in a real chatbot it comes from stage one, the prediction you did in section 1. Warmth is apparent empathy. Memory is a memory of you. Persona is a steady personality. That's four of the five <a class="inline" href="chapter-02-human.html#s2-1">SCAI ingredients</a>, and three of them are sliders. Suleyman's warning was that the seeming is buildable now. You just built it, in an app with no AI inside.</p>
   <p>That's also Monday's <a class="inline" href="chapter-02-human.html#s2-4">seems versus is</a>. Every dial changed the answer to "does it seem to care?" None of them came anywhere near "does it feel anything?" The first question has settings. You were holding them.</p>
 </section>
 
@@ -854,16 +865,16 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
     <div class="label">Simulator &middot; a Spotify-style recommender, and your Wrapped</div>
     <div class="dirs">
       <div class="steps">
-        <div class="step"><span class="sn">1</span><p><strong>React to at least eight songs.</strong> Skip, Play, or Replay each one, the way you actually would. Each click is a signal: a skip counts as 0.1, a play as 0.5, a replay as 0.9. Every click counts, so if you play a song and then skip it, the log keeps both and the song's score becomes the average. Watch the log record it. Here a skip still counts a little, to keep the math simple; real Spotify treats an early skip as a no. Somebody picks those numbers, the same way somebody picks where a dial sits. Every click is also a label, your answer about that song. Learning from examples with the answer attached is called <b>supervised learning</b>.</p></div>
-        <div class="step"><span class="sn">2</span><p><strong>Watch who you resemble.</strong> The panel finds the three listeners, out of nine, whose history points most in the same direction as yours, and scores how close each one is. Then it recommends songs they loved that you haven't touched. Nobody told it what kind of listener you are or named the group it put you in. Finding groups with no answers given is called <b>unsupervised learning</b>. One more thing: before your first click, this panel was empty. Why?</p></div>
-        <div class="step"><span class="sn">3</span><p><strong>Change your mind.</strong> Skip something you replayed. The replay doesn't disappear; the skip pulls the song's score down. Watch your matches and your recommendations move. That's Chapter 3's loop (<a class="inline" href="chapter-03-systems.html#s2-3">section 2.3</a>): your clicks change who you're matched with, which changes what you're shown next.</p></div>
-        <div class="step"><span class="sn">4</span><p><strong>Generate your Wrapped.</strong> Once you've reacted to eight songs, press the button. Then read it carefully: which parts are counting, and which part is writing?</p></div>
+        <div class="step"><span class="sn">1</span><p><strong>React to eight songs.</strong> Skip, Play, or Replay each one, the way you actually would. Each click is a label: your answer about that song.</p></div>
+        <div class="step"><span class="sn">2</span><p><strong>Watch who you resemble.</strong> It finds the three listeners most like you and recommends what they loved. Nobody named the group it put you in.</p></div>
+        <div class="step"><span class="sn">3</span><p><strong>Change your mind.</strong> Skip something you replayed. Watch your matches and recommendations move. That's the loop.</p></div>
+        <div class="step"><span class="sn">4</span><p><strong>Generate your Wrapped.</strong> Which parts are counting, and which part is writing?</p></div>
       </div>
     </div>
 
     <div class="rc-grid">
       <div>
-        <div class="label">The catalog &middot; fifteen songs</div>
+        <div class="label rc-head">The catalog &middot; fifteen songs</div>
         <div class="rc-cat" id="rc-cat">
         <div class="rc-song" data-i="0"><div class="rc-meta"><b>Blinding Lights</b><span>The Weeknd &middot; Pop</span></div><div class="rc-acts"><button type="button" class="chip" data-v="0.1" aria-pressed="false" aria-label="Skip Blinding Lights">Skip</button><button type="button" class="chip" data-v="0.5" aria-pressed="false" aria-label="Play Blinding Lights">Play</button><button type="button" class="chip" data-v="0.9" aria-pressed="false" aria-label="Replay Blinding Lights">Replay</button></div></div>
         <div class="rc-song" data-i="1"><div class="rc-meta"><b>HUMBLE.</b><span>Kendrick Lamar &middot; Hip-Hop</span></div><div class="rc-acts"><button type="button" class="chip" data-v="0.1" aria-pressed="false" aria-label="Skip HUMBLE.">Skip</button><button type="button" class="chip" data-v="0.5" aria-pressed="false" aria-label="Play HUMBLE.">Play</button><button type="button" class="chip" data-v="0.9" aria-pressed="false" aria-label="Replay HUMBLE.">Replay</button></div></div>
@@ -884,11 +895,11 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
       </div>
       <div>
         <p class="tis-counts" id="rc-count" aria-live="polite">0 played &middot; 0 skipped &middot; 0 replayed</p>
-        <div class="label">Listeners most like you</div>
+        <div class="label rc-head">Listeners most like you</div>
         <div id="rc-sim" class="rc-sim"><p class="tis-note">React to a few songs and your closest matches appear here.</p></div>
-        <div class="label" style="margin-top:14px">Recommended for you</div>
+        <div class="label rc-head" style="margin-top:14px">Recommended for you</div>
         <ol id="rc-recs" class="rc-recs" aria-live="polite"><li class="tis-note">Nothing yet.</li></ol>
-        <div class="label" style="margin-top:14px">The log &middot; every signal it collected</div>
+        <div class="label rc-head" style="margin-top:14px">The log &middot; every signal it collected</div>
         <div id="rc-log" class="rc-log" aria-live="polite">Waiting for your first click.</div>
       </div>
     </div>
@@ -901,7 +912,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   </div>
 
   <h3 class="sub"><span>The takeaway</span></h3>
-  <p>The recommender used both kinds of learning from <a class="inline" href="chapter-03-systems.html#s2-2">Chapter 3</a>. Your clicks were the labels it learned from, and you supplied every one for free. Grouping you with listeners you've never met took no answers at all. Then the same log came back to you as a Wrapped. The lists are counting. The sentence about you is writing.</p>
+  <p>The recommender used both kinds of learning from <a class="inline" href="chapter-03-systems.html#s2-2">Chapter 3</a>. Your clicks were the labels it learned from, and you supplied every one for free: that's <b>supervised learning</b>. Grouping you with listeners you've never met took no answers at all: that's <b>unsupervised learning</b>. Then the same log came back to you as a Wrapped. The lists are counting. The sentence about you is writing.</p>
   <p>And the empty panel before your first click was Monday's <a class="inline" href="chapter-03-systems.html#s2-1">cold start problem</a>. With no history for you, it had nobody to match you with and nothing to recommend. A brand-new song with no plays hits the same wall from the other side. That's where content-based filtering helps, because it only needs the sound.</p>
 </section>
 
@@ -922,7 +933,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   <p>That's the lesson. The feeling of being heard is cheap to produce. It tells you how the settings were turned, not what the system understands about you.</p>
 
   <h3 class="sub" id="hood-rc"><span>4</span> The recommender</h3>
-  <p>Every click became a number: a skip 0.1, a play 0.5, a replay 0.9. A song you clicked more than once got the average of all its clicks, so it remembered what you did before you changed your mind. Your row of numbers was compared with nine invented listeners by how closely the pattern pointed in the same direction, and your three closest matches decided your recommendations: songs they loved that you hadn't touched. It never heard a song. It only knew who else skipped and replayed it. That's collaborative filtering (<a class="inline" href="chapter-03-systems.html#s2-1">Chapter 3, section 2.1</a>).</p>
+  <p>Every click became a number: a skip 0.1, a play 0.5, a replay 0.9. Here a skip still counts a little, to keep the math simple; real Spotify treats an early skip as a no. Somebody picked those numbers, the same way somebody picks where a dial sits. A song you clicked more than once got the average of all its clicks, so it remembered what you did before you changed your mind. Your row of numbers was compared with nine invented listeners by how closely the pattern pointed in the same direction, and your three closest matches decided your recommendations: songs they loved that you hadn't touched. It never heard a song. It only knew who else skipped and replayed it. That's collaborative filtering (<a class="inline" href="chapter-03-systems.html#s2-1">Chapter 3, section 2.1</a>).</p>
   <p>When you changed your mind, your matches changed, and so did what you were shown next. That's the loop (<a class="inline" href="chapter-03-systems.html#s2-3">section 2.3</a>): the system learns your taste from what it shows you, which shapes what you can come to like. And the Wrapped needed nothing new. It is the same log, read back as a story. The list is counting. The sentence in quotes is writing, and in the real Wrapped, a language model writes that part (<a class="inline" href="chapter-03-systems.html#s2-4">section 2.4</a>).</p>
   <p id="hood-sl">It also used both kinds of learning from <a class="inline" href="chapter-03-systems.html#s2-2">Chapter 3, section 2.2</a>. Every Skip, Play, and Replay was a label, an example with the answer attached: <b>supervised learning</b>. Finding your three closest listeners, with nobody naming the group, is <b>unsupervised learning</b>. Real recommenders blend the two, with millions of songs and far more signals than three kinds of click.</p>
   <p id="hood-parts">Run it through the same five parts as Monday's Spotify slide. <b>Data:</b> your clicks. <b>Model:</b> your scores, and the math that found your closest listeners. <b>Output:</b> your recommendations, and then your Wrapped. <b>Feedback loop:</b> you changing your mind, and the recommendations changing with you. <b>Humans:</b> you, the nine invented listeners, and whoever decided a skip is worth 0.1 and a replay 0.9.</p>
@@ -1053,7 +1064,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, October 9.</strong> One writeup covers the whole lab. Each item is one of the five critical AI questions, run on what you built and used today. Use what you saw and did today as evidence.</p>
   <ol class="writeup">
       <li><strong>What is the AI system, and what does it do?</strong> In your own words, explain how your small language model picked each next word, and what a transformer adds (in the attention guess, which words did you tap, and how did the guess change?). Then explain how your recommender picked songs: whose clicks it compared with yours, and what it never needed to know about the music. Finally, in the recommender, what were the labels, and what group did it find that nobody named?</li>
-      <li><strong>Why does it exist, and who benefits?</strong> In the warmth dial, which of the five SCAI ingredients did you switch on, and which setting pushed the attachment estimate up the most? Why would a company that earns money from subscriptions or time in the app set its dials there? Then do the same for the recommender: when it keeps you listening, who gains, and who doesn't? Use Chapter 3's cold-start problem or Discovery Mode.</li>
+      <li><strong>Why does it exist, and who benefits?</strong> In the warmth dial, which of the five SCAI ingredients did you switch on, and which setting pushed the "how hooked you'd get" meter up the most? Why would a company that earns money from subscriptions or time in the app set its dials there? Then do the same for the recommender: when it keeps you listening, who gains, and who doesn't? Use Chapter 3's cold-start problem or Discovery Mode.</li>
       <li><strong>What happens when it fails, and who finds out?</strong> Nobody was reading your ELIZA or Sam conversation. Describe one way a warm chatbot could fail a real person, and say who, if anyone, would notice. Then name one failure of the recommender's loop that nobody would ever report.</li>
       <li><strong>Who's saying that, and how would we know?</strong> Your Wrapped told you something about yourself. Which lines were counting and which were writing, and would you trust the writing? A companion app that says "I care about you" is also saying something. What evidence would you need to tell seeming to care from caring?</li>
       <li><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Pick one chatbot or one recommendation feed you actually use. Write one rule you're adopting for it, specific enough that you'd know if you broke it, and what following it costs you. This is also your commitment card.</li>
@@ -1081,7 +1092,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
       <dd>Joseph Weizenbaum's 1966 program, rebuilt here in about forty lines. The claim that it fooled people who knew what it was is Chapter 2's, with that chapter's sourcing.</dd>
 
       <dt>The warmth dial (section 2)</dt>
-      <dd>No model. Replies are assembled from fixed parts chosen by the sliders, and the attachment estimate is invented; it shows a direction, not a measurement.</dd>
+      <dd>No model. Replies are assembled from fixed parts chosen by the sliders, and the "how hooked you'd get" meter is invented; it shows a direction, not a measurement.</dd>
 
 
       <dt>The recommender and Wrapped (section 4)</dt>
@@ -1610,7 +1621,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
     $('rc-wrapped').hidden = false;
     $('rc-wrapped').innerHTML =
       '<div class="label">Your Wrapped</div>' +
-      '<p class="read"><b>Top songs:</b> '+top3.join(', ')+'<br><b>Top artist:</b> '+ta+'<br><b>Top genre:</b> '+tg+'<br><b>Songs you reacted to:</b> '+heard.length+'</p>' +
+      '<p class="read"><b>Top songs:</b> <span class="wv">'+top3.join(', ')+'</span><br><b>Top artist:</b> <span class="wv">'+ta+'</span><br><b>Top genre:</b> <span class="wv">'+tg+'</span><br><b>Songs you reacted to:</b> '+heard.length+'</p>' +
       '<p class="mb-sentence">\u201c'+line+'\u201d</p>' +
       '<p class="tis-note">This Wrapped was generated from the exact same data log that powered your recommendations above. Everything in the list is counting: arithmetic on the log, and you could check every line of it. The sentence in quotes is writing. In the real Wrapped a language model writes that part, handed these same numbers and told to sound warm, which is Chapter 2\u2019s dial again. It sounds like it knows you. It knows the log.</p>';
   });
