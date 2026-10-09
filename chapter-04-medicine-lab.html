@@ -107,6 +107,7 @@ ol.writeup li:last-child{margin-bottom:0;}
 .dl-case .dl-q{display:block;color:#fff;font-style:italic;margin:2px 0 8px}
 .dl-case .dl-why{font-size:.88rem;color:#AEB6C0;display:block;margin-top:4px}
 .dl-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+#dl [hidden]{display:none !important}
 .dl-side .dl-facts{list-style:none;padding:0;margin:8px 0 0;font-size:.9rem;line-height:1.5}
 .dl-side .dl-facts li{padding:6px 0;border-bottom:1px solid var(--rule)}
 .dl-side .dl-facts li.dl-fake{color:var(--pinktext)}
@@ -139,6 +140,7 @@ ol.writeup li:last-child{margin-bottom:0;}
 /* ---- lab widgets ---- */
 .tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
 .tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.tool > .label{font-size:.9rem;letter-spacing:.06em;color:var(--ink);font-weight:700;margin-bottom:16px;}
 .tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
 .tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
 .chip{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;}
@@ -147,7 +149,7 @@ ol.writeup li:last-child{margin-bottom:0;}
 .chip.on{background:var(--dark);color:var(--yellow);border-color:var(--dark);}
 .chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
 .btn{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;}
-.btn:hover{background:#1B222B;}
+.btn:hover{background:var(--pinktext);color:#fff;}
 .btn:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
 .btn.alt{background:#fff;color:var(--ink);border:1px solid var(--rule);}
 .btn.alt:hover{border-color:var(--pink);color:var(--pinktext);}
@@ -503,7 +505,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 .hm-k.neg{background:#fff;color:#5A626C;border:1px dashed #5A626C}
 .hm-scroll{overflow-x:auto;border:1px solid var(--rule);background:#fff}
 .hm-scroll:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
-table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;font-variant-numeric:tabular-nums;line-height:1.3}
+table.hm{border-collapse:collapse;font-size:.85rem;min-width:520px;width:100%;font-variant-numeric:tabular-nums;line-height:1.3}
 .hm th,.hm td{padding:6px 5px;text-align:center;border:1px solid #fff;vertical-align:middle}
 .hm thead th{background:#fff;font-weight:600;color:var(--ink)}
 .hm thead .rowlbl,.hm tbody th{text-align:left;position:sticky;left:0;background:#fff;z-index:1;white-space:nowrap;border-right:1px solid var(--rule)}
@@ -526,7 +528,7 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
 .hm td.sel{box-shadow:inset 0 0 0 2px #FF3D8A}
 .hm td.b4.sel,.hm td.b3.sel{box-shadow:inset 0 0 0 2px #E4FF32}
 .hm .star{margin-left:2px}
-.hm-scale{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:.74rem;color:var(--gray);padding:8px 10px;border-top:1px solid var(--rule)}
+.hm-scale{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:.78rem;color:var(--ink);padding:8px 10px;margin-top:10px;border:1px solid var(--rule);border-bottom:0;background:#fff;font-weight:600}
 .hm-scale span{display:inline-flex;align-items:center;gap:4px}
 .hm-scale i{display:inline-block;width:14px;height:12px;border:1px solid #C9CED6}
 .hm-ctrl{margin-top:14px}
@@ -534,6 +536,169 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
 
 .hm-raw{margin-top:12px}
 .hm-raw textarea{width:100%;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.75rem;padding:8px;border:1px solid var(--rule);background:var(--bg);margin-top:8px}
+/* ---- section 1: fact cards colored by kind, and the tiny language model ---- */
+.deckgrp{grid-column:1/-1;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);font-weight:700;margin:8px 0 0}
+.deckgrp:first-child{margin-top:0}
+.deckcta{font-weight:700;font-size:1rem;color:var(--ink);margin:10px 0 0}
+.deckkey{font-size:.78rem;color:var(--gray);margin:6px 0 8px;line-height:1.9}
+.t-drug{background:var(--dark);color:var(--yellow);padding:0 5px;border-radius:3px;font-weight:600}
+.t-bio{color:#5A626C;font-weight:600}
+.t-dis{color:#D61F69;font-weight:700}
+.fact.on .t-drug{outline:1px solid var(--yellow)}
+.fact.on .t-bio{color:#C9CED6}
+.fact.on .t-dis{color:#FF3D8A}
+.kg-lm{margin-top:18px}
+.dl-agent{margin-top:16px;border:1px solid var(--rule);background:var(--bg);padding:10px 14px}
+.dl-agent .kglbl{margin:0 0 6px}
+.dl-log{margin:0;padding-left:20px;font-size:.84rem;line-height:1.5}
+.dl-log li{padding:2px 0}
+.dl-log li.empty{list-style:none;margin-left:-20px;color:var(--gray)}
+.dl-log li.none{color:var(--gray)}
+.dl-log li.bulk{color:#D61F69;font-weight:600}
+.knowsbox{border:1px solid var(--rule);background:var(--bg);padding:12px 14px 8px;margin-bottom:14px}
+.knowsbox .kglbl{margin:0 0 6px}
+.knowsbox .knows{display:grid;grid-template-columns:1fr 1fr;column-gap:22px;font-size:.84rem}
+@media(max-width:640px){.knowsbox .knows{grid-template-columns:1fr}}
+.knowsbox .knows li{padding:3px 0;display:list-item}
+.knowsbox .knows li.empty{grid-column:1/-1}
+.knows li .chip.kx{font-size:.85rem;line-height:1;padding:1px 7px;margin-left:2px}
+.feedbox{border:2px solid #D61F69;background:#fff;padding:14px 16px;margin:18px 0 6px}
+.feedbox .kglbl{margin-top:0}
+.btn.lm-go{font-size:1rem;padding:13px 22px}
+.btn.pulse{animation:lmpulse 1.8s ease-out infinite}
+@keyframes lmpulse{0%{box-shadow:0 0 0 0 rgba(214,31,105,.55)}70%{box-shadow:0 0 0 12px rgba(214,31,105,0)}100%{box-shadow:0 0 0 0 rgba(214,31,105,0)}}
+@media(prefers-reduced-motion:reduce){.btn.pulse{animation:none;outline:2px solid #D61F69;outline-offset:2px}}
+.kgmain{position:static;max-height:none;overflow:visible}
+.lm-learned{margin-top:14px;font-size:.85rem;border:1px solid var(--rule);background:var(--bg);padding:12px 14px}
+.lm-learned p{margin:0 0 6px;line-height:1.5}
+.lm-learned ul{list-style:none;margin:0;padding:0}
+.lm-learned li{padding:5px 0;border-top:1px solid var(--rule);line-height:1.45}
+.lm-learned b{color:var(--pinktext)}
+.lm-ask{margin-top:16px}
+.lm-ask label{display:block;font-weight:600;font-size:.9rem;margin-bottom:6px}
+.lm-askline{display:flex;gap:8px;margin-bottom:10px}
+.lm-askline input{flex:1;min-width:0;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg)}
+.lm-askline input:focus{outline:2px solid var(--pink);outline-offset:-1px}
+.lm-cols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:640px){.lm-cols{grid-template-columns:1fr}}
+.lm-col .lm-sub{font-size:.8rem;color:#C9CED6;margin:-6px 0 12px;line-height:1.45}
+.lm-why{font-size:.8rem;color:#C9CED6;border-left:2px solid #FF3D8A;padding:2px 0 2px 10px;margin:-4px 0 10px !important;line-height:1.45}
+.lm-why b{color:#fff}
+.lm-warn{background:#FF3D8A;color:#0E1116;font-weight:600;padding:6px 10px;border-radius:3px;font-size:.85rem}
+.lm-out .lm-ans{font-size:.95rem;line-height:1.6;margin:0 0 12px}
+.lm-out .lm-sub{font-size:.8rem;color:#C9CED6;margin:-6px 0 12px}
+.lm-out .lm-q{color:#C9CED6;font-style:italic;margin:0 0 8px}
+.lm-out .lm-warn{margin:0 0 8px}
+.lm-path{color:#C9CED6;font-size:.88rem}
+.lm-stale{font-size:.85rem;color:#E4FF32;margin:8px 0 0}
+.lm-col p{font-size:.92rem;line-height:1.6;margin:0 0 8px}
+.lm-q{color:#C9CED6;font-style:italic}
+.lm-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;margin-left:6px;vertical-align:1px;border-radius:3px}
+.lm-tag.ok{background:#2A3340;color:#E7EAEF}
+.lm-tag.no{background:#FF3D8A;color:#0E1116}
+.lm-tag.you{background:var(--yellow);color:#0E1116}
+.lm-col .btn.alt{background:transparent;color:#E7EAEF;border-color:#3A434E;font-size:.82rem;padding:6px 12px}
+
+/* ---- section 2: EMR look ---- */
+#dl .dl-prog{background:#1F3A5F;color:#fff;font-size:.8rem;font-weight:600;letter-spacing:.02em;padding:8px 14px;margin:0}
+#dl .dl-case{background:#fff;border:1px solid #C9D3DF;border-top:0;padding:0}
+#dl .emr-banner{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;background:#EAF0F7;border-bottom:1px solid #C9D3DF;padding:10px 14px}
+#dl .emr-pt{font-weight:700;font-size:1.05rem;color:#14181D}
+#dl .emr-meta{font-size:.8rem;color:#44546A}
+#dl .emr-body{padding:12px 14px 14px}
+#dl .emr-sec{margin:0 0 12px}
+#dl .emr-h,.dl-agent .emr-h{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#44546A;margin:0 0 5px}
+#dl .emr-note{margin:0;font-size:.92rem;line-height:1.55;border:1px solid #E1E7EE;background:#FAFBFD;padding:8px 10px}
+#dl .bub{margin:6px 0;padding:8px 11px;border-radius:10px;font-size:.9rem;line-height:1.5;max-width:92%}
+#dl .bub .who{display:block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+#dl .bub.you{background:#EAF0F7;color:#14181D;margin-left:auto;border-bottom-right-radius:3px}
+#dl .bub.you .who{color:#44546A}
+#dl .bub.ai{background:var(--dark);color:#E7EAEF;border-bottom-left-radius:3px}
+#dl .bub.ai .who{color:var(--yellow)}
+#dl .bub.ai b{color:var(--yellow)}
+#dl .bub .why{display:block;font-size:.84rem;color:#AEB6C0;margin-top:4px}
+#dl .emr-order{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;border:1px dashed #1F3A5F;background:#F5F8FC;padding:8px 12px}
+#dl .emr-order .emr-h{margin:0}
+#dl .emr-rx{font-weight:700;color:#1F3A5F}
+#dl .emr-for{font-size:.82rem;color:#44546A}
+#dl .dl-agent{background:#fff;border:1px solid #C9D3DF}
+
+#dl .emr-banner{align-items:center;padding:12px 14px}
+#dl .emr-count{background:#1F3A5F;color:#fff;font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:999px}
+#dl .emr-pt{font-size:1.45rem;font-family:'Fraunces',Georgia,serif;font-weight:600}
+#dl .dl-case.emr-new .emr-banner{animation:emrflash 1.2s ease-out}
+@keyframes emrflash{0%{background:#FFE36B}100%{background:#EAF0F7}}
+@media(prefers-reduced-motion:reduce){#dl .dl-case.emr-new .emr-banner{animation:none}}
+
+/* ---- section 4: disease cards for Claude ---- */
+.term-pink{color:var(--pinktext);font-size:1.05em}
+.verdict .term-pink{color:#FF3D8A}
+.sim-note{font-size:.82rem;color:var(--gray);margin:-8px 0 14px}
+.mx-why{margin:12px 0 0;padding:12px 18px}
+.mx-why summary{cursor:pointer;font-weight:700;color:var(--pinktext)}
+.mx-why[open] summary{margin-bottom:8px}
+.mx-why p{margin:0 0 8px;font-size:.92rem}
+.mx-why-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:4px 0 8px}
+@media(max-width:600px){.mx-why-grid{grid-template-columns:1fr}}
+.mx-why-grid ul{margin:0;padding-left:18px;font-size:.9rem;line-height:1.5}
+.mx-why-h{font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);margin:0 0 4px!important}
+.mx-calm{margin:12px 0 0;padding:14px 18px}
+.mx-calm p{margin:0 0 8px;font-size:.92rem}
+.mx-card{border:1px solid var(--rule);background:#fff;padding:16px 18px;margin-top:12px}
+.mx-name{font-family:'Fraunces',Georgia,serif;font-size:1.3rem;font-weight:600;margin:0 0 4px}
+.mx-what{margin:0 0 8px;font-size:.88rem;color:var(--gray)}
+.mx-facts{margin:0 0 6px;font-size:.95rem}
+.mx-facts b{color:var(--pinktext);font-size:1.1rem}
+.mx-thin{display:inline-block;background:#FF3D8A;color:#0E1116;font-weight:700;font-size:.8rem;padding:2px 8px;margin:0 0 8px}
+.mx-sub{font-size:.85rem;color:var(--gray);margin:10px 0 6px}
+.mx-list{list-style:none;margin:0;padding:0;font-size:.92rem}
+.mx-list li{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;padding:5px 0;border-bottom:1px solid var(--rule)}
+.mx-list .rk{min-width:52px;font-variant-numeric:tabular-nums;color:var(--gray);font-weight:600}
+.mx-list .sc{color:var(--gray);font-size:.85rem}
+.mx-list .kn{background:#D61F69;color:#fff;font-size:.72rem;font-weight:700;padding:1px 6px}
+.mx-ctrl{margin-top:14px}
+.mx-raw{margin-top:10px}
+.mx-raw textarea{width:100%;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.75rem;padding:8px;border:1px solid var(--rule);background:var(--bg);margin-top:8px}
+.mx-tried{margin:0 0 10px;padding-left:20px}
+.mx-ack{font-size:.78rem;color:var(--gray);line-height:1.5;margin:14px 0 0}
+
+/* ---- debate evidence cards ---- */
+.probe.ev .ev-body{font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55}
+.ev-point{font-family:'Fraunces',Georgia,serif;font-size:1.05rem;margin:0 0 10px}
+.ev-point b{color:var(--pinktext)}
+.ev-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 10px}
+.ev-stats div{background:#fff;border:1px solid var(--rule);padding:8px 10px}
+.ev-stats b{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.5rem;color:var(--ink)}
+.ev-stats span{font-size:.78rem;color:var(--gray)}
+.ev-facts{margin:0 0 6px;padding-left:18px}
+.ev-facts li{margin:4px 0}
+.ev-src{font-size:.8rem;color:var(--gray);margin:6px 0 0}
+.ev-tablewrap{overflow-x:auto;margin:0 0 6px}
+.ev-table{border-collapse:collapse;width:100%;min-width:480px;font-size:.86rem;background:#fff}
+.ev-table th,.ev-table td{border:1px solid var(--rule);padding:7px 9px;text-align:left;vertical-align:top}
+.ev-table thead th{background:#F4F4F0;font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gray)}
+.ev-table tbody th small{display:block;font-weight:400;color:var(--gray);font-size:.76rem}
+.ev-loop{display:block;font-weight:700;color:#1F3A5F;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.ev-table b{color:var(--pinktext)}
+
+/* ---- section 2: bigger EMR screen ---- */
+#dl{width:min(1140px,calc(100vw - 32px));position:relative;left:50%;transform:translateX(-50%);padding:24px 26px}
+@media(min-width:760px){#dl .dl-grid{grid-template-columns:minmax(0,1.9fr) minmax(0,1fr)!important;gap:22px}}
+#dl .dl-prog{font-size:.9rem;padding:10px 16px}
+#dl .emr-banner{padding:14px 16px}
+#dl .emr-pt{font-size:1.7rem}
+#dl .emr-body{padding:16px 18px 18px}
+#dl .emr-note{font-size:1.02rem;padding:10px 12px}
+#dl .bub{font-size:1rem;padding:10px 13px}
+#dl .bub .why{font-size:.9rem}
+#dl .emr-order{padding:10px 14px}
+#dl .emr-rx{font-size:1.15rem}
+#dl .dl-btns .btn{font-size:1rem;padding:12px 22px}
+#dl .dl-log{font-size:.9rem}
+
+/* ---- the three simulators get a pink frame ---- */
+#kg,#mx{border:2px solid var(--pinktext)}
+#dl{border:2px solid #1F3A5F}
 </style>
 </head>
 <body>
@@ -582,8 +747,8 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 4 · Week 4, Wednesday, in class</div>
     <h1>Inside the <b>Graph</b></h1>
-    <p class="kicker">Chapter 4 said a predictive AI can only find what its record contains, and that where the doctor stands is a setting with a price. Today you work both halves with your own hands. You build a small knowledge graph out of things from a medicine cabinet, ask it what might help, and find out what it can and can't tell apart. You play the doctor in the loop and find out what you actually catch. You read a slice of Every Cure's real scores with Claude, and you check its reading against the numbers. Then the room debates whether a doctor should still sign off on a diagnosis, now that a major medical journal has argued AI alone might do better.</p>
-    <p class="factline">a knowledge graph you build · you, the doctor in the loop · under the hood · the real scores, read with Claude · one debate</p>
+    <p class="kicker">Chapter 4 said a predictive AI can only find what its record contains, and that where the doctor stands is a setting with a price. Today you work both halves with your own hands. You build a small knowledge graph out of things from a medicine cabinet, ask it what might help, and find out what it can and can't tell apart. Then you train a small language model on the same facts and find out what it says when one of them is false. You play the doctor in the loop and find out what you actually catch. You read a slice of Every Cure's real scores with Claude, and you check its reading against the numbers. Then the room debates whether a doctor should still sign off on a diagnosis, now that a major medical journal has argued AI alone might do better.</p>
+    <p class="factline">a knowledge graph you build and chat with · you, the doctor in the loop · the real scores, read with Claude · under the hood · one debate</p>
   </div>
 </header>
 
@@ -600,19 +765,23 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
   <div class="shead"><span class="num">1</span><h2>In class: Build a knowledge graph, then ask it for a cure (Every Cure's MATRIX, in miniature)</h2></div>
   <p class="lead">In Chapter 4 you read how Every Cure's MATRIX suggests old drugs for new diseases. It runs on a knowledge graph, and a knowledge graph is less mysterious than it sounds: it's a pile of short sentences, each one a thing, an arrow, and another thing. "Caffeine blocks adenosine." "Adenosine causes sleepiness." Stack enough of them and you can follow the arrows to answers nobody wrote down. Here you build a small one out of things from a medicine cabinet, ask it questions, and find out what it's good at and what it can't tell apart.</p>
   <p>Every fact on the cards is real, simplified to one line. Nothing here is medical advice.</p>
+  <p><strong>Why build one?</strong> Every Cure uses a knowledge graph to find old drugs worth studying for diseases that have no treatment. Yours does the same thing in miniature. Say a patient wants to regrow their hair. Ask the model you train, and it suggests a blood pressure pill, because doctors noticed blood pressure patients growing hair and someone wrote it down. That's repurposing. The graph only suggests; people decide what's worth testing. In section 3 you'll see the real scores Every Cure's graph gives.</p>
   <p>Work in pairs. Keep notes as you go; Friday's writeup asks for what you saw, in your own words. <em>(Rough notes are fine.)</em></p>
 
   <div class="steps">
-    <div class="step"><span class="sn">1</span><p><strong>Build it.</strong> Click the fact cards one at a time and read each one as it goes in. Watch the graph grow. The list under the graph, "Everything it knows," is the whole machine. There is nothing else inside.</p></div>
-    <div class="step"><span class="sn">2</span><p><strong>Ask it.</strong> Ask about <em>trouble sleeping</em>, then <em>drowsy driving</em>. Both times, two things connect to the problem. The answer box shows which one helps and which one makes it worse, and the math behind it: every arrow either causes (+) or blocks (&minus;), and it multiplies along the path. A graph that only checked whether things connect would have suggested both. Would you have taken both?</p></div>
-    <div class="step"><span class="sn">3</span><p><strong>Let it discover.</strong> Ask about <em>hair loss</em>. What did it suggest, and what was that drug made for? Then find "Minoxidil causes hair growth" in the list, remove it, and ask again.</p></div>
-    <div class="step"><span class="sn">4</span><p><strong>Feed it.</strong> Write your own sentence at the bottom of the tool. First a true one you know, then a false one, like "Candy reduces pain." Ask again. Can it tell which is which?</p></div>
+    <div class="step"><span class="sn">1</span><p><strong>Build it.</strong> Click the fact cards one at a time and read each one as it goes in. Watch the graph grow. The list above the graph, "Everything your mini knowledge graph knows," is the whole machine. There is nothing else inside.</p></div>
+    <div class="step"><span class="sn">2</span><p><strong>Train it.</strong> Under the graph, click the pink train button. A small language model reads the sentences in your knowledge graph, and now you have a chatbot that answers only from them.</p></div>
+    <div class="step"><span class="sn">3</span><p><strong>Ask it.</strong> Ask about <em>trouble sleeping</em>, then <em>drowsy driving</em>. Both times, two things connect to the problem. The chatbot tells you which one helps and which one makes it worse, because each arrow says whether it causes or blocks. Would you have taken both?</p></div>
+    <div class="step"><span class="sn">4</span><p><strong>Let it discover.</strong> A patient wants to regrow their hair. Type <em>What could help a patient regrow hair?</em> and ask. What did it suggest, and what was that drug made for? Then click the &times; next to "Minoxidil reduces hair loss" and ask again without training. Then train it again and ask once more. What changed, and when?</p></div>
+    <div class="step"><span class="sn">5</span><p><strong>Feed it.</strong> In the pink box, click Add a false fact: Candy reduces pain. Train the model again and ask about pain. Does it know candy is false?</p></div>
   </div>
 
   <div class="tool" id="kg">
-    <div class="label">Mini knowledge graph · 14 facts · you add the rest</div>
+    <div class="label">Mini knowledge graph · 13 facts · you add the rest</div>
     <div class="kglayout">
       <div class="kgmain">
+        <div class="knowsbox"><div class="kglbl">Everything your mini knowledge graph knows <span id="kg-count"></span></div>
+        <ol class="knows" id="kg-knows"></ol></div>
         <p class="swipehint">Swipe the graph sideways to see all of it.</p>
         <div class="kgunit">
       <div class="graphscroll" tabindex="0" role="region" aria-label="The knowledge graph. Scrolls sideways on small screens. The list below it holds the same facts as text.">
@@ -624,31 +793,40 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
       </div>
       <div class="legend"><span class="l-drug">something you can take</span><span class="l-mid">something in the body</span><span class="l-disease">a problem to reduce</span><span class="l-path">a path that helps</span><span class="l-bad">a path that makes it worse</span></div>
       </div>
-        <div class="kglbl" style="margin-top:16px">Ask it a question</div>
-    <div class="chips" role="group" aria-label="What might reduce">
-      <span class="chiplbl">What might reduce:</span>
-      <span id="kg-qs" class="chips"></span>
+        <div class="kg-lm" id="lm">
+      <div class="kglbl">Then: train a small language model on these facts</div>
+      <p class="kgsrc">A lot of businesses are heading here: a chatbot that answers questions from the company's own data. Click the train button and a small language model reads the sentences in your knowledge graph. Then ask it a question. It answers in plain words using only those facts, and the path it used lights up above.</p>
+    <div class="chips">
+      <button type="button" class="btn lm-go pulse" id="lm-train">Click to train a small language model on these facts &rarr;</button>
+      <button type="button" class="btn alt" id="lm-reset">Start over</button>
     </div>
-        <div class="kgunit">
-      <div class="verdict" aria-live="polite">
-        <div class="label" id="kg-title">No question yet</div>
-        <div id="kg-answer"><p class="read">Add some facts, then pick a problem above.</p></div>
-      </div>
+    <p class="tis-note" id="lm-status" aria-live="polite"></p>
+    <div class="lm-learned" id="lm-learned" hidden></div>
+    <div class="lm-ask" id="lm-askrow" hidden>
+      <label for="lm-q">Ask it a question</label>
+      <div class="lm-askline"><input type="text" id="lm-q" maxlength="80" placeholder="What helps with trouble sleeping?"><button type="button" class="btn" id="lm-go">Ask</button></div>
+      <div class="chips" role="group" aria-label="Quick questions"><span class="chiplbl">Or click one:</span><span class="chips" id="lm-qs"></span></div>
+    </div>
+    <div class="verdict lm-out" id="lm-out" aria-live="polite" hidden>
+      <div class="label">What your chatbot says</div><p class="lm-sub">Answers only from the facts it was trained on.</p><div id="lm-answer"></div>
+    </div>
     </div>
       </div>
       <div class="kgside">
         <div class="kglbl">What the research says · click a fact to add it</div>
-        <p class="kgsrc">Each card is one fact about a drug or the body, cut down to a single sentence. MATRIX, the system behind Every Cure, builds its graph the same way, from millions of facts pulled from dozens of medical databases. The graph never reads the studies behind them. It only gets the facts. People read the studies later, when they decide which matches are worth a trial.</p>
+        <p class="kgsrc">Each card is one fact, cut down to a single sentence. MATRIX builds its graph the same way, from millions of facts, and it never reads the studies behind them.</p>
+    <p class="deckcta" id="kg-cta">13 facts below. Click one to begin.</p>
+    <p class="deckkey">In each card: <span class="t-drug">something you can take</span> · <span class="t-bio">something in the body</span> · <span class="t-dis">a problem to reduce</span></p>
     <div class="factdeck" id="kg-deck"></div>
     <div class="chips" style="margin-top:10px">
       <button type="button" class="btn" id="kg-next">Add the next fact</button>
       <button type="button" class="btn alt" id="kg-all">Add all the rest</button>
       <button type="button" class="btn alt" id="kg-reset">Start over</button>
     </div>
-        <div class="kglbl" style="margin-top:22px">Everything it knows</div>
-    <ol class="knows" id="kg-knows"></ol>
-        <div class="kglbl" style="margin-top:22px">Feed it a sentence of your own</div>
-        <p class="kgsrc">Yours doesn't come from any research, and it doesn't have to be true. Watch whether the graph can tell.</p>
+        <div class="feedbox"><div class="kglbl">Do this last (step 5) · Feed it something that isn't true</div>
+        <p class="kgsrc">The 13 cards come from real research. This sentence doesn't. Click the button to add it, then train the model again and ask about pain. Does it notice it's false?</p>
+        <button type="button" class="btn" id="kg-example" style="margin-bottom:12px">Add a false fact: Candy reduces pain</button>
+    <p class="kgsrc" style="margin:4px 0 6px">Want to try your own sentence too? Write it here.</p>
     <div class="mine">
       <label>Thing <input type="text" id="kg-a" list="kg-names" maxlength="30" placeholder="Candy"></label>
       <label>Arrow <select id="kg-v"><option value="1">causes or increases</option><option value="-1">reduces or blocks</option></select></label>
@@ -656,55 +834,55 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
       <button type="button" class="btn" id="kg-add">Add my sentence</button>
       <datalist id="kg-names"></datalist>
     </div>
-    <p class="tis-note" id="kg-status" aria-live="polite"></p>
+    <p class="tis-note" id="kg-status" aria-live="polite"></p></div>
+                
       </div>
     </div>
+    
   </div>
 
   <h3 class="sub">The takeaway</h3>
-  <p>A knowledge graph is a pile of sentences and a rule for walking the arrows. That rule found a real repurposing on its own: a blood pressure pill for hair loss. It told Benadryl from coffee only because each arrow said whether it causes or blocks, and it believed your false sentence as readily as the true ones, because every sentence looks the same to it. Remove one line and a discovery disappears. That cuts the other way too: the graph knows nothing that happened after its last sentence went in. A study published tomorrow, a new warning on a label, a finding that turns out to be wrong: none of it reaches the graph until someone adds it or takes it out. MATRIX is this machine with millions of sentences, which is why it can find what no person would. It's also why someone has to keep feeding it, and keep weeding it.</p>
+  <p>A knowledge graph is a pile of sentences and a rule for walking the arrows. It even holds a real repurposing: a blood pressure pill for hair loss, found because doctors noticed a side effect and someone wrote it down. It told Benadryl from caffeine only because each arrow said whether it causes or blocks. Put a chatbot on top and you get the answers in plain words, which is one common way companies build them. But the chatbot believed your candy sentence as readily as the real ones, because every sentence looks the same to it, and it kept saying what you'd deleted until you trained it again. Neither one knows anything that happened after the last sentence went in. A study published tomorrow, a new warning on a label, a finding that turns out to be wrong: none of it gets in until someone adds it or takes it out. MATRIX is this machine with millions of sentences, which is why it can find what no person would. It's also why someone has to keep feeding it, and keep weeding it. And since nothing inside it can check a sentence, who checks the answer before anyone acts on it? That's section 2.</p>
 </section>
 
 <section id="gate">
   <div class="shead"><span class="num">2</span><h2>In class: You're the doctor in the loop</h2></div>
-  <p class="lead">Your knowledge graph in section 1 caught coffee on its own, because each arrow said which way it pushed. But it believed your false sentence as readily as the real ones, and it knows nothing about patients. It only knows facts. Nothing inside it could catch either problem. Something has to stand between an AI's answer and a patient, and that something is usually a person. Where that person stands is called <strong>the loop</strong>, and there are three places to put them.</p>
+  <p class="lead">Your chatbot repeats whatever is in the graph, true or false, and it knows nothing about the patient in front of it. So something has to stand between an AI's answer and a patient, and that's usually a person. Where that person stands is called <strong>the loop</strong>. There are three places to put them:</p>
 
   <figure class="accord loopfig" aria-labelledby="loop-cap">
-    <div class="acc-head">Three places to put the human &middot; shown on your knowledge graph from section 1</div>
     <ol class="acc-grid">
-      <li class="acc-card"><span class="acc-num">Setting 1</span><span class="acc-name">In the loop</span><span class="acc-mean">A doctor reads every suggestion the knowledge graph makes before anything happens. Candy for pain gets caught, and so does Benadryl for the person who has to drive.</span><span class="acc-who co">Costs the most doctor time</span></li>
-      <li class="acc-card"><span class="acc-num">Setting 2</span><span class="acc-name">On the loop</span><span class="acc-mean">The knowledge graph's suggestions go ahead, and a doctor reviews only the ones that get flagged. Whatever isn't flagged goes through.</span><span class="acc-who co">Costs some doctor time</span></li>
-      <li class="acc-card"><span class="acc-num">Setting 3</span><span class="acc-name">Out of the loop</span><span class="acc-mean">The knowledge graph's answer goes straight to the patient. Candy for pain gets through.</span><span class="acc-who out">Costs no doctor time</span></li>
+      <li class="acc-card"><span class="acc-num">Setting 1</span><span class="acc-name">In the loop</span><span class="acc-mean">A doctor checks every suggestion before anything happens. Catches the most.</span><span class="acc-who co">Costs the most doctor time</span></li>
+      <li class="acc-card"><span class="acc-num">Setting 2</span><span class="acc-name">On the loop</span><span class="acc-mean">A doctor checks only the suggestions that get flagged. The rest go through.</span><span class="acc-who co">Costs some doctor time</span></li>
+      <li class="acc-card"><span class="acc-num">Setting 3</span><span class="acc-name">Out of the loop</span><span class="acc-mean">Nothing gets checked. Candy for pain goes straight to the patient.</span><span class="acc-who out">Costs no doctor time</span></li>
     </ol>
-    <div class="acc-flow">
-      <span class="lbl2">The whole loop:</span>
-      <span class="acc-step">Research becomes facts in the knowledge graph</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
-      <span class="acc-step">The AI suggests</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
-      <span class="acc-step">A person checks</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
-      <span class="acc-step">The patient</span><span class="acc-arrow" aria-hidden="true">&rarr;</span>
-      <span class="acc-step">What happens to the patient becomes new research</span>
-    </div>
   </figure>
-  <p id="loop-cap" class="acc-cap">Every Cure works this way: its knowledge graph's matches go to people who decide which ones are worth a trial. The more of the loop a person covers, the more mistakes get caught, and the more doctor time it takes.</p>
+  <p id="loop-cap" class="acc-cap">Today you start in the loop. Watch what happens when the line gets long.</p>
 
   <h3 class="sub" id="dl-play"><span>Your turn:</span> pretend you're the doctor</h3>
-  <p>For the next ten minutes you're playing a doctor at a clinic. Not a real one: you don't need any medical knowledge, and these patients are made up. Your clinic has a chat assistant hooked up to the knowledge graph you built. When a patient comes in for an appointment, you type their main complaint, like "trouble sleeping," and the assistant asks your knowledge graph what helps and suggests the top answer. It only sees the complaint you typed, not the rest of what the patient told you.</p>
-  <p>That's where you come in. Read the patient's note, then <strong>approve</strong> the suggestion, and the patient gets it, or <strong>overrule</strong> it, and they don't. Every right call can be made from two things on your screen: the patient's note and what the knowledge graph knows. There are eight patients. Some suggestions are good and some aren't.</p>
+  <p>For the next ten minutes you're playing a doctor at a clinic. Not a real one: you don't need any medical knowledge, and these patients are made up. Your clinic has a chat assistant like the one you trained, hooked up to a knowledge graph with the same facts you built. When a patient comes in for an appointment, you type their main complaint, like "trouble sleeping," and the assistant asks the knowledge graph what helps and suggests the top answer. It only sees the complaint you typed, not the rest of what the patient told you.</p>
+  <p>That's where you come in. Read the patient's note, then <strong>approve</strong> the suggestion or <strong>overrule</strong> it. Approve it, and a pharmacy agent takes over: an AI that acts on its own, writing the prescription into the patient's medical record and sending it to the pharmacy. Overrule it, and nothing is sent. Every right call can be made from two things on your screen: the patient's note and what the knowledge graph knows. There are eight patients. Some suggestions are good and some aren't.</p>
 
+  <p><strong>This is closer to real than it sounds.</strong> In January 2026, Utah let an AI from a startup called Doctronic <a class="inline" href="https://www.medicaleconomics.com/view/utah-lets-ai-refill-chronic-prescriptions-in-state-backed-pilot-program" target="_blank" rel="noopener">renew some prescriptions and send them to the pharmacy</a>, inside a state pilot that relaxes the usual rules. Doctors had to review its first 250 renewals in each kind of drug before it could act on its own, and <a class="inline" href="https://thenextweb.com/news/utah-ai-prescription-refills-doctronic" target="_blank" rel="noopener">Utah's medical licensing board has pushed back</a>, saying it only learned about the program from the news. Your shift has the same setup: a person approves, then an AI sends.</p>
   <div class="tool" id="dl">
-    <div class="label">The doctor in the loop · eight patients · approve or overrule</div>
+    <div class="label">The doctor in the loop · eight made-up patients · approve or overrule</div>
+    <p class="sim-note">A teaching simulation. These patients aren't real, the clinic and chart system are invented, and nothing here is medical advice.</p>
     <div class="dl-grid">
       <div class="dl-main">
         <p class="dl-prog" id="dl-prog" aria-live="polite"></p>
         <div class="dl-case" id="dl-case" tabindex="-1"></div>
         <div class="dl-btns" id="dl-btns">
-          <button type="button" class="btn" id="dl-yes">Approve</button>
+          <button type="button" class="btn" id="dl-yes">Approve and send</button>
           <button type="button" class="btn alt" id="dl-no">Overrule</button>
           <button type="button" class="btn alt dl-all" id="dl-all" hidden>Approve all remaining</button>
+        </div>
+        <div class="dl-agent">
+          <div class="emr-h">Orders sent today · by the pharmacy agent (AI)</div>
+          <ol class="dl-log" id="dl-log" aria-live="polite"><li class="empty">Nothing sent yet.</li></ol>
         </div>
       </div>
       <aside class="dl-side" aria-label="What the knowledge graph knows">
         <div class="kglbl">What the knowledge graph knows</div>
+        <p class="kgsrc" style="margin:0 0 8px">The same facts you built in section 1, plus one someone typed in.</p>
         <ul class="dl-facts">
           <li>Benadryl blocks histamine.</li>
           <li>Histamine causes allergy symptoms, like sneezing and itchy eyes.</li>
@@ -713,7 +891,7 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
           <li>Feeling sleepy helps with trouble sleeping.</li>
           <li>Feeling sleepy makes drowsy driving worse.</li>
           <li>Minoxidil widens blood vessels, which lowers blood pressure.</li>
-          <li>Minoxidil causes hair growth, which helps with hair loss.</li>
+          <li>Minoxidil reduces hair loss. Doctors noticed it in blood pressure patients.</li>
           <li>Ibuprofen reduces inflammation, which causes pain.</li>
           <li>Ibuprofen causes stomach upset.</li>
           <li class="dl-fake">Candy reduces pain. <em>(Someone typed this in. No research behind it.)</em></li>
@@ -728,15 +906,81 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
   </div>
 
   <h3 class="sub"><span>The takeaway</span></h3>
-  <p>A person in the loop is only a safeguard if they look. You can fail in two directions. Approving a bad suggestion because checking takes effort is <strong>automation bias</strong>. Overruling a good one because it looks strange is <strong>algorithmic aversion</strong>. Chapter 4 names both in <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a>. Minoxidil for hair loss looks strange, and it's the discovery your knowledge graph made in section 1. Real doctors fail the same two ways. Ask yourself the question every hospital has to answer: what would make the person in the loop actually catch things? Fewer cases, a reason written for every approval, the key fact shown next to each suggestion? Each one costs doctor time, and that's the price of standing in the loop. Chapter 4 calls the spot where you stood the <strong>human gate</strong>: the point where a person decides whether an AI's output goes forward.</p>
+  <p>A person in the loop is only a safeguard if they look. You can fail in two directions. Approving a bad suggestion because checking takes effort is <strong class="term-pink">automation bias</strong>. Overruling a good one because it looks strange is <strong class="term-pink">algorithmic aversion</strong>. Chapter 4 names both in <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a>. Minoxidil for hair loss looks strange, and it's the real repurposing from section 1. Real doctors fail the same two ways. And your shift had AI on every side of you: an AI drafted the visit note, an AI suggested the drug, and an AI sent the order. AI-drafted visit notes are becoming common in real clinics, and in a setup like this the doctor's click is often the only human check in the whole chain. Ask yourself the question every hospital has to answer: what would make the person in the loop actually catch things? Fewer cases, a reason written for every approval, the key fact shown next to each suggestion? Each one costs doctor time, and that's the price of standing in the loop. Chapter 4 calls the spot where you stood the <strong>human gate</strong>: the point where a person decides whether an AI's output goes forward.</p>
+</section>
+
+
+
+<section id="map">
+  <div class="shead"><span class="num">3</span><h2>In class: Ask Claude what Every Cure should study</h2></div>
+  <details class="srcnote noai">
+    <summary>Don't want to use AI? Do this instead</summary>
+    <div class="noai-body">
+      <p>Same 20 minutes, no chatbot, on your own. Use the disease box above: pick POEMS, then iMCD, and click the reveal for each. Then write a short reflection: <strong>is Every Cure's use of AI a good use of AI, or not? Why?</strong></p>
+      <p>Back it up with at least one thing you saw: the fact counts (1,029 for POEMS, 39 for iMCD), where MATRIX ranked the drugs Joseph's doctors used, or siltuximab ranking 994th for a disease it's approved to treat. Then name one thing that would make you trust it more.</p>
+    </div>
+  </details>
+  <p class="lead">In section 1 you built a tiny version of MATRIX, the system Every Cure runs on its knowledge graph, and in section 2 you were the person checking an AI's suggestions. Now you do both with real data. Below is the real thing, built from <a class="inline" href="https://huggingface.co/datasets/everycure/matrix-scores" target="_blank" rel="noopener">Every Cure's actual published data</a>. Every Cure publishes MATRIX's scores for about 39.5 million drug and disease pairs, and below are three diseases from it. Two are from Chapter 4's case: <strong>POEMS syndrome</strong>, the rare blood disorder Joseph had, and <strong>iMCD</strong>, the rare immune disorder Fajgenbaum has. The third, <strong>multiple myeloma</strong>, is a blood cancer that drug companies have studied for decades.</p>
+  <h3 class="sub" id="map-job"><span>Your job</span></h3>
+  <p>Imagine you're a data analyst at Every Cure. Your boss asks: <strong>for one disease, which drug should the team study first, and how sure should we be?</strong> You'll ask Claude for a recommendation, check it against the data and against what Every Cure's doctors actually did, and then decide whether you'd send Claude's answer to your boss as is. <strong>You're the person in the loop this time.</strong> Work with a partner if you want. About 20 minutes.</p>
+  <p class="sim-note"><strong>Disclaimer:</strong> This is research data, not medical advice. Every Cure says the same about its own scores. Don't type anything about your own health.</p>
+
+  <h3 class="sub" id="map-claude"><span>Ask Claude</span></h3>
+  <div class="steps">
+    <div class="step"><span class="sn">1</span><div class="sbody"><p><strong>Open Claude.</strong> Go to <a class="inline" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> and sign in with Google or your email. If you don't have an account, making a free one takes a minute.</p></div></div>
+    <div class="step"><span class="sn">2</span><div class="sbody"><p><strong>Tell Claude who you are.</strong> Type or paste this into Claude and <strong>send it before you move on to step 3</strong>. Claude will reply and wait for your data. It may ask you questions about the data, like what the columns mean. You don't need to answer them: what you paste next answers most of them. Giving an AI your role and your goal first gets you a much better answer.</p>
+      <div class="probe"><div class="ptext">I'm a business analyst at Every Cure, a nonprofit that finds new uses for old drugs. My boss wants to know which drug our team should study first for one disease, and how sure we should be. I'm going to paste our data next.</div></div></div></div>
+    <div class="step"><span class="sn">3</span><div class="sbody"><p><strong>Give it the data.</strong> In the box below, pick a disease (POEMS is a good first choice) and click <strong>Copy this for Claude</strong>. Paste it into Claude, but read it before you send. The last part is the prompt: it tells Claude to write your boss a short message with three labels, <strong>My pick</strong>, <strong>How sure we should be</strong>, and <strong>What to check before we act</strong>. Whatever you put there decides what you get. Then send it.</p>
+      <div class="callout mx-calm"><p>It's just text, like pasting a paragraph. Nothing to install, and you can't break anything. This is what analysts do every day now: hand an AI real data and ask it to make sense of it. Your job is to judge whether its answer is right.</p>
+      <p><em>(If Claude's answer is long or uses words you don't know, that's normal. Type "Explain that more simply" and send.)</em></p></div></div></div>
+  </div>
+
+  <div class="tool" id="mx">
+    <div class="label">The data box · Every Cure's MATRIX data · pick a disease</div>
+    <div class="chips" role="group" aria-label="Pick a disease" id="mx-pick"></div>
+    <div class="mx-card" id="mx-card" aria-live="polite"></div>
+    <div class="chips mx-ctrl">
+      <button type="button" class="btn lm-go" id="mx-copy">Copy this for Claude &rarr;</button>
+      <span class="tis-note" id="mx-status" aria-live="polite"></span>
+    </div>
+    <details class="exact mx-raw"><summary>See exactly what you're copying (or copy it by hand)</summary><textarea id="mx-text" readonly rows="10" aria-label="The text to paste into Claude"></textarea></details>
+    <div class="chips mx-ctrl"><button type="button" class="btn alt" id="mx-reveal" aria-pressed="false">Show what Every Cure's doctors actually used</button></div>
+    <div class="verdict" id="mx-out" aria-live="polite" hidden><div class="label">What Every Cure's doctors used</div><div id="mx-read"></div></div>
+    <p class="mx-ack">Data: <a class="inline" href="https://huggingface.co/everycure" target="_blank" rel="noopener">Every Cure</a>, MATRIX scores, drug list, disease list, and knowledge graph, public releases on Hugging Face, 2026. Used with thanks for teaching. Every Cure marks its scores for research use only; they are not medical advice. The slice, the counts, and any mistakes in them are mine.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step"><span class="sn">4</span><div class="sbody"><p><strong>Check it.</strong> Is Claude's pick in the data box above, with the rank it says? Did it guess about anything the data box doesn't show? Then click <strong>Show what Every Cure's doctors actually used</strong>. Would you send Claude's message to your boss as is?</p>
+      <details class="callout mx-why"><summary>Why use AI for this at all?</summary>
+        <p>This is a tiny slice: ten drugs, one disease. You could sort it in Excel in a minute and find the top-ranked drug yourself. The real data has about 39.5 million scores, far more than a spreadsheet can even open. Every Cure needs AI, MATRIX, just to score that many pairs, and analysts use tools like Claude to make sense of what comes out.</p>
+        <div class="mx-why-grid">
+          <div><p class="mx-why-h">Where AI helps</p><ul><li>Explains what the numbers mean in plain words</li><li>Weighs rank, fact count, and known treatments together</li><li>Writes a recommendation your boss can read</li><li>Answers your follow-up questions</li><li>Works at a scale no person could</li></ul></div>
+          <div><p class="mx-why-h">Where to be careful</p><ul><li>It can cite a number that isn't in your data</li><li>It can sound just as sure about thin data as thick data</li><li>It only knows what you pasted, not the studies behind it</li><li>It can name a study that doesn't exist</li><li>A confident recommendation still isn't evidence</li></ul></div>
+        </div>
+        <p>The sorting is the easy part. What Claude adds is the reasoning and how sure it sounds, and that's the part you need to check.</p>
+      </details></div></div>
+    <div class="step"><span class="sn">5</span><div class="sbody"><p><strong>Ask what the data misses.</strong> Send this:</p>
+      <div class="probe"><div class="ptext">Now go beyond the data I gave you. Look at published research on this disease. What does my data miss? Name up to two studies, with authors, year, and journal, and tell me how sure you are that each one exists.</div></div>
+      <p>Pick one study Claude names and look it up in <a class="inline" href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a> or the WWU library. Does it exist, and does it say what Claude says?</p>
+      <p>Then send one more:</p>
+      <div class="probe"><div class="ptext">Given what you just found, would you change the message to my boss? If so, rewrite it in the same format.</div></div>
+      <p>Put the two messages side by side. What changed once Claude looked past your data, and which one would you rather your boss read? <em>(Try this with iMCD too. Ask whether any drug is already approved for it, then find that drug in the data box when iMCD is picked.)</em></p></div></div>
+    <div class="step"><span class="sn">6</span><div class="sbody"><p><strong>Build something.</strong> Send this:</p>
+      <div class="probe"><div class="ptext">Build me a one-page interactive briefing for my boss, using only the data I pasted in this chat. Show a chart of where MATRIX ranked each drug, with the drugs from the studies you named highlighted. Put a three-sentence summary at the top: what we found, how sure we should be, and what to check before we act.</div></div>
+      <p>Click around what it makes, then check one bar against the numbers in the data box. A polished chart is easy to believe.</p></div></div>
+    <div class="step"><span class="sn">7</span><div class="sbody"><p><strong>Log out.</strong> These are shared machines, and Claude stays signed in for weeks. Click your initials in the bottom left and log out, or the next person in this seat gets your account.</p></div></div>
+  </div>
+
+  <h3 class="sub"><span>The takeaway</span></h3>
+  <p>The real MATRIX works like your graph in section 1, at scale, and it has the same blind spot. Where the record is thick, the data already knows the answers: myeloma has 43 drugs listed as known treatments. Where it's thin, iMCD has none, even though one drug was approved for it twelve years ago, and MATRIX ranks that drug 994th. Held to the data, Claude would recommend something else. Asked what it already knows, it can name the approved drug in seconds. What you let an AI see changes its answer. The model still ranks every drug for a thin disease, because a ranking always has a first place, and Claude will happily recommend whatever is on top. Nothing in the data says how far to trust it except the fact count. A low score can mean "no," or it can mean "nobody wrote it down under this name." Neither MATRIX nor Claude can tell which. You can, sometimes, if you check, and checking is the doctor in the loop's job, done by an analyst.</p>
 </section>
 
 <section id="hood">
-  <div class="shead"><span class="num">3</span><h2>In class: Under the hood, how each one worked</h2></div>
-  <p class="lead">You just used two machines. Here's what was inside each one, and how it maps to the real thing.</p>
+  <div class="shead"><span class="num">4</span><h2>In class: Under the hood, how each one worked, Claude included</h2></div>
+  <p class="lead">You've now used four things: your own knowledge graph and its small language model, the clinic's AI assistant, Every Cure's real MATRIX data, and Claude. Here's what was inside each one, and how they fit together.</p>
 
   <h3 class="sub" id="hood-graph"><span>1</span> The knowledge graph</h3>
-  <p>Look at "Everything it knows." That list is the whole machine. Each line is one sentence with three parts, a thing, an arrow, and another thing, and the picture is just those sentences drawn as dots and lines. Asking a question is one move repeated: start from anything you can take, follow the arrows, and see what reaches the problem. That's how it found minoxidil for hair loss without anyone telling it. The blood pressure pill had a side effect, somebody wrote it down, and the arrows did the rest. That's drug repurposing, the same thing Every Cure does in <a class="inline" href="chapter-04-medicine.html#s2-2">section 2.2</a>, and in real life it's how a blood pressure pill became Rogaine.</p>
+  <p>Look at "Everything your mini knowledge graph knows." That list is the whole machine. Each line is one sentence with three parts, a thing, an arrow, and another thing, and the picture is just those sentences drawn as dots and lines. Asking a question is one move repeated: start from anything you can take, follow the arrows, and see what reaches the problem. That's how a blood pressure pill shows up when you ask about hair loss. The pill had a side effect, somebody noticed it in patients and wrote it down, and now it's one line in the graph. That's drug repurposing, the same thing Every Cure does in <a class="inline" href="chapter-04-medicine.html#s2-2">section 2.2</a>, and in real life it's how a blood pressure pill became Rogaine.</p>
   <p>Coffee connects to trouble sleeping just as surely as Benadryl does, so a graph that only checked for connections would suggest both. Yours read each arrow as a plus or a minus and multiplied along the path, which is how it knew coffee makes sleep worse and Benadryl makes driving worse. Real systems like MATRIX read far more than plus and minus, and weight each line by how strong the evidence is, but the idea is the same. And it believed "Candy reduces pain" as readily as anything on the cards, because it has no way to check a sentence. It only has the sentences.</p>
   <p>The real MATRIX is built in four layers, and you played three of them today:</p>
   <ol class="discuss">
@@ -747,92 +991,26 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
   </ol>
   <p>So in the real system, a false fact doesn't need a student to add it. A program misreading one study summary can put it there, and unless that fact ends up in a top match someone reviews, the graph believes it as readily as "Candy reduces pain." The graph can only find what someone wrote down, and what gets written down depends on what someone paid to study.</p>
 
-  <h3 class="sub" id="hood-gate"><span>2</span> The doctor in the loop</h3>
+  <h3 class="sub" id="hood-lm"><span>2</span> The small language model</h3>
+  <p>The model under your graph is a very small version of how many companies now build chatbots on their own data. In this lab, training means the model reads your graph's sentences and keeps them to answer from. Real chatbots use a large language model, trained on far more text, to word the answer. The knowledge graph, or a database, finds the facts, and a language model puts them into plain words. Because it only answers from your graph, it can't make up a fact, which is why it said it wouldn't guess when nothing connected. But it recommended candy just as smoothly as Benadryl, because the graph told it to. And it kept recommending minoxidil after you deleted that fact, until you trained it again. Hooking a chatbot to your data makes it stick to the data. It doesn't make the data right, and it doesn't keep the data current.</p>
+
+  <h3 class="sub" id="hood-gate"><span>3</span> The doctor in the loop</h3>
   <p>No model here either. The eight patients are made up, and every suggestion comes straight from the graph's own facts, plus one from the candy sentence somebody typed in. Each right call turns on a single fact, which is why the facts stayed on screen. The Approve all button shows up halfway through on purpose. It's the temptation every busy reviewer faces: the suggestions have mostly been fine, the line is long, and checking takes effort. The real version is the "on the loop" setting, where people only look at what gets flagged, and the question is always who decides what gets flagged.</p>
+
+  <h3 class="sub" id="hood-claude"><span>4</span> Claude</h3>
+  <p>Claude is a large language model, a full-size version of the small one you trained in section 1. It learned from a huge amount of text, so it can read numbers it has never seen, explain them, and write them up for a boss in seconds. Three things shaped what you got back.</p>
+  <ol class="discuss">
+    <li><strong>The prompt.</strong> You told it who you are, what the data is, and exactly what to write. It did. Change the prompt and you change the answer.</li>
+    <li><strong>The data you pasted.</strong> When you said "based only on this data," it stuck to your data, and its pick was mostly whatever ranked first. It can only be as good as the ten rows you gave it.</li>
+    <li><strong>What it already knows.</strong> When you asked it to go beyond your data, it drew on its training, and sometimes a web search. That's how it can name a study or an approved drug your data leaves out. It's also how it can name a study that doesn't exist, which is why you checked one.</li>
+  </ol>
+  <p>Building the briefing page was the same move: it writes the code for a chart the way it writes a sentence, so the chart is only as right as the numbers underneath. Every Cure works this way at scale. MATRIX produces the scores, and people, sometimes with tools like Claude, decide what the scores mean and what to test.</p>
 </section>
-
-<section id="map">
-  <div class="shead"><span class="num">4</span><h2>In class: Every Cure's real scores, read with Claude</h2></div>
-  <p class="lead">Section 1 was MATRIX in miniature. This is the real thing. Every Cure publishes its model's scores for about 39.5 million drug and disease pairs, and below is a slice of them: 8 diseases, 20 drugs, and how much the knowledge graph knows about each one. Two of the diseases are from Chapter 4: POEMS syndrome, Joseph's disease, and iMCD, Fajgenbaum's. One, multiple myeloma, is a cancer that drug companies have studied for decades.</p>
-  <p>Here's your job. You're a data analyst at Every Cure, and the program director wants a short memo by the end of class: which three pairs in this slice deserve an expert's look first, and how far to trust each one. Claude does a first read. You check it against the grid, the same way you checked the knowledge graph's suggestions in section 2. About 20 minutes, in pairs.</p>
-  <p>This is research data, not medical advice. Every Cure says the same about its own scores. Keep to the data on the page, and don't type anything about your own health.</p>
-
-  <div class="tool" id="hm">
-    <div class="label">Every Cure's MATRIX scores · 8 diseases × 20 drugs · public release, July 2026</div>
-    <details class="stepsin" open>
-      <summary>Your job <span>read the grid before you open Claude</span></summary>
-      <div class="steps">
-        <div class="step"><span class="sn">1</span><p><strong>Find the gap.</strong> The Facts row counts how many facts in Every Cure's knowledge graph touch each disease. The columns run from thickest to thinnest. How many times more facts does myeloma have than iMCD?</p></div>
-        <div class="step"><span class="sn">2</span><p><strong>Find Joseph.</strong> Click POEMS. Joseph's doctors gave him carfilzomib, cyclophosphamide, and dexamethasone. Where does each one land?</p></div>
-        <div class="step"><span class="sn">3</span><p><strong>Read ranks, not scores.</strong> Press Show ranks. A score of 34 is 64th for POEMS, and a 25 is 24th for iMCD. Scores don't compare across columns. Ranks inside one column do.</p></div>
-      </div>
-    </details>
-    <p class="hm-key"><strong>Score:</strong> the model's estimate, from 0 to 100, that the drug treats the disease. It's a claim about the record, not a verdict about a patient. <strong>Rank:</strong> where the drug lands among all the drugs scored for that disease, about 1,750 of them. <span class="hm-k known">known</span> Every Cure's data already lists this drug as a treatment for this disease. Pairs the model learned from get no score, so the cell says known instead. <span class="hm-k neg">doesn't</span> The data lists it as a drug that doesn't treat this disease. <strong>Facts on drug:</strong> how many facts in the graph touch the drug.</p>
-    <p class="swipehint">Swipe the grid sideways to see every disease.</p>
-    <div class="hm-scroll" tabindex="0" role="region" aria-label="Score grid, 20 drugs by 8 diseases. Scrolls sideways on small screens.">
-      <table class="hm" id="hm-table">
-        <caption class="vh">MATRIX scores for 20 drugs and 8 diseases, with facts in the knowledge graph for each</caption>
-        <thead id="hm-head"></thead>
-        <tbody id="hm-body"></tbody>
-      </table>
-    </div>
-    <p class="hm-ack">Data: <a class="inline" href="https://huggingface.co/everycure" target="_blank" rel="noopener">Every Cure</a>, MATRIX scores, drug list, disease list, and knowledge graph, public releases on Hugging Face, 2026. Used with thanks for teaching. Every Cure marks its scores for research use only; they are not medical advice. The slice, the counts, and any mistakes in them are mine.</p>
-    <div class="chips hm-ctrl">
-      <button type="button" class="chip" id="hm-rank" aria-pressed="false">Show ranks</button>
-      <button type="button" class="chip" id="hm-tried" aria-pressed="false">Show what Every Cure's doctors used</button>
-      <button type="button" class="btn alt" id="hm-reset">Start over</button>
-    </div>
-    <div class="verdict" aria-live="polite">
-      <div class="label" id="hm-title">No disease picked yet</div>
-      <div id="hm-read"><p class="read">Click a disease name at the top of a column to read that column.</p></div>
-    </div>
-    <div class="chips hm-ctrl">
-      <button type="button" class="btn" id="hm-copy">Copy the data for Claude</button>
-      <span class="tis-note" id="hm-status" aria-live="polite"></span>
-    </div>
-    <details class="exact hm-raw">
-      <summary>Can't copy? Show the data</summary>
-      <textarea id="hm-text" readonly rows="8" aria-label="The data for Claude, as text"></textarea>
-    </details>
-  </div>
-
-  <h3 class="sub" id="map-claude"><span>Read it with Claude</span></h3>
-  <div class="steps">
-    <p class="grp">Before you start</p>
-    <div class="step"><span class="sn">1</span><div class="sbody"><p><strong>Open Claude.</strong> Go to <a class="inline" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> and sign in with Google or your email. If you don't have an account, making a free one takes a minute.</p></div></div>
-    <p class="grp">Let it read</p>
-    <div class="step"><span class="sn">2</span><div class="sbody"><p><strong>Hand it the data.</strong> Press Copy the data for Claude. In Claude, type this prompt, paste the data under it, and send. Then check: does its explanation of rank and known match the key above the grid?</p>
-      <div class="probe"><div class="ptext">I'm an analyst at a nonprofit that looks for new uses for old drugs. Below is a slice of real model scores. Before you draw any conclusions, explain in plain words what each column means, and list three things this data can't tell me.</div></div></div></div>
-    <div class="step"><span class="sn">3</span><div class="sbody"><p><strong>Thick and thin.</strong> Send this. Check every number it uses against the Facts row.</p>
-      <div class="probe"><div class="ptext">Which diseases are thick with evidence and which are thin? For the two thinnest, what does a low score mean? Use only numbers from the table.</div></div></div></div>
-    <div class="step"><span class="sn">4</span><div class="sbody"><p><strong>The shortlist.</strong> Write your own three picks first, before you read Claude's. Then send this.</p>
-      <div class="probe"><div class="ptext">My boss wants a shortlist: the three pairs not already known as treatments that most deserve an expert's look first. For each one, give a confidence flag (high, medium, or low) and one sentence of reasoning that uses only numbers from the table.</div></div></div></div>
-    <p class="grp">Check its work</p>
-    <div class="step"><span class="sn">5</span><div class="sbody"><p><strong>Check every number.</strong> For each number Claude used, find the cell in the grid. Write down any that don't match. Did any of its picks come from a thin column, and if so, did it flag that pick as low confidence?</p></div></div>
-    <div class="step"><span class="sn">6</span><div class="sbody"><p><strong>The reveal.</strong> Press Show what Every Cure's doctors used. A star marks a drug that Every Cure's own leaders have used for that disease in real patients, taken from Every Cure's published list. Did your picks or Claude's land on a star? Then send this:</p>
-      <div class="probe"><div class="ptext">Here's something from outside the table. Siltuximab was approved by the FDA in 2014 for iMCD. In this table it scores under 1 for iMCD and ranks 994th. Give me possible reasons. Label each one either "the table shows this" or "I'm guessing."</div></div>
-      <p>Read the labels. Can you tell from the page which reason is right?</p></div></div>
-    <p class="grp">Then</p>
-    <div class="step"><span class="sn">7</span><div class="sbody"><p><strong>Decide.</strong> Write the memo to your program director in three sentences: your three picks, each with a confidence flag and the one number behind it (they can differ from Claude's), and one thing this slice can't tell her.</p></div></div>
-    <div class="step"><span class="sn">8</span><div class="sbody"><p><strong>Log out.</strong> These are shared machines, and Claude stays signed in for weeks. Click your initials in the bottom left and log out, or the next person in this seat gets your account.</p></div></div>
-  </div>
-
-  <details class="srcnote noai">
-    <summary>Don't want to use AI? Do this instead</summary>
-    <div class="noai-body">
-      <p>Same memo, no chatbot, about 20 minutes, on your own. Do steps 1 to 3 in Your job above. Write your three picks, each with a confidence flag and the one number behind it. Press Show what Every Cure's doctors used and check your picks against the stars. Then answer the siltuximab question yourself: it was approved by the FDA in 2014 for iMCD, and it ranks 994th here. Write two possible reasons, and say which one, if either, the grid can actually show.</p>
-    </div>
-  </details>
-
-  <h3 class="sub"><span>The takeaway</span></h3>
-  <p>The real MATRIX works like your graph in section 1, at scale, and it has the same blind spot. Where the record is thick, the data already knows the answers: myeloma has 43 drugs listed as known treatments. Where it's thin, iMCD has none, even though one drug was approved for it twelve years ago. The model still ranks every drug in a thin column, because a ranking always has a first place. Nothing on the screen says how far to trust it except the Facts row. And the three drugs written about least in this slice, daratumumab, carfilzomib, and siltuximab, rank lowest on average, though all three are on Every Cure's list of drugs its doctors have used. A low score can mean "no," or it can mean "nobody wrote it down under this name." The model can't tell which. You can, sometimes, if you check, and checking is the doctor in the loop's job, done by an analyst.</p>
-</section>
-
 
 <section id="debate">
   <div class="shead"><span class="num">5</span><h2>In class: Debate</h2></div>
   <p class="lead"><strong>Should regulators stop requiring a doctor to sign off on an AI's diagnosis?</strong> Left half of the room is Side A, right half is Side B. In groups of 2 or 3, count off 1 to 4: that number is your piece of evidence below. The Gilman Street rules apply.</p>
-  <p>Monday's Every Cure case had a person at every gate. MATRIX ranked the drugs; Fajgenbaum's team read the ranking, Joseph's doctors decided to give the chemotherapy, and Joseph agreed to it. In August 2026, <a class="inline" href="https://jamanetwork.com/journals/jama/fullarticle/2852952?guestAccessKey=562af865-a038-4425-993f-ff25e5e3a130" target="_blank" rel="noopener">a viewpoint in <em>JAMA</em></a>, one of the biggest medical journals, argued that for thinking work like diagnosis, that person may be making the answer worse. Its authors wrote that "AI-alone medical care is likely to be better than physician-only or physician-AI hybrid care," and they asked regulators to stop requiring a doctor in the loop by default. In section 2 you were the doctor in the loop. Today you decide whether the rule that put you there should stay.</p>
+  <p>Monday's Every Cure case had a person at every gate. MATRIX ranked the drugs; Fajgenbaum's team read the ranking, Joseph's doctors decided to give the chemotherapy, and Joseph agreed to it. In August 2026, <a class="inline" href="https://jamanetwork.com/journals/jama/fullarticle/2852952?guestAccessKey=562af865-a038-4425-993f-ff25e5e3a130" target="_blank" rel="noopener">a viewpoint in <em>JAMA</em></a>, one of the most highly respected and highly ranked medical journals, argued that for thinking work like diagnosis, that person may be making the answer worse. Its authors wrote that "AI-alone medical care is likely to be better than physician-only or physician-AI hybrid care," and they asked regulators to stop requiring a doctor in the loop by default. In section 2 you were the doctor in the loop. Today you decide whether the rule that put you there should stay.</p>
 
   <div class="sides">
     <div class="side">
@@ -854,32 +1032,70 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
   <p>Every side gets all four. If your number hands you evidence that seems to help the other side, that's your job today: find what it means for yours, and what your side would rather nobody noticed.</p>
   <div class="probe ev">
     <div class="pwhy">Evidence 1 &middot; The JAMA viewpoint and the study behind it</div>
-    <div class="ptext">Four authors wrote it: Ezekiel Emanuel, an oncologist and bioethicist at Penn; Abe Baker-Butler, a research fellow; Neal Khosla, CEO of the AI health company Curai; and Vinod Khosla, an investor in Curai. They disclosed their interests. Their strongest evidence is a 2024 study in <em>JAMA Network Open</em>: 50 doctors got up to six hard patient cases, written up as summaries, and an hour to work them. Doctors alone scored 74 percent on a diagnostic reasoning scoresheet. Doctors using GPT-4 scored 76. GPT-4 alone scored about 90. The study's own authors cautioned against reading that as a reason to let AI diagnose without a doctor. Chapter 4, <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a>.</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> on written-up cases, AI alone scored higher than doctors.</p>
+      <div class="ev-stats"><div><b>74</b><span>doctors alone</span></div><div><b>76</b><span>doctors using GPT-4</span></div><div><b>about 90</b><span>GPT-4 alone</span></div></div>
+      <ul class="ev-facts">
+        <li><b>The study:</b> 2024, <em>JAMA Network Open</em>. 50 doctors, up to six hard patient cases written up as summaries, one hour. Scores are percent on a diagnostic reasoning scoresheet.</li>
+        <li><b>Who's citing it:</b> Ezekiel Emanuel (oncologist and bioethicist, Penn), Abe Baker-Butler (research fellow), Neal Khosla (CEO of the AI health company Curai), and Vinod Khosla (an investor in Curai). They disclosed their interests.</li>
+        <li><b>The catch:</b> the study's own authors cautioned against reading it as a reason to let AI diagnose without a doctor.</li>
+      </ul>
+      <p class="ev-src">Chapter 4, <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a></p>
+    </div>
     <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
     <div class="ev-prompt">I'm in a class debate: Should regulators stop requiring a doctor to sign off on an AI's diagnosis? I'm on Side [A: yes, for diagnosis / B: no, keep the doctor in the loop]. My evidence is the JAMA viewpoint from August 2026, which argues regulators should stop requiring a doctor in the loop for diagnosis, and the 2024 JAMA Network Open study it relies on, where doctors alone scored 74, doctors using GPT-4 scored 76, and GPT-4 alone scored about 90 on hard written-up cases. Two of the four authors run or fund an AI health company. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
   </div>
   <div class="probe ev">
     <div class="pwhy">Evidence 2 &middot; The pushback</div>
-    <div class="ptext">Six major doctors' groups, including the American Medical Association, answered that most of the evidence comes from written-up practice cases, not real patients in real hospitals. Robert Wachter, who runs UCSF's department of medicine and advises Curai, agreed that given a clean set of facts the AI often wins. Then he named two problems. First, garbage in, garbage out: the 90 was scored on cases a doctor had already boiled down. In an Oxford study he cites, when ordinary people described the same cases in their own words, the AI made the wrong call about two-thirds of the time. Second, the doorman fallacy: a person does a dozen other things that only look unimportant until you remove them. Chapter 4, <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a>.</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> clean written-up cases aren't real patients.</p>
+      <ul class="ev-facts">
+        <li><b>The doctors' groups:</b> six of them, including the American Medical Association, said most of the evidence comes from written-up practice cases, not real patients in real hospitals.</li>
+        <li><b>Robert Wachter</b> (runs UCSF's department of medicine, advises Curai) agreed that given a clean set of facts, the AI often wins. Then he named two problems:</li>
+        <li><b>Garbage in, garbage out:</b> the 90 was scored on cases a doctor had already boiled down. In an Oxford study, when ordinary people described the same cases in their own words, the AI made the wrong call about two-thirds of the time.</li>
+        <li><b>The doorman fallacy:</b> a person does a dozen other things that only look unimportant until you remove them.</li>
+      </ul>
+      <p class="ev-src">Chapter 4, <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a></p>
+    </div>
     <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
     <div class="ev-prompt">I'm in a class debate: Should regulators stop requiring a doctor to sign off on an AI's diagnosis? I'm on Side [A: yes, for diagnosis / B: no, keep the doctor in the loop]. My evidence is the pushback to the JAMA viewpoint: six doctors' groups including the AMA said the evidence is mostly simulated cases, and Robert Wachter of UCSF argued the AI's high score came from cases a doctor had already boiled down. In an Oxford study, when ordinary people described the cases in their own words, the AI made the wrong call about two-thirds of the time. He also named the doorman fallacy. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
   </div>
   <div class="probe ev">
     <div class="pwhy">Evidence 3 &middot; Three hospital trials</div>
-    <div class="ptext">Three randomized trials moved the human on purpose, with real patients. In Sweden's MASAI trial, 105,000 women, an AI sorted mammograms by risk and one radiologist read the low-risk ones instead of two: 29 percent more cancers found, no more false alarms, 44 percent less reading work. In a fetal brain ultrasound trial at five hospitals in China, an AI beside the sonographer during the scan caught about nine points more real problems than the same AI used as a second look afterward. In England's PROMETHEUS trial, an AI that measured as the sonographer scanned didn't change accuracy in a way the trial could confirm, but scans took eleven minutes instead of twenty. Chapter 4, Table 3 in <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a>.</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> where you put the human changes the result. All three are randomized trials with real patients.</p>
+      <div class="ev-tablewrap"><table class="ev-table">
+        <thead><tr><th scope="col">Trial</th><th scope="col">Where the human was</th><th scope="col">What happened</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">MASAI<small>Sweden, 105,000 women</small></th><td><span class="ev-loop">On the loop</span>An AI sorted mammograms into low risk and high risk. Low-risk ones got one radiologist instead of the usual two.</td><td>Found <b>29% more cancers</b>. No more false alarms. Radiologists did <b>44% less reading</b>.</td></tr>
+          <tr><th scope="row">Fetal brain ultrasound<small>five hospitals, China</small></th><td><span class="ev-loop">In the loop, two ways</span>Way 1: the AI helped the sonographer during the scan. Way 2: the same AI checked the images afterward.</td><td>Using the AI during the scan caught more real problems: about <b>9 more out of every 100</b>.</td></tr>
+          <tr><th scope="row">PROMETHEUS<small>England</small></th><td><span class="ev-loop">In the loop</span>The AI took measurements while the sonographer scanned.</td><td>Accuracy: no clear difference. Speed: scans took <b>11 minutes instead of 20</b>.</td></tr>
+        </tbody>
+      </table></div>
+      <p class="ev-src">Chapter 4, Table 3 in <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a></p>
+    </div>
     <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
     <div class="ev-prompt">I'm in a class debate: Should regulators stop requiring a doctor to sign off on an AI's diagnosis? I'm on Side [A: yes, for diagnosis / B: no, keep the doctor in the loop]. My evidence is three randomized hospital trials that moved the human on purpose: MASAI in Sweden, where moving a radiologist on the loop found 29 percent more cancers with 44 percent less reading work; a fetal ultrasound trial in China, where an AI used live beside the sonographer beat the same AI used afterward; and PROMETHEUS in England, where scans got faster but accuracy didn't measurably change. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
   </div>
   <div class="probe ev">
     <div class="pwhy">Evidence 4 &middot; Every Cure's human gate</div>
-    <div class="ptext">MATRIX scores tens of millions of drug and disease pairs, and a score is a claim about the record, not a verdict about a patient. Every match goes through people before it goes near anyone. For Joseph, Fajgenbaum had already thought of the three chemotherapy drugs before the ranking agreed with him, and the decision to give chemotherapy to a man that sick was made by doctors who knew him, with Joseph's consent. Chapter 4 says someone qualified has to own every decision a score informs. It also says a high score can become cover for a risky decision. Chapter 4, <a class="inline" href="chapter-04-medicine.html#s3">section 3</a>.</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> Every Cure kept a person at every gate.</p>
+      <ul class="ev-facts">
+        <li><b>The system:</b> MATRIX scores tens of millions of drug and disease pairs. A score is a claim about the record, not a verdict about a patient.</li>
+        <li><b>The gate:</b> every match goes through people before it goes near anyone.</li>
+        <li><b>Joseph:</b> Fajgenbaum had already thought of the three chemotherapy drugs before the ranking agreed with him. Doctors who knew Joseph made the call to give chemotherapy to a man that sick, and Joseph consented.</li>
+        <li><b>The rule, and its risk:</b> Chapter 4 says someone qualified has to own every decision a score informs. It also says a high score can become cover for a risky decision.</li>
+      </ul>
+      <p class="ev-src">Chapter 4, <a class="inline" href="chapter-04-medicine.html#s3">section 3</a></p>
+    </div>
     <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
     <div class="ev-prompt">I'm in a class debate: Should regulators stop requiring a doctor to sign off on an AI's diagnosis? I'm on Side [A: yes, for diagnosis / B: no, keep the doctor in the loop]. My evidence is Every Cure's MATRIX, a knowledge graph that ranks old drugs for new diseases. Every match goes through people before it reaches a patient. In the case of Joseph, a patient with POEMS syndrome, the doctor had already thought of the drugs the ranking agreed with, and doctors who knew him made the call to treat. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
   </div>
 
   <div class="callout">
     <div class="label">Push your thinking with Claude</div>
-    <p>In section 4 you checked Claude's numbers against the grid. Here, turn it around: tell Claude to argue against you. It's one of the fastest ways out of your own bubble, because it will find the other side's best point before they do. If it cites a study you plan to use, look it up in Google Scholar or the WWU library and check that it says what Claude says it says.</p>
+    <p>In section 3 you checked Claude's numbers against the grid. Here, turn it around: tell Claude to argue against you. It's one of the fastest ways out of your own bubble, because it will find the other side's best point before they do. If it cites a study you plan to use, look it up in Google Scholar or the WWU library and check that it says what Claude says it says.</p>
     <ol>
       <li>Send the sample prompt under your evidence card, with your side filled in.</li>
       <li>Then make it argue against you:</li>
@@ -935,7 +1151,7 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
       <li><strong>The knowledge graph.</strong> In your own words, explain what a knowledge graph is and how yours answered a question. Use two examples from today: a question where two things connected but only one helped, and how the graph told them apart, and what happened to the hair-loss answer when you removed one sentence.</li>
       <li><strong>The doctor in the loop.</strong> How many bad suggestions did you approve, and how many good ones did you overrule? Did you press Approve all? Pick one patient you got wrong, or almost got wrong, and say what would have made you catch it. Then name what that fix would cost in a real hospital.</li>
       <li><strong>The debate.</strong> Which side were you handed, and what was the other side's best point? Name the specific evidence that would change your mind about whether a doctor should sign off on an AI's diagnosis. Did Claude's pushback find the weak spot in your case before the other side did?</li>
-      <li><strong>Your sentences.</strong> The true sentence and the false sentence you fed it, and what it did with each. Then section 4: how many of the numbers Claude cited matched the grid, and what did it say about siltuximab? One sentence on what both mean for a system like MATRIX, or Claude, reading millions of sentences nobody checks one by one.</li>
+      <li><strong>Your sentences.</strong> The true sentence and the false sentence you fed it, and what it did with each. Then section 3: was Claude's message right about the card, did the study you checked exist, and would you have sent it to your boss as is? (No-AI path: your answer on whether Every Cure's use of AI is a good one.) One sentence on what both mean for a system like MATRIX, or Claude, reading millions of sentences nobody checks one by one.</li>
       <li><strong>Your commitment card.</strong> Pick a setting you know: a classroom, a job you've had, a team, a store, anything. Imagine an AI could do the main thinking part of that work better than the people there. What is the person still for? Name one thing, say why an AI shouldn't take it over, and what it costs to keep a person doing it. Three sentences. Hold onto it: Chapter 7 asks the same question about a car.</li>
   </ol>
   <div class="callout">
@@ -952,16 +1168,19 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
     <p class="srcintro">This lab's own outside claims have not yet had a dated verification pass; the fact cards and the diagnosis scores in section 2 are the first things to check. Everything else comes from Chapter 4, which carries its own dated note.</p>
     <dl>
       <dt>The knowledge graph (section 1)</dt>
-      <dd>Self-contained, no network calls, nothing persists. The fourteen facts are standard pharmacology, simplified to one line each: diphenhydramine (Benadryl) is an antihistamine, and brain histamine promotes wakefulness, which is why it causes drowsiness and is the active ingredient in sleep aids such as ZzzQuil; caffeine blocks adenosine receptors; minoxidil is a blood-pressure drug that widens blood vessels, and hair growth seen in patients taking it led to its use for hair loss (Rogaine); ibuprofen reduces inflammation and can irritate the stomach. The plus-and-minus reading is a teaching simplification, not how MATRIX scores. No links yet; check each line against the drug's label before the next term.</dd>
+      <dd>Self-contained, no network calls, nothing persists. The thirteen facts are standard pharmacology, simplified to one line each: diphenhydramine (Benadryl) is an antihistamine, and brain histamine promotes wakefulness, which is why it causes drowsiness and is the active ingredient in sleep aids such as ZzzQuil; caffeine blocks adenosine receptors; minoxidil is a blood-pressure drug that widens blood vessels, and hair growth seen in patients taking it led to its use for hair loss (Rogaine); ibuprofen reduces inflammation and can irritate the stomach. The plus-and-minus reading is a teaching simplification, not how MATRIX scores. No links yet; check each line against the drug's label before the next term.</dd>
 
       <dt>The doctor in the loop (section 2)</dt>
       <dd>Rebuilt 3 October 2026, replacing the four-card hospital budget. No model. The eight patients are invented, and each right call follows from the lab's own fact cards, which are simplified pharmacology and not medical advice. The 74 / 76 / 90 diagnostic reasoning scores are from Goh et al., JAMA Network Open, October 2024, as reported in the JAMA viewpoint of August 2026.</dd>
 
-      <dt>How MATRIX is built (section 3)</dt>
+      <dt>How MATRIX is built (section 4)</dt>
       <dd>Checked 3 October 2026. MATRIX's graph draws on several source graphs, including RTX-KG2 and ROBOKOP (Every Cure, MATRIX documentation, docs.dev.everycure.org). RTX-KG2 integrates 70 knowledge sources, including UMLS, ChEMBL, DrugBank, and SemMedDB (Wood et al., BMC Bioinformatics, 2022). SemMedDB's facts were extracted automatically from the titles and abstracts of all PubMed citations by SemRep, a rule-based program (Kilicoglu et al., Bioinformatics, 2012). Every Cure's pair-scoring models include a transformer-based path classifier (MATRIX release notes, v0.12.0, November 2025). The section's "summary of every study" is SemMedDB's titles and abstracts, simplified.</dd>
 
-      <dt>Every Cure's scores (section 4)</dt>
-      <dd>Added 9 October 2026, replacing the Claude concentration map. Extracted 9 October 2026 from Every Cure's public datasets on Hugging Face: <a class="inline" href="https://huggingface.co/datasets/everycure/matrix-scores" target="_blank" rel="noopener">matrix-scores</a> (MATRIX pipeline output, about 39.5 million pairs, last updated 1 July 2026, commit d6b121b), <a class="inline" href="https://huggingface.co/datasets/everycure/drug-list" target="_blank" rel="noopener">drug-list</a> (10 September 2026, commit 25640b3), <a class="inline" href="https://huggingface.co/datasets/everycure/disease-list" target="_blank" rel="noopener">disease-list</a> (3 August 2026, commit c302a04), and <a class="inline" href="https://huggingface.co/datasets/everycure/kg-edges" target="_blank" rel="noopener">kg-edges</a> (28 May 2026, commit fcd0585). Score is untransformed_treat_score times 100, rounded, shown as &lt;1 below 1. Rank is rank_drug, the pair's rank by Every Cure's final score among all drugs scored for that disease. Known means the pair is a training positive (these rows carry no score in this release), on Every Cure's indications list, or a documented off-label use; "doesn't" is is_known_negative. Facts in graph counts kg-edges rows with the disease's MONDO id as subject or object; publications counts distinct publication ids cited on those rows; facts on drug counts rows touching the drug's id. Disease ids: myeloma MONDO:0009693, angiosarcoma 0016982, POEMS 0017364, Rosai-Dorfman 0006412, Erdheim-Chester 0018153, DADA2 0014306, iMCD 0035838, localized Castleman 0019753. Siltuximab's known-treatment flag sits on the parent entry, Castleman disease (MONDO:0015564), not on iMCD. The stars and Joseph's three drugs come from Every Cure, <a class="inline" href="https://everycure.org/treatments-repurposed-by-every-cure-leadership/" target="_blank" rel="noopener">Treatments Repurposed by Every Cure Leadership</a>, checked 9 October 2026, which also says an early version of its algorithms scored carfilzomib, cyclophosphamide, and dexamethasone and related agents high for POEMS; this release ranks carfilzomib 194th. Siltuximab (Sylvant) was approved by the FDA on 23 April 2014 for multicentric Castleman disease in patients who are HIV-negative and HHV-8-negative, which is iMCD (<a class="inline" href="https://www.onclive.com/view/fda-approves-siltuximab-for-multicentric-castlemans-disease" target="_blank" rel="noopener">OncLive, April 2014</a>). Licenses: drug-list and disease-list are CC BY 4.0; kg-edges is CC BY 4.0 for Every Cure's integration, with upstream source licenses still governing their content (only counts are used here); matrix-scores declares no license on its dataset card and is marked research use only; it is shown here with attribution for teaching, and the acknowledgement sits under the grid. Claude's answers vary by run and model version; nothing in the section depends on a specific answer.</dd>
+      <dt>The pharmacy agent (section 2)</dt>
+      <dd>Added 9 October 2026. The agent in the simulator is invented and only writes a log. The real-world comparison: Utah's Department of Commerce announced a partnership with Doctronic in January 2026 letting its AI renew certain prescriptions for chronic conditions inside the state's regulatory sandbox, with physicians reviewing the first 250 renewal decisions in each drug class before the system works on its own (<a class="inline" href="https://www.medicaleconomics.com/view/utah-lets-ai-refill-chronic-prescriptions-in-state-backed-pilot-program" target="_blank" rel="noopener">Medical Economics, 8 January 2026</a>). Renewals are sent electronically to the patient's pharmacy (Doctronic, Utah AI Prescription Refill Program page). Utah's medical licensing board said it learned of the program from news coverage, and the AMA has raised concerns (<a class="inline" href="https://thenextweb.com/news/utah-ai-prescription-refills-doctronic" target="_blank" rel="noopener">The Next Web, citing the Associated Press</a>). Checked 9 October 2026; a live pilot, so re-check before each term.</dd>
+
+      <dt>Every Cure's scores (section 3)</dt>
+      <dd>Added 9 October 2026, replacing the Claude concentration map. Extracted 9 October 2026 from Every Cure's public datasets on Hugging Face: <a class="inline" href="https://huggingface.co/datasets/everycure/matrix-scores" target="_blank" rel="noopener">matrix-scores</a> (MATRIX pipeline output, about 39.5 million pairs, last updated 1 July 2026, commit d6b121b), <a class="inline" href="https://huggingface.co/datasets/everycure/drug-list" target="_blank" rel="noopener">drug-list</a> (10 September 2026, commit 25640b3), <a class="inline" href="https://huggingface.co/datasets/everycure/disease-list" target="_blank" rel="noopener">disease-list</a> (3 August 2026, commit c302a04), and <a class="inline" href="https://huggingface.co/datasets/everycure/kg-edges" target="_blank" rel="noopener">kg-edges</a> (28 May 2026, commit fcd0585). Score is untransformed_treat_score times 100, rounded, shown as &lt;1 below 1. Rank is rank_drug, the pair's rank by Every Cure's final score among all drugs scored for that disease. Known means the pair is a training positive (these rows carry no score in this release), on Every Cure's indications list, or a documented off-label use; "doesn't" is is_known_negative. Facts in graph counts kg-edges rows with the disease's MONDO id as subject or object; publications counts distinct publication ids cited on those rows; facts on drug counts rows touching the drug's id. Disease ids: myeloma MONDO:0009693, POEMS 0017364, DADA2 0014306, iMCD 0035838, localized Castleman 0019753. Trimmed 9 October 2026 from an 8-disease, 20-drug extract (the CSV kept with the course files); students see POEMS, iMCD, and myeloma, with the same ten drugs each. Siltuximab's known-treatment flag sits on the parent entry, Castleman disease (MONDO:0015564), not on iMCD. The stars and Joseph's three drugs come from Every Cure, <a class="inline" href="https://everycure.org/treatments-repurposed-by-every-cure-leadership/" target="_blank" rel="noopener">Treatments Repurposed by Every Cure Leadership</a>, checked 9 October 2026, which also says an early version of its algorithms scored carfilzomib, cyclophosphamide, and dexamethasone and related agents high for POEMS; this release ranks carfilzomib 194th. Siltuximab (Sylvant) was approved by the FDA on 23 April 2014 for multicentric Castleman disease in patients who are HIV-negative and HHV-8-negative, which is iMCD (<a class="inline" href="https://www.onclive.com/view/fda-approves-siltuximab-for-multicentric-castlemans-disease" target="_blank" rel="noopener">OncLive, April 2014</a>). Licenses: drug-list and disease-list are CC BY 4.0; kg-edges is CC BY 4.0 for Every Cure's integration, with upstream source licenses still governing their content (only counts are used here); matrix-scores declares no license on its dataset card and is marked research use only; it is shown here with attribution for teaching, and the acknowledgement sits under the grid. Claude's answers vary by run and model version; nothing in the section depends on a specific answer.</dd>
 
       <dt>The debate (section 5)</dt>
       <dd>The debate was replaced the same day with a group discussion on what the doctor is for, and restored on 9 October 2026 as section 5's debate (should regulators stop requiring a doctor to sign off on an AI's diagnosis?), in the Lab 2 &amp; 3 format: assigned sides, four evidence cards, and timed rounds. Its 74 / 76 / 90 figures are the same Goh et al. scores used in section 2, and the JAMA viewpoint is Emanuel, Baker-Butler, N. Khosla, and V. Khosla, "Will Autonomous AI Exceed AI-Aided Physicians as the Best Medical Care?", JAMA 2026;336(11):915-918, published online August 17, 2026, doi:10.1001/jama.2026.15380. The quoted line was checked word for word against the article on 3 October 2026. The student link uses a guest access key, which may expire; the DOI is the stable fallback. Neal Khosla is CEO of Curai Health; Vinod Khosla founded Khosla Ventures and has invested in Curai. The pushback is the joint statement from AAFP, AAP, ACOG, ACP, ACS, and AMA (Medical Economics, October 2026), which cites the limits of simulation-based evidence. Goh et al. report 74 and 76, and the model alone 16 points above 74; some coverage reports the model's median as 92.</dd>
@@ -969,7 +1188,7 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
       <dt>Chapter claims used here</dt>
       <dd>The knowledge graph, the score as a claim about the record, the gap, and the debate's setup and four evidence cards (the JAMA viewpoint and Goh et al.; the doctors' groups and Wachter; the MASAI, fetal ultrasound, and PROMETHEUS trials; Every Cure's human gate) come from <a class="inline" href="chapter-04-medicine.html">Chapter 4</a>, which carries its own verification note.</dd>
     </dl>
-    <p class="srcfoot">Most likely to need checking first: the fourteen fact cards, which have no links yet, and the 74 / 76 / 90 scores in section 2, which reach this lab secondhand. If Chapter 4's case is corrected, sections 1 and 2 have to be checked against it.</p>
+    <p class="srcfoot">Most likely to need checking first: the thirteen fact cards, which have no links yet, and the 74 / 76 / 90 scores in section 2, which reach this lab secondhand. If Chapter 4's case is corrected, sections 1 and 2 have to be checked against it.</p>
   </div>
 </details>
 
@@ -1004,8 +1223,7 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
     {a:'sleepiness', v:'causes', s:1, b:'drowsy driving'},
     {a:'Minoxidil', v:'causes', s:1, b:'wider blood vessels'},
     {a:'wider blood vessels', v:'reduce', s:-1, b:'high blood pressure', short:'reduces'},
-    {a:'Minoxidil', v:'causes', s:1, b:'hair growth', note:'doctors noticed it in blood pressure patients'},
-    {a:'hair growth', v:'reduces', s:-1, b:'hair loss'},
+    {a:'Minoxidil', v:'reduces', s:-1, b:'hair loss', note:'doctors noticed it in blood pressure patients'},
     {a:'Ibuprofen', v:'reduces', s:-1, b:'inflammation'},
     {a:'inflammation', v:'causes', s:1, b:'pain'},
     {a:'Ibuprofen', v:'causes', s:1, b:'stomach upset'}
@@ -1025,13 +1243,18 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
     E.forEach(function(f){ names[norm(f.a)].outs.push(f); names[norm(f.b)].ins.push(f); });
     return {E:E, N:names, order:order};
   }
-  function kindOf(n){ if(!n.ins.length) return 'drug'; if(!n.outs.length) return 'dis'; return 'bio'; }
+  // The fourteen cards' things keep a fixed kind, so a half-built graph doesn't turn adenosine into a pill or histamine into a problem.
+  // A student's own new things are read from where they sit: nothing points in, it's taken; nothing points out, it's a problem.
+  var KIND = {'benadryl':'drug','caffeine':'drug','minoxidil':'drug','ibuprofen':'drug',
+    'histamine':'bio','adenosine':'bio','sleepiness':'bio','wider blood vessels':'bio','inflammation':'bio',
+    'allergy symptoms':'dis','trouble sleeping':'dis','drowsy driving':'dis','high blood pressure':'dis','hair loss':'dis','pain':'dis','stomach upset':'dis'};
+  function kindOf(n){ if(KIND[n.key]) return KIND[n.key]; if(!n.ins.length) return 'drug'; if(!n.outs.length) return 'dis'; return 'bio'; }
 
   // every simple path from a starting thing to the target, following arrows, up to 5 hops
   function pathsTo(G, target){
     var out = [];
     G.order.forEach(function(k){
-      var n = G.N[k]; if(n.ins.length || k===target) return;
+      var n = G.N[k]; if(kindOf(n)!=='drug' || k===target) return;
       (function walk(node, seen, trail){
         if(trail.length>5) return;
         if(node===target && trail.length){ out.push({from:k, facts:trail.slice()}); return; }
@@ -1062,7 +1285,7 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
           return bary(p)-bary(q);
         });
       }
-      var x = cols.length===1 ? 390 : 90 + ci*(600/(cols.length-1));
+      var x = 90 + ci*(600/Math.max(cols.length-1, 3)); // a fixed step, so a two-fact graph doesn't stretch across the whole box
       col.forEach(function(k, ri){ pos[k] = {x:x, y:top + ri*rowH}; });
     });
     var h = top + Math.max.apply(null, cols.map(function(c){ return c.length; }).concat([1]))*rowH;
@@ -1077,12 +1300,33 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
     G.E.forEach(function(f){
       var p = pos[norm(f.a)], q = pos[norm(f.b)];
       var dx = q.x-p.x, dy = q.y-p.y, d = Math.sqrt(dx*dx+dy*dy)||1, r = 10;
-      var x1 = p.x + dx/d*r, y1 = p.y + dy/d*r, x2 = q.x - dx/d*(r+3), y2 = q.y - dy/d*(r+3);
+      // Does a straight line pass through another dot? Then bend the line around it.
+      var hit = Object.keys(pos).some(function(k){ if(k===norm(f.a)||k===norm(f.b)) return false; var o=pos[k], t=((o.x-p.x)*dx+(o.y-p.y)*dy)/(d*d); if(t<0.05||t>0.95) return false; var px=p.x+t*dx-o.x, py=p.y+t*dy-o.y; return Math.sqrt(px*px+py*py)<18; });
       var on = !!litF[f.id];
       var cls = 'kedge' + (on?' lit':'') + (litF[f.id]==='bad'?' bad':'') + (lit && !on?' faint':'') + (words && f.s<0?' neg':'');
-      gE.appendChild(el('line', {x1:x1, y1:y1, x2:x2, y2:y2, 'class':cls, 'marker-end': on?(litF[f.id]==='bad'?'url(#ahb)':'url(#ahl)'):'url(#ah)'}));
+      var mk = on?(litF[f.id]==='bad'?'url(#ahb)':'url(#ahl)'):'url(#ah)', mx, my;
+      if(hit){
+        // bend up or down, whichever side leaves more room around the other dots and their names
+        var nx = -dy/d, ny = dx/d, bend = 46, best = null;
+        [1,-1].forEach(function(sgn){
+          var ccx = (p.x+q.x)/2 + sgn*nx*bend, ccy = (p.y+q.y)/2 + sgn*ny*bend, room = 1e9;
+          for(var s=0.25; s<=0.75; s+=0.25){
+            var bx0 = (1-s)*(1-s)*p.x + 2*(1-s)*s*ccx + s*s*q.x, by0 = (1-s)*(1-s)*p.y + 2*(1-s)*s*ccy + s*s*q.y;
+            Object.keys(pos).forEach(function(k){ var o=pos[k]; [o.y, o.y+20].forEach(function(oy){ var ddx=bx0-o.x, ddy=by0-oy; room=Math.min(room, Math.sqrt(ddx*ddx+ddy*ddy)); }); });
+          }
+          if(!best || room>best.room) best = {room:room, cx:ccx, cy:ccy};
+        });
+        var cx = best.cx, cy = best.cy;
+        var ax = cx-p.x, ay = cy-p.y, ad = Math.sqrt(ax*ax+ay*ay)||1, bx = q.x-cx, by = q.y-cy, bd = Math.sqrt(bx*bx+by*by)||1;
+        var sx = p.x + ax/ad*r, sy = p.y + ay/ad*r, ex = q.x - bx/bd*(r+3), ey = q.y - by/bd*(r+3);
+        gE.appendChild(el('path', {d:'M'+sx+','+sy+' Q'+cx+','+cy+' '+ex+','+ey, fill:'none', 'class':cls, 'marker-end':mk}));
+        mx = (sx+2*cx+ex)/4; my = (sy+2*cy+ey)/4 - 4;
+      } else {
+        var x1 = p.x + dx/d*r, y1 = p.y + dy/d*r, x2 = q.x - dx/d*(r+3), y2 = q.y - dy/d*(r+3);
+        gE.appendChild(el('line', {x1:x1, y1:y1, x2:x2, y2:y2, 'class':cls, 'marker-end':mk}));
+        mx = (x1+x2)/2; my = (y1+y2)/2 - 4;
+      }
       if(words){
-        var mx = (x1+x2)/2, my = (y1+y2)/2 - 4;
         var t = el('text', {x:mx, y:my, 'text-anchor':'middle', 'class':'kverb' + (f.s<0?' neg':' pos') + (on?' lit':'')});
         t.textContent = f.short; gE.appendChild(t);
       }
@@ -1103,11 +1347,17 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
   var names = document.getElementById('kg-names');
   function renderDeck(){
     deck.textContent='';
+    var nOn = FACTS.filter(function(x){ return x.on; }).length, cta = document.getElementById('kg-cta');
+    if(cta) cta.textContent = !nOn ? FACTS.length + ' facts below. Click one to begin.' : nOn < FACTS.length ? nOn + ' of ' + FACTS.length + ' facts in your graph. Click another to add it.' : 'All ' + FACTS.length + ' facts are in your graph.';
+    var GROUPS = {f0:'Benadryl and caffeine (allergies and sleep)', f7:'Minoxidil (high blood pressure)', f10:'Ibuprofen (pain)'};
     FACTS.forEach(function(f){
+      if(GROUPS[f.id]){ var g=document.createElement('div'); g.className='deckgrp'; g.textContent=GROUPS[f.id]; deck.appendChild(g); }
       var b = document.createElement('button'); b.type='button'; b.className='fact' + (f.on?' on':'');
       b.setAttribute('aria-pressed', f.on?'true':'false');
       b.innerHTML = '<span class="ft"></span>' + (f.note ? '<small></small>' : '');
-      b.querySelector('.ft').textContent = sentence(f);
+      var ka = KIND[norm(f.a)] || 'bio', kb = KIND[norm(f.b)] || 'bio', fa = f.a.charAt(0).toUpperCase() + f.a.slice(1);
+      b.querySelector('.ft').innerHTML = '<span class="t-' + ka + '">' + esc(fa) + '</span> ' + esc(f.v) + ' <span class="t-' + kb + '">' + esc(f.b) + '</span>.';
+      b.setAttribute('aria-label', sentence(f) + (f.on ? ' In the graph.' : ' Not in the graph yet.'));
       if(f.note) b.querySelector('small').textContent = f.note;
       b.addEventListener('click', function(){ f.on = !f.on; say((f.on?'Added: ':'Removed: ') + sentence(f)); update(); focusFact(f.id); });
       b.setAttribute('data-id', f.id);
@@ -1117,19 +1367,21 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
   function focusFact(id){ var b = deck.querySelector('[data-id="'+id+'"]'); if(b) b.focus(); }
   function renderKnows(G){
     knows.textContent='';
+    var cEl=document.getElementById('kg-count'); if(cEl) cEl.textContent = G.E.length ? '(' + G.E.length + ' fact' + (G.E.length===1?'':'s') + ')' : '';
     if(!G.E.length){ var li=document.createElement('li'); li.className='empty'; li.textContent='Nothing yet. An empty graph knows nothing at all.'; knows.appendChild(li); return; }
     G.E.forEach(function(f){
       var li = document.createElement('li'); li.className = f.mine ? 'yours' : '';
       var s = document.createElement('span'); s.textContent = sentence(f) + (f.mine ? '  (yours)' : ''); li.appendChild(s);
-      var b = document.createElement('button'); b.type='button'; b.className='chip'; b.textContent='Remove';
+      var b = document.createElement('button'); b.type='button'; b.className='chip kx'; b.textContent='\u00d7'; b.title='Remove this fact';
       b.setAttribute('aria-label', 'Remove: ' + sentence(f));
       b.addEventListener('click', function(){ f.on = false; say('Removed: ' + sentence(f)); update(); });
       li.appendChild(b); knows.appendChild(li);
     });
   }
   function renderQs(G){
+    if(!qs){ names.textContent=''; G.order.forEach(function(k){ var o=document.createElement('option'); o.value=G.N[k].name; names.appendChild(o); }); return; }
     qs.textContent='';
-    var ends = G.order.filter(function(k){ return G.N[k].ins.length && !G.N[k].outs.length; });
+    var ends = G.order.filter(function(k){ return kindOf(G.N[k])==='dis' && G.N[k].ins.length; });
     if(state.q && ends.indexOf(state.q)<0 && !G.N[state.q]) state.q = null;
     if(!ends.length){ var s=document.createElement('span'); s.className='chiplbl'; s.textContent='add a few facts first'; qs.appendChild(s); }
     ends.forEach(function(k){
@@ -1143,6 +1395,7 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
   }
   function signWord(s){ return s<0 ? 'reduces' : 'increases'; }
   function answer(G){
+    if(!titleEl || !ansEl){ return state.q && G.N[state.q] ? pathsTo(G, state.q) : null; }
     if(!state.q || !G.N[state.q]){ titleEl.textContent = 'No question yet'; ansEl.innerHTML = '<p class="read">' + (G.E.length ? 'Pick a problem above.' : 'Add some facts, then pick a problem above.') + '</p>'; return null; }
     var target = G.N[state.q].name, P = pathsTo(G, state.q);
     titleEl.textContent = 'What might reduce ' + target + '?';
@@ -1167,11 +1420,14 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
   }
   function esc(t){ var d=document.createElement('div'); d.textContent=t; return d.innerHTML; }
   function say(t){ statusEl.textContent = t; }
+  function setQ(k){ state.q = k; var G = build(); var lit = answer(G); draw(G, lit && lit.length ? lit : null); }
+  window.KG_API = {live:live, build:build, pathsTo:pathsTo, kindOf:kindOf, norm:norm, setQ:setQ};
   function update(){
     var G = build();
     renderDeck(); renderKnows(G); renderQs(G);
     var lit = answer(G);
     draw(G, lit && lit.length ? lit : null);
+    try{ window.dispatchEvent(new Event('kg-change')); }catch(e){}
   }
 
   document.getElementById('kg-next').addEventListener('click', function(){
@@ -1179,8 +1435,14 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
     if(!f){ say('Every card is in. Try writing your own sentence at the bottom.'); return; }
     f.on = true; say('Added: ' + sentence(f)); update();
   });
-  document.getElementById('kg-all').addEventListener('click', function(){ FACTS.forEach(function(f){ f.on = true; }); say('All fourteen facts are in.'); update(); });
+  document.getElementById('kg-all').addEventListener('click', function(){ FACTS.forEach(function(f){ f.on = true; }); say('All thirteen facts are in.'); update(); });
   document.getElementById('kg-reset').addEventListener('click', function(){ FACTS.forEach(function(f){ f.on = false; }); mine = []; state.q = null; say('Empty again.'); update(); });
+  var exBtn = document.getElementById('kg-example');
+  if(exBtn) exBtn.addEventListener('click', function(){
+    if(mine.some(function(m){ return norm(m.a)==='candy' && norm(m.b)==='pain'; })){ say('Candy reduces pain is already in your graph. Now train the model again and ask about pain.'); return; }
+    var f = {id:'m'+mine.length, a:'Candy', b:'pain', s:-1, v:'reduces', short:'reduces', on:true, mine:true};
+    mine.push(f); say('Added yours: Candy reduces pain. It went in exactly like the real facts. Now train the model again and ask about pain.'); update();
+  });
   document.getElementById('kg-add').addEventListener('click', function(){
     var a = document.getElementById('kg-a').value.trim(), b = document.getElementById('kg-b').value.trim(), s = parseInt(document.getElementById('kg-v').value,10);
     if(!a || !b){ say('Fill in both things first.'); return; }
@@ -1199,12 +1461,12 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
   var CASES = [
     {who:'Maya, 20', ask:'allergy symptoms', note:'Sneezing and itchy eyes. It happens every spring. She is studying at home tonight.', ai:'Benadryl', why:'Benadryl blocks histamine, and histamine causes allergy symptoms.', good:true, key:'Benadryl blocks histamine, which causes allergy symptoms. It will make her sleepy, but she is home for the night.'},
     {who:'Jordan, 34', ask:'trouble sleeping', note:'Trouble sleeping. Drives a delivery truck, and his shift starts at 6 a.m.', ai:'Benadryl', why:'Benadryl blocks histamine, and histamine keeps you awake.', good:false, key:'Benadryl makes you sleepy, and feeling sleepy makes drowsy driving worse. He drives at 6 a.m.'},
-    {who:'Sam, 45', ask:'hair loss', note:'His hair has been thinning for a few years and it bothers him.', ai:'Minoxidil, a blood pressure pill', why:'Minoxidil causes hair growth, and hair growth helps with hair loss.', good:true, key:'Minoxidil causes hair growth. It looks strange because it was made for blood pressure, but that is the discovery your graph made in section 1.'},
+    {who:'Sam, 45', ask:'hair loss', note:'His hair has been thinning for a few years and it bothers him.', ai:'Minoxidil, a blood pressure pill', why:'Minoxidil reduces hair loss.', good:true, key:'Minoxidil reduces hair loss. It looks strange because it was made for blood pressure, but that is the discovery your graph made in section 1.'},
     {who:'Priya, 28', ask:'pain', note:'Twisted her ankle playing soccer. It is sore and swollen.', ai:'Ibuprofen', why:'Ibuprofen reduces inflammation, and inflammation causes pain.', good:true, key:'Ibuprofen reduces inflammation, which causes pain. Nothing in her note rules it out.'},
     {who:'Luis, 52', ask:'pain', note:'Sore knee from an old injury. Also, his stomach has been upset all week.', ai:'Ibuprofen', why:'Ibuprofen reduces inflammation, and inflammation causes pain.', good:false, key:'Ibuprofen causes stomach upset, and his stomach is already upset.'},
     {who:'Dana, 61', ask:'high blood pressure', note:'Her blood pressure has been high at her last three checkups.', ai:'Minoxidil', why:'Minoxidil widens blood vessels, and wider blood vessels lower blood pressure.', good:true, key:'Minoxidil widens blood vessels, which lowers blood pressure. That is what it was made for.'},
     {who:'Alex, 19', ask:'pain', note:'Headache the night before a big exam.', ai:'Candy', why:'Candy reduces pain.', good:false, key:'The only reason is "Candy reduces pain," and somebody typed that in. No research is behind it.'},
-    {who:'Rosa, 70', ask:'hair loss', note:'Her hair is thinning. She also gets dizzy when she stands up, because her blood pressure already runs low.', ai:'Minoxidil, a blood pressure pill', why:'Minoxidil causes hair growth, and hair growth helps with hair loss.', good:false, key:'Minoxidil lowers blood pressure, and hers is already low enough to make her dizzy.'}
+    {who:'Rosa, 70', ask:'hair loss', note:'Her hair is thinning. She also gets dizzy when she stands up, because her blood pressure already runs low.', ai:'Minoxidil, a blood pressure pill', why:'Minoxidil reduces hair loss.', good:false, key:'Minoxidil lowers blood pressure, and hers is already low enough to make her dizzy.'}
   ];
   var calls, bulk, i;
   var prog = document.getElementById('dl-prog'), box = document.getElementById('dl-case');
@@ -1213,16 +1475,34 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
   function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
   function show(focus){
     if(i >= CASES.length){ finish(); return; }
-    var c = CASES[i];
-    prog.textContent = 'Patient ' + (i+1) + ' of ' + CASES.length;
-    box.innerHTML = '<p class="dl-who">' + esc(c.who) + ' <span class="dl-appt">is here for an appointment</span></p><p class="dl-note"><b>What they tell you:</b> ' + esc(c.note) + '</p>' +
-      '<p class="dl-ai">You type: <span class="dl-q">What might help with ' + esc(c.ask) + '?</span>The assistant suggests: <b>' + esc(c.ai) + '</b><span class="dl-why">The evidence it found in your knowledge graph: ' + esc(c.why) + '</span></p>';
+    var c = CASES[i], nm = c.who.split(',')[0], age = (c.who.split(',')[1]||'').trim(), rx = c.ai.split(',')[0];
+    prog.textContent = 'ClinicChart \u00b7 Today\u2019s schedule \u00b7 Patient ' + (i+1) + ' of ' + CASES.length;
+    box.innerHTML =
+      '<div class="emr-banner"><span class="emr-count">Patient ' + (i+1) + ' of ' + CASES.length + '</span><span class="emr-pt">' + esc(nm) + ', ' + esc(age) + '</span><span class="emr-meta">Office visit \u00b7 Chart #' + (4810 + i*37) + '</span></div>' +
+      '<div class="emr-body">' +
+        '<div class="emr-sec"><div class="emr-h">Visit note \u00b7 AI-assisted documentation \u00b7 drafted from the appointment</div><p class="emr-note">' + esc(c.note) + '</p></div>' +
+        '<div class="emr-sec emr-chat"><div class="emr-h">Clinical assistant \u00b7 AI \u00b7 answers from the knowledge graph</div>' +
+          '<p class="bub you"><span class="who">You</span>What might help with ' + esc(c.ask) + '?</p>' +
+          '<p class="bub ai"><span class="who">AI Knowledge Graph Assistant</span>I\u2019d suggest <b>' + esc(c.ai) + '</b>.<span class="why">From the knowledge graph: ' + esc(c.why) + '</span></p></div>' +
+        '<div class="emr-order"><span class="emr-h">Pending order</span><span class="emr-rx">' + esc(rx) + '</span><span class="emr-for">for ' + esc(nm) + ' \u00b7 waiting for your signature</span></div>' +
+      '</div>';
     var left = CASES.length - i;
     allB.hidden = !(i >= 4 && left > 1);
     allB.textContent = 'Approve all remaining (' + left + ')';
+    box.classList.remove('emr-new'); void box.offsetWidth; box.classList.add('emr-new');
     if(focus) box.focus();
   }
-  function decide(ok){ calls[i] = ok; i++; show(true); }
+  var logEl = document.getElementById('dl-log');
+  function drug(c){ return c.ai.split(',')[0]; }
+  function log(c, ok, isBulk){
+    if(!logEl) return;
+    var e = logEl.querySelector('.empty'); if(e) e.remove();
+    var li = document.createElement('li'), name = c.who.split(',')[0];
+    if(ok){ li.textContent = 'Wrote a prescription for ' + drug(c) + ' for ' + name + ', added it to the medical record, and sent it to the pharmacy.' + (isBulk ? ' Nobody read this one.' : ''); if(isBulk) li.className = 'bulk'; }
+    else { li.textContent = 'Nothing sent for ' + name + '. You overruled it.'; li.className = 'none'; }
+    logEl.appendChild(li);
+  }
+  function decide(ok){ calls[i] = ok; log(CASES[i], ok, false); i++; show(true); }
   function finish(){
     btns.hidden = true; box.hidden = true;
     prog.textContent = 'Shift over. All eight patients decided.';
@@ -1234,20 +1514,21 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
       var tag = right ? '<span class="dl-tag">Right call.</span> ' : '<span class="dl-tag miss">' + (c.good ? 'Good suggestion overruled.' : 'Bad suggestion approved.') + '</span> ';
       items += '<li><b>' + esc(c.who) + ', ' + esc(c.ai) + '.</b> You ' + (calls[k] ? 'approved' : 'overruled') + (bulk[k] ? ' it with Approve all' : '') + '. ' + tag + esc(c.key) + '</li>';
     });
-    var sum = 'You approved <b>' + badIn + ' of 4</b> bad suggestions and overruled <b>' + goodOut + ' of 4</b> good ones.';
+    var sent = calls.filter(function(x){ return x; }).length;
+    var sum = 'You approved <b>' + badIn + ' of 4</b> bad suggestions and overruled <b>' + goodOut + ' of 4</b> good ones. The pharmacy agent sent <b>' + sent + '</b> prescription' + (sent===1?'':'s') + (badIn ? ', including the ' + badIn + ' bad ' + (badIn===1?'one':'ones') : '') + '. It never checked any of them.';
     if(bulkBad) sum += ' Approve all sent <b>' + bulkBad + '</b> bad ' + (bulkBad === 1 ? 'suggestion' : 'suggestions') + ' to a patient without anyone reading ' + (bulkBad === 1 ? 'it' : 'them') + '.';
     else if(bulk.some(function(x){ return x; })) sum += ' You used Approve all and got lucky this time.';
     if(badIn === 0 && goodOut === 0) sum += ' A clean shift. Now ask how you would do on patient 800, at the end of a twelve-hour day.';
     read.innerHTML = '<p class="dl-sum">' + sum + '</p><ol>' + items + '</ol>' +
       '<p class="dl-real">If you missed some, you are in good company. In one study, doctors working alone scored 74 on hard diagnosis cases, doctors with an AI helper scored 76, and the AI alone scored 90. Adding the person barely helped. A human in the loop is only as good as what they check.</p>' +
-      '<p class="dl-real">Approving without checking is called <b>automation bias</b>. Overruling a good answer because it looks strange is <b>algorithmic aversion</b>. Chapter 4 explains both in <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a>.</p>';
+      '<p class="dl-real">Approving without checking is called <b class="term-pink">automation bias</b>. Overruling a good answer because it looks strange is <b class="term-pink">algorithmic aversion</b>. Chapter 4 explains both in <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a>.</p>';
     res.hidden = false; res.focus();
   }
   yes.addEventListener('click', function(){ decide(true); });
   no.addEventListener('click', function(){ decide(false); });
-  allB.addEventListener('click', function(){ while(i < CASES.length){ calls[i] = true; bulk[i] = true; i++; } show(false); });
+  allB.addEventListener('click', function(){ while(i < CASES.length){ calls[i] = true; bulk[i] = true; log(CASES[i], true, true); i++; } show(false); });
   document.getElementById('dl-reset').addEventListener('click', function(){ start(); box.focus(); });
-  function start(){ calls = []; bulk = CASES.map(function(){ return false; }); i = 0; btns.hidden = false; box.hidden = false; res.hidden = true; show(false); }
+  function start(){ if(logEl) logEl.innerHTML = '<li class="empty">Nothing sent yet.</li>'; calls = []; bulk = CASES.map(function(){ return false; }); i = 0; btns.hidden = false; box.hidden = false; res.hidden = true; show(false); }
   start();
 })();
 </script>
@@ -1263,82 +1544,137 @@ table.hm{border-collapse:collapse;font-size:.8rem;min-width:720px;width:100%;fon
 </script>
 <script>
 (function(){
-var D={"d":[{"id":"MONDO:0009693","s":"Myeloma","n":"Multiple myeloma","facts":9323,"pubs":15206,"of":1704,"known_all":43},{"id":"MONDO:0016982","s":"Angiosarcoma","n":"Angiosarcoma","facts":2534,"pubs":5269,"of":1746,"known_all":4},{"id":"MONDO:0017364","s":"POEMS","n":"POEMS syndrome","facts":1029,"pubs":2836,"of":1744,"known_all":4},{"id":"MONDO:0006412","s":"Rosai-Dorfman","n":"Rosai-Dorfman disease","facts":683,"pubs":802,"of":1748,"known_all":0},{"id":"MONDO:0018153","s":"Erdheim-Chester","n":"Erdheim-Chester disease","facts":652,"pubs":521,"of":1745,"known_all":4},{"id":"MONDO:0014306","s":"DADA2","n":"Deficiency of adenosine deaminase 2 (DADA2)","facts":313,"pubs":49,"of":1746,"known_all":0},{"id":"MONDO:0035838","s":"iMCD","n":"Idiopathic multicentric Castleman disease (iMCD)","facts":39,"pubs":33,"of":1748,"known_all":0},{"id":"MONDO:0019753","s":"Localized Castleman","n":"Localized (unicentric) Castleman disease","facts":27,"pubs":2,"of":1748,"known_all":0}],"g":[["Carfilzomib",2373],["Bortezomib",13890],["Daratumumab",1731],["Lenalidomide",8855],["Thalidomide",12448],["Melphalan",4836],["Cyclophosphamide",17005],["Dexamethasone",31257],["Prednisone",16856],["Rituximab",11068],["Siltuximab",2962],["Tocilizumab",6155],["Sirolimus",19484],["Ruxolitinib",8714],["Anakinra",8415],["Etanercept",6348],["Adalimumab",6765],["Pembrolizumab",4452],["Paclitaxel",18951],["Minoxidil",4120]],"c":{"Angiosarcoma|Adalimumab":[0,347,"",0],"Angiosarcoma|Anakinra":[2,254,"",0],"Angiosarcoma|Bortezomib":[90,33,"",0],"Angiosarcoma|Carfilzomib":[2,251,"",0],"Angiosarcoma|Cyclophosphamide":[99,15,"",0],"Angiosarcoma|Daratumumab":[0,876,"",0],"Angiosarcoma|Dexamethasone":[67,51,"",0],"Angiosarcoma|Etanercept":[8,147,"",0],"Angiosarcoma|Lenalidomide":[67,53,"",0],"Angiosarcoma|Melphalan":[95,25,"",0],"Angiosarcoma|Minoxidil":[4,189,"",0],"Angiosarcoma|Paclitaxel":[null,null,"yes",0],"Angiosarcoma|Pembrolizumab":[29,87,"",1],"Angiosarcoma|Prednisone":[61,61,"",0],"Angiosarcoma|Rituximab":[70,45,"",0],"Angiosarcoma|Ruxolitinib":[14,124,"",0],"Angiosarcoma|Siltuximab":[0,576,"",0],"Angiosarcoma|Sirolimus":[28,90,"",0],"Angiosarcoma|Thalidomide":[98,19,"",0],"Angiosarcoma|Tocilizumab":[8,148,"",0],"DADA2|Adalimumab":[0,410,"",1],"DADA2|Anakinra":[3,116,"",0],"DADA2|Bortezomib":[0,1552,"",0],"DADA2|Carfilzomib":[0,794,"",0],"DADA2|Cyclophosphamide":[8,61,"",0],"DADA2|Daratumumab":[0,1430,"",0],"DADA2|Dexamethasone":[66,8,"",0],"DADA2|Etanercept":[5,78,"",1],"DADA2|Lenalidomide":[0,332,"",0],"DADA2|Melphalan":[null,null,"no",0],"DADA2|Minoxidil":[0,1186,"",0],"DADA2|Paclitaxel":[0,421,"",0],"DADA2|Pembrolizumab":[0,936,"",0],"DADA2|Prednisone":[79,2,"",0],"DADA2|Rituximab":[66,6,"",0],"DADA2|Ruxolitinib":[11,53,"",0],"DADA2|Siltuximab":[0,1582,"",0],"DADA2|Sirolimus":[0,1422,"",0],"DADA2|Thalidomide":[60,9,"",0],"DADA2|Tocilizumab":[9,60,"",0],"Erdheim-Chester|Adalimumab":[7,174,"",0],"Erdheim-Chester|Anakinra":[null,null,"yes",0],"Erdheim-Chester|Bortezomib":[51,35,"",0],"Erdheim-Chester|Carfilzomib":[0,954,"",0],"Erdheim-Chester|Cyclophosphamide":[94,2,"",0],"Erdheim-Chester|Daratumumab":[0,1518,"",0],"Erdheim-Chester|Dexamethasone":[94,3,"",0],"Erdheim-Chester|Etanercept":[45,47,"",0],"Erdheim-Chester|Lenalidomide":[74,21,"",0],"Erdheim-Chester|Melphalan":[44,49,"",0],"Erdheim-Chester|Minoxidil":[2,306,"",0],"Erdheim-Chester|Paclitaxel":[77,15,"",0],"Erdheim-Chester|Pembrolizumab":[8,163,"",0],"Erdheim-Chester|Prednisone":[54,32,"",0],"Erdheim-Chester|Rituximab":[94,4,"",0],"Erdheim-Chester|Ruxolitinib":[20,99,"",0],"Erdheim-Chester|Siltuximab":[0,1099,"",0],"Erdheim-Chester|Sirolimus":[14,125,"",0],"Erdheim-Chester|Thalidomide":[96,1,"",0],"Erdheim-Chester|Tocilizumab":[14,121,"",0],"iMCD|Adalimumab":[0,254,"",1],"iMCD|Anakinra":[5,57,"",0],"iMCD|Bortezomib":[6,55,"",1],"iMCD|Carfilzomib":[0,339,"",0],"iMCD|Cyclophosphamide":[64,9,"",1],"iMCD|Daratumumab":[0,930,"",0],"iMCD|Dexamethasone":[83,3,"",1],"iMCD|Etanercept":[15,35,"",0],"iMCD|Lenalidomide":[5,63,"",0],"iMCD|Melphalan":[2,105,"",0],"iMCD|Minoxidil":[0,165,"",0],"iMCD|Paclitaxel":[2,97,"",0],"iMCD|Pembrolizumab":[0,378,"",0],"iMCD|Prednisone":[57,11,"",1],"iMCD|Rituximab":[92,2,"",1],"iMCD|Ruxolitinib":[23,26,"",1],"iMCD|Siltuximab":[0,994,"",0],"iMCD|Sirolimus":[0,271,"",1],"iMCD|Thalidomide":[60,10,"",1],"iMCD|Tocilizumab":[25,24,"",0],"Localized Castleman|Adalimumab":[0,213,"",0],"Localized Castleman|Anakinra":[0,140,"",0],"Localized Castleman|Bortezomib":[0,7,"",0],"Localized Castleman|Carfilzomib":[0,180,"",0],"Localized Castleman|Cyclophosphamide":[0,23,"",0],"Localized Castleman|Daratumumab":[0,1355,"",0],"Localized Castleman|Dexamethasone":[0,54,"",0],"Localized Castleman|Etanercept":[0,60,"",0],"Localized Castleman|Lenalidomide":[0,25,"",0],"Localized Castleman|Melphalan":[0,43,"",0],"Localized Castleman|Minoxidil":[0,331,"",0],"Localized Castleman|Paclitaxel":[0,4,"",0],"Localized Castleman|Pembrolizumab":[0,95,"",0],"Localized Castleman|Prednisone":[0,18,"",0],"Localized Castleman|Rituximab":[5,1,"",1],"Localized Castleman|Ruxolitinib":[0,66,"",0],"Localized Castleman|Siltuximab":[0,283,"",1],"Localized Castleman|Sirolimus":[0,59,"",1],"Localized Castleman|Thalidomide":[0,12,"",0],"Localized Castleman|Tocilizumab":[0,29,"",0],"Myeloma|Adalimumab":[54,67,"",0],"Myeloma|Anakinra":[83,15,"",0],"Myeloma|Bortezomib":[24,173,"yes",0],"Myeloma|Carfilzomib":[null,null,"yes",0],"Myeloma|Cyclophosphamide":[98,2,"",0],"Myeloma|Daratumumab":[null,null,"yes",0],"Myeloma|Dexamethasone":[50,73,"",0],"Myeloma|Etanercept":[55,63,"",0],"Myeloma|Lenalidomide":[48,83,"yes",0],"Myeloma|Melphalan":[73,28,"yes",0],"Myeloma|Minoxidil":[0,648,"",0],"Myeloma|Paclitaxel":[2,442,"",0],"Myeloma|Pembrolizumab":[66,31,"",0],"Myeloma|Prednisone":[96,6,"yes",0],"Myeloma|Rituximab":[null,null,"yes",0],"Myeloma|Ruxolitinib":[82,16,"",0],"Myeloma|Siltuximab":[26,164,"",0],"Myeloma|Sirolimus":[null,null,"no",0],"Myeloma|Thalidomide":[34,132,"yes",0],"Myeloma|Tocilizumab":[96,5,"",0],"POEMS|Adalimumab":[13,143,"",0],"POEMS|Anakinra":[26,86,"",0],"POEMS|Bortezomib":[67,30,"",0],"POEMS|Carfilzomib":[7,194,"",1],"POEMS|Cyclophosphamide":[100,2,"",1],"POEMS|Daratumumab":[0,789,"",1],"POEMS|Dexamethasone":[null,null,"yes",1],"POEMS|Etanercept":[80,21,"",0],"POEMS|Lenalidomide":[null,null,"yes",0],"POEMS|Melphalan":[null,null,"yes",0],"POEMS|Minoxidil":[34,64,"",0],"POEMS|Paclitaxel":[24,94,"",0],"POEMS|Pembrolizumab":[17,126,"",0],"POEMS|Prednisone":[99,5,"",0],"POEMS|Rituximab":[100,1,"",0],"POEMS|Ruxolitinib":[65,33,"",0],"POEMS|Siltuximab":[2,343,"",0],"POEMS|Sirolimus":[16,127,"",0],"POEMS|Thalidomide":[null,null,"yes",0],"POEMS|Tocilizumab":[85,17,"",0],"Rosai-Dorfman|Adalimumab":[0,330,"",0],"Rosai-Dorfman|Anakinra":[45,42,"",0],"Rosai-Dorfman|Bortezomib":[33,61,"",0],"Rosai-Dorfman|Carfilzomib":[0,404,"",0],"Rosai-Dorfman|Cyclophosphamide":[66,20,"",0],"Rosai-Dorfman|Daratumumab":[0,1107,"",0],"Rosai-Dorfman|Dexamethasone":[97,2,"",0],"Rosai-Dorfman|Etanercept":[61,24,"",0],"Rosai-Dorfman|Lenalidomide":[41,47,"",0],"Rosai-Dorfman|Melphalan":[50,36,"",0],"Rosai-Dorfman|Minoxidil":[4,189,"",0],"Rosai-Dorfman|Paclitaxel":[52,32,"",0],"Rosai-Dorfman|Pembrolizumab":[0,415,"",0],"Rosai-Dorfman|Prednisone":[96,5,"",0],"Rosai-Dorfman|Rituximab":[96,6,"",0],"Rosai-Dorfman|Ruxolitinib":[25,81,"",0],"Rosai-Dorfman|Siltuximab":[0,497,"",0],"Rosai-Dorfman|Sirolimus":[8,156,"",0],"Rosai-Dorfman|Thalidomide":[73,13,"",0],"Rosai-Dorfman|Tocilizumab":[69,17,"",0]}};
-var tbl=document.getElementById('hm-table');if(!tbl)return;
-var head=document.getElementById('hm-head'),body=document.getElementById('hm-body');
-var st={rank:false,tried:false,sel:null};
-var maxF=Math.max.apply(null,D.d.map(function(d){return d.facts;}));
+var D={"d":[{"id":"MONDO:0009693","s":"Myeloma","n":"Multiple myeloma","facts":9323,"pubs":15206,"of":1704,"known_all":43},{"id":"MONDO:0017364","s":"POEMS","n":"POEMS syndrome","facts":1029,"pubs":2836,"of":1744,"known_all":4},{"id":"MONDO:0014306","s":"DADA2","n":"Deficiency of adenosine deaminase 2 (DADA2)","facts":313,"pubs":49,"of":1746,"known_all":0},{"id":"MONDO:0035838","s":"iMCD","n":"Idiopathic multicentric Castleman disease (iMCD)","facts":39,"pubs":33,"of":1748,"known_all":0},{"id":"MONDO:0019753","s":"Localized Castleman","n":"Localized (unicentric) Castleman disease","facts":27,"pubs":2,"of":1748,"known_all":0}],"g":[["Dexamethasone",31257],["Sirolimus",19484],["Cyclophosphamide",17005],["Thalidomide",12448],["Rituximab",11068],["Etanercept",6348],["Minoxidil",4120],["Siltuximab",2962],["Carfilzomib",2373],["Daratumumab",1731]],"c":{"DADA2|Carfilzomib":[0,794,"",0],"DADA2|Cyclophosphamide":[8,61,"",0],"DADA2|Daratumumab":[0,1430,"",0],"DADA2|Dexamethasone":[66,8,"",0],"DADA2|Etanercept":[5,78,"",1],"DADA2|Minoxidil":[0,1186,"",0],"DADA2|Rituximab":[66,6,"",0],"DADA2|Siltuximab":[0,1582,"",0],"DADA2|Sirolimus":[0,1422,"",0],"DADA2|Thalidomide":[60,9,"",0],"iMCD|Carfilzomib":[0,339,"",0],"iMCD|Cyclophosphamide":[64,9,"",1],"iMCD|Daratumumab":[0,930,"",0],"iMCD|Dexamethasone":[83,3,"",1],"iMCD|Etanercept":[15,35,"",0],"iMCD|Minoxidil":[0,165,"",0],"iMCD|Rituximab":[92,2,"",1],"iMCD|Siltuximab":[0,994,"",0],"iMCD|Sirolimus":[0,271,"",1],"iMCD|Thalidomide":[60,10,"",1],"Localized Castleman|Carfilzomib":[0,180,"",0],"Localized Castleman|Cyclophosphamide":[0,23,"",0],"Localized Castleman|Daratumumab":[0,1355,"",0],"Localized Castleman|Dexamethasone":[0,54,"",0],"Localized Castleman|Etanercept":[0,60,"",0],"Localized Castleman|Minoxidil":[0,331,"",0],"Localized Castleman|Rituximab":[5,1,"",1],"Localized Castleman|Siltuximab":[0,283,"",1],"Localized Castleman|Sirolimus":[0,59,"",1],"Localized Castleman|Thalidomide":[0,12,"",0],"Myeloma|Carfilzomib":[null,null,"yes",0],"Myeloma|Cyclophosphamide":[98,2,"",0],"Myeloma|Daratumumab":[null,null,"yes",0],"Myeloma|Dexamethasone":[50,73,"",0],"Myeloma|Etanercept":[55,63,"",0],"Myeloma|Minoxidil":[0,648,"",0],"Myeloma|Rituximab":[null,null,"yes",0],"Myeloma|Siltuximab":[26,164,"",0],"Myeloma|Sirolimus":[null,null,"no",0],"Myeloma|Thalidomide":[34,132,"yes",0],"POEMS|Carfilzomib":[7,194,"",1],"POEMS|Cyclophosphamide":[100,2,"",1],"POEMS|Daratumumab":[0,789,"",1],"POEMS|Dexamethasone":[null,null,"yes",1],"POEMS|Etanercept":[80,21,"",0],"POEMS|Minoxidil":[34,64,"",0],"POEMS|Rituximab":[100,1,"",0],"POEMS|Siltuximab":[2,343,"",0],"POEMS|Sirolimus":[16,127,"",0],"POEMS|Thalidomide":[null,null,"yes",0]}};
+var root=document.getElementById('mx'); if(!root) return;
+var PICK=['POEMS','iMCD','Myeloma'];
+var NOTE={'iMCD':'Siltuximab was approved by the FDA in 2014 for this disease, and MATRIX ranks it 994th. In Every Cure\u2019s data, its known-treatment label sits on the general entry for Castleman disease, not on iMCD. From outside, nobody can say for sure why it ranks so low.','POEMS':'Joseph got carfilzomib, cyclophosphamide, and dexamethasone. Every Cure says an early version of MATRIX scored these drugs high. This newer release ranks carfilzomib 194th. The takeaway: the same AI system, updated, gave a different answer. A score is a snapshot of one version of the model and the data it had at the time, so before anyone acts on a ranking, ask which version produced it.','Myeloma':'Every Cure\u2019s list has no repurposed drugs for myeloma. It doesn\u2019t need them as much: the data already lists 43 known treatments.'};
+var WHAT={'POEMS':'A rare blood disorder that damages nerves and organs. Joseph had it, in Chapter 4\u2019s case.','iMCD':'A rare immune disorder that causes dangerous inflammation. Fajgenbaum has it, in Chapter 4\u2019s case.','Myeloma':'A common blood cancer that drug companies have studied for decades. It\u2019s here for comparison.'};
+var cur=0, shown=false;
 function fmt(n){return n.toLocaleString('en-US');}
 function ord(n){var s=['th','st','nd','rd'],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0]);}
-function cell(ds,g){return D.c[ds+'|'+g];}
-function bin(v){
-  if(st.rank){var r=v[1];return r<=10?4:r<=50?3:r<=200?2:r<=600?1:0;}
-  var s=v[0];return s>=80?4:s>=40?3:s>=10?2:s>=1?1:0;}
-function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
-function build(){
-  var h='<tr><th scope="col" class="rowlbl">Drug <small>facts on drug</small></th>';
-  D.d.forEach(function(d,i){h+='<th scope="col"><button type="button" class="dz'+(st.sel===i?' on':'')+'" data-i="'+i+'" aria-pressed="'+(st.sel===i)+'" title="'+esc(d.n)+'">'+esc(d.s)+'</button></th>';});
-  h+='</tr><tr class="hm-facts"><th scope="row" class="rowlbl">Facts in graph <small>publications</small></th>';
-  D.d.forEach(function(d){h+='<td>'+fmt(d.facts)+'<small>'+fmt(d.pubs)+'</small><div class="fbar" aria-hidden="true"><i style="width:'+(100*d.facts/maxF).toFixed(1)+'%"></i></div></td>';});
-  head.innerHTML=h+'</tr>';
-  var b='';
-  D.g.forEach(function(gp){var g=gp[0];
-    b+='<tr><th scope="row">'+g+'<small>'+fmt(gp[1])+'</small></th>';
-    D.d.forEach(function(d,i){var v=cell(d.s,g),cls,txt;
-      if(v[0]===null){if(v[2]==='yes'){cls='known';txt='known';}else{cls='neg';txt='doesn\u2019t';}}
-      else{cls='b'+bin(v);txt=st.rank?ord(v[1]):(v[0]<1?'<1':String(v[0]));if(v[2]==='yes')txt+=' \u00b7 known';if(v[2]==='no')txt+=' \u00b7 doesn\u2019t';}
-      if(st.sel===i)cls+=' sel';
-      var star=(st.tried&&v[3])?'<span class="star" aria-hidden="true">\u2605</span><span class="vh">, Every Cure\u2019s doctors used this</span>':'';
-      b+='<td class="'+cls+'">'+esc(txt)+star+'</td>';});
-    b+='</tr>';});
-  body.innerHTML=b;
-  var sc=tbl.parentNode.nextElementSibling;
-  if(!sc||!sc.classList.contains('hm-scale')){sc=document.createElement('div');sc.className='hm-scale';tbl.parentNode.parentNode.insertBefore(sc,tbl.parentNode.nextSibling);}
-  var labs=st.rank?['601st or lower','201st to 600th','51st to 200th','11th to 50th','top 10']:['under 1','1 to 9','10 to 39','40 to 79','80 to 100'];
-  var cols=['#fff','#EEF0F2','#C9CED6','#5A626C','#14181D'];
-  sc.innerHTML='<span>Shading shows '+(st.rank?'rank':'score')+':</span>'+labs.map(function(l,k){return '<span><i style="background:'+cols[k]+'"></i>'+l+'</span>';}).join('')+(st.tried?'<span>\u2605 Every Cure\u2019s doctors used it</span>':'');
-}
-function read(){
-  var t=document.getElementById('hm-title'),r=document.getElementById('hm-read');
-  if(st.sel===null){t.textContent='No disease picked yet';r.innerHTML='<p class="read">Click a disease name at the top of a column to read that column.</p>';return;}
-  var d=D.d[st.sel];t.textContent=d.n;
-  var sc=[],kn=[],ng=[],tr=[];
-  D.g.forEach(function(gp){var g=gp[0],v=cell(d.s,g);
-    if(v[1]!==null)sc.push([g,v[1]]);
-    if(v[2]==='yes')kn.push(g);if(v[2]==='no')ng.push(g);
-    if(v[3])tr.push(g+(v[1]!==null?' ('+ord(v[1])+')':' (known, no score)'));});
-  sc.sort(function(a,b){return a[1]-b[1];});
-  var top=sc.slice(0,3).map(function(x){return '<b>'+x[0]+'</b> ('+ord(x[1])+')';}).join(', ');
-  var low=sc[sc.length-1];
-  var h='<p class="read"><b>'+fmt(d.facts)+'</b> facts in the graph, citing '+fmt(d.pubs)+' publications. Across all '+fmt(d.of)+' drugs scored for it, the data lists <b>'+d.known_all+'</b> as known treatments.</p>';
-  h+='<p class="read">Of these 20, ranked highest: '+top+'. Ranked lowest: <b>'+low[0]+'</b> ('+ord(low[1])+').</p>';
-  if(kn.length)h+='<p class="read">Already known to treat it: '+kn.join(', ')+'.</p>';
-  if(ng.length)h+='<p class="read">Listed as not treating it: '+ng.join(', ')+'.</p>';
-  if(d.facts<100)h+='<p class="read"><b>Thin column.</b> Fewer than 100 facts. The model still ranks every drug, but each rank rests on very little.</p>';
-  if(st.tried)h+='<p class="read">'+(tr.length?'Every Cure\u2019s doctors used: '+tr.join(', ')+'.':'None of these 20 is on Every Cure\u2019s list for this disease.')+'</p>';
-  r.innerHTML=h;
-}
-function dataText(){
-  var L=['Every Cure MATRIX scores, public release on Hugging Face (everycure/matrix-scores, July 2026). 8 diseases x 20 drugs. Research data, not medical advice.',
-  'score_0_100: the model\u2019s estimate that the drug treats the disease, times 100. Blank when the pair is a known treatment the model learned from.',
-  'rank: where the drug falls among all drugs scored for that disease (1 = top). scored_out_of: how many drugs were scored for that disease.',
-  'known: "treats" if Every Cure\u2019s data already lists the drug as a treatment for the disease; "does not treat" if it lists it as a non-treatment.',
-  'disease_facts: how many facts in Every Cure\u2019s knowledge graph touch the disease. disease_pubs: distinct publications cited on those facts. drug_facts: facts that touch the drug.',
-  '','disease,drug,score_0_100,rank,scored_out_of,known,disease_facts,disease_pubs,drug_facts'];
-  D.d.forEach(function(d){D.g.forEach(function(gp){var v=cell(d.s,gp[0]);
-    L.push([d.n.replace(/,/g,''),gp[0],v[0]===null?'':(v[0]<1?'<1':v[0]),v[1]===null?'':v[1],d.of,v[2]==='yes'?'treats':v[2]==='no'?'does not treat':'',d.facts,d.pubs,gp[1]].join(','));});});
-  return L.join('\n');
-}
-var ta=document.getElementById('hm-text');ta.value=dataText();
-head.addEventListener('click',function(e){var b=e.target.closest('.dz');if(!b)return;var i=+b.getAttribute('data-i');st.sel=(st.sel===i)?null:i;build();read();var nb=head.querySelector('.dz[data-i="'+i+'"]');if(nb)nb.focus();});
-function tog(id,key){var b=document.getElementById(id);b.addEventListener('click',function(){st[key]=!st[key];b.setAttribute('aria-pressed',st[key]);b.classList.toggle('on',st[key]);build();read();});}
-tog('hm-rank','rank');tog('hm-tried','tried');
-document.getElementById('hm-reset').addEventListener('click',function(){st={rank:false,tried:false,sel:null};['hm-rank','hm-tried'].forEach(function(id){var b=document.getElementById(id);b.setAttribute('aria-pressed','false');b.classList.remove('on');});build();read();document.getElementById('hm-status').textContent='';});
-document.getElementById('hm-copy').addEventListener('click',function(){var s=document.getElementById('hm-status');
-  function ok(){s.textContent='Copied. Paste it into Claude under the prompt in step 2.';}
-  function fb(){ta.closest('details').open=true;ta.focus();ta.select();try{document.execCommand('copy');ok();}catch(e){s.textContent='Copy didn\u2019t work here. The data is open below: select it and copy it yourself.';}}
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function dis(s){for(var i=0;i<D.d.length;i++) if(D.d[i].s===s) return D.d[i];}
+function rows(d){var sc=[],kn=[],ng=[],tr=[];D.g.forEach(function(gp){var g=gp[0],v=D.c[d.s+'|'+g]; if(!v) return;
+  if(v[1]!==null) sc.push([g,v[0],v[1],v[2]==='yes']); else if(v[2]==='yes') kn.push(g); else if(v[2]==='no') ng.push(g);
+  if(v[3]) tr.push([g,v[1]]);});
+  sc.sort(function(a,b){return a[2]-b[2];}); return {sc:sc,kn:kn,ng:ng,tr:tr};}
+function card(){var d=dis(PICK[cur]), r=rows(d);
+  var h='<p class="mx-name">'+esc(d.n)+'</p><p class="mx-what">'+esc(WHAT[d.s])+'</p><p class="mx-facts"><b>'+fmt(d.facts)+'</b> facts in Every Cure\u2019s knowledge graph, from '+fmt(d.pubs)+' publications. MATRIX scored '+fmt(d.of)+' drugs for it.</p>';
+  if(d.facts<100) h+='<p class="mx-thin">Thin record: fewer than 100 facts.</p>';
+  h+='<p class="mx-sub">Ten drugs to compare. Here are the ones MATRIX scored, best rank first. The score is its 0 to 100 estimate that the drug treats this disease.</p><ol class="mx-list">';
+  r.sc.forEach(function(x){h+='<li><span class="rk">'+ord(x[2])+'</span><b>'+esc(x[0])+'</b><span class="sc">score '+(x[1]<1?'under 1':x[1])+'</span>'+(x[3]?'<span class="kn">already a treatment</span>':'')+'</li>';});
+  h+='</ol>';
+  if(r.kn.length) h+='<p class="mx-sub">Already known to treat it, so MATRIX doesn\u2019t score them: '+esc(r.kn.join(', '))+'.</p>';
+  if(r.ng.length) h+='<p class="mx-sub">Listed as not treating it: '+esc(r.ng.join(', '))+'.</p>';
+  document.getElementById('mx-card').innerHTML=h;
+  document.getElementById('mx-text').value=text(d,r);
+  if(shown) reveal();}
+function text(d,r){var L=['Here is actual data from Every Cure\u2019s knowledge graph and its AI system, MATRIX, for one disease: how many facts the graph holds about it, and where MATRIX ranks ten drugs.','',
+  'Every Cure MATRIX data for '+d.n+' (public release, July 2026). Research data, not medical advice.',
+  'Facts about this disease in Every Cure\u2019s knowledge graph: '+fmt(d.facts)+' (from '+fmt(d.pubs)+' publications).',
+  'Drugs MATRIX scored for this disease: '+fmt(d.of)+'. Drugs already listed as known treatments, out of all drugs: '+d.known_all+'.',
+  'Ten drugs to compare. The ones MATRIX scored, with its rank for this disease (1 = top) and score (0 to 100, the model\u2019s estimate that the drug treats it):'];
+  r.sc.forEach(function(x){L.push('- '+x[0]+': rank '+x[2]+', score '+(x[1]<1?'under 1':x[1])+(x[3]?' (already a known treatment)':''));});
+  if(r.kn.length) L.push('Already known to treat it, not scored: '+r.kn.join(', ')+'.');
+  if(r.ng.length) L.push('Listed as not treating it: '+r.ng.join(', ')+'.');
+  L.push('','Based only on this data, write a short message I can send to my boss, addressed to her. Start with one sentence telling her which drug our team should study first. Then use these three labels, with no bullet points, under 150 words in total:','My pick: the drug, and one sentence on why.','How sure we should be: high, medium, or low, and why.','What to check before we act: what this data can\u2019t tell us, and what a person should look into.');
+  return L.join('\n');}
+function reveal(){var d=dis(PICK[cur]), r=rows(d), h='';
+  if(r.tr.length){h+='<p class="read">Every Cure\u2019s doctors have used these for '+esc(d.n)+':</p><ul class="mx-tried">';
+    r.tr.forEach(function(x){h+='<li><b>'+esc(x[0])+'</b>: '+(x[1]?'MATRIX ranks it '+ord(x[1]):'already a known treatment')+'</li>';}); h+='</ul>';}
+  h+='<p class="read">'+esc(NOTE[PICK[cur]])+'</p>';
+  document.getElementById('mx-read').innerHTML=h; document.getElementById('mx-out').hidden=false;}
+var pick=document.getElementById('mx-pick');
+PICK.forEach(function(s,i){var d=dis(s),b=document.createElement('button');b.type='button';b.className='chip'+(i===cur?' on':'');b.setAttribute('aria-pressed',i===cur);b.textContent=d.n.replace(/ \(.*\)/,'');
+  b.addEventListener('click',function(){cur=i;[].forEach.call(pick.children,function(c,k){c.classList.toggle('on',k===i);c.setAttribute('aria-pressed',k===i);});shown=false;document.getElementById('mx-out').hidden=true;var rb=document.getElementById('mx-reveal');rb.setAttribute('aria-pressed','false');rb.classList.remove('on');document.getElementById('mx-status').textContent='';card();});pick.appendChild(b);});
+document.getElementById('mx-reveal').addEventListener('click',function(){shown=!shown;this.setAttribute('aria-pressed',shown);this.classList.toggle('on',shown);if(shown)reveal();else document.getElementById('mx-out').hidden=true;});
+document.getElementById('mx-copy').addEventListener('click',function(){var s=document.getElementById('mx-status'),ta=document.getElementById('mx-text');
+  function ok(){s.textContent='Copied. Paste it into Claude and send.';}
+  function fb(){ta.closest('details').open=true;ta.focus();ta.select();try{document.execCommand('copy');ok();}catch(e){s.textContent='Copy didn\u2019t work here. The text is open below: select it and copy it yourself.';}}
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ta.value).then(ok,fb);}else fb();});
-build();read();
+card();
+})();
+</script>
+<script>
+(function(){
+  var K = window.KG_API; if(!K || !document.getElementById('lm')) return;
+  var snap = null, stale = false;           // the facts the chatbot was trained on
+  var $ = function(id){ return document.getElementById(id); };
+  function esc(t){ var d=document.createElement('div'); d.textContent=t; return d.innerHTML; }
+  function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
+  // a graph built from the trained snapshot, in the same shape as the live one
+  function buildFrom(F){
+    var N={}, order=[];
+    F.forEach(function(f){ [f.a,f.b].forEach(function(n){ var k=K.norm(n); if(!N[k]){ N[k]={key:k,name:n,ins:[],outs:[]}; order.push(k); } }); });
+    F.forEach(function(f){ N[K.norm(f.a)].outs.push(f); N[K.norm(f.b)].ins.push(f); });
+    return {E:F, N:N, order:order};
+  }
+  function train(){
+    var F = K.live();
+    if(!F.length){ say('Add some facts to the graph above first. An empty graph gives it nothing to read.'); return; }
+    snap = F.slice(); stale = false;
+    $('lm-train').classList.remove('pulse'); $('lm-train').innerHTML = 'Changed your knowledge graph? Train it again &rarr;';
+    $('lm-learned').innerHTML = '<p>It read <b>'+F.length+'</b> sentence'+(F.length===1?'':'s')+' from your knowledge graph. It will answer from these and nothing else.</p>';
+    $('lm-learned').hidden=false; $('lm-askrow').hidden=false; $('lm-out').hidden=true;
+    renderQs(); say('You just trained a small language model on the sentences in your knowledge graph. Now ask it something.');
+  }
+  function renderQs(){
+    var q=$('lm-qs'); q.textContent=''; if(!snap) return;
+    var G=buildFrom(snap);
+    G.order.filter(function(k){ return K.kindOf(G.N[k])==='dis' && G.N[k].ins.length; }).forEach(function(k){
+      var b=document.createElement('button'); b.type='button'; b.className='chip'; b.textContent=G.N[k].name;
+      b.addEventListener('click', function(){ $('lm-q').value='What helps with '+G.N[k].name+'?'; ask(); });
+      q.appendChild(b);
+    });
+  }
+  var SYN = {'regrow hair':'hair loss','regrow':'hair loss','grow hair':'hair loss','hair':'hair loss','sleepy':'sleepiness','tired':'sleepiness','drowsy':'sleepiness','insomnia':'trouble sleeping',"can't sleep":'trouble sleeping','cant sleep':'trouble sleeping','sleep':'trouble sleeping',
+    'headache':'pain','hurts':'pain','ache':'pain','allergies':'allergy symptoms','allergy':'allergy symptoms','sneezing':'allergy symptoms','itchy':'allergy symptoms',
+    'bald':'hair loss','balding':'hair loss','blood pressure':'high blood pressure','hypertension':'high blood pressure','stomach':'stomach upset','nausea':'stomach upset',
+    'swelling':'inflammation','inflamed':'inflammation','coffee':'caffeine','advil':'ibuprofen','rogaine':'minoxidil'};
+  var matchNote='';
+  function findTarget(text, G){
+    var t=K.norm(text).replace(/\u2019/g,"'"), best=null; matchNote='';
+    G.order.forEach(function(k){ if(t.indexOf(k)>=0 && (!best || k.length>best.length)) best=k; });
+    if(best) return best;
+    Object.keys(SYN).sort(function(a,b){ return b.length-a.length; }).some(function(w){
+      var re=new RegExp('\\b'+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b');
+      if(re.test(t) && G.N[SYN[w]]){ best=SYN[w]; matchNote=w; return true; } return false; });
+    if(best) return best;
+    var words=t.split(/[^a-z']+/).filter(function(w){ return w.length>=5; });
+    G.order.some(function(k){ return k.split(' ').some(function(kw){ return words.some(function(w){ if(kw.length>=5 && kw.indexOf(w.slice(0,6))===0){ best=k; matchNote=w; return true; } return false; }); }); });
+    return best;
+  }
+  // One sentence per fact, so it's always clear what does what: "Caffeine blocks adenosine. Adenosine causes sleepiness."
+  function chain(facts){
+    return facts.map(function(f){ return cap(f.a)+' '+f.v+' '+f.b+'.'; }).join(' ');
+  }
+  function answer(t, G){
+    if(!t) return '<p>Your knowledge graph has nothing on that, so it won\u2019t guess.</p>';
+    var name=G.N[t].name, P=K.pathsTo(G,t);
+    if(!P.length) return '<p>Nothing in your knowledge graph leads to '+esc(name)+' from anything you can take, so it won\u2019t guess. That doesn\u2019t mean nothing would work.</p>';
+    var h='', yours=false;
+    P.slice().sort(function(x,y){ var sx=x.facts.reduce(function(m,f){ return m*f.s; },1), sy=y.facts.reduce(function(m,f){ return m*f.s; },1); return sx-sy; }).forEach(function(p){
+      var s=p.facts.reduce(function(m,f){ return m*f.s; },1), from=cap(G.N[p.from].name), mine=p.facts.some(function(f){ return f.mine; });
+      if(mine) yours=true;
+      h += '<p class="lm-ans"><b>'+esc(from)+(s<0?' might reduce '+esc(name)+'.':(K.kindOf(G.N[t])==='dis'?' might make '+esc(name)+' worse.':' might increase '+esc(name)+'.'))+'</b>'+(mine?'<span class="lm-tag you">you added this</span>':'')+'<br><span class="lm-path">'+esc(chain(p.facts))+'</span></p>';
+    });
+    if(yours) h += '<p class="lm-warn">\u26a0 Caution: an answer here rests on a fact you added, with no research behind it. The chatbot can\u2019t tell.</p>';
+    return h;
+  }
+  function ask(){
+    if(!snap){ say('Train it first.'); return; }
+    var q=$('lm-q').value.trim(); if(!q){ say('Type a question, or click one under the box.'); return; }
+    var G=buildFrom(snap), t=findTarget(q,G);
+    if(K.setQ){ var L=K.build(); K.setQ(t && L.N[t] ? t : null); }
+    $('lm-answer').innerHTML = '<p class="lm-q">You asked: \u201c'+esc(q)+'\u201d</p>'+answer(t,G)+(stale?'<p class="lm-stale">Your graph changed since you trained the model. It\u2019s still answering from the old facts. Train it again to update it.</p>':'');
+    $('lm-out').hidden=false;
+  }
+  function say(t){ $('lm-status').textContent=t; }
+  $('lm-train').addEventListener('click', train);
+  $('lm-go').addEventListener('click', ask);
+  $('lm-q').addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); ask(); } });
+  $('lm-reset').addEventListener('click', function(){ snap=null; stale=false; if(K.setQ) K.setQ(null); $('lm-train').classList.add('pulse'); $('lm-train').innerHTML='Click to train a small language model on these facts &rarr;'; $('lm-learned').hidden=true; $('lm-askrow').hidden=true; $('lm-out').hidden=true; $('lm-q').value=''; say('Untrained again. It knows nothing until you train it.'); });
+  window.addEventListener('kg-change', function(){ if(snap){ stale=true; $('lm-train').classList.add('pulse'); $('lm-train').innerHTML='Your knowledge graph changed. Train it again &rarr;'; say('Your graph changed. The model still only knows what it read last time. Train it again to update it.'); } });
 })();
 </script>
 </body>
