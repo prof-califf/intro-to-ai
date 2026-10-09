@@ -208,6 +208,17 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
 .probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
 .probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
+.sides{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:20px 0;}
+.side{border:2px solid var(--ink);border-radius:8px;background:#fff;padding:18px 20px;}
+.side-tag{font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--pinktext);margin-bottom:6px;}
+.side h3{font-family:'Fraunces',Georgia,serif;font-size:1.4rem;margin:0 0 10px;scroll-margin-top:68px;}
+.side p{margin:0 0 10px;}
+.side .side-cost{margin:0;font-size:.95rem;color:var(--gray);}
+.probe.ev .pwhy{color:var(--pinktext);font-weight:700;font-size:1.05rem;}
+.probe.ev .ev-ask{font-size:.9rem;font-weight:600;margin:14px 0 6px;color:var(--ink);}
+.probe.ev .ev-prompt{background:#F4F4F0;border:1px dashed #6B7380;border-radius:6px;padding:12px 14px;font-size:.92rem;}
+.noai{margin:16px 0 20px}
+.noai-body{padding:0 20px 16px}
 .roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
 /* ---- dropdown navigation (chapters / labs) ---- */
 .nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
@@ -532,8 +543,8 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 4 · Week 4, Wednesday, in class</div>
     <h1>Inside the <b>Graph</b></h1>
-    <p class="kicker">Chapter 4 said a predictive AI can only find what its record contains, and that where the doctor stands is a setting with a price. Today you work both halves with your own hands. You build a small knowledge graph out of things from a medicine cabinet, ask it what might help, and find out what it can and can't tell apart. You play the doctor in the loop and find out what you actually catch. You have Claude map real research, and you check its work. Then the room works out what a doctor is actually for, now that a major medical journal has argued AI alone might do better.</p>
-    <p class="factline">a knowledge graph you build · you, the doctor in the loop · under the hood · Claude's map, checked · one discussion</p>
+    <p class="kicker">Chapter 4 said a predictive AI can only find what its record contains, and that where the doctor stands is a setting with a price. Today you work both halves with your own hands. You build a small knowledge graph out of things from a medicine cabinet, ask it what might help, and find out what it can and can't tell apart. You play the doctor in the loop and find out what you actually catch. You have Claude map real research, and you check its work. Then the room debates whether a doctor should still sign off on a diagnosis, now that a major medical journal has argued AI alone might do better.</p>
+    <p class="factline">a knowledge graph you build · you, the doctor in the loop · under the hood · Claude's map, checked · one debate</p>
   </div>
 </header>
 
@@ -731,31 +742,101 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
 </section>
 
 <section id="debate">
-  <div class="shead"><span class="num">5</span><h2>In class: Discussion, what is the doctor for?</h2></div>
-  <p class="lead">We're at the very beginning of AI in medicine, and one thing it's already doing is exposing flaws in systems we trusted. A doctor double-checking the AI sounds like the safest setup there is. In section 2 you found out it only works if the doctor actually looks.</p>
-  <p>In August 2026, <a class="inline" href="https://jamanetwork.com/journals/jama/fullarticle/2852952?guestAccessKey=562af865-a038-4425-993f-ff25e5e3a130" target="_blank" rel="noopener">a viewpoint in <em>JAMA</em></a>, one of the biggest medical journals, went further. For thinking tasks like diagnosis, its authors wrote that "AI-alone medical care is likely to be better than physician-only or physician-AI hybrid care." They point to studies like the one from section 2, where doctors alone scored 74, doctors with AI scored 76, and the AI alone scored 90, and they expect the gap to grow.</p>
-  <p><strong>So imagine it's five years from now, and they're right: AI is better at diagnosing than doctors. What is the doctor actually for?</strong></p>
+  <div class="shead"><span class="num">5</span><h2>In class: Debate</h2></div>
+  <p class="lead"><strong>Should regulators stop requiring a doctor to sign off on an AI's diagnosis?</strong> Left half of the room is Side A, right half is Side B. In groups of 2 or 3, count off 1 to 4: that number is your piece of evidence below. The Gilman Street rules apply.</p>
+  <p>Monday's Every Cure case had a person at every gate. MATRIX ranked the drugs; Fajgenbaum's team read the ranking, Joseph's doctors decided to give the chemotherapy, and Joseph agreed to it. In August 2026, <a class="inline" href="https://jamanetwork.com/journals/jama/fullarticle/2852952?guestAccessKey=562af865-a038-4425-993f-ff25e5e3a130" target="_blank" rel="noopener">a viewpoint in <em>JAMA</em></a>, one of the biggest medical journals, argued that for thinking work like diagnosis, that person may be making the answer worse. Its authors wrote that "AI-alone medical care is likely to be better than physician-only or physician-AI hybrid care," and they asked regulators to stop requiring a doctor in the loop by default. In section 2 you were the doctor in the loop. Today you decide whether the rule that put you there should stay.</p>
+
+  <div class="sides">
+    <div class="side">
+      <div class="side-tag">Side A &middot; left half of the room</div>
+      <h3 id="motion-doctor">Yes, for diagnosis</h3>
+      <p>For the thinking work of medicine, like taking a history, making a diagnosis, and choosing tests, let the AI make the call. Move the doctor on the loop or out of it, and test the AI the way we test a drug. Start from the JAMA viewpoint and the 74, 76, and 90.</p>
+      <p class="side-cost"><strong>The cost to name:</strong> when it's wrong, nobody is in the room, and the best evidence so far comes from cases on paper, not from real patients.</p>
+    </div>
+    <div class="side">
+      <div class="side-tag">Side B &middot; right half of the room</div>
+      <h3 id="evidence-doctor">No, keep the doctor in the loop</h3>
+      <p>A licensed person signs every diagnosis, and the AI proposes. The doctor is the one who sorts out which facts matter, and the one who answers when it goes wrong. Start from the doctors' groups, Robert Wachter, and Every Cure's human gate.</p>
+      <p class="side-cost"><strong>The cost to name:</strong> on the best numbers we have, adding the doctor dragged a 90 down to a 76, and every signature is doctor time that patients wait for.</p>
+    </div>
+  </div>
+  <p class="tis-note">Nobody in this debate is arguing about a real patient's care. You're arguing about a rule, the way a regulator or a hospital board would.</p>
+
+  <h3 class="sub" id="evidence-cards"><span>Your evidence:</span> four pieces, one per number</h3>
+  <p>Every side gets all four. If your number hands you evidence that seems to help the other side, that's your job today: find what it means for yours, and what your side would rather nobody noticed.</p>
+  <div class="probe ev">
+    <div class="pwhy">Evidence 1 &middot; The JAMA viewpoint and the study behind it</div>
+    <div class="ptext">Four authors wrote it: Ezekiel Emanuel, an oncologist and bioethicist at Penn; Abe Baker-Butler, a research fellow; Neal Khosla, CEO of the AI health company Curai; and Vinod Khosla, an investor in Curai. They disclosed their interests. Their strongest evidence is a 2024 study in <em>JAMA Network Open</em>: 50 doctors got up to six hard patient cases, written up as summaries, and an hour to work them. Doctors alone scored 74 percent on a diagnostic reasoning scoresheet. Doctors using GPT-4 scored 76. GPT-4 alone scored about 90. The study's own authors cautioned against reading that as a reason to let AI diagnose without a doctor. Chapter 4, <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a>.</div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate: Should regulators stop requiring a doctor to sign off on an AI's diagnosis? I'm on Side [A: yes, for diagnosis / B: no, keep the doctor in the loop]. My evidence is the JAMA viewpoint from August 2026, which argues regulators should stop requiring a doctor in the loop for diagnosis, and the 2024 JAMA Network Open study it relies on, where doctors alone scored 74, doctors using GPT-4 scored 76, and GPT-4 alone scored about 90 on hard written-up cases. Two of the four authors run or fund an AI health company. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+  </div>
+  <div class="probe ev">
+    <div class="pwhy">Evidence 2 &middot; The pushback</div>
+    <div class="ptext">Six major doctors' groups, including the American Medical Association, answered that most of the evidence comes from written-up practice cases, not real patients in real hospitals. Robert Wachter, who runs UCSF's department of medicine and advises Curai, agreed that given a clean set of facts the AI often wins. Then he named two problems. First, garbage in, garbage out: the 90 was scored on cases a doctor had already boiled down. In an Oxford study he cites, when ordinary people described the same cases in their own words, the AI made the wrong call about two-thirds of the time. Second, the doorman fallacy: a person does a dozen other things that only look unimportant until you remove them. Chapter 4, <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a>.</div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate: Should regulators stop requiring a doctor to sign off on an AI's diagnosis? I'm on Side [A: yes, for diagnosis / B: no, keep the doctor in the loop]. My evidence is the pushback to the JAMA viewpoint: six doctors' groups including the AMA said the evidence is mostly simulated cases, and Robert Wachter of UCSF argued the AI's high score came from cases a doctor had already boiled down. In an Oxford study, when ordinary people described the cases in their own words, the AI made the wrong call about two-thirds of the time. He also named the doorman fallacy. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+  </div>
+  <div class="probe ev">
+    <div class="pwhy">Evidence 3 &middot; Three hospital trials</div>
+    <div class="ptext">Three randomized trials moved the human on purpose, with real patients. In Sweden's MASAI trial, 105,000 women, an AI sorted mammograms by risk and one radiologist read the low-risk ones instead of two: 29 percent more cancers found, no more false alarms, 44 percent less reading work. In a fetal brain ultrasound trial at five hospitals in China, an AI beside the sonographer during the scan caught about nine points more real problems than the same AI used as a second look afterward. In England's PROMETHEUS trial, an AI that measured as the sonographer scanned didn't change accuracy in a way the trial could confirm, but scans took eleven minutes instead of twenty. Chapter 4, Table 3 in <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a>.</div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate: Should regulators stop requiring a doctor to sign off on an AI's diagnosis? I'm on Side [A: yes, for diagnosis / B: no, keep the doctor in the loop]. My evidence is three randomized hospital trials that moved the human on purpose: MASAI in Sweden, where moving a radiologist on the loop found 29 percent more cancers with 44 percent less reading work; a fetal ultrasound trial in China, where an AI used live beside the sonographer beat the same AI used afterward; and PROMETHEUS in England, where scans got faster but accuracy didn't measurably change. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+  </div>
+  <div class="probe ev">
+    <div class="pwhy">Evidence 4 &middot; Every Cure's human gate</div>
+    <div class="ptext">MATRIX scores tens of millions of drug and disease pairs, and a score is a claim about the record, not a verdict about a patient. Every match goes through people before it goes near anyone. For Joseph, Fajgenbaum had already thought of the three chemotherapy drugs before the ranking agreed with him, and the decision to give chemotherapy to a man that sick was made by doctors who knew him, with Joseph's consent. Chapter 4 says someone qualified has to own every decision a score informs. It also says a high score can become cover for a risky decision. Chapter 4, <a class="inline" href="chapter-04-medicine.html#s3">section 3</a>.</div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate: Should regulators stop requiring a doctor to sign off on an AI's diagnosis? I'm on Side [A: yes, for diagnosis / B: no, keep the doctor in the loop]. My evidence is Every Cure's MATRIX, a knowledge graph that ranks old drugs for new diseases. Every match goes through people before it reaches a patient. In the case of Joseph, a patient with POEMS syndrome, the doctor had already thought of the drugs the ranking agreed with, and doctors who knew him made the call to treat. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+  </div>
 
   <div class="callout">
-    <div class="label">How it runs · about 30 minutes</div>
+    <div class="label">Push your thinking with Claude</div>
+    <p>In section 4 you checked Claude's citations. Here, turn it around: tell Claude to argue against you. It's one of the fastest ways out of your own bubble, because it will find the other side's best point before they do. If it cites a study you plan to use, check that one the way you did in section 4.</p>
     <ol>
-      <li><strong>Think alone first (2 min).</strong> Before anyone talks, write down two things you think a doctor should still do, even if the AI diagnoses better.</li>
-      <li><strong>Form groups and pick a leader (1 min).</strong> Groups of 3 or 4. The leader keeps the list and speaks for the group.</li>
-      <li><strong>Make your list (10 min).</strong> What is the doctor for? List at least three things only a person should do, and next to each, what it costs to keep a person doing it. Stuck? Start from what Robert Wachter calls the doorman fallacy in <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a>: even if a machine does the main job better, a person does a dozen other things that only look unimportant until you remove them. Then push your list with Claude, below: it argues with you, then suggests what you missed.</li>
-      <li><strong>Room share (8 min).</strong> Each leader reads one item the room hasn't heard yet. We build one list on the board, and anyone can push back.</li>
-      <li><strong>Now a professor (6 min).</strong> Same question, new setting. Imagine an AI can explain this course's material better than any professor. What is Professor Califf for? Make a second, shorter list in your group, then compare it to the doctor list. Which items show up on both? Those might be what a person is for.</li>
-      <li><strong>Step out of the future (3 min).</strong> Click through to the JAMA viewpoint and look at the authors. Two of the four are a venture capitalist who invests in AI health care and the CEO of an AI health care company. And six major doctors' groups, including the American Medical Association, pushed back that most of the evidence comes from written-up practice cases, not real patients. Is today's evidence enough to get us to that future, and who's telling us it is?</li>
+      <li>Send the sample prompt under your evidence card, with your side filled in.</li>
+      <li>Then make it argue against you:</li>
+    </ol>
+    <div class="probe">
+      <div class="pwhy">Argue against me</div>
+      <div class="ptext">Now argue against me as hard as you can. What's the best point the other side will make, and where is my case weakest? Don't go easy on me.</div>
+    </div>
+    <p>If it goes soft or starts agreeing with you, push back: <em>"You're being too nice. Argue the other side for real."</em> Then close Claude, log out, and write your notes in your own words. You can't read from Claude during the debate.</p>
+  </div>
+
+  <details class="srcnote noai">
+    <summary>Don't want to use AI? Do this instead</summary>
+    <div class="noai-body">
+      <p>Same prep, no chatbot, about 10 minutes. On your own, read <a class="inline" href="chapter-04-medicine.html#s2-5">Chapter 4, section 2.5</a>, from "So far, this book has been treating" through Table 3. Then answer the four questions in Your notes for your side, using only your evidence card and that section. Find one sentence in 2.5 your side would rather the room didn't read, and write down how you'd answer it.</p>
+    </div>
+  </details>
+
+  <div class="callout">
+    <div class="label">Your notes</div>
+    <ol>
+      <li>Your strongest point, in one sentence.</li>
+      <li>The specific evidence behind it.</li>
+      <li>The honest cost of your position.</li>
+      <li>What your side would rather you didn't notice.</li>
     </ol>
   </div>
 
   <div class="callout">
-    <div class="label">Push your list with Claude</div>
-    <p>Open <a class="inline" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>. The leader pastes your group's list into the prompt below and sends it. Read the answer together. Keep an item if you can answer Claude's objection, change it if you can't, and cross it off if Claude is right. Then look at what it says you missed. Add an item only if your whole group agrees with it and can say why in your own words. Then close Claude.</p>
-    <div class="probe">
-      <div class="pwhy">One prompt per group</div>
-      <div class="ptext">We're discussing this in class: imagine that five years from now, AI is better than doctors at diagnosing. Here's our group's list of what a doctor is still for: [your list]. Argue against each item as hard as you can. Which ones could an AI, or a cheaper worker, do just as well? Then suggest two or three things a doctor is for that we missed.</div>
-    </div>
-    <p class="tis-note">Rather not use AI? Skip Claude and work with a partner group instead. Trade lists, argue against each other's items, and each suggest two or three things the other group missed. The same rule applies: add an item only if your whole group agrees.</p>
+    <div class="label">How the debate runs</div>
+    <p><strong>Prep, 15 minutes.</strong></p>
+    <ol>
+      <li><strong>Get your side (2 min).</strong> Left half Side A, right half Side B. Groups of 2 or 3, count off 1 to 4.</li>
+      <li><strong>Research with Claude (10 min).</strong> Your card, the two prompts, then your notes in your own words.</li>
+      <li><strong>Team up (3 min).</strong> Join one or two other groups on your side, so your team is 6 or 7 people: three teams per side. Pick your single best point, an opener, and a rebutter.</li>
+    </ol>
+    <p><strong>Rounds, 22 minutes.</strong></p>
+    <ol>
+      <li><strong>Openings (6 min).</strong> A1, A2, A3, then B1, B2, B3. About 45 seconds each: your claim in one sentence, your evidence, and the cost of your plan.</li>
+      <li><strong>Huddle (2 min).</strong> Rebutters pick one point the other side made.</li>
+      <li><strong>Rebuttals (6 min).</strong> Side B first this time. Answer one specific point, with evidence. No new arguments.</li>
+      <li><strong>Switch (4 min).</strong> Thirty seconds with your team: what was the other side's best point? Then someone new argues it in one sentence.</li>
+      <li><strong>What would change your mind? (4 min).</strong> Out loud. Name the specific thing you would have to see. Whoever names real evidence that would move them wins, whichever side they were handed.</li>
+    </ol>
+    <p><strong>To resolve it:</strong> the three trials put the human in three different places and got three different answers. Name one task where each side would move the doctor, how it should be tested first, and who answers when it's wrong.</p>
   </div>
 </section>
 
@@ -765,7 +846,7 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
   <ol class="writeup">
       <li><strong>The knowledge graph.</strong> In your own words, explain what a knowledge graph is and how yours answered a question. Use two examples from today: a question where two things connected but only one helped, and how the graph told them apart, and what happened to the hair-loss answer when you removed one sentence.</li>
       <li><strong>The doctor in the loop.</strong> How many bad suggestions did you approve, and how many good ones did you overrule? Did you press Approve all? Pick one patient you got wrong, or almost got wrong, and say what would have made you catch it. Then name what that fix would cost in a real hospital.</li>
-      <li><strong>The discussion.</strong> Which item on your group's doctor list would you fight hardest for, and what does it cost to keep a person doing it? Did Claude's pushback change anything on your list, and was it right to?</li>
+      <li><strong>The debate.</strong> Which side were you handed, and what was the other side's best point? Name the specific evidence that would change your mind about whether a doctor should sign off on an AI's diagnosis. Did Claude's pushback find the weak spot in your case before the other side did?</li>
       <li><strong>Your sentences.</strong> The true sentence and the false sentence you fed it, and what it did with each. Then the citations you checked in section 4: how many held up? One sentence on what both mean for a system like MATRIX, or Claude, reading millions of sentences nobody checks one by one.</li>
       <li><strong>Your commitment card.</strong> Pick a setting you know: a classroom, a job you've had, a team, a store, anything. Imagine an AI could do the main thinking part of that work better than the people there. What is the person still for? Name one thing, say why an AI shouldn't take it over, and what it costs to keep a person doing it. Three sentences. Hold onto it: Chapter 7 asks the same question about a car.</li>
   </ol>
@@ -792,10 +873,10 @@ h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;f
       <dd>Checked 3 October 2026. MATRIX's graph draws on several source graphs, including RTX-KG2 and ROBOKOP (Every Cure, MATRIX documentation, docs.dev.everycure.org). RTX-KG2 integrates 70 knowledge sources, including UMLS, ChEMBL, DrugBank, and SemMedDB (Wood et al., BMC Bioinformatics, 2022). SemMedDB's facts were extracted automatically from the titles and abstracts of all PubMed citations by SemRep, a rule-based program (Kilicoglu et al., Bioinformatics, 2012). Every Cure's pair-scoring models include a transformer-based path classifier (MATRIX release notes, v0.12.0, November 2025). The section's "summary of every study" is SemMedDB's titles and abstracts, simplified.</dd>
 
       <dt>Claude's map (section 4)</dt>
-      <dd>Added 3 October 2026. Students run the free version of Claude themselves, so the map and its citations vary by run and by model version; nothing in the section claims a specific output, and the lesson does not depend on any citation being fake. The debate was replaced the same day with a group discussion on what the doctor is for, framed five years out; its 74 / 76 / 90 figures are the same Goh et al. scores used in section 2, and the JAMA viewpoint is Emanuel, Baker-Butler, N. Khosla, and V. Khosla, "Will Autonomous AI Exceed AI-Aided Physicians as the Best Medical Care?", JAMA 2026;336(11):915-918, published online August 17, 2026, doi:10.1001/jama.2026.15380. The quoted line was checked word for word against the article on 3 October 2026. The student link uses a guest access key, which may expire; the DOI is the stable fallback. Neal Khosla is CEO of Curai Health; Vinod Khosla founded Khosla Ventures and has invested in Curai. The pushback is the joint statement from AAFP, AAP, ACOG, ACP, ACS, and AMA (Medical Economics, October 2026), which cites the limits of simulation-based evidence. Goh et al. report 74 and 76, and the model alone 16 points above 74; some coverage reports the model's median as 92.</dd>
+      <dd>Added 3 October 2026. Students run the free version of Claude themselves, so the map and its citations vary by run and by model version; nothing in the section claims a specific output, and the lesson does not depend on any citation being fake. The debate was replaced the same day with a group discussion on what the doctor is for, and restored on 9 October 2026 as section 5's debate (should regulators stop requiring a doctor to sign off on an AI's diagnosis?), in the Lab 2 &amp; 3 format: assigned sides, four evidence cards, and timed rounds. Its 74 / 76 / 90 figures are the same Goh et al. scores used in section 2, and the JAMA viewpoint is Emanuel, Baker-Butler, N. Khosla, and V. Khosla, "Will Autonomous AI Exceed AI-Aided Physicians as the Best Medical Care?", JAMA 2026;336(11):915-918, published online August 17, 2026, doi:10.1001/jama.2026.15380. The quoted line was checked word for word against the article on 3 October 2026. The student link uses a guest access key, which may expire; the DOI is the stable fallback. Neal Khosla is CEO of Curai Health; Vinod Khosla founded Khosla Ventures and has invested in Curai. The pushback is the joint statement from AAFP, AAP, ACOG, ACP, ACS, and AMA (Medical Economics, October 2026), which cites the limits of simulation-based evidence. Goh et al. report 74 and 76, and the model alone 16 points above 74; some coverage reports the model's median as 92.</dd>
 
       <dt>Chapter claims used here</dt>
-      <dd>The knowledge graph, the score as a claim about the record, the gap, and the discussion's setup come from <a class="inline" href="chapter-04-medicine.html">Chapter 4</a>, which carries its own verification note.</dd>
+      <dd>The knowledge graph, the score as a claim about the record, the gap, and the debate's setup and four evidence cards (the JAMA viewpoint and Goh et al.; the doctors' groups and Wachter; the MASAI, fetal ultrasound, and PROMETHEUS trials; Every Cure's human gate) come from <a class="inline" href="chapter-04-medicine.html">Chapter 4</a>, which carries its own verification note.</dd>
     </dl>
     <p class="srcfoot">Most likely to need checking first: the fourteen fact cards, which have no links yet, and the 74 / 76 / 90 scores in section 2, which reach this lab secondhand. If Chapter 4's case is corrected, sections 1 and 2 have to be checked against it.</p>
   </div>
