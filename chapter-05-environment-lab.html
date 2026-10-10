@@ -93,6 +93,40 @@ ol.writeup li:last-child{margin-bottom:0;}
 .step:last-child{border-bottom:none;}
 .step .sn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);font-size:1.2rem;min-width:24px;}
 .step p{margin-bottom:0;}
+/* doctor in the loop */
+.dl-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px}
+@media(max-width:760px){.dl-grid{grid-template-columns:1fr}}
+.dl-prog{font-size:.85rem;color:var(--gray);margin:0 0 10px}
+.dl-case{border:1px solid var(--rule);background:var(--bg);padding:18px 20px;outline:none}
+.dl-case:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.dl-case .dl-who{font-family:'Fraunces',Georgia,serif;font-size:1.15rem;margin:0 0 6px}
+.dl-case .dl-note{margin:0 0 14px;line-height:1.6}
+.dl-case .dl-ai{background:var(--dark);color:#E7EAEF;padding:12px 14px;margin:0}
+.dl-case .dl-ai b{color:var(--yellow)}
+.dl-case .dl-appt{font-family:'Inter',Arial,sans-serif;font-size:.85rem;color:var(--gray)}
+.dl-case .dl-q{display:block;color:#fff;font-style:italic;margin:2px 0 8px}
+.dl-case .dl-why{font-size:.88rem;color:#AEB6C0;display:block;margin-top:4px}
+.dl-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+#dl [hidden]{display:none !important}
+.dl-side .dl-facts{list-style:none;padding:0;margin:8px 0 0;font-size:.9rem;line-height:1.5}
+.dl-side .dl-facts li{padding:6px 0;border-bottom:1px solid var(--rule)}
+.dl-side .dl-facts li.dl-fake{color:var(--pinktext)}
+.dl-side .dl-facts li.dl-fake em{color:var(--gray)}
+#dl-result{outline:none}
+#dl-result .dl-sum{font-size:1rem;line-height:1.65;margin:0 0 14px}
+#dl-result .dl-sum b{color:var(--yellow)}
+#dl-result ol{padding-left:1.2rem;margin:0 0 14px}
+#dl-result li{margin-bottom:10px;line-height:1.55;font-size:.92rem}
+#dl-result .dl-tag{font-weight:700;color:var(--yellow)}
+#dl-result .dl-tag.miss{color:#FF3D8A}
+#dl-result .dl-real{border-top:1px solid #242C36;padding-top:12px;font-size:.92rem;line-height:1.6}
+#dl-result .dl-again{margin-top:16px}
+#dl-result .btn.alt{background:transparent;color:#E7EAEF;border-color:#3A434E}
+
+.step .sbody{flex:1;min-width:0;}
+.step .sbody .probe{margin:10px 0 0;}
+.steps .grp{font-weight:600;color:var(--pinktext);margin:18px 0 0;font-size:.95rem;}
+.steps .grp:first-child{margin-top:0;}
 .nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
 .nextbar a:hover{color:var(--pinktext);}
@@ -106,6 +140,7 @@ ol.writeup li:last-child{margin-bottom:0;}
 /* ---- lab widgets ---- */
 .tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
 .tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.tool > .label{font-size:.9rem;letter-spacing:.06em;color:var(--ink);font-weight:700;margin-bottom:16px;}
 .tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
 .tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
 .chip{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;}
@@ -114,7 +149,7 @@ ol.writeup li:last-child{margin-bottom:0;}
 .chip.on{background:var(--dark);color:var(--yellow);border-color:var(--dark);}
 .chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
 .btn{font-family:'Inter',sans-serif;font-weight:600;font-size:.9rem;padding:10px 20px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;}
-.btn:hover{background:#1B222B;}
+.btn:hover{background:var(--pinktext);color:#fff;}
 .btn:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
 .btn.alt{background:#fff;color:var(--ink);border:1px solid var(--rule);}
 .btn.alt:hover{border-color:var(--pink);color:var(--pinktext);}
@@ -175,6 +210,17 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .probe{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0;}
 .probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
 .probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
+.sides{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:20px 0;}
+.side{border:2px solid var(--ink);border-radius:8px;background:#fff;padding:18px 20px;}
+.side-tag{font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--pinktext);margin-bottom:6px;}
+.side h3{font-family:'Fraunces',Georgia,serif;font-size:1.4rem;margin:0 0 10px;scroll-margin-top:68px;}
+.side p{margin:0 0 10px;}
+.side .side-cost{margin:0;font-size:.95rem;color:var(--gray);}
+.probe.ev .pwhy{color:var(--pinktext);font-weight:700;font-size:1.05rem;}
+.probe.ev .ev-ask{font-size:.9rem;font-weight:600;margin:14px 0 6px;color:var(--ink);}
+.probe.ev .ev-prompt{background:#F4F4F0;border:1px dashed #6B7380;border-radius:6px;padding:12px 14px;font-size:.92rem;}
+.noai{margin:16px 0 20px}
+.noai-body{padding:0 20px 16px}
 .roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
 /* ---- dropdown navigation (chapters / labs) ---- */
 .nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
@@ -197,37 +243,467 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 }
 
 
-/* ---- lab 4 ---- */
-ul.plan{list-style:none;margin:0}
-ul.plan li{padding:4px 0;border-bottom:1px solid var(--rule)}
-ul.plan li:last-child{border-bottom:none}
+/* ---- lab 3: inside the graph ---- */
 .chiplbl{font-size:.85rem;color:var(--gray);margin-right:4px}
-.callout.stop{border-top-color:var(--ink)}
-.callout.stop .label{color:var(--ink)}
-.slider-row output{min-width:0}
-.bar{grid-template-columns:170px minmax(0,1fr) 130px}
-.bar .track{position:relative;height:12px}
-.bar .fill{position:absolute;left:0;top:0;bottom:0}
-.bar .band{position:absolute;top:3px;bottom:3px;background:rgba(255,255,255,.28);border-radius:999px;transition:all .3s ease}
-.bar.alt .fill{background:#7FD4FF}
-.bar .n{white-space:nowrap;font-variant-numeric:tabular-nums}
-@media(max-width:560px){.bar{grid-template-columns:1fr}}
-.verdict .read{margin-top:4px}
-.headline{display:flex;flex-direction:column;gap:2px;padding:16px 18px;border:1px solid var(--rule);background:var(--bg);margin-bottom:14px}
-.headline .big{font-family:'Fraunces',serif;font-weight:700;font-size:2rem;line-height:1.1}
-.headline .small{font-size:.9rem;color:var(--gray)}
-.read-light{font-size:.95rem;margin:12px 0 0}
-.read-light b{color:var(--pinktext)}
+.graphscroll{overflow-x:auto;margin:16px 0 0;border:1px solid var(--rule)}
+.graphscroll:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.graphscroll .graphbox{min-width:640px;margin:0;border:0}
+.graphscroll .legend{min-width:640px}
+.gnode{cursor:pointer;outline:none}
+.gnode circle{stroke-width:2}
+.gnode text{font-size:13px}
+.gnode.bio{cursor:default}
+.gnode.bio text{font-size:12px;fill:#9AA1AB}
+.gnode:focus-visible circle{stroke:#fff;stroke-width:3}
+.gnode.dim circle{opacity:.35}
+.gnode.dim text{opacity:.45}
+.gedge{fill:none}
+.gedge.dim{opacity:.35}
+.gedge.gone{stroke:#FF3D8A;stroke-dasharray:4 5;opacity:.7}
+.gedge.new{stroke:#7FD4FF;stroke-dasharray:6 4;stroke-width:2}
+.gedge.new.lit{stroke:var(--yellow);stroke-dasharray:none}
+.legend .l-path::before{border-color:var(--yellow);background:var(--yellow);border-radius:2px;height:4px;vertical-align:3px}
+.legend .l-new::before{border-color:#1F6F99;background:#7FD4FF;border-radius:2px;height:4px;vertical-align:3px}
+.verdict .read{margin-bottom:6px}
+.ranked .r{display:grid;grid-template-columns:1fr 120px 44px;gap:12px}
+.ranked .r .nm small{color:var(--lightgray);font-weight:400;margin-left:6px}
+.ranked .r .trk{height:8px;background:#242C36;border-radius:999px;overflow:hidden}
+.ranked .r .trk i{display:block;height:100%;background:var(--yellow);border-radius:999px;transition:width .3s ease}
+.ranked .r.zero .s{color:var(--lightgray)}
+@media(max-width:520px){.ranked .r{grid-template-columns:1fr 60px 40px}}
+.fundrow{display:grid;grid-template-columns:auto 1fr auto 1fr auto;gap:10px;align-items:center}
+.fundrow label{font-size:.85rem;color:var(--gray)}
+@media(max-width:700px){.fundrow{grid-template-columns:1fr}}
+.funded{margin:6px 0 14px 1.2rem;font-size:.92rem}
+.gcard{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:12px 0}
+.gcard .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.gcard h4{font-family:'Fraunces',serif;font-weight:600;font-size:1.02rem}
+.gcard .kind{font-size:.8rem;color:var(--gray)}
+.gcard .kind.real{color:var(--pinktext);font-weight:600}
+.gcard p.ctx{font-size:.9rem;color:var(--gray);margin:6px 0 10px}
+.gcard .out{margin-top:12px;padding:12px 14px;background:var(--dark);color:#E7EAEF;font-size:.9rem;line-height:1.6}
+.gcard .out b{color:var(--yellow)}
+.gcard .others{margin-top:8px;font-size:.85rem;color:var(--gray)}
+.gcard .others summary{cursor:pointer;color:var(--pinktext)}
+.gcard .others p{margin:6px 0 0}
 ol.discuss{padding-left:1.2rem}
 ol.discuss li{margin-bottom:12px;line-height:1.65}
 ol.discuss li:last-child{margin-bottom:0}
-.srcnote{margin:26px 0;border:1px solid var(--rule);background:#fff;padding:14px 18px;font-size:.88rem;color:var(--gray)}
-.srcnote summary{cursor:pointer;color:var(--ink);font-weight:600}
-.srcnote p{margin:10px 0 0}
-@media(max-width:520px){.tool{padding:18px 16px}.verdict{padding:20px 18px}}
+  .srcnote{border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0;margin:34px 0}
+  .srcnote > summary{cursor:pointer;padding:14px 20px;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1rem;color:var(--ink);list-style:none}
+  .srcnote > summary::-webkit-details-marker{display:none}
+  .srcnote > summary::after{content:"\25BE";float:right;color:var(--pinktext);font-size:.8rem}
+  .srcnote[open] > summary::after{content:"\25B4"}
+  .srcnote .srcbody{padding:0 20px 18px}
+  .srcnote .srcintro{font-size:.9rem;color:var(--gray);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+  .srcnote dl{margin:0}
+  .srcnote dt{font-family:'Inter',Arial,sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:14px 0 4px}
+  .srcnote dd{margin:0;font-size:.9rem;line-height:1.55;color:var(--gray)}
+  .srcnote .srcfoot{margin-top:18px;padding-top:12px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--gray)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.ranked .r{width:100%;background:none;border:0;border-bottom:1px solid #242C36;color:#E7EAEF;font:inherit;font-size:.9rem;cursor:pointer;text-align:left;padding:9px 0;align-items:center}
+.ranked .r:hover,.ranked .r.on{color:var(--yellow)}
+.ranked .r:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.ranked .r .s{text-align:right;color:var(--yellow);font-variant-numeric:tabular-nums;font-weight:600}
+.ranked .r.zero .s{color:var(--lightgray)}
+.gnode.sel text{fill:#fff;font-weight:700}
+.gnode.sel circle,.gnode.sel.lit circle{fill:var(--yellow);stroke:var(--yellow)}
+.gverb{font-family:'Inter',sans-serif;font-size:11px;fill:#8A939E;pointer-events:none}
+.ranked .r{grid-template-columns:minmax(0,1fr) 120px 44px}
+.swipehint{display:none;font-size:.82rem;color:var(--gray);margin:10px 0 0}
+@media(max-width:640px){.swipehint{display:block}}
+@media(max-width:520px){
+  .ranked .r{grid-template-columns:minmax(0,1fr) 56px 34px;gap:8px}
+  .ranked .r .nm small{display:block;margin-left:0}
+  .tool{padding:18px 16px}
+  .verdict{padding:20px 18px}
+}
+/* graph + scores as one unit */
+.kgunit{background:var(--dark);border:1px solid var(--rule);margin-top:16px}
+.kgunit .graphscroll{margin:0;border:0;border-bottom:1px solid #242C36}
+.kgunit .verdict{margin-top:0;border:0;padding:22px 24px 18px}
+.kgunit .verdict .label{display:flex;align-items:center;gap:10px}
+.kgunit .verdict .label::before{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--yellow)}
+.kgunit .legend{background:#0B0E12;border-top:1px solid #242C36;color:#AEB6C0;min-width:0}
+.kgunit .legend span::before{border-color:#6B7480}
+.kgunit .legend .l-drug::before{border-color:var(--yellow)}
+.kgunit .legend .l-disease::before{border-color:var(--pink)}
+.kgunit .legend .l-path::before{border-color:var(--yellow);background:var(--yellow)}
+.kgunit .legend .l-new::before{border-color:#1F6F99;background:#7FD4FF}
+#kg > .chips:last-of-type{margin-top:14px}
+@media(max-width:520px){.kgunit .verdict{padding:16px 14px}}
+.kgunit .kgpanel2{border-top:1px solid #242C36}
+.kgunit .kgpanel2 .label{color:#AEB6C0}
+.kgunit .kgpanel2 .label::before{background:#7FD4FF}
+.kgunit .ranked .r .nm b{color:#fff}
+.kgunit .ranked .r .nm small{display:block;margin-left:0;color:#AEB6C0;font-size:.8rem;margin-top:2px}
+.kgunit .ranked .r[disabled]{opacity:.5;cursor:default}
+.funded{margin:10px 0 0;padding-left:18px;font-size:.88rem;color:#C9CED6}
+.funded li{margin:4px 0}
+.howto{margin:0 0 6px;padding-left:20px;font-size:.9rem;line-height:1.5;color:var(--ink)}
+.howto li{margin:3px 0}
+.howto em{font-style:normal;font-weight:600}
+.gcard .src{font-size:.82rem;color:var(--gray);margin:4px 0 10px}
+.gcard .chips .chip{display:inline-grid;text-align:left;line-height:1.2;padding:8px 12px}
+.gcard .chips .chip small{font-weight:400;font-size:.74rem;opacity:1;color:#4A525C;margin-top:2px}
+.gcard .chips .chip.on small{color:#D9DEE5}
+.stepsin{background:var(--bg);border:1px solid var(--rule);padding:10px 16px 6px;margin:0 0 16px;font-size:.9rem}
+.stepsin summary{cursor:pointer;font-weight:700;font-size:.9rem;color:var(--ink);padding:4px 0;list-style:none;display:flex;gap:10px;align-items:baseline}
+.stepsin summary::-webkit-details-marker{display:none}
+.stepsin summary::before{content:'\25BE';color:var(--pinktext);font-size:.8rem}
+.stepsin:not([open]) summary::before{content:'\25B8'}
+.stepsin summary span{font-weight:400;font-size:.8rem;color:var(--gray)}
+.stepslbl{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:10px 0 4px}
+.stepsin .steps{margin:0 0 6px;gap:0}
+.stepsin .step{padding:6px 0;grid-template-columns:26px 1fr;gap:10px}
+.stepsin .step .sn{font-size:.95rem}
+.stepsin p{margin:2px 0 6px;line-height:1.5}
+.ctrlrow{margin-top:8px}
+.scorestrip{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:10px 14px;background:#0B0E12;border-bottom:1px solid #242C36;font-size:.84rem;color:#C9CED6}
+.scorestrip .ss-lbl{color:#AEB6C0;margin-right:4px;font-weight:600}
+.scorestrip .ss-hint{color:#AEB6C0}
+.scorestrip .ss{background:#1B222B;color:#E7EAEF;border:1px solid #2C3540;border-radius:999px;padding:3px 10px;font:inherit;font-size:.82rem;cursor:pointer}
+.scorestrip .ss b{color:var(--yellow);margin-left:2px}
+.scorestrip .ss .pct{color:var(--yellow);font-size:.7rem;margin-left:1px}
+.scorekey{padding:8px 14px;background:#0B0E12;border-bottom:1px solid #242C36;font-size:.8rem;color:#AEB6C0;line-height:1.5}
+.scorekey b{color:#E7EAEF}
+.scorestrip .ss.zero{opacity:.6}
+.scorestrip .ss.zero b{color:#AEB6C0}
+.scorestrip .ss.on{border-color:var(--yellow);background:#242C36}
+.scorestrip .ss:focus-visible{outline:2px solid var(--pink);outline-offset:1px}
 ul.ideas{padding-left:1.2em;margin:10px 0}
 ul.ideas li{margin:8px 0}
+
+.gnode.dim circle{opacity:1;stroke:#2A323C}
+.gnode.dim text{opacity:1;fill:#8A919B}
+.gnode.fundable circle{stroke:#7FD4FF;stroke-width:3;cursor:pointer}
+.gnode.fundable{cursor:pointer}
+.gnode.fundable:focus-visible circle{stroke:#fff}
+.ghit{stroke:transparent;stroke-width:14;fill:none;cursor:pointer;pointer-events:stroke}
+.ghit:hover,.ghit:focus-visible{stroke:rgba(255,61,138,.35);outline:none}
+.gedge.gone{opacity:1;stroke:#FF3D8A}
+.legend .l-gone::before{border-color:#FF3D8A;background:transparent;border-style:dashed;border-radius:2px;height:4px;vertical-align:3px}
+.kgunit .legend .l-gone::before{border-color:#FF3D8A}
+.scorestrip .ss.zero{opacity:1;background:#12171D;color:#AEB6C0}
+.modehint{font-size:.88rem;color:var(--gray);margin:10px 0 0}
+.budget{margin:0 0 6px}
+.btrack{height:10px;background:var(--bg);border:1px solid var(--rule);border-radius:999px;overflow:hidden;margin-bottom:6px}
+.btrack i{display:block;height:100%;background:var(--dark);transition:width .25s ease}
+.btrack.over i{background:var(--pinktext)}
+.gcard .chips .chip small.cost{font-weight:600;color:var(--pinktext)}
+.gcard .chips .chip.on small.cost{color:var(--yellow)}
+.gmap{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:4px 0 16px}
+.gtile{display:flex;flex-direction:column;gap:4px;padding:12px;border:1px solid #39424D;min-height:118px}
+.gtile .tt{font-weight:700;font-size:.92rem;color:#fff}
+.gtile .ts{font-size:.76rem;color:#AEB6C0}
+.gtile .th{font-size:.86rem;line-height:1.45;margin-top:auto}
+.gtile.known{background:#1B222B}
+.gtile.known .th{color:var(--yellow);font-weight:600}
+.gtile.fog{background:repeating-linear-gradient(135deg,#1B222B 0 8px,#252D37 8px 16px)}
+.gtile.fog .th{color:#E7EAEF}
+.gtile.no{background:#1B222B;border-color:#FF3D8A}
+.gtile.no .th{color:#FF3D8A;font-weight:600}
+
+.kglbl{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:0 0 8px}
+.factdeck{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+.fact{text-align:left;font:inherit;font-size:.88rem;line-height:1.35;padding:9px 12px;background:#fff;border:1px solid var(--rule);color:var(--ink);cursor:pointer}
+.fact small{display:block;color:var(--gray);font-size:.76rem;margin-top:3px}
+.fact:hover{border-color:var(--pinktext)}
+.fact:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.fact.on{background:var(--dark);color:#fff;border-color:var(--dark)}
+.fact.on small{color:#AEB6C0}
+.fact.on .ft::before{content:"\2713  ";color:var(--yellow)}
+#kg .kgunit{margin-top:14px}
+.kedge{stroke:#6B7480;stroke-width:1.6}
+.kedge.neg{stroke-dasharray:5 4}
+.kedge.lit{stroke:var(--yellow);stroke-width:2.6}
+.kedge.faint{stroke:#39424D}
+.kverb{font-family:'Inter',sans-serif;font-size:10px;paint-order:stroke;stroke:#0E1116;stroke-width:4px}
+.kverb.pos{fill:#C9CED6}
+.kverb.neg{fill:#FF7AAE}
+.kverb.lit{fill:var(--yellow);font-weight:700}
+.knode circle{fill:#1B222B;stroke:#6B7480;stroke-width:2}
+.knode.drug circle{stroke:var(--yellow)}
+.knode.dis circle{stroke:var(--pink)}
+.knode text{font-family:'Inter',sans-serif;font-size:12px;fill:#C9CED6}
+.knode.lit circle{fill:#2A3440;stroke:#fff}
+.knode.lit text{fill:#fff;font-weight:600}
+.knode.sel circle{fill:var(--pink);stroke:var(--pink)}
+.knode.sel text{fill:#fff;font-weight:700}
+.knode.faint text{fill:#8A919B}
+.knode.faint circle{stroke:#39424D}
+#kg .verdict ul.ans{list-style:none;padding:0;margin:10px 0 0}
+#kg .verdict ul.ans li{padding:10px 0;border-top:1px solid #242C36;display:flex;flex-direction:column;gap:3px}
+#kg .verdict .sug{color:var(--yellow)}
+#kg .verdict li.bad .sug{color:#FF7AAE}
+#kg .verdict .path{font-size:.88rem;color:#E7EAEF}
+#kg .verdict .math{font-size:.82rem;color:#AEB6C0;font-variant-numeric:tabular-nums}
+.knows{margin:0;padding-left:22px;font-size:.9rem}
+.knows li{padding:5px 0;border-bottom:1px solid var(--rule)}
+.knows li > span{margin-right:10px}
+.knows li .chip{font-size:.74rem;padding:2px 10px}
+.knows li.yours > span{color:var(--pinktext);font-weight:600}
+.knows li.empty{list-style:none;margin-left:-22px;color:var(--gray)}
+.mine{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.mine label{display:flex;flex-direction:column;font-size:.78rem;color:var(--gray);gap:3px}
+.mine input,.mine select{font:inherit;font-size:.9rem;padding:7px 9px;border:1px solid var(--rule);background:#fff;color:var(--ink);min-width:140px}
+.mine input:focus-visible,.mine select:focus-visible{outline:2px solid var(--pink);outline-offset:1px}
+#kg .verdict .path i.vb{font-style:normal;font-size:.78rem;padding:1px 6px;border:1px solid #39424D;border-radius:999px;color:#C9CED6}
+#kg .verdict .path i.vb.neg{color:#FF7AAE;border-color:#5A2A3D}
+
+.kglayout{display:flex;flex-direction:column;gap:22px}
+.kgmain #kg-qs{display:inline-flex}
+@media(min-width:980px){
+  #kg{width:min(1160px,calc(100vw - 48px));margin-left:calc((100% - min(1160px,calc(100vw - 48px)))/2)}
+  .kglayout{display:grid;grid-template-columns:300px 1fr;gap:24px;align-items:start}
+  .kgside{grid-column:1;grid-row:1}
+  .kgmain{grid-column:2;grid-row:1;position:sticky;top:76px;max-height:calc(100vh - 92px);overflow-y:auto}
+  .kgside .factdeck{grid-template-columns:1fr}
+  #kg .kgunit{margin-top:10px}
+  #kg .graphscroll .graphbox,#kg .graphscroll .legend{min-width:0}
+  #kg .swipehint{display:none}
+}
+.kgsrc{font-size:.85rem;color:var(--gray);line-height:1.5;margin:0 0 10px}
+/* debate evidence diagram, same as Lab 1 section 5 */
+.accord{border:1px solid var(--rule);background:#fff;margin:22px 0 10px}
+.accord .acc-head{background:var(--dark);color:var(--yellow);font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px}
+.accord .acc-grid{list-style:none;margin:0;padding:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.accord .acc-card{background:var(--bg);border:1px solid var(--rule);padding:14px;margin:0;display:flex;flex-direction:column}
+.accord .acc-num{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext)}
+.accord .acc-name{font-family:'Fraunces',serif;font-size:1.08rem;font-weight:600;margin:4px 0 6px;line-height:1.2}
+.accord .acc-mean{font-size:.9rem;line-height:1.45;margin:0 0 12px;flex:1}
+.accord .acc-who{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;padding:6px 8px}
+.accord .acc-who.co{background:var(--dark);color:var(--yellow)}
+.accord .acc-who.out{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.accord .acc-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:0 16px 16px;font-family:'Inter',sans-serif;font-size:.82rem}
+.accord .acc-flow .lbl2{font-weight:700;color:var(--ink);margin-right:4px}
+.accord .acc-step{background:var(--bg);border:1px solid var(--rule);padding:6px 10px}
+.accord .acc-arrow{color:var(--gray)}
+.accord .acc-no{border:1px dashed var(--gray);padding:6px 10px;color:var(--ink)}
+.accord .acc-no b{color:var(--pinktext)}
+.acc-cap{font-size:.88rem;color:var(--gray);margin:0 0 10px}
+.exact{margin:6px 0 22px}
+.exact summary{cursor:pointer;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;color:var(--pinktext)}
+.exact ol{margin-top:10px}
+.exact li{margin:8px 0;font-size:.92rem}
+@media(max-width:760px){.accord .acc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.accord .acc-grid{grid-template-columns:1fr}}
+.kedge.lit.bad{stroke:#FF3D8A}
+.kverb.lit.bad{fill:#FF7AAE}
+.legend .l-bad::before{border-color:#FF3D8A;background:#FF3D8A;border-radius:2px;height:4px;vertical-align:3px}
+.loopfig .acc-grid{grid-template-columns:repeat(3,1fr)}
+@media(max-width:640px){.loopfig .acc-grid{grid-template-columns:1fr}}
+.gcard p.vol{font-size:.88rem;margin:0 0 6px}
+.gcard ul.stakes{list-style:none;margin:0 0 10px;padding:10px 12px;background:#fff;border-left:3px solid var(--pinktext);font-size:.88rem;line-height:1.5}
+.gcard ul.stakes li{margin:2px 0}
+h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;font-weight:700;font-size:.95em;margin-right:.45em}
+/* ---- section 4: MATRIX score grid ---- */
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.hm-key{font-size:.85rem;line-height:1.55;color:var(--ink);margin:4px 0 12px}
+.hm-k{display:inline-block;font-size:.75rem;font-weight:700;padding:1px 7px;margin-right:4px}
+.hm-k.known{background:#D61F69;color:#fff}
+.hm-k.neg{background:#fff;color:#5A626C;border:1px dashed #5A626C}
+.hm-scroll{overflow-x:auto;border:1px solid var(--rule);background:#fff}
+.hm-scroll:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+table.hm{border-collapse:collapse;font-size:.85rem;min-width:520px;width:100%;font-variant-numeric:tabular-nums;line-height:1.3}
+.hm th,.hm td{padding:6px 5px;text-align:center;border:1px solid #fff;vertical-align:middle}
+.hm thead th{background:#fff;font-weight:600;color:var(--ink)}
+.hm thead .rowlbl,.hm tbody th{text-align:left;position:sticky;left:0;background:#fff;z-index:1;white-space:nowrap;border-right:1px solid var(--rule)}
+.hm tbody th{font-weight:600}
+.hm tbody th small,.hm thead small{display:block;font-weight:400;color:var(--gray);font-size:.72rem}
+.hm .dz{font:inherit;font-size:.74rem;font-weight:600;padding:4px 7px;border:1px solid var(--rule);background:#fff;color:var(--ink);cursor:pointer;border-radius:12px;line-height:1.2;max-width:96px}
+.hm .dz:hover{border-color:var(--pink);color:var(--pinktext)}
+.hm .dz:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.hm .dz.on{background:var(--dark);color:var(--yellow);border-color:var(--dark)}
+.hm .hm-facts td{font-size:.74rem;color:var(--ink);border-bottom:1px solid var(--rule)}
+.hm .fbar{height:6px;background:#EEF0F2;margin-top:4px}
+.hm .fbar i{display:block;height:100%;background:#D61F69;min-width:2px}
+.hm td.b0{background:#fff;color:#5A626C}
+.hm td.b1{background:#EEF0F2;color:#14181D}
+.hm td.b2{background:#C9CED6;color:#14181D}
+.hm td.b3{background:#5A626C;color:#fff}
+.hm td.b4{background:#14181D;color:#E4FF32;font-weight:600}
+.hm td.known{background:#D61F69;color:#fff;font-weight:600}
+.hm td.neg{background:#fff;color:#5A626C;outline:1px dashed #5A626C;outline-offset:-4px}
+.hm td.sel{box-shadow:inset 0 0 0 2px #FF3D8A}
+.hm td.b4.sel,.hm td.b3.sel{box-shadow:inset 0 0 0 2px #E4FF32}
+.hm .star{margin-left:2px}
+.hm-scale{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:.78rem;color:var(--ink);padding:8px 10px;margin-top:10px;border:1px solid var(--rule);border-bottom:0;background:#fff;font-weight:600}
+.hm-scale span{display:inline-flex;align-items:center;gap:4px}
+.hm-scale i{display:inline-block;width:14px;height:12px;border:1px solid #C9CED6}
+.hm-ctrl{margin-top:14px}
+.hm-ack{font-size:.78rem;color:var(--gray);line-height:1.5;margin:10px 0 0}
+
+.hm-raw{margin-top:12px}
+.hm-raw textarea{width:100%;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.75rem;padding:8px;border:1px solid var(--rule);background:var(--bg);margin-top:8px}
+/* ---- section 1: fact cards colored by kind, and the tiny language model ---- */
+.deckgrp{grid-column:1/-1;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);font-weight:700;margin:8px 0 0}
+.deckgrp:first-child{margin-top:0}
+.deckcta{font-weight:700;font-size:1rem;color:var(--ink);margin:10px 0 0}
+.deckkey{font-size:.78rem;color:var(--gray);margin:6px 0 8px;line-height:1.9}
+.t-drug{background:var(--dark);color:var(--yellow);padding:0 5px;border-radius:3px;font-weight:600}
+.t-bio{color:#5A626C;font-weight:600}
+.t-dis{color:#D61F69;font-weight:700}
+.fact.on .t-drug{outline:1px solid var(--yellow)}
+.fact.on .t-bio{color:#C9CED6}
+.fact.on .t-dis{color:#FF3D8A}
+.kg-lm{margin-top:18px}
+.dl-agent{margin-top:16px;border:1px solid var(--rule);background:var(--bg);padding:10px 14px}
+.dl-agent .kglbl{margin:0 0 6px}
+.dl-log{margin:0;padding-left:20px;font-size:.84rem;line-height:1.5}
+.dl-log li{padding:2px 0}
+.dl-log li.empty{list-style:none;margin-left:-20px;color:var(--gray)}
+.dl-log li.none{color:var(--gray)}
+.dl-log li.bulk{color:#D61F69;font-weight:600}
+.knowsbox{border:1px solid var(--rule);background:var(--bg);padding:12px 14px 8px;margin-bottom:14px}
+.knowsbox .kglbl{margin:0 0 6px}
+.knowsbox .knows{display:grid;grid-template-columns:1fr 1fr;column-gap:22px;font-size:.84rem}
+@media(max-width:640px){.knowsbox .knows{grid-template-columns:1fr}}
+.knowsbox .knows li{padding:3px 0;display:list-item}
+.knowsbox .knows li.empty{grid-column:1/-1}
+.knows li .chip.kx{font-size:.85rem;line-height:1;padding:1px 7px;margin-left:2px}
+.feedbox{border:2px solid #D61F69;background:#fff;padding:14px 16px;margin:18px 0 6px}
+.feedbox .kglbl{margin-top:0}
+.btn.lm-go{font-size:1rem;padding:13px 22px}
+.btn.pulse{animation:lmpulse 1.8s ease-out infinite}
+@keyframes lmpulse{0%{box-shadow:0 0 0 0 rgba(214,31,105,.55)}70%{box-shadow:0 0 0 12px rgba(214,31,105,0)}100%{box-shadow:0 0 0 0 rgba(214,31,105,0)}}
+@media(prefers-reduced-motion:reduce){.btn.pulse{animation:none;outline:2px solid #D61F69;outline-offset:2px}}
+.kgmain{position:static;max-height:none;overflow:visible}
+.lm-learned{margin-top:14px;font-size:.85rem;border:1px solid var(--rule);background:var(--bg);padding:12px 14px}
+.lm-learned p{margin:0 0 6px;line-height:1.5}
+.lm-learned ul{list-style:none;margin:0;padding:0}
+.lm-learned li{padding:5px 0;border-top:1px solid var(--rule);line-height:1.45}
+.lm-learned b{color:var(--pinktext)}
+.lm-ask{margin-top:16px}
+.lm-ask label{display:block;font-weight:600;font-size:.9rem;margin-bottom:6px}
+.lm-askline{display:flex;gap:8px;margin-bottom:10px}
+.lm-askline input{flex:1;min-width:0;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg)}
+.lm-askline input:focus{outline:2px solid var(--pink);outline-offset:-1px}
+.lm-cols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:640px){.lm-cols{grid-template-columns:1fr}}
+.lm-col .lm-sub{font-size:.8rem;color:#C9CED6;margin:-6px 0 12px;line-height:1.45}
+.lm-why{font-size:.8rem;color:#C9CED6;border-left:2px solid #FF3D8A;padding:2px 0 2px 10px;margin:-4px 0 10px !important;line-height:1.45}
+.lm-why b{color:#fff}
+.lm-warn{background:#FF3D8A;color:#0E1116;font-weight:600;padding:6px 10px;border-radius:3px;font-size:.85rem}
+.lm-out .lm-ans{font-size:.95rem;line-height:1.6;margin:0 0 12px}
+.lm-out .lm-sub{font-size:.8rem;color:#C9CED6;margin:-6px 0 12px}
+.lm-out .lm-q{color:#C9CED6;font-style:italic;margin:0 0 8px}
+.lm-out .lm-warn{margin:0 0 8px}
+.lm-path{color:#C9CED6;font-size:.88rem}
+.lm-stale{font-size:.85rem;color:#E4FF32;margin:8px 0 0}
+.lm-col p{font-size:.92rem;line-height:1.6;margin:0 0 8px}
+.lm-q{color:#C9CED6;font-style:italic}
+.lm-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;margin-left:6px;vertical-align:1px;border-radius:3px}
+.lm-tag.ok{background:#2A3340;color:#E7EAEF}
+.lm-tag.no{background:#FF3D8A;color:#0E1116}
+.lm-tag.you{background:var(--yellow);color:#0E1116}
+.lm-col .btn.alt{background:transparent;color:#E7EAEF;border-color:#3A434E;font-size:.82rem;padding:6px 12px}
+
+/* ---- section 2: EMR look ---- */
+#dl .dl-prog{background:#1F3A5F;color:#fff;font-size:.8rem;font-weight:600;letter-spacing:.02em;padding:8px 14px;margin:0}
+#dl .dl-case{background:#fff;border:1px solid #C9D3DF;border-top:0;padding:0}
+#dl .emr-banner{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;background:#EAF0F7;border-bottom:1px solid #C9D3DF;padding:10px 14px}
+#dl .emr-pt{font-weight:700;font-size:1.05rem;color:#14181D}
+#dl .emr-meta{font-size:.8rem;color:#44546A}
+#dl .emr-body{padding:12px 14px 14px}
+#dl .emr-sec{margin:0 0 12px}
+#dl .emr-h,.dl-agent .emr-h{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#44546A;margin:0 0 5px}
+#dl .emr-note{margin:0;font-size:.92rem;line-height:1.55;border:1px solid #E1E7EE;background:#FAFBFD;padding:8px 10px}
+#dl .bub{margin:6px 0;padding:8px 11px;border-radius:10px;font-size:.9rem;line-height:1.5;max-width:92%}
+#dl .bub .who{display:block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+#dl .bub.you{background:#EAF0F7;color:#14181D;margin-left:auto;border-bottom-right-radius:3px}
+#dl .bub.you .who{color:#44546A}
+#dl .bub.ai{background:var(--dark);color:#E7EAEF;border-bottom-left-radius:3px}
+#dl .bub.ai .who{color:var(--yellow)}
+#dl .bub.ai b{color:var(--yellow)}
+#dl .bub .why{display:block;font-size:.84rem;color:#AEB6C0;margin-top:4px}
+#dl .emr-order{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;border:1px dashed #1F3A5F;background:#F5F8FC;padding:8px 12px}
+#dl .emr-order .emr-h{margin:0}
+#dl .emr-rx{font-weight:700;color:#1F3A5F}
+#dl .emr-for{font-size:.82rem;color:#44546A}
+#dl .dl-agent{background:#fff;border:1px solid #C9D3DF}
+
+#dl .emr-banner{align-items:center;padding:12px 14px}
+#dl .emr-count{background:#1F3A5F;color:#fff;font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:999px}
+#dl .emr-pt{font-size:1.45rem;font-family:'Fraunces',Georgia,serif;font-weight:600}
+#dl .dl-case.emr-new .emr-banner{animation:emrflash 1.2s ease-out}
+@keyframes emrflash{0%{background:#FFE36B}100%{background:#EAF0F7}}
+@media(prefers-reduced-motion:reduce){#dl .dl-case.emr-new .emr-banner{animation:none}}
+
+/* ---- section 4: disease cards for Claude ---- */
+.term-pink{color:var(--pinktext);font-size:1.05em}
+.verdict .term-pink{color:#FF3D8A}
+.sim-note{font-size:.82rem;color:var(--gray);margin:-8px 0 14px}
+.mx-why{margin:12px 0 0;padding:12px 18px}
+.mx-why summary{cursor:pointer;font-weight:700;color:var(--pinktext)}
+.mx-why[open] summary{margin-bottom:8px}
+.mx-why p{margin:0 0 8px;font-size:.92rem}
+.mx-why-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:4px 0 8px}
+@media(max-width:600px){.mx-why-grid{grid-template-columns:1fr}}
+.mx-why-grid ul{margin:0;padding-left:18px;font-size:.9rem;line-height:1.5}
+.mx-why-h{font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);margin:0 0 4px!important}
+.mx-calm{margin:12px 0 0;padding:14px 18px}
+.mx-calm p{margin:0 0 8px;font-size:.92rem}
+.mx-card{border:1px solid var(--rule);background:#fff;padding:16px 18px;margin-top:12px}
+.mx-name{font-family:'Fraunces',Georgia,serif;font-size:1.3rem;font-weight:600;margin:0 0 4px}
+.mx-what{margin:0 0 8px;font-size:.88rem;color:var(--gray)}
+.mx-facts{margin:0 0 6px;font-size:.95rem}
+.mx-facts b{color:var(--pinktext);font-size:1.1rem}
+.mx-thin{display:inline-block;background:#FF3D8A;color:#0E1116;font-weight:700;font-size:.8rem;padding:2px 8px;margin:0 0 8px}
+.mx-sub{font-size:.85rem;color:var(--gray);margin:10px 0 6px}
+.mx-list{list-style:none;margin:0;padding:0;font-size:.92rem}
+.mx-list li{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;padding:5px 0;border-bottom:1px solid var(--rule)}
+.mx-list .rk{min-width:52px;font-variant-numeric:tabular-nums;color:var(--gray);font-weight:600}
+.mx-list .sc{color:var(--gray);font-size:.85rem}
+.mx-list .kn{background:#D61F69;color:#fff;font-size:.72rem;font-weight:700;padding:1px 6px}
+.mx-ctrl{margin-top:14px}
+.mx-raw{margin-top:10px}
+.mx-raw textarea{width:100%;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.75rem;padding:8px;border:1px solid var(--rule);background:var(--bg);margin-top:8px}
+.mx-tried{margin:0 0 10px;padding-left:20px}
+.mx-ack{font-size:.78rem;color:var(--gray);line-height:1.5;margin:14px 0 0}
+
+/* ---- debate evidence cards ---- */
+.probe.ev .ev-body{font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55}
+.ev-point{font-family:'Fraunces',Georgia,serif;font-size:1.05rem;margin:0 0 10px}
+.ev-point b{color:var(--pinktext)}
+.ev-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 10px}
+.ev-stats div{background:#fff;border:1px solid var(--rule);padding:8px 10px}
+.ev-stats b{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.5rem;color:var(--ink)}
+.ev-stats span{font-size:.78rem;color:var(--gray)}
+.ev-facts{margin:0 0 6px;padding-left:18px}
+.ev-facts li{margin:4px 0}
+.ev-src{font-size:.8rem;color:var(--gray);margin:6px 0 0}
+.ev-tablewrap{overflow-x:auto;margin:0 0 6px}
+.ev-table{border-collapse:collapse;width:100%;min-width:480px;font-size:.86rem;background:#fff}
+.ev-table th,.ev-table td{border:1px solid var(--rule);padding:7px 9px;text-align:left;vertical-align:top}
+.ev-table thead th{background:#F4F4F0;font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gray)}
+.ev-table tbody th small{display:block;font-weight:400;color:var(--gray);font-size:.76rem}
+.ev-loop{display:block;font-weight:700;color:#1F3A5F;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.ev-table b{color:var(--pinktext)}
+
+/* ---- section 2: bigger EMR screen ---- */
+#dl{width:min(1140px,calc(100vw - 32px));position:relative;left:50%;transform:translateX(-50%);padding:24px 26px}
+@media(min-width:760px){#dl .dl-grid{grid-template-columns:minmax(0,1.9fr) minmax(0,1fr)!important;gap:22px}}
+#dl .dl-prog{font-size:.9rem;padding:10px 16px}
+#dl .emr-banner{padding:14px 16px}
+#dl .emr-pt{font-size:1.7rem}
+#dl .emr-body{padding:16px 18px 18px}
+#dl .emr-note{font-size:1.02rem;padding:10px 12px}
+#dl .bub{font-size:1rem;padding:10px 13px}
+#dl .bub .why{font-size:.9rem}
+#dl .emr-order{padding:10px 14px}
+#dl .emr-rx{font-size:1.15rem}
+#dl .dl-btns .btn{font-size:1rem;padding:12px 22px}
+#dl .dl-log{font-size:.9rem}
+
+/* ---- the three simulators get a pink frame ---- */
+#kg,#mx{border:2px solid var(--pinktext)}
+#dl{border:2px solid #1F3A5F}
+.cpbar{margin:6px 0 22px}
+.cpstat{font-size:.85rem;color:var(--gray)}
+.cptext{width:100%;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.75rem;padding:8px;border:1px solid var(--rule);background:var(--bg);margin-top:8px}
+.probe .cpy{margin-top:4px;font-size:.8rem;padding:6px 12px}
+#src-links{width:100%;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.75rem;padding:8px;border:1px solid var(--rule);background:var(--bg);margin-top:8px}
 </style>
 </head>
 <body>
@@ -274,228 +750,456 @@ ul.ideas li{margin:8px 0}
 
 <header class="masthead">
   <div class="wrap">
-    <div class="eyebrow">Western Washington University · MIS 201 · Lab 5 · Week 5 · Take-home (midterm week)</div>
+    <div class="eyebrow">Western Washington University · MIS 201 · Lab 5 · Week 5 · At home (midterm week)</div>
     <h1>The Footprint <b>Machine</b></h1>
-    <p class="kicker">Chapter 5 said the cost of AI lives in the multiplication, the defaults, and the numbers nobody publishes. Today you work all three. First you add up your own digital day. Then you set the defaults for a product with a hundred million users. Then you read a company's sustainability report the way an analyst would, and ask a chatbot what it just cost.</p>
-    <p class="factline">Your day · the default · the report · the machine</p>
+    <p class="kicker">Chapter 5 said AI's cost lives in the multiplication, the building, and the numbers nobody publishes. This week you measure it yourself. You read what's known about AI's energy and water and about the streaming, scrolling, and gaming you already do, build a technology impact calculator with Claude, and weigh what a regulation for data centers should cover.</p>
+    <p class="factline">what AI costs, read · what your habits cost, read · a calculator you build with Claude · under the hood · a regulation for the building · e-waste · one debate</p>
   </div>
 </header>
 
 <main class="wrap">
-<div class="callout">
-  <div class="label">Take-home this week</div>
-  <p>Wednesday is the midterm, so this lab is on your own time, alone or with a partner. Skip the in-class check-in. Where a step says "the room," jot your own answer instead; those answers can go in your writeup. The writeup is due Friday, October 23, at 11:59 p.m.</p>
-</div>
 
 <div class="callout">
   <div class="label">From Chapter 5 · what this lab runs on</div>
-  <p>The sliders are section 2.3's two costs, training and inference, at four scales. The uncertainty band is section 2.5's disclosure gap made visible: the honest answer is a range because nobody who knows the number publishes it. Right-sizing (2.6) is the lever you'll find you actually control. When you interrogate a live AI about its own footprint, you're running Question 4 on a system talking about itself.</p>
+  <p><strong>How this week runs.</strong> Wednesday is the midterm, so this whole lab is at home, alone or with a partner. It takes about an hour and a half. There's nothing to write down as you go: work through the sections, then answer the five writeup questions at the end, due on Canvas by 11:59 p.m. Friday, October 23.</p>
+  <p>The articles in sections 1 and 2 are <a class="inline" href="chapter-05-environment.html#s2-1">section 2.1</a>'s point made concrete: almost everything you do online already runs in a data center. The calculator you build is <a class="inline" href="chapter-05-environment.html#s2-3">section 2.3</a>'s multiplication. When two sources give the same thing numbers ten or a thousand times apart, you're looking at <a class="inline" href="chapter-05-environment.html#s2-5">section 2.5</a>'s disclosure gap. And the regulation you sketch in section 5 is <a class="inline" href="chapter-05-environment.html#s2-7">section 2.7</a>'s argument: regulate the building, not the buzzword. This week you get to decide whether you buy it.</p>
 </div>
 
-
-<section id="today">
-  <div class="shead"><span class="num">1</span><h2>At home: Today</h2></div>
+<section id="ai-reads">
+  <div class="shead"><span class="num">1</span><h2>At home: Read what AI costs</h2></div>
   <div class="callout">
-    <div class="label">The plan · 110 minutes</div>
-    <ul class="plan">
-      <li><b>Part 1, your digital day</b> · 20 minutes</li>
-      <li><b>Part 2, set the default</b> · 20 minutes</li>
-      <li><b>Check-in</b> · 5 minutes, then a 5-minute break</li>
-      <li><b>Part 3, read the report</b> · 15 minutes</li>
-      <li><b>Part 4, ask the machine</b> · 10 minutes</li>
-      <li><b>Room discussion</b> · 25 minutes</li>
-      <li><b>Five questions on your own choices</b> · 10 minutes, then the writeup is homework</li>
-    </ul>
+    <div class="label">Where this is going</div>
+    <p>By the end of this lab you'll have built your own <strong>technology impact calculator</strong> with Claude: a small web page that adds up the energy, carbon, and water of a digital day, AI and everything else, and sets it next to a flight to San Francisco, a burger, a golf course, and the world's livestock. Sections 1 and 2 are where you collect the numbers it runs on. Every detail listed under an article below is something you'll hand to Claude in section 3, so read like an analyst: which numbers would you trust in a tool your boss is going to use?</p>
   </div>
-  <p class="lead">Work in pairs. Every part ends with a <strong>written stop</strong>: one or two sentences in your notes before you move on. Those sentences are most of Friday's writeup, so the stops save you time later.</p>
-  <p>Every number in the machines is an estimate, and the lab says where each one comes from. The per-request figures are the chapter's; the streaming figures are the International Energy Agency's; the product and company in Parts 2 and 3 are fictional. <em>(Rough is fine. The point is which numbers are big, not the third decimal.)</em></p>
+  <p class="lead">AI data centers are in the news as the environment's newest villain. Before you decide whether that's fair, read what has actually been measured. Below are four articles: one from a company about its own product, one from journalists who did the math themselves, one that went viral, and one that zooms out to every data center in the country. About 20 minutes.</p>
+  <p>Skim each one. You don't need every word. Under each article is a list of the details you'll hand to Claude in section 3, so there's nothing to copy down. Just get a feel for who's saying what. (If an article hits a paywall, the details on the card are enough to keep going.)</p>
+  <p class="sim-note"><strong>Units, once:</strong> a watt-hour (Wh) is a small amount of electricity, about what a microwave uses in a few seconds. 1,000 Wh is a kilowatt-hour (kWh), the unit on an electric bill. One Wh is 3,600 joules, which matters because one article uses joules.</p>
+
+  <div class="probe ev">
+    <div class="pwhy">Article A · The company's own number</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>Google, August 2025:</b> <a class="inline" href="https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference" target="_blank" rel="noopener">"Measuring the environmental impact of AI inference"</a>, by Amin Vahdat and Jeff Dean.</p>
+      <ul class="ev-facts deets">
+        <li>A median text prompt to the Gemini app uses about <b>0.24 Wh</b> of electricity, emits about <b>0.03 grams of CO2e</b>, and uses about <b>0.26 mL of water</b>, about five drops.</li>
+        <li>Google compares the energy to watching TV for less than nine seconds.</li>
+        <li>Google says the energy of its median prompt fell about 33 times in one year.</li>
+        <li>The catch: the water counts what cools Google's own chips, not the water used to make the electricity. Critics pointed that out the same week.</li>
+        <li>"Median" means the middle prompt. Half used more, half used less.</li>
+      </ul>
+      <p class="ev-src">Who's saying it: the company selling the product.</p>
+    </div>
+  </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Article B · Journalists who did the math</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>MIT Technology Review, May 2025:</b> <a class="inline" href="https://www.technologyreview.com/2025/05/20/1116327/ai-energy-usage-climate-footprint-big-tech/" target="_blank" rel="noopener">"We did the math on AI's energy footprint"</a>, by James O'Donnell and Casey Crownhart.</p>
+      <ul class="ev-facts deets">
+        <li>They measured open models, because the big companies wouldn't share numbers.</li>
+        <li>A small text model used about <b>114 joules</b> per reply. A large one used about <b>6,706 joules</b> (about 1.9 Wh).</li>
+        <li>One standard AI image: about <b>2,282 joules</b> (about 0.6 Wh).</li>
+        <li>One five-second AI video: about <b>3.4 million joules</b> (about 944 Wh), more than 700 times an image.</li>
+        <li>Epoch AI's estimate for a typical ChatGPT message: about <b>0.3 Wh</b>.</li>
+        <li>Their sample day (15 questions, 10 images, 3 short videos) used about <b>2.9 kWh</b>.</li>
+        <li>Reasoning models were found to use 43 times more energy on simple problems.</li>
+        <li>Electricity used by data centers was 48 percent more carbon-intensive than the US average.</li>
+      </ul>
+      <p class="ev-src">Who's saying it: independent journalists, with researchers at Michigan and Hugging Face doing the measuring.</p>
+    </div>
+  </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Article C · The one that went viral</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>The Washington Post, September 2024:</b> <a class="inline" href="https://www.washingtonpost.com/technology/2024/09/18/energy-ai-use-electricity-water-data-centers/" target="_blank" rel="noopener">"A bottle of water per email: the hidden environmental costs of using AI chatbots"</a>, with researchers at UC Riverside.</p>
+      <ul class="ev-facts deets">
+        <li>Writing one 100-word email with GPT-4 used about <b>519 mL of water</b>, a little more than a standard bottle.</li>
+        <li>The same email used about <b>0.14 kWh</b> of electricity.</li>
+        <li>The water number counts cooling water at the data center and water used at power plants to make the electricity. That's why it's so much bigger than Google's five drops.</li>
+        <li>An email was modeled as several model calls, not one prompt.</li>
+        <li>The researcher behind it, Shaolei Ren, has since said the figure shouldn't be read as an accurate measure of today's AI.</li>
+      </ul>
+      <p class="ev-src">Who's saying it: a newspaper and university researchers, estimating from outside, about a 2024 model.</p>
+    </div>
+  </div>
+
+    <div class="probe ev">
+    <div class="pwhy">Article D · The neighbors' view</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>NPR, October 2025:</b> <a class="inline" href="https://www.npr.org/2025/10/14/nx-s1-5565147/google-ai-data-centers-growth-environment-electricity" target="_blank" rel="noopener">"Data centers are booming. But there are big energy and environmental risks"</a>, by Michael Copley.</p>
+      <ul class="ev-facts deets">
+        <li>A typical AI data center uses as much electricity as <b>100,000 households</b>, and the largest ones being built will use 20 times more (International Energy Agency).</li>
+        <li>In Georgia, some residents reported problems getting drinking water from their wells after a data center was built nearby. In Arizona, some cities have restricted water deliveries to big water users, including data centers.</li>
+        <li>Cooling is a trade-off: evaporative systems lose water as steam, closed-loop systems use less water but more electricity.</li>
+        <li>Companies worry that sharing their water and energy numbers could help their rivals, so the public often can't see them.</li>
+      </ul>
+      <p class="ev-src">Who's saying it: public radio, quoting residents, researchers, and the industry. NPR notes that Google is one of its financial supporters.</p>
+    </div>
+  </div>
+
+  <div class="chips cpbar"><button type="button" class="btn alt" data-copy-deets="#ai-reads">Copy the AI details for Claude</button><span class="cpstat" aria-live="polite"></span></div>
+  <details class="exact"><summary>See exactly what you're copying (or copy it by hand)</summary><textarea class="cptext" readonly rows="8" aria-label="The AI details to paste into Claude"></textarea></details>
+
+
+  <h3 class="sub"><span>The takeaway</span></h3>
+  <p>All four articles are about the same machine, and their numbers don't line up. Nobody here is lying. They drew the line in different places: one prompt or one email, the chips' water or the power plant's water too, a 2024 model or a 2025 one, measured by the company or estimated from outside. That's <a class="inline" href="chapter-05-environment.html#s2-5">section 2.5</a> in your hands. The only company number is from the company, and it's the smallest. And the boom behind the headlines is real: US data center electricity is <a class="inline" href="https://www.pewresearch.org/short-reads/2025/10/24/what-we-know-about-energy-use-at-us-data-centers-amid-the-ai-boom/" target="_blank" rel="noopener">projected to more than double by 2030</a>, and AI is the main reason. Now hold onto a second question: is AI the only thing in that building?</p>
 </section>
 
-<section id="day">
-  <div class="shead"><span class="num">2</span><h2>At home: Part 1, your digital day</h2></div>
-  <p>Use yesterday, honestly. Count what you actually did, not what you think you should have done.</p>
-  <div class="tool" id="dd">
-    <div class="label">Yesterday, in watt-hours</div>
-    <div class="slider-row"><label for="dd-stream">Streaming video (hours)</label><input type="range" id="dd-stream" min="0" max="8" step="0.5" value="2"><output for="dd-stream" id="dd-stream-o">2 h</output></div>
-    <div class="slider-row"><label for="dd-scroll">Scrolling short video (hours)</label><input type="range" id="dd-scroll" min="0" max="8" step="0.25" value="1"><output for="dd-scroll" id="dd-scroll-o">1 h</output></div>
-    <div class="slider-row"><label for="dd-text">AI text prompts</label><input type="range" id="dd-text" min="0" max="100" step="1" value="15"><output for="dd-text" id="dd-text-o">15</output></div>
-    <div class="slider-row"><label for="dd-img">AI images</label><input type="range" id="dd-img" min="0" max="30" step="1" value="2"><output for="dd-img" id="dd-img-o">2</output></div>
-    <div class="slider-row"><label for="dd-vid">AI videos (5 seconds)</label><input type="range" id="dd-vid" min="0" max="10" step="1" value="0"><output for="dd-vid" id="dd-vid-o">0</output></div>
-    <div class="chips" role="group" aria-label="Chatbot model size" style="margin-top:8px">
-      <span class="chiplbl">Your chatbot's model:</span>
-      <button type="button" class="chip" data-tier="s" aria-pressed="false">Small</button>
-      <button type="button" class="chip on" data-tier="m" aria-pressed="true">Medium</button>
-      <button type="button" class="chip" data-tier="l" aria-pressed="false">Large</button>
-      <button type="button" class="chip" id="dd-reason" aria-pressed="false">Reasoning on</button>
-    </div>
-    <div class="chips" style="margin-top:10px">
-      <span class="chiplbl">Count for streaming:</span>
-      <button type="button" class="chip on" data-count="all" aria-pressed="true">Everything (screen, network, building)</button>
-      <button type="button" class="chip" data-count="dc" aria-pressed="false">Only the data center</button>
-    </div>
-    <div class="chips" style="margin-top:10px">
-      <button type="button" class="chip" id="dd-band" aria-pressed="false">Show honest uncertainty</button>
-      <button type="button" class="chip" id="dd-grams" aria-pressed="false">Show grams of CO2</button>
-    </div>
-    <div class="verdict" aria-live="polite">
-      <div class="label">Your day</div>
-      <div class="bars" id="dd-bars"></div>
-      <p class="read" id="dd-read"></p>
+<section id="habit-reads">
+  <div class="shead"><span class="num">2</span><h2>At home: Read what our existing technology habits cost</h2></div>
+  <p class="lead">You streamed something this week. I did too. We all did. That's how it works now. You probably scrolled TikTok or watched YouTube, and maybe you gamed. All of it runs in the same kind of building as a chatbot. Here are four articles about those everyday habits, starting with the newest one. About 20 minutes, same routine: skim, and notice who's saying what.</p>
+
+  <div class="probe ev">
+    <div class="pwhy">Article E · The whole building, June 2026</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>Associated Press via PBS News, June 2026:</b> <a class="inline" href="https://www.pbs.org/newshour/science/energy-water-use-and-pollution-of-ai-and-data-centers-rival-most-countries" target="_blank" rel="noopener">"Energy, water use and pollution of AI and data centers rival most countries"</a>, by Seth Borenstein, on a United Nations University report.</p>
+      <ul class="ev-facts deets">
+        <li>Data centers worldwide used about <b>448 terawatt-hours</b> of electricity in 2025, more than all but 10 countries.</li>
+        <li>That produced about <b>189 million tonnes of CO2</b>, about the same as Argentina, and making that electricity used about <b>1.2 trillion gallons of water</b>.</li>
+        <li>Only about <b>20 percent</b> of data centers' energy is due to AI today. The report expects about 40 percent by 2030. The rest is everything else: streaming, cloud storage, social media, websites.</li>
+        <li>A typical chatbot query uses about 200 times the energy of the simple AI that sorts your spam folder.</li>
+        <li>Cutting the words in your prompts by 30 percent can cut the energy by about 25 percent.</li>
+      </ul>
+      <p class="ev-src">Who's saying it: a UN research institute, reported by the AP, with an industry group and an environmental group both quoted.</p>
     </div>
   </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Article F · Netflix and streaming video</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>International Energy Agency, 2020:</b> <a class="inline" href="https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines" target="_blank" rel="noopener">"The carbon footprint of streaming video: fact-checking the headlines"</a>, by George Kamiya.</p>
+      <ul class="ev-facts deets">
+        <li>One hour of streaming video used about <b>0.077 kWh</b> (77 Wh) and emitted about <b>36 grams of CO2</b> in 2019.</li>
+        <li>That counts the data center, the network, and your screen. Most of it is the screen and the network, not the building.</li>
+        <li>The headline it fact-checked claimed half an hour of Netflix emitted 1.6 kg of CO2. That claim rested on a math error, and the think tank behind it later corrected it about eight-fold.</li>
+        <li>The real number depends heavily on your device, your connection, and the video quality.</li>
+      </ul>
+      <p class="ev-src">Who's saying it: an international energy agency, correcting a viral claim.</p>
+    </div>
+  </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Article G · TikTok and social media</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>Global Citizen, March 2022:</b> <a class="inline" href="https://www.globalcitizen.org/en/content/social-media-emissions-carbon-footprint/" target="_blank" rel="noopener">"How Does Your Social Media Use Impact the Planet? Use This Calculator to Find Out"</a>, by Joe McCarthy, reporting a Compare the Market analysis of measurements by Greenspector.</p>
+      <ul class="ev-facts deets">
+        <li>Scrolling TikTok: about <b>2.63 grams of CO2 per minute</b>, the highest of ten apps.</li>
+        <li>Reddit about 2.45 g per minute, Pinterest about 1.3, YouTube about <b>0.46 g per minute</b>.</li>
+        <li>145 minutes of TikTok a day for a year comes to nearly 140 kg of CO2.</li>
+        <li>The catch: the per-minute numbers were measured by a French consulting firm in 2021 on one phone, a Samsung Galaxy S7, then repackaged by a price-comparison website.</li>
+      </ul>
+      <p class="ev-src">Who's saying it: an advocacy site, citing a marketing analysis, citing a consultant's lab test. Trace it back before you trust it.</p>
+    </div>
+  </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Article H · Gaming</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>Lawrence Berkeley National Laboratory:</b> <a class="inline" href="https://eta.lbl.gov/news/hidden-cost-computer-gaming" target="_blank" rel="noopener">"The Hidden Cost of Computer Gaming"</a>, plus the study's <a class="inline" href="https://eta-publications.lbl.gov/bibcite/reference/34979" target="_blank" rel="noopener">summary</a> (Mills and others, 2019).</p>
+      <ul class="ev-facts deets">
+        <li>Gaming in the US uses about <b>34 terawatt-hours a year</b>, about 2.4 percent of all home electricity, with about <b>24 million tonnes of CO2</b>.</li>
+        <li>That's about $5 billion a year in electricity, and the same emissions as over 5 million cars.</li>
+        <li>One gaming system can use anywhere from 5 to 1,200 kWh a year, depending on the hardware and the game.</li>
+        <li>Cloud gaming, where the graphics run in a data center and stream to you, uses markedly more energy than playing on your own console or PC. The researchers called it one of their biggest surprises.</li>
+      </ul>
+      <p class="ev-src">Who's saying it: a federal research lab, with the study funded by the California Energy Commission. Note: no per-hour number for cloud gaming.</p>
+    </div>
+  </div>
+
+  <div class="chips cpbar"><button type="button" class="btn alt" data-copy-deets="#habit-reads">Copy the everyday-tech details for Claude</button><span class="cpstat" aria-live="polite"></span></div>
+  <details class="exact"><summary>See exactly what you're copying (or copy it by hand)</summary><textarea class="cptext" readonly rows="8" aria-label="The everyday-tech details to paste into Claude"></textarea></details>
+
+
+  <h3 class="sub"><span>The takeaway</span></h3>
+  <p>None of these habits made headlines like AI did, and all of them run in data centers. Streaming, social media, and gaming each have a real footprint, sometimes a big one, and they had it before chatbots arrived. Notice what's different, though: these numbers are older, they mostly count your screen and the network, and some are yearly totals for everyone rather than a cost per hour. And notice where things are heading: AI is about 20 percent of data center energy today and expected to be about 40 percent by 2030 (Article E). The old habits set the floor; AI is what's raising it fast. Turning all of this into something you can compare takes assumptions. In the next section, watch who makes them.</p>
+</section>
+
+<section id="build">
+  <div class="shead"><span class="num">3</span><h2>At home: Build a technology impact calculator with Claude</h2></div>
+  <details class="srcnote noai">
+    <summary>Don't want to use AI? Do this instead</summary>
+    <div class="noai-body">
+      <p>Same 40 minutes, no chatbot. Instead of building a calculator, take stock of your own technology use.</p>
+      <ol>
+        <li><strong>List your digital day.</strong> Open your phone's screen-time report, or estimate. Look at your top five apps and roughly how long you spent on each yesterday.</li>
+        <li><strong>Find the AI in it.</strong> AI isn't only chatbots. TikTok's For You feed, YouTube's recommendations, Netflix's rows, Spotify's playlists, your spam filter, and your maps app are all predictive AI running in data centers (Chapter 1's three kinds of AI; Chapter 3's recommendation systems). Mark each app: does it use AI, and what kind?</li>
+        <li><strong>Put rough numbers on it.</strong> For streaming, YouTube, and TikTok, multiply your time by the numbers in section 2's articles. Then compare your day to the round-trip flight from round 3 below.</li>
+        <li><strong>Think it through.</strong> Data centers had a footprint long before the AI boom: US data centers already used about 58 terawatt-hours of electricity in 2014, running cloud storage, streaming, and social feeds (<a class="inline" href="chapter-05-environment.html#s2-1">Chapter 5, section 2.1</a>), and the UN report in Article E says only about 20 percent of data center energy is AI today. AI has sped the growth up: US data center electricity more than doubled from 2017 to 2023, largely because of servers built for AI (<a class="inline" href="chapter-05-environment.html#s2-2">section 2.2</a>). Which of your habits were already in a data center before chatbots, and what has AI changed?</li>
+      </ol>
+    </div>
+  </details>
+  <p class="lead">Now you turn those article details into a tool. You'll ask Claude to build an interactive calculator, an artifact, one piece at a time: AI first, then your everyday habits, then a comparison with ordinary life, then the sources. After each step you check its work. About 40 minutes.</p>
+
+  <h3 class="sub" id="build-job"><span>Let's build</span></h3>
+  <p>Imagine you're an analyst on a sustainability team. Your boss read the headlines and asks: <strong>is our AI use the problem, or is it all our tech?</strong> You'll build the tool that answers it, using only numbers you can point to. <strong>You're the person in the loop.</strong> Claude writes the code. You decide whether its numbers are real.</p>
+  <p class="sim-note"><strong>Keep it to public numbers.</strong> Don't type anything private. Your own screen time is fine.</p>
+
   <div class="steps">
-    <div class="step"><span class="sn">1</span><p><strong>Find your biggest bar.</strong> Was it what you expected? Now drag AI videos to 1 and watch what happens to the chart.</p></div>
-    <div class="step"><span class="sn">2</span><p><strong>Move the line.</strong> Switch streaming to <em>Only the data center</em>. The chatbot figures only ever count the data center side, so this is the fairer comparison. What changed, and which comparison would a company defending AI choose? A critic?</p></div>
-    <div class="step"><span class="sn">3</span><p><strong>Turn on reasoning, then turn on uncertainty.</strong> Note how wide the bands get.</p></div>
+    <div class="step"><span class="sn">1</span><div class="sbody"><p><strong>Open Claude.</strong> Go to <a class="inline" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> and sign in with Google or your email. If you don't have an account, making a free one takes a minute.</p></div></div>
+    <div class="step"><span class="sn">2</span><div class="sbody"><p><strong>Build it: AI impact only.</strong> Click <strong>Copy the AI details for Claude</strong> in section 1. Then copy the prompt below into Claude, paste your AI details where it says to, and send it.</p>
+      <div class="probe"><div class="ptext">I'm a business student building a Technology Impact Calculator for a class. Build it as an interactive web page I can use. Start with AI only. Use only the numbers I paste below, and never make up a number. Next to every number on the page, show which article it came from. If you need a number I didn't give you, or have to convert units, mark it on the page as an assumption and tell me what you assumed. Inputs: AI text prompts per day, AI images per day, and five-second AI videos per week. Outputs: energy in watt-hours, carbon in grams of CO2, and water in milliliters, per day and per year, with a simple bar chart. Here are my numbers: [paste your AI details here]</div></div>
+      <div class="callout mx-calm"><p>It's just text, like pasting a paragraph. Nothing to install, and you can't break anything. If Claude asks which water number to use, Google's or the Post's, that's the right question. Tell it to show both, side by side, with a label saying what each one counts.</p></div>
+      <p><strong>Check it.</strong> Set the calculator to one text prompt. Does it show the same energy number as the article it cites? Then set it to your real day. How big is the AI bar?</p></div></div>
+    <div class="step"><span class="sn">3</span><div class="sbody"><p><strong>Add our existing technology habits.</strong> Click <strong>Copy the everyday-tech details for Claude</strong> in section 2. In the same chat, send this with your details pasted in:</p>
+      <div class="probe"><div class="ptext">Now add a second section for things I already do: streaming video in hours per day, YouTube in hours per day, TikTok in minutes per day, and gaming in hours per day. Use only these numbers: [paste your everyday-tech details here]. Some of these numbers aren't per hour or per minute. YouTube and gaming are yearly totals for everyone. Show me how you turned each one into a per-hour number, and label every one of those as an assumption on the page. If an article gives no number for something, say so on the page instead of filling it in. Then put AI and my everyday habits on the same chart.</div></div>
+      <p><strong>Check it.</strong> Find every label that says "assumption." Pick one and ask Claude, <em>"How did you get this number?"</em> Then look at gaming. The Berkeley Lab article gives no per-hour number for cloud gaming. Did Claude leave it blank, or did a number appear anyway? Was AI or your everyday habits the bigger bar? Is that what you expected?</p></div></div>
+    <div class="step"><span class="sn">4</span><div class="sbody"><p><strong>Compare it with everyday life.</strong> First, look up one number yourself. Open the <a class="inline" href="https://www.icao.int/environmental-protection/environmental-tools/icec" target="_blank" rel="noopener">ICAO Carbon Emissions Calculator</a>, the United Nations' official tool for flights. Enter a round trip from Seattle (SEA) to San Francisco (SFO), economy, and find the kilograms of CO2 per passenger. Then send this, with your flight number filled in:</p>
+      <div class="probe"><div class="ptext">Add a third section called "Compared with everyday life," with two separate scales. Scale 1 is my own life: a round-trip flight from Seattle to San Francisco, which the ICAO calculator says is [your number] kg of CO2 per passenger; driving one mile in a typical car, about 400 grams of CO2 (US EPA); and one quarter-pound beef burger, using beef from beef herds at about 99.5 kg of CO2e per kilogram of beef (Our World in Data, from Poore and Nemecek 2018), where a quarter pound is about 113 grams. Show how many days of my technology use equal each one. Scale 2 is the big picture: data centers worldwide emit about 180 million tonnes of CO2 a year (International Energy Agency), next to livestock at about 6.2 billion tonnes of CO2e a year, about 12 percent of human-caused emissions (UN Food and Agriculture Organization, 2023); and US data centers directly consumed about 17 billion gallons of water in 2023 (Berkeley Lab, via Pew), next to US golf courses, which applied about 1.68 million acre-feet of water in 2020 (Golf Course Superintendents Association of America), where one acre-foot is 325,851 gallons. Keep the two scales visually separate so nobody compares one burger to a whole industry.</div></div>
+      <p><strong>Check it.</strong> Do the golf math yourself: 1.68 million acre-feet times 325,851 gallons. Does Claude's page match? Then read the two sources on scale 2 the way Question 4 would. The golf number comes from golf's own association, and it counts water <em>applied</em> to courses, some of it recycled. The data center number counts water <em>consumed</em>. Are those the same kind of number?</p></div></div>
+    <div class="step"><span class="sn">5</span><div class="sbody"><p><strong>Add our sources.</strong> Click <strong>Copy the source links</strong> below and send this, with the links pasted in:</p>
+      <div class="probe"><div class="ptext">Please include these as sources. Add a Sources section at the bottom of the page with each article's title, publisher, date, and link. Link every number on the page to the article it came from. If any number on the page doesn't come from one of these sources, list it under a heading called "Not from my sources" so I can check it. At the very bottom, add a short note that says this calculator was built with Claude, an AI model made by Anthropic, and that building it used energy and water too, an amount Anthropic doesn't publish, so this page doesn't count its own footprint. Here are the articles I read: [paste the links here]</div></div>
+      <div class="chips cpbar"><button type="button" class="btn alt" data-copy-text="#src-links">Copy the source links</button><span class="cpstat" aria-live="polite"></span></div>
+      <details class="exact"><summary>See the links you're copying</summary><textarea id="src-links" readonly rows="8" aria-label="The source links to paste into Claude">Google Cloud, Measuring the environmental impact of AI inference, August 2025: https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference
+MIT Technology Review, We did the math on AI's energy footprint, May 2025: https://www.technologyreview.com/2025/05/20/1116327/ai-energy-usage-climate-footprint-big-tech/
+The Washington Post, A bottle of water per email, September 2024: https://www.washingtonpost.com/technology/2024/09/18/energy-ai-use-electricity-water-data-centers/
+NPR, Data centers are booming. But there are big energy and environmental risks, October 2025: https://www.npr.org/2025/10/14/nx-s1-5565147/google-ai-data-centers-growth-environment-electricity
+Associated Press via PBS News, Energy, water use and pollution of AI and data centers rival most countries, June 2026: https://www.pbs.org/newshour/science/energy-water-use-and-pollution-of-ai-and-data-centers-rival-most-countries
+Pew Research Center, What we know about energy use at U.S. data centers amid the AI boom, October 2025: https://www.pewresearch.org/short-reads/2025/10/24/what-we-know-about-energy-use-at-us-data-centers-amid-the-ai-boom/
+International Energy Agency, The carbon footprint of streaming video: fact-checking the headlines, 2020: https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines
+Global Citizen, How Does Your Social Media Use Impact the Planet?, March 2022: https://www.globalcitizen.org/en/content/social-media-emissions-carbon-footprint/
+Lawrence Berkeley National Laboratory, The Hidden Cost of Computer Gaming: https://eta.lbl.gov/news/hidden-cost-computer-gaming
+ICAO Carbon Emissions Calculator: https://www.icao.int/environmental-protection/environmental-tools/icec
+US EPA, Greenhouse Gas Emissions from a Typical Passenger Vehicle: https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle
+Our World in Data, Greenhouse gas emissions per kilogram of food product: https://ourworldindata.org/grapher/ghg-per-kg-poore
+GCSAA, Water Use and Management Practices on U.S. Golf Courses (2022): https://www.gcsaa.org/docs/default-source/environment/phase-3-water-survey-full-report.pdf</textarea></details>
+      <p><strong>Check it.</strong> Is the note about being built with AI at the bottom, and does it say the page's own footprint isn't counted? Is anything listed under "Not from my sources"? Click two links on the page. Do they open the right article, and does the article say what the page says?</p></div></div>
+    <div class="step"><span class="sn">6</span><div class="sbody"><p><strong>Keep it.</strong> Take a screenshot of your finished calculator with your own day entered, the comparison section showing, and the built-with-AI note at the bottom. You'll attach it to writeup item 2. If Claude shows a <strong>Publish</strong> or <strong>Share</strong> option, you can also publish it and paste the link, but that's optional. If you're on a shared computer, log out when you're done.</p></div></div>
   </div>
-  <div class="callout stop">
-    <div class="label">Written stop</div>
-    <p>One sentence: the biggest bar in your day, and whether the "count" switch changed your answer.</p>
-  </div>
+
+  <details class="callout mx-why"><summary>Why use AI for this at all?</summary>
+    <p>You could build this in a spreadsheet, and the no-AI path does. What Claude adds is speed: a working, clickable page in a few minutes, with a chart, from a paragraph of instructions. Analysts now build quick tools like this all the time, and the whole skill is in the instructions and the checking.</p>
+    <div class="mx-why-grid">
+      <div><p class="mx-why-h">Where AI helps</p><ul><li>Writes working code from plain English</li><li>Converts units without arithmetic slips</li><li>Builds a chart you can click</li><li>Changes the whole page when you change your mind</li></ul></div>
+      <div><p class="mx-why-h">Where to be careful</p><ul><li>It can fill a gap with a number nobody gave it</li><li>It can make an assumption look like a fact</li><li>A clean chart looks more certain than its sources are</li><li>It can link a number to the wrong article</li></ul></div>
+    </div>
+  </details>
+
+
+  <h3 class="sub"><span>The takeaway</span></h3>
+  <p>For most people, AI text prompts are a small bar, and streaming or gaming is a bigger one. AI video is the exception: a few short clips can outweigh everything else on the page. Next to a flight or a burger, a day of technology looks tiny. That's the true half. Here's the other half: scale 2 shows that data centers are a small slice of the world's emissions, and a small slice of a huge number is still about 180 million tonnes of CO2 a year. And the calculator hides what Chapter 5 cared about most. It counts your share of the building. It doesn't count the building's neighbors, its grid, or the bill two counties over. A personal number can be small while the total lands somewhere real.</p>
+  <p>One more honest line: building your calculator used energy and water too. Every message you sent Claude, and every version of the page it wrote, ran on chips in a data center, drew power from a grid, and was cooled with air or water. Anthropic, the company that makes Claude, doesn't publish a per-prompt number, so nobody outside the company can tell you exactly how much. That's <a class="inline" href="chapter-05-environment.html#s2-5">section 2.5</a>'s disclosure gap, and this time you're on the receiving end of it. If you want, ask Claude to add a row for the chat you just had, and see whether it admits it's guessing.</p>
 </section>
 
-<section id="default">
-  <div class="shead"><span class="num">3</span><h2>At home: Part 2, set the default</h2></div>
-  <p>New job. You're the product manager for Parla, a fictional writing app with 100 million daily users. Each user types about 15 prompts a day. You set the four defaults below, and they apply to everyone who never opens the settings, which is almost everyone.</p>
-  <div class="tool" id="pm">
-    <div class="label">Parla · 100 million users · simulated</div>
-    <div class="chips" role="group" aria-label="Default model"><span class="chiplbl">Default model:</span>
-      <button type="button" class="chip" data-pm="model" data-v="s" aria-pressed="false">Small</button>
-      <button type="button" class="chip" data-pm="model" data-v="m" aria-pressed="false">Medium</button>
-      <button type="button" class="chip on" data-pm="model" data-v="l" aria-pressed="true">Large</button>
+<section id="hood">
+  <div class="shead"><span class="num">4</span><h2>At home: Under the hood, how your calculator works, Claude included</h2></div>
+  <p class="lead">You've used eight articles, a United Nations flight calculator, and Claude. Here's what was inside each piece of your calculator. About 5 minutes.</p>
+
+  <h3 class="sub"><span>1</span> The numbers</h3>
+  <p>Every number in your calculator is somebody's choice about where to draw the line. Google counted the water that cools its own chips; the Post also counted the water at the power plant. The IEA's streaming hour includes your screen and your Wi-Fi. The TikTok minute was measured on one phone from 2016. The ICAO flight number counts only the CO2 from the engines, not the extra warming from contrails. Same word, "footprint," different boundaries. That's <a class="inline" href="chapter-05-environment.html#s2-5">section 2.5</a>'s disclosure gap, and now you've seen that it isn't only an AI problem. The only difference is that the AI numbers are newer and fewer.</p>
+
+  <h3 class="sub"><span>2</span> The arithmetic</h3>
+  <p>The calculator does one thing over and over: cost per use, times how many, times how often. That's <a class="inline" href="chapter-05-environment.html#s2-3">section 2.3</a>'s multiplication. A per-use number is easy to multiply. A yearly total for everyone, like gaming's 34 terawatt-hours, has to be divided by a guess about how much everyone used it before it turns into a per-hour number. Every one of those guesses is an assumption, and the more assumptions a bar rests on, the less its tidy height means.</p>
+
+  <h3 class="sub"><span>3</span> Claude</h3>
+  <p>Claude is a large language model, a full-size version of the small one you built in Lab 2 &amp; 3. It wrote your calculator's code the same way it writes a sentence, by predicting what comes next. That's why it can build a working page in a minute. It's also why it can drop in a number nobody gave it, the way a sentence can drift. Three instructions in your prompts did the guarding: use only my numbers, mark every assumption, and list anything not from my sources. That's the same move as Lab 4's "based only on this data." The sources section is what makes a confident-looking chart checkable.</p>
+
+  <h3 class="sub"><span>4</span> The building</h3>
+  <p>Every row in your calculator lands in the same kind of place: a building full of servers, drawing power from a local grid, cooled with air or water (<a class="inline" href="chapter-05-environment.html#s2-1">section 2.1</a>). The building's electric meter doesn't know whether a watt went to TikTok, a Netflix show, a cloud game, or a chatbot. Hold onto that. It's the whole reason for the next section.</p>
+</section>
+
+<section id="regulation">
+  <div class="shead"><span class="num">5</span><h2>At home: Sketch a regulation for data centers</h2></div>
+  <details class="srcnote noai">
+    <summary>Don't want to use AI? Do this instead</summary>
+    <div class="noai-body">
+      <p>Same 20 minutes, no chatbot, on your own. Read <a class="inline" href="https://www.geekwire.com/2026/washington-state-has-embraced-data-centers-but-now-its-looking-to-set-terms-of-engagement/" target="_blank" rel="noopener">GeekWire's article on Washington's House Bill 2515</a> and <a class="inline" href="chapter-05-environment.html#s2-7">Chapter 5, section 2.7</a>. Then think through the same four-part regulation described below, using only those two sources, and find one objection in the GeekWire article you'd have to answer. You'll write it up in writeup item 3.</p>
     </div>
-    <div class="chips" role="group" aria-label="Reasoning" style="margin-top:10px"><span class="chiplbl">Reasoning:</span>
-      <button type="button" class="chip" data-pm="reason" data-v="off" aria-pressed="false">Off</button>
-      <button type="button" class="chip on" data-pm="reason" data-v="auto" aria-pressed="true">Auto (about 1 in 10 prompts)</button>
-      <button type="button" class="chip" data-pm="reason" data-v="always" aria-pressed="false">Always</button>
-    </div>
-    <div class="chips" role="group" aria-label="Automatic summaries" style="margin-top:10px"><span class="chiplbl">AI summary on every document opened:</span>
-      <button type="button" class="chip on" data-pm="auto" data-v="on" aria-pressed="true">On</button>
-      <button type="button" class="chip" data-pm="auto" data-v="off" aria-pressed="false">Off</button>
-    </div>
-    <div class="chips" role="group" aria-label="Green toggle" style="margin-top:10px"><span class="chiplbl">Offer a green-model toggle:</span>
-      <button type="button" class="chip" data-pm="green" data-v="yes" aria-pressed="false">Yes</button>
-      <button type="button" class="chip on" data-pm="green" data-v="no" aria-pressed="true">No</button>
-    </div>
-    <div class="slider-row" id="pm-flip-row"><label for="pm-flip">Users who flip the green toggle</label><input type="range" id="pm-flip" min="0" max="50" step="5" value="10"><output for="pm-flip" id="pm-flip-o">10%</output></div>
-    <div class="verdict" aria-live="polite">
-      <div class="label">Parla, per day</div>
-      <div class="bars" id="pm-bars"></div>
-      <p class="read" id="pm-read"></p>
-    </div>
-  </div>
+  </details>
+  <p class="lead">AI data centers have been in the news as horrible for the environment, and there's truth in that: AI is the main reason so many data centers are being built so fast. But as you read in sections 1 and 2, the same buildings also run streaming, social media, gaming, and cloud storage. So if you were writing an environmental regulation, who should it cover: AI data centers, every data center, or something in between? About 20 minutes.</p>
+  <p>You have three real models to work from:</p>
+  <ul class="ev-facts">
+    <li><strong>The European Union</strong> <a class="inline" href="https://www.datacenterdynamics.com/en/news/emissions-reporting-scheme-for-european-data-centers-approved" target="_blank" rel="noopener">requires every data center</a> drawing 500 kilowatts or more to report its energy use and other sustainability numbers to a central database, whatever runs inside (<a class="inline" href="chapter-05-environment.html#s2-7">Chapter 5, section 2.7</a>).</li>
+    <li><strong>New Jersey</strong> <a class="inline" href="https://newjerseymonitor.com/2026/08/27/data-centers-water-energy-use-law/" target="_blank" rel="noopener">signed a law in August 2026</a> requiring data centers to report energy and water use to state regulators every six months (<a class="inline" href="chapter-05-environment.html#s2-5">Chapter 5, section 2.5</a>).</li>
+    <li><strong>Washington</strong>, where WWU is, debated <a class="inline" href="https://washingtonstatestandard.com/2026/02/11/how-wa-lawmakers-are-trying-to-regulate-data-centers/" target="_blank" rel="noopener">House Bill 2515</a> in 2026. It would have covered facilities using 20 megawatts or more and required yearly reports on energy, water, refrigerants, and air pollution. It <a class="inline" href="https://www.seattlemet.com/news-and-city-life/2026/04/data-centers-climate-change-washington" target="_blank" rel="noopener">passed the House in a scaled-down version and died without a Senate vote</a>. The industry's trade group argued it unfairly singled out data centers, when semiconductor and battery plants use similar amounts of power.</li>
+  </ul>
+
   <div class="steps">
-    <div class="step"><span class="sn">4</span><p><strong>Compare the two levers.</strong> The bars show your settings, and what happens if every user cut their own typed prompts in half. Find a combination of defaults that saves more than the users' halving would. How many clicks did it take you?</p></div>
-    <div class="step"><span class="sn">5</span><p><strong>Round two: you're the CFO.</strong> Read the yearly electricity cost and the quality score. Marketing says quality sells subscriptions. Keep your settings or change them? You have to pick one, and say what it costs.</p></div>
+    <div class="step"><span class="sn">1</span><div class="sbody"><p><strong>Ask Claude for a draft.</strong> In a new chat, send this:</p>
+      <div class="probe"><div class="ptext">I'm a business student. I built a calculator showing that AI, streaming, YouTube, TikTok, and gaming all run in the same kind of data center. Help me sketch an environmental regulation for data centers. I haven't decided whether it should cover only AI data centers or every data center, so show me how each version would differ. Use these real examples as models: the EU Energy Efficiency Directive, which makes every data center of 500 kilowatts or more report energy and sustainability data; New Jersey's August 2026 law requiring data centers to report energy and water use every six months; and Washington's House Bill 2515 from 2026. Give me four things: who the regulation covers and the size cutoff, what gets reported, who gets to see it, and what it costs and who pays. Keep it to one page, and tell me which parts you're unsure about.</div></div></div></div>
+    <div class="step"><span class="sn">2</span><div class="sbody"><p><strong>Check one claim.</strong> Pick one fact Claude states about one of the three examples. Open the matching source above, or <a class="inline" href="chapter-05-environment.html#s2-7">Chapter 5</a>, and see if it says the same thing. Claude can be confidently wrong about a law's details.</p></div></div>
+    <div class="step"><span class="sn">3</span><div class="sbody"><p><strong>Make it argue back.</strong> Send this:</p>
+      <div class="probe"><div class="ptext">Now argue against my regulation twice. First, as the data center industry's trade group would. Second, as an environmental group that thinks the regulation is too weak. Be specific, and don't go easy on me.</div></div></div></div>
+    <div class="step"><span class="sn">4</span><div class="sbody"><p><strong>Decide what you'd keep.</strong> Close the chat and think it through: who would your regulation cover, what gets reported, who sees it, and what does it cost? It doesn't have to match Claude's. You'll write it up in writeup item 3.</p></div></div>
   </div>
-  <div class="callout stop">
-    <div class="label">Written stop</div>
-    <p>One sentence: the one default you'd change first, what it saves, and what it costs Parla.</p>
-  </div>
-  <div class="callout">
-    <div class="label">Check-in · 5 minutes, whole room</div>
-    <p>Two pairs share their four defaults and their daily total. Everyone else: raise a hand if your total was higher than theirs. Then take the break.</p>
-  </div>
+
+  <h3 class="sub"><span>The takeaway</span></h3>
+  <p>Regulating data centers is not a fantasy: <a class="inline" href="https://www.datacenterdynamics.com/en/news/emissions-reporting-scheme-for-european-data-centers-approved" target="_blank" rel="noopener">Europe already requires reporting</a> from every large one, and <a class="inline" href="https://newjerseymonitor.com/2026/08/27/data-centers-water-energy-use-law/" target="_blank" rel="noopener">New Jersey just passed a law</a> that does too. The hard parts are the cutoff, which decides who's in, and the fight, which Washington's bill lost this year, partly because the industry argued it singled out data centers. A narrow regulation aimed at AI is easier to pass and points at the fastest growth, but it leaves everything else uncounted. A broad one counts everything, but costs companies that never touched AI and draws a bigger coalition against it. That trade-off is the debate in section 7.</p>
 </section>
 
-<section id="report">
-  <div class="shead"><span class="num">4</span><h2>At home: Part 3, read the report</h2></div>
-  <p>Helio AI, a fictional company serving a billion prompts a day, has published its sustainability report. The headline is on the card below. Your job is to read it the way the chapter taught: which statistic, and what's left out.</p>
-  <div class="tool" id="rp">
-    <div class="label">Helio AI · 2026 sustainability report · fictional</div>
-    <div class="headline"><span class="big" id="rp-head">0.2 Wh</span><span class="small" id="rp-quote">"The median Helio prompt uses about 0.2 watt-hours."</span></div>
-    <div class="slider-row"><label for="rp-heavy">Share of heavy requests (long reasoning, agents)</label><input type="range" id="rp-heavy" min="0" max="40" step="2" value="4"><output for="rp-heavy" id="rp-heavy-o">4%</output></div>
-    <div class="verdict" aria-live="polite">
-      <div class="label">Behind the headline</div>
-      <div class="bars" id="rp-bars"></div>
-      <p class="read" id="rp-read"></p>
-    </div>
-    <div class="chips" role="group" aria-label="Emissions scopes" style="margin-top:16px"><span class="chiplbl">Emissions since 2020:</span>
-      <button type="button" class="chip on" data-scope="12" aria-pressed="true">What the report headlines (Scopes 1 and 2)</button>
-      <button type="button" class="chip" data-scope="all" aria-pressed="false">Add Scope 3</button>
-    </div>
-    <p class="read-light" id="rp-scope" aria-live="polite"></p>
-  </div>
+<section id="ewaste">
+  <div class="shead"><span class="num">6</span><h2>At home: Watch where the hardware goes</h2></div>
+  <p class="lead">Your calculator counts electricity and water. It doesn't count the phone, the console, or the server itself, and every one of them eventually becomes waste. About 10 minutes.</p>
   <div class="steps">
-    <div class="step"><span class="sn">6</span><p><strong>Drag the heavy share up slowly.</strong> Watch the headline number and the daily total. Find the point where the headline finally moves. What was the total doing before then?</p></div>
-    <div class="step"><span class="sn">7</span><p><strong>Add Scope 3.</strong> The pattern is modeled on Microsoft's real 2024 report from the chapter. Which number would you put on the cover if you worked at Helio?</p></div>
+    <div class="step"><span class="sn">1</span><div class="sbody"><p><strong>Watch it.</strong> <a class="inline" href="https://www.youtube.com/watch?v=4GtWGHvX-rk" target="_blank" rel="noopener">This short video on e-waste</a> follows what happens to electronics after we're done with them.</p></div></div>
+    <div class="step"><span class="sn">2</span><div class="sbody"><p><strong>Think about it.</strong> <strong>Has technology always been hard on the environment?</strong> Hold the video up against one row from your calculator and one number from <a class="inline" href="chapter-05-environment.html#s2-2">Chapter 5, section 2.2</a>: the world made a record 62 million tonnes of e-waste in 2022, and less than a quarter was documented as properly recycled. What, if anything, is new about AI's part of the problem?</p></div></div>
+    <div class="step"><span class="sn">3</span><div class="sbody"><p><strong>Run Question 4 on the video.</strong> Who made it, and what did they want you to do? Is there a claim in it you'd want to check before repeating it?</p></div></div>
   </div>
-  <div class="callout stop">
-    <div class="label">Written stop</div>
-    <p>The one question you'd ask Helio's head of sustainability, written so it can't be answered with the median.</p>
-  </div>
+
+  <h3 class="sub"><span>The takeaway</span></h3>
+  <p>The footprint of technology didn't start with chatbots. Phones, TVs, consoles, and laptops have been mined, built, shipped, and thrown away for decades, and most of the world's e-waste still isn't AI. AI adds faster chip turnover and a wave of very large new buildings. Is that a bigger version of an old problem, or a new kind of problem? Reasonable people land in different places. You'll make your case in writeup item 4.</p>
+  <p>Item 4 also asks about the other end of the problem: the power coming in. Before you write it, reread <a class="inline" href="chapter-05-environment.html#s3-the-other-edge">Chapter 5's "The other edge"</a>, the part of Chapter 5's case about AI companies signing long contracts for nuclear power, and the counterweight that follows it.</p>
 </section>
 
-<section id="machine">
-  <div class="shead"><span class="num">5</span><h2>At home: Part 4, ask the machine</h2></div>
-  <p>Open any chatbot and ask: <em>"How much energy and water did answering this question use? Give me your best specific estimate, and tell me what you actually know versus what you're guessing."</em> Then push back twice: ask where its numbers come from, and what its own company has published. Save the transcript.</p>
-  <div class="callout stop">
-    <div class="label">Written stop</div>
-    <p>Quote the line where the chatbot moved from knowing to guessing. Did it say so, or did it sound just as sure?</p>
-  </div>
-</section>
+<section id="debate">
+  <div class="shead"><span class="num">7</span><h2>At home: Debate</h2></div>
+  <details class="srcnote noai">
+    <summary>Don't want to use AI? Do this instead</summary>
+    <div class="noai-body">
+      <p>Same prep, no chatbot, about 10 minutes. Reread <a class="inline" href="chapter-05-environment.html#s2-7">Chapter 5, section 2.7</a>, including its "strongest objection" paragraph, and your four evidence cards. Find your side's strongest point, its honest cost, and one sentence in 2.7 your side would rather nobody read.</p>
+    </div>
+  </details>
+  <p class="lead"><strong>Should environmental regulations for data centers target AI, or every data center?</strong> Your side is assigned, not chosen: if your birthday is January through June, you're Side A. July through December, you're Side B. Nobody here is defending their own belief. The Gilman Street rules apply.</p>
 
-<section>
-  <div class="shead"><span class="num">6</span><h2>At home: Inside the machine, where your watt-hours went</h2></div>
-  <p>Every number your sliders produced came from Chapter 5's two costs (2.3). Training is a one-time bill paid before you ever typed a prompt; inference is the per-query bill you paid today, and your slider multiplied a per-prompt estimate by how many prompts you sent. That estimate is a range because of the disclosure gap (2.5): the companies know the number and don't publish it, so the lab uses published outside estimates and shows you the band instead of a false point. The water term comes from the cooling panel in the chapter's data-center diagram: chips turn electricity into heat, and evaporative towers turn heat into water vapor.</p><p>The scale slider is the real lesson. Your own day rounds to nothing; the campus is small; the country is a power plant; the world is a buildout. Right-sizing (2.6), the default-model choice in Part 2, is the one lever that moves the country-sized number, and it's a product decision, not a personal one. When you asked the machine about its own footprint in Part 4 and it answered with a number, that number came from the same outside estimates, or from nowhere. Ask it where.</p>
-</section>
-
-<section>
-  <div class="shead"><span class="num">7</span><h2>At home: Who should pay for the power?</h2></div>
   <div class="callout">
-    <div class="label">Debate · in class, about 20 minutes · sides assigned, speak for one, then switch</div>
-    <p><strong>How it runs, every week.</strong> Sides are assigned, not chosen, so you're never defending your own belief. Two minutes with your partner to find your side's best point and its honest cost. Three minutes a side. Then everyone switches and does it again. Last five minutes: what would change your mind? Say it out loud. The person who names the evidence that would move them wins, whichever side they were on.</p>
-    <p>The neighbor's bill is the chapter's externality. Argue how to allocate it.</p><ul class="ideas"><li><strong>Side A: the data center pays its own way.</strong> Large new loads should fund the grid capacity they require and be barred from rate structures that spread the cost, as some states are now writing into law. Cost: the projects go to the state next door, with the jobs and the tax base.</li><li><strong>Side B: it's infrastructure; share the cost and demand disclosure.</strong> Treat AI compute like roads or ports, socialize the buildout, and in exchange require the operators to publish energy, water, and emissions per query. Cost: the households paying now get no say, and "in exchange" has a poor record.</li></ul><p>Then the smaller, closer question: should your university, which buys AI tools for you, publish the footprint of what it bought? Who at the school would have to ask the vendor, and would the vendor answer?</p>
-  </div>
-</section>
-
-<section id="room">
-  <div class="shead"><span class="num">8</span><h2>At home: The room · 25 minutes</h2></div>
-  <div class="callout">
-    <div class="label">Discussion questions</div>
-    <ol class="discuss">
-      <li><b>Fair scrutiny?</b> For many of us, an evening of streaming outweighs a month of chatbot questions. So why is AI the one getting the scrutiny? Is that fair, or is something about AI different enough to justify it?</li>
-      <li><b>Who sets the default?</b> The company, the user, or a regulator? What does each choice cost, and who pays it?</li>
-      <li><b>The green toggle.</b> Would you actually flip it? Would most people? What would it take?</li>
-      <li><b>The county.</b> A data center is proposed for Whatcom County. Yes, no, or yes with conditions? Who should pay for the grid upgrades?</li>
-      <li><b>One number.</b> If you could force every AI company to publish one number, what would it be, and why that one?</li>
+    <div class="label">How the debate runs at home</div>
+    <p><strong>About 15 minutes, nothing to write down until the writeup.</strong></p>
+    <ol>
+      <li><strong>Get your side.</strong> Birthday January to June, Side A. July to December, Side B.</li>
+      <li><strong>Prep with Claude.</strong> Send one or two of the sample prompts, then make Claude argue against you.</li>
+      <li><strong>Switch.</strong> What's the other side's best point, said as strongly as they'd say it?</li>
+      <li><strong>What would change your mind?</strong> Name the specific thing you'd have to see. Real evidence that would move you wins, whichever side you were handed.</li>
     </ol>
+    <p><strong>To resolve it:</strong> your section 5 regulation had to pick a cutoff. What cutoff would you use now, what does it catch that an AI-only regulation misses, and what does it cost the companies inside it? This all goes in writeup item 3.</p>
   </div>
-</section>
 
-<section id="fiveq">
-  <div class="shead"><span class="num">9</span><h2>At home: Run the five questions on your own choices</h2></div>
-  <div class="fourq">
-    <div class="q"><span class="qn">1</span><p><strong>What is the AI system, and what does it do?</strong> Parla, as you configured it. Run the five parts: data, model, output, feedback loop, and the humans, including you at the settings screen and the 100 million people who never open it.</p></div>
-    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> Who benefits from your defaults, and who benefits from a headline built on a median?</p></div>
-    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> If your defaults made Parla's total much larger than it needed to be, who would ever notice?</p></div>
-    <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> Helio's report, your chatbot's estimate, and this lab's own numbers: which would you trust most, and what would you need to see to trust it more?</p></div>
-    <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Pick one of your four defaults and defend it with its price in energy, money, and quality.</p></div>
+  <p>Both things you've seen this week are true. AI is driving the boom in data center building, and the buildings it's driving also run everything else you do online. Section 5's regulation sketch had to pick a cutoff. Today you argue for one answer and then switch, the way a legislator would have to before voting in Olympia.</p>
+
+  <div class="sides">
+    <div class="side">
+      <div class="side-tag">Side A &middot; birthdays January to June</div>
+      <h3 id="motion-ai">Target AI first</h3>
+      <p>AI is what's driving the growth, AI chips draw several times the power of ordinary servers, and one AI request can cost thousands of times another. Write regulations for AI data centers and AI products first, and get them passed.</p>
+      <p class="side-cost"><strong>The cost to name:</strong> streaming, gaming, cloud storage, and crypto mining go uncounted, and every company gets a reason to argue its workload isn't really AI.</p>
+    </div>
+    <div class="side">
+      <div class="side-tag">Side B &middot; birthdays July to December</div>
+      <h3 id="motion-all">Every data center</h3>
+      <p>The meter can't tell TikTok from a chatbot. Your calculator puts everyday habits in the same building as AI. Regulate the building, whatever runs inside, the way Europe already does.</p>
+      <p class="side-cost"><strong>The cost to name:</strong> paperwork for every tech company, including ones that never touched AI, a bigger fight to pass it, and a regulation that's less precise about where the fastest growth is.</p>
+    </div>
   </div>
+
+  <h3 class="sub" id="evidence-cards"><span>Your evidence:</span> four pieces, use all four</h3>
+  <p>Every side gets every card. If a card seems to help the other side, that's your job: find what it means for yours, and what your side would rather nobody noticed.</p>
+
+  <div class="probe ev">
+    <div class="pwhy">Evidence 1 &middot; The growth is AI</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> data centers are growing fast, and AI is the main reason.</p>
+      <ul class="ev-facts">
+        <li>The <a class="inline" href="https://www.iea.org/reports/energy-and-ai" target="_blank" rel="noopener">International Energy Agency</a> counted about 415 terawatt-hours for data centers worldwide in 2024 and expects about 945 by 2030, with AI the main driver.</li>
+        <li>Berkeley Lab projects that by 2028 more than half the electricity going to US data centers will be used for AI (<a class="inline" href="https://www.technologyreview.com/2025/05/20/1116327/ai-energy-usage-climate-footprint-big-tech/" target="_blank" rel="noopener">MIT Technology Review</a>).</li>
+        <li>AI chips need two to four times as many watts as ordinary ones (<a class="inline" href="https://www.pewresearch.org/short-reads/2025/10/24/what-we-know-about-energy-use-at-us-data-centers-amid-the-ai-boom/" target="_blank" rel="noopener">Pew</a>).</li>
+      </ul>
+      <p class="ev-src">Article B; <a class="inline" href="https://www.pewresearch.org/short-reads/2025/10/24/what-we-know-about-energy-use-at-us-data-centers-amid-the-ai-boom/" target="_blank" rel="noopener">Pew Research Center</a>; Chapter 5, <a class="inline" href="chapter-05-environment.html#s2-2">section 2.2</a></p>
+    </div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate: Should environmental regulations for data centers target AI, or every data center? I'm on Side [A: target AI first / B: every data center]. My evidence is that data center electricity is projected to more than double worldwide by 2030, from about 415 to 945 terawatt-hours, with AI the main driver; Berkeley Lab projects AI will use more than half of US data center electricity by 2028; and AI chips need two to four times the watts of ordinary ones. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather nobody noticed.</div>
+  </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Evidence 2 &middot; The building is shared</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> the same buildings run everything, and some heavy loads aren't AI at all.</p>
+      <ul class="ev-facts">
+        <li><a class="inline" href="https://www.pewresearch.org/short-reads/2025/10/24/what-we-know-about-energy-use-at-us-data-centers-amid-the-ai-boom/" target="_blank" rel="noopener">Pew</a>: whenever you send an email, stream a show, save a photo, or ask a chatbot a question, you're using a data center.</li>
+        <li>Large data centers grew first with cloud computing and crypto mining, before the AI boom (<a class="inline" href="https://www.pewresearch.org/short-reads/2025/10/24/what-we-know-about-energy-use-at-us-data-centers-amid-the-ai-boom/" target="_blank" rel="noopener">Pew</a>).</li>
+        <li>Crypto mining alone used an estimated 0.6 to 2.3 percent of US electricity, and when the government tried to survey miners' power use, the industry sued and the survey was dropped (<a class="inline" href="chapter-05-environment.html#s2-7">Chapter 5</a>).</li>
+        <li>A building's meter can't tell which workload used the power (<a class="inline" href="chapter-05-environment.html#s2-7">Chapter 5</a>).</li>
+      </ul>
+      <p class="ev-src"><a class="inline" href="https://www.pewresearch.org/short-reads/2025/10/24/what-we-know-about-energy-use-at-us-data-centers-amid-the-ai-boom/" target="_blank" rel="noopener">Pew Research Center</a>; Article E; Chapter 5, <a class="inline" href="chapter-05-environment.html#s2-7">section 2.7</a></p>
+    </div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate: Should environmental regulations for data centers target AI, or every data center? I'm on Side [A: target AI first / B: every data center]. My evidence is that the same data centers run email, streaming, cloud storage, crypto mining, and AI; large data centers grew with cloud computing and crypto before the AI boom; crypto mining alone used an estimated 0.6 to 2.3 percent of US electricity; and a building's meter can't tell which workload used the power. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather nobody noticed.</div>
+  </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Evidence 3 &middot; Your calculator</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> per use, ordinary habits often outweigh an AI prompt, but AI video is the heaviest thing on the page.</p>
+      <ul class="ev-facts">
+        <li>An hour of streaming: about 36 g of CO2 (<a class="inline" href="https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines" target="_blank" rel="noopener">IEA, 2019</a>). A median Gemini prompt: about 0.03 g (<a class="inline" href="https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference" target="_blank" rel="noopener">Google</a>).</li>
+        <li>A minute of TikTok: about 2.63 g (Greenspector, via <a class="inline" href="https://www.globalcitizen.org/en/content/social-media-emissions-carbon-footprint/" target="_blank" rel="noopener">Global Citizen</a>).</li>
+        <li>One five-second AI video: about 3.4 million joules, more than 700 times an AI image (<a class="inline" href="https://www.technologyreview.com/2025/05/20/1116327/ai-energy-usage-climate-footprint-big-tech/" target="_blank" rel="noopener">MIT Technology Review</a>).</li>
+        <li>Big picture: data centers emit about 180 million tonnes of CO2 a year (<a class="inline" href="https://www.iea.org/reports/energy-and-ai" target="_blank" rel="noopener">IEA</a>); livestock about 6.2 billion tonnes of CO2e (<a class="inline" href="https://knowledge4policy.ec.europa.eu/node/68977_es" target="_blank" rel="noopener">FAO</a>).</li>
+      </ul>
+      <p class="ev-src">Your own section 3</p>
+    </div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate: Should environmental regulations for data centers target AI, or every data center? I'm on Side [A: target AI first / B: every data center]. My evidence is my own technology impact calculator: an hour of streaming is about 36 grams of CO2 and a median AI text prompt about 0.03 grams, a minute of TikTok about 2.63 grams, but one five-second AI video uses about 3.4 million joules, more than 700 times an AI image. Worldwide, data centers emit about 180 million tonnes of CO2 a year, compared with about 6.2 billion tonnes of CO2e from livestock. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather nobody noticed.</div>
+  </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Evidence 4 &middot; The rulebooks</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> broad regulations exist, and broad regulations also lose.</p>
+      <ul class="ev-facts">
+        <li>The EU <a class="inline" href="https://www.datacenterdynamics.com/en/news/emissions-reporting-scheme-for-european-data-centers-approved" target="_blank" rel="noopener">requires every data center</a> of 500 kilowatts or more to report energy use, whatever runs inside.</li>
+        <li><a class="inline" href="https://newjerseymonitor.com/2026/08/27/data-centers-water-energy-use-law/" target="_blank" rel="noopener">New Jersey's August 2026 law</a> requires data centers, not just AI companies, to report energy and water use.</li>
+        <li>Washington's <a class="inline" href="https://washingtonstatestandard.com/2026/02/11/how-wa-lawmakers-are-trying-to-regulate-data-centers/" target="_blank" rel="noopener">House Bill 2515</a> (2026) would have covered facilities of 20 megawatts or more. It <a class="inline" href="https://www.seattlemet.com/news-and-city-life/2026/04/data-centers-climate-change-washington" target="_blank" rel="noopener">passed the House scaled down and died in the Senate</a>.</li>
+        <li>The industry's trade group <a class="inline" href="https://www.geekwire.com/2026/washington-state-has-embraced-data-centers-but-now-its-looking-to-set-terms-of-engagement/" target="_blank" rel="noopener">said the Washington bill unfairly singled out data centers</a> when semiconductor and battery plants use similar power.</li>
+      </ul>
+      <p class="ev-src">Your section 5; Chapter 5, <a class="inline" href="chapter-05-environment.html#s2-7">section 2.7</a></p>
+    </div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate: Should environmental regulations for data centers target AI, or every data center? I'm on Side [A: target AI first / B: every data center]. My evidence is the existing regulations: the EU requires every data center of 500 kilowatts or more to report energy use; New Jersey's August 2026 law requires data centers to report energy and water use; and Washington's House Bill 2515 in 2026 would have covered facilities of 20 megawatts or more, passed the House in a scaled-down version, and died in the Senate after the industry argued it unfairly singled out data centers. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather nobody noticed.</div>
+  </div>
+
+  <div class="callout">
+    <div class="label">Push your thinking with Claude</div>
+    <p>In section 3 you checked Claude's numbers. Here, turn it around: tell Claude to argue against you. It will find the other side's best point before you do. If it cites a fact you plan to use, check it against the card or the article.</p>
+    <ol>
+      <li>Send one or two of the sample prompts above, with your side filled in.</li>
+      <li>Then make it argue against you:</li>
+    </ol>
+    <div class="probe">
+      <div class="pwhy">Argue against me</div>
+      <div class="ptext">Now argue against me as hard as you can. What's the best point the other side will make, and where is my case weakest? Don't go easy on me.</div>
+    </div>
+    <p>If it goes soft or starts agreeing with you, push back: <em>"You're being too nice. Argue the other side for real."</em> Then close Claude.</p>
+  </div>
+
 </section>
 
 <section id="writeup">
-  <div class="shead"><span class="num">10</span><h2>For homework: The writeup</h2></div>
-    <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday.</strong></p>
+  <div class="shead"><span class="num">8</span><h2>For homework: The writeup</h2></div>
+  <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, October 23.</strong> This is the only writing in the lab. Written reflections, plus one screenshot of your calculator.</p>
   <ol class="writeup">
-      <li><b>Your day.</b> A screenshot of your chart, your biggest bar, and what the "count" switch did to the comparison, in three sentences.</li>
-      <li><b>Your defaults.</b> A screenshot of Parla, the default you'd change first, and your CFO decision with its cost.</li>
-      <li><b>The report.</b> The heavy share where Helio's headline moved, what the total was doing before then, and your question for Helio.</li>
-      <li><b>The machine.</b> The line from your transcript where knowing became guessing, and what that says about the disclosure gap.</li>
-      <li><b>Your commitment card.</b> Two commitments: one habit you'll actually keep, and one number you'd demand from any AI company on the record.</li>
-    </ol>
+    <li><strong>The numbers.</strong> Google says a median Gemini prompt uses about 0.26 mL of water; the Washington Post said about 519 mL for a 100-word email. In your own words, explain why both can be real: what does each one count? Say which one you put in your calculator and why. Then name the source from section 2 you trust least, and why.</li>
+    <li><strong>Your calculator.</strong> Attach a screenshot of your finished calculator, with your own day entered and the comparison section showing. Then tell me what it showed for your own day: your biggest bar, and where AI sat next to streaming, YouTube, TikTok, and gaming. Name one number you checked against its article (did Claude get it right?) and one assumption Claude made. Then the comparison: how many days of your technology use equal the flight to San Francisco, and what scale 2 (livestock and golf) does to the headline "AI is horrible for the environment." (No-AI path: no screenshot; your app list, your rough numbers, and your paragraph.)</li>
+    <li><strong>The regulation and the debate.</strong> Sketch your regulation in three or four sentences: who it covers, what gets reported, who sees it, and what it costs. Then: which side were you handed, what was the other side's best point, and what specific evidence would change your mind? Hold onto the sketch: Chapter 11 asks who makes the rules.</li>
+    <li><strong>E-waste and nuclear.</strong> Two parts. First, e-waste: has technology always been hard on the environment? Use one thing from the video, one row from your calculator, and the 62 million tonnes from Chapter 5, and name one claim from the video you'd want to check. Second, nuclear: <a class="inline" href="chapter-05-environment.html#s3-the-other-edge">Chapter 5's "The other edge"</a> says AI companies have become some of clean energy's biggest customers, and their contracts are bringing nuclear plants back. Nuclear power has been debated for decades. Is AI a catalyst for cleaner power, a reason to keep burning gas while we wait, or both? Use one fact from Chapter 5, and say what would have to be true by 2030 for your answer to hold up. About a paragraph for each part.</li>
+    <li><strong>Your commitment card.</strong> Pick one technology habit from your calculator. Keep it, fix it, or drop it, and name what that costs you. Then one sentence on what you'd want a company or a regulator to do that you can't do yourself. Three sentences.</li>
+  </ol>
   <div class="callout">
     <div class="label">Using AI on this writeup</div>
     <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
     <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
-    <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
+    <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your calculator, because a model that wasn't there can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
   </div>
-
-  <details class="srcnote">
-    <summary>Sources &amp; what's simulated</summary>
-    <p>Streaming: 77 Wh per hour including devices, networks, and data centers, with data centers about 5 percent (about 3.9 Wh) and 36 gCO2 per hour, from George Kamiya, "The carbon footprint of streaming video: fact-checking the headlines," IEA, December 2020 (2019 estimates); short-video scrolling uses the same commentary's phone-on-WiFi scenario, 37 Wh per hour, and ignores recommendation computing. Grams use the 0.47 gCO2 per Wh implied by the IEA's 2019 figures. AI text prompts: 0.05, 0.3, and 1.2 Wh for small, medium, and large models, the same constants as Lab 1 and consistent with Chapter 5 (Google's 0.24 Wh median, Epoch AI's 0.3 Wh estimate). Reasoning: a 30x multiplier, the AI Energy Score average reported by Ebert, Gamazaychikov, Hacker, and Luccioni (2026). Images (2,282 J, about 0.63 Wh) and five-second videos (3.4 MJ, about 944 Wh) are from MIT Technology Review, May 2025. The uncertainty bands (one-third to three times for AI figures, half to double for streaming) are illustrative, not measured. Parla, Helio AI, their user counts, request mixes, automatic-summary counts, electricity price ($0.08 per kWh), quality scores, and emissions are fictional; Helio's scope pattern is modeled on Microsoft's 2024 report as described in Chapter 5. The household comparison uses about 10,800 kWh per US home per year, as in Chapter 5.</p>
-  </details>
 </section>
+
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <div class="srcbody">
+    <p class="srcintro">Lab rebuilt 10 October 2026 around reading, building a calculator with Claude, a regulation sketch, e-waste, and a debate, replacing the earlier simulators (Your day, Parla, Helio). Every outside figure below was checked against its source on 10 October 2026. The details on each article card are paraphrased from the article.</p>
+    <dl>
+      <dt>AI articles (section 1)</dt>
+      <dd>Google: Vahdat and Dean, Google Cloud blog, August 2025 (0.24 Wh, 0.03 gCO2e, 0.26 mL per median Gemini Apps text prompt; under nine seconds of TV; 33-fold energy reduction over 12 months). Criticism of the water boundary as reported in trade coverage the same month. MIT Technology Review: O'Donnell and Crownhart, 20 May 2025 (114 J and 6,706 J per reply for Llama 3.1 8B and 405B including the doubling for non-GPU energy; 2,282 J per standard image; about 3.4 MJ per five-second CogVideoX video; Epoch AI's 0.3 Wh; the 2.9 kWh sample day; reasoning at 43 times for simple problems; data center electricity 48 percent more carbon-intensive, citing a Harvard preprint). Washington Post with UC Riverside, 18 September 2024 (519 mL and 0.14 kWh per 100-word GPT-4 email), paywalled; Ren's later caution as reported by the Deseret News via the Water Education Foundation. NPR, Michael Copley, 14 October 2025 (the IEA's 100,000-household comparison and twenty-fold figure; Georgia wells; Arizona water restrictions; evaporative versus closed-loop cooling; companies' reluctance to share data; NPR's disclosure that Google is a financial supporter), checked from NPR's page summary and syndicated copies, since NPR blocks automated reading. Pew Research Center, Leppert, 24 October 2025, kept as a source for the step 4 water figure and the debate cards (183 TWh in 2024, 426 TWh projected for 2030, IEA base case; 60 percent servers, cooling 7 to over 30 percent; 17 billion gallons direct water in 2023 from Berkeley Lab's December 2024 report, excluding indirect water; 2024 energy mix; chips at two to four times the watts).</dd>
+      <dt>Everyday-tech articles (section 2)</dt>
+      <dd>Whole-building figures: Seth Borenstein, Associated Press, via PBS News, 4 June 2026, on a United Nations University report (448 TWh in 2025; about 189 million metric tons of CO2, comparable to Argentina; about 1.2 trillion gallons of water to produce that electricity; about 20 percent of data center energy due to AI, about 40 percent expected by 2030; a typical chatbot query about 200 times a spam-filter classification; 30 percent fewer words for about 25 percent less energy). Streaming: George Kamiya, IEA commentary (first published by Carbon Brief, February 2020, revised December 2020): about 0.077 kWh and 36 gCO2 per hour in 2019, revised down from 82 g; the Shift Project's 1.6 kg claim and its roughly eight-fold correction. TikTok: Global Citizen, Joe McCarthy, 7 March 2022, reporting Compare the Market's calculator built on Greenspector's 2021 measurements on a Galaxy S7 (TikTok 2.63, Reddit 2.45, Pinterest 1.3, YouTube 0.46 gCO2e per minute; 145 minutes a day for a year at nearly 140 kg). Gaming: Berkeley Lab news release and Mills, Bourassa, Rainer, Mai, Shehabi, and Mills, "Toward Greener Gaming" (2019): 34 TWh a year, 2.4 percent of residential electricity, 24 Mt CO2, $5 billion; 5 to 1,200 kWh a year by system; cloud gaming markedly higher; funded by the California Energy Commission.</dd>
+      <dt>Comparisons (section 3)</dt>
+      <dd>ICAO Carbon Emissions Calculator, the UN's tool for flights; it counts engine CO2 only, with no contrail or radiative-forcing multiplier (ICAO FAQ). Students look up their own figure. EPA, "Greenhouse Gas Emissions from a Typical Passenger Vehicle" (about 400 g CO2 per mile). Our World in Data, from Poore and Nemecek, Science, 2018 (beef from beef herds 99.48 kg CO2e per kg, a global mean; a quarter pound is about 113 g). FAO, "Pathways towards lower emissions" (2023): livestock agrifood systems 6.2 Gt CO2e, about 12 percent of anthropogenic emissions, reference year 2015; other estimates run higher, roughly 12 to 17 percent. IEA, Energy and AI (April 2025): data centers about 180 Mt CO2 today, about 0.5 percent of combustion emissions. GCSAA Golf Course Environmental Profile, 2022 report: about 1.68 million acre-feet applied in 2020, down 29 percent since 2005, 21 percent recycled water; one acre-foot is 325,851 gallons. Golf's figure is water applied; Berkeley Lab's data center figure is water consumed. The two are not the same measure, which the lab asks students to notice.</dd>
+      <dt>Regulation (sections 5 and 7)</dt>
+      <dd>EU Energy Efficiency Directive and New Jersey's August 2026 law as described in Chapter 5, which carries its own verification note. Washington House Bill 2515 (2026): Washington State Standard, 11 February 2026; GeekWire, February 2026 (20 MW threshold; annual reports on energy, water, refrigerant use, and pollution emissions; the Data Center Coalition's objection); Seattle Met, April 2026 (passed the House in scaled-down form, died without a Senate vote; the semiconductor and battery comparison; data centers about 6 percent of Washington electricity in 2023 per EPRI). Crypto mining's 0.6 to 2.3 percent and the dropped survey are from Chapter 5, section 2.7. Berkeley Lab's projection that AI will take more than half of US data center electricity by 2028 is as reported by MIT Technology Review.</dd>
+      <dt>E-waste (section 6)</dt>
+      <dd>Video chosen by the instructor, linked on YouTube (watch?v=4GtWGHvX-rk); its content has not been summarized here. The 62 million tonnes and the recycling share are from the UN Global E-waste Monitor 2024, as cited in Chapter 5.</dd>
+      <dt>Claude</dt>
+      <dd>Claude's calculators vary by run and model version; nothing in the lab depends on a specific answer. Whether a free account shows a Publish option can change, so publishing is optional.</dd>
+    </dl>
+    <p class="srcfoot">Most likely to need checking first: Washington's data center bill, which may return in the 2027 session; the Pew and IEA figures, which update yearly; the TikTok per-minute numbers, which are old and from one phone; and every outbound link, especially the Washington Post paywall. Found an error? Tell your instructor; corrections are course content.</p>
+  </div>
+</details>
 
 <div class="nextbar">
   <a href="chapter-05-environment.html"><span class="dir">← Back</span>Chapter 5 · Environment</a>
@@ -515,200 +1219,63 @@ ul.ideas li{margin:8px 0}
 
 <script>
 (function(){
-  // ---------- constants (see sources note) ----------
-  var TEXT = {s:0.05, m:0.3, l:1.2};           // Wh per text prompt
-  var REASON_X = 30;                           // AI Energy Score average multiplier
-  var IMG = 0.63, VID = 944;                   // Wh
-  var STREAM_ALL = 77, STREAM_DC = 3.9;        // Wh per hour, IEA 2019
-  var SCROLL_ALL = 37;                         // Wh per hour, phone on WiFi, IEA 2019
-  var G_PER_WH = 0.47;                         // gCO2 per Wh implied by IEA 2019
-  var HOME_KWH_DAY = 10800/365;                // US home
-
-  function fmtWh(wh){
-    if(wh >= 1e9) return (wh/1e9).toFixed(wh>=1e10?0:1) + ' GWh';
-    if(wh >= 1e6) return (wh/1e6).toFixed(wh>=1e7?0:1) + ' MWh';
-    if(wh >= 1e3) return (wh/1e3).toFixed(wh>=1e4?0:1) + ' kWh';
-    if(wh >= 10) return Math.round(wh) + ' Wh';
-    if(wh >= 1) return wh.toFixed(1) + ' Wh';
-    if(wh > 0) return wh.toFixed(2) + ' Wh';
-    return '0 Wh';
-  }
-  function fmtG(g){
-    if(g >= 1e6) return (g/1e6).toFixed(1) + ' t';
-    if(g >= 1e3) return (g/1e3).toFixed(1) + ' kg';
-    if(g >= 10) return Math.round(g) + ' g';
-    if(g > 0) return g.toFixed(1) + ' g';
-    return '0 g';
-  }
-  function bars(el, rows, opts){
-    opts = opts || {};
-    var max = 0;
-    rows.forEach(function(r){ max = Math.max(max, opts.band ? (r.hi||r.v) : r.v); });
-    el.textContent = '';
-    rows.forEach(function(r){
-      var d = document.createElement('div');
-      d.className = 'bar' + (r.safe?' safe':'') + (r.alt?' alt':'');
-      var pct = max ? 100*r.v/max : 0;
-      var inner = '<span>'+r.label+'</span><div class="track"><div class="fill" style="width:'+pct+'%"></div>';
-      if(opts.band && r.lo!==undefined){
-        inner += '<div class="band" style="left:'+(max?100*r.lo/max:0)+'%;width:'+(max?100*(r.hi-r.lo)/max:0)+'%"></div>';
-      }
-      var val = r.text || fmtWh(r.v);
-      if(opts.band && r.lo!==undefined) val = (opts.fmt||fmtWh)(r.lo) + ' to ' + (opts.fmt||fmtWh)(r.hi);
-      inner += '</div><span class="n">'+val+'</span>';
-      d.innerHTML = inner;
-      d.setAttribute('role','img');
-      d.setAttribute('aria-label', r.label + ': ' + val);
-      el.appendChild(d);
-    });
-  }
-  function chipGroup(selector, onPick){
-    var btns = [].slice.call(document.querySelectorAll(selector));
-    btns.forEach(function(b){
-      b.addEventListener('click', function(){
-        btns.forEach(function(x){ x.classList.remove('on'); x.setAttribute('aria-pressed','false'); });
-        b.classList.add('on'); b.setAttribute('aria-pressed','true');
-        onPick(b);
-      });
-    });
-  }
-  function toggle(id, onChange){
-    var b = document.getElementById(id), on = false;
-    b.addEventListener('click', function(){
-      on = !on; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on?'true':'false'); onChange(on);
-    });
-  }
-  function slider(id, fmt, onChange){
-    var s = document.getElementById(id), o = document.getElementById(id+'-o');
-    s.addEventListener('input', function(){ o.textContent = fmt(+s.value); onChange(); });
-    return s;
-  }
-
-  // ---------- Part 1 ----------
-  var P = {tier:'m', reason:false, count:'all', band:false, grams:false};
-  var sStream = slider('dd-stream', function(v){return v+' h';}, day);
-  var sScroll = slider('dd-scroll', function(v){return v+' h';}, day);
-  var sText = slider('dd-text', String, day);
-  var sImg = slider('dd-img', String, day);
-  var sVid = slider('dd-vid', String, day);
-  chipGroup('#dd [data-tier]', function(b){ P.tier = b.getAttribute('data-tier'); day(); });
-  chipGroup('#dd [data-count]', function(b){ P.count = b.getAttribute('data-count'); day(); });
-  toggle('dd-reason', function(on){ P.reason = on; day(); });
-  toggle('dd-band', function(on){ P.band = on; day(); });
-  toggle('dd-grams', function(on){ P.grams = on; day(); });
-
-  function day(){
-    var perText = TEXT[P.tier] * (P.reason ? REASON_X : 1);
-    var stream = +sStream.value * (P.count==='all' ? STREAM_ALL : STREAM_DC);
-    var scroll = +sScroll.value * (P.count==='all' ? SCROLL_ALL : STREAM_DC);
-    var rows = [
-      {label:'Streaming', v:stream, lo:stream*0.5, hi:stream*2},
-      {label:'Scrolling', v:scroll, lo:scroll*0.5, hi:scroll*2},
-      {label:'AI text', v:+sText.value*perText, safe:true},
-      {label:'AI images', v:+sImg.value*IMG, safe:true},
-      {label:'AI video', v:+sVid.value*VID, safe:true}
-    ];
-    rows.forEach(function(r){ if(r.safe){ r.lo = r.v/3; r.hi = r.v*3; } });
-    if(P.grams) rows.forEach(function(r){ r.v*=G_PER_WH; r.lo*=G_PER_WH; r.hi*=G_PER_WH; r.text = fmtG(r.v); });
-    bars(document.getElementById('dd-bars'), rows, {band:P.band, fmt: P.grams?fmtG:fmtWh});
-    var top = rows.slice().sort(function(a,b){return b.v-a.v;})[0];
-    var total = rows.reduce(function(s,r){return s+r.v;},0);
-    var msg = top.v > 0 ? 'Biggest bar: <b>' + top.label + '</b>. Total for the day: <b>' + (P.grams?fmtG(total):fmtWh(total)) + '</b>. ' : 'Move the sliders to build your day. ';
-    msg += P.count==='all'
-      ? 'Streaming here counts your screen and the network too, which is most of its energy. The AI bars count only the data center side.'
-      : 'Now streaming counts only the data center, the same boundary as the AI figures. This is the fairer comparison, and a less dramatic one.';
-    if(P.band) msg += ' The pale bands show how far honest estimates spread: the true number could sit anywhere inside them.';
-    document.getElementById('dd-read').innerHTML = msg;
-  }
-  day();
-
-  // ---------- Part 2 ----------
-  var USERS = 100e6, TYPED = 15, AUTO_N = 40, PRICE = 0.08;
-  var QUAL = {s:70, m:82, l:90};
-  var S = {model:'l', reason:'auto', auto:'on', green:'no'};
-  var flip = slider('pm-flip', function(v){return v+'%';}, pm);
-  ['model','reason','auto','green'].forEach(function(k){
-    chipGroup('#pm [data-pm="'+k+'"]', function(b){ S[k] = b.getAttribute('data-v'); pm(); });
-  });
-  function perUser(model, reason, auto, typed){
-    var rshare = reason==='always' ? 1 : (reason==='auto' ? 0.1 : 0);
-    var t = typed * TEXT[model] * (1 - rshare + rshare*REASON_X);
-    var a = auto==='on' ? AUTO_N * TEXT[model] : 0;
-    return t + a;
-  }
-  function pm(){
-    document.getElementById('pm-flip-row').style.display = S.green==='yes' ? '' : 'none';
-    var share = S.green==='yes' ? (+flip.value)/100 : 0;
-    function fleet(typed){
-      return USERS * ((1-share)*perUser(S.model, S.reason, S.auto, typed) + share*perUser('s','off', S.auto, typed));
-    }
-    var mine = fleet(TYPED);
-    var halved = fleet(TYPED/2);
-    var baseline = USERS * perUser('l','auto','on',TYPED);
-    var baseHalf = USERS * perUser('l','auto','on',TYPED/2);
-    bars(document.getElementById('pm-bars'), [
-      {label:'Starting defaults', v:baseline},
-      {label:'Users halve their prompts', v:baseHalf, alt:true},
-      {label:'Your defaults', v:mine, safe:true},
-      {label:'Yours, and users halve too', v:halved, safe:true}
-    ]);
-    var homes = Math.round(mine/1000/HOME_KWH_DAY/1000)*1000;
-    var cost = mine/1000*PRICE*365;
-    var q = QUAL[S.model] + (S.reason==='always'?6:(S.reason==='auto'?4:0));
-    q = Math.round((1-share)*q + share*QUAL.s);
-    var saveUsers = baseline - baseHalf, saveYou = baseline - mine;
-    var msg = 'Your defaults use about <b>' + fmtWh(mine) + '</b> a day, roughly what <b>' + homes.toLocaleString() + '</b> US homes use. ';
-    msg += saveYou > saveUsers
-      ? 'Your settings save more than every user halving their own prompts would. '
-      : (saveYou > 0 ? 'Your settings save something, but less than every user halving their prompts would. Keep looking. ' : 'Your settings save nothing compared with the starting defaults. ');
-    msg += 'Electricity: about <b>$' + Math.round(cost/1e6).toLocaleString() + ' million</b> a year at $0.08 per kWh. Answer quality score: <b>' + q + '</b> out of 100 (simulated).';
-    document.getElementById('pm-read').innerHTML = msg;
-  }
-  pm();
-
-  // ---------- Part 3 ----------
-  var LIGHT = 0.2, MED = 1.0, HEAVY = 20, MED_SHARE = 0.2, QPD = 1e9;
-  var heavy = slider('rp-heavy', function(v){return v+'%';}, rp);
-  function rp(){
-    var h = (+heavy.value)/100, l = 1 - MED_SHARE - h;
-    var median = l >= 0.5 ? LIGHT : (l + MED_SHARE >= 0.5 ? MED : HEAVY);
-    var mean = l*LIGHT + MED_SHARE*MED + h*HEAVY;
-    document.getElementById('rp-head').textContent = median.toFixed(1) + ' Wh';
-    document.getElementById('rp-quote').textContent = '"The median Helio prompt uses about ' + median.toFixed(1) + ' watt-hours."';
-    bars(document.getElementById('rp-bars'), [
-      {label:'The median (headline)', v:median, text: median.toFixed(1)+' Wh'},
-      {label:'The average', v:mean, text: mean.toFixed(1)+' Wh'},
-      {label:'Median x prompts', v:median*QPD, text: fmtWh(median*QPD)+'/day', safe:true},
-      {label:'Actual daily total', v:mean*QPD, text: fmtWh(mean*QPD)+'/day', safe:true}
-    ].slice(0,2));
-    var extra = document.createElement('div'); extra.className='bars';
-    bars(extra, [
-      {label:'If you multiply the median', v:median*QPD, text: fmtWh(median*QPD)+' a day', safe:true},
-      {label:'The actual total', v:mean*QPD, text: fmtWh(mean*QPD)+' a day'}
-    ]);
-    var host = document.getElementById('rp-bars');
-    [].forEach.call(extra.childNodes, function(n){ host.appendChild(n.cloneNode(true)); });
-    var ratio = mean/median;
-    document.getElementById('rp-read').innerHTML = 'The headline says <b>' + median.toFixed(1) + ' Wh</b>. The average request uses <b>' + mean.toFixed(1) + ' Wh</b>, ' + ratio.toFixed(1) + ' times the headline, and the company never has to print it.';
-  }
-  rp();
-  var SC = {
-    '12': 'Scopes 1 and 2 (what Helio burns and the electricity it buys): <b>down 6 percent</b> since 2020. This is the cover of the report.',
-    'all': 'Add Scope 3 (construction, chips, supply chain): Scope 3 is <b>up 31 percent</b>, and total emissions are <b>up 25 percent</b> since 2020. Both numbers are on page 40.'
-  };
-  var scEl = document.getElementById('rp-scope');
-  scEl.innerHTML = SC['12'];
-  chipGroup('#rp [data-scope]', function(b){ scEl.innerHTML = SC[b.getAttribute('data-scope')]; });
-})();
-</script>
-<script>
-(function(){
   var btns=[].slice.call(document.querySelectorAll('.dd-btn'));
   function closeAll(){btns.forEach(function(b){var m=document.getElementById(b.getAttribute('data-dd'));if(m){m.classList.remove('open');b.setAttribute('aria-expanded','false');}});}
   btns.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var m=document.getElementById(b.getAttribute('data-dd'));var open=m.classList.contains('open');closeAll();if(!open){m.classList.add('open');b.setAttribute('aria-expanded','true');}});});
   document.addEventListener('click',closeAll);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
   document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+<script>
+(function(){
+  // Try the clipboard; if the browser blocks it, select the text on screen so Ctrl+C / Cmd+C works.
+  function selectEl(el){
+    if(el.tagName==='TEXTAREA'){ var d=el.closest('details'); if(d) d.open=true; el.focus(); el.select(); return; }
+    var r=document.createRange(); r.selectNodeContents(el); var sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  }
+  function copy(text, stat, el){
+    function ok(){ if(stat) stat.textContent='Copied. Paste it into Claude.'; }
+    function fail(){
+      if(el) selectEl(el);
+      if(stat) stat.textContent='Your browser blocked the copy button, so the text is now selected. Press Ctrl+C (Cmd+C on a Mac) to copy it.';
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext){ navigator.clipboard.writeText(text).then(ok, fallback); }
+    else fallback();
+    function fallback(){
+      var t=document.createElement('textarea'); t.value=text; t.setAttribute('readonly',''); t.style.position='fixed'; t.style.top='0'; t.style.opacity='0';
+      document.body.appendChild(t); t.select(); var done=false;
+      try{ done=document.execCommand('copy'); }catch(e){ done=false; }
+      document.body.removeChild(t); if(done) ok(); else fail();
+    }
+  }
+  function clean(t){ return t.trim().replace(/\s+/g,' '); }
+  // a Copy button under every prompt
+  [].forEach.call(document.querySelectorAll('.probe .ptext:not(.ev-body), .ev-prompt'), function(p){
+    var row=document.createElement('div'); row.className='chips';
+    var b=document.createElement('button'); b.type='button'; b.className='btn alt cpy'; b.textContent='Copy this prompt';
+    var st=document.createElement('span'); st.className='cpstat'; st.setAttribute('aria-live','polite');
+    b.addEventListener('click', function(){ copy(clean(p.textContent), st, p); });
+    row.appendChild(b); row.appendChild(st); p.parentNode.insertBefore(row, p.nextSibling);
+  });
+  // the article details, gathered into a visible box on page load
+  [].forEach.call(document.querySelectorAll('[data-copy-deets]'), function(b){
+    var sec=document.querySelector(b.getAttribute('data-copy-deets')), out=[];
+    [].forEach.call(sec.querySelectorAll('.probe.ev'), function(card){
+      var src=card.querySelector('.ev-point'), list=card.querySelector('.deets');
+      if(!src || !list) return;
+      out.push(clean(src.textContent));
+      [].forEach.call(list.querySelectorAll('li'), function(li){ out.push('- '+clean(li.textContent)); });
+      out.push('');
+    });
+    var text=out.join('\n').trim();
+    var box=b.parentNode.nextElementSibling; var ta=box && box.querySelector('.cptext'); if(ta) ta.value=text;
+    b.addEventListener('click', function(){ copy(text, b.parentNode.querySelector('.cpstat'), ta); });
+  });
+  [].forEach.call(document.querySelectorAll('[data-copy-text]'), function(b){
+    var ta=document.querySelector(b.getAttribute('data-copy-text'));
+    b.addEventListener('click', function(){ copy(ta.value, b.parentNode.querySelector('.cpstat'), ta); });
+  });
 })();
 </script>
 </body>
