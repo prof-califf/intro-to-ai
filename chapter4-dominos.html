@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QKT9X7ZMMV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QKT9X7ZMMV');
+</script>
+<title>Chapter 4 · Business Processes: Domino's | MIS 320</title>
+<meta name="description" content="MIS 320 Chapter 4: business processes, process mapping, and operational transparency, anchored on the Domino's Pizza turnaround.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0e0e0d; --off-black:#1a1a18;
+  --magenta:#cc146d; --magenta-onblack:#f0348e; --magenta-dark:#c0146a; --magenta-pale:#fdeaf3;
+  --white:#ffffff; --off-white:#f6f4f1;
+  --text-dark:#0e0e0d; --text-muted:#3a3a38; --text-light:#6b6b68;
+  --border:#e0ddd8;
+  --warn:#b3261e; --warn-pale:#fdeceb;
+  --good:#1f7a53; --good-pale:#e8f4ee;
+  --sans:'Space Grotesk',sans-serif; --display:'Oswald',sans-serif;
+  --wrap:1180px; --col:46rem;
+  /* legacy aliases so existing markup keeps working */
+  --navy:#0e0e0d; --navy-soft:#1a1a18; --accent:#cc146d; --accent-deep:#c0146a;
+  --accent-pale:#fdeaf3; --cream:#ffffff; --cream-deep:#f6f4f1; --paper:#ffffff;
+  --ink:#0e0e0d; --muted:#6b6b68; --rule:#e0ddd8; --serif:'Space Grotesk',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--white);color:var(--text-dark);
+  font-family:var(--sans);font-size:18.5px;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* ---------- shell ---------- */
+.shell{max-width:var(--wrap);margin:0 auto;display:grid;grid-template-columns:15rem minmax(0,1fr);gap:3.5rem;padding:0 1.5rem 6rem}
+main{margin-left:auto;margin-right:auto;max-width:var(--col);padding-top:2.5rem}
+
+/* ---------- sidebar ---------- */
+.rail{position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto;padding:2.5rem 0 3rem;border-right:1px solid var(--border)}
+.rail .book{font-family:var(--display);font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--magenta);margin:0 0 .2rem}
+.rail .course{font-size:13.5px;color:var(--text-light);margin:0 0 1.75rem}
+.rail nav a{display:block;font-size:15px;line-height:1.35;color:var(--text-muted);text-decoration:none;padding:.42rem .8rem .42rem .85rem;border-left:2px solid transparent;margin-left:-.85rem}
+.rail nav a:hover{color:var(--magenta);border-left-color:var(--magenta)}
+.rail nav a.sub{font-size:14px;color:var(--text-light);padding-left:1.7rem}
+.rail .back{display:inline-block;margin-top:2rem;font-size:14px;color:var(--text-light);text-decoration:none}
+.rail .back:hover{color:var(--magenta)}
+.railtoggle{display:none}
+
+/* ---------- chapter head ---------- */
+.chaphead{border-bottom:3px solid var(--black);padding-bottom:1.6rem;margin-bottom:2.5rem}
+.eyebrow{font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--magenta);margin:0 0 .7rem}
+.chaphead h1{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,4.4vw,2.7rem);line-height:1.12;text-transform:uppercase;letter-spacing:.01em;margin:0 0 .6rem;color:var(--black)}
+.chaphead .anchor{font-size:16px;color:var(--text-light);margin:0}
+.chaphead .anchor strong{color:var(--text-muted);font-weight:500}
+.meta-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}
+.meta-row span{font-size:13px;letter-spacing:.03em;background:var(--off-white);border:1px solid var(--border);padding:.32rem .65rem;color:var(--text-muted)}
+.meta-row span.alt{background:var(--magenta-pale);border-color:#f6cfe1;color:var(--magenta-dark)}
+
+/* ---------- type ---------- */
+h2{font-family:var(--display);font-weight:600;font-size:1.72rem;line-height:1.22;text-transform:uppercase;letter-spacing:.01em;color:var(--black);margin:3.2rem 0 .9rem}
+h2 .num::before{content:"Section "}
+h2 .num{font-family:var(--display);font-size:12.5px;font-weight:600;letter-spacing:.2em;color:var(--magenta);display:block;margin-bottom:.4rem;text-transform:uppercase}
+h3{font-family:var(--display);font-weight:600;font-size:1.18rem;text-transform:uppercase;letter-spacing:.03em;color:var(--off-black);margin:2rem 0 .55rem}
+p{margin:0 0 1.05rem}
+a{color:var(--magenta-dark)}
+strong{font-weight:600;color:var(--black)}
+.lede{font-size:1.24rem;line-height:1.55;color:var(--text-muted)}
+code.inline{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;background:var(--off-white);padding:.1em .35em;border:1px solid var(--border)}
+ul,ol{margin:0 0 1.15rem;padding-left:1.3rem}
+li{margin-bottom:.45rem}
+
+/* ---------- pull quote ---------- */
+.pull{margin:2.2rem 0;padding:0 0 0 1.4rem;border-left:3px solid var(--magenta)}
+.pull p{font-family:var(--display);font-weight:400;font-size:1.32rem;line-height:1.3;color:var(--black);margin:0 0 .5rem}
+.pull cite{font-style:normal;font-size:12.5px;color:var(--text-light)}
+
+/* ---------- callouts ---------- */
+.callout{border:1px solid var(--border);border-left:4px solid var(--magenta);background:var(--off-white);padding:1.15rem 1.3rem;margin:1.9rem 0}
+.callout > strong:first-child{display:block;font-family:var(--display);font-size:12.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--magenta);margin-bottom:.5rem}
+.callout p:last-child{margin-bottom:0}
+.callout-caution{border-left-color:var(--warn);background:var(--warn-pale)}
+.callout-caution strong:first-child{color:var(--warn)}
+.callout-bridge{border-left-color:var(--black);background:var(--off-white)}
+.callout-bridge strong:first-child{color:var(--black)}
+.callout-good{border-left-color:var(--good);background:var(--good-pale)}
+.callout-good strong:first-child{color:var(--good)}
+
+/* ---------- signature: value chain rail ---------- */
+.vc{margin:2.4rem 0;border:1px solid var(--border);background:var(--white);overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.07)}
+.vc-head{font-family:var(--display);font-size:12.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:var(--black);padding:.7rem 1rem}
+.vc-strip{display:grid;grid-template-columns:repeat(5,1fr)}
+.vc-cell{padding:.85rem .7rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.vc-cell:last-child{border-right:none}
+.vc-stage{font-family:var(--display);font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light);display:block;margin-bottom:.3rem}
+.vc-cell p{font-size:15.5px;line-height:1.4;margin:0;color:var(--text-muted)}
+.vc-cell.broke{background:var(--magenta-pale)}
+.vc-cell.broke .vc-stage{color:var(--magenta)}
+.vc-cell.broke p{color:#8a1450}
+.vc-note{padding:.8rem 1rem;font-size:14px;color:var(--text-light);background:var(--off-white);border-top:1px solid var(--border)}
+.vc-note b{color:var(--magenta);font-weight:600}
+
+/* ---------- stat band ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin:2rem 0}
+.stat{background:var(--white);padding:1rem .9rem}
+.stat b{display:block;font-family:var(--display);font-weight:700;font-size:1.8rem;color:var(--magenta);line-height:1.1}
+.stat span{display:block;font-size:13px;line-height:1.3;color:var(--text-light);margin-top:.3rem}
+
+/* ---------- timeline ---------- */
+.tl{list-style:none;padding:0;margin:1.8rem 0;border-left:2px solid var(--border)}
+.tl li{position:relative;padding:0 0 1.1rem 1.3rem;margin:0}
+.tl li:before{content:"";position:absolute;left:-5px;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--magenta)}
+.tl li.bad:before{background:var(--warn)}
+.tl .when{font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--magenta);display:block}
+.tl li.bad .when{color:var(--warn)}
+
+/* ---------- vocabulary ---------- */
+.vocab{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin:1.8rem 0}
+.vocab div{background:var(--white);padding:.95rem 1rem}
+.vocab dt{font-family:var(--display);font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.03em;color:var(--black);margin-bottom:.3rem}
+.vocab dd{margin:0;font-size:16.5px;line-height:1.5;color:var(--text-muted)}
+
+/* ---------- discussion questions ---------- */
+.dq{counter-reset:dq;margin:1.6rem 0 0;padding:0;list-style:none}
+.dq li{counter-increment:dq;position:relative;padding:1rem 0 1rem 2.6rem;border-top:1px solid var(--border)}
+.dq li:last-child{border-bottom:1px solid var(--border)}
+.dq li:before{content:counter(dq,decimal-leading-zero);position:absolute;left:0;top:1.05rem;font-family:var(--display);font-size:14.5px;font-weight:600;color:var(--magenta)}
+.tag{display:inline-block;font-family:var(--display);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:.2rem .5rem;margin-left:.5rem;vertical-align:.12em}
+.tag-hard{background:var(--warn);color:#fff}
+.tag-open{background:var(--black);color:#fff}
+.tag-warm{background:var(--magenta-pale);color:var(--magenta-dark)}
+
+/* ---------- sources ---------- */
+.sources{margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--border);font-size:14.5px;color:var(--text-light)}
+.sources h3{font-family:var(--display);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);margin:0 0 .6rem}
+.sources li{margin-bottom:.35rem;line-height:1.5}
+
+/* ---------- responsive ---------- */
+@media (max-width:860px){
+  .shell{grid-template-columns:minmax(0,1fr);gap:0;padding:0 1.15rem 4rem}
+  .rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--border);padding:1.5rem 0 1rem;margin-bottom:.5rem}
+  .rail nav{display:none}
+  .rail nav.open{display:block;margin-top:.8rem}
+  .railtoggle{display:inline-block;font-family:var(--display);font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--magenta);background:none;border:1px solid var(--border);padding:.4rem .7rem;cursor:pointer}
+  main{padding-top:1.2rem}
+  .vc-strip{grid-template-columns:repeat(2,1fr)}
+}
+:focus-visible{outline:2px solid var(--magenta);outline-offset:2px}
+
+/* ---------- prominent lab link ---------- */
+.lablink{display:inline-block;margin-top:.9rem;font-family:var(--display);font-size:14.5px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;text-decoration:none;background:var(--magenta);color:#fff;
+  padding:.6rem 1.15rem;border:none}
+.lablink:hover{background:var(--magenta-dark);color:#fff}
+.callout .lablink{margin-top:1rem}
+
+/* ---------- global top navigation with dropdowns ---------- */
+.topnav{position:sticky;top:0;z-index:100;background:var(--black);border-bottom:1px solid rgba(255,255,255,.14)}
+.topnav-in{max-width:var(--wrap);margin:0 auto;padding:.7rem 1.5rem;display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap}
+.topnav-brand{font-family:var(--display);font-size:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--magenta-onblack);text-decoration:none;margin-right:auto}
+.topnav-brand:hover{color:#fff}
+.dd{position:relative}
+.dd-btn{font-family:var(--display);font-size:14.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:#fff;background:none;border:1px solid rgba(255,255,255,.3);padding:.42rem .85rem;cursor:pointer}
+.dd-btn:hover,.dd-btn[aria-expanded="true"]{background:var(--magenta);border-color:var(--magenta)}
+.dd-btn .caret{font-size:11px;margin-left:.35rem}
+.dd-menu{display:none;position:absolute;right:0;top:calc(100% + .4rem);min-width:20rem;background:#fff;
+  border:1px solid var(--border);box-shadow:0 8px 30px rgba(0,0,0,.22);padding:.4rem 0;max-height:75vh;overflow-y:auto}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:.55rem 1rem;text-decoration:none;color:var(--text-dark);font-size:14.5px;line-height:1.35}
+.dd-menu a:hover{background:var(--magenta-pale);color:var(--magenta-dark)}
+.dd-menu a .lbl{display:block;font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--magenta);margin-bottom:.1rem}
+.dd-menu a.current{background:var(--off-white);border-left:3px solid var(--magenta)}
+.dd-menu a.soon{color:var(--text-light);pointer-events:none}
+.dd-menu a.soon .lbl{color:var(--text-light)}
+.dd-sep{margin:.35rem 0;border-top:1px solid var(--border)}
+@media (max-width:700px){
+  .topnav-in{padding:.6rem 1.15rem;gap:.6rem}
+  .topnav-brand{font-size:13.5px;width:100%;margin-right:0}
+  .dd{flex:1}
+  .dd-btn{width:100%;font-size:13px;padding:.4rem .5rem}
+  .dd-menu{right:auto;left:0;min-width:min(92vw,22rem)}
+}
+
+/* ---------- collapsible step-by-step help ---------- */
+.howto{margin:.7rem 0 1.1rem;border:1px solid var(--border);background:var(--off-white)}
+.howto>summary{cursor:pointer;padding:.6rem .9rem;font-family:var(--display);font-size:13px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--magenta-dark);list-style:none}
+.howto>summary::-webkit-details-marker{display:none}
+.howto>summary:before{content:"\25B8  ";font-size:11px}
+.howto[open]>summary:before{content:"\25BE  "}
+.howto>summary:hover{background:var(--magenta-pale)}
+.howto-body{padding:.3rem 1.1rem 1rem;border-top:1px solid var(--border);background:#fff}
+.howto-body ol{margin:.7rem 0;padding-left:1.3rem}
+.howto-body li{margin-bottom:.45rem;font-size:16.5px;line-height:1.5}
+.howto-body p{font-size:16.5px;margin:.6rem 0}
+.kbd{font-family:ui-monospace,Menlo,monospace;font-size:.85em;background:var(--off-white);
+  border:1px solid var(--border);border-radius:2px;padding:.1em .35em;white-space:nowrap}
+.mac{display:inline-block;font-family:var(--display);font-size:10.5px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;background:var(--black);color:#fff;padding:.1rem .4rem;margin-right:.35rem}
+.stuck{border:1px solid var(--border);border-left:4px solid var(--black);background:var(--off-white);
+  padding:1rem 1.2rem;margin:2rem 0 0}
+.stuck strong:first-child{display:block;font-family:var(--display);font-size:12.5px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--black);margin-bottom:.5rem}
+.stuck ol{margin:.5rem 0 0;padding-left:1.3rem}
+.stuck li{font-size:16.5px;margin-bottom:.35rem}
+
+/* ---------- AI traffic lights ---------- */
+.ailight{display:flex;gap:1rem;align-items:flex-start;border:1px solid var(--border);background:#fff;
+  padding:1rem 1.2rem;margin:1rem 0}
+.ailight .lamp{flex:0 0 auto;width:34px;background:#1c1c1a;border-radius:8px;padding:7px 0;
+  display:flex;flex-direction:column;align-items:center;gap:5px}
+.ailight .bulb{width:20px;height:20px;border-radius:50%;background:#2e2e2b;box-shadow:inset 0 2px 4px rgba(0,0,0,.6)}
+.ailight.g .bulb.b3{background:#2fae5f;box-shadow:0 0 10px rgba(47,174,95,.8),inset 0 -2px 3px rgba(0,0,0,.25)}
+.ailight.y .bulb.b2{background:#e6b93c;box-shadow:0 0 10px rgba(230,185,60,.8),inset 0 -2px 3px rgba(0,0,0,.25)}
+.ailight.r .bulb.b1{background:#d5453a;box-shadow:0 0 10px rgba(213,69,58,.8),inset 0 -2px 3px rgba(0,0,0,.25)}
+.ailight .lighttext{flex:1;min-width:0}
+.ailight .lighttext > strong:first-child{display:block;font-family:var(--display);font-size:13px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:.3rem}
+.ailight.g .lighttext strong:first-child{color:#1e7c43}
+.ailight.y .lighttext strong:first-child{color:#a07a10}
+.ailight.r .lighttext strong:first-child{color:#a03434}
+.ailight p{margin:.2rem 0 0;font-size:16.5px;line-height:1.55}
+
+/* ---------- think-pair-share block ---------- */
+.tps{border:1px solid var(--black);background:#fff;margin:2.2rem 0}
+.tps-head{background:var(--black);color:#fff;padding:.6rem 1.1rem;font-family:var(--display);font-size:12.5px;
+  font-weight:600;letter-spacing:.2em;text-transform:uppercase;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.tps-head .mins{color:rgba(255,255,255,.7);letter-spacing:.1em}
+.tps-body{padding:1.1rem 1.25rem}
+.tps-setup{font-size:17px;line-height:1.6;margin:0 0 1rem}
+.tps-q{border-left:4px solid var(--magenta);background:var(--magenta-pale);padding:.8rem 1rem;margin:0 0 1.1rem}
+.tps-q p{margin:0;font-size:17px;line-height:1.5;font-weight:500}
+.tps-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.tps-step{background:#fff;padding:.75rem .9rem}
+.tps-step .ph{font-family:var(--display);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--magenta);margin-bottom:.3rem;display:flex;justify-content:space-between}
+.tps-step .ph span{color:var(--text-light)}
+.tps-step p{margin:0;font-size:16px;line-height:1.45;color:var(--text-muted)}
+.tps-note{border-top:1px solid var(--border);margin-top:1.1rem;padding-top:.9rem;font-size:16px;color:var(--text-muted)}
+.tps-note strong{font-family:var(--display);font-size:11.5px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--black);display:block;margin-bottom:.35rem}
+@media(max-width:700px){.tps-steps{grid-template-columns:1fr}}
+
+/* ---------- Monday session plan (instructor-facing) ---------- */
+.plan{border:1px solid var(--border);background:var(--off-white);margin:2rem 0}
+.plan-head{background:var(--off-white);border-bottom:1px solid var(--border);padding:.55rem 1.05rem;
+  font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted)}
+.plan table{width:100%;border-collapse:collapse;background:#fff}
+.plan td{border-bottom:1px solid var(--border);padding:.6rem .9rem;font-size:15.5px;vertical-align:top;line-height:1.45}
+.plan tr:last-child td{border-bottom:none}
+.plan td.t{width:5.5rem;font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--magenta);white-space:nowrap}
+.plan td.w{width:8rem;font-weight:600}
+@media(max-width:640px){.plan td.w{width:auto}}
+
+/* ---------- chapter depth: stat strip, TOC, key concept, summary table ---------- */
+.statrow{display:flex;flex-wrap:wrap;gap:1px;background:var(--border);border:1px solid var(--border);margin:1.6rem 0}
+.stat{flex:1 1 8rem;background:#fff;padding:.85rem 1rem;text-align:center}
+.stat b{display:block;font-family:var(--display);font-size:22px;font-weight:600;color:var(--magenta);line-height:1.1}
+.stat span{font-size:12.5px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;font-family:var(--display)}
+.toc{border:1px solid var(--border);background:var(--off-white);padding:1rem 1.25rem;margin:1.6rem 0;font-family:var(--sans);font-size:14.5px;line-height:1.5}
+.toc strong{display:block;font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.3rem}
+.toc .tnum{display:inline-block;min-width:1.5rem;color:var(--text-light);font-variant-numeric:tabular-nums}
+.toc a{display:block;color:var(--text-dark);text-decoration:none;border-bottom:1px solid var(--border);padding:.32rem 0;white-space:normal}
+.toc a:last-of-type{border-bottom:0;padding-bottom:0}
+.toc a:hover{color:var(--magenta-dark);border-bottom-color:var(--magenta)}
+.kc{border:1px solid var(--border);border-left:4px solid var(--magenta);background:#fff;margin:1.4rem 0;padding:1rem 1.2rem}
+.kc .kc-tag{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--magenta);display:block;margin-bottom:.15rem}
+.kc .kc-term{font-family:var(--display);font-size:17px;font-weight:600;display:block;margin-bottom:.45rem}
+.kc p{margin:0;font-size:17px;line-height:1.62}
+.sumtable{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:15.5px}
+.sumtable th{background:var(--black);color:#fff;font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.55rem .8rem;text-align:left}
+.sumtable td{border:1px solid var(--border);padding:.6rem .8rem;vertical-align:top;line-height:1.5}
+.sumtable tr:nth-child(even) td{background:var(--off-white)}
+
+/* ---------- IS concepts chip strip ---------- */
+.concepts{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin:1.1rem 0 0}
+.concepts .clabel{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);margin-right:.3rem}
+.concepts span:not(.clabel){font-family:var(--display);font-size:12.5px;font-weight:500;letter-spacing:.04em;border:1px solid var(--border);background:var(--off-white);padding:.22rem .6rem;color:var(--text-dark)}
+
+/* mobile: wide tables scroll, long TOC anchors wrap */
+@media (max-width:860px){.toc a{white-space:normal}main table{display:block;overflow-x:auto;max-width:100%}}
+
+/* narrow screens: wide prose comparison tables stack into labelled cards.
+   Narrow data tables keep their grid so rows stay comparable. */
+@media (max-width:640px){
+  main table.stack-sm{display:block;width:100%;overflow-x:visible;border-collapse:separate;border-spacing:0}
+  table.stack-sm tr:first-child{display:none}
+  table.stack-sm tr{display:block;width:100%;border:1px solid var(--border);margin:0 0 .85rem;background:#fff}
+  table.stack-sm td{display:block;width:100%;border:none;border-bottom:1px solid var(--border);padding:.6rem .85rem;background:#fff!important}
+  table.stack-sm td:last-child{border-bottom:none}
+  table.stack-sm td::before{content:attr(data-label);display:block;font-family:var(--display);font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--text-light);margin-bottom:.28rem}
+  table.stack-sm td:first-child{background:var(--black)!important;color:#fff;font-family:var(--display);letter-spacing:.06em;white-space:normal}
+  table.stack-sm td:first-child::before{content:none}
+  table.stack-sm td:first-child strong{color:#fff}
+}
+
+/* check-yourself boxes and subheads, matching ch2/ch3 */
+.mcq{border-left:3px solid var(--magenta);background:var(--off-white);padding:.7rem 1rem;margin:1rem 0 1.6rem;font-family:var(--sans);font-size:.95rem}
+.mcq b{font-family:var(--display);font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--magenta-dark);display:block;margin-bottom:.2rem}
+main h3{font-family:var(--display);font-weight:600;font-size:1.12rem;text-transform:none;letter-spacing:0;color:var(--off-black);margin:2.1rem 0 .55rem;padding-left:.7rem;border-left:3px solid var(--magenta)}
+
+/* ported: figures and jump buttons */
+.diagram{margin:1.6rem 0;text-align:center}
+.diagram img{max-width:100%;height:auto;border:1px solid var(--border)}
+.diagram figcaption{text-align:left}
+.vidbox{margin:1.7rem 0}
+.vidframe{position:relative;width:100%;padding-top:56.25%;background:var(--off-white);border:1px solid var(--border)}
+.vidframe iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.vidbox figcaption{font-family:var(--sans);font-size:.82rem;color:var(--muted);margin-top:.5rem;text-align:left}
+.jumprow{display:flex;flex-wrap:wrap;gap:.5rem;margin:.9rem 0 0}
+.jump{font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--magenta);color:#fff;border:1px solid var(--magenta);padding:.5rem .9rem;text-decoration:none;display:inline-block}
+.jump:hover{background:var(--magenta-dark);border-color:var(--magenta-dark);color:#fff}
+
+.tryit{border:1px solid var(--border);background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.06);margin:2rem 0;padding:0 0 1rem}
+.tryit-head{font-family:var(--display);font-size:12.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:var(--black);padding:.6rem 1rem}
+.tryit-intro{font-family:var(--sans);font-size:.97rem;color:var(--text-muted);margin:.9rem 1rem}
+.tryit-note{font-family:var(--sans);font-size:.9rem;color:var(--text-light);margin:.8rem 1rem 0;border-top:1px solid var(--border);padding-top:.7rem}
+.wrow{border-top:1px solid var(--border);padding:.75rem 1rem;display:grid;grid-template-columns:minmax(0,1fr);gap:.5rem 1rem;align-items:center}
+.wq{font-family:var(--sans);font-size:1rem;color:var(--text-dark)}
+.wbtns{display:flex;gap:.4rem;flex-wrap:wrap}
+.wbtns button{font-family:var(--display);font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--off-white);border:1px solid var(--border);padding:.35rem .55rem;cursor:pointer;color:var(--text-dark)}
+.wbtns button:hover:not(:disabled){background:var(--magenta-pale);border-color:var(--magenta);color:var(--magenta-dark)}
+.wbtns button:disabled{opacity:.4;cursor:default}
+.wbtns button.you{opacity:1}
+.wbtns button.you.right{background:var(--good-pale);border-color:var(--good);color:var(--good)}
+.wbtns button.you.wrong{background:var(--warn-pale);border-color:var(--warn);color:var(--warn)}
+.wout{grid-column:1/-1;font-family:var(--sans);font-size:.95rem;line-height:1.5;padding:.6rem .8rem;border-left:3px solid var(--good);background:var(--good-pale);color:var(--text-dark)}
+.wout.no{border-left-color:var(--warn);background:var(--warn-pale)}
+.swb-row{border-top:1px solid var(--border);padding:.6rem 1rem;display:grid;grid-template-columns:minmax(0,1fr) 11rem;gap:.5rem .8rem;align-items:center}
+.swb-q{font-family:var(--sans);font-size:.98rem;color:var(--text-dark)}
+.swb-sel{font-family:var(--sans);font-size:.92rem;padding:.4rem .5rem;border:1px solid var(--border);background:var(--white);color:var(--text-dark);width:100%}
+.swb-map{border-top:1px solid var(--border);margin-top:.6rem;padding:.9rem 1rem 0}
+.swb-svgwrap{overflow-x:auto}
+.swb-read{font-family:var(--sans);font-size:.92rem;color:var(--text-muted);margin:.6rem 0 0;min-height:2.6em}
+.swb-acts{display:flex;gap:.5rem;flex-wrap:wrap;padding:.3rem 1rem .2rem}
+.swb-acts button{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--off-white);border:1px solid var(--border);padding:.45rem .7rem;cursor:pointer;color:var(--text-dark)}
+.swb-acts button:hover{background:var(--magenta-pale);border-color:var(--magenta);color:var(--magenta-dark)}
+.swb-reveal{font-family:var(--sans);font-size:.95rem;line-height:1.55;margin:.7rem 1rem 0;padding:.7rem .85rem;border-left:3px solid var(--magenta);background:var(--magenta-pale);color:var(--text-dark)}
+@media(max-width:640px){.swb-row{grid-template-columns:minmax(0,1fr)}}
+.mt-step{padding:.7rem 1rem 0}
+.mt-label{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-light);margin-bottom:.45rem}
+.mt-btns{display:flex;gap:.4rem;flex-wrap:wrap}
+.mt-btns button{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;background:var(--off-white);border:1px solid var(--border);padding:.45rem .7rem;cursor:pointer;color:var(--text-dark)}
+.mt-btns button:hover{background:var(--magenta-pale);border-color:var(--magenta);color:var(--magenta-dark)}
+.mt-btns button i{font-style:normal;text-transform:none;letter-spacing:0;color:var(--text-light);font-size:10.5px}
+.mt-btns button.on{background:var(--black);border-color:var(--black);color:#fff}
+.mt-btns button.on i{color:rgba(255,255,255,.65)}
+.mt-btns button.on.right{background:var(--good);border-color:var(--good)}
+.mt-btns button.on.wrong{background:var(--magenta);border-color:var(--magenta)}
+.mt-out{margin:.9rem 1rem 0;font-family:var(--sans)}
+.mt-verdict{margin:0 0 .6rem;font-size:.97rem;line-height:1.5;color:var(--text-dark)}
+.mt-verdict b.yes{color:var(--good)}
+.mt-verdict b.no{color:var(--magenta)}
+.mt-out .mt-report{margin:0 0 .7rem;padding:.6rem .8rem;border-left:3px solid var(--good);background:var(--good-pale);font-size:.93rem;line-height:1.5;color:var(--text-dark)}
+.mt-out .mt-report span,.mt-bill span{display:block;font-family:var(--display);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-light);margin-bottom:.25rem}
+.mt-bill{padding:.6rem .8rem;border-left:3px solid var(--magenta);background:var(--magenta-pale)}
+.mt-bill ol{margin:.2rem 0 0 1.1rem;padding:0}
+.mt-bill li{margin:.4rem 0;font-size:.93rem;line-height:1.5;color:var(--text-dark)}
+.mt-bill li.un b{color:var(--magenta-dark)}
+.mt-acts{padding:.8rem 1rem 0}
+.mt-acts button{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--off-white);border:1px solid var(--border);padding:.45rem .7rem;cursor:pointer;color:var(--text-dark)}
+.mt-acts button:hover{background:var(--magenta-pale);border-color:var(--magenta);color:var(--magenta-dark)}
+.objectives{border:1px solid var(--border);border-left:4px solid var(--black);background:var(--off-white);padding:1rem 1.3rem;margin:1.6rem 0}
+.objectives .obj-tag{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--magenta);display:block;margin-bottom:.4rem}
+.objectives ol{margin:.2rem 0 0 1.2rem;padding:0}
+.objectives li{margin:.3rem 0;font-size:16.5px;line-height:1.55}
+.takeaways{border:1px solid var(--border);border-left:4px solid var(--magenta);background:#fff;padding:1rem 1.3rem;margin:1.8rem 0}
+.takeaways .obj-tag{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--magenta);display:block;margin-bottom:.4rem}
+.takeaways ul{margin:.2rem 0 0 1.2rem;padding:0}
+.takeaways li{margin:.35rem 0;font-size:16.5px;line-height:1.55}
+@media (max-width:860px){main{padding-left:1.25rem;padding-right:1.25rem}}
+
+/* ---------- collapsible sources ---------- */
+.srcbox{border:1px solid var(--border);border-radius:6px;background:#fff;margin:3.2rem 0 1.5rem;padding:0 1.25rem}
+.srcbox>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 0}
+.srcbox>summary::-webkit-details-marker{display:none}
+.srcbox>summary::after{content:"\25BE";color:var(--magenta);font-size:.75rem;line-height:1;flex:0 0 auto;transition:transform .15s ease}
+.srcbox[open]>summary::after{transform:rotate(180deg)}
+.srcbox>summary h2,.srcbox>summary h3{margin:0;padding:0;border:0;font-size:1.15rem;letter-spacing:.02em}
+.srcbox>summary:hover h2,.srcbox>summary:hover h3{color:var(--magenta-dark)}
+.srcbox>summary:focus-visible{outline:2px solid var(--magenta);outline-offset:3px}
+.srcbox .sources{margin-top:0;padding-top:0;border-top:0;padding-bottom:1.1rem}
+@media print{.srcbox{border:0;padding:0}.srcbox>summary::after{display:none}}
+</style>
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-in">
+    <a class="topnav-brand" href="index.html">MIS 320 &middot; Principles of Management Information Systems</a>
+    <a class="dd-btn" href="syllabus.html" style="text-decoration:none">Syllabus</a>
+    <a class="dd-btn" href="schedule.html" style="text-decoration:none">Schedule</a>
+    <div class="dd">
+      <button class="dd-btn" aria-expanded="false" aria-haspopup="true" data-dd="ddc">Chapters<span class="caret">&#9660;</span></button>
+      <div class="dd-menu" id="ddc">
+      <a href="preface.html"><span class="lbl">Start here</span>About this book</a>
+      <a href="glossary.html"><span class="lbl">Reference</span>Glossary, A to Z</a>
+      <a href="chapter1-what-is-mis.html"><span class="lbl">Chapter 1 &middot; Week 1</span>What Is MIS? &mdash; Spotify Wrapped</a>
+      <a href="chapter2-starbucks.html"><span class="lbl">Chapter 2 &middot; Week 2</span>The Value of Information &mdash; Starbucks</a>
+      <a href="chapter3-competitive-advantage.html"><span class="lbl">Chapter 3 &middot; Week 3</span>Technology &amp; Competitive Advantage &mdash; Zara</a>
+      <a class="current" href="chapter4-dominos.html"><span class="lbl">Chapter 4 &middot; Week 4</span>Business Processes &mdash; Domino's</a>
+      <a href="chapter5-healthcaregov.html"><span class="lbl">Chapter 5 &middot; Week 5</span>Systems Analysis &amp; the SDLC &mdash; Healthcare.gov</a>
+      <a href="chapter6-moneyball.html"><span class="lbl">Chapter 6 &middot; Week 6</span>Business Intelligence &mdash; Moneyball</a>
+      <a href="chapter7-walmart.html"><span class="lbl">Chapter 7 &middot; Week 7</span>What Data Is: Databases &mdash; Walmart</a>
+      <a href="chapter8-nike-sap.html"><span class="lbl">Chapter 8 &middot; Week 7</span>Enterprise Systems &mdash; Nike/SAP</a>
+      <a href="chapter9-changehealthcare.html"><span class="lbl">Chapter 9 &middot; Week 8</span>Cybersecurity &mdash; Change Healthcare</a>
+      <a href="chapter10-equifax.html"><span class="lbl">Chapter 10 &middot; Week 8</span>IT Governance &mdash; Equifax</a>
+      <a href="chapter11-software.html"><span class="lbl">Chapter 11 &middot; Week 9</span>Software Design &amp; Selection &mdash; Robles v. Domino's</a>
+      <a href="chapter12-ai-ml.html"><span class="lbl">Chapter 12 &middot; Week 10</span>AI, Machine Learning &amp; Bias &mdash; TikTok &amp; Amazon</a>
+      <a href="chapter13-cloud.html"><span class="lbl">Chapter 13 &middot; Week 10</span>The Cloud &amp; What Computing Costs &mdash; Netflix</a>
+      </div>
+    </div>
+    <div class="dd">
+      <button class="dd-btn" aria-expanded="false" aria-haspopup="true" data-dd="ddl">Labs<span class="caret">&#9660;</span></button>
+      <div class="dd-menu" id="ddl">
+      <a href="lab1-genai.html"><span class="lbl">Lab 1 &middot; Week 1</span>GenAI for Thinking</a>
+      <a href="lab2-excel-basics.html"><span class="lbl">Lab 2 &middot; Week 2</span>Excel Basics: Meeting the Client</a>
+      <a href="lab3-excel-dataprep.html"><span class="lbl">Lab 3 &middot; Week 3</span>Excel Functions: One Question, One Formula</a>
+      <a href="lab4-excel-dataviz.html"><span class="lbl">Lab 4 &middot; Week 4</span>Data Visualization: Charts That Tell the Truth</a>
+      <a href="lab5-excel-analysis.html"><span class="lbl">Lab 5 &middot; Week 5</span>Data Analysis &amp; Mini Project</a>
+      <a href="lab6-tableau.html"><span class="lbl">Lab 6 &middot; Week 6</span>Tableau: Worksheets to a Dashboard</a>
+      <a href="lab7-sql.html"><span class="lbl">Lab 7 &middot; Week 7</span>SQL Fundamentals</a>
+      <a href="lab8-security.html"><span class="lbl">Lab 8 &middot; Week 8</span>Security &amp; Data Governance: The Audit</a>
+      <a href="lab9-ux.html"><span class="lbl">Lab 9 &middot; Week 9</span>UX Design: The Heuristic Evaluation</a>
+      <a href="lab10-ia.html"><span class="lbl">Lab 10 &middot; Week 10</span>Information Architecture: Making Sense of a Mess</a>
+      <a href="resume.html"><span class="lbl">After the labs</span>Turning the labs into a resume</a>
+      </div>
+    </div>
+    <div class="dd">
+      <button class="dd-btn" aria-expanded="false" aria-haspopup="true" data-dd="ddd">Data<span class="caret">&#9660;</span></button>
+      <div class="dd-menu" id="ddd">
+      <a href="cascadia-sales-2025.xlsx"><span class="lbl">Workbook</span>Cascadia sales, clean (.xlsx)</a>
+      <a href="cascadia-sales-2025-RAW.xlsx"><span class="lbl">Workbook</span>Cascadia sales, RAW export for Lab 7 (.xlsx)</a>
+      <a href="cascadia-sales-2025.csv"><span class="lbl">Data</span>Flat CSV for Tableau</a>
+      <a href="cascadia.db"><span class="lbl">Database</span>SQLite database for the SQL lab</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="chapwrap">
+
+<header class="chaphead">
+  <p class="eyebrow">Chapter 4 &middot; Business Processes</p>
+  <h1>Business Processes: Why <b>Domino's</b> Best Software Could Not Fix Its Pizza</h1>
+  <p class="anchor">In 2008 Domino's shipped a piece of software that business schools still teach and
+  every industry has since copied. Over the following year its sales fell, its stores closed, and its
+  stock collapsed. This chapter is about the thing underneath the software that nobody had looked at.</p>
+<div class="concepts"><span class="clabel">Key concepts</span><span>Business process</span><span>As-is vs. to-be</span><span>Swimlane diagrams</span><span>Bottlenecks &amp; handoffs</span><span>Cycle time</span><span>Improvement vs. reengineering</span><span>Operational transparency</span><span>Process automation &amp; AI agents</span></div>
+</header>
+<div class="toc"><strong>Contents</strong>
+<a href="#what"><span class="tnum">1.</span> What a business process is</a>
+<a href="#map"><span class="tnum">2.</span> Mapping, measuring, redesigning</a>
+<a href="#cases"><span class="tnum">3.</span> Two short cases, one old finding</a>
+<a href="#dominos"><span class="tnum">4.</span> Main case. Domino's: the tracker on a broken pizza</a>
+<a href="#other"><span class="tnum">5.</span> The downside: transparency for whom</a>
+<a href="#vocab"><span class="tnum">6.</span> Vocabulary</a>
+<a href="#discussion"><span class="tnum">7.</span> Discussion questions</a>
+<a href="#lab"><span class="tnum">8.</span> From lecture to lab</a>
+<a href="#sources"><span class="tnum">9.</span> Sources and further reading</a>
+</div>
+<p class="printbox"><span>Wanna go analog?</span><button type="button" onclick="window.print()" aria-label="Print this page or save it as a PDF">&#9113;&nbsp; Print here</button><span>or save it as a PDF; the navigation drops out</span></p>
+
+<p class="lede">The software was the Pizza Tracker, and it worked. It still works, which is why you have
+seen a version of it every time you order anything online. It did not save Domino's, and the reason is the
+most useful thing in this chapter: technology can be impressive, admired and widely copied and still be unable to fix a
+broken business process.</p>
+
+<div class="objectives"><span class="obj-tag">Learning objectives</span>
+<p>By the end of this chapter you should be able to:</p>
+<ol>
+<li>Define a business process by its output to a customer, and explain why that definition cuts across departments.</li>
+<li>Read and draw a swimlane diagram, and locate the handoffs and bottlenecks on it.</li>
+<li>Distinguish process improvement from reengineering, and say when each is the right choice.</li>
+<li>Explain the rule that an information system can only manage what the process records, and apply it to a failure.</li>
+<li>Decide which steps of a process can be handed to software or an agent, and which must stay with a person.</li>
+</ol>
+</div>
+
+<h2 id="what"><span class="num">1</span>What a business process is</h2>
+
+<p>Chapter 1 defined an information system as five components working together: hardware, software, data,
+networks and people. That definition answers what an information system is made of. It does not answer
+what an information system is <em>for</em>, and that turns out to be the harder question, because a
+system is never built for its own sake. It is built so that some work gets done.</p>
+
+<p>The work is the process. Every organization you will ever join runs on processes, most of them
+undocumented, and a process is what every database, dashboard, and app in this book exists to serve.</p>
+
+<h3>1.1 What a business process is, and who owns it</h3>
+
+<p>A <strong>business process</strong> is a structured set of activities that takes inputs and produces an
+output a customer values. Order-to-delivery. Hire-to-retire. Quote-to-cash. The definition sounds bland until
+you notice what it rules out: a process is defined by its <em>output to a customer</em>, not by the department
+that performs it.</p>
+
+<p>Processes are where strategy stops being a slide and becomes something physical. Zara's two-week loop
+from the last chapter is a process. So is getting one pizza from order to door. The discipline of this
+chapter is learning to see a process as an object you can map, measure and redesign, rather than as "just
+how we do things around here."</p>
+
+<p>That distinction, between the department that does the work and the customer who receives it, is the source of most organizational dysfunction. Companies are organized vertically into
+functions (marketing, operations, finance, IT) but value flows horizontally across them. Every point where
+work crosses a functional boundary is a <strong>handoff</strong>, and handoffs are where information is lost,
+time is spent waiting, and accountability evaporates.</p>
+
+<p>You have probably already watched this happen. Marketing asks IT for a change to the checkout page, and
+the request sits in a queue behind six other requests, because marketing owns the campaign and IT owns the
+release schedule and nobody owns the date. Operations needs a supplier paid this week, but finance owns
+payment and finance is waiting on a document operations did not know it had to send. A student changes
+their major, and the registrar, the advising office and financial aid each learn about it at a different
+time, from a different screen. In every one of those, no person did anything wrong. The work simply
+crossed a line between two groups, and nobody owned the crossing. Ask who owns "the ordering process" at
+most firms and you get either a blank look or four different names.</p>
+
+<div class="callout">
+  <strong>Functions versus processes</strong>
+  <p>Functions are how a company is <em>staffed</em>. Processes are how a company <em>delivers</em>. A customer never experiences your org chart; they experience the hand-off between your website and your kitchen. Information
+  systems live on exactly those seams, which is why process thinking is the foundation for everything else in
+  this course.</p>
+</div>
+
+<h3>1.2 Where a process lives in the information system</h3>
+
+<p>A process and an information system are not the same thing, and it is worth being precise about the
+difference. A process is the work. For example, taking a customer's order, making the food, and getting it
+to the door is the work, and it would still be the work if you did all of it with a notepad and a bicycle.
+An information system is the arrangement of five components that carries that work and makes it visible. Run the components over any
+process and each one has a specific job:</p>
+
+<ul>
+  <li><strong>Data</strong> is the process's memory. Every step that matters leaves a record, and the
+  steps that leave no record are the ones nobody can manage.</li>
+  <li><strong>Software</strong> encodes the rules: what may happen next, what is not allowed, what
+  triggers automatically.</li>
+  <li><strong>Networks</strong> carry the work between the people and places that perform it. Every
+  handoff on a map is a network crossing, whether that network is a cable or a person walking a folder to
+  the next desk.</li>
+  <li><strong>Hardware</strong> is where the process meets the physical world: the register, the oven,
+  the scanner, the phone.</li>
+  <li><strong>People</strong> perform the steps a machine cannot, decide the cases the rules do not
+  cover, and are the only component that can notice the process itself is wrong.</li>
+</ul>
+
+<p>Two consequences follow from that, and they run through the rest of this chapter. The first is that
+<strong>an information system can only manage what the process records</strong>. Capturing a timestamped event at each
+step, so the process becomes measurable at all, is called <strong>process instrumentation</strong>. If nobody captures the moment a
+pizza leaves the oven, no software can tell you how long it sat. Deciding what a process records is
+therefore a design decision, made by people, usually years before anyone needs the answer.</p>
+
+<p>The second is the one this chapter's case is built on. Because the five components are the machinery
+and the process is the work, <strong>you can replace every component and still have the same bad
+process</strong>. New hardware, new software, faster networks, better data, and a broken sequence of
+steps produces a broken sequence of steps performed faster and recorded more precisely. That sentence is
+the entire Domino's case in advance.</p>
+
+<h2 id="map"><span class="num">2</span>Mapping, measuring, redesigning</h2>
+
+<p>So the first thing you have to do to improve a <strong>business process</strong> is write it down. Not
+improve it, not buy anything for it, not hold a meeting about it. Write it down. You cannot improve a
+process you have not described, and the description is almost never what managers believe is happening.
+That step has a name, <strong>process mapping</strong>, and it produces two documents. The order you produce
+them in matters.</p>
+
+<h3>2.1 Two maps: as-is and to-be</h3>
+
+<p>A <strong>process map</strong> is a picture of the work. It shows each step as a shape, the order of the
+steps as arrows between them, and who does each step. That is all it is. The value is not in the drawing. It is in
+the argument the drawing starts. Once the process is on one page, people who each knew only their own part
+of it can see the whole, and disagree about it productively.</p>
+
+<p>You draw two of them.</p>
+
+<ul>
+  <li>The <strong>as-is map</strong> is what actually happens today. Not the official version. The real one,
+  including the workarounds, the retyping of the same information into a second system, and the phone call
+  somebody makes every Friday because the software does not handle one kind of order.</li>
+  <li>The <strong>to-be map</strong> is what should happen after the redesign.</li>
+</ul>
+
+<p>Skipping the as-is map is the most common failure in process work. Teams jump to the to-be because it is
+more fun, and they design an improvement to a process that does not exist.</p>
+
+<p>Here is what that looks like. A university decides that course registration is too slow and buys a new
+registration portal, designing it around the official process: the student picks courses, the system checks
+prerequisites, the student enrols. It launches, and registration is still slow. In the real process about a
+third of students need an advisor to override something. Advisors hold office hours two days a week, and
+the override arrives by email and gets typed in by hand. Nobody mapped that, so the new portal
+has no override path in it, and the queue that was already the slow part is now the slow part with a nicer
+front end. The team improved the fast part of a process it had never looked at.</p>
+
+<p>The as-is map is where you find the <strong>bottleneck</strong>, the single constraint that sets the pace
+of the whole process. In that example the bottleneck is advisor availability, not the portal. Improving
+anything other than the bottleneck produces no improvement in output, only local statistics that look
+better.</p>
+
+<h3>2.2 Drawing the map: swimlanes</h3>
+<p>Both maps are drawn the same way, so learning the notation once gives you both. Process maps have a
+standard grammar, and learning it takes about five minutes: a <strong>box</strong> is an activity, a
+<strong>diamond</strong> is a decision with labeled exits (yes/no, approved/rejected), an
+<strong>arrow</strong> is the flow, and rounded ends mark start and finish. Draw the as-is with these
+shapes, then draw the to-be with the same shapes, and the two pictures can be laid side by side, which is
+the point. A change you cannot show as a difference between two maps is usually not a change to the
+process. The move that makes a flowchart useful is the <strong>swimlane diagram</strong>: one horizontal lane per actor (customer, web
+system, store, kitchen, driver) with each activity drawn in the lane of whoever performs it.</p>
+
+<p>That one move is what makes the handoffs visible. On an ordinary flowchart a handoff looks like any
+other arrow, so it disappears. On a swimlane diagram a handoff is an arrow that crosses a lane
+boundary, which you can see from across a room. You can point at it and say exactly where the work changed
+hands, and who had it before and after. The diagram then answers the question managers argue about most:
+<em>who owns this step?</em> Count the lane-crossings on any process map and you have counted its most
+likely failure points. Every crossing is a place where information can be lost, where time is spent
+waiting, and where each side can reasonably believe the other one has it. The first discussion question asks you to draw Domino's
+order-to-delivery process in swimlanes: expect five lanes and be suspicious of any map with fewer than
+six crossings.</p>
+
+
+
+
+<div class="tryit swb" id="swimbuild">
+  <div class="tryit-head">Build it yourself &middot; A swimlane you can get wrong</div>
+<figure class="diagram" style="margin:1rem 1rem 0">
+<svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-labelledby="swimtitle swimdesc" style="width:100%;height:auto;font-family:var(--sans)">
+<title id="swimtitle">Swimlane notation and a three-lane example</title>
+<desc id="swimdesc">Top row: the four shapes of a process map. Rounded ends mark start and finish, a
+rectangle is an activity, a diamond is a decision, an arrow is the flow. Below, a three-lane example
+with lanes for Customer, Web system and Store. An order is placed by the customer, validated and routed
+by the web system, checked against a decision, made in the store, baked and boxed, handed to a driver, and arrives back with the
+customer. The path crosses a lane boundary four times, and each crossing is a handoff.</desc>
+
+<g fill="none" stroke="var(--ink)" stroke-width="1.4">
+  <rect x="14" y="26" width="86" height="30" rx="15"/>
+  <rect x="150" y="26" width="86" height="30" rx="2"/>
+  <path d="M330 26 L372 41 L330 56 L288 41 Z"/>
+  <path d="M424 41 H492" marker-end="url(#ah)"/>
+</g>
+<g font-size="11" fill="var(--ink)" text-anchor="middle">
+  <text x="57" y="45">Start / end</text><text x="193" y="45">Activity</text><text x="330" y="45">Decision</text>
+</g>
+<g font-size="10" fill="var(--muted)" text-anchor="middle">
+  <text x="57" y="72">rounded</text><text x="193" y="72">rectangle</text>
+  <text x="330" y="72">diamond</text><text x="458" y="72">flow</text>
+</g>
+<line x1="14" y1="90" x2="746" y2="90" stroke="var(--rule)" stroke-width="1"/>
+
+<defs>
+  <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M0 0 L10 5 L0 10 z" fill="var(--ink)"/>
+  </marker>
+</defs>
+
+<g>
+  <rect x="14" y="112" width="732" height="62" fill="var(--off-white)"/>
+  <rect x="14" y="174" width="732" height="62" fill="var(--paper)"/>
+  <rect x="14" y="236" width="732" height="62" fill="var(--off-white)"/>
+  <g stroke="var(--rule)" stroke-width="1">
+    <line x1="14" y1="112" x2="746" y2="112"/><line x1="14" y1="174" x2="746" y2="174"/>
+    <line x1="14" y1="236" x2="746" y2="236"/><line x1="14" y1="298" x2="746" y2="298"/>
+    <line x1="118" y1="112" x2="118" y2="298"/>
+  </g>
+  <g font-size="11" font-weight="600" fill="var(--muted)" text-anchor="start">
+    <text x="26" y="147">Customer</text><text x="26" y="209">Web system</text><text x="26" y="271">Store</text>
+  </g>
+</g>
+
+<g fill="var(--paper)" stroke="var(--ink)" stroke-width="1.4">
+  <rect x="140" y="126" width="104" height="34" rx="2"/>
+  <rect x="140" y="188" width="104" height="34" rx="2"/>
+  <path d="M330 188 L386 205 L330 222 L274 205 Z"/>
+  <rect x="410" y="250" width="86" height="34" rx="2"/>
+  <rect x="508" y="250" width="86" height="34" rx="2"/>
+  <rect x="606" y="250" width="86" height="34" rx="2"/>
+  <rect x="606" y="126" width="86" height="34" rx="17"/>
+</g>
+<g font-size="10.5" fill="var(--ink)" text-anchor="middle">
+  <text x="192" y="147">Order pizza</text>
+  <text x="192" y="209">Validate, route</text>
+  <text x="330" y="209">Store open?</text>
+  <text x="453" y="271">Make pizza</text>
+  <text x="551" y="271">Bake and box</text>
+  <text x="649" y="271">Hand to driver</text>
+  <text x="649" y="147">Order arrives</text>
+</g>
+
+<g fill="none" stroke="var(--ink)" stroke-width="1.4">
+  <path d="M192 160 V188" marker-end="url(#ah)"/>
+  <path d="M244 205 H274" marker-end="url(#ah)"/>
+  <path d="M386 205 H398 V267 H410" marker-end="url(#ah)"/>
+  <path d="M496 267 H508" marker-end="url(#ah)"/>
+  <path d="M594 267 H606" marker-end="url(#ah)"/>
+  <path d="M692 267 H720 V143 H692" marker-end="url(#ah)"/>
+</g>
+<g font-size="9.5" fill="var(--muted)">
+  <text x="412" y="222" text-anchor="start">yes</text>
+</g>
+
+<g fill="var(--accent)">
+  <circle cx="192" cy="174" r="4.5"/><circle cx="398" cy="236" r="4.5"/>
+  <circle cx="720" cy="236" r="4.5"/><circle cx="720" cy="174" r="4.5"/>
+</g>
+<text x="746" y="320" font-size="10.5" fill="var(--accent-deep)" text-anchor="end" font-weight="600">
+  4 lane crossings, 4 handoffs
+</text>
+</svg>
+<figcaption style="font-family:var(--sans);font-size:.82rem;color:var(--muted);margin-top:.5rem">
+An example swimlane diagram of a simple online pizza order, from the customer's tap to the food
+arriving at the door. Reading example only, three lanes; Domino's real order-to-delivery process needs
+five. Each pink dot is a lane crossing, which is a handoff, which is where work waits and information
+gets lost.
+</figcaption>
+</figure>
+
+  <p class="tryit-intro">Here is a process you have been through: returning something you bought online.
+  Ten steps, in order, and five actors. Put each step in the lane of whoever performs it. The map draws
+  itself as you go, and every time the flow changes lane you have found a handoff.</p>
+
+  <div id="swbrows"></div>
+
+  <div class="swb-map">
+    <div id="swbsvg" class="swb-svgwrap"></div>
+    <p class="swb-read" id="swbread" role="status" aria-live="polite">Assign a step to start drawing.</p>
+  </div>
+
+  <div class="swb-acts">
+    <button type="button" id="swbshow">Show one possible answer</button>
+    <button type="button" id="swbclear">Clear</button>
+  </div>
+  <div class="swb-reveal" id="swbreveal" hidden></div>
+
+  <p class="tryit-note">There is no single right map, which is the uncomfortable part. Two people who
+  work in the same company will draw this differently, and the argument about which one is correct is
+  the useful part of process work. What is not a matter of opinion is the count: wherever your line
+  changes lane, work is being handed to somebody else, and that is where it waits.</p>
+</div>
+
+<script>
+(function(){
+  var host=document.getElementById('swbrows'); if(!host) return;
+  var LANES=["Customer","Website / app","Courier","Warehouse","Finance"];
+  var STEPS=[
+    {t:"You request a return in the app", a:0},
+    {t:"The system checks the return window", a:1},
+    {t:"A return label is emailed to you", a:1},
+    {t:"You drop the parcel at a pickup point", a:0},
+    {t:"The parcel is scanned and moved", a:2},
+    {t:"The item is received and inspected", a:3},
+    {t:"Its condition is recorded against the order", a:3},
+    {t:"The refund is approved", a:4},
+    {t:"The refund is issued to your card", a:4},
+    {t:"The money appears in your account", a:0}
+  ];
+  var pick=STEPS.map(function(){return -1;});
+
+  STEPS.forEach(function(st,i){
+    var row=document.createElement('div'); row.className='swb-row';
+    var id='swbs'+i;
+    var lab=document.createElement('label');
+    lab.className='swb-q'; lab.setAttribute('for',id);
+    lab.textContent=(i+1)+'. '+st.t;
+    var sel=document.createElement('select');
+    sel.className='swb-sel'; sel.id=id;
+    var o0=document.createElement('option');
+    o0.value='-1'; o0.textContent='Which lane?'; sel.appendChild(o0);
+    LANES.forEach(function(L,j){
+      var o=document.createElement('option'); o.value=String(j); o.textContent=L; sel.appendChild(o);
+    });
+    sel.addEventListener('change',function(){ pick[i]=parseInt(sel.value,10); draw(); });
+    row.appendChild(lab); row.appendChild(sel); host.appendChild(row);
+  });
+
+  function draw(){
+    var W=700, LW=132, CW=(W-LW)/STEPS.length, LH=44, H=26+LANES.length*LH+8;
+    var assigned=pick.filter(function(p){return p>=0;}).length;
+    var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" role="img" '+
+          'aria-labelledby="swbt swbd" style="width:100%;height:auto;font-family:var(--sans)">'+
+          '<title id="swbt">Your swimlane map of the online returns process</title>'+
+          '<desc id="swbd">Five lanes, one per actor: customer, website and app, courier, warehouse and '+
+          'finance. '+assigned+' of the ten numbered steps have been placed in a lane, and a line joins '+
+          'them in order. Lines that change lane are drawn in pink and are the handoffs. The running '+
+          'count is given in text below the diagram.</desc>';
+    LANES.forEach(function(L,j){
+      var y=26+j*LH;
+      s+='<rect x="0" y="'+y+'" width="'+W+'" height="'+LH+'" fill="'+(j%2?'var(--paper)':'var(--off-white)')+'"/>';
+      s+='<line x1="0" y1="'+y+'" x2="'+W+'" y2="'+y+'" stroke="var(--rule)" stroke-width="1"/>';
+      s+='<text x="10" y="'+(y+LH/2+4)+'" font-size="11" font-weight="600" fill="var(--muted)">'+L+'</text>';
+    });
+    s+='<line x1="'+LW+'" y1="26" x2="'+LW+'" y2="'+(26+LANES.length*LH)+'" stroke="var(--rule)" stroke-width="1"/>';
+    s+='<line x1="0" y1="'+(26+LANES.length*LH)+'" x2="'+W+'" y2="'+(26+LANES.length*LH)+'" stroke="var(--rule)" stroke-width="1"/>';
+
+    function cx(i){ return LW+i*CW+CW/2; }
+    function cy(l){ return 26+l*LH+LH/2; }
+
+    var prev=-1, crossings=0;
+    for(var i=0;i<STEPS.length;i++){
+      if(pick[i]<0) continue;
+      if(prev>=0){
+        var cross=pick[prev]!==pick[i];
+        if(cross) crossings++;
+        s+='<path d="M'+cx(prev)+' '+cy(pick[prev])+' L'+cx(i)+' '+cy(pick[i])+'" fill="none" stroke="'+
+           (cross?'var(--accent)':'var(--muted)')+'" stroke-width="'+(cross?2:1.3)+'"/>';
+      }
+      prev=i;
+    }
+    for(var k=0;k<STEPS.length;k++){
+      if(pick[k]<0) continue;
+      s+='<circle cx="'+cx(k)+'" cy="'+cy(pick[k])+'" r="10.5" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.4"/>';
+      s+='<text x="'+cx(k)+'" y="'+(cy(pick[k])+4)+'" font-size="11" text-anchor="middle" fill="var(--ink)">'+(k+1)+'</text>';
+    }
+    s+='<text x="0" y="16" font-size="11" font-weight="600" fill="var(--accent-deep)">YOUR MAP</text>';
+    s+='</svg>';
+    document.getElementById('swbsvg').innerHTML=s;
+
+    var done=pick.filter(function(p){return p>=0;}).length;
+    var read=document.getElementById('swbread');
+    if(done===0){ read.textContent='Assign a step to start drawing.'; return; }
+    var msg=crossings+(crossings===1?' lane crossing':' lane crossings')+' so far, on '+done+' of 10 steps.';
+    if(done===STEPS.length){
+      if(crossings<=3) msg+=' That is a suspiciously smooth process. Check whether you have put steps in the lane of whoever benefits rather than whoever performs them.';
+      else if(crossings<=5) msg+=' Fewer than most people get. Look at the steps you kept in one lane and ask whether the same person really does both.';
+      else msg+=' That is the normal range, and every one of those crossings is a place the parcel or the money waits on somebody else.';
+    }
+    read.textContent=msg;
+  }
+
+  document.getElementById('swbshow').addEventListener('click',function(){
+    for(var i=0;i<STEPS.length;i++){
+      pick[i]=STEPS[i].a;
+      document.getElementById('swbs'+i).value=String(STEPS[i].a);
+    }
+    draw();
+    var r=document.getElementById('swbreveal');
+    r.hidden=false;
+    r.innerHTML='<b>One possible answer, with six crossings.</b> Compare it with yours rather than '+
+      'copying it. Two disagreements are worth having. Step 8, the refund approval, sits in Finance here, '+
+      'but in most companies it is now an automatic rule, which would put it in the website lane and '+
+      'remove a crossing; whether a step belongs to the department that owns the decision or to the '+
+      'software that executes it is a real argument, and your answer changes the map. Step 5 looks like '+
+      'one step and is usually several days, because the parcel sits in a van, a depot, and a queue. A map '+
+      'shows you handoffs; it does not show you time, which is why the next subsection measures the '+
+      'process instead of drawing it.';
+  });
+
+  document.getElementById('swbclear').addEventListener('click',function(){
+    for(var i=0;i<STEPS.length;i++){ pick[i]=-1; document.getElementById('swbs'+i).value='-1'; }
+    document.getElementById('swbreveal').hidden=true;
+    draw();
+  });
+
+  draw();
+})();
+</script>
+
+<h3 id="measure">2.3 Measuring a process</h3>
+
+<p>Once a process is mapped, it can be measured. Four measures cover most of what a manager needs:</p>
+
+<ul>
+  <li><strong>Cycle time</strong>, elapsed time from start to finish, including waiting. The
+  twenty-two minutes between you tapping "order" and the pizza reaching your door. The six weeks between
+  applying for a job and hearing back, most of which is your file sitting in somebody's queue.</li>
+  <li><strong>Throughput</strong>, completed units per period. Pizzas out the door per hour on a Friday
+  night. Patients seen per day in a clinic. Claims closed per week by an insurance team.</li>
+  <li><strong>Quality / defect rate</strong>, share of outputs that fail to meet the standard. Orders
+  remade or refunded. Prescriptions filled incorrectly. Parts returned by the customer who bought
+  them.</li>
+  <li><strong>Cost per transaction</strong>, resources consumed per unit of output. What it costs the
+  company to process one order, one refund, or one new-hire's paperwork, once you count the staff time
+  and not only the software licence.</li>
+</ul>
+
+<p>Most companies pick one of the four and manage to it, because one number fits on a report and four
+do not. That choice is the <strong>measurement trap</strong>: optimize a process against a single metric
+for long enough and it will degrade every quality the metric does not capture. Nothing is being managed
+badly in those other places. Nothing is being managed there at all, because nothing in the process is
+watching. Carry one habit into the rest of the chapter.
+Whenever an organization manages to one number, ask what that number cannot see.</p>
+
+
+
+
+
+
+
+
+<h3>2.4 Redesigning a process: improvement or reengineering?</h3>
+
+<p>Now you have a map and some numbers. The next question is what you are allowed to change, and there
+are only two answers. You can keep the process you have and make it work better, or you can decide the
+process itself is the wrong shape and build a different one. Almost every project you will ever sit in
+is one of these two, and confusing them is how companies spend a year making the wrong thing faster.</p>
+
+<ul>
+  <li><strong>Incremental improvement</strong> keeps the shape of the process and tunes the steps: a
+  faster oven, a better script, one fewer handoff. The process afterwards is recognizably the old one.
+  The same people do the same jobs in the same order, with less friction.</li>
+  <li><strong>Business process reengineering</strong>, usually shortened to BPR, throws the shape away
+  and asks what the process would look like if you designed it today, from zero, around the outcome it is
+  supposed to produce. Michael Hammer, who named it in 1990, put it bluntly: don't automate, obliterate.
+  Steps disappear, jobs change, and sometimes a whole department has nothing left to do.</li>
+</ul>
+
+<p>The clearest way to see the difference is to take one problem and solve it both ways. A campus coffee
+shop has a long line every morning. <em>Improvement</em>: add a second register, retrain staff on the
+espresso machine, rearrange the pastry case so people are not reaching across each other. The line moves
+faster. Every step is still there, in the same order, done by the same people. <em>Reengineering</em>: let
+customers order and pay on their phones before they arrive, and put the finished drinks on a shelf by the
+door with names on them. Now there is no line, because queuing was never the point. The point was getting
+a coffee, and ordering, paying and waiting were just the steps that used to be required. The first version
+makes the queue better. The second one asks why there is a queue.</p>
+
+<p>The test for which one you are looking at is not how big the change is, and it is not how much it
+cost. It is whether the steps and their order survive. Replacing paper forms with an app is improvement
+if the same approvals happen in the same sequence, however expensive the app was. Deleting the approval
+is reengineering, even if it took an afternoon. Most companies only ever improve, because reengineering
+requires somebody senior to say out loud that the current shape is wrong, which is a harder sentence than
+it sounds. Mini-case 1 is what it looks like when a company says it.</p>
+
+<div class="tryit" id="impro">
+  <div class="tryit-head">Quick quiz &middot; Improvement or reengineering?</div>
+  <p class="tryit-intro">Five changes to a process. Decide whether each one improves the existing process or replaces it with a different one.</p>
+  <div id="improrows"></div>
+  <p class="tryit-note">If you got one wrong, look at what happened to the person doing the work. In improvement they still have the same job and it is easier. In reengineering their job is different, or gone.</p>
+</div>
+
+<script>
+(function(){
+  var host=document.getElementById('improrows');
+  if(!host)return;
+  var F=["Improvement", "Reengineering"];
+  var R=[
+    {"t": "A campus dining hall buys a second card reader so two students can swipe in at once.",
+     "a": "Improvement",
+     "why": "Same steps, same order, same people, with a wider pipe at the slow point. The line is shorter and the process is exactly the one you had yesterday."},
+    {"t": "A clothing store stops having customers bring returns to a counter, and instead lets them drop the item in a bin and get refunded automatically when the tag is scanned that night.",
+     "a": "Reengineering",
+     "why": "The returns counter is gone as a step, not sped up. Nobody inspects the item in front of the customer, nobody keys in a refund, and the customer is out of the store in ten seconds. The process was redesigned around the outcome, which is getting money back."},
+    {"t": "A library replaces its paper overdue notices with the same notices sent by email.",
+     "a": "Improvement",
+     "why": "The medium changed and the process did not. Same trigger, same message, same person receiving it. Doing an old step on a new device is the most common thing mistaken for redesign."},
+    {"t": "A restaurant stops taking orders at the counter entirely. Customers order from their phones, and the kitchen sees every order the moment it is placed.",
+     "a": "Reengineering",
+     "why": "Order-taking no longer exists as a job. The process now starts with the customer and reaches the kitchen directly, so who does what has changed, not just how fast they do it."},
+    {"t": "A university adds a second advisor during registration week so the line moves twice as fast.",
+     "a": "Improvement",
+     "why": "More capacity at the bottleneck. The bottleneck is still an advisor approving things one at a time, and the process is the same one with more people in it."}
+  ];
+  R.forEach(function(r){
+    var row=document.createElement('div'); row.className='wrow';
+    row.innerHTML='<div class="wq">'+r.t+'</div><div class="wbtns">'
+      +F.map(function(f){return '<button type="button" data-f="'+f+'">'+f+'</button>';}).join('')
+      +'</div><div class="wout" role="status" aria-live="polite" hidden></div>';
+    host.appendChild(row);
+    var bs=row.querySelectorAll('button'), out=row.querySelector('.wout');
+    bs.forEach(function(b){
+      b.addEventListener('click',function(){
+        if(!out.hidden)return;
+        var ok=b.getAttribute('data-f')===r.a;
+        bs.forEach(function(x){x.disabled=true;});
+        b.className='you '+(ok?'right':'wrong');
+        if(!ok) bs.forEach(function(x){ if(x.getAttribute('data-f')===r.a) x.className='you right'; });
+        out.hidden=false; out.className='wout '+(ok?'yes':'no');
+        out.innerHTML='<b>'+r.a+'.</b> '+r.why;
+      });
+    });
+  });
+})();
+</script>
+
+<h2 id="cases"><span class="num">3</span>Two short cases, one old finding</h2>
+<p>Before the main case, here are two short ones. Read them with one question in mind: <strong>what job is
+the technology doing?</strong></p>
+
+<p>In the first case, a company was about to buy a computer system, and the computer would have worked
+exactly as promised while leaving the real problem untouched. In the second, a company already had every
+system it needed, and one of them could not do its job because a step in the process never told it
+anything. So technology is not the villain in either story and it is not the hero either. It is a tool
+that can only act on what the process hands it. Hand it a process that produces three conflicting
+documents and it will compare three conflicting documents faster. Hand it a process that produces no
+record at all and it can do nothing, no matter what it cost.</p>
+
+<p>That is the stubbornly consistent finding in a century of process work: the fix almost never turns out
+to be the equipment. Each case below fixed a process that was broken, and in each one the fix lived
+somewhere different, in the handoffs or in what the process recorded.</p>
+
+<h3>3.1 Mini-case 1 &middot; 1988: five hundred clerks and a computer that would not have helped</h3>
+
+<p>A clerk at Ford Motor Company in 1988 has three pieces of paper on the desk, each written by a
+different department about the same delivery of parts:</p>
+
+<ol>
+  <li>A <strong>purchase order</strong> from the purchasing department, saying what Ford asked a supplier
+  to send.</li>
+  <li>A <strong>receiving document</strong> from the loading dock, saying what actually turned up.</li>
+  <li>An <strong>invoice</strong> from the supplier, saying what Ford is being billed for.</li>
+</ol>
+
+<p>The rule is that nobody gets paid until all three <em>match</em>, meaning every detail on one document
+is identical to the same detail on the other two. Fourteen separate data items had to line up before
+accounting could release a payment. If one disagreed, the payment stopped.</p>
+
+<p>They frequently did not match. The dock received 900 units when the order said 1,000. The invoice
+priced an item at last quarter’s rate. A part number was mistyped. Every disagreement became an
+investigation, and an investigation is a person on the phone to another department for however long it
+takes. Ford’s accounts payable operation in North America employed more than five hundred people doing
+that.</p>
+
+<p>At first, Ford did what most companies do. It planned to install a new computer system, tighten the procedures,
+and cut the department by about twenty percent, from five hundred people to four hundred. Hitting that
+target would very likely have been considered a success.</p>
+
+<p>Then somebody looked at Mazda. Mazda's entire accounts payable
+organization was five people. Even adjusting for the fact that Mazda was a much smaller company, Ford
+concluded its own department was roughly five times the size it should be. Notice where the twenty percent
+had come from. Nobody had analyzed what the work actually required. Somebody had taken the current steps
+as given, assumed the same three documents and the same fourteen checks, and asked how much faster a
+computer could do that. The target was a prediction about the old process, not a judgment about the right
+one.</p>
+
+<p>So Ford changed the process rather than the speed of it, and stopped producing three documents about
+one delivery. Under what it called invoiceless processing, purchasing enters an order into a shared
+database and sends a copy to nobody. When goods reach the dock, the clerk checks the database, and if the
+delivery matches an outstanding order, accepts and records it. The system pays from that. There is no
+invoice to match, because there is no invoice.</p>
+
+<p>Now go back to Ford's original plan: buy a computer to do the matching faster. That is the most natural
+project in the world to propose, because the work is obviously slow and computers are obviously fast. It
+would even have worked. Four hundred clerks would have matched paper more quickly than five hundred did.</p>
+
+<p>But the matching was not slow because the clerks were slow. It was slow because three departments each
+wrote a document about one delivery, and somebody then had to argue about the differences. A computer
+cannot settle that argument. It can only have it faster, with the same fourteen data items disagreeing and
+the same phone call to another department to sort it out. <strong>A computer does not fix a broken process.
+It runs the broken process at higher speed and records it more precisely.</strong></p>
+
+<p>That is the most quoted finding in process work. Michael Hammer wrote this case up in
+<a href="https://hbr.org/1990/07/reengineering-work-dont-automate-obliterate" target="_blank" rel="noopener"><em>Harvard Business Review</em> in 1990</a>,
+argued that companies were buying computers to speed up work that should not have been happening at all,
+and gave them a blunt instruction: don't automate, obliterate.</p>
+
+<p><strong>So what happened?</strong> Ford deleted a document. Headcount in the department fell by about
+seventy-five percent rather than the twenty percent the computer project had promised, and it fell because
+the work stopped existing, not because it was done faster. <strong>Where the fix lived: in the handoffs.
+The component: data.</strong> Take three things from this case.</p>
+
+<ul>
+  <li><strong>Nothing was wrong with any clerk or any step.</strong> Every person was doing their job
+  correctly. The problem was how the work was arranged: three departments each writing a separate document
+  about one delivery, so that reconciling them had become a full-time job for five hundred people. Draw it
+  in swimlanes and you see it at once. Three lanes, three documents, and a bottleneck where they meet.</li>
+  <li><strong>The fix was a decision about data, not a purchase of software.</strong> Three records became
+  one shared record that purchasing writes, the dock checks, and payment is released from. There is nothing
+  to reconcile because there is only one version of the facts. That is <strong>business process
+  redesign</strong>: rethinking the process end to end instead of making the existing steps run
+  faster.</li>
+  <li><strong>Improvement and reengineering, on the same problem, in the same year.</strong> The twenty
+  percent plan kept every step. Deleting the invoice removed the reason the steps existed. Fifty-five
+  percentage points separate the two answers.</li>
+</ul>
+
+<div class="mcq"><b>Check yourself</b>Ford's original plan, a new system and a twenty percent cut, would
+have been reported internally as a win. Explain precisely why that is the dangerous outcome, and say what
+question the team asked that turned a twenty percent target into a seventy-five percent one.
+<details style="margin-top:.6rem"><summary style="cursor:pointer;font-family:var(--sans);font-size:.85rem;font-weight:600">Show the answer</summary><p>It is dangerous because it would have been measured. Twenty percent against a target of twenty percent is a success by every number the project tracked, and a success gets no second look. Four hundred people would still be matching paper, the mismatches would still be happening, and nobody re-examines a project that hit its target.</p>
+<p>The question that changed it was the one Mazda forced. Not "how do we match invoices faster?" but "why do we have invoices to match at all?" The first question can only be answered with technology. The second one cannot be answered with technology at all.</p></details></div>
+
+<h3>3.2 Mini-case 2 &middot; 2024: the door that was opened and never written down</h3>
+
+<p>On 5 January 2024, an Alaska Airlines 737 MAX 9 took off from Portland. Minutes later, climbing through
+about 14,800 feet, a panel covering an unused emergency exit tore away from the fuselage. The cabin lost
+pressure. Nobody was seriously hurt, and the crew landed the aircraft back in Portland.</p>
+
+<p>The investigation revealed that four bolts which hold that panel in place were missing. The
+<a href="https://www.ntsb.gov/investigations/AccidentReports/Reports/AIR2504.pdf" target="_blank" rel="noopener">National
+Transportation Safety Board found</a> that the panel had been opened on 18 September 2023 at Boeing's
+factory in Renton, about ninety miles south of Bellingham, so that rivet repairs could be done behind it.
+It was then closed again without the bolts being put back.</p>
+
+<p>Here is the part of the story that belongs in this chapter. Boeing’s own <strong>parts removal
+process</strong> required a <strong>removal document</strong> whenever that panel is opened. A removal
+document is a record saying a part has been taken off and has to go back on, and it does two jobs: it
+instructs the workers on what must be reinstalled, and it triggers a quality inspection afterwards.</p>
+
+<p>No removal document was ever created. So there was no instruction, no inspection, and afterwards no
+record that anything had happened at all. Investigators asked Boeing for the documentation and were told
+it could not be found, which was true, because it did not exist.</p>
+
+<p>Two further details show what the process was actually made of. Of roughly two dozen workers on the
+door teams at that factory, only one had opened that kind of panel before, and that person was not at
+work when this one was opened. And the panel had moved slightly upward on earlier flights before it
+finally departed, which means the aircraft flew for weeks in a condition nobody knew to look for.</p>
+
+<p><strong>So what happened?</strong> A step was performed and never written down, and the absence of
+that one record disabled everything built on top of it. Follow the consequences in order, because they
+are what "no record" actually costs.</p>
+
+<ul>
+  <li><strong>No document meant no instruction.</strong> The people closing the panel had nothing telling
+  them which bolts had to go back in.</li>
+  <li><strong>No document meant no inspection.</strong> The quality check that the document would have
+  triggered was never triggered, so the missing bolts were never caught.</li>
+  <li><strong>No document meant no evidence.</strong> Afterwards, nobody could establish who opened the
+  panel, when, or who closed it.</li>
+</ul>
+
+<p>Boeing had quality systems, inspectors and auditors. None of them could act, because to a system a
+step that leaves no record did not happen. <strong>Where the fix lived: in what the process recorded. The
+component: data.</strong> No hardware failed and no software was involved. Every system Boeing owned
+worked correctly, and one of them was blind, because the process underneath it told it nothing. Ford’s
+computer would have run a broken process faster. Boeing’s systems could not run one at all.</p>
+
+<div class="mcq"><b>Check yourself</b>As described above, Boeing's removal document does two jobs at
+once: it tells somebody what to do, and it leaves evidence that they did it. Name a process you have been
+part of where one step leaves no record, and say which of those two jobs is missing there.
+<details style="margin-top:.6rem"><summary style="cursor:pointer;font-family:var(--sans);font-size:.85rem;font-weight:600">Show the answer</summary><p>Any answer with a real process in it is a good one. The pattern to look for is a step people do by habit, with nothing written down when it is done, so the second job, evidence, is the one missing. Handing over a shift without a note. Checking a fridge temperature without logging it. Approving something verbally.</p>
+<p>Healthcare is the clearest everyday example. A nurse gives a patient a dose and updates the record at
+the end of the shift rather than at the bedside. The dose was given, so the instruction job was done. But
+for several hours the record says otherwise, and a second nurse reading it can reasonably conclude the
+patient is due, because to the system an unrecorded dose did not happen.</p>
+<p>In every case the work happens and the record does not, and no system built on top of that process can
+see the step, let alone manage it. That is the chapter's rule: an information system can only manage what the process records.</p></details></div>
+
+<h3>3.3 What the two have in common</h3>
+
+<p>Two very different stories: a clerk matching paper in 1988, and a panel leaving an aircraft in 2024.
+What they have in common is that in both, the process was broken before any technology touched it, and in
+both, the thing that fixed it was a decision about what the work should record. Three points connect them,
+and all three are about to reappear in the main case.</p>
+
+<ul>
+  <li><strong>Neither fix was a technology purchase.</strong> Ford's problem was solved by deleting a
+  document, Boeing's by a form that should have been filled in. In the one case where buying something
+  was the plan, the purchase would have been counted a success and left most of the problem in
+  place.</li>
+  <li><strong>Both failures lived in the data component.</strong> Ford recorded the same delivery three
+  times and had to reconcile the copies. Boeing recorded an entire step zero times. Too many records and
+  no record are the same kind of design mistake, made in opposite directions.</li>
+  <li><strong>Nothing improved until somebody described the process as a process.</strong> A comparison
+  with Mazda. A form that should have been filled in. The improvement was invisible until the process was
+  stated out loud, in a form other people could argue with.</li>
+</ul>
+
+<p>That last one is what section 2 taught you to produce, and it is what the company in the main case
+went five years without.</p>
+
+<p>So carry this sentence into the next section, because the main case is built on it: <strong>you cannot
+use technology to fix a broken process.</strong> Ford was about to buy a computer that would have matched
+mismatched documents faster. Boeing already owned every system it needed and one of them was blind,
+because a step told it nothing. In the main case a company spends five years and a great deal of money
+building excellent software on top of a product customers did not like, and every one of those
+five years the software works exactly as designed.</p>
+<h2 id="dominos"><span class="num">4</span>Main case &middot; Domino's: the tracker on a broken pizza</h2>
+
+<p>In 2008 Domino's shipped the best piece of consumer software in its industry. There was good reason to
+believe it would turn the business around: it was new, customers loved it, and no competitor had anything
+close. It did not turn the business around. Sales kept falling for another year, because the company was
+selling a pizza people had stopped wanting, and no software fixes that. This section walks the case in the
+order it happened, because the order is the argument. Start with the timeline, then we will go back and
+take it in pieces.</p>
+
+<ul class="tl">
+  <li><span class="when">1960</span>Tom Monaghan and his brother buy one pizza store in Ypsilanti, Michigan. Delivery, not dining, is the business.</li>
+  <li><span class="when">1973</span>Domino's promises delivery in thirty minutes or the pizza is free. Speed becomes the product.</li>
+  <li class="bad"><span class="when">1993</span>The "thirty minutes or less, or the pizza is free" guarantee is dropped after lawsuits over crashes involving drivers under time pressure. The habit of managing to the clock stays.</li>
+  <li class="bad"><span class="when">2008</span>Pizza Tracker launches, years ahead of the rest of the industry. Sales keep falling.</li>
+  <li class="bad"><span class="when">2009</span>Taste tests, a viral video, store closures, stock in single digits.</li>
+  <li><span class="when">Dec 2009</span>The "Pizza Turnaround" campaign airs: executives and chefs read real customer criticism aloud on camera, including the cardboard-crust comparison, in a documentary-style spot.</li>
+  <li><span class="when">Dec 2009</span>The reformulated recipe (reworked crust, rebuilt sauce, upgraded cheese) launches at the same time as the ad, so the admission and the fix arrive together rather than in sequence.</li>
+  <li><span class="when">2010</span>Patrick Doyle becomes CEO; a new and better-tasting recipe rolls out to all U.S. stores. Sales turn sharply upward.</li>
+  <li><span class="when">2011</span>Mobile apps relaunched for iPhone and Android.</li>
+  <li><span class="when">2013</span>Pizza Profiles: saved preferences and payment, collapsing reorder to a few taps.</li>
+  <li><span class="when">2015</span>AnyWare: ordering from a watch, a TV, a car dashboard, a text message.</li>
+  <li><span class="when">2023&ndash;25</span>Uber Eats, then DoorDash, on terms that keep Domino's own drivers.</li>
+</ul>
+
+<p>Look at the first four entries. Everything Domino's was good at in 2008 it had been building for
+forty-eight years, and none of it was the pizza.</p>
+
+<h3>4.1 Thirty years of measuring minutes</h3>
+
+<p>Domino's was a delivery company before it was a food company. The thirty-minute guarantee,
+introduced in 1973, was not a marketing line bolted onto the business. It was the business. Your pizza
+inside thirty minutes of the order, or you did not pay for it. The promise told the customer what to
+expect, told every store what to optimize, and told head office which number to look at on Monday
+morning. "Thirty minutes or it's free" was the company's identity for twenty years, and it worked. In
+the language of section 2, Domino's managed one measure, cycle time, and managed it superbly.</p>
+
+<figure class="vidbox">
+<div class="vidframe">
+<iframe src="https://www.youtube-nocookie.com/embed/le1iJ2mIns4" title="Domino's 1991 television commercial: delivery in 30 minutes or less" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<figcaption>Domino's television commercial, 1991, advertising delivery in thirty minutes or less. Watch
+it as a statement of what the company measured. The promise is about the clock, and the pizza appears
+only as a box arriving on time.
+(<a href="https://www.youtube.com/watch?v=le1iJ2mIns4" target="_blank" rel="noopener">watch on YouTube</a>)</figcaption>
+</figure>
+
+<p>Here is the sentence to hold on to. By its own later account, Domino's had been leading the industry in
+delivery for the wrong reasons. It met the promise with frozen and canned ingredients that cooked fast
+and kept, which is where the cardboard crust came from, and at times it met the promise at the cost of
+driver safety.</p>
+
+
+
+
+
+<p>The guarantee ended in December 1993. Drivers rushing to beat the clock had been in serious crashes for
+years. That December a jury in St. Louis awarded Jean Kinder, whose car had been struck by a Domino's
+driver who ran a red light, $750,000 in actual damages and $78 million in punitive damages. Days later the
+company <a href="https://www.washingtonpost.com/archive/politics/1993/12/22/79-million-jury-award-puts-brakes-on-dominos-30-minute-delivery-pledge/4895cfab-a9a9-4919-ac0d-fab9e159935d/" target="_blank" rel="noopener">withdrew
+the promise</a>, and its founder said the verdict was what had put the company over the edge.</p>
+
+<p>What did not end was the habit. The company kept measuring minutes, kept competing on minutes, and in
+December 2007 introduced the slogan "You Got 30 Minutes," which pointed at the old promise without making
+it. Nothing in the process measured whether the pizza was any good, so nothing in the company acted on it.
+The recipe went roughly thirty years without a serious change.</p>
+
+<h3>4.2 2008: the digital Pizza Tracker, and what the company expected from it</h3>
+
+<p>In 2008, somebody at Domino's noticed that the company already knew something its customers did not.
+Every order moved through the same four stages inside the store, and the point-of-sale system already knew
+which stage a given order was in. Nobody had ever thought to show that to the person waiting. So they did.
+The Pizza Tracker put a live bar on the screen: your order has been placed, it is being prepared, it is in
+the oven, it is out for delivery. Online ordering had arrived shortly before, and the tracker sat on top of
+it. It was new, nobody else in food delivery had anything like it, and customers liked it immediately.</p>
+
+<p>The expectation inside the company was reasonable. Domino's competed on the experience of waiting, the
+tracker made waiting better, so the tracker should sell more pizza. That reasoning contains an assumption
+nobody had tested: that the reason people were not ordering had something to do with the ordering.</p>
+
+<h3>4.3 The verdict customers had already reached</h3>
+
+<p>And yet orders kept falling. That is the fact worth stopping on. Domino's had just shipped the best
+piece of software in its industry, customers were using it and enjoying it, and the business kept getting
+worse. Something was wrong, and it was not the ordering.</p>
+
+<p>Customers had not stopped ordering because ordering was hard. Their verdicts on the product itself were
+not subtle. Focus groups described the crust as cardboard, the sauce as ketchup, and the cheese as
+processed-feeling. In industry taste tests, Domino's pizza tied for last place with Chuck E. Cheese. A
+video of employees contaminating food went viral. Papa John's ran "Better Ingredients. Better Pizza."
+directly at the quality gap.</p>
+
+<p>The operating numbers matched the opinions. Same-store sales are the sales at stores open at least a
+year, the standard measure of whether existing stores are growing. Domino's U.S. same-store sales fell
+4.9% system-wide in 2008, by later business-press accounts roughly seven times worse than the industry average,
+and the company closed about 120 domestic units between 2008 and 2009 while the pizza category itself was growing. A stock that had traded
+above $30 in 2007 was under $7 by late 2008.</p>
+
+<p>So the tracker launched into that. It worked exactly as designed, every day, on every order, and it
+made no difference to any of those numbers.</p>
+
+<h3>4.4 The diagnosis: good technology, bad process</h3>
+
+<div class="pull">
+  <p>A pizza tracker is a system for watching a process. It cannot improve the process it is watching.</p>
+</div>
+
+<p>So is the problem the process or the product? It is worth being exact, because the answer is both, and
+one caused the other. The product was bad. But the product was bad <em>because</em> the process was built
+to protect a different thing entirely. For thirty years every step, every measurement and every bonus
+pointed at the clock. Nothing in the process ever asked whether the pizza was good, so no number about
+taste ever reached anyone who could act on it, and a recipe nobody was measuring went three decades
+without a serious change. A bad product was the output of a process working exactly as designed.</p>
+
+<p>Then Domino's built excellent information technology on top of that process, and between 2008 and late
+2009 the technology faithfully reported the brokenness in real time. This is the most important lesson in
+the chapter and one of the most important in the course: <strong>technology applied to a bad process
+produces a faster, better-documented bad process.</strong> The tracker told you precisely when a pizza you
+did not want would arrive.</p>
+
+<p>You can see the shape of the failure by asking what the 2008 process recorded. Every step that moved
+the pizza produced a timestamped event, which is why the tracker could draw itself at all. The thing
+customers were actually complaining about produced no event anywhere.</p>
+
+<figure class="diagram" style="margin:1.6rem 0">
+<svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-labelledby="rectitle recdesc" style="width:100%;height:auto;font-family:var(--sans)">
+<title id="rectitle">What the 2008 Domino's process recorded, and what it did not</title>
+<desc id="recdesc">A top band labeled "recorded, to the second" shows five steps of the order process,
+order placed, prepared, in the oven, out for delivery, and delivered, each with a timestamp marker
+beneath it, feeding into the Pizza Tracker. A lower band labeled "recorded nowhere" shows one question,
+was the pizza any good, drawn with a dashed outline and no timestamp markers, with no arrow leading out
+of it.</desc>
+
+<defs>
+  <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M0 0 L10 5 L0 10 z" fill="var(--ink)"/>
+  </marker>
+</defs>
+
+<text x="10" y="20" font-size="11.5" font-weight="600" fill="var(--accent-deep)"
+      letter-spacing="1">RECORDED, TO THE SECOND</text>
+
+<g fill="var(--paper)" stroke="var(--ink)" stroke-width="1.4">
+  <rect x="10" y="34" width="118" height="38" rx="2"/>
+  <rect x="152" y="34" width="118" height="38" rx="2"/>
+  <rect x="294" y="34" width="118" height="38" rx="2"/>
+  <rect x="436" y="34" width="118" height="38" rx="2"/>
+  <rect x="578" y="34" width="112" height="38" rx="2"/>
+</g>
+<g font-size="11" fill="var(--ink)" text-anchor="middle">
+  <text x="69" y="57">Order placed</text><text x="211" y="57">Prepared</text>
+  <text x="353" y="57">In the oven</text><text x="495" y="57">Out for delivery</text>
+  <text x="634" y="57">Delivered</text>
+</g>
+<g fill="none" stroke="var(--ink)" stroke-width="1.4">
+  <path d="M128 53 H152" marker-end="url(#ah2)"/><path d="M270 53 H294" marker-end="url(#ah2)"/>
+  <path d="M412 53 H436" marker-end="url(#ah2)"/><path d="M554 53 H578" marker-end="url(#ah2)"/>
+</g>
+<g fill="var(--accent)">
+  <circle cx="69" cy="86" r="4.5"/><circle cx="211" cy="86" r="4.5"/><circle cx="353" cy="86" r="4.5"/>
+  <circle cx="495" cy="86" r="4.5"/><circle cx="634" cy="86" r="4.5"/>
+</g>
+<g font-size="9.5" fill="var(--muted)" text-anchor="middle">
+  <text x="69" y="106">timestamp</text><text x="211" y="106">timestamp</text><text x="353" y="106">timestamp</text>
+  <text x="495" y="106">timestamp</text><text x="634" y="106">timestamp</text>
+</g>
+<g fill="none" stroke="var(--accent)" stroke-width="1.4">
+  <path d="M69 92 V126 H634 V92" stroke-dasharray="0"/>
+  <path d="M353 126 V150" marker-end="url(#ah2)" stroke="var(--ink)"/>
+</g>
+<g>
+  <rect x="264" y="150" width="178" height="34" rx="2" fill="var(--accent-pale)" stroke="var(--accent)" stroke-width="1.4"/>
+  <text x="353" y="172" font-size="11.5" fill="var(--accent-deep)" text-anchor="middle" font-weight="600">Pizza Tracker</text>
+</g>
+
+<line x1="10" y1="208" x2="690" y2="208" stroke="var(--rule)" stroke-width="1"/>
+<text x="10" y="232" font-size="11.5" font-weight="600" fill="var(--muted)" letter-spacing="1">RECORDED NOWHERE</text>
+<g>
+  <rect x="10" y="246" width="262" height="40" rx="2" fill="none" stroke="var(--muted)"
+        stroke-width="1.4" stroke-dasharray="5 4"/>
+  <text x="141" y="271" font-size="11.5" fill="var(--muted)" text-anchor="middle">Was the pizza any good?</text>
+</g>
+<text x="292" y="264" font-size="11" fill="var(--muted)">No event. No field. No report.</text>
+<text x="292" y="281" font-size="11" fill="var(--muted)">Nothing downstream can act on it.</text>
+</svg>
+<figcaption style="font-family:var(--sans);font-size:.82rem;color:var(--muted);margin-top:.5rem">
+The 2008 order process. Five steps, five timestamps, and a tracker that can only exist because those
+timestamps exist. The complaint that was actually killing the company sits in the lower band, where the
+process captured nothing, which is why no dashboard, report, or alert in the building ever raised it.
+</figcaption>
+</figure>
+
+<p>Here is the same point in the five components. Look at which rows held the failure. It was not the
+software.</p>
+
+<div class="vc">
+  <div class="vc-head">The Five Components &middot; Domino's, 2008 (before the turnaround)</div>
+  <div class="vc-strip">
+    <div class="vc-cell"><span class="vc-stage">Hardware</span><p>Store point-of-sale (POS) terminals, kitchen screens, and the servers behind the Tracker all ran fine.</p></div>
+    <div class="vc-cell"><span class="vc-stage">Software</span><p>Online ordering and the Tracker: ahead of the entire industry.</p></div>
+    <div class="vc-cell broke"><span class="vc-stage">Data</span><p>Every fulfillment event captured to the second. Customer sentiment captured nowhere.</p></div>
+    <div class="vc-cell"><span class="vc-stage">Networks</span><p>Orders flowed from web and phone to the right store flawlessly.</p></div>
+    <div class="vc-cell broke"><span class="vc-stage">People</span><p>Everyone managed to the minute; nobody owned quality. The recipe stayed untouched for thirty years.</p></div>
+  </div>
+  <div class="vc-note">Break located at <b>Data</b> and <b>People</b>: the system measured minutes because people asked only for minutes, and strong software made the failure <em>more</em> efficient, not less.</div>
+</div>
+
+<h3>4.5 December 2009: fixing the product in public</h3>
+
+<p>So what did Domino's do once it understood that? Not build anything. In 2009 the company went back to
+the recipe it had not touched in thirty years and rebuilt it: new crust, new sauce, new cheese. Then it did
+the part that still gets taught in marketing courses. It put the criticism on television. In the "Pizza
+Turnaround" spots, executives and chefs sat and read real customer comments aloud, including the cardboard
+line, and said the company agreed.</p>
+
+<figure class="vidbox">
+<div class="vidframe">
+<iframe src="https://www.youtube-nocookie.com/embed/AH5R56jILag" title="Domino's Pizza Turnaround, December 2009: executives and chefs respond to customer criticism" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<figcaption>Domino's "Pizza Turnaround" spot, December 2009. Notice what is missing. The company had the best
+ordering software in its industry, and none of what it admits here is about software.
+(<a href="https://www.youtube.com/watch?v=AH5R56jILag" target="_blank" rel="noopener">watch on YouTube</a>)</figcaption>
+</figure>
+
+<p>The sequence matters twice over. First, the ad and the new recipe launched together, in December 2009,
+so the admission and the fix arrived on the same day rather than as a promise followed by a wait. Second,
+in section 2's terms the company did both kinds of redesign, in order. Changing what the product was and
+how the company faced its customers was reengineering: the old shape, thirty years of speed at any cost
+to the food, was thrown away. Everything since, the tuning of stores and delivery driven by tracker data,
+has been incremental improvement on that new shape.</p>
+
+<p>That admission was itself a process change. It created a <strong>feedback loop</strong>, a path by which
+what comes out of a process re-enters it as an input. Criticism the company had previously absorbed without
+recording became something it had publicly committed to answer. Before December 2009 nobody’s job depended
+on the complaint. Afterward, somebody’s did.</p>
+
+<h3>4.6 What it was worth</h3>
+
+<div class="stats">
+  <div class="stat"><b>+14.3%</b><span>same-store sales, Q1 2010</span></div>
+  <div class="stat"><b>~2x</b><span>stock, Dec 2009 &ndash; Dec 2010</span></div>
+  <div class="stat"><b>#4</b><span>U.S. e-retailer, 2010, by one count</span></div>
+  <div class="stat"><b>&minus;4.9%</b><span>same-store sales, 2008</span></div>
+</div>
+
+<p>Domino's posted a 14.3% same-store sales increase in the first quarter of 2010, and the stock roughly doubled
+between December 2009 and December 2010. By September 2010, by a count the company and business-school
+cases repeated at the time, it ranked as the fourth-largest e-retailer in the United States, behind only
+Amazon, Staples, and Office Depot.</p>
+
+<p>Read that last number carefully, because it is the one that connects back to the technology. Domino's
+did not become a top e-retailer by improving its website in 2010. The website had been good since 2008.
+It became a top e-retailer because people finally wanted what the website was selling. The ordering
+technology had been waiting, fully built, for a product worth ordering.</p>
+
+
+
+<h3>4.7 Why the tracker mattered after all</h3>
+
+<p>None of that makes the Pizza Tracker a mistake. Building it was not the error; expecting it to fix the
+business was. The tracker was a second-order effect that could not pay off until the first-order problem,
+which was the pizza, had been fixed. Once the pizza was worth ordering, the tracker turned out to be doing
+two useful jobs at once.</p>
+
+<p><strong>The first job is the one customers see.</strong> The Pizza Tracker gave customers
+<strong>operational transparency</strong>, which means showing customers the work being done on their
+behalf instead of hiding it behind a loading spinner or a closed kitchen door. Research by Ryan Buell and
+colleagues at Harvard Business School found that people
+<a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=40158" target="_blank" rel="noopener">value a
+service more when they can see the effort inside it</a>. In food-service experiments, letting customers
+watch the work and letting staff see the customers
+<a href="https://www.hbs.edu/ris/Publication%20Files/14-115_aee7737a-a405-46f1-85e9-67882dd95435.pdf" target="_blank" rel="noopener">raised
+customer-reported quality by about 22 percent and cut throughput times by about 19 percent</a>.</p>
+
+<p>The tracker changes nothing about how fast the pizza is made. It changes what waiting feels like, by
+turning a blank interval into an observable sequence of stages. You have met the same design many times
+this week: package tracking, the ride-share map, the bank transfer status bar, the "your claim is being
+reviewed" screen. Domino's built the version everyone else copied. In 2012 it built the same idea in
+architecture: a store format it calls pizza theater, with an open view of the kitchen from the lobby and a
+screen showing the status of carryout orders. Same principle, no screen required. Expose the stages and
+waiting becomes legible.</p>
+
+<p><strong>The second job of the Pizza Tracker is the one that matters to this course.</strong> To display
+a stage, the system must first capture that stage. A tracker forces every step of fulfillment to emit a
+timestamped event, which is the process instrumentation from section 1, and it means the company now knows
+where time actually goes, per store, per shift, per driver. The customer-facing feature is a by-product of
+instrumenting the process. When you see a status bar anywhere, ask what data it must be collecting in
+order to draw itself; the answer is usually worth more to the company than the bar is to you. That
+instrumentation is what let Domino's reason about its operations at all in the decade that followed.</p>
+
+<h3>4.8 Ordering from anywhere: what AnyWare actually is</h3>
+
+<p>Here is what the tracker bought the company beyond the tracker. Having instrumented every stage of an
+order, Domino's now had one ordering process that knew where everything was, and that turned out to be a
+foundation rather than a feature. Beginning around 2015 it started adding front doors to it, under a
+program it calls AnyWare. The examples sound like a stunt: order a pizza from a Ford dashboard, a Samsung
+smart TV, an Apple Watch, Amazon's voice assistant, Facebook Messenger, Slack, or by sending a pizza emoji
+as a text or a tweet. The company now supports well over a dozen such paths.</p>
+
+<p>What they actually built is easier to see if you ignore the gadgets and ask what happens after the
+customer taps. Each of those surfaces is a thin front door. None of them contains a copy of the ordering
+logic, the menu, the pricing, the store routing, or the customer's record. They all reach the same
+ordering system, which reaches the same store, which runs the same tracked fulfillment process from the
+subsection above. That is what <strong>omnichannel</strong> means, and it is not a Domino’s word. It is the
+general term for many customer-facing surfaces sitting on one
+underlying process and one record of the order.</p>
+
+<figure class="diagram" style="margin:1.6rem 0">
+<svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-labelledby="anytitle anydesc" style="width:100%;height:auto;font-family:var(--sans)">
+<title id="anytitle">AnyWare: many ordering surfaces, one process underneath</title>
+<desc id="anydesc">Seven ordering surfaces on the left, a phone app, a website, a smart watch, a smart
+television, a car dashboard, a text message and a voice assistant, all with arrows converging on a single
+box in the middle labeled one ordering system, one order record. From there a single arrow leads to a box
+labeled the same store process, and from that to a box labeled the same tracked fulfillment. A note says
+that adding an eighth surface adds a front door, not a process.</desc>
+
+<defs>
+  <marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M0 0 L10 5 L0 10 z" fill="var(--muted)"/>
+  </marker>
+  <marker id="ah4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M0 0 L10 5 L0 10 z" fill="var(--ink)"/>
+  </marker>
+</defs>
+
+<text x="10" y="18" font-size="11" font-weight="600" fill="var(--muted)" letter-spacing="1">SURFACES</text>
+<g fill="var(--paper)" stroke="var(--muted)" stroke-width="1.2">
+  <rect x="10" y="30" width="124" height="26" rx="2"/>
+  <rect x="10" y="64" width="124" height="26" rx="2"/>
+  <rect x="10" y="98" width="124" height="26" rx="2"/>
+  <rect x="10" y="132" width="124" height="26" rx="2"/>
+  <rect x="10" y="166" width="124" height="26" rx="2"/>
+  <rect x="10" y="200" width="124" height="26" rx="2"/>
+  <rect x="10" y="234" width="124" height="26" rx="2"/>
+</g>
+<g font-size="10.5" fill="var(--ink)" text-anchor="middle">
+  <text x="72" y="47">Phone app</text><text x="72" y="81">Website</text><text x="72" y="115">Smart watch</text>
+  <text x="72" y="149">Smart TV</text><text x="72" y="183">Car dashboard</text><text x="72" y="217">Text message</text>
+  <text x="72" y="251">Voice assistant</text>
+</g>
+<g fill="none" stroke="var(--muted)" stroke-width="1.2">
+  <path d="M134 43 H200 V132" marker-end="url(#ah3)"/>
+  <path d="M134 77 H186 V132" marker-end="url(#ah3)"/>
+  <path d="M134 111 H172 V132" marker-end="url(#ah3)"/>
+  <path d="M134 145 H236" marker-end="url(#ah3)"/>
+  <path d="M134 179 H172 V158" marker-end="url(#ah3)"/>
+  <path d="M134 213 H186 V158" marker-end="url(#ah3)"/>
+  <path d="M134 247 H200 V158" marker-end="url(#ah3)"/>
+</g>
+
+<g>
+  <rect x="238" y="122" width="190" height="46" rx="2" fill="var(--accent-pale)" stroke="var(--accent)" stroke-width="1.6"/>
+  <text x="333" y="141" font-size="11.5" font-weight="600" fill="var(--accent-deep)" text-anchor="middle">One ordering system</text>
+  <text x="333" y="158" font-size="11" fill="var(--accent-deep)" text-anchor="middle">one record of the order</text>
+</g>
+<g fill="none" stroke="var(--ink)" stroke-width="1.5">
+  <path d="M428 145 H468" marker-end="url(#ah4)"/>
+  <path d="M580 145 H620" marker-end="url(#ah4)"/>
+</g>
+<g fill="var(--paper)" stroke="var(--ink)" stroke-width="1.4">
+  <rect x="470" y="127" width="110" height="36" rx="2"/>
+  <rect x="622" y="127" width="68" height="36" rx="2"/>
+</g>
+<g font-size="10.5" fill="var(--ink)" text-anchor="middle">
+  <text x="525" y="143">The same store</text><text x="525" y="157">process</text>
+  <text x="656" y="143">The same</text><text x="656" y="157">tracker</text>
+</g>
+<text x="238" y="200" font-size="11" fill="var(--muted)">Adding an eighth surface adds a front door.</text>
+<text x="238" y="217" font-size="11" fill="var(--muted)">It does not add a second process, a second</text>
+<text x="238" y="234" font-size="11" fill="var(--muted)">menu, or a second version of the order.</text>
+</svg>
+<figcaption style="font-family:var(--sans);font-size:.82rem;color:var(--muted);margin-top:.5rem">
+The shape is the whole point. Seven front doors, one process. A company that had built a separate
+ordering system behind each surface would have seven menus to update, seven price lists to keep in step,
+and seven versions of the truth about what you ordered.
+</figcaption>
+</figure>
+
+<p>Adding a new ordering surface is therefore a small piece of work rather than a new company. That
+property has a name. The <strong>architecture</strong> of an information system is how its parts are
+arranged and what depends on what, as distinct from what any one part does. A well-architected system is
+one where the surfaces can multiply while the process underneath stays one process.</p>
+
+<p>This is the payoff of everything before it. Domino’s can put ordering in a car dashboard not because
+somebody had a clever idea about cars, but because the process underneath was mapped, instrumented and
+singular. A new surface only has to hand that process an order in a format it already understands. A solid
+foundation is what makes creative ideas cheap to try. The Apple Watch app is a gimmick. The fact that it
+did not require its own copy of the business is not, and a company whose ordering logic lived in four
+incompatible systems could not have tried it at all.</p>
+
+<h3>4.9 The data underneath</h3>
+
+<p>Every one of those orders produces data, and the volume is the point. A <strong>data pipeline</strong>
+is an automated route that moves data from where it is produced to where it is analyzed. Domino's has
+described running thousands of them, carrying data from thousands of stores along with supply chain,
+staffing, and third-party sources into a central warehouse. What comes out the other end is one view of
+the customer and the operation. A loyalty program launched in 2015 attaches a large share of those orders
+to identified individuals rather than anonymous transactions.</p>
+
+<p>Chapter 3 gave this shape a name: the <strong>data flywheel</strong>, where each turn of the process
+leaves behind a record, and the next turn starts from a larger one. Domino's has one, and it is worth being
+precise about where it came from. It exists because a step in the process was made to emit a timestamp so
+that a customer could watch a bar move. The flywheel was not designed. It was the residue of instrumenting
+a process, which is the usual way companies end up with one.</p>
+
+<p>You should recognize that last mechanism, because you met it in Chapter 2 with Starbucks and you are
+about to spend a month inside it. An order attached to a known customer can be analyzed, predicted, and
+served. An anonymous order is a single event that teaches the company nothing. Your lab client is a co-op
+whose entire business model depends on making that attachment happen, and one of whose stores has quietly
+stopped.</p>
+
+<p>By the late 2010s the company was reporting that a majority of United States sales arrived through
+digital channels, alongside a long run of same-store sales growth. Patrick Doyle's line, that Domino's is
+a technology company that sells pizza, stopped being a provocation and started being a description of the
+org chart.</p>
+
+<h3>4.10 Automation, agents, and what is next for Domino’s</h3>
+
+<p>Ordering surfaces changed how work enters the process. The other change of that decade was who, or
+what, performs the steps once the order is in. Two levels of automation appear in the Domino's story, and
+both are ordinary corporate technology rather than anything futuristic.</p>
+
+<p><strong>Workflow automation</strong> is software that routes and sequences the work while humans still
+perform the steps. That is exactly what the tracker era was: the system sequences and timestamps, people
+make the pizza. <strong>Robotic process automation (RPA)</strong> is software that
+performs the clerical steps itself, clicking through screens the way a person would, which suits
+high-volume rule-following work such as retyping an order from one system into another. Domino's version
+arrived in 2014 as Dom, a voice-ordering assistant that took the order-entry step away from human typing
+entirely.</p>
+
+<p>Notice what both of these have in common, because it is the condition for the next subsection. Each
+one was applied to a step that had already been mapped, defined, and recorded.</p>
+
+
+
+<p>The turnaround is more than fifteen years old, so it is fair to ask whether the lesson survived
+contact with newer technology. Three developments are worth following, and all three are process
+decisions dressed as technology decisions.</p>
+
+<p><strong>The agent.</strong> The level of automation businesses are reaching for now is the
+<strong>AI agent</strong>: software given a goal rather than a script, which plans the steps itself,
+executes across several systems, and handles the exceptions in between. An agent handling a refund does
+not follow a flowchart somebody drew. It reads the complaint, checks the order history, applies the
+policy, issues the credit, and writes to the customer, deciding the sequence as it goes.</p>
+
+<p>It is tempting to think a smart enough agent could fix a bad process by itself. It cannot, and the
+reason is the bottleneck from section 2.1. Amtrak's newest Acela trains, which entered service in 2025,
+can reach 160 miles per hour. Over most of the route between Boston and Washington they cannot use that
+speed, because the limit is the corridor's aging rails, tunnels and power lines, not the train. The
+computer scientist Arvind Narayanan argues that AI in business is usually the train and not the track. It
+speeds up a step that was never the slow part. An agent that answers a customer in four seconds instead of
+four minutes changes nothing a customer will notice if the refund then waits two days for a manager to
+approve it. A smarter step is still one step. The rest of the process, and its bottleneck, stay exactly
+where they were.</p>
+
+<p>On its second-quarter 2026 earnings call, Domino's described an orchestration agent that decides
+when each pizza should be made so that it leaves the oven as the driver arrives, for its own orders and
+aggregator orders alike.</p>
+
+<p>That is a narrow job inside a process whose steps are already defined,
+already instrumented, and already understood, which is precisely the condition that makes it safe. The
+rule to carry out of this chapter is that an agent can only be trusted with a process that is mapped,
+measured, and instrumented. Nobody should hand a goal to an agent inside a process they cannot draw.</p>
+
+<p>Drawing the process includes drawing the way out. Narayanan's second point is that an agent should be
+built to hand a case to a person when it falls outside what the agent was built for, instead of acting on
+its best guess about what that person would want. On a swimlane, that handoff is an arrow from the
+agent's lane to a human's lane, with a named owner on the other end. If you cannot draw that arrow, the
+agent has only one way to handle the unexpected case, which is to guess.</p>
+
+
+
+<p><strong>The aggregators.</strong> For years Domino's refused to appear on DoorDash or Uber Eats, and
+was almost alone among large chains in that. The stated reason was that delivery was the process it had spent forty years building. Handing it to a
+third party meant handing over three things at once: the last mile (the trip from the store to the
+customer's door), the timing, and the data. Then it joined Uber Eats in 2023 and
+DoorDash in 2025, with the DoorDash rollout complete across the United States by the fall of 2025.</p>
+
+<p>Look closely at what they agreed to, because it is unusual. Picture ordering a Domino's pizza through
+DoorDash. The DoorDash app takes your order and your money, and then a Domino's store makes the pizza and
+a Domino's driver brings it to your door. No DoorDash courier ever touches it. Compare that with almost
+every other restaurant on the same app, where a DoorDash courier collects the food and delivers it, and
+the restaurant never learns who you are.</p>
+
+<p>That is the whole deal in one picture. The platform supplies demand; Domino's keeps the process, the
+drivers, the timing, and the record of the order. In the terms of section 1, they bought a new front door
+and refused to give up the machinery behind it. Aggregator orders were about three percent of United States
+sales in 2024, before DoorDash. Management has said the channel could reach a billion dollars a year,
+roughly a tenth of its United States sales, made up of customers it would not otherwise have
+reached.</p>
+
+<p><strong>The results, which are ordinary in an instructive way.</strong> United States same-store sales
+grew 3.0 percent in fiscal 2025, and the company reported gaining another point of market share. The
+research firm Technomic put its share of fast-food pizza at about 30 percent in 2024, up from 26 percent
+in 2019. In the second quarter of 2026, order counts rose while the average ticket fell, because a
+premium product line underperformed. That is a product miss inside a process that is working, and the
+difference is worth naming: 2008 was a product failure that no process could rescue, and 2026 is a
+product miss that the process absorbs.</p>
+
+<p>One more thing about Domino's, and it is the part most likely to matter in ten years. About sixty
+percent of the company's revenue comes from selling supplies to its own franchisees rather than from
+pizza. The dough and the trucks are a process nobody outside can duplicate, and no delivery platform can
+buy its way into it. That is the argument from Chapter 3 arriving in this case: the parts are for sale
+and the arrangement is not.</p>
+
+<h3>4.11 What a business technology manager takes from this chapter</h3>
+
+<p>Strip the case down to what you can reuse in any company. Four decisions came up in it, and each one
+is a decision you will be in the room for.</p>
+
+<ul>
+<li><strong>Fix the process before you buy the technology.</strong> The Pizza Tracker worked perfectly on
+top of a product customers disliked, and it did nothing for sales until the recipe and the kitchen
+changed. When someone proposes a system, ask what process it will sit on and whether that process works
+today. A good system on a bad process is a faster way to disappoint people.</li>
+
+<li><strong>Map what actually happens before you design what should.</strong> Ford's team only saw the
+fix when they drew the invoice process as it really ran, with hundreds of clerks matching paper.
+Skipping the as-is map is the most common failure in process work, because everyone in the room believes
+they already know how it works, and nobody does.</li>
+
+<li><strong>Make sure every step leaves a record, because a system can only manage what the process
+records.</strong> Boeing's door plug had no removal record, so no system in the company could see it was
+missing. Domino's recorded minutes and not quality, so nothing in the company could see the pizza. Before
+you automate or measure anything, ask which steps produce no evidence. Those are the ones that will fail
+invisibly.</li>
+
+<li><strong>Hand software only the steps that are already defined and already recorded.</strong>
+Domino's orchestration agent sequences steps inside a process that has been mapped and timestamped for
+more than fifteen years, which is why it is safe. The order of work is fix, record, then automate, and it
+is the manager, not the software, who decides when a step is ready.</li>
+</ul>
+
+<h2 id="other"><span class="num">5</span>The downside: transparency for whom</h2>
+<p>Section 4 is a story about an information system working. Before leaving it, turn the tracker
+around.</p>
+
+<h3>5.1 The worker inside the timestamp</h3>
+<p>Operational transparency has a downside, and it is built into the same mechanism that makes it work.
+Transparency runs one direction: the customer sees the store's work, and the store, in turn, is seen. Every
+timestamp that delights a customer is also a performance record of the worker who produced it. A system
+that measures every stage of every order is a management instrument pointed at the kitchen.</p>
+
+<p>The pattern is everywhere once you look for it, and usually the customer-facing feature and the
+management instrument are the same system.</p>
+
+<ul>
+  <li><strong>Warehouses.</strong> The reason a retailer can tell you your order is picked and packed is
+  that every pick is timed. Amazon's warehouses measure the rate at which each worker picks items and how
+  long they are idle between picks, a measure the company calls time off task, and that measurement has
+  been used in decisions about who keeps the job.</li>
+  <li><strong>Delivery driving.</strong> The map that shows you a driver approaching also reports that
+  driver's speed, braking, route choice, and time per stop to a dispatcher. Delivery and freight
+  companies have run telematics of this kind for years.</li>
+  <li><strong>Any job with a queue.</strong> Call handling time, tickets closed per hour, chat response
+  time. The customer sees responsiveness; the worker sees a number that has to keep going up.</li>
+</ul>
+
+<p>It is worth being careful here, because the research does not say what you might expect. Buell and
+colleagues found that transparency helped <em>both</em> sides: in their food-service experiments, staff who
+could see the customers they were cooking for reported feeling more appreciated and were more willing to
+exert effort, and measured service quality went up. Seeing and being seen is not automatically
+surveillance.</p>
+
+<p>What that research studied, though, was a customer watching a cook work. It is not the same thing as a
+timestamped record of every stage of every order, retained, aggregated, and comparable across workers and
+shifts. The first is visibility in the moment. The second is a measurement history that can be used to rank
+people, and the evidence on continuous electronic monitoring at work is considerably less cheerful than the
+evidence on open kitchens.</p>
+
+<p>None of these measurements is illegitimate. The question a manager should be able to answer is narrower:
+which of these numbers is here to run the process, and which is here to rank the people in it? The pressure
+of being continuously measured is part of what "the process improved" means from the inside. Chapter 2
+raised the same point about algorithmic scheduling, and here it appears in a second form.</p>
+
+<h3>5.2 The customer the system did not see: accessibility</h3>
+<p>There is also a customer the system did not see. Domino's built ordering into phones, watches,
+TVs, and cars, an ordering surface for practically everyone, and in 2016 a blind customer named
+Guillermo Robles could not order a pizza from the website or the app with his screen reader. The
+lawsuit that followed reached the Ninth Circuit and, in 2019, the Supreme Court declined to disturb
+the ruling against Domino's. Hold the shape of it: the company that made ordering effortless from a Samsung TV had not
+made it possible from a screen reader. Reach and access are not the same achievement.</p>
+
+<p>Domino's was not unusual, which is the uncomfortable part. The National Federation of the Blind sued
+Target over a website its members could not use with a screen reader. It settled in 2008, with the company
+agreeing to fix the site and pay into a fund for the class. The same gap shows up in the physical world. A
+restaurant replaces its counter with a touchscreen kiosk that a blind customer cannot operate alone. A menu
+is posted as a photograph of a page, which a screen reader reads as nothing at all. In each case a company
+added a channel, measured how well it performed, and never measured who could not use it.</p>
+
+<p>The legal picture has moved since Robles, and it now reaches your own university. In April 2024 the
+Department of Justice issued a
+<a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener">final
+rule under Title II of the Americans with Disabilities Act</a>. It requires state and local government
+entities, public universities among them, to make their websites, mobile apps, digital documents and
+online course content conform to a technical standard called WCAG 2.1 Level AA. In April 2026 the
+Department <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener">pushed
+the compliance dates back by a year</a> without changing a single requirement. Entities serving 50,000
+people or more, Western Washington University among them, must comply by 26 April 2027. Smaller entities
+have until 26 April 2028.</p>
+
+<p>Notice what that means for this course. The Canvas pages, the PDFs and the videos you are assigned are
+covered, and so is this book. Notice also what it does not cover: the rule applies to Title II, meaning
+government entities. A pizza company is a Title III business, and the proposed rule for those has been
+paused, so Domino's is still governed by court decisions rather than by a published standard. Chapter 11
+comes back to this and gives you the standard it is measured against.</p>
+<div class="takeaways"><span class="obj-tag">Key takeaways</span>
+<ul>
+<li>A process is defined by what it delivers to a customer, not by which department performs it. Value flows sideways through a company that is organized vertically.</li>
+<li>You cannot improve a process you have not written down, and the written-down version is almost never what managers believe is happening.</li>
+<li>The fix is never the equipment. In every case in this chapter it lived in the design, the handoffs, or what the process recorded.</li>
+<li>Domino's did not win by buying technology. Its software was the best in the industry in 2008 and sales still fell. It won by fixing the product and the process that ignored it, and then the technology amplified the fix.</li>
+<li>An information system can only manage what the process records. Quality at Domino's went unrecorded for years, so nothing in the system could act on it until a person did.</li>
+</ul>
+</div>
+
+<h2 id="vocab"><span class="num">6</span>Vocabulary</h2>
+
+<dl class="vocab">
+  <div><dt>Business process</dt><dd>Structured activities converting inputs into an output a customer values.</dd></div>
+  <div><dt>As-is / to-be map</dt><dd>Documentation of the process as it currently runs, and as redesigned.</dd></div>
+  <div><dt>Handoff</dt><dd>A transfer of work across a boundary; the usual site of delay and lost information.</dd></div>
+  <div><dt>Bottleneck</dt><dd>The constraint that sets the pace of the entire process.</dd></div>
+  <div><dt>Swimlane diagram</dt><dd>A process map with one lane per actor; handoffs appear as arrows crossing lanes.</dd></div>
+<div><dt>Cycle time</dt><dd>Elapsed time from process start to finish, waiting included.</dd></div>
+  <div><dt>Throughput</dt><dd>Completed units per unit of time.</dd></div>
+  <div><dt>Workflow automation</dt><dd>Software routes and tracks the work; humans perform the steps.</dd></div>
+<div><dt>Robotic process automation (RPA)</dt><dd>Software performs rule-following clerical steps itself.</dd></div>
+<div><dt>AI agent</dt><dd>Software given a goal rather than a script; plans and executes steps across systems. Requires a mapped, measured process to be trusted.</dd></div>
+<div><dt>Business process reengineering</dt><dd>Redesigning a process from zero around the outcome, rather than tuning its current shape.</dd></div>
+<div><dt>Operational transparency</dt><dd>Deliberately exposing internal process stages to the customer.</dd></div>
+  <div><dt>Process instrumentation</dt><dd>Capturing timestamped events at each step so the process becomes measurable.</dd></div>
+  <div><dt>Feedback loop</dt><dd>A path by which process output re-enters as input, enabling correction.</dd></div>
+  <div><dt>Omnichannel</dt><dd>Many customer-facing surfaces reaching one underlying process and one record of the order.</dd></div>
+<div><dt>Data pipeline</dt><dd>An automated route that moves data from where it is produced to where it is analyzed.</dd></div>
+<div><dt>Business process redesign</dt><dd>Rethinking a process end to end rather than optimizing steps in place.</dd></div>
+</dl>
+
+<div class="ailight g">
+  <div class="lamp"><div class="bulb b1"></div><div class="bulb b2"></div><div class="bulb b3"></div></div>
+  <div class="lighttext"><strong>AI and these questions</strong>
+  <p>Green: after drafting your own answer, ask an AI to argue against it and press on your weakest
+  claim, sparring partner mode, before you present. Red: submitting or reading out an AI-written answer.
+  The Wednesday discussion tests your reasoning, and everyone in the room can tell the difference.</p>
+  <p>Worth trying on this chapter specifically. Once you have built a map in section 2, type your lane
+  assignments into an AI and give it this: <em>"Here is my swimlane map. Argue that two of these lanes
+  should be one lane, and that one of my steps does not belong in the process at all. Be specific."</em>
+  Then decide whether it is right, because it will make both arguments whether or not they hold. Using a
+  model to attack a map you drew is green. Using it to draw the map is red, and it is also the less
+  interesting half of the exercise.</p></div>
+</div>
+<h2 id="discussion"><span class="num">7</span>Discussion questions</h2>
+<p>These are the questions for the case that we will discuss in class. None of them get handed in. On
+Wednesday you run the discussion and I steer it, which means the class is only as good as what you walk in
+with. Read the chapter, pick the question you have the strongest opinion about, and be ready to say it
+first.</p>
+
+<ol class="dq">
+  <li>Map the Domino's order-to-delivery process as it stood in 2008, in swimlanes. Mark every handoff
+  and identify the bottleneck. Then say which of your handoffs the Pizza Tracker made visible, and which
+  it left exactly as it was. <span class="tag">Apply</span></li>
+
+  <li>The thirty-minute guarantee made delivery time the one number the company managed to, and it
+  worked: Domino's got very good at minutes. Propose a replacement set of two or three measures that
+  would have caught the quality collapse, then explain what each of your measures would start to distort
+  if the company optimized against it for thirty years. <span class="tag">Analyze</span></li>
+
+  <li>Suppose the recipe had never changed, and from 2009 to 2013 only the digital ordering improved.
+  Sketch the sales curve and justify its shape from the evidence in this chapter. Then say what that
+  curve implies about the order of operations for any technology investment.
+  <span class="tag">Systems</span></li>
+
+  <li>Operational transparency reduces the perceived wait without reducing the actual wait, and every
+  timestamp that reassures a customer is also a performance record of the worker who produced it. Is the
+  tracker a service or a management instrument? Argue one side, then state the strongest objection to
+  your own position. <span class="tag tag-hard">Ethics</span></li>
+
+  <li>An AI agent will execute a broken process with perfect diligence at machine speed. Using the as-is
+  map you drew for question 1, name one step in the 2008 process you would never hand to an agent and one
+  step in the 2013 process you would. What changed between them, and is it a property of the technology
+  or of the process? <span class="tag">Systems</span></li>
+</ol>
+
+<h2 id="lab"><span class="num">8</span>From lecture to lab</h2>
+
+<div class="callout callout-bridge">
+  <strong>Week 4 &middot; Lab 4</strong>
+  <p><strong>Monday</strong> covered processes, mapping, handoffs, and measurement. <strong>Wednesday</strong>
+  is Domino's: bring your as-is map from question 1; groups will compare maps of the same process and we will
+  look at what each map chose to leave out.</p>
+  <p>This week's lab, <a href="lab4-excel-dataviz.html"><strong>Lab 4: Data Visualization</strong></a>,
+  continues the Cascadia Outfitters engagement, and the connection is direct. This chapter argues that a
+  process improves only once somebody describes it in a form other people can argue with. A chart is that
+  same move applied to a number: it either makes the shape of the data arguable or it hides it. The Pizza
+  Tracker is, underneath, a screen full of exactly such pictures.</p>
+
+  <a class="lablink" href="lab4-excel-dataviz.html">Go to Lab 4 &#8594;</a>
+</div>
+
+<details class="srcbox">
+<summary><h2 id="sources"><span class="num">9</span>Sources and further reading</h2></summary>
+<ul class="sources">
+<li>Michael Hammer, <a href="https://hbr.org/1990/07/reengineering-work-dont-automate-obliterate" target="_blank" rel="noopener">"Reengineering Work: Don't Automate, Obliterate"</a>, <em>Harvard Business Review</em>, July&ndash;August 1990: the Ford accounts payable case, the five hundred against five comparison, the original twenty percent target, invoiceless processing, the fourteen matched data items, and the phrase itself.</li>
+<li>National Transportation Safety Board, <a href="https://www.ntsb.gov/investigations/AccidentReports/Reports/AIR2504.pdf" target="_blank" rel="noopener"><em>In-Flight Separation of Left Mid Exit Door Plug</em></a> (AIR-25-04, adopted 24 June 2025, published 10 July 2025), with the <a href="https://www.ntsb.gov/investigations/Pages/DCA24MA063.aspx" target="_blank" rel="noopener">investigation docket</a>. Supports the missing bolts, the panel being opened at Renton on 18 September 2023 for rivet repair without the required documentation, the altitude at separation, the absent removal document, the door-team staffing, and the probable cause finding that Boeing failed to provide adequate training, guidance and oversight for its parts removal process. Reporting on Alaska Airlines flight 1282, January 2024 to July 2025, for the missing bolts, the absent removal document, the door-team staffing at Renton, and the finding on training and oversight.</li>
+<li>On the thirty-minute guarantee: the promise ran from 1973, was reduced to three dollars off the
+order in the mid-1980s, and was withdrawn in December 1993 after a St. Louis jury returned a punitive
+verdict of roughly $78 million against the company in a suit brought by a woman injured by a delivery
+driver who ran a red light; the award was later settled for a much smaller sum. Then-CEO Tom Monaghan
+cited the public perception of reckless driving. Assembled from contemporary press coverage and later
+retellings rather than from company filings; the settlement amount in particular is reported
+inconsistently, so treat the verdict figure as approximate and do not quote the settlement.</li>
+<li>Reporting on warehouse productivity measurement, including Amazon's "time off task" metric, and on
+telematics in delivery and freight, for section 5.1. These practices are well documented in the trade and
+general press; specific thresholds and disciplinary practices vary by employer and year.</li>
+<li><em>National Federation of the Blind v. Target Corp.</em>, N.D. Cal., filed 2006 and settled in 2008,
+for the second accessibility example in section 5.2.</li>
+<li>Ryan W. Buell and Michael I. Norton, <a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=40158" target="_blank" rel="noopener">"The Labor Illusion: How Operational Transparency Increases Perceived Value"</a>, <em>Management Science</em> (2011), and Ryan W. Buell, Tami Kim and Chia-Jung Tsay, <a href="https://www.hbs.edu/ris/Publication%20Files/14-115_aee7737a-a405-46f1-85e9-67882dd95435.pdf" target="_blank" rel="noopener">"Creating Reciprocal Value Through Operational Transparency"</a>, Harvard Business School Working Paper 14-115. Support the finding that visible effort raises perceived value, and the food-service experiments reporting a 22.2 percent rise in customer-reported quality and a 19.2 percent fall in throughput times. Note that those same experiments found transparency also raised employee satisfaction, which is why section 5.1 distinguishes them from continuous performance measurement rather than citing them as evidence of surveillance harm.</li>
+<li>U.S. Department of Justice, <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener">Nondiscrimination on the Basis of Disability: Accessibility of Web Information and Services of State and Local Government Entities</a>, final rule, 89 FR 31320 (24 April 2024), adopting WCAG 2.1 Level AA for Title II entities; and the <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener">Interim Final Rule of 20 April 2026</a> extending the compliance dates to 26 April 2027 and 26 April 2028 without changing any requirement. <strong>Recheck annually.</strong> The Title III rule covering private businesses remains paused, and the comment period on the extension closed 22 June 2026, so further movement is likely.</li>
+<li>Washington Post, <a href="https://www.washingtonpost.com/archive/politics/1993/12/22/79-million-jury-award-puts-brakes-on-dominos-30-minute-delivery-pledge/4895cfab-a9a9-4919-ac0d-fab9e159935d/" target="_blank" rel="noopener">"$79 Million Jury Award Puts Brakes on Domino's 30-Minute Delivery Pledge"</a>, 22 December 1993. Supports the Kinder verdict, the damages figures, and the withdrawal of the guarantee days afterward.</li>
+<li>Domino's Pizza investor relations and annual reports, for same-store sales, the 2009 turnaround campaign, digital sales share, and the AnyWare ordering surfaces.</li>
+<li>Domino's quarterly earnings calls and trade coverage, 2025 and 2026, for the Uber Eats and DoorDash partnerships and the decision to fulfill aggregator orders with its own drivers, the three percent aggregator share of U.S. sales in 2024 and the one billion dollar target, the delivery orchestration agent described on the Q2 2026 call, U.S. same-store sales and market share, and the share of revenue coming from supply chain sales to franchisees. These figures change every quarter; check them before teaching from them.</li>
+<li>Contemporary coverage of the 2009 &ldquo;Pizza Turnaround&rdquo; campaign and the 2010 results, including trade and business press reporting on the taste-test findings and the recipe relaunch.</li>
+<li>Domino's technical and conference material on its data platform and loyalty program, for the pipeline and warehouse description in section 4. Treat vendor-published figures with the caution Chapter 2 recommends.</li>
+<li>"Pizza Turnaround" campaign materials, Crispin Porter + Bogusky, December 2009; the UCLA teaching case <em>Domino's: The Turnaround</em>; and the <a href="https://biz.dominos.com/about-us/innovations/" target="_blank" rel="noopener">company's own innovations timeline</a> for the Tracker, AnyWare, and pizza theater dates.</li>
+<li>Domino's Pizza, <a href="https://ir.dominos.com/news-releases/news-release-details/dominos-pizzar-announces-fourth-quarter-and-fiscal-2025" target="_blank" rel="noopener">Fourth Quarter and Fiscal 2025 Financial Results</a>, 23 February 2026: U.S. same-store sales of 3.0 percent for the year and the market share statement. Technomic figures via <em>Restaurant Business</em>, February 2026. Domino's and DoorDash partnership announcement, 2 April 2025. Second-quarter 2026 earnings call, 20 July 2026, for the orchestration agent and the ticket miss.</li>
+<li>Arvind Narayanan, interviewed by Ezra Klein, "Intelligence Isn't Power," <em>The Ezra Klein Show</em>,
+New York Times, 9 October 2026, for the argument that AI is usually the train and not the track, and for
+agents built to escalate to a person, in section 4.10.</li>
+<li>NPR, <a href="https://whyy.org/npr-story/amtraks-flagship-acela-trains-get-a-long-awaited-upgrade/" target="_blank" rel="noopener">"Amtrak's flagship Acela trains get a long-awaited upgrade"</a>, August 2025,
+for the NextGen Acela's 160 mph top speed and the aging corridor infrastructure that limits it, in section
+4.10. The podcast gives the top speed as 165 mph; Amtrak's own figure is 160, and the chapter uses that.</li>
+<li><strong>Verification note.</strong> Checked against sources in September 2026: the fiscal 2025 results, the DoorDash dates, the Q2 2026 call, and the Q1 2010 and 2008 same-store figures (the latter two against business-press retellings, not the original releases). The Hammer, Love, and NTSB details were not re-checked in this pass; they match the published accounts as the authors know them. Three figures in section 4 come from the UCLA case and business-press retellings rather than from a primary source found here: the share-price rise from December 2009 to December 2010 (retellings give 130 percent and year-end closing prices give roughly 90 percent, so the chapter says the stock roughly doubled), the fourth-place e-retailer ranking (the metric behind it is not stated), and the claim that the 2008 decline was seven times the industry average, along with the 120 store closures. The aggregator share is on the record for 2024 (three percent, fourth-quarter 2024 call) but the company has not published a 2025 figure; an earlier draft's "around five percent by the end of 2025" was removed for that reason. The supply chain share was confirmed in October 2026 against the <a href="https://www.sec.gov/Archives/edgar/data/1286681/000119312526062321/dpz-20251228.htm" target="_blank" rel="noopener">fiscal 2025 10-K</a> and annual report: $2,989.5 million of $4,940.0 million in total revenues, about 60.5 percent. Recheck annually. Added in the September 2026 structural pass and not
+independently confirmed against primary sources: the 1960 founding in Ypsilanti, the 1973 start and 1993
+end of the thirty-minute guarantee, the December 2007 "You Got 30 Minutes" slogan, the 2008 verdict
+figure and settlement in the Kinder case, and the Target settlement date. All are consistently reported
+in secondary sources; confirm before quoting any figure from them.</li>
+</ul>
+</details>
+
+
+</main>
+<!--NAVJS-->
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.dd-btn'));
+  function closeAll(except){
+    btns.forEach(function(b){
+      var m=document.getElementById(b.getAttribute('data-dd'));
+      if(m&&m!==except){m.classList.remove('open');b.setAttribute('aria-expanded','false');}
+    });
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click',function(e){
+      e.stopPropagation();
+      var m=document.getElementById(b.getAttribute('data-dd'));
+      var open=m.classList.contains('open');
+      closeAll();
+      if(!open){m.classList.add('open');b.setAttribute('aria-expanded','true');}
+    });
+  });
+  document.addEventListener('click',function(){closeAll();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+  document.querySelectorAll('.dd-menu').forEach(function(m){
+    m.addEventListener('click',function(e){e.stopPropagation();});
+  });
+})();
+</script>
+
+<script>
+/* a collapsed <details> does not print; open them all first */
+(function(){
+  function openAll(){ document.querySelectorAll('details').forEach(function(d){ d.open = true; }); }
+  window.addEventListener('beforeprint', openAll);
+  if (window.matchMedia) {
+    var mq = window.matchMedia('print');
+    if (mq.addEventListener) mq.addEventListener('change', function(e){ if (e.matches) openAll(); });
+  }
+})();
+</script>
+</body>
+</html>
