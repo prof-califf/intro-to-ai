@@ -705,6 +705,11 @@ table.hm{border-collapse:collapse;font-size:.85rem;min-width:520px;width:100%;fo
 .printbar a.slidebtn{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border-radius:6px;text-decoration:none}
 .printbar a.slidebtn:hover{background:#242C36}
 .printbar a.slidebtn:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.scen{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:16px 20px;margin:14px 0}
+.scen h4{font-family:'Fraunces',Georgia,serif;font-size:1.15rem;margin:0 0 2px}
+.scen .scen-who{font-size:.85rem;font-weight:600;color:var(--gray);margin:0 0 8px}
+.scen > p{margin:0 0 10px}
+.scen .mx-why-grid li{margin-bottom:4px}
 </style>
 </head>
 <body>
@@ -1040,19 +1045,62 @@ table.hm{border-collapse:collapse;font-size:.85rem;min-width:520px;width:100%;fo
   <div class="sides">
     <div class="side">
       <div class="side-tag">Side A &middot; left half of the room</div>
-      <h3 id="motion-doctor">Yes, for diagnosis</h3>
-      <p>For the thinking work of medicine, like taking a history, making a diagnosis, and choosing tests, let the AI make the call. Move the doctor on the loop or out of it, and test the AI the way we test a drug. Start from the JAMA viewpoint and the 74, 76, and 90.</p>
+      <h3 id="motion-doctor">Yes: AI alone</h3>
+      <p>Drop the rule. For the thinking work of medicine, like taking a history, making a diagnosis, and choosing tests, the AI makes the call and no doctor has to sign off. Test the AI the way we test a drug. Start from the JAMA viewpoint, the 74, 76, and 90, and the doctors in the Goh study who ignored the AI when it disagreed with them.</p>
       <p class="side-cost"><strong>The cost to name:</strong> when it's wrong, nobody is in the room, and the best evidence so far comes from cases on paper, not from real patients.</p>
     </div>
     <div class="side">
       <div class="side-tag">Side B &middot; right half of the room</div>
-      <h3 id="evidence-doctor">No, keep the doctor in the loop</h3>
-      <p>A licensed person signs every diagnosis, and the AI proposes. The doctor is the one who sorts out which facts matter, and the one who answers when it goes wrong. Start from the doctors' groups, Robert Wachter, and Every Cure's human gate.</p>
-      <p class="side-cost"><strong>The cost to name:</strong> on the best numbers we have, adding the doctor dragged a 90 down to a 76, and every signature is doctor time that patients wait for.</p>
+      <h3 id="evidence-doctor">No: doctor with AI</h3>
+      <p>Keep the rule. A doctor who knows how to use AI well works with it and signs off on every diagnosis. The doctor is the one who sorts out which facts matter, and the one who answers when it goes wrong. Start from the doctors' groups, Robert Wachter, Every Cure's human gate, and the Goh doctors who used the AI like Google: that's a training problem, and training can fix it.</p>
+      <p class="side-cost"><strong>The cost to name:</strong> on the best numbers we have, doctors with AI scored 76 while the AI alone scored about 90, and every signature is doctor time that patients wait for.</p>
     </div>
   </div>
   <p class="tis-note">Nobody in this debate is arguing about a real patient's care. You're arguing about a rule, the way a regulator or a hospital board would.</p>
   <p><strong>The evidence below is from today. Use it to argue about the future.</strong> Side A: today's numbers are the trend line, and they're already close. Side B: today's numbers come from cases on paper, so ask how anyone in 2031 would know the 90% holds for real patients, and who answers for the 1 in 10 it gets wrong.</p>
+  <h3 class="sub" id="futures"><span>What 2031 could look like:</span> four scenarios</h3>
+  <p>Each one is imagined, but every benefit and issue below is grounded in something that has already happened or been measured. The first three are Side A's world; the last is Side B's. Use them in your prep, and steal from the other side's.</p>
+
+  <div class="scen">
+    <h4>The 2 a.m. clinic</h4>
+    <p class="scen-who">Side A's world: AI alone</p>
+    <p>A rural urgent care has no doctor overnight. Today, you wait until morning or drive to the emergency room. In 2031, the AI takes your history, reads your labs, and diagnoses you in ten minutes.</p>
+    <div class="mx-why-grid">
+      <div><p class="mx-why-h">Benefits</p><ul><li>Care at hours and in places that have no doctor.</li><li>It's already starting: Utah <a class="inline" href="https://www.medicaleconomics.com/view/utah-lets-ai-refill-chronic-prescriptions-in-state-backed-pilot-program" target="_blank" rel="noopener">lets an AI renew some prescriptions on its own</a>, after doctors checked its first 250 in each kind of drug.</li></ul></div>
+      <div><p class="mx-why-h">Issues</p><ul><li>90% right still means 1 in 10 wrong, with nobody in the room to catch it.</li><li>Who answers when it's wrong? Utah's medical licensing board <a class="inline" href="https://thenextweb.com/news/utah-ai-prescription-refills-doctronic" target="_blank" rel="noopener">says it learned about the pilot from the news</a>.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="scen">
+    <h4>The app on your phone</h4>
+    <p class="scen-who">Side A's world: AI alone</p>
+    <p>You describe your symptoms at home, and the AI diagnoses you and orders your lab work. No appointment, no copay.</p>
+    <div class="mx-why-grid">
+      <div><p class="mx-why-h">Benefits</p><ul><li>Answers at home, for free, at any hour.</li><li>Tested on its own, the AI is strong: in an Oxford study, AI models named the right condition in about 95% of written-up scenarios.</li></ul></div>
+      <div><p class="mx-why-h">Issues</p><ul><li>In <a class="inline" href="https://doi.org/10.1038/s41591-025-04074-y" target="_blank" rel="noopener">that same Oxford study</a>, when 1,298 ordinary people used the same AIs, they landed on the right condition in under 35% of cases, no better than people who used any source they liked.</li><li>People didn't know what to tell it. In the Goh study, every case came written up nice and cleanly. In real life, data is messy and a patient's own story is hard to read.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="scen">
+    <h4>The doctor with a new job</h4>
+    <p class="scen-who">Side A's world: AI alone</p>
+    <p>The AI makes the diagnosis and no doctor checks it. Your doctor's job becomes everything after: explaining what it means, asking what matters to you, and choosing a treatment together.</p>
+    <div class="mx-why-grid">
+      <div><p class="mx-why-h">Benefits</p><ul><li>More time for the human part: explaining, listening, deciding together. Or more patients seen per doctor.</li><li>The Goh study's own lead author has said he hopes AI frees doctors for the uniquely human parts of medicine.</li></ul></div>
+      <div><p class="mx-why-h">Issues</p><ul><li>Skills fade without practice. In a <a class="inline" href="https://wrap.warwick.ac.uk/id/eprint/191005" target="_blank" rel="noopener">2025 study of colonoscopy doctors in Poland</a>, after three months of using AI, their detection rate without it fell from about 28% to 22%.</li><li>If doctors stop diagnosing for years, who can still tell when the AI is wrong?</li></ul></div>
+    </div>
+  </div>
+
+  <div class="scen">
+    <h4>The doctor with AI</h4>
+    <p class="scen-who">Side B's world: doctor with AI</p>
+    <p>A doctor trained to use AI well gives it the whole case, weighs its answer, and signs off on every diagnosis.</p>
+    <div class="mx-why-grid">
+      <div><p class="mx-why-h">Benefits</p><ul><li>When the person and the AI are set up well, it works: in the MASAI trial (evidence card 3), AI sorting mammograms found 29% more cancers while radiologists did 44% less reading.</li><li>Someone sorts out which facts matter, and someone answers when it goes wrong.</li></ul></div>
+      <div><p class="mx-why-h">Issues</p><ul><li>Access alone didn't help: in <a class="inline" href="https://doi.org/10.1001/jamanetworkopen.2024.40969" target="_blank" rel="noopener">the Goh study</a>, doctors with AI scored 76 against 74 without it. They used it like Google and often ignored it when it disagreed.</li><li>Training costs time and money, and every sign-off is doctor time that patients wait for.</li></ul></div>
+    </div>
+  </div>
+
 
   <h3 class="sub" id="evidence-cards"><span>Your evidence:</span> four pieces, one per number</h3>
   <p>Every side gets all four. If your number hands you evidence that seems to help the other side, that's your job today: find what it means for yours, and what your side would rather nobody noticed.</p>
@@ -1062,14 +1110,14 @@ table.hm{border-collapse:collapse;font-size:.85rem;min-width:520px;width:100%;fo
       <p class="ev-point"><b>In one line:</b> on written-up cases, AI alone scored higher than doctors.</p>
       <div class="ev-stats"><div><b>74</b><span>doctors alone</span></div><div><b>76</b><span>doctors using GPT-4</span></div><div><b>about 90</b><span>GPT-4 alone</span></div></div>
       <ul class="ev-facts">
-        <li><b>The study:</b> Goh and colleagues, <a class="inline" href="https://doi.org/10.1001/jamanetworkopen.2024.40969" target="_blank" rel="noopener">"Large Language Model Influence on Diagnostic Reasoning"</a>, <em>JAMA Network Open</em>, 2024. 50 doctors, up to six hard patient cases written up as summaries, one hour. Scores are percent on a diagnostic reasoning scoresheet.</li>
+        <li><b>The study:</b> Goh and colleagues, <a class="inline" href="https://doi.org/10.1001/jamanetworkopen.2024.40969" target="_blank" rel="noopener">"Large Language Model Influence on Diagnostic Reasoning"</a>, <em>JAMA Network Open</em>, 2024. 50 doctors, up to six hard patient cases written up as summaries, one hour. Every doctor wrote their own answers; half could consult GPT-4 along the way. The researchers also ran GPT-4 alone on the same cases. Scores are percent on a diagnostic reasoning scoresheet. The 2-point gap between 74 and 76 was too small to count as a real difference: access to AI didn't really help the doctors.</li>
         <li><b>Who's citing it:</b> Ezekiel Emanuel (oncologist and bioethicist, Penn), Abe Baker-Butler (research fellow), Neal Khosla (CEO of the AI health company Curai), and Vinod Khosla (an investor in Curai). They disclosed their interests.</li>
-        <li><b>The catch:</b> the study's own authors cautioned against reading it as a reason to let AI diagnose without a doctor.</li>
+        <li><b>Why the doctors with GPT-4 barely improved:</b> in the chat logs, many asked it narrow questions, the way you'd use Google, instead of giving it the whole case, and often stuck with their own answer when it disagreed. <b>The catch:</b> the study's own authors cautioned against reading it as a reason to let AI diagnose without a doctor.</li>
       </ul>
       <p class="ev-src">Chapter 4, <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a></p>
     </div>
     <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate set in 2031, when AI gets diagnoses right 90% of the time or better: should regulators stop requiring a doctor to sign off on an AI's diagnosis? I'm on Side [A: yes, for diagnosis / B: no, keep the doctor in the loop]. My evidence is the JAMA viewpoint from August 2026, which argues regulators should stop requiring a doctor in the loop for diagnosis, and the 2024 JAMA Network Open study it relies on, where doctors alone scored 74, doctors using GPT-4 scored 76, and GPT-4 alone scored about 90 on hard written-up cases. Two of the four authors run or fund an AI health company. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+    <div class="ev-prompt">I'm in a class debate set in 2031, when AI gets diagnoses right 90% of the time or better: should regulators stop requiring a doctor to sign off on an AI's diagnosis? I'm on Side [A: AI alone / B: doctor with AI]. My evidence is the JAMA viewpoint from August 2026, which argues regulators should stop requiring a doctor in the loop for diagnosis, and the 2024 JAMA Network Open study it relies on, where doctors alone scored 74, doctors using GPT-4 scored 76, and GPT-4 alone scored about 90 on hard written-up cases. Two of the four authors run or fund an AI health company. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
   </div>
   <div class="probe ev">
     <div class="pwhy">Evidence 2 &middot; The pushback</div>
@@ -1078,13 +1126,13 @@ table.hm{border-collapse:collapse;font-size:.85rem;min-width:520px;width:100%;fo
       <ul class="ev-facts">
         <li><b>The doctors' groups:</b> six of them, including the American Medical Association, said most of the evidence comes from written-up practice cases, not real patients in real hospitals.</li>
         <li><b>Robert Wachter</b> (runs UCSF's department of medicine, advises Curai) agreed that given a clean set of facts, the AI often wins. Then he named two problems:</li>
-        <li><b>Garbage in, garbage out:</b> the 90 was scored on cases a doctor had already boiled down. In an Oxford study, when ordinary people described the same cases in their own words, the AI made the wrong call about two-thirds of the time.</li>
+        <li><b>Garbage in, garbage out:</b> the 90 was scored on cases a doctor had already boiled down. In an Oxford study, the AI alone named the right condition about 95% of the time, but when ordinary people used it and described the cases in their own words, they got the right condition only about a third of the time.</li>
         <li><b>The doorman fallacy:</b> a person does a dozen other things that only look unimportant until you remove them.</li>
       </ul>
       <p class="ev-src">Chapter 4, <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a></p>
     </div>
     <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate set in 2031, when AI gets diagnoses right 90% of the time or better: should regulators stop requiring a doctor to sign off on an AI's diagnosis? I'm on Side [A: yes, for diagnosis / B: no, keep the doctor in the loop]. My evidence is the pushback to the JAMA viewpoint: six doctors' groups including the AMA said the evidence is mostly simulated cases, and Robert Wachter of UCSF argued the AI's high score came from cases a doctor had already boiled down. In an Oxford study, when ordinary people described the cases in their own words, the AI made the wrong call about two-thirds of the time. He also named the doorman fallacy. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+    <div class="ev-prompt">I'm in a class debate set in 2031, when AI gets diagnoses right 90% of the time or better: should regulators stop requiring a doctor to sign off on an AI's diagnosis? I'm on Side [A: AI alone / B: doctor with AI]. My evidence is the pushback to the JAMA viewpoint: six doctors' groups including the AMA said the evidence is mostly simulated cases, and Robert Wachter of UCSF argued the AI's high score came from cases a doctor had already boiled down. In an Oxford study, the AI alone named the right condition about 95% of the time, but when ordinary people used it and described the cases in their own words, they got the right condition only about a third of the time. He also named the doorman fallacy. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
   </div>
   <div class="probe ev">
     <div class="pwhy">Evidence 3 &middot; Three hospital trials</div>
@@ -1101,7 +1149,7 @@ table.hm{border-collapse:collapse;font-size:.85rem;min-width:520px;width:100%;fo
       <p class="ev-src">Chapter 4, Table 3 in <a class="inline" href="chapter-04-medicine.html#s2-5">section 2.5</a></p>
     </div>
     <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate set in 2031, when AI gets diagnoses right 90% of the time or better: should regulators stop requiring a doctor to sign off on an AI's diagnosis? I'm on Side [A: yes, for diagnosis / B: no, keep the doctor in the loop]. My evidence is three randomized hospital trials that moved the human on purpose: MASAI in Sweden, where moving a radiologist on the loop found 29 percent more cancers with 44 percent less reading work; a fetal ultrasound trial in China, where an AI used live beside the sonographer beat the same AI used afterward; and PROMETHEUS in England, where scans got faster but accuracy didn't measurably change. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+    <div class="ev-prompt">I'm in a class debate set in 2031, when AI gets diagnoses right 90% of the time or better: should regulators stop requiring a doctor to sign off on an AI's diagnosis? I'm on Side [A: AI alone / B: doctor with AI]. My evidence is three randomized hospital trials that moved the human on purpose: MASAI in Sweden, where moving a radiologist on the loop found 29 percent more cancers with 44 percent less reading work; a fetal ultrasound trial in China, where an AI used live beside the sonographer beat the same AI used afterward; and PROMETHEUS in England, where scans got faster but accuracy didn't measurably change. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
   </div>
   <div class="probe ev">
     <div class="pwhy">Evidence 4 &middot; Every Cure's human gate</div>
@@ -1116,7 +1164,7 @@ table.hm{border-collapse:collapse;font-size:.85rem;min-width:520px;width:100%;fo
       <p class="ev-src">Chapter 4, <a class="inline" href="chapter-04-medicine.html#s3">section 3</a></p>
     </div>
     <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate set in 2031, when AI gets diagnoses right 90% of the time or better: should regulators stop requiring a doctor to sign off on an AI's diagnosis? I'm on Side [A: yes, for diagnosis / B: no, keep the doctor in the loop]. My evidence is Every Cure's MATRIX, a knowledge graph that ranks old drugs for new diseases. Every match goes through people before it reaches a patient. In the case of Joseph, a patient with POEMS syndrome, the doctor had already thought of the drugs the ranking agreed with, and doctors who knew him made the call to treat. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+    <div class="ev-prompt">I'm in a class debate set in 2031, when AI gets diagnoses right 90% of the time or better: should regulators stop requiring a doctor to sign off on an AI's diagnosis? I'm on Side [A: AI alone / B: doctor with AI]. My evidence is Every Cure's MATRIX, a knowledge graph that ranks old drugs for new diseases. Every match goes through people before it reaches a patient. In the case of Joseph, a patient with POEMS syndrome, the doctor had already thought of the drugs the ranking agreed with, and doctors who knew him made the call to treat. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
   </div>
 
   <div class="callout">
@@ -1174,10 +1222,10 @@ table.hm{border-collapse:collapse;font-size:.85rem;min-width:520px;width:100%;fo
   <div class="shead"><span class="num">6</span><h2>For homework: The writeup</h2></div>
   <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, October 16.</strong> Answer them as you go today. Written reflections, no screenshots.</p>
   <ol class="writeup">
-      <li><strong>The knowledge graph.</strong> In your own words, explain what a knowledge graph is and how yours answered a question. Use two examples from today: a question where two things connected but only one helped, and how the graph told them apart, and what happened to the hair-loss answer when you removed one sentence.</li>
-      <li><strong>The doctor in the loop.</strong> How many bad suggestions did you approve, and how many good ones did you overrule? Did you press Approve all? Pick one patient you got wrong, or almost got wrong, and say what would have made you catch it. Then name what that fix would cost in a real hospital.</li>
-      <li><strong>The debate.</strong> Which side were you handed, and what was the other side's best point? Name the specific evidence that would change your mind about whether a doctor should sign off on an AI's diagnosis. Did Claude's pushback find the weak spot in your case before the other side did?</li>
-      <li><strong>Your sentences.</strong> The true sentence and the false sentence you fed it, and what it did with each. Then section 3: was Claude's message right about the data box, did the study you checked exist, and would you have sent it to your boss as is? (No-AI path: your answer on whether Every Cure's use of AI is a good one.) One sentence on what both mean for a system like MATRIX, or Claude, reading millions of sentences nobody checks one by one.</li>
+      <li><strong>The knowledge graph.</strong> In your own words, explain what a knowledge graph is and how yours answered a question. Use three moments from section 1: a question where two things connected but only one helped, and how the graph told them apart; what happened to the hair-loss answer when you removed one sentence; and what your chatbot did with "Candy reduces pain." What does that last one mean for MATRIX, built from millions of sentences nobody checks one by one?</li>
+      <li><strong>The doctor in the loop.</strong> Chapter 4 names three places a person can stand: in the loop, on the loop, or out of it. Your shift started in the loop. How many bad suggestions did you approve, and how many good ones did you overrule? If you pressed Approve all, which setting did that turn your shift into? Then pick the failure you came closest to, <strong>automation bias</strong> or <strong>algorithmic aversion</strong>, and explain it with one patient. What would have made you catch it, and what would that fix cost a real hospital?</li>
+      <li><strong>The real scores.</strong> Compare the fact counts for POEMS and iMCD in the data box. Why is one record thick and the other thin, and what does a thin record do to the scores? Use carfilzomib or siltuximab to explain what a low score can mean besides "this drug won't work." Then the checking: did any reason Claude marked "from your data" fail when you checked it against the data box, did the study you looked up exist, and would you have sent Claude's message to your boss as is? If you built the chatbot, what did it do with the lead scientist's minoxidil claim? (No-AI path: your answer on whether Every Cure's use of AI is a good one, backed by the fact counts or one of the rankings.)</li>
+      <li><strong>The debate.</strong> Which side were you handed, AI alone or doctor with AI, and what was the other side's best point? Name the specific evidence that would change your mind about whether a doctor should have to sign off on an AI's diagnosis in 2031. Did Claude's pushback find the weak spot in your case before the other side did?</li>
       <li><strong>Your commitment card.</strong> Pick a setting you know: a classroom, a job you've had, a team, a store, anything. Imagine an AI could do the main thinking part of that work better than the people there. What is the person still for? Name one thing, say why an AI shouldn't take it over, and what it costs to keep a person doing it. Three sentences. Hold onto it: Chapter 7 asks the same question about a car.</li>
   </ol>
   <div class="callout">
