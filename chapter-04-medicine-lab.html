@@ -701,6 +701,10 @@ table.hm{border-collapse:collapse;font-size:.85rem;min-width:520px;width:100%;fo
 /* ---- the three simulators get a pink frame ---- */
 #kg,#mx{border:2px solid var(--pinktext)}
 #dl{border:2px solid #1F3A5F}
+.printbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 6px;font-size:.9rem;color:var(--gray)}
+.printbar a.slidebtn{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border-radius:6px;text-decoration:none}
+.printbar a.slidebtn:hover{background:#242C36}
+.printbar a.slidebtn:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -755,6 +759,9 @@ table.hm{border-collapse:collapse;font-size:.85rem;min-width:520px;width:100%;fo
 </header>
 
 <main class="wrap">
+<div class="printbar">
+  <a class="slidebtn" href="slides/week04-wed.pdf">Wednesday slides (PDF)</a>
+</div>
 
 <div class="callout">
   <div class="label">From Chapter 4 · what this lab runs on</div>
@@ -1055,7 +1062,7 @@ table.hm{border-collapse:collapse;font-size:.85rem;min-width:520px;width:100%;fo
       <p class="ev-point"><b>In one line:</b> on written-up cases, AI alone scored higher than doctors.</p>
       <div class="ev-stats"><div><b>74</b><span>doctors alone</span></div><div><b>76</b><span>doctors using GPT-4</span></div><div><b>about 90</b><span>GPT-4 alone</span></div></div>
       <ul class="ev-facts">
-        <li><b>The study:</b> 2024, <em>JAMA Network Open</em>. 50 doctors, up to six hard patient cases written up as summaries, one hour. Scores are percent on a diagnostic reasoning scoresheet.</li>
+        <li><b>The study:</b> Goh and colleagues, <a class="inline" href="https://doi.org/10.1001/jamanetworkopen.2024.40969" target="_blank" rel="noopener">"Large Language Model Influence on Diagnostic Reasoning"</a>, <em>JAMA Network Open</em>, 2024. 50 doctors, up to six hard patient cases written up as summaries, one hour. Scores are percent on a diagnostic reasoning scoresheet.</li>
         <li><b>Who's citing it:</b> Ezekiel Emanuel (oncologist and bioethicist, Penn), Abe Baker-Butler (research fellow), Neal Khosla (CEO of the AI health company Curai), and Vinod Khosla (an investor in Curai). They disclosed their interests.</li>
         <li><b>The catch:</b> the study's own authors cautioned against reading it as a reason to let AI diagnose without a doctor.</li>
       </ul>
