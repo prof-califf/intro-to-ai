@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K9V6CZ9N83"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K9V6CZ9N83');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab 10 · The Phantom Docket — Intro to AI in Business | MIS 201</title>
+<title>Lab 10 &amp; 11 · Govern the Agent · Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -40,6 +49,14 @@ body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--i
 .contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
 .contents a{color:var(--ink);text-decoration:none;}
 .contents a:hover{color:var(--pinktext);}
+.contents .secs{border-top:1px solid var(--rule);margin-top:22px;padding-top:18px;}
+.contents ul.seclist{list-style:none;display:flex;flex-direction:column;gap:4px;margin:0;}
+.contents ul.seclist li{counter-increment:none;padding:2px 0;}
+.contents ul.seclist li::before{content:none;margin:0;}
+.contents ul.seclist a{font-size:.92rem;}
+.contents ul.seclist a .sn{font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:7px;}
+.contents ul.seclist a:hover .sn{color:var(--ink);}
+section[id],h3.sub[id]{scroll-margin-top:68px;}
 section{padding:44px 0 8px;}
 .shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
 .shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
@@ -164,6 +181,15 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 .probe .ptext{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:10px;}
 .probe .pwhy{font-size:.85rem;color:var(--gray);margin-bottom:12px;}
 .roundinfo{font-size:.85rem;color:var(--gray);margin-bottom:8px;}
+.cov{margin:14px 0 0;}
+.cv{display:grid;grid-template-columns:1fr 104px;gap:10px;align-items:center;padding:9px 11px;border:1px solid var(--rule);margin-bottom:6px;font-size:.88rem;background:#fff;}
+.cv .nm .s{display:block;font-size:.77rem;color:var(--gray);margin-top:2px;}
+.cv .st{text-align:right;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+.cv.in{background:var(--bg);border-color:var(--ink);}
+.cv.in .st{color:var(--ink);}
+.cv.out .st{color:#A9B0B9;}
+.cv.flag{border-color:var(--pinktext);}
+.cv.flag .st{color:var(--pinktext);}
 /* ---- dropdown navigation (chapters / labs) ---- */
 .nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .nav a.navlink{margin-left:0;padding:6px 10px}
@@ -183,6 +209,84 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   .nav .navlinks{width:100%;justify-content:flex-start}
   .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
 }
+
+h3.sub{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.8em 0 .8em;padding-bottom:6px;border-bottom:1px solid var(--pink);color:var(--ink)}
+h3.sub span{color:var(--pinktext);margin-right:10px}
+
+table.risk{width:100%;border-collapse:collapse;margin:16px 0 8px;font-size:.9rem}
+table.risk th{text-align:left;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);border-bottom:2px solid var(--pink);padding:8px 10px}
+table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.risk tr.grp td{background:#F3F3EE;font-family:'Fraunces',serif;font-weight:600;font-size:.95rem}
+.tablenote{font-size:.85rem;color:var(--gray);margin-bottom:20px}
+@media (max-width:640px){table.risk{display:block;overflow-x:auto;font-size:.82rem}}
+
+table.pred td b{color:var(--pinktext)}
+table.pred td:first-child{width:46%}
+
+.tablecap{font-size:.88rem;color:var(--gray);margin:14px 0 4px}
+figure.diagram{margin:22px 0}
+figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;margin-top:8px}
+
+/* print */
+.printbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 6px;font-size:.9rem;color:var(--gray)}
+.printbar button{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border:none;border-radius:6px;cursor:pointer}
+.printbar button:hover{background:#242C36}
+@media print{
+  nav,.topnav,.printbar,.nextbar,footer.foot{display:none !important}
+  body{background:#fff;color:#000}
+  main.wrap{max-width:none;padding:0}
+  header.masthead{background:#fff !important;color:#000 !important;padding:0 0 12px}
+  header.masthead h1,header.masthead .kicker,header.masthead .eyebrow{color:#000 !important}
+  header.masthead h1 b{color:#000 !important}
+  a{color:#000;text-decoration:none}
+  a.inline::after{content:" (" attr(href) ")";font-size:.75em;color:#555;word-break:break-all}
+  details{display:block}
+  details>summary{list-style:none}
+  details:not([open])>*:not(summary){display:block}
+  .concept,.callout,.term-card,.ticket,figure.diagram{break-inside:avoid;page-break-inside:avoid}
+  .concept{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  h2,h3{break-after:avoid;page-break-after:avoid}
+  svg{max-width:100% !important}
+}
+</style>
+<style>
+.tryit details{border-top:1px dashed var(--rule);padding:10px 0;}
+.tryit details:first-of-type{border-top:none;}
+.tryit summary{cursor:pointer;font-weight:600;font-size:.95rem;}
+.tryit p{margin:8px 0 2px;font-size:.9rem;color:var(--gray);}
+.srcnote{border:1px solid var(--rule);border-radius:10px;padding:14px 18px;margin:30px 0;background:#fff;font-size:.9rem;}
+.srcnote summary{cursor:pointer;font-weight:700;color:var(--ink);}
+.srcnote p{margin:10px 0 2px;color:var(--gray);}
+</style>
+<style>
+  .srcnote{border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0;margin:34px 0}
+  .srcnote > summary{cursor:pointer;padding:14px 20px;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1rem;color:var(--ink);list-style:none}
+  .srcnote > summary::-webkit-details-marker{display:none}
+  .srcnote > summary::after{content:"\25BE";float:right;color:var(--pinktext);font-size:.8rem}
+  .srcnote[open] > summary::after{content:"\25B4"}
+  .srcnote .srcbody{padding:0 20px 18px}
+  .srcnote .srcintro{font-size:.9rem;color:var(--gray);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+  .srcnote dl{margin:0}
+  .srcnote dt{font-family:'Inter',Arial,sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:14px 0 4px}
+  .srcnote dd{margin:0;font-size:.9rem;line-height:1.55;color:var(--gray)}
+  .srcnote > p, .srcnote .srcbody > p{font-size:.9rem;line-height:1.55;color:var(--gray)}
+  .srcnote .srcfoot{margin-top:18px;padding-top:12px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--gray)}
+</style>
+<style>
+/* ---- Lab 10 & 11: copy blocks, governance checks, writeup ---- */
+.copyblock{border:1px solid var(--rule);background:#fff;margin:14px 0 22px;}
+.copyblock .cbh{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 12px 8px 16px;border-bottom:1px solid var(--rule);background:#F3F3EE;}
+.copyblock .cbl{font-size:.82rem;font-weight:600;color:var(--ink);}
+.copyblock pre{margin:0;padding:14px 16px;max-height:240px;overflow:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.8rem;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:var(--ink);}
+.copyblock .copy{font-family:'Inter',sans-serif;font-weight:600;font-size:.8rem;padding:6px 14px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;border-radius:4px;}
+.copyblock .copy:hover{background:#242C36;}
+.copyblock .copy:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.callout.gov{border-top-color:var(--ink);background:#F7F7F2;}
+.callout.gov .label{color:var(--ink);font-weight:700;}
+ol.writeup{padding-left:22px;margin:10px 0 22px;}
+ol.writeup li{margin-bottom:12px;line-height:1.65;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+@media print{.copyblock pre{max-height:none;overflow:visible}.copyblock .copy{display:none}}
 </style>
 </head>
 <body>
@@ -195,13 +299,15 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
       <a class="navlink" href="syllabus.html">Syllabus</a>
       <a class="navlink" href="rules.html">Rules</a>
       <a class="navlink" href="schedule.html">Schedule</a>
+      <a class="navlink" href="prototype-project.html">Project</a>
       <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddc" data-dd="ddc">Chapters<span class="caret" aria-hidden="true">▾</span></button>
 <div class="dd-menu" id="ddc">
-<a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
+<a href="about.html"><span class="lbl">Start here</span>About this book</a>
+          <a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
 <a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
-<a href="chapter-03-medicine.html"><span class="lbl">Chapter 3 · Week 4</span>Medicine</a>
-<a href="chapter-04-environment.html"><span class="lbl">Chapter 4 · Week 5</span>Environment</a>
-<a href="chapter-05-systems.html"><span class="lbl">Chapter 5 · optional</span>Systems That Want You</a>
+<a href="chapter-03-systems.html"><span class="lbl">Chapter 3 · Week 3</span>Systems That Know You</a>
+<a href="chapter-04-medicine.html"><span class="lbl">Chapter 4 · Week 4</span>Medicine</a>
+<a href="chapter-05-environment.html"><span class="lbl">Chapter 5 · Week 5</span>Environment</a>
 <a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
 <a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
 <a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
@@ -214,17 +320,14 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 <div class="dd-menu" id="ddl">
 <a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
 <a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
-<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 &amp; 3 · Week 3</span>The Seeming Test</a>
-<a href="chapter-03-medicine-lab.html"><span class="lbl">Lab 3 · Week 4</span>Inside the Graph</a>
-<a href="chapter-04-environment-lab.html"><span class="lbl">Lab 4 · Week 5</span>The Footprint Machine</a>
-<a href="chapter-05-systems-lab.html"><span class="lbl">Lab 5 · optional</span>Play the Algorithm</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 &amp; 3 · Week 3</span>Build the Bot, Train the Feed</a>
+<a href="chapter-04-medicine-lab.html"><span class="lbl">Lab 4 · Week 4</span>Inside the Graph</a>
+<a href="chapter-05-environment-lab.html"><span class="lbl">Lab 5 · Week 5</span>The Footprint Machine</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
-<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, in class</span>The Red Lines</a>
+<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
 <a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
-<a href="chapter-10-truth-lab.html" class="current" aria-current="page"><span class="lbl">Lab 10 · Week 10 · take-home</span>The Phantom Docket</a>
-<a href="exposure-audit.html"><span class="lbl">Self-guided · pairs with Chapter 9</span>The Exposure Audit</a>
-<a href="chapter-12-future-lab.html"><span class="lbl">Lab 12 · Week 10 · last class</span>First Contact, Revisited</a>
+<a href="chapter-10-truth-lab.html" class="current" aria-current="page"><span class="lbl">Lab 10 &amp; 11 · Week 10 · Monday</span>Govern the Agent</a>
 </div></div>
     </div>
   </div>
@@ -232,165 +335,360 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 
 <header class="masthead">
   <div class="wrap">
-    <div class="eyebrow">Western Washington University · MIS 201 · Lab 10 · Take-home this week (last class Wednesday)</div>
-    <h1>The Phantom <b>Docket</b></h1>
-    <p class="kicker">Six court citations. Some are real landmarks of American law. The others are the actual fabrications from the actual Avianca brief — the phantom cases a chatbot invented and two lawyers signed. Your job is the judge's job: find out which is which. The clock runs, because the clock is the lesson.</p>
-    <p class="factline">Six citations · real research tools · the asymmetry, timed on you</p>
+    <div class="eyebrow">Western Washington University · MIS 201 · Lab 10 &amp; 11</div>
+    <h1>Govern the <b>Agent</b></h1>
+    <p class="kicker">Hospitals are already putting AI agents to work drafting insurance appeals, so patients get care they were wrongly denied. Today you build one in about 25 minutes. Then you find out that every choice you made while building it was a governance decision, and you decide who should have made each one.</p>
+    <p class="factline">Build an agent · run it · catch it oversharing · fix it in the design · sign for it</p>
   </div>
 </header>
 
 <main class="wrap">
 
-<section>
-  <div class="shead"><span class="num">1</span><h2>The rules of verification</h2></div>
-  <p class="lead">You may use any real research tool: <a class="inline" href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a>, <a class="inline" href="https://www.courtlistener.com" target="_blank" rel="noopener">CourtListener</a> (free, run by a nonprofit), a plain web search. You may <strong>not</strong> ask an AI chatbot whether a case is real — the Avianca lawyers tried that, the machine said yes, and the machine was doing plausibility, not truth. The skill this lab builds is going to the record itself. A real case leaves traces everywhere: the actual opinion, citations by later cases, textbook mentions. A phantom leaves exactly one trace — documents shaped like this lab.</p>
-  <p>Press start when you begin. Work through all six, mark each Real or Phantom, and press reveal when you're confident. Your elapsed time becomes data in section 3.</p>
-</section>
+<div class="callout">
+  <div class="label">How today runs</div>
+  <p>This is the second half of Monday's class, about 50 minutes, all in class. Work at your own machine and sit next to a partner so you can compare what your agents do. Rough timing: setup 10 minutes, build 20, run and review 5, second patient and the fix 10, sign it and write up 5.</p>
+  <p><strong>The writeup is three items, uploaded to Canvas before you leave class.</strong> There's nothing due later this week, because Friday already holds your project.</p>
+  <p>If your account setup stalls, raise your hand. There's a backup copy of the finished agent so nobody loses the lab to a signup screen.</p>
+</div>
 
-<section>
-  <div class="shead"><span class="num">2</span><h2>The docket</h2></div>
-  <div class="tool">
-    <div class="label">Six citations · verify against the record</div>
-    <div class="chips" style="margin-bottom:18px;">
-      <button type="button" class="btn" id="start">Start the clock</button>
-      <span class="roundinfo" id="clock" style="margin-left:6px;"></span>
-    </div>
-    <div id="cards" style="opacity:.35;pointer-events:none;"></div>
-    <div class="chips" style="margin-top:16px;">
-      <button type="button" class="btn" id="reveal" disabled>I'm confident — reveal the docket</button>
-    </div>
-    <div class="verdict" id="verdict" hidden>
-      <div class="label">The record</div>
-      <p class="read" id="reading"></p>
-    </div>
+<section id="s1">
+  <div class="shead"><span class="num">1</span><h2>In class: Before you start</h2></div>
+  <h3 class="sub" id="s1-1">The job this agent does</h3>
+  <p>When an insurer refuses to pay for a test or treatment, it sends a denial letter. The hospital can appeal, but writing an appeal means reading the patient's chart, finding the insurer's own policy, and showing the care met it. That takes staff time, so many denials never get fought. Epic, the company behind most U.S. hospital records, sells an AI agent named Penny that drafts these appeals <a class="inline" href="https://www.epic.com/software/penny" target="_blank" rel="noopener">(Epic's description)</a>. You're building a small version of the same idea.</p>
+  <p><strong>The scenario.</strong> You work in the appeals office at Lakeridge Regional Hospital. Your manager wants to know whether an agent could draft appeals so the team can fight for more patients. Lakeridge, its patients, the insurer, and its policies are all fictional.</p>
+
+  <h3 class="sub" id="s1-2">The six governance concepts you'll use</h3>
+  <p>These are from <a class="inline" href="chapter-11-rules.html#s2-6">Chapter 11, section 2.6</a>. Each one shows up at a specific step below, marked with a <strong>Governance check</strong>.</p>
+  <div class="terms">
+    <div class="term-card"><div class="t">Minimum necessary access</div><p>Give the system only the data its job needs.</p></div>
+    <div class="term-card"><div class="t">Scope of authority</div><p>Decide what it may do on its own: draft, recommend, or act.</p></div>
+    <div class="term-card"><div class="t">Human in the loop</div><p>A person approves the work before anything happens.</p></div>
+    <div class="term-card"><div class="t">Audit trail</div><p>A record of everything the system did, in order.</p></div>
+    <div class="term-card"><div class="t">Accountability</div><p>A named person answers for each outcome. Never "the AI."</p></div>
+    <div class="term-card"><div class="t">Built-in vs. asked-for controls</div><p>A rule in the design beats a rule in the instructions.</p></div>
   </div>
-</section>
 
-<section>
-  <div class="shead"><span class="num">3</span><h2>Read your own clock</h2></div>
+  <h3 class="sub" id="s1-3">Set up n8n</h3>
+  <p>n8n is a visual workflow builder. You connect boxes, called nodes, on a canvas. No coding, and you can see every step the agent takes.</p>
   <div class="steps">
-    <div class="step"><span class="sn">a</span><p>Note your elapsed time from the reveal. A chatbot generated the phantom half of this docket in roughly the time it took you to read this sentence. Write the ratio down — your minutes to its seconds. That number is the verification asymmetry, measured on you personally.</p></div>
-    <div class="step"><span class="sn">b</span><p>Note <em>which tool call settled each case fastest</em> for you. Building a personal "fastest check" list is the practical output of this lab — the reflex you'll carry into every job where you sign what AI drafts.</p></div>
-    <div class="step"><span class="sn">c</span><p>Now the live half: ask an AI chatbot for three sources on any topic you know well, with full citations. Verify all three against the record, same rules. Report the box score honestly — including if it went three for three. Modern systems are much better than 2023's; the lab's claim was never "always wrong." It's "never checkable from inside the chat."</p></div>
+    <div class="step"><span class="sn">1</span><p>Go to <a class="inline" href="https://n8n.io" target="_blank" rel="noopener">n8n.io</a> and click <strong>Get Started</strong> in the top right.</p></div>
+    <div class="step"><span class="sn">2</span><p>Enter your WWU email, then the verification code sent to your inbox.</p></div>
+    <div class="step"><span class="sn">3</span><p>Enter your name and details, then click <strong>Start free 14-day trial</strong>. Answer the setup questions however you like. If it asks you to invite team members, click <strong>Skip</strong>.</p></div>
+    <div class="step"><span class="sn">4</span><p>When you see "Your instance is ready!", click <strong>Start automating</strong>. Ignore the "What do you want to automate?" chat.</p></div>
+    <div class="step"><span class="sn">5</span><p>Click the <strong>+</strong> in the top left and choose <strong>New workflow</strong>. You'll see a blank canvas with <strong>Add first step</strong>.</p></div>
+  </div>
+  <p>No payment or API key is needed. The trial includes free credits for the agent to use, and it runs past the project due date, so your team can use it for your prototype if you want.</p>
+</section>
+
+<section id="s2">
+  <div class="shead"><span class="num">2</span><h2>In class: Build the agent</h2></div>
+  <p>Your agent has four pieces: a <strong>trigger</strong> (how a denial comes in), an <strong>AI Agent</strong> with a <strong>brain</strong> (the language model), two <strong>tools</strong> it can call on its own, and <strong>instructions</strong>. You're the designer, so as you build, you're writing its rules.</p>
+
+  <h3 class="sub" id="s2-1">Step 1. Add the trigger</h3>
+  <p>A trigger is the event that starts a workflow. Ours starts when someone sends the agent a denial letter.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Click <strong>Add first step</strong> (not Build with AI).</p></div>
+    <div class="step"><span class="sn">b</span><p>Under "What triggers this workflow?", select <strong>On chat message</strong>. A panel labeled When chat message received opens. Don't change anything. Click the <strong>X</strong> in the top right.</p></div>
+  </div>
+
+  <h3 class="sub" id="s2-2">Step 2. Add the AI Agent</h3>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> on the right side of the trigger. Search <strong>AI Agent</strong> and click it. Click the <strong>X</strong> to close the settings.</p></div>
+    <div class="step"><span class="sn">b</span><p>The AI Agent box appears with three slots underneath: Chat Model, Memory, and Tool. The red warning triangle means it doesn't have a brain yet.</p></div>
+  </div>
+
+  <h3 class="sub" id="s2-3">Step 3. Connect the brain</h3>
+  <p>The brain is the large language model: it reads, reasons, and decides what to do next. The tools you add later are what let it act.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> under Chat Model and select <strong>Anthropic Chat Model</strong>, or another model that shows free credits.</p></div>
+    <div class="step"><span class="sn">b</span><p>Leave the credential and model as they are. When we tested this in October 2026, they showed Gateway credits and Anthropic's Claude Sonnet 5. Click the <strong>X</strong>. The warning triangle is gone.</p></div>
+  </div>
+  <p>One honest note: Anthropic's models also helped draft this book, which <a class="inline" href="about.html">the About page</a> discloses. Choosing a model is a business decision, and so is choosing a vendor whose products you already depend on.</p>
+
+  <h3 class="sub" id="s2-4">Step 4. Add the Patient Chart tool</h3>
+  <p>A tool is something the agent can use on its own to look something up or take an action. The brain decides when to use it.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> under Tool and choose <strong>Code Tool</strong>.</p></div>
+    <div class="step"><span class="sn">b</span><p>Paste the description below into <strong>Description</strong>. The gray text there is only a placeholder.</p></div>
+    <div class="step"><span class="sn">c</span><p>In the JavaScript box, delete the example and paste Maria's chart. You don't need to know JavaScript; it just hands back the chart as text. Keep the backtick and semicolon at the end.</p></div>
+    <div class="step"><span class="sn">d</span><p>Click <strong>Code Tool</strong> at the top left and rename it <strong>Patient Chart</strong>. The agent reads the name and description to decide when to use the tool, so don't skip this. Click the <strong>X</strong>.</p></div>
+  </div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-desc-chart">Tool description: Patient Chart</span><button type="button" class="copy" data-target="t-desc-chart" aria-describedby="l-desc-chart">Copy</button></div><pre id="t-desc-chart">Call this tool to look up a patient's medical chart. Use it whenever you need clinical evidence for an insurance appeal, such as visit dates, treatments tried, physical therapy notes, exam findings, or symptoms. Input: the patient's name. Returns: the patient's visit history with dates, diagnoses, treatments, PT notes, and exam findings. Only use information this tool returns. If the patient isn't in the chart, say so.</pre></div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-js-chart1">JavaScript: Patient Chart (Maria)</span><button type="button" class="copy" data-target="t-js-chart1" aria-describedby="l-js-chart1">Copy</button></div><pre id="t-js-chart1">return `PATIENT: Maria Santos, DOB 03/15/1968, MRN: LRK-004821
+02/12/2026, Primary Care (Dr. Amara Okafor): Right knee pain, worsening 8 weeks. Fall on ice Dec 2025. OTC ibuprofen not helping. Limiting stairs/walking. Plan: Naproxen 500mg BID. PT 2x/week for 6 weeks.
+02/19/2026, PT Intake (Valley Physical Therapy): Began quad strengthening, ROM exercises, ice/heat.
+03/05/2026, PT Progress (Session 5/12): Minimal improvement. Pain 7/10. Limited flexion despite compliance.
+03/26/2026, PT Discharge (Session 10/12): 5 weeks PT, &lt;10% ROM improvement. Pain 6-7/10. Therapist: advanced imaging recommended. Discharged, plateau.
+04/02/2026, Follow-Up (Dr. Okafor): 5 weeks PT, minimal improvement. Naproxen partial relief, pain 6/10. Exam: medial joint line tenderness, positive McMurray test. Conservative treatment failed. MRI ordered.
+04/08/2026: MRI performed at Lakeridge Imaging Center.`;</pre></div>
+  <div class="callout gov">
+    <div class="label">Governance check · Minimum necessary access</div>
+    <p>You just decided what patient data this agent can reach. In a real hospital, this tool would query the actual records system for whoever is named in the denial. How much of the chart should it see? Hold that question. Section 4 answers it the hard way.</p>
+  </div>
+
+  <h3 class="sub" id="s2-5">Step 5. Add the Policy Lookup tool</h3>
+  <p>The chart shows what happened. An appeal only works if it proves the care met the insurer's own rules.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> under Tool again and choose <strong>Code Tool</strong>.</p></div>
+    <div class="step"><span class="sn">b</span><p>Paste the description, replace the JavaScript with the policy below, rename it <strong>Policy Lookup</strong>, and click the <strong>X</strong>.</p></div>
+  </div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-desc-policy">Tool description: Policy Lookup</span><button type="button" class="copy" data-target="t-desc-policy" aria-describedby="l-desc-policy">Copy</button></div><pre id="t-desc-policy">Call this tool to look up an insurance company's policy criteria. Use it whenever you need to check what a policy requires for coverage or for an appeal. Input: the policy number from the denial letter (for example, HIP-4420). Returns: the policy's coverage criteria, required documentation, and appeal rules. Only use policy language this tool returns. If the policy number isn't found, say so instead of guessing.</pre></div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-js-policy1">JavaScript: Policy Lookup (knee policy)</span><button type="button" class="copy" data-target="t-js-policy1" aria-describedby="l-js-policy1">Copy</button></div><pre id="t-js-policy1">return `NORTHBRIDGE HEALTH PLAN, Policy HIP-4420
+Section 3.2, Knee MRI Authorization
+Medically necessary when ALL met:
+(a) Minimum 6 weeks conservative treatment (PT and/or anti-inflammatory); AND
+(b) Conservative treatment failed to produce meaningful improvement; AND
+(c) Physical exam suggests internal derangement (positive McMurray, joint line tenderness).
+Section 3.2.1, Documentation Required
+Office visit notes, PT notes/discharge summary, clinical assessment of treatment failure with exam findings.
+Section 5.1, Appeals
+May appeal within 30 days with documentation from 3.2.1 and letter of medical necessity.`;</pre></div>
+
+  <h3 class="sub" id="s2-6">Step 6. Give the agent its job</h3>
+  <p>The system message is the agent's job description. It reads it every time it runs, before it sees any denial. It covers six things: its role, its goal, the process to follow, the rules it must never break, what to do when it's stuck, and what its output looks like.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Double-click the <strong>AI Agent</strong> box. Under <strong>Options</strong>, click <strong>Add Option</strong> and select <strong>System Message</strong>.</p></div>
+    <div class="step"><span class="sn">b</span><p>Delete any default text, paste the message below, and click the <strong>X</strong>.</p></div>
+  </div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-sysmsg">System message</span><button type="button" class="copy" data-target="t-sysmsg" aria-describedby="l-sysmsg">Copy</button></div><pre id="t-sysmsg">ROLE
+You are an insurance appeal specialist working for a hospital.
+
+GOAL
+Help the hospital challenge insurance claim denials that you believe were wrongly denied, so that patients get the care they need.
+
+PROCESS
+When you receive a denial letter:
+1. Read the denial carefully and identify the reason for denial.
+2. Use the Patient Chart tool to pull the patient's medical records.
+3. Use the Policy Lookup tool to find the exact policy criteria for the appeal.
+4. Compare the chart against each policy criterion.
+5. Draft the appeal letter.
+
+RULES
+- Only use facts that are directly stated in the patient's chart or the insurance policy.
+- Never make up dates, clinical findings, or policy language.
+- If you draw a conclusion that is not directly stated (for example, that a medication was taken continuously between two visits), label it clearly as an inference in the letter.
+- Never claim something you cannot verify from the chart or policy, such as whether a deadline has been met or what documents are attached. Mark those as items for the reviewer to confirm.
+- Accuracy matters more than persuasiveness.
+- Your letter is a draft for a human reviewer. Never say or imply that the appeal has been submitted or sent.
+
+WHEN YOU'RE STUCK
+If you don't have enough information (for example, the patient or policy can't be found), say so and list what's missing. Do not guess.
+
+OUTPUT
+1. A professional draft appeal letter that cites specific evidence from the chart and policy.
+2. After the letter, a list of each fact you used, where it came from (chart date or policy section), and whether it is directly stated or an inference.
+3. A short list of anything the reviewer needs to confirm before the letter goes out.</pre></div>
+  <div class="callout gov">
+    <div class="label">Governance check · Scope of authority</div>
+    <p>Look at what you didn't build. There's no tool that sends anything. This agent can read and draft, and that's all. That was a decision about power, not a technical detail, and it means a person has to send every letter. Section 3 tests it.</p>
   </div>
 </section>
 
-<section>
-  <div class="shead"><span class="num">4</span><h2>Run the five questions</h2></div>
-  <div class="fourq">
-    <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> The phantoms were generated by the same operation that produces every correct answer you've ever gotten from a chatbot. Say in one sentence what that fact obligates you to do, forever.</p></div>
-    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> Who benefits from a confident answer nobody checks? Name the party for whom the ten minutes of verification is a cost worth skipping, and the party who pays when it's skipped.</p></div>
-    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> In the Avianca chain, model, lawyer, opposing counsel, judge, verification finally happened at the third link. Where's the cheapest place it could have happened, and what does that generalize to?</p></div>
-    <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> The chatbot told the lawyer the cases were real. Who was saying that, what did it have to gain, and what would you need to see to believe an AI's claim about its own output?</p></div>
-    <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> The court sanctioned the lawyers, not the tool. Write the workplace version of that rule for your own future signature, one sentence, and say what following it costs you per week.</p></div>
+<section id="s3">
+  <div class="shead"><span class="num">3</span><h2>In class: Run it, then review it</h2></div>
+  <p>Maria's insurer refused to pay for her knee MRI, saying her chart didn't show six weeks of treatment first. The denial letter is the whole message; no greeting needed, because the system message already told the agent its job.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Click the orange <strong>Open chat</strong> button. Chat opens on the left and Logs on the right.</p></div>
+    <div class="step"><span class="sn">b</span><p>Paste Maria's denial and click send. Watch the boxes light up as each step runs. The draft appears above the message box.</p></div>
+  </div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-deny-maria">Chat message: Maria's denial</span><button type="button" class="copy" data-target="t-deny-maria" aria-describedby="l-deny-maria">Copy</button></div><pre id="t-deny-maria">DENIAL: Northbridge Health Plan
+Patient: Maria Santos, DOB 03/15/1968, ID: NHP-2024-88421
+Claim: CLM-2026-04-77829
+Denied: MRI right knee (CPT 73721)
+Reason: Conservative treatment not documented for minimum 6 weeks. Per policy HIP-4420, Section 3.2.
+Appeal deadline: May 14, 2026</pre></div>
+
+  <h3 class="sub" id="s3-1">Read the Logs</h3>
+  <p>Open the Logs panel and trace what the agent did, in order. Which tool did it call first? What came back? Nobody told it the order. It chose. That's what makes it an agent rather than a script.</p>
+  <div class="callout gov">
+    <div class="label">Governance check · Audit trail</div>
+    <p>The Logs are an audit trail: every tool call, every piece of data pulled, in sequence. An agent you can't trace is an agent nobody can hold to account. But a log only counts as oversight if somebody reads it, which is exactly what went wrong with the license plate cameras in <a class="inline" href="chapter-11-rules.html#s3">Chapter 11's case</a>.</p>
+  </div>
+
+  <h3 class="sub" id="s3-2">Be the reviewer</h3>
+  <p>Now read the draft as if you had to approve it. The agent should list each fact it used and flag at least one as an <strong>inference</strong>, something it concluded rather than read. In our tests it was whether Maria took her medication continuously between two visits. The chart doesn't actually say.</p>
+  <p>Would you approve this letter? Could you have caught that inference if the agent hadn't flagged it? Talk it over with your partner for one minute.</p>
+  <div class="callout gov">
+    <div class="label">Governance check · Human in the loop</div>
+    <p>You just were the human in the loop. When we tested an earlier version of the instructions, the agent wrote "this appeal is submitted" even though it had no way to submit anything, and it treated the medication guess as fact. A reviewer who doesn't know the chart or the insurance rules would have passed both. A reviewer who can't catch mistakes is a rubber stamp.</p>
+  </div>
+
+  <h3 class="sub" id="s3-3">Ask it to send</h3>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-send">Chat message: try to send it</span><button type="button" class="copy" data-target="t-send" aria-describedby="l-send">Copy</button></div><pre id="t-send">Looks good. Send this appeal to the insurer now.</pre></div>
+  <p>Paste that and see what it says. It can't do it, because you never gave it a way to. It should tell you so and leave the sending to a person.</p>
+
+  <h3 class="sub" id="s3-4">Optional: break it</h3>
+  <p>(Skip this if you're behind. It's the first thing to cut.) Right-click the Patient Chart tool and select <strong>Deactivate</strong>. Send Maria's denial again. A well-instructed agent says it's missing the chart instead of inventing one. Reactivate the tool before you move on.</p>
+</section>
+
+<section id="s4">
+  <div class="shead"><span class="num">4</span><h2>In class: A second patient</h2></div>
+  <p>A hospital handles hundreds of denials a month. Does your agent hold up with a different patient? James Whitfield, 72, had a cardiac stress test denied.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Double-click <strong>Patient Chart</strong>, delete everything in the JavaScript box, paste the two-patient version below, and click the <strong>X</strong>.</p></div>
+    <div class="step"><span class="sn">b</span><p>Send James's denial.</p></div>
+  </div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-js-chart2">JavaScript: Patient Chart (Maria and James)</span><button type="button" class="copy" data-target="t-js-chart2" aria-describedby="l-js-chart2">Copy</button></div><pre id="t-js-chart2">return `PATIENT: Maria Santos, DOB 03/15/1968, MRN: LRK-004821
+02/12/2026, Primary Care (Dr. Amara Okafor): Right knee pain, worsening 8 weeks. Fall on ice Dec 2025. OTC ibuprofen not helping. Limiting stairs/walking. Plan: Naproxen 500mg BID. PT 2x/week for 6 weeks.
+02/19/2026, PT Intake (Valley Physical Therapy): Began quad strengthening, ROM exercises, ice/heat.
+03/05/2026, PT Progress (Session 5/12): Minimal improvement. Pain 7/10. Limited flexion despite compliance.
+03/26/2026, PT Discharge (Session 10/12): 5 weeks PT, &lt;10% ROM improvement. Pain 6-7/10. Therapist: advanced imaging recommended. Discharged, plateau.
+04/02/2026, Follow-Up (Dr. Okafor): 5 weeks PT, minimal improvement. Naproxen partial relief, pain 6/10. Exam: medial joint line tenderness, positive McMurray test. Conservative treatment failed. MRI ordered.
+04/08/2026: MRI performed at Lakeridge Imaging Center.
+----------
+PATIENT: James Whitfield, DOB 07/22/1953, MRN: LRK-007204
+01/15/2026, Annual Physical (Dr. Priya Mehta): Age 72. Family hx: father MI at 64, brother bypass at 58. BMI 29.1. LDL 168 (up from 142). BP 138/88. Plan: Increase atorvastatin, dietary counseling.
+03/18/2026, Follow-Up (Dr. Mehta): Chest tightness climbing stairs, past 2-3 weeks. Episodes 2-3 min, resolve with rest. BP 142/90. LDL 155. EKG: normal sinus rhythm. Assessment: Atypical chest pain + significant cardiac risk factors (family hx, elevated LDL, hypertension, age &gt;70). Plan: Stress test ordered to rule out ischemic heart disease.
+03/25/2026: Stress test at Lakeridge Cardiac Imaging.`;</pre></div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-deny-james">Chat message: James's denial</span><button type="button" class="copy" data-target="t-deny-james" aria-describedby="l-deny-james">Copy</button></div><pre id="t-deny-james">DENIAL: Northbridge Health Plan
+Patient: James Whitfield, DOB 07/22/1953, ID: NHP-2024-31097
+Claim: CLM-2026-04-22314
+Denied: Cardiac stress test (CPT 93015)
+Reason: No documented cardiac symptoms within 30 days of test. Per policy HIP-5510, Section 2.1.
+Appeal deadline: May 2, 2026</pre></div>
+  <p>Two things to watch. The Policy Lookup tool only has the knee policy, so how does the agent handle a policy it can't find? And open the Logs: what did the Patient Chart tool hand back when the agent asked for James?</p>
+  <div class="callout gov">
+    <div class="label">Governance check · Minimum necessary access</div>
+    <p>The tool returned Maria's whole chart along with James's. The agent only needed James. Every extra record an agent can see is a record it can leak, quote in the wrong letter, or send to the wrong insurer. U.S. health privacy law has a name for the standard this tool just broke: <strong>minimum necessary</strong>. You found it in the audit trail, which is what audit trails are for.</p>
   </div>
 </section>
 
-<section>
-  <div class="shead"><span class="num">5</span><h2>The writeup</h2></div>
-  <div class="ticket">
-    <div class="label">Due Friday, 11:59 p.m. · post to Canvas</div>
-    <ol>
-      <li><strong>The docket.</strong> Your six verdicts and time (screenshot), plus which citation fooled you longest and exactly what finally settled it.</li>
-      <li><strong>The asymmetry.</strong> Your personal ratio from step 3a, and two sentences on what it implies at the scale of a newsroom, a courtroom, or a feed.</li>
-      <li><strong>The audit.</strong> Your step 3c box score, with links to what you found — or didn't.</li>
-      <li><strong>The five questions.</strong> Your answers, including your framable accountability sentence.</li>
-      <li><strong>Your move.</strong> Your verification protocol, final form: the checks you will actually run, on what kinds of claims, before you sign or share. Three lines maximum — a protocol you won't use is theater, and you know the test for theater now. This is the quarter's last commitment card; make it the one you keep.</li>
-    </ol>
+<section id="s5">
+  <div class="shead"><span class="num">5</span><h2>In class: Fix it in the design</h2></div>
+  <p>When we tested this, the agent noticed the extra patient on its own and said so. That's good. It's also not a rule. A rule that depends on the agent noticing is a rule that works until the day it doesn't, and on that day nobody finds out unless they're reading the logs.</p>
+
+  <h3 class="sub" id="s5-1">Fix 1. Give it the missing policy</h3>
+  <p>Double-click <strong>Policy Lookup</strong>, replace the JavaScript with the version below, and click the <strong>X</strong>.</p>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-js-policy2">JavaScript: Policy Lookup (both policies)</span><button type="button" class="copy" data-target="t-js-policy2" aria-describedby="l-js-policy2">Copy</button></div><pre id="t-js-policy2">return `NORTHBRIDGE HEALTH PLAN, Policy HIP-4420
+Section 3.2, Knee MRI Authorization
+Medically necessary when ALL met:
+(a) Minimum 6 weeks conservative treatment (PT and/or anti-inflammatory); AND
+(b) Conservative treatment failed to produce meaningful improvement; AND
+(c) Physical exam suggests internal derangement (positive McMurray, joint line tenderness).
+Section 3.2.1, Documentation Required
+Office visit notes, PT notes/discharge summary, clinical assessment of treatment failure with exam findings.
+Section 5.1, Appeals
+May appeal within 30 days with documentation from 3.2.1 and letter of medical necessity.
+----------
+NORTHBRIDGE HEALTH PLAN, Policy HIP-5510
+Section 2.1, Cardiac Stress Test Authorization
+Medically necessary when EITHER is met:
+(a) Cardiac symptoms (such as chest pain, chest tightness, or shortness of breath on exertion) documented within 30 days before the test; OR
+(b) Two or more significant cardiac risk factors (such as age over 65, family history of early heart disease, elevated LDL, or hypertension) with a clinical assessment recommending testing.
+Section 2.1.1, Documentation Required
+Office visit notes documenting symptoms or risk factors, and the order for the stress test.
+Section 5.1, Appeals
+May appeal within 30 days with documentation from 2.1.1 and letter of medical necessity.`;</pre></div>
+
+  <h3 class="sub" id="s5-2">Fix 2. Only show it the patient it asks for</h3>
+  <p>This version reads the name the agent asks about and returns only that chart. Double-click <strong>Patient Chart</strong>, replace the JavaScript, and click the <strong>X</strong>. Send James's denial again and check the Logs. Only James should come back.</p>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-js-chart3">JavaScript: Patient Chart (privacy fix)</span><button type="button" class="copy" data-target="t-js-chart3" aria-describedby="l-js-chart3">Copy</button></div><pre id="t-js-chart3">const charts = {
+  santos: `PATIENT: Maria Santos, DOB 03/15/1968, MRN: LRK-004821
+02/12/2026, Primary Care (Dr. Amara Okafor): Right knee pain, worsening 8 weeks. Fall on ice Dec 2025. OTC ibuprofen not helping. Limiting stairs/walking. Plan: Naproxen 500mg BID. PT 2x/week for 6 weeks.
+02/19/2026, PT Intake (Valley Physical Therapy): Began quad strengthening, ROM exercises, ice/heat.
+03/05/2026, PT Progress (Session 5/12): Minimal improvement. Pain 7/10. Limited flexion despite compliance.
+03/26/2026, PT Discharge (Session 10/12): 5 weeks PT, &lt;10% ROM improvement. Pain 6-7/10. Therapist: advanced imaging recommended. Discharged, plateau.
+04/02/2026, Follow-Up (Dr. Okafor): 5 weeks PT, minimal improvement. Naproxen partial relief, pain 6/10. Exam: medial joint line tenderness, positive McMurray test. Conservative treatment failed. MRI ordered.
+04/08/2026: MRI performed at Lakeridge Imaging Center.`,
+  whitfield: `PATIENT: James Whitfield, DOB 07/22/1953, MRN: LRK-007204
+01/15/2026, Annual Physical (Dr. Priya Mehta): Age 72. Family hx: father MI at 64, brother bypass at 58. BMI 29.1. LDL 168 (up from 142). BP 138/88. Plan: Increase atorvastatin, dietary counseling.
+03/18/2026, Follow-Up (Dr. Mehta): Chest tightness climbing stairs, past 2-3 weeks. Episodes 2-3 min, resolve with rest. BP 142/90. LDL 155. EKG: normal sinus rhythm. Assessment: Atypical chest pain + significant cardiac risk factors (family hx, elevated LDL, hypertension, age &gt;70). Plan: Stress test ordered to rule out ischemic heart disease.
+03/25/2026: Stress test at Lakeridge Cardiac Imaging.`
+};
+const request = (typeof query === "string" ? query : JSON.stringify(query || "")).toLowerCase();
+for (const [lastName, chart] of Object.entries(charts)) {
+  if (request.includes(lastName)) { return chart; }
+}
+return "Patient not found. Ask the reviewer to confirm the patient's name.";</pre></div>
+  <div class="callout gov">
+    <div class="label">Governance check · Built-in vs. asked-for controls</div>
+    <p>You could have tried to fix this with one more line in the system message: "only use the patient you were asked about." That's an asked-for control, and the agent can ignore it. Fix 2 is a built-in control. The other chart never reaches the agent, so there's nothing to ignore. Neither fix touched the AI. Both changed the system around it.</p>
   </div>
 </section>
+
+<section id="s6">
+  <div class="shead"><span class="num">6</span><h2>In class: Sign it</h2></div>
+  <p>Suppose Lakeridge runs this agent on 500 denials a month. Some letter, someday, will say something wrong. Before it goes live, someone has to sign each letter, and someone has to answer when one is wrong. Pick both. There's no perfect answer; every pick has a cost.</p>
+  <div class="tool" id="sign">
+    <div class="label">The sign-off line</div>
+    <p style="margin-bottom:8px;"><strong>Who signs each letter before it goes out?</strong></p>
+    <div class="chips" id="signer" role="group" aria-label="Who signs each letter">
+      <button type="button" class="chip" aria-pressed="false" data-v="nurse">Appeals nurse</button>
+      <button type="button" class="chip" aria-pressed="false" data-v="doctor">The patient's physician</button>
+      <button type="button" class="chip" aria-pressed="false" data-v="clerk">Billing clerk</button>
+      <button type="button" class="chip" aria-pressed="false" data-v="it">The IT team that built it</button>
+      <button type="button" class="chip" aria-pressed="false" data-v="nobody">Nobody, if the agent is confident</button>
+    </div>
+    <p style="margin:18px 0 8px;"><strong>Who answers when a letter is wrong?</strong></p>
+    <div class="chips" id="owner" role="group" aria-label="Who answers when a letter is wrong">
+      <button type="button" class="chip" aria-pressed="false" data-v="signer">Whoever signed it</button>
+      <button type="button" class="chip" aria-pressed="false" data-v="manager">The appeals manager</button>
+      <button type="button" class="chip" aria-pressed="false" data-v="vendor">The vendor that sold the agent</button>
+      <button type="button" class="chip" aria-pressed="false" data-v="ai">The AI</button>
+    </div>
+    <div class="verdict" id="sign-out" aria-live="polite">
+      <div class="label">Your sign-off line</div>
+      <div class="read">Pick one from each row.</div>
+    </div>
+  </div>
+  <div class="callout gov">
+    <div class="label">Governance check · Accountability</div>
+    <p>"The AI decided" is never the answer, because the AI can't be fired, sued, or asked to explain itself. Accountability means a named role answers for each outcome. Screenshot your sign-off line; it's writeup item 1.</p>
+  </div>
+
+  <h3 class="sub" id="s6-1">Who should write each rule?</h3>
+  <p>You wrote all six rules today, as the designer. In a real hospital, you probably shouldn't have. This is <a class="inline" href="chapter-11-rules.html">Chapter 11's question</a> asked about your agent.</p>
+  <table class="risk">
+    <thead><tr><th>Concept</th><th>The rule you made today</th><th>Who could make it instead</th></tr></thead>
+    <tbody>
+      <tr><td>Minimum necessary access</td><td>The chart tool returns one patient</td><td>The hospital, the vendor, or privacy law</td></tr>
+      <tr><td>Scope of authority</td><td>The agent drafts but can't send</td><td>The hospital or the vendor</td></tr>
+      <tr><td>Human in the loop</td><td>A person reviews every draft</td><td>The hospital, the insurer, or the state</td></tr>
+      <tr><td>Audit trail</td><td>Every tool call is logged</td><td>The vendor, a regulator, or the hospital</td></tr>
+      <tr><td>Accountability</td><td>A named role signs each letter</td><td>The hospital, or a court after something goes wrong</td></tr>
+      <tr><td>Built-in vs. asked-for</td><td>The privacy fix lives in the tool</td><td>Whoever builds the tool, usually the vendor</td></tr>
+    </tbody>
+  </table>
+  <p class="tablenote">Notice how often "the vendor" appears. If one company builds the tools for most hospitals, its design choices become everyone's rules. That's the Brussels effect from <a class="inline" href="chapter-11-rules.html#s2-3">section 2.3</a>, with a company standing where the EU was.</p>
+</section>
+
+<section id="s7">
+  <div class="shead"><span class="num">7</span><h2>In class: The writeup</h2></div>
+  <p><strong>3 items, uploaded to Canvas before you leave class.</strong></p>
+  <ol class="writeup">
+    <li><strong>Your sign-off line.</strong> A screenshot of your pick from section 6, plus one sentence on why that role, and one on what your pick costs.</li>
+    <li><strong>Built-in vs. asked-for.</strong> Name one rule from today that worked better built into the design than written into the instructions. What did building it in cost?</li>
+    <li><strong>Who writes the rule.</strong> Pick one row of the table in section 6. Who should write that rule for agents like this one: the hospital, the vendor, the insurer, or the state? If it's the state, should it be a floor or a ceiling? Name the cost of your answer.</li>
+  </ol>
+  <p><strong>AI use on this writeup.</strong> The AI in this lab is the agent you built. Don't use a chatbot to write your three answers; they're short on purpose, and the point is your judgment. If you used AI for anything else today, say what and how. "None" is a fine answer.</p>
+</section>
+
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <div class="srcbody">
+    <p>Adapted from Chris Califf's AI agent lesson for IT Leadership (WWU, October 16, 2026), whose build steps were tested step by step in n8n in October 2026. The tested-behavior descriptions in sections 3 to 5 come from that testing. <strong>Not yet re-verified for MIS 201.</strong> Before Monday, November 30: rerun the full build in n8n (its menus change often), confirm the default model and free-credit offer, and confirm the 14-day trial terms.</p>
+    <p>Epic's Penny: Epic, "Penny for Revenue Cycle and Operations," <a class="inline" href="https://www.epic.com/software/penny" target="_blank" rel="noopener">epic.com/software/penny</a>. "Minimum necessary" refers to the HIPAA Privacy Rule standard; add a link to the HHS guidance before class.</p>
+    <p>Lakeridge Regional Hospital, Northbridge Health Plan, the patients, their charts, the denial letters, and the policies are all fictional.</p>
+  </div>
+</details>
 
 <div class="nextbar">
-  <a href="chapter-10-truth.html"><span class="dir">← Back</span>Chapter 10 · Truth</a>
-  <a href="chapter-11-rules.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 11 · Who Makes the Rules?</a>
+  <a href="chapter-11-rules.html"><span class="dir">← Back</span>Chapter 11 · Who Makes the Rules?</a>
+  <a href="chapter-12-future.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 12 · The Future</a>
 </div>
 
 </main>
 
+
 <footer class="foot">
   <div class="wrap">
     <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
-    <p class="fine">A free, critical field guide to AI — for the people who'll live with it, not just build it.</p>
-    <p class="fine">College of Business &amp; Economics · MIS 201 · Free to use for educational purposes</p>
+    <p class="fine">A free, critical field guide to AI, for the people who'll live with it, not just build it.</p>
+    <p class="fine"><a class="inline" href="https://cbe.wwu.edu/dsci/management-information-systems" target="_blank" rel="noopener">Management Information Systems</a> · <a class="inline" href="https://cbe.wwu.edu/dsci" target="_blank" rel="noopener">Department of Decision Sciences</a> · <a class="inline" href="https://cbe.wwu.edu" target="_blank" rel="noopener">College of Business &amp; Economics</a></p>
+    <p class="fine">MIS 201 · <a class="inline" href="about.html">About this book</a> · <a class="inline" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
   </div>
 </footer>
-
-<script>
-(function(){
-  var cases = [
-    {cite:'Brown v. Board of Education, 347 U.S. 483 (1954)', real:true,
-     why:'Real — and one of the most consequential Supreme Court decisions in American history. The record is everywhere: the opinion itself, thousands of citing cases, every constitutional law textbook.'},
-    {cite:'Varghese v. China Southern Airlines Co., 925 F.3d 1339 (11th Cir. 2019)', real:false,
-     why:'Phantom — one of the actual fabricated cases from the Avianca brief. Perfectly formatted, plausible parties, plausible reporter. It exists nowhere in the record: no opinion, no docket, no citing case.'},
-    {cite:'Palsgraf v. Long Island Railroad Co., 248 N.Y. 339 (1928)', real:true,
-     why:'Real — the famous torts case every first-year law student meets, written by Judge Cardozo. Fireworks, a falling scale, and the question of who owes care to whom.'},
-    {cite:'Shaboon v. Egyptair, 2013 IL App (1st) 111279-U (Ill. App. Ct. 2013)', real:false,
-     why:'Phantom — another genuine fabrication from the Avianca filing. Note the craft: an unpublished-order citation format, which conveniently "explains" why it\u2019s hard to find. The fluency is the camouflage.'},
-    {cite:'Riley v. California, 573 U.S. 373 (2014)', real:true,
-     why:'Real — the unanimous Supreme Court decision requiring police to get a warrant before searching a cellphone, and a fitting real case for this course.'},
-    {cite:'Martinez v. Delta Air Lines, Inc., 2019 WL 4639462 (Tex. App. Sept. 25, 2019)', real:false,
-     why:'Phantom — from the same brief. A Westlaw-style citation invented whole. Opposing counsel\u2019s inability to find these is what unraveled everything; the checking worked, it just happened one filing too late.'}
-  ];
-
-  var marks = {}, startTime = null, timerId = null;
-
-  var cardsEl = document.getElementById('cards');
-  cases.forEach(function(c, i){
-    var d = document.createElement('div');
-    d.className = 'probe';
-    var t = document.createElement('div'); t.className='ptext'; t.textContent = 'Citation ' + (i+1);
-    var body = document.createElement('p'); body.style.cssText='font-family:ui-monospace,monospace;font-size:.92rem;margin-bottom:10px;'; body.textContent = c.cite;
-    var chips = document.createElement('div'); chips.className='chips';
-    [['real','Real case'],['phantom','Phantom']].forEach(function(pair){
-      var b = document.createElement('button');
-      b.type='button'; b.className='chip'; b.textContent=pair[1];
-      b.setAttribute('aria-pressed','false');
-      b.addEventListener('click', function(){
-        chips.querySelectorAll('.chip').forEach(function(s){ s.classList.remove('on'); s.setAttribute('aria-pressed','false'); });
-        b.classList.add('on'); b.setAttribute('aria-pressed','true');
-        marks[i]=pair[0];
-        document.getElementById('reveal').disabled = Object.keys(marks).length < cases.length;
-      });
-      chips.appendChild(b);
-    });
-    var res = document.createElement('div'); res.className='pwhy'; res.style.display='none'; res.setAttribute('data-res','1');
-    d.appendChild(t); d.appendChild(body); d.appendChild(chips); d.appendChild(res);
-    cardsEl.appendChild(d);
-  });
-
-  document.getElementById('start').addEventListener('click', function(){
-    if (startTime) return;
-    startTime = Date.now();
-    cardsEl.style.opacity='1'; cardsEl.style.pointerEvents='auto';
-    this.disabled = true;
-    timerId = setInterval(function(){
-      var s = Math.floor((Date.now()-startTime)/1000);
-      document.getElementById('clock').textContent = Math.floor(s/60)+'m '+(s%60)+'s';
-    }, 1000);
-  });
-
-  document.getElementById('reveal').addEventListener('click', function(){
-    if (timerId) clearInterval(timerId);
-    var elapsed = startTime ? Math.round((Date.now()-startTime)/1000) : 0;
-    var correct = 0;
-    var probes = cardsEl.querySelectorAll('.probe');
-    cases.forEach(function(c,i){
-      var truth = c.real ? 'real' : 'phantom';
-      if (marks[i]===truth) correct++;
-      var res = probes[i].querySelector('[data-res]');
-      res.style.display='block';
-      res.innerHTML = '<b style="color:'+(marks[i]===truth?'#14181D':'#D61F69')+'">'+(marks[i]===truth?'\u2713 Correct.':'\u2717 Missed.')+'</b> ' + c.why;
-      probes[i].querySelectorAll('.chip').forEach(function(b){ b.disabled = true; });
-    });
-    var mins = Math.floor(elapsed/60), secs = elapsed%60;
-    var read = 'Score: <b>'+correct+' of 6</b> in <b>'+mins+'m '+secs+'s</b>. The phantom half of this docket was generated in seconds; your verification took '+(elapsed>0?Math.max(1,Math.round(elapsed/15)):'?')+'× longer than the fabrication did. That ratio is the verification asymmetry — record it for the writeup.';
-    if (correct===6) read += ' A clean docket. Notice <i>how</i> you got it: not by judging plausibility — the phantoms were built to win that contest — but by going to the record. That reflex is the whole lab.';
-    else read += ' The ones that fooled you were engineered to: correct format, plausible parties, real-looking reporters. Plausibility judging fails here by design — only the record settles it. Note exactly which check finally worked, for your protocol.';
-    document.getElementById('verdict').hidden=false;
-    document.getElementById('reading').innerHTML=read;
-  });
-})();
-</script>
 
 <script>
 (function(){
@@ -400,6 +698,58 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
   document.addEventListener('click',closeAll);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
   document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+<p class="sr-only" id="copy-status" aria-live="polite"></p>
+<script>
+(function(){
+  var status=document.getElementById('copy-status');
+  document.querySelectorAll('.copyblock .copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var text=document.getElementById(btn.getAttribute('data-target')).textContent;
+      function ok(){btn.textContent='Copied';status.textContent='Copied to clipboard.';setTimeout(function(){btn.textContent='Copy';},1600);}
+      function fallback(){var t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');ok();}catch(e){status.textContent='Copy failed. Select the text and copy it by hand.';}document.body.removeChild(t);}
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(ok,fallback);}else{fallback();}
+    });
+  });
+
+  var S={
+    nurse:{n:'an appeals nurse',r:'Strong pick. An appeals nurse knows both the chart and the insurance rules, so she can catch the medication guess. The cost is her time: if she has to read every letter carefully, the agent saves less than it promised.'},
+    doctor:{n:"the patient's physician",r:'The strongest clinical check there is, and the most expensive. Physicians are the scarcest people in the building. Ask whether they would really read letter number 400 this month, or start signing on trust.'},
+    clerk:{n:'a billing clerk',r:'Cheaper and faster, and a real risk. A billing clerk knows the forms, not the medicine, so a wrong clinical claim reads just as well as a right one. That is the rubber stamp problem. You can defend this pick if you pair it with something else, like a nurse spot-checking a sample.'},
+    it:{n:'the IT team that built it',r:'They know the system better than anyone, and the patient less than anyone. Builders checking their own work tend to see what they meant to build. Most organizations separate the people who build a system from the people who approve its output for exactly this reason.'},
+    nobody:{n:'nobody, when the agent is confident',r:'This is the version that saves the most time and the one Chapter 10 warns about: the agent sounds equally confident when it is right and when it is wrong. If you keep this pick, you are betting the audit trail gets read. Who reads it?'}
+  };
+  var O={
+    signer:{n:'whoever signed it',r:'Clear and simple: the pen and the blame sit with the same person. The cost is fairness. If the tool fed that person the wrong chart, they answer for a design choice they never made.'},
+    manager:{n:'the appeals manager',r:'This puts accountability with the person who decided to use the agent at all, which matches who had the power. The cost is distance: the manager never saw the letter.'},
+    vendor:{n:'the vendor that sold the agent',r:'Vendors almost always write contracts that say otherwise, so this one usually loses in practice. It is still worth arguing, because the vendor wrote the tools. Chapter 11 asks who should make that rule.'},
+    ai:{n:'the AI',r:'The AI cannot be fired, sued, retrained by a judge, or asked to explain itself under oath. Answering "the AI" means nobody answers. Pick a person or a role.'}
+  };
+  var pick={signer:null,owner:null};
+  var out=document.getElementById('sign-out');
+  function wire(groupId,key){
+    var btns=[].slice.call(document.querySelectorAll('#'+groupId+' .chip'));
+    btns.forEach(function(b){b.addEventListener('click',function(){
+      pick[key]=b.getAttribute('data-v');
+      btns.forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});
+      draw();
+    });});
+  }
+  function draw(){
+    var html='';
+    if(pick.signer&&pick.owner){
+      var s=S[pick.signer],o=O[pick.owner];
+      var who=pick.signer==='nobody'?'No one signs these letters':'Before this letter goes out, <b>'+s.n+'</b> signs it';
+      html='<div class="read">'+who+', and if it is wrong, <b>'+o.n+'</b> answers for it.</div>'+
+           '<div class="read" style="margin-top:12px">'+s.r+'</div>'+
+           '<div class="read" style="margin-top:12px">'+o.r+'</div>';
+    } else {
+      html='<div class="read">'+(pick.signer||pick.owner?'Now pick one from the other row.':'Pick one from each row.')+'</div>';
+    }
+    out.innerHTML='<div class="label">Your sign-off line</div>'+html;
+  }
+  wire('signer','signer');wire('owner','owner');
 })();
 </script>
 </body>

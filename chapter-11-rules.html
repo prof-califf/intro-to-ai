@@ -311,6 +311,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
 <a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
 <a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
+<a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 &amp; 11 · Week 10 · Monday</span>Govern the Agent</a>
 </div></div>
     </div>
   </div>
@@ -321,7 +322,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <div class="eyebrow">Western Washington University · MIS 201 · Chapter 11</div>
     <h1>Who Makes the <b>Rules</b>?</h1>
     <p class="kicker">Every chapter in this book has ended with someone deciding: keep it, fix it, or drop it. This chapter is about who that someone is when the decision becomes a rule. In 2026 the loudest fight in AI policy is not whether to regulate AI. It is who gets to.</p>
-    <p class="factline">Why rules exist · the pacing problem · three models · the cameras down the street</p>
+    <p class="factline">Why rules exist · the pacing problem · three models · rules inside the system · the cameras down the street</p>
   </div>
 </header>
 
@@ -338,6 +339,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <li>Explain why rules for new technology exist, using market failure and the pacing problem.</li>
 <li>Compare the EU, U.S., and Chinese approaches to AI rules, and say what each one trades away.</li>
 <li>Describe preemption and the collective action problem, and use them to explain the fight between states and Washington.</li>
+<li>Use six governance concepts to design the rules around an AI agent, and say who should write each one.</li>
 <li>Run the five critical AI questions on a real system and the rules around it, and explain what happens when a rule itself fails.</li>
 <li>Name the rules that would touch an AI system you use or might build, and take a position on what should change.</li>
 </ol>
@@ -358,15 +360,16 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <p class="lead">Look back at where our cases ended. In Chapter 6, a job applicant sued Workday over its screening software, and New York City already required bias audits for hiring tools. In Chapter 10, a political consultant was fined $6 million by federal regulators over a cloned-voice robocall, and then acquitted by a jury under state law that predated voice clones. In Chapter 2, China wrote rules for chatbots that act human. Every time we asked "keep it, fix it, or drop it," the real answer depended on a rule someone else had written, or hadn't.</p>
   <p>So this chapter asks the question hiding under Question 5. When a society decides to fix an AI system, who does the fixing? A city council? A state legislature? Congress? The European Union? The company itself? A judge? In the United States right now, all of them are trying, and they don't agree about who should win.</p>
   <p><strong>The point of this chapter, in one sentence:</strong> AI rules get made at many levels at once, the levels fight over who gets the last word, and a rule can fail just as quietly as an AI system does.</p>
-  <p><strong>What this chapter teaches.</strong> Four ideas, then a case to use them on.</p>
+  <p><strong>What this chapter teaches.</strong> Five ideas, then a case to use them on.</p>
   <ul class="ideas">
     <li>First, <em>why rules exist at all</em>: markets that can't see their own costs.</li>
     <li>Second, <em>the pacing problem</em>: why the rules always arrive late.</li>
     <li>Third, <em>three models</em>: how the EU, the U.S., and China each answer the question.</li>
     <li>Fourth, <em>floor or ceiling</em>: the fight over whether states can set their own AI rules.</li>
+    <li>Fifth, <em>governance inside the system</em>: the rules an organization writes for its own AI, which is where most of the rules that touch you actually get made.</li>
   </ul>
   <p>Then the case, a few miles from our classroom: the license plate cameras in Bellingham parking lots, whose data reached federal immigration agents without the local police knowing, and the Washington law that took effect this fall in response. We'll run the five critical AI questions on it, and ask how to make it good.</p>
-  <p>There's no separate lab this week. We discuss this chapter on the Monday of Week 10, alongside Chapter 10. Your Prototype project is due that Wednesday, the last day of class, at 11:59 p.m. If your project system touches hiring, lending, housing, health, or insurance, this chapter tells you which rules it lives under.</p>
+  <p>We discuss this chapter on the Monday of Week 10, alongside Chapter 10, and then you use it. In the second half of that class, <a class="inline" href="chapter-10-truth-lab.html">Lab 10 &amp; 11</a> has you build an AI agent and write its rules yourself. Project pitches are that Wednesday; check the <a class="inline" href="schedule.html">schedule</a> for what's due when. If your project system touches hiring, lending, housing, health, or insurance, this chapter tells you which rules it lives under.</p>
 </section>
 
 <section id="s2">
@@ -531,6 +534,28 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <p>When a regulator ends up serving the industry it's supposed to oversee. What people get wrong: they picture bribery. Usually it's quieter: the only people who understand the system work for the company that built it.</p>
   </div>
 
+  <h3 class="sub" id="s2-6"><span>2.6</span> Governance inside the system</h3>
+  <p>Everything so far has been about rules written for AI from the outside: laws, courts, the fight over who gets the last word. But most of the rules that touch an AI system on an ordinary day are written inside the organization that runs it. Someone decides what data it can reach, whether it can act or only suggest, and who checks its work. Usually that someone works in IT or operations, and usually nobody outside the building ever sees the decision. Those are the self-rules from 2.5, at the level of a single system.</p>
+  <div class="concept">
+    <div class="term">AI governance</div>
+    <p>The rules, roles, and checks that decide what an AI system may do, what data it can use, who approves its work, and who answers when it goes wrong. What people get wrong: they think governance means government. Most of it is written inside companies, and much of it is written by whoever built the system.</p>
+  </div>
+  <p>Six concepts do most of the work. Each one lines up with a part of <a class="inline" href="chapter-01-what-is-ai.html">the AI systems model from Chapter 1</a>, so you already know where to look for it.</p>
+  <table class="risk">
+    <thead><tr><th>Part of the system</th><th>Concept</th><th>What it means</th><th>What people get wrong</th></tr></thead>
+    <tbody>
+      <tr><td>Data</td><td><b>Minimum necessary access</b></td><td>Give the system only the data its job needs.</td><td>More data doesn't mean better work. Every extra record is one more thing that can leak.</td></tr>
+      <tr><td>Output</td><td><b>Scope of authority</b></td><td>Decide what the system may do on its own: draft, recommend, or act.</td><td>It looks like a setting. It's a decision about power.</td></tr>
+      <tr><td>Output</td><td><b>Human in the loop</b></td><td>A person approves the work before anything happens.</td><td>A reviewer who can't catch the mistakes is a rubber stamp.</td></tr>
+      <tr><td>Loop</td><td><b>Audit trail</b></td><td>A record of everything the system did, in order.</td><td>A log nobody reads is not oversight.</td></tr>
+      <tr><td>Humans</td><td><b>Accountability</b></td><td>A named person or role answers for each outcome.</td><td>"The AI decided" is never the answer. The AI can't be fired, sued, or asked to explain.</td></tr>
+      <tr><td>All of it</td><td><b>Built-in vs. asked-for controls</b></td><td>A rule built into the design beats a rule written into the instructions.</td><td>Instructions are guidance. A system can ignore them; it can't ignore data it never receives.</td></tr>
+    </tbody>
+  </table>
+  <p class="tablenote">The model is the one part of the system with no row. That's the point: almost all of governance happens around the model, not inside it.</p>
+  <p>The case in section 3 reads cleanly through this table. The cameras read plates fine. What failed was access, because sharing settings let in agencies the job never needed, and the audit trail, because the departments that owned the cameras didn't know who was searching until researchers pulled the records. Neither failure was in the AI.</p>
+  <p>Inside-the-system rules have one big advantage and one big cost. They're the fastest rules there are: a team can write one in an afternoon, long before any legislature notices the problem. And the same afternoon can quietly undo one, with nobody outside the building any wiser. In <a class="inline" href="chapter-10-truth-lab.html">Lab 10 &amp; 11</a> you'll write all six for an agent you build, then ask who should have written each one instead.</p>
+
   <div class="callout tryit">
     <div class="label">Try it · practice for Friday's quiz. Five situations: who is making the rule, and is it acting as a floor (a minimum others can build on) or a ceiling (a maximum)? Decide, then click to check.</div>
     <details><summary>1. A state requires any company using AI to reject tenants to tell the applicant, and cities in that state may add more requirements.</summary><p>A state legislature, acting as a floor. The phrase "may add more" is the tell: the state sets a minimum and leaves room above it.</p></details>
@@ -642,6 +667,13 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <section id="s5">
   <div class="shead"><span class="num">5</span><h2>Key terms</h2></div>
   <div class="terms">
+    <div class="term-card"><div class="t">AI governance</div><p>The rules, roles, and checks that decide what an AI system may do, what data it uses, who approves its work, and who answers when it fails. Mostly written inside organizations.</p></div>
+    <div class="term-card"><div class="t">Minimum necessary access</div><p>Giving a system only the data its job needs. Every extra record is one more thing that can leak.</p></div>
+    <div class="term-card"><div class="t">Scope of authority</div><p>What a system may do on its own: draft, recommend, or act. A decision about power, not a setting.</p></div>
+    <div class="term-card"><div class="t">Human in the loop</div><p>A person approves a system's work before anything happens. Only real if the person can catch the mistakes.</p></div>
+    <div class="term-card"><div class="t">Audit trail</div><p>A record of everything a system did, in order. Only oversight if someone reads it.</p></div>
+    <div class="term-card"><div class="t">Accountability</div><p>A named person or role answers for each outcome. Never "the AI."</p></div>
+    <div class="term-card"><div class="t">Built-in control</div><p>A rule built into a system's design, like a tool that only returns one patient, rather than asked for in its instructions.</p></div>
     <div class="term-card"><div class="t">Automated license plate reader (ALPR)</div><p>A camera that uses AI to capture plate numbers and vehicle details into a searchable record. Useful for finding stolen cars; risky when the records are shared or kept without limits.</p></div>
     <div class="term-card"><div class="t">Market failure</div><p>When a market left alone produces harmful or unfair results. The main economic reason rules exist.</p></div>
     <div class="term-card"><div class="t">Externality</div><p>A cost paid by people who weren't part of the deal, like a data center's strain on the local grid.</p></div>
@@ -662,13 +694,13 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <div class="srcbody">
 <p>The case, verified 17 Sep 2026: University of Washington Center for Human Rights, "Leaving the Door Wide Open" (October 21, 2025); KUOW coverage (October 23, 2025); Cascadia Daily News (April 26, 2026) on Flock's Washington client count, the sensitive-locations requirement, and Bellingham Police ending access to Lowe's and Home Depot cameras; My Bellingham Now (January 14, 2026) on the bill's language as introduced; Salish Current (September 1, 2026) on the September 26 compliance deadline and the cut cameras; Newport Dispatch (August 26, 2026) on Bellingham, Massachusetts, and Flock's Free Form search. The law's final text should be checked before class for anything beyond what's summarized here. Corrections are course content.</p>
   <p>Section 2.4, verified 16 Sep 2026 against the linked sources. Colorado: SB 24-205 (May 2024), its delayed start date of June 30, 2026, the xAI lawsuit (filed April 9, 2026), DOJ's intervention, the court's pause, and SB 26-189 (signed May 14, 2026; effective Jan 1, 2027; duties as summarized) per Seyfarth Shaw, Buchalter, and Crowell &amp; Moring client alerts. Executive Order 14365 (Dec 11, 2025) text via the American Presidency Project; its treatment of Colorado's rule per Taft; its carve-outs per Paul Hastings. EU AI Act delay (Digital Omnibus: Annex III high-risk to Dec 2, 2027; Annex I to Aug 2, 2028; new nudifier ban; in force July 27, 2026) per Gibson Dunn and Cloud Security Alliance notes. State law counts per NYU's Center on Technology Policy as reported by TechPolicy.Press (July 2026). SB 53 per Goodwin. The Senate's 99–1 vote per Ropes &amp; Gray; the June 2026 House draft per Nextgov. The statement that no comprehensive federal AI law or enacted preemption exists was checked against a September 2026 regulatory tracker (Vorp Labs); recheck each term. Factory Act and FLSA history adapted from the MIS 432 regulation chapter.</p>
-  <p>Things to recheck before class: whether the Colorado lawsuit continued after the replacement law; the Colorado attorney general's rulemaking; any federal preemption bill; any further EU changes. Corrections are course content: if something here has changed by the time you read it, that change is worth bringing to class.</p>
+  <p>Section 2.6, added 14 Oct 2026: the six governance concepts are this book's framing, not quoted from a source; the Flock reading in 2.6 restates section 3 and adds no new facts. Things to recheck before class: whether the Colorado lawsuit continued after the replacement law; the Colorado attorney general's rulemaking; any federal preemption bill; any further EU changes. Corrections are course content: if something here has changed by the time you read it, that change is worth bringing to class.</p>
   </div>
 </details>
 
 <div class="nextbar">
   <a href="chapter-10-truth.html"><span class="dir">← Back</span>Chapter 10 · Truth</a>
-  <a href="chapter-12-future.html" style="text-align:right;"><span class="dir">Next →</span>Chapter 12 · The Future</a>
+  <a href="chapter-10-truth-lab.html" style="text-align:right;"><span class="dir">Next →</span>Lab 10 &amp; 11 · Govern the Agent</a>
 </div>
 
 
