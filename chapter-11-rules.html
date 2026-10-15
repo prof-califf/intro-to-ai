@@ -553,6 +553,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     </tbody>
   </table>
   <p class="tablenote">The model is the one part of the system with no row. That's the point: almost all of governance happens around the model, not inside it.</p>
+  <p>You've already met two of these as law. In the Write the rule tool in 2.4, "offer human review on request" is human in the loop, and "register publicly and log incidents" is an audit trail. A law can require them from outside. An organization can build them in before anyone requires anything.</p>
   <p>The case in section 3 reads cleanly through this table. The cameras read plates fine. What failed was access, because sharing settings let in agencies the job never needed, and the audit trail, because the departments that owned the cameras didn't know who was searching until researchers pulled the records. Neither failure was in the AI.</p>
   <p>Inside-the-system rules have one big advantage and one big cost. They're the fastest rules there are: a team can write one in an afternoon, long before any legislature notices the problem. And the same afternoon can quietly undo one, with nobody outside the building any wiser. In <a class="inline" href="chapter-10-truth-lab.html">Lab 10 &amp; 11</a> you'll write all six for an agent you build, then ask who should have written each one instead.</p>
 
@@ -628,11 +629,24 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <li><strong>Drop it:</strong> no cameras on public roads or store lots at all. The cost: some stolen cars stay stolen, and the private cameras that remain aren't covered by a police contract or its audits.</li>
   </ul>
 
+  <p><strong>The same case, read through 2.6.</strong> Every failure in this story was a governance failure, and every fix is a governance concept. None of them touch the camera.</p>
+  <table class="risk">
+    <thead><tr><th>Concept</th><th>What went wrong</th><th>The fix</th></tr></thead>
+    <tbody>
+      <tr><td><b>Minimum necessary access</b></td><td>Data collected for local crime was open to agencies the job never needed</td><td>Sharing closed by default; data deleted after a short time</td></tr>
+      <tr><td><b>Scope of authority</b></td><td>A search tool the Massachusetts chief didn't know he had bought</td><td>No feature the buyer didn't knowingly choose</td></tr>
+      <tr><td><b>Human in the loop</b></td><td>At least ten departments' networks appeared to be searched with no approval from those departments</td><td>A person approves each outside agency's access</td></tr>
+      <tr><td><b>Audit trail</b></td><td>The departments didn't know who was searching until researchers pulled the records</td><td>Every outside search logged, in a log someone reads</td></tr>
+      <tr><td><b>Accountability</b></td><td>"We don't run the cameras"</td><td>The agency that searches answers for the search, with the reason logged</td></tr>
+      <tr><td><b>Built-in vs. asked-for</b></td><td>Sharing stayed on until someone noticed and turned it off</td><td>Off by default, so the safe setting doesn't depend on anyone remembering</td></tr>
+    </tbody>
+  </table>
+
   <h3 class="sub" id="s3-thinking-critically"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
   <div class="ticket">
     <div class="label">Thinking critically · for Monday's discussion, alongside Chapter 10 · one question each, answered by you, not by the chapter</div>
     <ol>
-      <li><strong>What is it, and what does it do?</strong> The AI in this case is in box 1 and it worked; the failure was in box 4. Pick another system from the course and split it the same way: which part is the model, and which part is the rules around it. Say which part the news story about it was actually about.</li>
+      <li><strong>What is it, and what does it do?</strong> The AI in this case is in box 1 and it worked; the failure was in box 4. Pick another system from the course and split it the same way: which part is the model, and which part is the rules around it. Say which part the news story about it was actually about, and which of the six governance concepts from section 2.6 the rules failed on.</li>
       <li><strong>Why does it exist, and who benefits?</strong> Name who benefits from a plate-reader network in Bellingham (the store, the police, the vendor, a driver whose stolen car is found) and who pays, and say which of them had a seat at the table when the sharing settings were chosen.</li>
       <li><strong>What happens when it fails, and who finds out?</strong> The Border Patrol access was found by researchers with public-records requests, months later. Say what would have to be true for a driver to have found out, and whether the Washington law makes that more likely. Then apply the Collingridge dilemma: was the window still open?</li>
       <li><strong>Who's saying that, and how would we know?</strong> The Washington license plate law took effect September 26. Find one thing that changed in Whatcom County since then, say who reported it and what they gain, and say whether it makes the cameras more like the good version or the bad one.</li>
@@ -641,7 +655,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   </div>
   <div class="concept">
     <div class="term">How to make it good</div>
-    <p>The useful part of this system is real, and so is the harm. What separates them isn't the camera; it's the rules around the camera: who can search, for what, who sees the log, and how long the data lives. Washington's rule is being tested right now. By the time we discuss this chapter, the September 26 deadline will have passed. Check what changed in Whatcom County, and ask whether the cameras that are left look more like the good version or the bad one.</p>
+    <p>The useful part of this system is real, and so is the harm. What separates them isn't the camera; it's the rules around the camera: who can search and for what (access and scope), who sees the log (the audit trail), and how long the data lives (access again, over time). Washington's rule is being tested right now. By the time we discuss this chapter, the September 26 deadline will have passed. Check what changed in Whatcom County, and ask whether the cameras that are left look more like the good version or the bad one.</p>
   </div>
 </section>
 
@@ -650,18 +664,21 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <h3 class="sub" id="s4-1"><span>4.1</span> You will work under these rules</h3>
   <p>Most of you won't write AI laws. Almost all of you will work under them. If you end up in HR, you may be the person who sends Colorado's 30-day notice in 2027. If your company sells in Europe, the EU's hiring rules reach your desk in December 2027 whether or not Congress acts. If you buy software for a team, you may be the one reading the vendor contract clause Colorado just made void.</p>
   <p>That makes the practical skill simple to say and hard to do: for any AI system you touch, know which rules it lives under, and know which ones are still being fought over. That is exactly what your Prototype project asks.</p>
+  <p>And many of you will write rules of the other kind, the ones from section 2.6. If you ever set up an AI tool for a team, you'll decide what it can see, what it can do on its own, who checks its work, what gets logged, and who answers when it's wrong. Nobody will call that governance. It is. <a class="inline" href="chapter-10-truth-lab.html">Lab 10 &amp; 11</a> is your first practice at it.</p>
 
   <h3 class="sub" id="s4-2"><span>4.2</span> Taking a position without picking a team</h3>
   <p>This topic is political, and I'm not going to tell you which side to take. Reasonable people disagree about whether AI rules should come from states, Washington, or somewhere else. What the course asks is that your position survive the five questions. If you favor one national standard, say what it should contain, because preemption with nothing behind it is a different policy from preemption with strong rules behind it. If you favor state rules, say how a company selling in fifty states should comply, and who pays for that. Either way, name the cost. That's the Rules page applied to policy: no fighting without evidence, and no loving or hating a position because of who else holds it.</p>
   <p>And remember that rules have comment periods. Colorado's attorney general has to write the details of the new law before it starts, and that process takes public input. Rule-making isn't only something that happens to you.</p>
 
-  <h3 class="sub" id="s4-3"><span>4.3</span> Three takeaways</h3>
+  <h3 class="sub" id="s4-3"><span>4.3</span> Four takeaways</h3>
   <h3>Rules are systems too</h3>
   <p>A law has data (what it requires companies to record), outputs (notices, fines), and failure modes. Run the five questions on it the way you would on a model. The Colorado law's quietest failure was never starting.</p>
   <h3>Ask who gets the last word</h3>
   <p>When you read about an AI rule, the first question is what it requires. The second, in 2026, is whether it will survive: a federal challenge, a delay, a rewrite. The EU delayed its own high-risk rules by sixteen months. A rule on paper is a claim, and Question 4 applies.</p>
   <h3>Floors and ceilings are the real debate</h3>
   <p>Almost nobody in this fight says "no rules ever." The disagreement is about who sets the minimum and whether anyone may go above it. Once you can hear that difference, most AI policy news gets easier to read.</p>
+  <h3>Most governance happens inside the system</h3>
+  <p>Before any law reaches an AI system, someone has already decided six things: what it can see, what it can do on its own, who approves its work, what gets logged, who answers when it's wrong, and which of those rules are built in rather than merely asked for. Laws fight over floors and ceilings for years. These six get decided in an afternoon, by whoever sets the system up, and someday that will be you.</p>
 </section>
 
 <section id="s5">

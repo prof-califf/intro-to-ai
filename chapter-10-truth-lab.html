@@ -285,6 +285,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 .callout.gov .label{color:var(--ink);font-weight:700;}
 ol.writeup{padding-left:22px;margin:10px 0 22px;}
 ol.writeup li{margin-bottom:12px;line-height:1.65;}
+.callout.gov .flock{font-weight:700;}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
 @media print{.copyblock pre{max-height:none;overflow:visible}.copyblock .copy{display:none}}
 </style>
@@ -348,6 +349,7 @@ ol.writeup li{margin-bottom:12px;line-height:1.65;}
   <div class="label">How today runs</div>
   <p>This is the second half of Monday's class, about 50 minutes, all in class. Work at your own machine and sit next to a partner so you can compare what your agents do. Rough timing: setup 10 minutes, build 20, run and review 5, second patient and the fix 10, sign it and write up 5.</p>
   <p><strong>The writeup is three items, uploaded to Canvas before you leave class.</strong> There's nothing due later this week, because Friday already holds your project.</p>
+  <p><strong>What you leave with:</strong> six governance concepts from <a class="inline" href="chapter-11-rules.html#s2-6">Chapter 11</a>, each one used on a system you built. You saw them fail on the license plate cameras in the first half of class. Now you'll build them in.</p>
   <p>If your account setup stalls, raise your hand. There's a backup copy of the finished agent so nobody loses the lab to a signup screen.</p>
 </div>
 
@@ -424,6 +426,7 @@ ol.writeup li{margin-bottom:12px;line-height:1.65;}
   <div class="callout gov">
     <div class="label">Governance check · Minimum necessary access</div>
     <p>You just decided what patient data this agent can reach. In a real hospital, this tool would query the actual records system for whoever is named in the denial. How much of the chart should it see? Hold that question. Section 4 answers it the hard way.</p>
+    <p><span class="flock">In the Flock case:</span> data collected for local crime was open to agencies the job never needed.</p>
   </div>
 
   <h3 class="sub" id="s2-5">Step 5. Add the Policy Lookup tool</h3>
@@ -482,6 +485,7 @@ OUTPUT
   <div class="callout gov">
     <div class="label">Governance check · Scope of authority</div>
     <p>Look at what you didn't build. There's no tool that sends anything. This agent can read and draft, and that's all. That was a decision about power, not a technical detail, and it means a person has to send every letter. Section 3 tests it.</p>
+    <p><span class="flock">In the Flock case:</span> a search tool the Massachusetts chief didn't know he had bought. A system's scope can grow past what the buyer understood.</p>
   </div>
 </section>
 
@@ -504,6 +508,7 @@ Appeal deadline: May 14, 2026</pre></div>
   <div class="callout gov">
     <div class="label">Governance check · Audit trail</div>
     <p>The Logs are an audit trail: every tool call, every piece of data pulled, in sequence. An agent you can't trace is an agent nobody can hold to account. But a log only counts as oversight if somebody reads it, which is exactly what went wrong with the license plate cameras in <a class="inline" href="chapter-11-rules.html#s3">Chapter 11's case</a>.</p>
+    <p><span class="flock">In the Flock case:</span> the departments didn't know who was searching their cameras until researchers pulled the records.</p>
   </div>
 
   <h3 class="sub" id="s3-2">Be the reviewer</h3>
@@ -512,6 +517,7 @@ Appeal deadline: May 14, 2026</pre></div>
   <div class="callout gov">
     <div class="label">Governance check · Human in the loop</div>
     <p>You just were the human in the loop. When we tested an earlier version of the instructions, the agent wrote "this appeal is submitted" even though it had no way to submit anything, and it treated the medication guess as fact. A reviewer who doesn't know the chart or the insurance rules would have passed both. A reviewer who can't catch mistakes is a rubber stamp.</p>
+    <p><span class="flock">In the Flock case:</span> at least ten departments' networks appeared to be searched with no approval from anyone in those departments. No human was in that loop at all.</p>
   </div>
 
   <h3 class="sub" id="s3-3">Ask it to send</h3>
@@ -551,6 +557,7 @@ Appeal deadline: May 2, 2026</pre></div>
   <div class="callout gov">
     <div class="label">Governance check · Minimum necessary access</div>
     <p>The tool returned Maria's whole chart along with James's. The agent only needed James. Every extra record an agent can see is a record it can leak, quote in the wrong letter, or send to the wrong insurer. U.S. health privacy law has a name for the standard this tool just broke: <strong>minimum necessary</strong>. You found it in the audit trail, which is what audit trails are for.</p>
+    <p><span class="flock">In the Flock case:</span> the same failure at the scale of a state. Records gathered for one purpose reached people the job never needed.</p>
   </div>
 </section>
 
@@ -604,6 +611,7 @@ return "Patient not found. Ask the reviewer to confirm the patient's name.";</pr
   <div class="callout gov">
     <div class="label">Governance check · Built-in vs. asked-for controls</div>
     <p>You could have tried to fix this with one more line in the system message: "only use the patient you were asked about." That's an asked-for control, and the agent can ignore it. Fix 2 is a built-in control. The other chart never reaches the agent, so there's nothing to ignore. Neither fix touched the AI. Both changed the system around it.</p>
+    <p><span class="flock">In the Flock case:</span> sharing stayed on until someone noticed and turned it off. Making it off by default is the built-in version: the safe setting no longer depends on anyone remembering.</p>
   </div>
 </section>
 
@@ -635,6 +643,7 @@ return "Patient not found. Ask the reviewer to confirm the patient's name.";</pr
   <div class="callout gov">
     <div class="label">Governance check · Accountability</div>
     <p>"The AI decided" is never the answer, because the AI can't be fired, sued, or asked to explain itself. Accountability means a named role answers for each outcome. Screenshot your sign-off line; it's writeup item 1.</p>
+    <p><span class="flock">In the Flock case:</span> "we don't run the cameras" is not the same as "we're not responsible for what we search."</p>
   </div>
 
   <h3 class="sub" id="s6-1">Who should write each rule?</h3>
@@ -654,7 +663,23 @@ return "Patient not found. Ask the reviewer to confirm the patient's name.";</pr
 </section>
 
 <section id="s7">
-  <div class="shead"><span class="num">7</span><h2>In class: The writeup</h2></div>
+  <div class="shead"><span class="num">7</span><h2>In class: The takeaway and the writeup</h2></div>
+    <h3 class="sub" id="s7-1">The takeaway: six concepts, two systems</h3>
+  <p>Same six concepts, two very different systems. One was built to track cars; one was built to help patients. Both needed every row.</p>
+  <table class="risk">
+    <thead><tr><th>Concept</th><th>Your appeal agent</th><th>The license plate cameras</th></tr></thead>
+    <tbody>
+      <tr><td><b>Minimum necessary access</b></td><td>The chart tool handed over a second patient</td><td>Local crime data was open to agencies the job never needed</td></tr>
+      <tr><td><b>Scope of authority</b></td><td>It can draft but has no way to send</td><td>A search tool the buyer didn't know he had</td></tr>
+      <tr><td><b>Human in the loop</b></td><td>You reviewed the draft and found the inference</td><td>Outside searches with no one approving them</td></tr>
+      <tr><td><b>Audit trail</b></td><td>The Logs showed the extra patient</td><td>Nobody knew who was searching until researchers asked</td></tr>
+      <tr><td><b>Accountability</b></td><td>Your sign-off line names a role</td><td>"We don't run the cameras"</td></tr>
+      <tr><td><b>Built-in vs. asked-for</b></td><td>The privacy fix lives in the tool</td><td>Sharing off by default</td></tr>
+    </tbody>
+  </table>
+  <p><strong>A system built to do good doesn't govern itself.</strong> The agent helped patients and still overshared on its second run. Governance isn't a verdict on whether a system is good. It's the set of decisions that keep a good system from doing harm by accident.</p>
+
+  <h3 class="sub" id="s7-2">Your three items</h3>
   <p><strong>3 items, uploaded to Canvas before you leave class.</strong></p>
   <ol class="writeup">
     <li><strong>Your sign-off line.</strong> A screenshot of your pick from section 6, plus one sentence on why that role, and one on what your pick costs.</li>
