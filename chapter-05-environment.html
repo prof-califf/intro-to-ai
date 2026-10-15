@@ -271,7 +271,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 .dcsim .racks{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;height:120px;align-items:end}
 .dcsim .rack{height:100%;background:#2B3440;border-radius:3px;display:flex;flex-direction:column;justify-content:space-evenly;padding:6px 5px;transition:background .3s}
 .dcsim .rack i{display:block;height:5px;background:#E4FF32;border-radius:1px}
-.dcsim .rack.idle i:nth-child(odd){background:#5A626C}
+.dcsim .rack.idle i{background:#3E4752}
 .dcsim .floor{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--gray);margin-top:8px}
 .dcsim .meters{display:grid;grid-template-columns:1fr;gap:10px;margin-top:16px}
 .dcsim .meter{display:grid;grid-template-columns:150px 1fr 92px;gap:10px;align-items:center;font-family:'Inter',sans-serif;font-size:.85rem;color:var(--ink)}
@@ -323,6 +323,8 @@ table.glance.zoom td:first-child{white-space:normal;min-width:140px}
 table.glance.zoom td:nth-child(2){min-width:150px}
 table.glance.cmp td:first-child{white-space:normal;min-width:150px}
 table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gray);margin-top:3px}
+.dcsim .ai-kind{display:inline-block;margin-left:6px;font-size:.72rem;font-weight:600;opacity:1;color:var(--gray)}
+.dcsim .chip.on .ai-kind{color:var(--yellow)}
 </style>
 <style>
 .tryit details{border-top:1px dashed var(--rule);padding:10px 0;}
@@ -489,19 +491,19 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
     <details class="dshelp">
       <summary>How the settings work, and what the meters mean</summary>
       <p><strong>The idea in one line:</strong> the work the chips do makes heat, and the cooling system has to carry that heat away. If the heat is bigger than what the cooling can handle, the chips overheat.</p>
-      <p><strong>What's running</strong> sets how hard each chip works. Streaming mostly sends a file that already exists, so it's light. A social feed runs a recommendation model on every swipe, so it's heavier. A chatbot computes a brand-new answer word by word, heavier still. AI video is by far the heaviest. More work means more electricity, and nearly all of that electricity turns into heat.</p>
-      <p><strong>How busy</strong> multiplies that work. A viral moment means far more people asking at once, so far more heat at once.</p>
+      <p><strong>What's running</strong> sets how hard each chip works, and it's a reminder that AI isn't one thing. Playing a video isn't AI, but it still uses energy: the building stores the video and sends it to you. The recommendation systems that choose your next TikTok or YouTube video are predictive AI, the kind from Chapter 3 that guesses what you'll want next. Chatbots and AI video are generative AI, which makes something new. All of them share the building. Streaming mostly sends a file that already exists, so it's light, though not free. A recommendation system, like the one choosing your next TikTok or YouTube video, runs a prediction on every swipe, so it's heavier. A chatbot computes a brand-new answer word by word, heavier still. AI video is by far the heaviest. More work means more electricity, and nearly all of that electricity turns into heat.</p>
+      <p><strong>How busy</strong> multiplies that work. On a quiet night only a few racks are busy; on a normal day, more; when something goes viral, every rack runs at once, so far more heat at once.</p>
       <p><strong>How the building cools</strong> sets how much heat can be removed. <em>Fans only</em> blow air over the chips: no water, but they can only carry away a little heat. <em>Evaporating water</em> carries away the most heat for the least extra electricity, but the water that evaporates is gone. A <em>closed water loop</em> sends the same water past the chips and back through a chiller, again and again: almost no water lost, but the chiller uses extra electricity.</p>
       <p><strong>Where it is</strong> changes how well cooling works. Fans struggle in hot air, a desert evaporates more water for the same cooling, and chillers work harder in the heat.</p>
       <p><strong>The meters:</strong> <em>Chip temperature</em> is how hot the chips are running. Real chips protect themselves by slowing down when they get too hot, so "overheating" means slower answers, not a fire. <em>Electricity used</em> is the power for the chips plus the extra power for cooling. <em>Water evaporated</em> is the cooling water that turns to vapor and leaves the building. None of the meters shows the water the power plant used to make the electricity.</p>
       <p><strong>Try this:</strong> set AI video and something goes viral with fans only, press Run the day, and watch it overheat. Then switch the cooling, run it again, and watch which meter goes up instead.</p>
     </details>
-    <div class="group"><div class="gname" id="ds-g1">What's running</div>
+    <div class="group"><div class="gname" id="ds-g1">What's running, and what kind of AI is it?</div>
       <div class="chips" role="group" aria-labelledby="ds-g1" data-k="work">
-        <button type="button" class="chip on" aria-pressed="true" data-v="stream">Streaming video</button>
-        <button type="button" class="chip" aria-pressed="false" data-v="feed">Social feeds</button>
-        <button type="button" class="chip" aria-pressed="false" data-v="chat">Chatbot answers</button>
-        <button type="button" class="chip" aria-pressed="false" data-v="video">AI video</button>
+        <button type="button" class="chip on" aria-pressed="true" data-v="stream">Streaming video <span class="ai-kind">not AI, still uses energy</span></button>
+        <button type="button" class="chip" aria-pressed="false" data-v="feed">Recommendations (TikTok, YouTube) <span class="ai-kind">predictive AI</span></button>
+        <button type="button" class="chip" aria-pressed="false" data-v="chat">Chatbot answers <span class="ai-kind">generative AI</span></button>
+        <button type="button" class="chip" aria-pressed="false" data-v="video">AI video <span class="ai-kind">generative AI</span></button>
       </div></div>
     <div class="group"><div class="gname" id="ds-g2">How busy</div>
       <div class="chips" role="group" aria-labelledby="ds-g2" data-k="busy">
@@ -1070,8 +1072,10 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
   var START={work:'stream',busy:'2',cool:'fans',place:'cool'};
   var D={work:'stream',busy:'2',cool:'fans',place:'cool'};
   var LOAD={stream:1,feed:1.6,chat:3,video:6};
-  var NAME={stream:'streaming video',feed:'social feeds',chat:'chatbot answers',video:'AI video'};
+  var NAME={stream:'streaming video',feed:'recommendations on TikTok and YouTube',chat:'chatbot answers',video:'AI video'};
+  var KIND={stream:'Not AI, but it still uses energy: the building stores the video and sends it to you. (The recommendations that picked that video are AI, though.)',feed:'Predictive AI: a recommendation system ranks which video you see next, on every swipe.',chat:'Generative AI: writing a brand-new answer.',video:'Generative AI: making brand-new video, frame by frame.'};
   var BUSY={'1':'on a quiet night','2':'on a normal day','3':'while something goes viral'};
+  var ACTIVE={'1':3,'2':5,'3':8};
   var racks=document.getElementById('ds-racks'), floor=document.getElementById('ds-floor'), out=document.getElementById('ds-out'), runBtn=document.getElementById('ds-run');
   for(var i=0;i<8;i++){var r=document.createElement('div');r.className='rack';r.innerHTML='<i></i><i></i><i></i><i></i><i></i>';racks.appendChild(r);}
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1091,8 +1095,8 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
   function setBar(id,frac){document.getElementById(id).firstChild.style.width=Math.max(0,Math.min(100,Math.round(frac*100)))+'%';}
   function paint(t,elec,water,on,m){
     [].forEach.call(racks.children,function(r,i){
-      r.style.background=rackColor(t);
-      var idle = D.busy==='1' && i%2;
+      var idle = i >= ACTIVE[D.busy];
+      r.style.background = idle ? '#2B3440' : rackColor(t);
       r.className='rack'+(on&&!idle?' run':'')+(idle?' idle':'');
       r.style.setProperty('--spd', (m? Math.max(0.25, 1.4/Math.sqrt(m.heat)) : 1)+'s');
     });
@@ -1110,7 +1114,7 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
     var why = D.cool==='fans' ? 'Fans use no water, but they can\u2019t keep up with heavy AI work, especially in hot weather.'
             : D.cool==='evap' ? 'Evaporating water handles heavy work with less extra electricity, but the water is gone, and a hot, dry place evaporates more of it.'
             : 'A closed loop reuses the same water, so it uses very little, but pumping and chilling it takes extra electricity, more so in the heat.';
-    out.innerHTML='<div class="label">'+NAME[D.work].charAt(0).toUpperCase()+NAME[D.work].slice(1)+' '+BUSY[D.busy]+'</div><div class="read">'+load+' '+state+' '+why+' And the power plant that made the electricity used water too, which no meter in this building shows.</div>';
+    out.innerHTML='<div class="label">'+NAME[D.work].charAt(0).toUpperCase()+NAME[D.work].slice(1)+' '+BUSY[D.busy]+'</div><div class="read"><b>'+KIND[D.work]+'</b> '+load+' '+state+' '+why+' And the power plant that made the electricity used water too, which no meter in this building shows.</div>';
     out.style.display='';
   }
   function ready(){
@@ -1124,14 +1128,14 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
     runBtn.disabled=true; runBtn.textContent='Running\u2026';
     racks.setAttribute('aria-label','Eight server racks running '+NAME[D.work]);
     var DUR=6000, t0=null;
-    function finish(){ paint(m.t,m.elec,m.water,true,m); floor.textContent='The server hall \u00B7 hour 24 of 24, day complete';
+    function finish(){ paint(m.t,m.elec,m.water,true,m); floor.textContent='The server hall \u00B7 hour 24 of 24, day complete \u00B7 '+ACTIVE[D.busy]+' of 8 racks busy';
       racks.setAttribute('aria-label','Eight server racks running '+NAME[D.work]+', chips '+tword(m.t)); verdict(m); runBtn.disabled=false; runBtn.textContent='Run it again'; running=false; raf=null; }
     if(reduce){ finish(); return; }
     function step(ts){
       if(t0===null) t0=ts; var f=Math.min(1,(ts-t0)/DUR);
       var warm=1-Math.pow(1-Math.min(1,f*2.2),2);
       paint(30+(m.t-30)*warm, m.elec*f, m.water*f, true, m);
-      floor.textContent='The server hall \u00B7 hour '+Math.round(f*24)+' of 24';
+      floor.textContent='The server hall \u00B7 hour '+Math.round(f*24)+' of 24 \u00B7 '+ACTIVE[D.busy]+' of 8 racks busy';
       if(f<1){ raf=requestAnimationFrame(step); } else { finish(); }
     }
     raf=requestAnimationFrame(step);
