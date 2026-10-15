@@ -704,6 +704,24 @@ table.hm{border-collapse:collapse;font-size:.85rem;min-width:520px;width:100%;fo
 .cptext{width:100%;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.75rem;padding:8px;border:1px solid var(--rule);background:var(--bg);margin-top:8px}
 .probe .cpy{margin-top:4px;font-size:.8rem;padding:6px 12px}
 #src-links{width:100%;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.75rem;padding:8px;border:1px solid var(--rule);background:var(--bg);margin-top:8px}
+.glance-wrap{overflow-x:auto;margin:10px 0 22px}
+table.glance{width:100%;border-collapse:collapse;font-family:'Inter',sans-serif;font-size:.9rem;table-layout:auto}
+table.glance th{text-align:left;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);border-bottom:2px solid var(--pinktext);padding:8px 10px}
+table.glance td{border-bottom:1px solid var(--rule);padding:10px;vertical-align:top;line-height:1.5}
+table.glance td:first-child{font-weight:700;color:var(--pinktext);white-space:nowrap}
+table.glance td:last-child{min-width:150px}
+table.glance.cmp td:nth-child(5){font-size:.82rem;color:var(--gray);min-width:170px}
+table.glance.cmp td:nth-child(4){min-width:170px}
+table.glance.cmp td:nth-child(2),table.glance.cmp td:nth-child(3){white-space:nowrap}
+.reftbl .glance-wrap{margin:12px 0}
+.reftbl table.glance{background:#fff}
+.reftbl table.glance{font-size:.84rem}
+.reftbl table.glance.cmp td:nth-child(2),.reftbl table.glance.cmp td:nth-child(3){white-space:normal}
+.reftbl table.glance.cmp td:nth-child(4),.reftbl table.glance.cmp td:nth-child(5){min-width:0}
+.reftbl table.glance td:first-child{white-space:normal}
+
+table.glance.cmp td:first-child{white-space:normal;min-width:150px}
+table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gray);margin-top:3px}
 </style>
 </head>
 <body>
@@ -917,8 +935,9 @@ table.hm{border-collapse:collapse;font-size:.85rem;min-width:520px;width:100%;fo
         <li>That's about $5 billion a year in electricity, and the same emissions as over 5 million cars.</li>
         <li>One gaming system can use anywhere from 5 to 1,200 kWh a year, depending on the hardware and the game.</li>
         <li>Cloud gaming, where the graphics run in a data center and stream to you, uses markedly more energy than playing on your own console or PC. The researchers called it one of their biggest surprises.</li>
+        <li>A 2026 study, not yet peer reviewed, estimates cloud gaming (Xbox Cloud Gaming, PlayStation Plus Premium, GeForce Now) at about <b>75 grams of CO2 an hour</b>, not counting your own screen or console. The companies don't publish their own numbers (<a class="inline" href="https://arxiv.org/abs/2608.19040" target="_blank" rel="noopener">Hazas and others, 2026</a>).</li>
       </ul>
-      <p class="ev-src">Who's saying it: a federal research lab, with the study funded by the California Energy Commission. Note: no per-hour number for cloud gaming.</p>
+      <p class="ev-src">Who's saying it: a federal research lab, with the study funded by the California Energy Commission. Note: Berkeley Lab gives no per-hour number for cloud gaming; the 2026 estimate is the only one.</p>
     </div>
   </div>
 
@@ -968,6 +987,23 @@ table.hm{border-collapse:collapse;font-size:.85rem;min-width:520px;width:100%;fo
 
   <h3 class="sub" id="build-job"><span>Let's build</span></h3>
   <p>Imagine you're an analyst on a sustainability team. Your boss read the headlines and asks: <strong>is our AI use the problem, or is it all our tech?</strong> You'll build the tool that answers it, using only numbers you can point to. <strong>You're the person in the loop.</strong> Claude writes the code. You decide whether its numbers are real.</p>
+  <div class="callout reftbl">
+    <p><strong>Your reference table.</strong> These are the same numbers as <a class="inline" href="chapter-05-environment.html#cmp-table">Chapter 5's Table 2</a>, each with its source. Use them to check Claude's work at every step: if the calculator shows a different number for the same thing, ask Claude where it came from. The AI rows count only answering a question, not training the model.</p>
+  <div class="glance-wrap" id="ref-table"><table class="glance cmp">
+    <thead><tr><th>Activity</th><th>Energy</th><th>CO2</th><th>What it counts</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td>1 AI text prompt</td><td>about 0.24 to 0.34 Wh</td><td>about 0.03 g</td><td>The data center only, not your phone or the network.</td><td><a class="inline" href="https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference" target="_blank" rel="noopener">Google</a>, 2025 (its own measurement); <a class="inline" href="https://blog.samaltman.com/the-gentle-singularity" target="_blank" rel="noopener">OpenAI CEO</a>, 2025 (no method given); <a class="inline" href="https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use" target="_blank" rel="noopener">Epoch AI</a>, 2025 (independent estimate)</td></tr>
+      <tr><td>1 AI image</td><td>about 0.6 Wh</td><td>not reported</td><td>The chips running one open AI model, in a reporter-run test.</td><td><a class="inline" href="https://www.technologyreview.com/2025/05/20/1116327/ai-energy-usage-climate-footprint-big-tech/" target="_blank" rel="noopener">MIT Technology Review</a>, 2025</td></tr>
+      <tr><td>1 AI video, 5 seconds</td><td>about 944 Wh</td><td>not reported</td><td>Same test. More than 700 times one image.</td><td><a class="inline" href="https://www.technologyreview.com/2025/05/20/1116327/ai-energy-usage-climate-footprint-big-tech/" target="_blank" rel="noopener">MIT Technology Review</a>, 2025</td></tr>
+      <tr><td>1 hour of streaming</td><td>about 77 Wh</td><td>about 36 g</td><td>The data center, the network, and your screen.</td><td><a class="inline" href="https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines" target="_blank" rel="noopener">International Energy Agency</a>, 2020 (2019 data)</td></tr>
+      <tr><td>30 minutes of TikTok</td><td>not reported</td><td>about 79 g</td><td>Your phone and the network, measured on one phone (2.63 g a minute).</td><td><a class="inline" href="https://greenspector.com/en/social-media-2021" target="_blank" rel="noopener">Greenspector</a>, 2021 (a company that sells footprint measurement)</td></tr>
+      <tr><td>1 hour of cloud gaming<br><span class="ex">such as Xbox Cloud Gaming (Game Pass Ultimate), PlayStation Plus Premium, GeForce Now</span></td><td>not published</td><td>about 75 g (estimate)</td><td>Running the game in a data center plus streaming it to you; not your screen or console. Derived from the study's totals: about 6.9 million tonnes a year for 400 million players at about 4.5 hours a week. The companies don't publish their own numbers.</td><td><a class="inline" href="https://arxiv.org/abs/2608.19040" target="_blank" rel="noopener">Hazas and others, Lancaster University</a>, 2026 (preprint, not yet peer reviewed); <a class="inline" href="https://eta.lbl.gov/news/hidden-cost-computer-gaming" target="_blank" rel="noopener">Berkeley Lab</a>, 2019, found cloud gaming uses markedly more energy than local play</td></tr>
+      <tr><td>Driving 1 mile</td><td>not applicable</td><td>about 400 g</td><td>A typical gasoline passenger car.</td><td><a class="inline" href="https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle" target="_blank" rel="noopener">US Environmental Protection Agency</a></td></tr>
+      <tr><td>1 quarter-pound beef burger</td><td>not applicable</td><td>about 11,000 g</td><td>Farm to retail, beef from beef herds (about 99.5 kg CO2e per kg of beef).</td><td><a class="inline" href="https://ourworldindata.org/grapher/ghg-per-kg-poore" target="_blank" rel="noopener">Our World in Data</a>, from Poore and Nemecek, 2018</td></tr>
+    </tbody>
+  </table></div>
+    <div class="chips"><button type="button" class="btn alt" id="ref-copy">Copy the reference table for Claude</button> <span class="cp-status" id="ref-status" aria-live="polite"></span></div>
+  </div>
   <p class="sim-note"><strong>Keep it to public numbers.</strong> Don't type anything private. Your own screen time is fine.</p>
 
   <div class="steps">
@@ -975,10 +1011,10 @@ table.hm{border-collapse:collapse;font-size:.85rem;min-width:520px;width:100%;fo
     <div class="step"><span class="sn">2</span><div class="sbody"><p><strong>Build it: AI impact only.</strong> Click <strong>Copy the AI details for Claude</strong> in section 1. Then copy the prompt below into Claude, paste your AI details where it says to, and send it.</p>
       <div class="probe"><div class="ptext">I'm a business student building a Technology Impact Calculator for a class. Build it as an interactive web page I can use. Start with AI only. Use only the numbers I paste below, and never make up a number. Next to every number on the page, show which article it came from. If you need a number I didn't give you, or have to convert units, mark it on the page as an assumption and tell me what you assumed. Inputs: AI text prompts per day, AI images per day, and five-second AI videos per week. Outputs: energy in watt-hours, carbon in grams of CO2, and water in milliliters, per day and per year, with a simple bar chart. Here are my numbers: [paste your AI details here]</div></div>
       <div class="callout mx-calm"><p>It's just text, like pasting a paragraph. Nothing to install, and you can't break anything. If Claude asks which water number to use, Google's or the Post's, that's the right question. Tell it to show both, side by side, with a label saying what each one counts.</p></div>
-      <p><strong>Check it.</strong> Set the calculator to one text prompt. Does it show the same energy number as the article it cites? Then set it to your real day. How big is the AI bar?</p></div></div>
+      <p><strong>Check it.</strong> Set the calculator to one text prompt. Does it show the same energy number as the article it cites, and as your reference table? Then set it to your real day. How big is the AI bar?</p></div></div>
     <div class="step"><span class="sn">3</span><div class="sbody"><p><strong>Add our existing technology habits.</strong> Click <strong>Copy the everyday-tech details for Claude</strong> in section 2. In the same chat, send this with your details pasted in:</p>
       <div class="probe"><div class="ptext">Now add a second section for things I already do: streaming video in hours per day, YouTube in hours per day, TikTok in minutes per day, and gaming in hours per day. Use only these numbers: [paste your everyday-tech details here]. Some of these numbers aren't per hour or per minute. YouTube and gaming are yearly totals for everyone. Show me how you turned each one into a per-hour number, and label every one of those as an assumption on the page. If an article gives no number for something, say so on the page instead of filling it in. Then put AI and my everyday habits on the same chart.</div></div>
-      <p><strong>Check it.</strong> Find every label that says "assumption." Pick one and ask Claude, <em>"How did you get this number?"</em> Then look at gaming. The Berkeley Lab article gives no per-hour number for cloud gaming. Did Claude leave it blank, or did a number appear anyway? Try the same test once more: ask Claude to <em>"add a row for one Google search with an AI Overview."</em> No one has published that number. Does Claude say so, or does 3 Wh or 0.3 Wh show up? Was AI or your everyday habits the bigger bar? Is that what you expected?</p></div></div>
+      <p><strong>Check it.</strong> Set TikTok to 30 minutes. Is it close to the reference table's 79 grams? Find every label that says "assumption." Pick one and ask Claude, <em>"How did you get this number?"</em> Then look at cloud gaming. The only per-hour number is an estimate from one 2026 study, about 75 grams of CO2 an hour, in your reference table. Did Claude use that number and label it an estimate, or did a different number appear? Try the same test once more: ask Claude to <em>"add a row for one Google search with an AI Overview."</em> No one has published that number. Does Claude say so, or does 3 Wh or 0.3 Wh show up? Was AI or your everyday habits the bigger bar? Is that what you expected?</p></div></div>
     <div class="step"><span class="sn">4</span><div class="sbody"><p><strong>Compare it with everyday life.</strong> First, look up one number yourself. Open the <a class="inline" href="https://www.icao.int/environmental-protection/environmental-tools/icec" target="_blank" rel="noopener">ICAO Carbon Emissions Calculator</a>, the United Nations' official tool for flights. Enter a round trip from Seattle (SEA) to San Francisco (SFO), economy, and find the kilograms of CO2 per passenger. Then send this, with your flight number filled in:</p>
       <div class="probe"><div class="ptext">Add a third section called "Compared with everyday life," with two separate scales. Scale 1 is my own life: a round-trip flight from Seattle to San Francisco, which the ICAO calculator says is [your number] kg of CO2 per passenger; driving one mile in a typical car, about 400 grams of CO2 (US EPA); and one quarter-pound beef burger, using beef from beef herds at about 99.5 kg of CO2e per kilogram of beef (Our World in Data, from Poore and Nemecek 2018), where a quarter pound is about 113 grams. Show how many days of my technology use equal each one. Scale 2 is the big picture: data centers worldwide emit about 180 million tonnes of CO2 a year (International Energy Agency), next to livestock at about 6.2 billion tonnes of CO2e a year, about 12 percent of human-caused emissions (UN Food and Agriculture Organization, 2023), and next to cement, the ingredient that binds concrete, at about 2.8 billion tonnes of CO2 in 2015, about 8 percent of the global total (Carbon Brief, citing Chatham House); and US data centers directly consumed about 17 billion gallons of water in 2023 (Berkeley Lab, via Pew), next to US golf courses, which applied about 1.68 million acre-feet of water in 2020 (Golf Course Superintendents Association of America), where one acre-foot is 325,851 gallons. Keep the two scales visually separate so nobody compares one burger to a whole industry.</div></div>
       <p><strong>Check it.</strong> Do the golf math yourself: 1.68 million acre-feet times 325,851 gallons. Does Claude's page match? Then read the two sources on scale 2 the way Question 4 would. The golf number comes from golf's own association, and it counts water <em>applied</em> to courses, some of it recycled. The data center number counts water <em>consumed</em>. Are those the same kind of number? One more: the cement figure is from 2015 and the data center figure is recent. When one number is more than ten times the other, how much does the gap in years matter?</p></div></div>
@@ -1132,7 +1168,7 @@ Carbon Brief, Q&amp;A: Why cement emissions matter for climate change, 2018: htt
       <p class="ev-src">Article B; <a class="inline" href="https://www.pewresearch.org/short-reads/2025/10/24/what-we-know-about-energy-use-at-us-data-centers-amid-the-ai-boom/" target="_blank" rel="noopener">Pew Research Center</a>; Chapter 5, <a class="inline" href="chapter-05-environment.html#s2-2">section 2.2</a></p>
     </div>
     <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate: Should environmental regulations for data centers target AI, or every data center? I'm on Side [A: target AI first / B: every data center]. My evidence is that data center electricity is projected to more than double worldwide by 2030, from about 415 to 945 terawatt-hours, with AI the main driver; Berkeley Lab projects AI will use more than half of US data center electricity by 2028; and AI chips need two to four times the watts of ordinary ones. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather nobody noticed.</div>
+    <div class="ev-prompt">I'm in a class debate: Should environmental regulations for data centers target AI, or every data center? I'm on Side [A: target AI first / B: every data center]. My evidence is that data center electricity is projected to roughly double worldwide by 2030, to about 950 terawatt-hours (IEA, April 2026), with AI the main driver; Berkeley Lab projects AI will use more than half of US data center electricity by 2028; and AI chips need two to four times the watts of ordinary ones. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather nobody noticed.</div>
   </div>
 
   <div class="probe ev">
@@ -1315,6 +1351,23 @@ Carbon Brief, Q&amp;A: Why cement emissions matter for climate change, 2018: htt
   [].forEach.call(document.querySelectorAll('[data-copy-text]'), function(b){
     var ta=document.querySelector(b.getAttribute('data-copy-text'));
     b.addEventListener('click', function(){ copy(ta.value, b.parentNode.querySelector('.cpstat'), ta); });
+  });
+})();
+</script>
+<script>
+(function(){
+  var btn=document.getElementById('ref-copy'), st=document.getElementById('ref-status'), t=document.getElementById('ref-table');
+  if(!btn||!t) return;
+  btn.addEventListener('click',function(){
+    var lines=['Reference numbers (Chapter 5, Table 2). Use only these; if something is "not reported" or "no solid number", leave it blank and say so.'];
+    [].forEach.call(t.querySelectorAll('tbody tr'),function(tr){
+      var c=[].map.call(tr.children,function(td){return td.textContent.replace(/\s+/g,' ').trim();});
+      lines.push(c[0]+': energy '+c[1]+'; CO2 '+c[2]+'; counts: '+c[3]+' Source: '+c[4]);
+    });
+    var txt=lines.join('\n');
+    function ok(){st.textContent='Copied. Paste it into Claude.';}
+    function fail(){st.textContent='Copy did not work. Select the table and copy it by hand.';}
+    try{ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,fail);} else {fail();} }catch(e){fail();}
   });
 })();
 </script>
