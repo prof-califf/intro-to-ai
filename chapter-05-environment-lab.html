@@ -753,6 +753,36 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
 .steptbl thead th{background:#F4F4F0;font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gray);border-bottom:2px solid var(--pinktext)}
 .steptbl tbody th{font-weight:700;color:var(--ink)}
 .substep{margin:16px 0 8px}
+#yd .label{margin-top:6px}
+.yd-sliders{display:grid;gap:12px;margin:0 0 10px}
+.yd-s{display:grid;grid-template-columns:minmax(0,1fr) 90px;gap:4px 12px;align-items:center}
+.yd-s label{font-size:.92rem;font-weight:600;grid-column:1/3}
+.yd-s input{width:100%;accent-color:#D61F69}
+.yd-s output{font-weight:700;text-align:right}
+.yd-note{font-size:.86rem;color:var(--gray);margin:6px 0 22px}
+.yd-out{margin-top:16px}
+.yd-big{font-size:1.05rem;line-height:1.55;margin:0 0 12px}
+.yd-big b{color:var(--pinktext)}
+.yd-num{display:block;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.6rem;line-height:1.25;color:var(--pinktext)}
+.yd-how{margin:-10px 0 22px}.yd-how .tblnote{margin-top:10px}
+#yd-map{display:block;width:100%;height:auto;border:1px solid var(--rule)}
+.yd-line{fill:none;stroke:#14181D;stroke-width:3;stroke-dasharray:7 6;animation:ydflow 1s linear infinite}
+@keyframes ydflow{to{stroke-dashoffset:-13}}
+@media (prefers-reduced-motion: reduce){.yd-line{animation:none}}
+.yd-legend{font-size:.86rem;margin:8px 0 14px}
+.yd-split{margin:0 0 14px}
+.yd-row{display:grid;grid-template-columns:150px minmax(0,1fr) 52px;gap:10px;align-items:center;font-size:.86rem;margin:0 0 6px}
+@media(max-width:520px){.yd-row{grid-template-columns:110px minmax(0,1fr) 44px}}
+.yd-bar{height:12px;background:#EDEDE8;border:1px solid #C9CED6}
+.yd-bar span{display:block;height:100%;background:#14181D}
+.yd-row b{text-align:right}
+.yd-meter{margin:6px 0 0;padding:10px 14px;background:var(--dark);color:#E7EAEF;font-size:.92rem}
+.yd-meter span{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow)}
+@media(max-width:600px){#yd{padding:18px 14px}}
+.wuq{margin:4px 0 22px;padding:12px 16px;background:#fff;border:1px solid var(--rule);border-left:3px solid var(--pinktext);border-radius:0 6px 6px 0}
+.wuq-l{font-family:'Inter',Arial,sans-serif;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--pinktext);margin-bottom:4px}
+.wuq p{margin:0;font-size:.92rem;line-height:1.55}
+.why3{margin:10px 0 16px;padding-left:22px}.why3 li{margin:0 0 10px;line-height:1.6}
 .rules4{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 26px}
 @media(max-width:640px){.rules4{grid-template-columns:1fr}}
 .rcard{background:#fff;border:1px solid var(--rule);border-top:3px solid var(--pinktext);border-radius:0 0 8px 8px;padding:16px 18px}
@@ -837,7 +867,7 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 5 · Week 5 · At home (midterm week)</div>
     <h1>The Footprint <b>Machine</b></h1>
     <p class="kicker">Chapter 5 said every AI system runs on infrastructure, that your feed and your chatbot share the same kind of building, and that the real numbers mostly aren't public. This week you measure it yourself. You read what's known about AI's footprint and about the streaming, scrolling, and gaming you already do, build a carbon calculator with Claude, write a mini-policy for data centers, and look at the hardware that ends up as e-waste.</p>
-    <p class="factline">what AI costs, read · what your habits cost, read · a calculator you build with Claude · under the hood · a mini-policy for data centers · e-waste · one debate</p>
+    <p class="factline">what AI costs, read · what your habits cost, read · a calculator you build with Claude · under the hood · your day, times everyone · a mini-policy for data centers · e-waste · one debate</p>
   </div>
 </header>
 
@@ -845,12 +875,13 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
 
 <div class="callout">
   <div class="label">From Chapter 5 · what this lab runs on</div>
-  <p><strong>How this week runs.</strong> Wednesday is the midterm, so this whole lab is at home, alone or with a partner. It takes about two hours, plus the writeup. There's nothing to write down as you go: work through the sections, then answer the five writeup questions at the end, due on Canvas by 11:59 p.m. Friday, October 23.</p>
-  <p>The articles in sections 1 and 2 are <a class="inline" href="chapter-05-environment.html#s2-1">section 2.1</a>'s point made concrete: almost everything you do online already runs in a data center. The calculator you build is <a class="inline" href="chapter-05-environment.html#s2-3">section 2.3</a>'s scale-up: small, times billions. When two sources give the same thing numbers ten or a thousand times apart, you're looking at <a class="inline" href="chapter-05-environment.html#s2-4">section 2.4</a>'s disclosure gap. And the regulation you sketch in section 5 is <a class="inline" href="chapter-05-environment.html#s2-7">section 2.7</a>'s question: rules for AI, or rules for all technology? This week you weigh both sides and decide for yourself.</p>
+  <p><strong>How this week runs.</strong> Wednesday is the midterm, so this whole lab is at home, alone or with a partner. It takes about two hours, plus the writeup. Each section opens with its writeup question in a pink-edged box. Answer it when you finish that section, while it's fresh, all in one document. Then upload the five answers to Canvas by 11:59 p.m. Friday, October 23.</p>
+  <p>The articles in sections 1 and 2 are <a class="inline" href="chapter-05-environment.html#s2-1">section 2.1</a>'s point made concrete: almost everything you do online already runs in a data center. The calculator you build is <a class="inline" href="chapter-05-environment.html#s2-3">section 2.3</a>'s scale-up: small, times billions. When two sources give the same thing numbers ten or a thousand times apart, you're looking at <a class="inline" href="chapter-05-environment.html#s2-4">section 2.4</a>'s disclosure gap. And the regulation you sketch in section 6 is <a class="inline" href="chapter-05-environment.html#s2-7">section 2.7</a>'s question: rules for AI, or rules for all technology? This week you weigh both sides and decide for yourself.</p>
 </div>
 
 <section id="ai-reads">
   <div class="shead"><span class="num">1</span><h2>At home: Read what AI costs</h2></div>
+  <div class="wuq"><div class="wuq-l">Writeup item 1 &middot; answer it when you finish section 2</div><p><strong>The numbers.</strong> Google says about 0.26 mL of water per prompt; the Washington Post said about 519 mL per email. Why can both be true? Which source from section 2 do you trust least, and why?</p></div>
   <p class="lead">Before you build your calculator, read a bit about how technology, and AI in particular, affects the environment.</p>
   <p class="lead">AI data centers are in the news as the environment's newest villain. Asking how a new technology affects the environment is exactly the right instinct, and AI deserves that scrutiny like any other. The harder question is how much concern the evidence supports, so before you decide, read what has actually been measured. Below are four articles: one from a company about its own product, one from journalists who did the math themselves, one that went viral, and one that zooms out to every data center in the country. About 20 minutes.</p>
   <p>Skim each one. You don't need every word. Under each article is a list of the details you'll hand to Claude in section 3, so there's nothing to copy down. Just get a feel for who's saying what. (If an article hits a paywall, the details on the card are enough to keep going.)</p>
@@ -1053,6 +1084,7 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
 
 <section id="build">
   <div class="shead"><span class="num">3</span><h2>At home: Build a technology impact calculator with Claude</h2></div>
+  <div class="wuq"><div class="wuq-l">Writeup item 2 &middot; answer it when you finish section 4</div><p><strong>Your calculator.</strong> Attach it as an <strong>HTML file or PDF</strong>, downloaded from Claude. What was your biggest bar, and where did AI land? Name one number you checked against its article. How many days of your tech use equal the flight to San Francisco? (Optional: paste your GitHub link. No-AI path: your app list and rough numbers instead.)</p></div>
   <details class="srcnote noai">
     <summary>Don't want to use AI? Do this instead</summary>
     <div class="noai-body">
@@ -1086,7 +1118,6 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
       <tr><td>1 quarter-pound beef burger</td><td>not applicable</td><td>about 11,000 g</td><td>Farm to retail, beef from beef herds (about 99.5 kg CO2e per kg of beef).</td><td><a class="inline" href="https://ourworldindata.org/grapher/ghg-per-kg-poore" target="_blank" rel="noopener">Our World in Data</a>, from Poore and Nemecek, 2018</td></tr>
     </tbody>
   </table></div>
-    <div class="chips"><button type="button" class="btn alt" id="ref-copy">Copy the reference table for Claude</button> <span class="cp-status" id="ref-status" aria-live="polite"></span></div>
   </div>
   </details>
 
@@ -1099,7 +1130,7 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
     <div class="step"><span class="sn">2</span><div class="sbody"><p><strong>Build it: AI and your everyday tech.</strong> You'll copy two things into Claude: a short prompt, then the numbers it should use.</p>
       <p class="substep"><span class="ss">a</span><strong>Copy the prompt</strong> and paste it into Claude. Don't send it yet.</p>
       <div class="probe"><div class="ptext">Build me a simple Technology Impact Calculator as an interactive web page. It measures one thing: grams of CO2. Make two sections. "AI" has sliders for AI text prompts per day, AI images per day, and five-second AI videos per week. "Everyday tech" has sliders for streaming video (hours per day), YouTube (minutes per day), TikTok (minutes per day), and cloud gaming (hours per day). Add a per day, week, or year switch, big number cards, and one bar chart with one bar labeled "AI" and one labeled "Everyday tech." Use only the numbers I paste below, never make one up, and show which article each number came from. Label cloud gaming as an estimate. Anything without a real number, like gaming at home, goes in a small box called "Numbers nobody publishes" instead of on the chart. Also add a row for one Google search with an AI Overview. Next to each total, show how far a typical car would drive to make the same CO2. At the bottom, add a short Assumptions note saying what the numbers count and how the image and video numbers were converted. Use forest greens and earth tones, and make it easy to read on a phone. Here are my numbers:</div></div>
-      <p class="substep"><span class="ss">b</span><strong>Copy the numbers</strong> (both tables, one button) and paste them right after the prompt.</p>
+      <p class="substep"><span class="ss">b</span><strong>Copy the AI and everyday tech numbers</strong> (both tables, one button) and paste them right after the prompt.</p>
       <div class="steptbl-wrap"><table class="steptbl" id="nums-ai">
         <caption>The AI numbers (carbon, the one measure we'll chart)</caption>
         <thead><tr><th scope="col">Activity</th><th scope="col">Carbon (CO2)</th><th scope="col">How we get it</th><th scope="col">About the same as driving</th><th scope="col">From</th></tr></thead>
@@ -1124,7 +1155,7 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
         </tbody>
       </table></div>
       <p class="tblnote"><b>Assumptions behind the everyday-tech math.</b> Streaming is 36 g an hour, from 2019 data, counting the data center, the network, and your screen (<a class="inline" href="https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines" target="_blank" rel="noopener">Article F</a>). TikTok and YouTube come from a 2021 test on one phone and count your phone and the network (<a class="inline" href="https://www.globalcitizen.org/en/content/social-media-emissions-carbon-footprint/" target="_blank" rel="noopener">Article G</a>); Greenly's 2.9 g for TikTok is a second, disputed estimate. Cloud gaming's 75 g is worked out from one study's totals: about 6.9 million tonnes a year, spread over 400 million players at about 4.5 hours a week; it counts the data center and the stream, not your screen (<a class="inline" href="https://arxiv.org/abs/2608.19040" target="_blank" rel="noopener">Article H</a>). Driving is about 400 g per mile (<a class="inline" href="https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle" target="_blank" rel="noopener">US EPA</a>). Training the recommendation systems isn't counted. Notice where the electricity is used: the AI section is all data center, while streaming, scrolling, and home gaming happen mostly on your own screen or console and the network. Cloud gaming is the exception, because it moves the game into a data center, the way AI does.</p>
-      <div class="chips cpbar"><button type="button" class="btn alt" data-copy-table="#nums-ai,#nums-habits">Copy the numbers</button><span class="cpstat" aria-live="polite"></span></div>
+      <div class="chips cpbar"><button type="button" class="btn alt" data-copy-table="#nums-ai,#nums-habits">Copy the AI and everyday tech numbers</button><span class="cpstat" aria-live="polite"></span></div>
       <p class="substep"><span class="ss">c</span><strong>Send it.</strong></p>
       <div class="callout mx-calm"><p>It's just text, like pasting a paragraph. Nothing to install, and you can't break anything. If the page looks different from a classmate's, that's fine: Claude builds it a little differently each time. The numbers should match.</p></div>
       <div class="checkit"><p><strong>Check it.</strong> Set the calculator to one text prompt. Does it show about 0.03 grams, like your <a class="inline" href="#ref-panel">reference table</a>? Now one AI video: about 350 grams, and does the Assumptions note say how it was converted? Set TikTok to 30 minutes. Is it close to the <a class="inline" href="#ref-panel">reference table</a>'s 79 grams? Is cloud gaming labeled as an estimate?</p>
@@ -1134,7 +1165,7 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
     <div class="step"><span class="sn">3</span><div class="sbody"><p><strong>Compare it and add your sources.</strong> Same routine: the prompt, then the numbers and links, then send.</p>
       <p class="substep"><span class="ss">a</span><strong>Copy the prompt</strong> and paste it into Claude. Don't send it yet.</p>
       <div class="probe"><div class="ptext">Add a section called "Compared with everyday life," with two separate scales. Scale 1 is my own life: show how many days of my technology use equal each item. Scale 2 is the big picture: data centers next to cement for carbon, and data centers next to golf courses for water. Put the water comparison on its own labeled line, not in the carbon chart, and keep the two scales visually apart so nobody compares one burger to a whole industry. Use only the numbers I paste below. Then add a Sources section at the bottom with each article's title, publisher, date, and link, and link every number on the page to its source. If any number on the page doesn't come from my sources, list it under a heading called "Not from my sources." At the very bottom, add a short note that this calculator was built with Claude, an AI model made by Anthropic, and that building it used energy and water too, an amount Anthropic doesn't publish, so this page doesn't count its own footprint. Here are my numbers and sources:</div></div>
-      <p class="substep"><span class="ss">b</span><strong>Copy the numbers and links</strong> and paste them right after the prompt.</p>
+      <p class="substep"><span class="ss">b</span><strong>Copy the comparison numbers and source links</strong> and paste them right after the prompt.</p>
       <div class="steptbl-wrap"><table class="steptbl" id="nums-compare">
         <caption>The comparison numbers</caption>
         <thead><tr><th scope="col">Item</th><th scope="col">Scale</th><th scope="col">Number</th><th scope="col">From</th></tr></thead>
@@ -1149,7 +1180,7 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
         </tbody>
       </table></div>
       <p class="tblnote"><b>Assumptions in this prompt.</b> The flight is one economy passenger, round trip, using Google Flights' estimate. The burger is a quarter pound (about 113 g) of beef from beef herds, counted from farm to store, which works out to about 11 kg of CO2e. Driving is a typical gas car. "Days of my technology use" comes from your own sliders, so your answer won't match a classmate's. Some numbers are CO2e, which counts all greenhouse gases, and some are CO2 only. On the big-picture scale, the cement number is from 2015 while the data center numbers are recent, and golf's water is water <em>applied</em> while data centers' is water <em>consumed</em>.</p>
-      <div class="chips cpbar"><button type="button" class="btn alt" data-copy-table="#nums-compare,#src-links">Copy the numbers and links</button><span class="cpstat" aria-live="polite"></span></div>
+      <div class="chips cpbar"><button type="button" class="btn alt" data-copy-table="#nums-compare,#src-links">Copy the comparison numbers and source links</button><span class="cpstat" aria-live="polite"></span></div>
       <details class="exact"><summary>See the links you're copying</summary><textarea id="src-links" readonly rows="8" aria-label="The source links to paste into Claude">US Energy Information Administration, How much carbon dioxide is produced per kilowatthour of U.S. electricity generation? (2023 data): https://www.eia.gov/tools/faqs/faq.php?id=74
 Luccioni and others, Misinformation by Omission, June 2025: https://arxiv.org/abs/2506.15572
 Google Cloud, Measuring the environmental impact of AI inference, August 2025: https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference
@@ -1241,8 +1272,50 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
   <p>Every row in your calculator touches the same kind of place: a building full of servers, drawing power from a local grid, cooled with air or water (<a class="inline" href="chapter-05-environment.html#s2-1">section 2.1</a>). How much of each row happens there differs. For an AI prompt, nearly all the counted energy is in the building. For an hour of streaming, the building is about 5 percent, and most of the energy is your own screen. Either way, the building's electric meter doesn't know whether a watt went to TikTok, a Netflix show, a cloud game, or a chatbot. Hold onto that. It's the whole reason for the next section.</p>
 </section>
 
+<section id="everyone">
+  <div class="shead"><span class="num">5</span><h2>At home: Your day, times everyone</h2></div>
+  <p class="lead">Your numbers in section 3 were tiny. Now multiply them: set your day, then give it to everyone from WWU to the whole country. No AI, nothing to write. About 10 minutes.</p>
+
+  <div class="tool" id="yd">
+    <div class="label">1. Set your day</div>
+    <div class="yd-sliders">
+      <div class="yd-s"><label for="yd-p">AI text prompts a day</label><input type="range" id="yd-p" min="0" max="100" step="1" value="10"><output for="yd-p" id="yd-p-v">10 </output></div>
+      <div class="yd-s"><label for="yd-i">AI images a day</label><input type="range" id="yd-i" min="0" max="50" step="1" value="0"><output for="yd-i" id="yd-i-v">0 </output></div>
+      <div class="yd-s"><label for="yd-v">Five-second AI videos a week</label><input type="range" id="yd-v" min="0" max="20" step="1" value="0"><output for="yd-v" id="yd-v-v">0 </output></div>
+      <div class="yd-s"><label for="yd-s">Hours of streaming video a day</label><input type="range" id="yd-s" min="0" max="8" step="0.5" value="2"><output for="yd-s" id="yd-s-v">2 </output></div>
+    </div>
+    <p class="yd-note">Use your day from section 3. TikTok, YouTube, and gaming are left out because nobody publishes their data center numbers, so your real total is higher.</p>
+
+    <div class="label">2. Give everyone your day</div>
+    <div class="chips" role="group" aria-label="Who has your day">
+      <button type="button" class="chip" data-yd="0" aria-pressed="false">Just you</button>
+      <button type="button" class="chip" data-yd="1" aria-pressed="false">Everyone at WWU</button>
+      <button type="button" class="chip" data-yd="2" aria-pressed="false">Everyone in Bellingham</button>
+      <button type="button" class="chip" data-yd="3" aria-pressed="false">Everyone in Washington</button>
+      <button type="button" class="chip" data-yd="4" aria-pressed="false">Everyone in the US</button>
+    </div>
+
+    <div class="yd-out">
+      <p class="yd-big" id="yd-big"></p>
+      <svg id="yd-map" viewBox="0 0 480 68" role="img" aria-label="">
+        <rect id="yd-bg" x="0" y="0" width="480" height="68" fill="#F4F6F0"/>
+        <g id="yd-icons"></g>
+      </svg>
+      <p class="yd-legend" id="yd-legend"></p>
+      <div class="yd-split" id="yd-split"></div>
+    </div>
+    <p class="vh" id="yd-live" aria-live="polite"></p>
+  </div>
+  <p class="checkit"><strong>Try this.</strong> Pick <em>Everyone in the US</em>. Add one AI video a week. Then take it away and add 50 text prompts a day instead. Which one fills more data centers?</p>
+  <details class="exact yd-how"><summary>Where these numbers come from</summary><p class="tblnote">Each activity counts only the data center's energy: 0.24 Wh per text prompt (<a class="inline" href="https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference" target="_blank" rel="noopener">Article A</a>), 0.6 Wh per image and 944 Wh per five-second video (<a class="inline" href="https://www.technologyreview.com/2025/05/20/1116327/ai-energy-usage-climate-footprint-big-tech/" target="_blank" rel="noopener">Article B</a>), and for streaming the data center's share, about 5 percent of 77 Wh an hour (<a class="inline" href="https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines" target="_blank" rel="noopener">Article F</a>). These sources draw their lines in different places, so treat the totals as rough. A home uses about 861 kWh a month, the 2023 US average (<a class="inline" href="https://www.eia.gov/todayinenergy/detail.php?id=61903" target="_blank" rel="noopener">US Energy Information Administration</a>). A typical AI-focused data center uses as much as about 100,000 homes (<a class="inline" href="https://www.iea.org/reports/energy-and-ai/executive-summary" target="_blank" rel="noopener">International Energy Agency</a>). People: about 14,500 WWU students in fall 2026 (<a class="inline" href="https://www.cascadiadaily.com/?p=533140" target="_blank" rel="noopener">Cascadia Daily News</a>), about 99,000 in Bellingham in 2026 (<a class="inline" href="https://cob.org/services/maps/population" target="_blank" rel="noopener">City of Bellingham, from state estimates</a>), about 8.1 million in Washington in 2025 (<a class="inline" href="https://ofm.wa.gov/sites/default/files/public/dataresearch/pop/april1/ofm_april1_press_release.pdf" target="_blank" rel="noopener">Washington Office of Financial Management</a>), and about 342 million in the US in 2025 (<a class="inline" href="https://www.census.gov/newsroom/press-kits/2026/national-state-population-estimates.html" target="_blank" rel="noopener">US Census Bureau</a>). Everyone having your exact day is a what-if, not a forecast. Training the models isn't counted.</p></details>
+
+  <h3 class="sub"><span>The takeaway</span></h3>
+  <p>One person's day barely registers. The same day times a whole country fills real buildings in somebody's town. That's "small, times billions" (<a class="inline" href="chapter-05-environment.html#s2-3">Chapter 5, section 2.3</a>). Those buildings run your streaming too, so the next section asks: should a rule cover only the AI, or everything inside?</p>
+</section>
+
 <section id="regulation">
-  <div class="shead"><span class="num">5</span><h2>At home: Sketch a regulation for data centers</h2></div>
+  <div class="shead"><span class="num">6</span><h2>At home: Sketch a regulation for data centers</h2></div>
+  <div class="wuq"><div class="wuq-l">Writeup item 3 &middot; answer it when you finish this section</div><p><strong>Your policy.</strong> Paste your mini-policy. Which two rules did you pick, and why? What was the strongest objection, from Claude or the reading, and what did you change?</p></div>
   <p class="lead">AI data centers have been in the news as horrible for the environment, and there's truth in that: AI is the main reason so many data centers are being built so fast. But as you read in sections 1 and 2, the same buildings also run streaming, social media, gaming, and cloud storage. And even "AI-focused" data centers don't only run large language models, the AI behind chatbots like ChatGPT. They also run predictive AI, like the recommendation systems that choose your next TikTok or Instagram Reel. Meta, for example, <a class="inline" href="https://aibusiness.com/companies/meta-next-gen-ai-chips-to-power-recommendations-ranking" target="_blank" rel="noopener">designed its own chips</a> to run the recommendation models behind Facebook and Instagram (<a class="inline" href="chapter-05-environment.html#s2-2">Chapter 5, section 2.2</a>).</p>
   <p><strong>So, imagine you go into policy one day and help write the rules for data centers.</strong> People really do this, and not just members of Congress. State legislators and their staff write bills like Washington's. City and county planners decide where a data center can be built. State utility commissions decide who pays for new power lines. Companies hire sustainability analysts to decide what to measure and report. Any of those could be you. So if you were writing an environmental regulation, who should it cover: AI data centers, every data center, or something in between? In this section you'll write your own mini-policy. No chatbot needed: the four kinds of rules are laid out below. If you want, Claude can argue against your draft at the end. About 30 minutes.</p>
   <div class="recap">
@@ -1302,11 +1375,12 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
   </div>
 
   <h3 class="sub"><span>The takeaway</span></h3>
-  <p>Regulating data centers is not a fantasy: <a class="inline" href="https://www.datacenterdynamics.com/en/news/emissions-reporting-scheme-for-european-data-centers-approved" target="_blank" rel="noopener">Europe already requires reporting</a> from every large one, and <a class="inline" href="https://newjerseymonitor.com/2026/08/27/data-centers-water-energy-use-law/" target="_blank" rel="noopener">New Jersey just passed a law</a> that does too. The hard parts are the cutoff, which decides who's in, and the fight, which Washington's bill lost this year, partly because the industry argued it singled out data centers. A narrow regulation aimed at AI is easier to pass and points at the fastest growth, but it leaves everything else uncounted. A broad one counts everything, but costs companies that never touched AI and draws a bigger coalition against it. That trade-off is the debate in section 7.</p>
+  <p>Regulating data centers is not a fantasy: <a class="inline" href="https://www.datacenterdynamics.com/en/news/emissions-reporting-scheme-for-european-data-centers-approved" target="_blank" rel="noopener">Europe already requires reporting</a> from every large one, and <a class="inline" href="https://newjerseymonitor.com/2026/08/27/data-centers-water-energy-use-law/" target="_blank" rel="noopener">New Jersey just passed a law</a> that does too. The hard parts are the cutoff, which decides who's in, and the fight, which Washington's bill lost this year, partly because the industry argued it singled out data centers. A narrow regulation aimed at AI is easier to pass and points at the fastest growth, but it leaves everything else uncounted. A broad one counts everything, but costs companies that never touched AI and draws a bigger coalition against it. That trade-off is the debate in section 8.</p>
 </section>
 
 <section id="ewaste">
-  <div class="shead"><span class="num">6</span><h2>At home: E-waste, the hidden cost that's been around since you were born</h2></div>
+  <div class="shead"><span class="num">7</span><h2>At home: E-waste, the hidden cost that's been around since you were born</h2></div>
+  <div class="wuq"><div class="wuq-l">Writeup item 4 &middot; answer it when you finish this section</div><p><strong>E-waste.</strong> Pick one of the three ways AI adds to e-waste from step 4 (more hardware, faster replacement, or more things with chips in them, the Internet of Things) and explain it in your own words, with one fact from the section. Is that an old problem made a little bigger, or something new? Then name one thing you could do about it.</p></div>
   
   <p class="lead">Your calculator counts the carbon from <em>using</em> technology. It doesn't count the hardware itself: the phones, laptops, servers, and cables that all get made, used up, and thrown away. That cost was here long before AI, and long before you were born. And it's growing: the world's e-waste rose 82 percent from 2010 to 2022 and is on track to reach about 82 million tonnes a year by 2030. It's growing five times faster than recycling, so the share that gets properly recycled is expected to shrink (<a class="inline" href="https://www.unitar.org/about/news-stories/press/global-e-waste-monitor-2024-electronic-waste-rising-five-times-faster-documented-e-waste-recycling" target="_blank" rel="noopener">UN Global E-waste Monitor</a>). About 15 minutes.</p>
   <div class="steps">
@@ -1333,7 +1407,15 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
         </tbody>
       </table></div>
       <p>Add it up and the world made a record <b>62 million tonnes</b> of e-waste in 2022. That's hard to picture, so here are two ways to see it. It would fill about 1.55 million big semi trucks, enough to line up bumper to bumper all the way around the equator. Or split it evenly across the roughly 8 billion people on Earth, and it comes to about 17 pounds each, every year, about the weight of two gallons of milk. Less than a quarter of it was documented as properly recycled. Much of the rest ends up in landfills or with informal workers in lower-income countries, who strip and burn electronics without protection (<a class="inline" href="https://www.unitar.org/about/news-stories/press/global-e-waste-monitor-2024-electronic-waste-rising-five-times-faster-documented-e-waste-recycling" target="_blank" rel="noopener">UN Global E-waste Monitor</a>; <a class="inline" href="chapter-05-environment.html#s2-2">Chapter 5, section 2.2</a>).</p></div></div>
-    <div class="step"><span class="sn">4</span><div class="sbody"><p><strong>Think about AI's role.</strong> AI adds to e-waste in at least three ways. First, <em>more hardware</em>: every new AI data center is packed with chips, servers, and cables. Second, <em>faster replacement</em>: AI chips improve so quickly that older ones get pushed out sooner, which is why Amazon shortened the expected life of some of its servers. Third, <em>more things with chips in them</em>: smart speakers, doorbells, fridges, cars, and toys keep adding chips, and AI features are one more reason to add one. The UN lists this spread of electronics into everyday products as one of the main drivers of e-waste, along with short product lives and limited repair options (<a class="inline" href="https://www.downtoearth.org.in/news/waste/humanity-produced-62-billion-kg-of-e-waste-in-2022-in-2030-that-number-will-be-82-billion-kg-un-95146" target="_blank" rel="noopener">UN Global E-waste Monitor, via Down To Earth</a>), and small devices like these already make up about a third of all e-waste (<a class="inline" href="https://www.unitar.org/about/news-stories/press/global-e-waste-monitor-2024-electronic-waste-rising-five-times-faster-documented-e-waste-recycling" target="_blank" rel="noopener">UN</a>). <a class="inline" href="https://www.technologyreview.com/2024/10/28/1106316/ai-e-waste/" target="_blank" rel="noopener">one 2024 study</a> estimated that generative AI alone could add 1.2 to 5 million tonnes of e-waste by 2030 (<a class="inline" href="chapter-05-environment.html#s2-2">Chapter 5, section 2.2</a>). Compare that with the roughly 82 million tonnes the world is expected to make that year. Is AI's part big or small? Does it matter that it's the fastest-growing part? And what's the one part you control? Most of a phone's footprint comes from making it, so keeping your phone or laptop an extra year or two does more than skipping a few prompts. You'll write about this in writeup item 4.</p></div></div>
+    <div class="step"><span class="sn">4</span><div class="sbody"><p><strong>Think about AI's role.</strong> E-waste was growing long before AI. Researchers expect AI to make it grow faster, for three reasons.</p>
+      <ol class="why3">
+        <li><strong>More hardware.</strong> Every new AI data center is packed with chips, servers, and cables, and AI-focused data centers are the fastest-growing kind (<a class="inline" href="chapter-05-environment.html#s2-7">Chapter 5, section 2.7</a>). More buildings means more hardware that will someday be thrown out.</li>
+        <li><strong>Faster replacement.</strong> AI chips improve so quickly that last year's chips fall behind, so companies swap them out sooner. That's why Amazon cut the expected life of some servers from six years to five (the table above).</li>
+        <li><strong>More things with chips in them.</strong> This is the Internet of Things, explained in the box below. AI features, like a speaker that answers questions or a doorbell camera that spots packages, give companies one more reason to put a chip in a product, and give you one more reason to upgrade. The UN lists this spread of electronics into everyday products as a main driver of e-waste, along with short product lives and limited repair options (<a class="inline" href="https://www.downtoearth.org.in/news/waste/humanity-produced-62-billion-kg-of-e-waste-in-2022-in-2030-that-number-will-be-82-billion-kg-un-95146" target="_blank" rel="noopener">UN Global E-waste Monitor, via Down To Earth</a>). Small devices already make up about a third of all e-waste (<a class="inline" href="https://www.unitar.org/about/news-stories/press/global-e-waste-monitor-2024-electronic-waste-rising-five-times-faster-documented-e-waste-recycling" target="_blank" rel="noopener">UN</a>).</li>
+      </ol>
+      <div class="callout"><div class="label">What's the Internet of Things?</div><p>The <strong>Internet of Things</strong>, or <strong>IoT</strong>, means everyday objects that have a chip inside and connect to the internet. Think of a smart speaker like an Amazon Echo, a video doorbell, a smartwatch, a thermostat you control from your phone, Wi-Fi light bulbs, or a car that updates its own software overnight. Each one is a small computer. And each one becomes e-waste when it breaks, stops getting updates, or gets replaced by a newer model.</p></div>
+      <p><strong>How big could AI's part get?</strong> One 2024 study estimated that generative AI alone could add <b>1.2 to 5 million tonnes</b> of e-waste over the decade to 2030, depending on how fast the industry grows (<a class="inline" href="https://www.scientificamerican.com/article/generative-ai-could-generate-millions-more-tons-of-e-waste-by-2030" target="_blank" rel="noopener">Scientific American</a>). To get there, the researchers combined three things: how much hardware AI runs on, how long that hardware lasts, and how fast AI is growing. They assumed AI servers get thrown out after about three years (<a class="inline" href="https://charonhub.deeplearning.ai/generative-ai-and-gpu-boom-spawns-growing-e-waste-problem/" target="_blank" rel="noopener">The Batch</a>), sooner than the five or six years in the table above. In the high-growth case, that's up to about 2.5 million tonnes in 2030 alone (<a class="inline" href="https://www.scmp.com/news/china/science/article/3285049/ai-may-produce-millions-tonnes-electronic-waste-2030-study-finds" target="_blank" rel="noopener">South China Morning Post</a>). Compare that with the roughly 82 million tonnes the whole world is expected to make that year. The study counted only generative AI, like chatbots, not IoT gadgets or the recommendation systems from section 2.</p>
+      <p><strong>Think it through.</strong> Is AI's part big or small? Does it matter that it's the fastest-growing part? And what's the one part you control? Most of a phone's footprint comes from making it, so keeping your phone or laptop an extra year or two does more than skipping a few prompts. You'll write about this in writeup item 4.</p></div></div>
   </div>
 
   <h3 class="sub"><span>The takeaway</span></h3>
@@ -1341,28 +1423,23 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
 </section>
 
 <section id="debate">
-  <div class="shead"><span class="num">7</span><h2>At home: Debate</h2></div>
-  <details class="srcnote noai">
-    <summary>Don't want to use AI? Do this instead</summary>
-    <div class="noai-body">
-      <p>Same prep, no chatbot, about 10 minutes. Reread <a class="inline" href="chapter-05-environment.html#s2-7">Chapter 5, section 2.7</a>, including its "strongest objection" paragraph, and your four evidence cards. Find your side's strongest point, its honest cost, and one sentence in 2.7 your side would rather nobody read.</p>
-    </div>
-  </details>
+  <div class="shead"><span class="num">8</span><h2>At home: Debate</h2></div>
+  <div class="wuq"><div class="wuq-l">Writeup item 5 &middot; answer it when you finish this section</div><p><strong>The debate, and where you land.</strong> Which side were you handed, and what was the other side's best point? Then: build, fix, or stop for a new data center near you, and what terms would you require? End with your commitment card: one tech habit you'll keep, fix, or drop, and what that costs you.</p></div>
   <p class="lead"><strong>Should environmental regulations for data centers target AI, or every data center?</strong> Your side is assigned, not chosen: if your birthday is January through June, you're Side A. July through December, you're Side B. Nobody here is defending their own belief. The Gilman Street rules apply.</p>
 
   <div class="callout">
     <div class="label">How the debate runs at home</div>
-    <p><strong>About 15 minutes, nothing to write down until the writeup.</strong></p>
+    <p><strong>About 15 minutes. Answer writeup item 5 when you finish.</strong></p>
     <ol>
       <li><strong>Get your side.</strong> Birthday January to June, Side A. July to December, Side B.</li>
-      <li><strong>Prep with Claude.</strong> Send one or two of the sample prompts, then make Claude argue against you.</li>
+      <li><strong>Prep with the cards.</strong> Read the four evidence cards below. For each one, find what it gives your side and what your side would rather nobody noticed.</li>
       <li><strong>Switch.</strong> What's the other side's best point, said as strongly as they'd say it?</li>
       <li><strong>What would change your mind?</strong> Name the specific thing you'd have to see. Real evidence that would move you wins, whichever side you were handed.</li>
     </ol>
-    <p><strong>To resolve it:</strong> your section 5 regulation had to pick a cutoff. What cutoff would you use now, what does it catch that an AI-only regulation misses, and what does it cost the companies inside it? This all goes in writeup item 5.</p>
+    <p><strong>To resolve it:</strong> your section 6 regulation had to pick a cutoff. What cutoff would you use now, what does it catch that an AI-only regulation misses, and what does it cost the companies inside it? This all goes in writeup item 5.</p>
   </div>
 
-  <p>Both things you've seen this week are true. AI is driving the boom in data center building, and the buildings it's driving also run everything else you do online. Section 5's regulation sketch had to pick a cutoff. Today you argue for one answer and then switch, the way a legislator would have to before voting in Olympia.</p>
+  <p>Both things you've seen this week are true. AI is driving the boom in data center building, and the buildings it's driving also run everything else you do online. Section 6's regulation sketch had to pick a cutoff. Today you argue for one answer and then switch, the way a legislator would have to before voting in Olympia.</p>
 
   <div class="sides">
     <div class="side">
@@ -1393,8 +1470,6 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
       </ul>
       <p class="ev-src">Article B; <a class="inline" href="https://www.pewresearch.org/short-reads/2025/10/24/what-we-know-about-energy-use-at-us-data-centers-amid-the-ai-boom/" target="_blank" rel="noopener">Pew Research Center</a>; Chapter 5, <a class="inline" href="chapter-05-environment.html#s2-2">section 2.2</a></p>
     </div>
-    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate: Should environmental regulations for data centers target AI, or every data center? I'm on Side [A: target AI first / B: every data center]. My evidence is that data center electricity is projected to roughly double worldwide by 2030, to about 950 terawatt-hours (IEA, April 2026), with AI the main driver; Berkeley Lab projects AI will use more than half of US data center electricity by 2028; and AI chips need two to four times the watts of ordinary ones. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather nobody noticed.</div>
   </div>
 
   <div class="probe ev">
@@ -1409,8 +1484,6 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
       </ul>
       <p class="ev-src"><a class="inline" href="https://www.pewresearch.org/short-reads/2025/10/24/what-we-know-about-energy-use-at-us-data-centers-amid-the-ai-boom/" target="_blank" rel="noopener">Pew Research Center</a>; Article E; Chapter 5, <a class="inline" href="chapter-05-environment.html#s2-7">section 2.7</a></p>
     </div>
-    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate: Should environmental regulations for data centers target AI, or every data center? I'm on Side [A: target AI first / B: every data center]. My evidence is that the same data centers run email, streaming, cloud storage, crypto mining, and AI; large data centers grew with cloud computing and crypto before the AI boom; crypto mining alone used an estimated 0.6 to 2.3 percent of US electricity; and a building's meter can't tell which workload used the power. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather nobody noticed.</div>
   </div>
 
   <div class="probe ev">
@@ -1425,8 +1498,6 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
       </ul>
       <p class="ev-src">Your own section 3</p>
     </div>
-    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate: Should environmental regulations for data centers target AI, or every data center? I'm on Side [A: target AI first / B: every data center]. My evidence is my own technology impact calculator: an hour of streaming is about 36 grams of CO2 and a median AI text prompt about 0.03 grams, a minute of TikTok about 2.63 grams, but one five-second AI video uses about 3.4 million joules, more than 700 times an AI image. Worldwide, data centers emit about 180 million tonnes of CO2 a year, compared with about 6.2 billion tonnes of CO2e from livestock and about 2.8 billion tonnes of CO2 from making cement. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather nobody noticed.</div>
   </div>
 
   <div class="probe ev">
@@ -1439,37 +1510,30 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
         <li>Washington's <a class="inline" href="https://washingtonstatestandard.com/2026/02/11/how-wa-lawmakers-are-trying-to-regulate-data-centers/" target="_blank" rel="noopener">House Bill 2515</a> (2026) would have covered facilities of 20 megawatts or more. It <a class="inline" href="https://www.seattlemet.com/news-and-city-life/2026/04/data-centers-climate-change-washington" target="_blank" rel="noopener">passed the House scaled down and died in the Senate</a>.</li>
         <li>The industry's trade group <a class="inline" href="https://www.geekwire.com/2026/washington-state-has-embraced-data-centers-but-now-its-looking-to-set-terms-of-engagement/" target="_blank" rel="noopener">said the Washington bill unfairly singled out data centers</a> when semiconductor and battery plants use similar power.</li>
       </ul>
-      <p class="ev-src">Your section 5; Chapter 5, <a class="inline" href="chapter-05-environment.html#s2-7">section 2.7</a></p>
+      <p class="ev-src">Your section 6; Chapter 5, <a class="inline" href="chapter-05-environment.html#s2-7">section 2.7</a></p>
     </div>
-    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate: Should environmental regulations for data centers target AI, or every data center? I'm on Side [A: target AI first / B: every data center]. My evidence is the existing regulations: the EU requires every data center of 500 kilowatts or more to report energy use; New Jersey's August 2026 law requires data centers to report energy and water use; and Washington's House Bill 2515 in 2026 would have covered facilities of 20 megawatts or more, passed the House in a scaled-down version, and died in the Senate after the industry argued it unfairly singled out data centers. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather nobody noticed.</div>
   </div>
 
   <div class="callout">
-    <div class="label">Push your thinking with Claude</div>
-    <p>In section 3 you checked Claude's numbers. Here, turn it around: tell Claude to argue against you. It will find the other side's best point before you do. If it cites a fact you plan to use, check it against the card or the article.</p>
-    <ol>
-      <li>Send one or two of the sample prompts above, with your side filled in.</li>
-      <li>Then make it argue against you:</li>
-    </ol>
+    <div class="label">Optional: have Claude argue against you</div>
+    <p>One message, if you have messages left. Fill in your side and your best point, and Claude will find the other side's best point. If it cites a fact you plan to use, check it against the card.</p>
     <div class="probe">
-      <div class="pwhy">Argue against me</div>
-      <div class="ptext">Now argue against me as hard as you can. What's the best point the other side will make, and where is my case weakest? Don't go easy on me.</div>
+      <div class="ptext">I'm in a class debate: Should environmental regulations for data centers target AI, or every data center? I'm on Side [A: target AI first / B: every data center], and my best point is [your point]. Argue against me as hard as you can. What's the best point the other side will make, and where is my case weakest? Don't go easy on me.</div>
     </div>
-    <p>If it goes soft or starts agreeing with you, push back: <em>"You're being too nice. Argue the other side for real."</em> Then close Claude.</p>
+    <p>No Claude, or out of messages? The Switch step is the same move: argue the other side yourself, as strongly as they would.</p>
   </div>
 
 </section>
 
 <section id="writeup">
-  <div class="shead"><span class="num">8</span><h2>For homework: The writeup</h2></div>
+  <div class="shead"><span class="num">9</span><h2>For homework: The writeup</h2></div>
   <p><strong>Five short items, one for each part of the lab, uploaded to Canvas by 11:59 p.m. Friday, October 23.</strong> A short paragraph each is plenty. Attach your calculator as an HTML file or a PDF.</p>
   <ol class="writeup">
     <li><span class="wu-sec">Sections 1 and 2</span> <strong>The numbers.</strong> Google says about 0.26 mL of water per prompt; the Washington Post said about 519 mL per email. Why can both be true? Which source from section 2 do you trust least, and why?</li>
     <li><span class="wu-sec">Sections 3 and 4</span> <strong>Your calculator.</strong> Attach it as an <strong>HTML file or PDF</strong>, downloaded from Claude. What was your biggest bar, and where did AI land? Name one number you checked against its article. How many days of your tech use equal the flight to San Francisco? (Optional: paste your GitHub link. No-AI path: your app list and rough numbers instead.)</li>
-    <li><span class="wu-sec">Section 5</span> <strong>Your policy.</strong> Paste your mini-policy. Which two rules did you pick, and why? What was the strongest objection, from Claude or the reading, and what did you change?</li>
-    <li><span class="wu-sec">Section 6</span> <strong>E-waste.</strong> Pick one of the three ways AI adds to e-waste from step 4 (more hardware, faster replacement, or more things with chips in them) and explain it in your own words, with one fact from the section. Is that an old problem made a little bigger, or something new? Then name one thing you could do about it.</li>
-    <li><span class="wu-sec">Section 7</span> <strong>The debate, and where you land.</strong> Which side were you handed, and what was the other side's best point? Then: build, fix, or stop for a new data center near you, and what terms would you require? End with your commitment card: one tech habit you'll keep, fix, or drop, and what that costs you.</li>
+    <li><span class="wu-sec">Section 6</span> <strong>Your policy.</strong> Paste your mini-policy. Which two rules did you pick, and why? What was the strongest objection, from Claude or the reading, and what did you change?</li>
+    <li><span class="wu-sec">Section 7</span> <strong>E-waste.</strong> Pick one of the three ways AI adds to e-waste from step 4 (more hardware, faster replacement, or more things with chips in them, the Internet of Things) and explain it in your own words, with one fact from the section. Is that an old problem made a little bigger, or something new? Then name one thing you could do about it.</li>
+    <li><span class="wu-sec">Section 8</span> <strong>The debate, and where you land.</strong> Which side were you handed, and what was the other side's best point? Then: build, fix, or stop for a new data center near you, and what terms would you require? End with your commitment card: one tech habit you'll keep, fix, or drop, and what that costs you.</li>
   </ol>
   <div class="callout">
     <div class="label">Using AI on this writeup</div>
@@ -1493,22 +1557,28 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
       <dt>Calculator carbon conversion (section 3, added 15 October 2026)</dt>
       <dd>US Energy Information Administration FAQ, "How much carbon dioxide is produced per kilowatthour of U.S. electricity generation?" (linked): about 0.81 pounds of CO2 per kWh from utility-scale generation in 2023, about 367 g. Used only to convert AI image (0.6 Wh, about 0.22 g) and five-second video (944 Wh, about 346 g) energy to carbon. Google's 0.03 g per text prompt reflects Google's own cleaner electricity and is kept as reported.</dd>
 
-      <dt>E-waste section (section 6, added 15 October 2026)</dt>
+      <dt>E-waste section (section 7, added 15 October 2026)</dt>
       <dd>Omdia analyst Runar Bj&oslash;rhovde via The Register, April 30, 2026 (linked): 5.63 billion active smartphones, 1.25 billion new in 2025, average lifetime 4.2 years before replacement. DatacenterDynamics (linked): Google extending server life to six years in 2023, Microsoft six years, Meta five, AWS five to six, all three years in 2020. Accounting Today, 2025 (linked): Amazon shortening the useful life of some equipment from six to five years. UN Global E-waste Monitor 2024 (linked). No single solid laptop-lifespan source was found, so the table says so.</dd>
 
-      <dt>E-waste comparisons (section 6, added 15 October 2026)</dt>
+      <dt>E-waste comparisons (section 7, added 15 October 2026)</dt>
       <dd>The truck comparison (1.55 million 40-tonne trucks, bumper to bumper around the equator) is from the UNITAR press release (linked). The per-person figure is arithmetic: 62 billion kg divided by about 8 billion people is about 7.8 kg, or about 17 pounds; a gallon of milk weighs about 8.6 pounds.</dd>
 
-      <dt>E-waste drivers (section 6, added 15 October 2026)</dt>
+      <dt>E-waste drivers (section 7, added 15 October 2026)</dt>
       <dd>Drivers named in the Global E-waste Monitor 2024 (technological progress, higher consumption, limited repair options, short product lifecycles, growing electronification, inadequate management infrastructure), as reported by Down To Earth (linked). Small equipment at 33 percent (20.4 Mt) of 2022 e-waste, UNITAR press release (linked). No source was found showing that AI-enabled products are specifically harder to recycle, so the lab doesn't claim it.</dd>
+
+      <dt>AI e-waste projection (section 7, added 20 October 2026)</dt>
+      <dd>Wang, Tzachor and others, Nature Computational Science, 28 October 2024: generative AI could add 1.2 to 5 million tonnes of e-waste cumulatively from 2020 to 2030, built from hardware volume, lifespan, and sector growth (Scientific American, linked); up to about 2.5 million tonnes in 2030 alone without mitigation (South China Morning Post, linked); servers assumed discarded after about three years (The Batch, DeepLearning.AI, linked). The study covers generative AI only. The Internet of Things box is a plain-language definition; the examples are illustrative, not counts.</dd>
 
       <dt>Everyday-tech articles (section 2)</dt>
       <dd>The comparison tables in section 2 are arithmetic on the article figures, rounded: TikTok 2.63 g and YouTube 0.46 g per minute (Greenspector via Global Citizen), streaming 36 g and 77 Wh per hour (IEA, 2019), Gemini 0.03 g and 0.24 Wh per median prompt (Google), an AI image about 2,282 J and a five-second AI video about 3.4 MJ (MIT Technology Review); 1 Wh is 3,600 J. The boundaries differ, which the section says. Whole-building figures: Seth Borenstein, Associated Press, via PBS News, 4 June 2026, on a United Nations University report (448 TWh in 2025; about 189 million metric tons of CO2, comparable to Argentina; about 1.2 trillion gallons of water to produce that electricity; about 20 percent of data center energy due to AI, about 40 percent expected by 2030; a typical chatbot query about 200 times a spam-filter classification; 30 percent fewer words for about 25 percent less energy). Streaming: George Kamiya, IEA commentary (first published by Carbon Brief, February 2020, revised December 2020): about 0.077 kWh and 36 gCO2 per hour in 2019, revised down from 82 g; the Shift Project's 1.6 kg claim and its roughly eight-fold correction. TikTok: Global Citizen, Joe McCarthy, 7 March 2022, reporting Compare the Market's calculator built on Greenspector's 2021 measurements on a Galaxy S7 (TikTok 2.63, Reddit 2.45, Pinterest 1.3, YouTube 0.46 gCO2e per minute; 145 minutes a day for a year at nearly 140 kg). Gaming: Berkeley Lab news release and Mills, Bourassa, Rainer, Mai, Shehabi, and Mills, "Toward Greener Gaming" (2019): 34 TWh a year, 2.4 percent of residential electricity, 24 Mt CO2, $5 billion; 5 to 1,200 kWh a year by system; cloud gaming markedly higher; funded by the California Energy Commission.</dd>
       <dt>Comparisons (section 3)</dt>
       <dd>ICAO Carbon Emissions Calculator, the UN's tool for flights; it counts engine CO2 only, with no contrail or radiative-forcing multiplier (ICAO FAQ). Students look up their own figure. EPA, "Greenhouse Gas Emissions from a Typical Passenger Vehicle" (about 400 g CO2 per mile). Our World in Data, from Poore and Nemecek, Science, 2018 (beef from beef herds 99.48 kg CO2e per kg, a global mean; a quarter pound is about 113 g). FAO, "Pathways towards lower emissions" (2023): livestock agrifood systems 6.2 Gt CO2e, about 12 percent of anthropogenic emissions, reference year 2015; other estimates run higher, roughly 12 to 17 percent. IEA, Energy and AI (April 2025): data centers about 180 Mt CO2 today, about 0.5 percent of combustion emissions. Carbon Brief, "Q&amp;A: Why cement emissions matter for climate change" (2018), citing Chatham House: cement about 2.8 Gt CO2 in 2015, about 8 percent of the global total, more than any country but China and the US. GCSAA Golf Course Environmental Profile, 2022 report: about 1.68 million acre-feet applied in 2020, down 29 percent since 2005, 21 percent recycled water; one acre-foot is 325,851 gallons. Golf's figure is water applied; Berkeley Lab's data center figure is water consumed. The two are not the same measure, which the lab asks students to notice.</dd>
-      <dt>Regulation (sections 5 and 7)</dt>
+      <dt>Your day, times everyone (section 5, added 20 October 2026)</dt>
+      <dd>Per-activity data center energy as in section 2: 0.24 Wh per median prompt (Google), 0.6 Wh per image and 944 Wh per five-second video (MIT Technology Review), streaming at the IEA's 5 percent data-center share of 77 Wh an hour (about 3.9 Wh). Home electricity: EIA, 2023 average of 861 kWh a month (linked). Data center size: IEA, Energy and AI, executive summary (April 2025), a typical AI-focused data center equals about 100,000 households (linked). Populations: WWU fall 2026 total enrollment 14,473 (Cascadia Daily News, linked); Bellingham 99,030 as of April 1, 2026 (City of Bellingham, citing OFM, linked); Washington 8,115,100 as of April 1, 2025 (OFM press release, linked); US 341.8 million as of July 1, 2025 (Census Bureau Vintage 2025, linked). The game rounds these. Everyone having one person's day is a what-if.</dd>
+
+      <dt>Regulation (sections 6 and 8)</dt>
       <dd>EU Energy Efficiency Directive and New Jersey's August 2026 law as described in Chapter 5, which carries its own verification note. Washington House Bill 2515 (2026): Washington State Standard, 11 February 2026; GeekWire, February 2026 (20 MW threshold; annual reports on energy, water, refrigerant use, and pollution emissions; the Data Center Coalition's objection); Seattle Met, April 2026 (passed the House in scaled-down form, died without a Senate vote; the semiconductor and battery comparison; data centers about 6 percent of Washington electricity in 2023 per EPRI). Crypto mining's 0.6 to 2.3 percent and the dropped survey are from Chapter 5, section 2.7. Berkeley Lab's projection that AI will take more than half of US data center electricity by 2028 is as reported by MIT Technology Review.</dd>
-      <dt>E-waste (section 6)</dt>
+      <dt>E-waste (section 7)</dt>
       <dd>Video chosen by the instructor, linked on YouTube (watch?v=4GtWGHvX-rk); its content has not been summarized here. The 62 million tonnes and the recycling share are from the UN Global E-waste Monitor 2024, as cited in Chapter 5.</dd>
       <dt>Claude</dt>
       <dd>Claude's calculators vary by run and model version; nothing in the lab depends on a specific answer. Whether a free account shows a Publish option can change, so publishing is optional.</dd>
@@ -1596,23 +1666,6 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
 </script>
 <script>
 (function(){
-  var btn=document.getElementById('ref-copy'), st=document.getElementById('ref-status'), t=document.getElementById('ref-table');
-  if(!btn||!t) return;
-  btn.addEventListener('click',function(){
-    var lines=['Reference numbers (Chapter 5, Table 2). Use only these; if something is "not reported" or "no solid number", leave it blank and say so.'];
-    [].forEach.call(t.querySelectorAll('tbody tr'),function(tr){
-      var c=[].map.call(tr.children,function(td){return td.textContent.replace(/\s+/g,' ').trim();});
-      lines.push(c[0]+': energy '+c[1]+'; CO2 '+c[2]+'; counts: '+c[3]+' Source: '+c[4]);
-    });
-    var txt=lines.join('\n');
-    function ok(){st.textContent='Copied. Paste it into Claude.';}
-    function fail(){st.textContent='Copy did not work. Select the table and copy it by hand.';}
-    try{ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,fail);} else {fail();} }catch(e){fail();}
-  });
-})();
-</script>
-<script>
-(function(){
   // "Copy the numbers" buttons: turn step tables (and any textarea) into plain lines for Claude.
   function txt(t){ return t.replace(/\s+/g,' ').trim(); }
   [].forEach.call(document.querySelectorAll('[data-copy-table]'), function(b){
@@ -1646,6 +1699,67 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
       else fallback();
     });
   });
+})();
+</script>
+<script>
+(function(){
+  // Lab 5 "Your day, times everyone": every figure is documented in the Assumptions note under the tool.
+  var root=document.getElementById('yd'); if(!root) return;
+  var WH={p:0.24, i:0.6, v:944/7, s:77*0.05};          // per item per day; videos are per week
+  var NAME={p:'AI text prompts', i:'AI images', v:'AI videos', s:'Streaming video'};
+  var POP=[1,14500,99000,8100000,342000000];
+  var WHO=['Just you','Everyone at WWU','Everyone in Bellingham','Everyone in Washington','Everyone in the US'];
+  var HOME_KWH=861*12/365, DC_HOMES=100000;
+  var lvl=4;
+  function $(id){ return document.getElementById(id); }
+  function val(k){ return parseFloat($('yd-'+k).value)||0; }
+  function sig(n){ if(n<=0) return 0; var p=Math.pow(10,Math.floor(Math.log10(n))-1); return Math.round(n/p)*p; }
+  function words(n){
+    if(n>=1e9) return trim(sig(n)/1e9)+' billion';
+    if(n>=1e6) return trim(sig(n)/1e6)+' million';
+    if(n>=1000) return Math.round(sig(n)).toLocaleString('en-US');
+    if(n>=10) return Math.round(n).toLocaleString('en-US');
+    if(n>=1) return trim(Math.round(n*10)/10);
+    return trim(Math.round(n*100)/100);
+  }
+  function trim(x){ return String(Math.round(x*10)/10); }
+  function draw(dcs){
+    var unit=dcs<=60?1:(dcs<=600?10:100), full=dcs/unit, n=Math.max(1,Math.ceil(full-1e-9)), cols=12, out='';
+    for(var k=0;k<n;k++){
+      var f=Math.min(1, full-k); if(f<=0) f=0;
+      var x=12+(k%cols)*38, y=12+Math.floor(k/cols)*58, h=44, fh=(h*f<0.4)?0:Math.max(2,h*f);
+      out+='<rect x="'+x+'" y="'+y+'" width="30" height="'+h+'" fill="#fff" stroke="#14181D" stroke-width="2"/>'
+         +'<rect x="'+(x+1)+'" y="'+(y+h-fh+(fh===h?1:0))+'" width="28" height="'+(fh===h?h-2:fh)+'" fill="#D61F69"/>';
+    }
+    $('yd-icons').innerHTML=out;
+    var rows=Math.ceil(n/cols), H=rows*58+10;
+    $('yd-map').setAttribute('viewBox','0 0 480 '+H); $('yd-bg').setAttribute('height',H);
+    return {unit:unit,n:n};
+  }
+  function render(announce){
+    var per=0, parts={};
+    ['p','i','v','s'].forEach(function(k){ parts[k]=val(k)*WH[k]; per+=parts[k]; });
+    $('yd-p-v').textContent=val('p'); $('yd-i-v').textContent=val('i'); $('yd-v-v').textContent=val('v'); $('yd-s-v').textContent=val('s')+' h';
+    var kwh=per*POP[lvl]/1000, homes=kwh/HOME_KWH, dcs=homes/DC_HOMES;
+    var who=WHO[lvl], big, legend='';
+    var d=draw(per===0?0:dcs);
+    var hs= homes>=1.5? 'as much electricity as '+(homes<10?Math.round(homes):words(homes))+' homes use' : (homes>=0.5?'about what one home uses':'less than one home uses');
+    if(per===0){ big='Move a slider to give yourself a day.'; legend=''; }
+    else if(dcs>=1){ big='<span class="yd-num">'+words(dcs)+' data center'+(sig(dcs)===1?'':'s')+'</span> Running all day. That\u2019s '+hs+'.'; }
+    else if(dcs*100>=1){ big='<span class="yd-num">'+Math.round(dcs*100)+'% of one data center</span> That\u2019s '+hs+'.'; }
+    else { big='<span class="yd-num">Almost nothing</span> Less than 1% of one data center. That\u2019s '+hs+'.'; }
+    if(per) legend= d.unit===1? 'Each box is one data center (about 100,000 homes\u2019 worth of electricity). Pink is what '+(lvl===0?'your day':'this group\u2019s day')+' uses.' : 'Each box is '+d.unit+' data centers. Pink is what this group\u2019s day uses.';
+    $('yd-big').innerHTML=big; $('yd-legend').innerHTML=legend;
+    $('yd-map').setAttribute('aria-label', legend.replace(/<[^>]+>/g,''));
+    var rows='';
+    ['v','s','p','i'].forEach(function(k){ var pct= per? Math.round(parts[k]/per*100):0; rows+='<div class="yd-row"><span>'+NAME[k]+'</span><span class="yd-bar" aria-hidden="true"><span style="width:'+pct+'%"></span></span><b>'+pct+'%</b></div>'; });
+    $('yd-split').innerHTML='<p class="yd-legend" style="margin:0 0 6px"><b>What\u2019s using it</b></p>'+rows;
+    [].forEach.call(root.querySelectorAll('[data-yd]'),function(b){ var on=+b.getAttribute('data-yd')===lvl; b.setAttribute('aria-pressed',String(on)); b.classList.toggle('on',on); });
+    if(announce) $('yd-live').textContent=WHO[lvl]+': '+$('yd-big').textContent;
+  }
+  [].forEach.call(root.querySelectorAll('[data-yd]'),function(b){ b.addEventListener('click',function(){ lvl=+b.getAttribute('data-yd'); render(true); }); });
+  ['p','i','v','s'].forEach(function(k){ var el=$('yd-'+k); el.addEventListener('input',function(){ render(false); }); el.addEventListener('change',function(){ render(true); }); });
+  render(false);
 })();
 </script>
 </body>
