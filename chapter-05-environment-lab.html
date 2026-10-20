@@ -753,6 +753,15 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
 .steptbl thead th{background:#F4F4F0;font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gray);border-bottom:2px solid var(--pinktext)}
 .steptbl tbody th{font-weight:700;color:var(--ink)}
 .substep{margin:16px 0 8px}
+.rules4{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 26px}
+@media(max-width:640px){.rules4{grid-template-columns:1fr}}
+.rcard{background:#fff;border:1px solid var(--rule);border-top:3px solid var(--pinktext);border-radius:0 0 8px 8px;padding:16px 18px}
+.rcard .rt{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.1rem;color:var(--ink);margin-bottom:8px}
+.rcard p{font-size:.9rem;line-height:1.55;margin:0 0 10px;color:var(--ink)}
+.rcard p:last-child{margin:0}
+.rcard .rk{display:block;font-family:'Inter',Arial,sans-serif;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--pinktext);margin-bottom:2px}
+.checkit p{margin:0 0 8px}.checkit p:last-child{margin:0}
+.checkit{margin:16px 0 4px;padding:12px 16px;background:#fff;border:1px solid var(--rule);border-left:3px solid var(--pinktext);border-radius:0 6px 6px 0}
 .substep .ss{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--pinktext);color:#fff;font-size:.78rem;font-weight:700;margin-right:8px;vertical-align:1px;text-transform:uppercase}
 .sbody .callout.mx-calm{margin:12px 0 22px;border-top:1px solid var(--rule);border-left:4px solid var(--pink);padding:14px 18px}
 .sbody .callout.mx-calm + p{margin-top:0}
@@ -1056,7 +1065,7 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
       </ol>
     </div>
   </details>
-  <p class="lead">Now you turn those article details into a tool. You'll ask Claude to build an interactive calculator, an artifact, one piece at a time: AI first, then your everyday habits, then a comparison with ordinary life, then the sources. After each step you check its work. About 40 minutes.</p>
+  <p class="lead">Now you turn those article details into a tool. You'll ask Claude to build an interactive calculator, an artifact, in two pieces: first AI and your everyday tech, then a comparison with ordinary life and your sources. After each piece you check its work. About 40 minutes.</p>
 
   <h3 class="sub" id="build-job"><span>Your job</span></h3>
   <p>Imagine you're an analyst on a sustainability team. Your boss read the headlines and asks: <strong>is our AI use the problem, or is it all our tech?</strong> You'll build the tool that answers it, using only numbers you can point to. <strong>You're the person in the loop.</strong> Claude writes the code. You decide whether its numbers are real.</p>
@@ -1083,13 +1092,14 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
 
   <h3 class="sub" id="build-steps"><span>Step by step</span></h3>
   <p class="sim-note"><strong>Keep it to public numbers.</strong> Don't type anything private. Your own screen time is fine.</p>
+  <div class="callout"><div class="label">Free accounts run out of messages</div><p>A free Claude account has a usage limit, and building a page uses it up fast, because Claude rewrites the whole page every time you send something. If you hit the limit, Claude tells you what time your messages come back. Nothing is lost: your chat and your page are saved, so come back to the same chat and pick up where you stopped.</p><p>Three habits help. <strong>Start early</strong>, not Friday night. <strong>Send each step once</strong>: if a Check it turns up problems, list every fix in one message instead of several. And <strong>save as soon as step 3 is done</strong> (step 4), so the design step is a bonus, not a risk. (Hit the limit anyway with the deadline close? Turn in what you have and say so in writeup item 2. That's a fine answer.)</p></div>
 
   <div class="steps">
     <div class="step"><span class="sn">1</span><div class="sbody"><p><strong>Open Claude.</strong> Go to <a class="inline" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> and sign in with Google or your email. If you don't have an account, making a free one takes a minute.</p></div></div>
-    <div class="step"><span class="sn">2</span><div class="sbody"><p><strong>Start with AI.</strong> You'll copy two things into Claude: a short prompt, then the numbers it should use.</p>
+    <div class="step"><span class="sn">2</span><div class="sbody"><p><strong>Build it: AI and your everyday tech.</strong> You'll copy two things into Claude: a short prompt, then the numbers it should use.</p>
       <p class="substep"><span class="ss">a</span><strong>Copy the prompt</strong> and paste it into Claude. Don't send it yet.</p>
-      <div class="probe"><div class="ptext">Build me a simple Technology Impact Calculator as an interactive web page. It measures one thing: grams of CO2. Start with a section called "AI," with sliders for AI text prompts per day, AI images per day, and five-second AI videos per week. Add a per day, week, or year switch, big number cards, and one bar chart. Use only the numbers I paste below, never make one up, and show which article each number came from. Next to each total, show how far a typical car would drive to make the same CO2. At the bottom, add a short Assumptions note saying what the numbers count and how the image and video numbers were converted. Use forest greens and earth tones, and make it easy to read on a phone. Here are my numbers:</div></div>
-      <p class="substep"><span class="ss">b</span><strong>Copy the numbers</strong> and paste them right after the prompt.</p>
+      <div class="probe"><div class="ptext">Build me a simple Technology Impact Calculator as an interactive web page. It measures one thing: grams of CO2. Make two sections. "AI" has sliders for AI text prompts per day, AI images per day, and five-second AI videos per week. "Everyday tech" has sliders for streaming video (hours per day), YouTube (minutes per day), TikTok (minutes per day), and cloud gaming (hours per day). Add a per day, week, or year switch, big number cards, and one bar chart with one bar labeled "AI" and one labeled "Everyday tech." Use only the numbers I paste below, never make one up, and show which article each number came from. Label cloud gaming as an estimate. Anything without a real number, like gaming at home, goes in a small box called "Numbers nobody publishes" instead of on the chart. Also add a row for one Google search with an AI Overview. Next to each total, show how far a typical car would drive to make the same CO2. At the bottom, add a short Assumptions note saying what the numbers count and how the image and video numbers were converted. Use forest greens and earth tones, and make it easy to read on a phone. Here are my numbers:</div></div>
+      <p class="substep"><span class="ss">b</span><strong>Copy the numbers</strong> (both tables, one button) and paste them right after the prompt.</p>
       <div class="steptbl-wrap"><table class="steptbl" id="nums-ai">
         <caption>The AI numbers (carbon, the one measure we'll chart)</caption>
         <thead><tr><th scope="col">Activity</th><th scope="col">Carbon (CO2)</th><th scope="col">How we get it</th><th scope="col">About the same as driving</th><th scope="col">From</th></tr></thead>
@@ -1101,15 +1111,7 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
         <tr><th scope="row">Driving 1 mile</th><td>about 400 g</td><td>A typical gas passenger car</td><td></td><td><a class="inline" href="https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle" target="_blank" rel="noopener">US EPA</a></td></tr>
         </tbody>
       </table></div>
-      <div class="chips cpbar"><button type="button" class="btn alt" data-copy-table="#nums-ai">Copy the numbers</button><span class="cpstat" aria-live="polite"></span></div>
       <p class="tblnote"><b>Assumptions behind the calculator's AI math.</b> Text prompts use Google's 0.03 g as reported, not converted (<a class="inline" href="https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference" target="_blank" rel="noopener">Article A</a>). Google figures its carbon using the clean energy it buys; on the average US grid, 367 g per kWh in 2023 (<a class="inline" href="https://www.eia.gov/tools/faqs/faq.php?id=74" target="_blank" rel="noopener">US Energy Information Administration</a>), the same 0.24 Wh would be about 0.09 g, roughly three times more (<a class="inline" href="https://www.technologyreview.com/2025/08/21/1122288/google-gemini-ai-energy/" target="_blank" rel="noopener">MIT Technology Review, 2025</a>). Images and videos are converted from energy to carbon at that same 367 g per kWh, so a cleaner or dirtier grid would change them. Driving is a typical gas car at about 400 g per mile (<a class="inline" href="https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle" target="_blank" rel="noopener">US EPA</a>). Every number counts answering a request only: not training the model, not your phone, not the network.</p>
-      <p class="substep"><span class="ss">c</span><strong>Send it.</strong></p>
-      <div class="callout mx-calm"><p>It's just text, like pasting a paragraph. Nothing to install, and you can't break anything. If the page looks different from a classmate's, that's fine: Claude builds it a little differently each time. The numbers should match.</p></div>
-      <p><strong>Check it.</strong> Set the calculator to one text prompt. Does it show about 0.03 grams, like your <a class="inline" href="#ref-panel">reference table</a>? Now one AI video. Does it show about 350 grams, and does the Assumptions note say how it was converted? Then set it to your real day. How big is the AI bar?</p></div></div>
-    <div class="step"><span class="sn">3</span><div class="sbody"><p><strong>Add your everyday tech.</strong> Same routine as before: the prompt, then the numbers, then send.</p>
-      <p class="substep"><span class="ss">a</span><strong>Copy the prompt</strong> and paste it into Claude. Don't send it yet.</p>
-      <div class="probe"><div class="ptext">Now add a second section called "Everyday tech," also in grams of CO2, with sliders for streaming video (hours per day), YouTube (minutes per day), TikTok (minutes per day), and cloud gaming (hours per day). Use only the numbers I paste below, and label cloud gaming as an estimate. Anything without a real number, like gaming at home, goes in a small box called "Numbers nobody publishes" instead of on the chart. Put "AI" and "Everyday tech" on the same bar chart, and make the day, week, or year switch work for both. Add what these numbers count to the Assumptions note. Here are my numbers:</div></div>
-      <p class="substep"><span class="ss">b</span><strong>Copy the numbers</strong> and paste them right after the prompt.</p>
       <div class="steptbl-wrap"><table class="steptbl" id="nums-habits">
         <caption>The everyday-tech numbers (carbon)</caption>
         <thead><tr><th scope="col">Activity</th><th scope="col">Carbon (CO2)</th><th scope="col">About the same as driving</th><th scope="col">From</th></tr></thead>
@@ -1121,14 +1123,18 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
         <tr><th scope="row">Gaming at home</th><td>no per-hour number</td><td></td><td>Article H</td></tr>
         </tbody>
       </table></div>
-      <div class="chips cpbar"><button type="button" class="btn alt" data-copy-table="#nums-habits">Copy the numbers</button><span class="cpstat" aria-live="polite"></span></div>
       <p class="tblnote"><b>Assumptions behind the everyday-tech math.</b> Streaming is 36 g an hour, from 2019 data, counting the data center, the network, and your screen (<a class="inline" href="https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines" target="_blank" rel="noopener">Article F</a>). TikTok and YouTube come from a 2021 test on one phone and count your phone and the network (<a class="inline" href="https://www.globalcitizen.org/en/content/social-media-emissions-carbon-footprint/" target="_blank" rel="noopener">Article G</a>); Greenly's 2.9 g for TikTok is a second, disputed estimate. Cloud gaming's 75 g is worked out from one study's totals: about 6.9 million tonnes a year, spread over 400 million players at about 4.5 hours a week; it counts the data center and the stream, not your screen (<a class="inline" href="https://arxiv.org/abs/2608.19040" target="_blank" rel="noopener">Article H</a>). Driving is about 400 g per mile (<a class="inline" href="https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle" target="_blank" rel="noopener">US EPA</a>). Training the recommendation systems isn't counted. Notice where the electricity is used: the AI section is all data center, while streaming, scrolling, and home gaming happen mostly on your own screen or console and the network. Cloud gaming is the exception, because it moves the game into a data center, the way AI does.</p>
+      <div class="chips cpbar"><button type="button" class="btn alt" data-copy-table="#nums-ai,#nums-habits">Copy the numbers</button><span class="cpstat" aria-live="polite"></span></div>
       <p class="substep"><span class="ss">c</span><strong>Send it.</strong></p>
-      <p><strong>Check it.</strong> Do the labels say "AI" and "Everyday tech"? Set TikTok to 30 minutes. Is it close to the <a class="inline" href="#ref-panel">reference table</a>'s 79 grams? Is cloud gaming labeled as an estimate, and is home gaming in the "Numbers nobody publishes" box instead of on the chart? Then try one test: ask Claude to <em>"add a row for one Google search with an AI Overview."</em> No one has published that number. Does it go in the box, or does a made-up number like 3 Wh or 0.3 Wh show up? Finally, was AI or your everyday tech the bigger bar? Is that what you expected?</p></div></div>
-    <div class="step"><span class="sn">4</span><div class="sbody"><p><strong>Compare it with everyday life and the big picture.</strong> Same routine as before: the prompt, then the numbers, then send.</p>
+      <div class="callout mx-calm"><p>It's just text, like pasting a paragraph. Nothing to install, and you can't break anything. If the page looks different from a classmate's, that's fine: Claude builds it a little differently each time. The numbers should match.</p></div>
+      <div class="checkit"><p><strong>Check it.</strong> Set the calculator to one text prompt. Does it show about 0.03 grams, like your <a class="inline" href="#ref-panel">reference table</a>? Now one AI video: about 350 grams, and does the Assumptions note say how it was converted? Set TikTok to 30 minutes. Is it close to the <a class="inline" href="#ref-panel">reference table</a>'s 79 grams? Is cloud gaming labeled as an estimate?</p>
+      <p><strong>The trap.</strong> No one has published a number for a Google search with an AI Overview. Did that row land in the "Numbers nobody publishes" box with home gaming, or did a made-up number like 3 Wh or 0.3 Wh show up?</p>
+      <p><strong>Your day.</strong> Set the sliders to a real day. Was AI or your everyday tech the bigger bar? Is that what you expected?</p></div>
+</div></div>
+    <div class="step"><span class="sn">3</span><div class="sbody"><p><strong>Compare it and add your sources.</strong> Same routine: the prompt, then the numbers and links, then send.</p>
       <p class="substep"><span class="ss">a</span><strong>Copy the prompt</strong> and paste it into Claude. Don't send it yet.</p>
-      <div class="probe"><div class="ptext">Add a third section called "Compared with everyday life," with two separate scales. Scale 1 is my own life: show how many days of my technology use equal each item. Scale 2 is the big picture: data centers next to cement for carbon, and data centers next to golf courses for water. Put the water comparison on its own labeled line, not in the carbon chart, and keep the two scales visually apart so nobody compares one burger to a whole industry. Use only the numbers I paste below. Here are my numbers:</div></div>
-      <p class="substep"><span class="ss">b</span><strong>Copy the numbers</strong> and paste them right after the prompt.</p>
+      <div class="probe"><div class="ptext">Add a section called "Compared with everyday life," with two separate scales. Scale 1 is my own life: show how many days of my technology use equal each item. Scale 2 is the big picture: data centers next to cement for carbon, and data centers next to golf courses for water. Put the water comparison on its own labeled line, not in the carbon chart, and keep the two scales visually apart so nobody compares one burger to a whole industry. Use only the numbers I paste below. Then add a Sources section at the bottom with each article's title, publisher, date, and link, and link every number on the page to its source. If any number on the page doesn't come from my sources, list it under a heading called "Not from my sources." At the very bottom, add a short note that this calculator was built with Claude, an AI model made by Anthropic, and that building it used energy and water too, an amount Anthropic doesn't publish, so this page doesn't count its own footprint. Here are my numbers and sources:</div></div>
+      <p class="substep"><span class="ss">b</span><strong>Copy the numbers and links</strong> and paste them right after the prompt.</p>
       <div class="steptbl-wrap"><table class="steptbl" id="nums-compare">
         <caption>The comparison numbers</caption>
         <thead><tr><th scope="col">Item</th><th scope="col">Scale</th><th scope="col">Number</th><th scope="col">From</th></tr></thead>
@@ -1142,13 +1148,8 @@ table.glance td .ex{display:block;font-weight:400;font-size:.8rem;color:var(--gr
         <tr><th scope="row">US golf courses, water</th><td>2, big picture</td><td>about 1.68 million acre-feet applied in 2020 (1 acre-foot is 325,851 gallons)</td><td><a class="inline" href="https://www.gcsaa.org/docs/default-source/environment/phase-3-water-survey-full-report.pdf" target="_blank" rel="noopener">Golf Course Superintendents Association of America</a></td></tr>
         </tbody>
       </table></div>
-      <div class="chips cpbar"><button type="button" class="btn alt" data-copy-table="#nums-compare">Copy the numbers</button><span class="cpstat" aria-live="polite"></span></div>
       <p class="tblnote"><b>Assumptions in this prompt.</b> The flight is one economy passenger, round trip, using Google Flights' estimate. The burger is a quarter pound (about 113 g) of beef from beef herds, counted from farm to store, which works out to about 11 kg of CO2e. Driving is a typical gas car. "Days of my technology use" comes from your own sliders, so your answer won't match a classmate's. Some numbers are CO2e, which counts all greenhouse gases, and some are CO2 only. On the big-picture scale, the cement number is from 2015 while the data center numbers are recent, and golf's water is water <em>applied</em> while data centers' is water <em>consumed</em>.</p>
-      <p class="substep"><span class="ss">c</span><strong>Send it.</strong></p>
-      <p><strong>Check it.</strong> Do the golf math yourself: 1.68 million acre-feet times 325,851 gallons. Does Claude's page match? Then read the two sources on scale 2 the way Question 4 would. The golf number comes from golf's own association, and it counts water <em>applied</em> to courses, some of it recycled. The data center number counts water <em>consumed</em>. Are those the same kind of number? One more: the cement figure is from 2015 and the data center figure is recent. When one number is more than ten times the other, how much does the gap in years matter?</p></div></div>
-    <div class="step"><span class="sn">5</span><div class="sbody"><p><strong>Add our sources.</strong> Click <strong>Copy the source links</strong> below and send this, with the links pasted in:</p>
-      <div class="probe"><div class="ptext">Please include these as sources. Add a Sources section at the bottom of the page with each article's title, publisher, date, and link. Link every number on the page to the article it came from. If any number on the page doesn't come from one of these sources, list it under a heading called "Not from my sources" so I can check it. At the very bottom, add a short note that says this calculator was built with Claude, an AI model made by Anthropic, and that building it used energy and water too, an amount Anthropic doesn't publish, so this page doesn't count its own footprint. Here are the articles I read: [paste the links here]</div></div>
-      <div class="chips cpbar"><button type="button" class="btn alt" data-copy-text="#src-links">Copy the source links</button><span class="cpstat" aria-live="polite"></span></div>
+      <div class="chips cpbar"><button type="button" class="btn alt" data-copy-table="#nums-compare,#src-links">Copy the numbers and links</button><span class="cpstat" aria-live="polite"></span></div>
       <details class="exact"><summary>See the links you're copying</summary><textarea id="src-links" readonly rows="8" aria-label="The source links to paste into Claude">US Energy Information Administration, How much carbon dioxide is produced per kilowatthour of U.S. electricity generation? (2023 data): https://www.eia.gov/tools/faqs/faq.php?id=74
 Luccioni and others, Misinformation by Omission, June 2025: https://arxiv.org/abs/2506.15572
 Google Cloud, Measuring the environmental impact of AI inference, August 2025: https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference
@@ -1169,21 +1170,12 @@ Fortune, Doomscrolling has reportedly made TikTok's annual carbon footprint almo
 Hazas and others, Hot Games (cloud gaming estimate), August 2026, preprint: https://arxiv.org/abs/2608.19040
 International Energy Agency, Energy and AI: AI and climate change (data centers about 180 million tonnes of CO2 a year), 2025: https://www.iea.org/reports/energy-and-ai/ai-and-climate-change
 </textarea></details>
+      <p class="substep"><span class="ss">c</span><strong>Send it.</strong></p>
       <p><strong>Heads up:</strong> Claude may add a note saying it hasn't opened your links or checked the numbers against the articles. That's honest, not an error: Claude can't open web pages from inside the chat, so checking is your job, and it's the point of this step.</p>
-      <p><strong>Check it.</strong> Is the note about being built with AI at the bottom, and does it say the page's own footprint isn't counted? Is anything listed under "Not from my sources"? Click two links on the page. Do they open the right article, and does the article say what the page says?</p></div></div>
-    <div class="step"><span class="sn">6</span><div class="sbody"><p><strong>Make it yours: change the design.</strong> You don't need to know any code to redesign your calculator. Just tell Claude what you want, in plain words, and it rebuilds the page. Try a few things and see what happens. If you don't like a change, ask Claude to undo it.</p>
-      <p style="margin-top:14px">A few ideas to start with:</p>
-      <ul class="tryideas">
-        <li>"Make it look like a national park sign: wood tones, cream text, and a pine tree icon."</li>
-        <li>"Swap the bar chart for a row of trees, one tree for every 100 grams of CO2."</li>
-        <li>"Make it feel like an ocean instead of a forest: blues, waves, and a calmer font."</li>
-        <li>"Add a big headline at the top that changes with my total, from a sprout to a forest."</li>
-        <li>"Make it work better on my phone: bigger sliders and one column."</li>
-      </ul>
-      <p>Or write your own. Copy this into Claude and fill in the blank:</p>
-      <div class="probe"><div class="ptext">I'd like to change the design of my calculator. [Describe what you want: colors, fonts, icons, layout, a theme, anything.] Keep every number, source, label, and note exactly the same, and only change how it looks.</div></div>
-      <p><strong>Check it.</strong> After each change, set the calculator to one text prompt again. Does it still show about 0.03 grams? A good redesign changes how the page looks, never what it says.</p></div></div>
-    <div class="step"><span class="sn">7</span><div class="sbody"><p><strong>Keep it.</strong> Save your finished calculator with your own day entered, the comparison section showing, and the built-with-AI note at the bottom. Use Claude's <strong>export</strong> or download option to save it as an <strong>HTML file</strong> or a <strong>PDF</strong>. You'll attach it to writeup item 2. If Claude shows a <strong>Publish</strong> or <strong>Share</strong> option, you can also publish it and paste the link, but that's optional. If you're on a shared computer, log out when you're done.</p>
+      <div class="checkit"><p><strong>Check the numbers.</strong> Do the golf math yourself: 1.68 million acre-feet times 325,851 gallons. Does Claude's page match? Then read scale 2 the way Question 4 would. The golf number comes from golf's own association, and it counts water <em>applied</em> to courses, some of it recycled. The data center number counts water <em>consumed</em>. Are those the same kind of number? And the cement figure is from 2015 while the data center figure is recent. When one number is more than ten times the other, how much does the gap in years matter?</p>
+      <p><strong>Check the sources.</strong> Is the built-with-AI note at the bottom, and does it say the page's own footprint isn't counted? Is anything listed under "Not from my sources"? Click two links on the page. Do they open the right article, and does the article say what the page says?</p></div>
+</div></div>
+    <div class="step"><span class="sn">4</span><div class="sbody"><p><strong>Keep it.</strong> Save your finished calculator with your own day entered, the comparison section showing, and the built-with-AI note at the bottom. Use Claude's <strong>export</strong> or download option to save it as an <strong>HTML file</strong> or a <strong>PDF</strong>. You'll attach it to writeup item 2. If Claude shows a <strong>Publish</strong> or <strong>Share</strong> option, you can also publish it and paste the link, but that's optional. If you're on a shared computer, log out when you're done.</p>
       <details class="srcnote noai gh">
         <summary>Optional: put your calculator online with GitHub, and get a link to share</summary>
         <div class="noai-body">
@@ -1200,6 +1192,18 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
           <p>Stuck? If the link shows a 404 page, wait two more minutes and refresh. If it still doesn't work, check that the file is named exactly <code>index.html</code>.</p>
         </div>
       </details></div></div>
+    <div class="step"><span class="sn">5</span><div class="sbody"><p><strong>Optional: make it yours.</strong> Only if you have messages left after saving. You don't need to know any code to redesign your calculator. Just tell Claude what you want, in plain words, and it rebuilds the page. Try a few things and see what happens. If you don't like a change, ask Claude to undo it. If you like the new look, download it again and attach that version instead.</p>
+      <p style="margin-top:14px">A few ideas to start with:</p>
+      <ul class="tryideas">
+        <li>"Make it look like a national park sign: wood tones, cream text, and a pine tree icon."</li>
+        <li>"Swap the bar chart for a row of trees, one tree for every 100 grams of CO2."</li>
+        <li>"Make it feel like an ocean instead of a forest: blues, waves, and a calmer font."</li>
+        <li>"Add a big headline at the top that changes with my total, from a sprout to a forest."</li>
+        <li>"Make it work better on my phone: bigger sliders and one column."</li>
+      </ul>
+      <p>Or write your own. Copy this into Claude and fill in the blank:</p>
+      <div class="probe"><div class="ptext">I'd like to change the design of my calculator. [Describe what you want: colors, fonts, icons, layout, a theme, anything.] Keep every number, source, label, and note exactly the same, and only change how it looks.</div></div>
+      <p class="checkit"><strong>Check it.</strong> After each change, set the calculator to one text prompt again. Does it still show about 0.03 grams? A good redesign changes how the page looks, never what it says.</p></div></div>
   </div>
 
   <details class="callout mx-why"><summary>Why use AI for this at all?</summary>
@@ -1239,25 +1243,35 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
 
 <section id="regulation">
   <div class="shead"><span class="num">5</span><h2>At home: Sketch a regulation for data centers</h2></div>
-  <details class="srcnote noai">
-    <summary>Don't want to use AI? Do this instead</summary>
-    <div class="noai-body">
-      <p>Same 30 minutes, no chatbot, on your own. Read <a class="inline" href="https://www.geekwire.com/2026/washington-state-has-embraced-data-centers-but-now-its-looking-to-set-terms-of-engagement/" target="_blank" rel="noopener">GeekWire's article on Washington's House Bill 2515</a> and <a class="inline" href="chapter-05-environment.html#s2-7">Chapter 5, section 2.7</a>. Then write the same mini-policy described below, using the template in step 3 and only those two sources. Find one objection in the GeekWire article, and change one part of your policy to answer it, or say why you'd keep it. You'll turn it in with writeup item 3.</p>
-    </div>
-  </details>
   <p class="lead">AI data centers have been in the news as horrible for the environment, and there's truth in that: AI is the main reason so many data centers are being built so fast. But as you read in sections 1 and 2, the same buildings also run streaming, social media, gaming, and cloud storage. And even "AI-focused" data centers don't only run large language models, the AI behind chatbots like ChatGPT. They also run predictive AI, like the recommendation systems that choose your next TikTok or Instagram Reel. Meta, for example, <a class="inline" href="https://aibusiness.com/companies/meta-next-gen-ai-chips-to-power-recommendations-ranking" target="_blank" rel="noopener">designed its own chips</a> to run the recommendation models behind Facebook and Instagram (<a class="inline" href="chapter-05-environment.html#s2-2">Chapter 5, section 2.2</a>).</p>
-  <p><strong>So, imagine you go into policy one day and help write the rules for data centers.</strong> People really do this, and not just members of Congress. State legislators and their staff write bills like Washington's. City and county planners decide where a data center can be built. State utility commissions decide who pays for new power lines. Companies hire sustainability analysts to decide what to measure and report. Any of those could be you. So if you were writing an environmental regulation, who should it cover: AI data centers, every data center, or something in between? In this section you'll write your own mini-policy. AI can help you brainstorm, push back, and even draft, if you want to experiment, but every choice in the final version is yours. About 30 minutes.</p>
+  <p><strong>So, imagine you go into policy one day and help write the rules for data centers.</strong> People really do this, and not just members of Congress. State legislators and their staff write bills like Washington's. City and county planners decide where a data center can be built. State utility commissions decide who pays for new power lines. Companies hire sustainability analysts to decide what to measure and report. Any of those could be you. So if you were writing an environmental regulation, who should it cover: AI data centers, every data center, or something in between? In this section you'll write your own mini-policy. No chatbot needed: the four kinds of rules are laid out below. If you want, Claude can argue against your draft at the end. About 30 minutes.</p>
   <div class="recap">
     <div class="recap-h">What Chapter 5 said about rules</div>
     <ul>
-      <li><strong>Four kinds of rules, each with a cost.</strong> <em>Report it</em> (publish energy, water, and waste), <em>price it</em> (data centers pay for their own grid upgrades), <em>ask first</em> (towns get a say before the permit), and <em>label it</em> (energy ratings for apps and AI models).</li>
       <li><strong>Most rules so far cover buildings, not AI.</strong> A building's meter often can't tell a chatbot from a TikTok feed.</li>
       <li><strong>AI-focused data centers are the fastest-growing part,</strong> which is the case for extra rules aimed at them.</li>
       <li><strong>The strongest objection:</strong> building-only rules hide what happens inside, so some researchers want a floor for every building plus extra detail for AI.</li>
     </ul>
     <p style="margin:8px 0 0">More in <a class="inline" href="chapter-05-environment.html#s2-7">Chapter 5, section 2.7</a>. Use these ideas in your draft below.</p>
   </div>
-  <p>You have three real models to work from:</p>
+  <h3 class="sub" id="four-rules"><span>The four kinds of rules</span></h3>
+  <p>Every data center rule people have proposed is some mix of these four (<a class="inline" href="chapter-05-environment.html#s2-7">Chapter 5, section 2.7</a>). Each one fixes a different problem, and each one has a price.</p>
+  <div class="rules4">
+    <div class="rcard"><div class="rt">1. Report it</div>
+      <p><span class="rk">How it works</span>Data centers above a size cutoff publish how much energy and water they use, and sometimes their waste and pollution, to a state agency or to the public.</p>
+      <p><span class="rk">Real examples</span><a class="inline" href="https://www.datacenterdynamics.com/en/news/emissions-reporting-scheme-for-european-data-centers-approved" target="_blank" rel="noopener">The European Union</a> requires it from every data center of 500 kilowatts or more. <a class="inline" href="https://newjerseymonitor.com/2026/08/27/data-centers-water-energy-use-law/" target="_blank" rel="noopener">New Jersey</a> requires energy and water reports every six months.</p>
+      <p><span class="rk">What it costs</span>Meters and paperwork for the companies. And reporting doesn't save a single watt by itself. It only makes the use visible, which is the disclosure gap from section 1.</p></div>
+    <div class="rcard"><div class="rt">2. Price it</div>
+      <p><span class="rk">How it works</span>When a data center needs new power lines or more power plants, the data center pays for those upgrades, instead of spreading the cost across everyone's electric bill. State utility commissions usually make this call.</p>
+      <p><span class="rk">What it costs</span>Building gets more expensive, so some data centers go somewhere else, and the jobs and tax money go with them.</p></div>
+    <div class="rcard"><div class="rt">3. Ask first</div>
+      <p><span class="rk">How it works</span>Before a permit is approved, the town gets a say: public hearings, a vote, or a study of what the building will do to local power and water. City and county planners already decide where a data center can go.</p>
+      <p><span class="rk">What it costs</span>Time. Projects slow down, and some get blocked or move away. Neighbors get a voice; companies get delays and uncertainty.</p></div>
+    <div class="rcard"><div class="rt">4. Label it</div>
+      <p><span class="rk">How it works</span>Apps and AI models carry an energy rating, like the yellow energy sticker on a new fridge, so you can compare before you choose.</p>
+      <p><span class="rk">What it costs</span>Someone has to decide how to measure "one prompt," and section 1 showed four sources that can't agree. Companies would also have to share numbers they keep private today.</p></div>
+  </div>
+  <p>And three real places that tried it:</p>
   <ul class="ev-facts">
     <li><strong>The European Union</strong> <a class="inline" href="https://www.datacenterdynamics.com/en/news/emissions-reporting-scheme-for-european-data-centers-approved" target="_blank" rel="noopener">requires every data center</a> drawing 500 kilowatts or more to report its energy use and other sustainability numbers to a central database, whatever runs inside (<a class="inline" href="chapter-05-environment.html#s2-7">Chapter 5, section 2.7</a>).</li>
     <li><strong>New Jersey</strong> <a class="inline" href="https://newjerseymonitor.com/2026/08/27/data-centers-water-energy-use-law/" target="_blank" rel="noopener">signed a law in August 2026</a> requiring data centers to report energy and water use to state regulators every six months (<a class="inline" href="chapter-05-environment.html#s2-7">Chapter 5, section 2.7</a>).</li>
@@ -1265,14 +1279,8 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
   </ul>
 
   <div class="steps">
-    <div class="step"><span class="sn">1</span><div class="sbody"><p><strong>Brainstorm with Claude, ideas only.</strong> In a new chat, send this. It asks Claude for options, not a finished policy, because the policy is yours to write.</p>
-      <div class="probe"><div class="ptext">I'm a business student writing a short environmental policy for data centers. Don't write the policy for me. Instead, give me two or three options for each of these parts, with one trade-off for each option: (1) who it covers: only AI-focused data centers, every data center above a size cutoff, or something in between, and what cutoff; (2) which kinds of rules to use, from these four in my textbook: report it (publish energy, water, and waste), price it (data centers pay for their own grid upgrades), ask first (towns get a say before the permit), and label it (energy ratings for apps and AI models); (3) who pays the cost; and (4) who gets to see the numbers. Use these real examples where they help: the EU's rule that every data center of 500 kilowatts or more reports its energy use; New Jersey's August 2026 law requiring energy and water reports every six months; and Washington's House Bill 2515 from 2026, which would have covered facilities of 20 megawatts or more and died in the Senate. Keep it short, and tell me which parts you're unsure about.</div></div></div></div>
-    <div class="step"><span class="sn">2</span><div class="sbody"><p><strong>Check one claim.</strong> Pick one fact Claude states about one of the three examples. Open the matching source above, or <a class="inline" href="chapter-05-environment.html#s2-7">Chapter 5</a>, and see if it says the same thing. Claude can be confidently wrong about a law's details.</p></div></div>
-    <div class="step"><span class="sn">3</span><div class="sbody"><p><strong>Write your mini-policy.</strong> In about 150 words, fill in this template. You can write it two ways:</p>
-      <ul class="ways">
-        <li><strong>On your own:</strong> switch to a document and write it yourself, borrowing ideas from the brainstorm.</li>
-        <li><strong>Experiment with AI:</strong> make your choices first (who it covers, which rules, who pays), then ask Claude to turn them into a draft: <em>"Using my choices below, draft a 150-word policy with these five parts. Keep my choices exactly as they are."</em> Then read it closely. Did it keep your choices, or quietly change them? Does it sound like a real policy? Edit it until you'd sign your name to it.</li>
-      </ul>
+    <div class="step"><span class="sn">1</span><div class="sbody"><p><strong>Pick your rules.</strong> Read the four boxes and choose at least two. Then decide who your policy covers: AI-focused data centers, every data center, or something in between, and where the size cutoff goes.</p></div></div>
+    <div class="step"><span class="sn">2</span><div class="sbody"><p><strong>Write your mini-policy.</strong> In about 150 words, fill in this template, in your own words.</p>
       <div class="policy-tmpl">
         <div class="pt-h">My data center policy</div>
         <ol>
@@ -1283,9 +1291,14 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
           <li><strong>The cost:</strong> what it costs, and who pays.</li>
         </ol>
       </div></div></div>
-    <div class="step"><span class="sn">4</span><div class="sbody"><p><strong>Stress-test it.</strong> Paste your policy into Claude after this prompt:</p>
-      <div class="probe"><div class="ptext">Here's a short data center policy I wrote. Argue against it twice: first as the data center industry's trade group would, then as an environmental group that thinks it's too weak. Be specific and don't go easy on me, but don't rewrite it for me. My policy: [paste your policy here]</div></div></div></div>
-    <div class="step"><span class="sn">5</span><div class="sbody"><p><strong>Revise one thing.</strong> Change one part of your policy in response to the strongest objection, or decide to keep it and say why. Either is fine. Note what you changed. You'll turn in the policy and that note in writeup item 3.</p></div></div>
+    <div class="step"><span class="sn">3</span><div class="sbody"><p><strong>Stress-test it.</strong> Find the strongest argument against your policy. Two ways, pick one:</p>
+      <ul class="ways">
+        <li><strong>With Claude, if you want:</strong> paste your policy into Claude after this prompt. It's one message.</li>
+        <li><strong>Without Claude, or out of messages:</strong> use the industry's argument against Washington's bill above, that it singled out data centers when other plants use as much power, or find an objection in <a class="inline" href="https://www.geekwire.com/2026/washington-state-has-embraced-data-centers-but-now-its-looking-to-set-terms-of-engagement/" target="_blank" rel="noopener">GeekWire's article on Washington's bill</a>.</li>
+      </ul>
+      <div class="probe"><div class="ptext">Here's a short data center policy I wrote. Argue against it twice: first as the data center industry's trade group would, then as an environmental group that thinks it's too weak. Be specific and don't go easy on me, but don't rewrite it for me. My policy: [paste your policy here]</div></div>
+    </div></div>
+    <div class="step"><span class="sn">4</span><div class="sbody"><p><strong>Revise one thing.</strong> Change one part of your policy in response to the strongest objection, or decide to keep it and say why. Either is fine. Note what you changed. You'll turn in the policy and that note in writeup item 3.</p></div></div>
   </div>
 
   <h3 class="sub"><span>The takeaway</span></h3>
@@ -1454,7 +1467,7 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
   <ol class="writeup">
     <li><span class="wu-sec">Sections 1 and 2</span> <strong>The numbers.</strong> Google says about 0.26 mL of water per prompt; the Washington Post said about 519 mL per email. Why can both be true? Which source from section 2 do you trust least, and why?</li>
     <li><span class="wu-sec">Sections 3 and 4</span> <strong>Your calculator.</strong> Attach it as an <strong>HTML file or PDF</strong>, downloaded from Claude. What was your biggest bar, and where did AI land? Name one number you checked against its article. How many days of your tech use equal the flight to San Francisco? (Optional: paste your GitHub link. No-AI path: your app list and rough numbers instead.)</li>
-    <li><span class="wu-sec">Section 5</span> <strong>Your policy.</strong> Paste your mini-policy. Did you write it yourself or with AI? What was the strongest objection, and what did you change?</li>
+    <li><span class="wu-sec">Section 5</span> <strong>Your policy.</strong> Paste your mini-policy. Which two rules did you pick, and why? What was the strongest objection, from Claude or the reading, and what did you change?</li>
     <li><span class="wu-sec">Section 6</span> <strong>E-waste.</strong> Pick one of the three ways AI adds to e-waste from step 4 (more hardware, faster replacement, or more things with chips in them) and explain it in your own words, with one fact from the section. Is that an old problem made a little bigger, or something new? Then name one thing you could do about it.</li>
     <li><span class="wu-sec">Section 7</span> <strong>The debate, and where you land.</strong> Which side were you handed, and what was the other side's best point? Then: build, fix, or stop for a new data center near you, and what terms would you require? End with your commitment card: one tech habit you'll keep, fix, or drop, and what that costs you.</li>
   </ol>
@@ -1600,17 +1613,21 @@ International Energy Agency, Energy and AI: AI and climate change (data centers 
 </script>
 <script>
 (function(){
-  // "Copy the numbers" buttons: turn a step table into plain lines for Claude.
+  // "Copy the numbers" buttons: turn step tables (and any textarea) into plain lines for Claude.
   function txt(t){ return t.replace(/\s+/g,' ').trim(); }
   [].forEach.call(document.querySelectorAll('[data-copy-table]'), function(b){
-    var t=document.querySelector(b.getAttribute('data-copy-table')); if(!t) return;
-    var st=b.parentNode.querySelector('.cpstat');
-    var heads=[].map.call(t.querySelectorAll('thead th'), function(h){ return txt(h.textContent); });
-    var lines=[], cap=t.querySelector('caption'); if(cap) lines.push(txt(cap.textContent)+':');
-    [].forEach.call(t.querySelectorAll('tbody tr'), function(tr){
-      var c=[].map.call(tr.children, function(x){ return txt(x.textContent); }), parts=[];
-      for(var i=1;i<c.length;i++){ if(c[i]) parts.push(heads[i]+': '+c[i]); }
-      lines.push('- '+c[0]+'. '+parts.join('; '));
+    var els=document.querySelectorAll(b.getAttribute('data-copy-table')); if(!els.length) return;
+    var t=els[0], st=b.parentNode.querySelector('.cpstat'), lines=[];
+    [].forEach.call(els, function(el){
+      if(lines.length) lines.push('');
+      if(el.tagName==='TEXTAREA'){ lines.push('Sources:'); lines.push(el.value.trim()); return; }
+      var heads=[].map.call(el.querySelectorAll('thead th'), function(h){ return txt(h.textContent); });
+      var cap=el.querySelector('caption'); if(cap) lines.push(txt(cap.textContent)+':');
+      [].forEach.call(el.querySelectorAll('tbody tr'), function(tr){
+        var c=[].map.call(tr.children, function(x){ return txt(x.textContent); }), parts=[];
+        for(var i=1;i<c.length;i++){ if(c[i]) parts.push(heads[i]+': '+c[i]); }
+        lines.push('- '+c[0]+'. '+parts.join('; '));
+      });
     });
     var text=lines.join('\n');
     function ok(){ st.textContent='Copied. Paste it right after the prompt.'; }
