@@ -197,6 +197,169 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 }
 ul.ideas{padding-left:1.2em;margin:10px 0}
 ul.ideas li{margin:8px 0}
+
+.sides{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:20px 0;}
+.side{border:2px solid var(--ink);border-radius:8px;background:#fff;padding:18px 20px;}
+.side-tag{font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--pinktext);margin-bottom:6px;}
+.side h3{font-family:'Fraunces',Georgia,serif;font-size:1.4rem;margin:0 0 10px;scroll-margin-top:68px;}
+.side p{margin:0 0 10px;}
+.side .side-cost{margin:0;font-size:.95rem;color:var(--gray);}
+.probe.ev .pwhy{color:var(--pinktext);font-weight:700;font-size:1.05rem;}
+.probe.ev .ev-ask{font-size:.9rem;font-weight:600;margin:14px 0 6px;color:var(--ink);}
+.probe.ev .ev-prompt{background:#F4F4F0;border:1px dashed #6B7380;border-radius:6px;padding:12px 14px;font-size:.92rem;}
+.noai{margin:16px 0 20px}
+.noai-body{padding:0 20px 16px}
+.srcnote{border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0;margin:34px 0}
+.srcnote > summary{cursor:pointer;padding:14px 20px;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1rem;color:var(--ink);list-style:none}
+.srcnote > summary::-webkit-details-marker{display:none}
+.srcnote > summary::after{content:"\25BE";float:right;color:var(--pinktext);font-size:.8rem}
+.srcnote[open] > summary::after{content:"\25B4"}
+.srcnote .srcbody{padding:0 20px 18px}
+.srcnote .srcintro{font-size:.9rem;color:var(--gray);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+.srcnote dl{margin:0}
+.srcnote dt{font-family:'Inter',Arial,sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:14px 0 4px}
+.srcnote dd{margin:0;font-size:.9rem;line-height:1.55;color:var(--gray)}
+.srcnote .srcfoot{margin-top:18px;padding-top:12px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--gray)}
+h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;font-weight:700;font-size:.95em;margin-right:.45em}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.sim-note{font-size:.82rem;color:var(--gray);margin:-8px 0 14px}
+.mx-calm{margin:12px 0 0;padding:14px 18px}
+.mx-calm p{margin:0 0 8px;font-size:.92rem}
+.probe.ev .ev-body{font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55}
+.ev-point{font-family:'Fraunces',Georgia,serif;font-size:1.05rem;margin:0 0 10px}
+.ev-point b{color:var(--pinktext)}
+.ev-facts{margin:0 0 6px;padding-left:18px}
+.ev-facts li{margin:4px 0}
+.ev-src{font-size:.8rem;color:var(--gray);margin:6px 0 0}
+.printbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 6px;font-size:.9rem;color:var(--gray)}
+.printbar a.slidebtn{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border-radius:6px;text-decoration:none}
+.printbar a.slidebtn:hover{background:#242C36}
+.printbar a.slidebtn:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+/* ---- Lab 6 tools ---- */
+section[id],h3.sub[id]{scroll-margin-top:68px;}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.86em;background:#F3F3EE;padding:1px 5px;border-radius:4px;}
+.howto-in{border:1px solid var(--rule);background:var(--bg);padding:0;margin:0 0 18px;}
+.howto-in>summary{cursor:pointer;padding:10px 16px;font-weight:700;color:var(--pinktext);}
+.howto-in>summary:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.howto-in>p,.howto-in>ol{margin:0 16px 12px;font-size:.93rem;}
+.howto-in>ol{padding-left:20px;}
+.howto-in li{margin:4px 0;}
+.maillist{border-top:1px solid var(--rule);margin-bottom:14px;}
+.mailrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--rule);flex-wrap:wrap;}
+.msubj{font-size:.95rem;}
+.ctrlrow{margin:6px 0 16px;}
+.status{font-size:.88rem;color:var(--gray);}
+.learned{background:var(--bg);border:1px solid var(--rule);padding:12px 16px;margin:6px 0 4px;font-size:.92rem;}
+.learned p{margin:0 0 4px;}
+.tests{border-top:1px solid var(--rule);margin-top:6px;}
+.testrow{display:grid;grid-template-columns:1.6fr 1fr .8fr 1.3fr;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--rule);font-size:.9rem;}
+.tsubj{line-height:1.4;}
+.ttruth{display:block;font-size:.78rem;color:var(--gray);margin-top:2px;}
+.tscore{display:flex;align-items:center;gap:8px;}
+.sbar{flex:1;height:10px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;display:block;}
+.sbar span{display:block;height:100%;background:var(--ink);}
+.snum{min-width:26px;text-align:right;font-variant-numeric:tabular-nums;font-weight:600;}
+.tland{font-weight:600;}
+.ttag{font-size:.84rem;line-height:1.4;}
+.ttag.ok{color:var(--gray);}
+.ttag.bad{color:var(--pinktext);font-weight:700;}
+@media(max-width:640px){.testrow{grid-template-columns:1fr 1fr;}.tsubj{grid-column:1/-1;}}
+.readline{background:var(--bg);border-left:3px solid var(--pink);padding:10px 14px;margin:14px 0;font-size:.95rem;line-height:1.6;}
+.readline:empty{display:none;}
+.peekwrap{overflow-x:auto;margin:12px 0 16px;}
+table.peek{border-collapse:collapse;width:100%;font-size:.86rem;background:#fff;border:1px solid var(--rule);}
+table.peek th,table.peek td{padding:7px 10px;border-bottom:1px solid var(--rule);text-align:left;white-space:nowrap;}
+table.peek thead th{background:#F3F3EE;font-weight:600;}
+table.peek tbody th{font-weight:500;white-space:normal;}
+.rawbox{border:1px solid var(--rule);background:#fff;padding:12px 16px;margin:0 0 18px;display:grid;gap:6px;font-size:.95rem;}
+.rawbox .rk{display:inline-block;min-width:170px;font-weight:600;}
+.rawbox b,.refbox b,.rawinline b{color:var(--pinktext);}
+.ctrlgrid{display:grid;gap:12px;margin:4px 0 18px;}
+.ctrllbl{display:block;font-size:.85rem;font-weight:600;color:var(--gray);margin-bottom:6px;}
+.fixed{font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);border-radius:999px;background:#F3F3EE;color:var(--ink);}
+.equiv{grid-template-columns:repeat(4,1fr);}
+.equiv.three{grid-template-columns:repeat(3,1fr);}
+.equiv .cell .v{font-variant-numeric:tabular-nums;}
+@media(max-width:720px){.equiv,.equiv.three{grid-template-columns:1fr 1fr;}}
+.flag{display:block;font-family:'Inter',sans-serif;font-size:.74rem;font-weight:700;margin-top:2px;}
+.flag.bad{color:var(--pinktext);}
+.flag.ok{color:var(--gray);}
+.readline .flag{display:inline;font-size:.85rem;}
+.dotsbox{border:1px solid var(--rule);padding:14px 16px;margin:14px 0;}
+.dotrow{display:grid;grid-template-columns:90px 1fr;gap:12px;align-items:center;margin-bottom:10px;}
+.dotlbl{font-weight:600;font-size:.9rem;}
+.dots{display:grid;grid-template-columns:repeat(20,1fr);gap:3px;max-width:440px;}
+.dot{display:block;aspect-ratio:1;border-radius:2px;position:relative;}
+.dot.yes{background:var(--ink);}
+.dot.no{background:#fff;border:1px solid #6B7380;}
+.dot.miss{border:2px solid var(--pinktext);}
+.dot.miss::after{content:'';position:absolute;inset:30%;background:var(--pinktext);border-radius:50%;}
+.dotkey{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--gray);}
+.dotkey span::before{content:'';display:inline-block;width:11px;height:11px;margin-right:6px;vertical-align:-1px;border-radius:2px;box-sizing:border-box;}
+.dotkey .k-yes::before{background:var(--ink);}
+.dotkey .k-no::before{background:#fff;border:1px solid #6B7380;}
+.dotkey .k-miss::before{background:radial-gradient(circle,var(--pinktext) 30%,#fff 34%);border:2px solid var(--pinktext);}
+@media(max-width:480px){.dotrow{grid-template-columns:1fr;gap:4px;}}
+.wbox{border:1px solid var(--rule);padding:14px 16px;margin:14px 0;}
+.wtitle{font-weight:700;font-size:.92rem;margin-bottom:6px;}
+.wkey{display:flex;justify-content:space-between;font-size:.76rem;color:var(--gray);margin:0 0 6px 0;padding-left:calc(38% + 12px);padding-right:52px;}
+.wrow{display:grid;grid-template-columns:38% 1fr 40px;gap:12px;align-items:center;padding:5px 0;font-size:.88rem;}
+.wtrack{position:relative;height:12px;background:#F3F3EE;border-radius:3px;display:block;}
+.wmid{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:#6B7380;}
+.wfill{position:absolute;top:0;bottom:0;border-radius:2px;transition:width .3s ease;}
+.wfill.pos{background:var(--ink);}
+.wfill.neg{background:var(--pinktext);}
+.wval{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;}
+@media(max-width:560px){.wrow{grid-template-columns:1fr 1fr 36px;}.wkey{padding-left:0;padding-right:0;}}
+@media(prefers-reduced-motion:reduce){.wfill{transition:none;}}
+.pairbox{border:1px solid var(--rule);background:var(--bg);padding:14px 16px;margin:16px 0;}
+.pairwho{font-size:.92rem;margin:0 0 10px;}
+.pairgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;}
+.pcard{background:#fff;border:1px solid var(--rule);padding:12px 14px;display:grid;gap:2px;}
+.ptag{font-weight:700;font-size:.8rem;color:var(--pinktext);}
+.pdesc{font-size:.85rem;color:var(--gray);}
+.pnum{font-family:'Fraunces',serif;font-weight:700;font-size:1.8rem;font-variant-numeric:tabular-nums;}
+.pdec{font-size:.88rem;font-weight:600;}
+.cpbar{margin:8px 0 6px;}
+.cpstat{font-size:.85rem;color:var(--gray);}
+.csvbox{margin:8px 0;}
+.csvbox>summary{cursor:pointer;font-weight:600;color:var(--pinktext);font-size:.9rem;}
+.csvbox pre{max-height:220px;overflow:auto;background:#F3F3EE;border:1px solid var(--rule);padding:10px 12px;font-size:.78rem;line-height:1.45;margin-top:8px;}
+.csvbox pre:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.step>div{flex:1;min-width:0;}
+.step .probe{margin:10px 0 0;}
+.refbox p{margin-bottom:.7em;}
+
+.tis-note{font-size:.9rem;color:var(--gray);font-style:italic;margin:4px 0 16px;}
+.scen{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:16px 20px;margin:14px 0}
+.scen h4{font-family:'Fraunces',Georgia,serif;font-size:1.15rem;margin:0 0 2px}
+.scen .scen-who{font-size:.85rem;font-weight:600;color:var(--gray);margin:0 0 8px}
+.scen > p{margin:0 0 10px}
+.mx-why-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:4px 0 8px}
+@media(max-width:640px){.mx-why-grid{grid-template-columns:1fr}}
+.mx-why-grid ul{margin:0;padding-left:18px;font-size:.9rem;line-height:1.5}
+.mx-why-grid li{margin-bottom:4px}
+.mx-why-h{font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);margin:0 0 4px!important}
+.ev-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 10px}
+@media(max-width:560px){.ev-stats{grid-template-columns:1fr}}
+.ev-stats div{background:#fff;border:1px solid var(--rule);padding:8px 10px}
+.ev-stats b{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.5rem;color:var(--ink)}
+.ev-stats span{font-size:.78rem;color:var(--gray)}
+.cutbox{border:1px solid var(--rule);background:var(--bg);padding:14px 16px;margin:14px 0 6px;}
+.cuthelp{font-size:.92rem;margin:0 0 4px;}
+.cutbox .slider-row{grid-template-columns:200px 1fr 50px;margin:10px 0 2px;}
+.cutends{display:flex;justify-content:space-between;gap:12px;font-size:.78rem;color:var(--gray);margin:0 0 4px;padding-left:214px;padding-right:64px;}
+.equiv.two{grid-template-columns:1fr 1fr;margin-top:12px;}
+@media(max-width:560px){.cutbox .slider-row{grid-template-columns:1fr;}.cutends{padding:0;}}
+.wchip{display:inline-block;font-size:.76rem;font-weight:600;padding:1px 8px;border-radius:999px;margin:1px 0;}
+.wchip.sp{background:#fff;color:var(--pinktext);border:1px solid var(--pinktext);}
+.wchip.re{background:var(--ink);color:#fff;border:1px solid var(--ink);}
+.wnone{font-size:.78rem;color:var(--gray);}
+.twords{font-size:.85rem;line-height:1.7;}
+.twords .vs{color:var(--gray);font-size:.78rem;margin:0 2px;}
+.testrow{grid-template-columns:1.4fr 1.4fr .4fr .8fr 1.2fr;}
+.tscore .snum{font-family:'Fraunces',serif;font-size:1.2rem;}
+@media(max-width:640px){.testrow{grid-template-columns:1fr 1fr;}.tsubj,.twords{grid-column:1/-1;}}
 </style>
 </head>
 <body>
@@ -246,136 +409,505 @@ ul.ideas li{margin:8px 0}
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 6 · Week 6, Wednesday, in class</div>
     <h1>You Are the <b>Auditor</b></h1>
-    <p class="kicker">Monday we learned that classifiers judging people can only be trusted as far as they've been tested from outside. Today you run the test. You'll build a controlled experiment, two résumés, identical except for one signal, run it on a live AI, and read the results the way researchers do. This is a real method with a real name, and by the end of class you'll have used it.</p>
-    <p class="factline">One variable · two résumés · a live AI on the other side</p>
+    <p class="kicker">Chapter 6 said a classifier learns who got the loan or the job, not who deserved it. Today you watch that happen. You train a tiny spam filter to see what a classifier is. Then you run the same machine on a bank's past car loans and a company's past résumés, and watch it learn the old decisions, bias included. Then you build a classifier of your own with Claude, audit it with the chapter's two tools, and debate whether a job rejection should come with reasons.</p>
+    <p class="factline">a spam filter you train · a lender and a screener built on biased history · your own classifier, built with Claude and audited · under the hood · one debate</p>
   </div>
 </header>
 
 <main class="wrap">
-<div class="callout">
-  <div class="label">How today runs</div>
-  <p>Almost all of this lab happens in class, right now, at the machine in front of you. Work through the sections in order. At the end there are five questions to upload to Canvas by 11:59 p.m. Friday, and most people finish most of them before they leave, so answer them as you go rather than saving them for later.</p>
-</div>
+
 <div class="callout">
   <div class="label">From Chapter 6 · what this lab runs on</div>
-  <p>This is section 2.7's matched pair, run for real: two applications identical except for one signal, through a live screener. If the scores move, the signal is a proxy (2.3), and you've found what the model reads without opening it. The pooled tally at the end is the class's version of the four-fifths rule. Your result is an anecdote, not a finding, and the chapter's audit section explains why that distinction matters.</p>
+  <p><strong>How today runs.</strong> Almost all of this lab happens in class, right now, at the machine in front of you. Work through the sections in order. At the end there are five questions to upload to Canvas by 11:59 p.m. Friday, October 30, and most people finish most of them before they leave, so answer them as you go.</p>
+  <p>The spam filter in section 1 is the classifier from <a class="inline" href="chapter-06-hiring-lending.html#s2-1">section 2.1</a>, small enough to watch learn. Sections 2 and 3 run the same machine on people, and that's where <a class="inline" href="chapter-06-hiring-lending.html#s2-2">section 2.2</a>'s objectivity trap and <a class="inline" href="chapter-06-hiring-lending.html#s2-3">section 2.3</a>'s proxies show up. The people you'll see turned away are <a class="inline" href="chapter-06-hiring-lending.html#s2-4">section 2.4</a>'s invisible pile. And the two numbers you audit with, the matched pair and the four-fifths ratio, are <a class="inline" href="chapter-06-hiring-lending.html#s2-6">section 2.6</a>'s tools.</p>
 </div>
 
+<section id="sort">
+  <div class="shead"><span class="num">1</span><h2>In class: Teach it to sort (a spam filter, the simplest classifier)</h2></div>
+  <p class="lead">A classifier sorts things into categories by learning from past examples that someone already labeled. Your email's spam filter is one. Before you run a classifier on people, train one on something harmless: ten old emails, labeled by you. About 10 minutes.</p>
 
-<section>
-  <div class="shead"><span class="num">1</span><h2>In class: The method, the audit study</h2></div>
-  <p class="lead">In 2004, economists Marianne Bertrand and Sendhil Mullainathan mailed nearly 5,000 fictitious résumés to real job openings, identical qualifications, but half signed with names like Emily and Greg, half with names like Lakisha and Jamal. The white-sounding names received <a class="inline" href="https://www.nber.org/papers/w9873" target="_blank" rel="noopener">about 50% more callbacks</a>. That design, change one signal, hold everything else constant, measure the difference, is called an <strong>audit study</strong>, and it's the single most powerful tool ever built for catching discrimination that no one will admit to and no one may even intend.</p>
-  <p>Today you run a miniature one on an AI screener. One honest disclosure before you start: real audits need thousands of trials; you'll run a handful. Your result will be an <em>anecdote</em>, not a finding, and learning exactly why that distinction matters is half of what this lab teaches. The method is the science. The sample size is the difference between science and a story.</p>
+  <div class="tool" id="spam">
+    <div class="label">Mini-Spam · train a spam filter, then decide how strict it is</div>
+    <details class="howto-in" open>
+      <summary>Your job</summary>
+      <ol>
+        <li><strong>Label the ten old emails</strong>, Spam or Inbox. You're the past here: whatever you decide, the filter learns.</li>
+        <li><strong>Press Train.</strong> Every word becomes a spam word or a real-mail word, depending on which of your piles it showed up in more. That's everything the filter learns.</li>
+        <li><strong>Eight new emails arrive.</strong> Each one's score is simple: its spam words minus its real-mail words. Two spam words and one real-mail word scores +1.</li>
+        <li><strong>Pick a cutoff and watch the two counts.</strong> The cutoff is the line you draw: score at or above it, and the email goes to spam. Find a cutoff that loses no real email, then one that lets no spam through. Is there one that does both? Look at the emails that tie.</li>
+        <li><strong>Then break it.</strong> Flip one old email's label on purpose, press Train again, and see what moves.</li>
+      </ol>
+    </details>
+    <div id="spam-old" class="maillist"></div>
+    <div class="chips ctrlrow">
+      <button type="button" class="btn" id="spam-train">Train</button>
+      <button type="button" class="btn alt" id="spam-reset">Clear and start over</button>
+      <span id="spam-status" class="status" aria-live="polite">Label all ten old emails.</span>
+    </div>
+    <div id="spam-out" hidden>
+      <div id="spam-learned" class="learned"></div>
+      <div class="cutbox">
+        <p class="cuthelp"><strong>The score is the filter's count. The cutoff is your decision.</strong> An email goes to spam when its score is at or above the cutoff. A low cutoff is strict: one stray spam word can send an email to spam. A high cutoff is easygoing: an email needs lots of spam words before it's caught.</p>
+        <div class="ctrl"><span class="ctrllbl" id="cut-lbl">Send to spam when the score is at least</span>
+          <div class="chips" role="group" aria-labelledby="cut-lbl">
+            <button type="button" class="chip" aria-pressed="false" data-cut="-1">&minus;1 (strictest)</button>
+            <button type="button" class="chip" aria-pressed="false" data-cut="0">0</button>
+            <button type="button" class="chip on" aria-pressed="true" data-cut="1">+1</button>
+            <button type="button" class="chip" aria-pressed="false" data-cut="2">+2</button>
+            <button type="button" class="chip" aria-pressed="false" data-cut="3">+3 (most easygoing)</button>
+          </div></div>
+        <div class="equiv two">
+          <div class="cell"><div class="v" id="spam-fp">0</div><div class="k">real emails lost in spam (false positives)</div></div>
+          <div class="cell"><div class="v" id="spam-fn">0</div><div class="k">spam emails let into your inbox (false negatives)</div></div>
+        </div>
+      </div>
+      <div id="spam-tests" class="tests"></div>
+      <p class="readline" id="spam-read" aria-live="polite"></p>
+    </div>
+    <p class="sim-note">Ten invented emails and eight more to test. Nothing is saved.</p>
+  </div>
+
+  <p>That's all a classifier is. Labeled examples go in, weights come out, every new case gets a score, and a cutoff turns the score into a decision. Two things to carry into section 2.</p>
+  <p><strong>It learned from your labels, not from the truth.</strong> When you flipped one label, the filter believed you. It had no other way to know.</p>
+  <p><strong>The cutoff picks which mistake you'd rather make.</strong> When you changed the cutoff, the scores never changed. Only your line did. Set it strict and real email gets lost in spam, a <em>false positive</em>: the filter said "yes, spam" and was wrong. Set it easygoing and spam lands in your inbox, a <em>false negative</em>. No setting got both to zero, and the ties show why. The professor's real email and the fake "verify your account" email can land on the same score. The filter only knows words, so no line can split them.</p>
+  <p>Every classifier that judges people has this same line, and someone picks where it goes. A bank that hates bad loans sets its line high and turns away more people who would have repaid. A company that hates bad hires does the same with good candidates. Nobody sees those mistakes, because the people on the wrong side of the line just disappear. That's <a class="inline" href="chapter-06-hiring-lending.html#s2-4">section 2.4</a>'s invisible pile, and you'll see it as pink dots in section 2.</p>
 </section>
 
-<section>
-  <div class="shead"><span class="num">2</span><h2>In class: Build your audit</h2></div>
-  <p>Below is a job posting and a base résumé for a fictional candidate. Choose <strong>one variable to test</strong>, the lab will generate two versions of the résumé, identical except for that single signal, wrapped in a screening prompt you'll paste into a live AI.</p>
+<section id="loans">
+  <div class="shead"><span class="num">2</span><h2>In class: Same machine, car loans (Mini-Lender)</h2></div>
+  <p class="lead">Now the emails become people. A small bank in an invented town has 160 past car loan applications from two neighborhoods, Hillside and the Flats. For each one, it knows two things: whether a loan officer approved it, and whether the borrower repaid. About 15 minutes.</p>
+  <p>One honest catch: in this lab, the bank somehow knows how every applicant would have done, including the ones it turned away. Real banks never know that. A denied applicant never gets the chance to repay. Hold onto that; it comes back in section 4.</p>
+
   <div class="callout">
-    <div class="label">The protocol · this part is the experiment, don't improvise it</div>
-    <p><b>1.</b> Open a chatbot you have access to (Claude, ChatGPT, Gemini, any, but use the <i>same one</i> for both runs). <b>2.</b> Paste Version A into a <b>fresh chat</b> and record the score. <b>3.</b> Open a <b>new fresh chat</b>, never the same conversation, and paste Version B. <b>4.</b> Copy each response's reasoning too; it's often more revealing than the number. <b>5.</b> If time allows, run each version twice, models vary run to run, and averaging two runs is your first taste of why sample size matters.</p>
+    <div class="label">Is this real?</div>
+    <p>The applicants are invented. The pattern isn't. In the 1930s, a federal agency graded city neighborhoods for mortgage risk, in large part by who lived there, and lenders followed those maps for decades (<a class="inline" href="chapter-06-hiring-lending.html#s2-3">section 2.3</a>). And when a Berkeley team compared U.S. mortgage borrowers with the same credit risk, Black and Latino borrowers still paid higher interest rates, more than $450 million a year in all (<a class="inline" href="https://faculty.haas.berkeley.edu/stanton/pdf/discrim.pdf" target="_blank" rel="noopener">Bartlett and others</a>). This lab's data is built to behave like that, with a neighborhood in place of race.</p>
   </div>
 
-  <div class="tool">
-    <div class="label">Choose your variable</div>
-    <div class="chips" id="vars" style="margin-bottom:14px;">
-      <button type="button" class="chip" data-v="name">Name</button>
-      <button type="button" class="chip" data-v="age">Age signal</button>
-      <button type="button" class="chip" data-v="gap">Employment gap</button>
-      <button type="button" class="chip" data-v="addr">Address</button>
-    </div>
-    <p class="roundinfo" id="vardesc">Pick a variable to generate your two test prompts.</p>
-    <div id="prompts" hidden>
-      <div class="probe">
-        <div class="ptext">Version A · paste into a fresh chat</div>
-        <textarea id="pa" readonly style="width:100%;min-height:150px;font-family:ui-monospace,monospace;font-size:.8rem;border:1px solid var(--rule);border-radius:8px;padding:10px;background:#fff;"></textarea>
-        <div class="chips" style="margin-top:8px;"><button type="button" class="chip" id="ca">Copy Version A</button></div>
-      </div>
-      <div class="probe">
-        <div class="ptext">Version B · paste into a separate fresh chat</div>
-        <textarea id="pb" readonly style="width:100%;min-height:150px;font-family:ui-monospace,monospace;font-size:.8rem;border:1px solid var(--rule);border-radius:8px;padding:10px;background:#fff;"></textarea>
-        <div class="chips" style="margin-top:8px;"><button type="button" class="chip" id="cb">Copy Version B</button></div>
-      </div>
-    </div>
+  <h3 class="sub" id="loans-data"><span>Look at the data first.</span> Here are the first 8 of the 160 applications</h3>
+  <div class="peekwrap"><table class="peek">
+    <thead><tr><th scope="col">Applicant</th><th scope="col">Neighborhood</th><th scope="col">Branch</th><th scope="col">Monthly income</th><th scope="col">Years of credit</th><th scope="col">Officer approved?</th><th scope="col">Repaid?</th></tr></thead>
+    <tbody id="peek-loans"></tbody>
+  </table></div>
+  <div class="rawbox">
+    <div><span class="rk">Officers approved</span><span class="rv">Hillside <b data-raw="Hillside:officer"></b> · the Flats <b data-raw="Flats:officer"></b></span></div>
+    <div><span class="rk">Borrowers repaid</span><span class="rv">Hillside <b data-raw="Hillside:repaid"></b> · the Flats <b data-raw="Flats:repaid"></b></span></div>
   </div>
+  <p>Read those two lines together. People in the Flats repaid about as often as people in Hillside. The officers approved them about half as often. That gap lives in the "Officer approved?" column, and that column is what a bank would normally train its model on.</p>
+
+  <div class="tool" id="lend">
+    <div class="label">Mini-Lender · train a loan model on the bank's history</div>
+    <details class="howto-in" open>
+      <summary>Your job</summary>
+      <p>You're an analyst at the bank. Your boss wants a model that decides car loans the way the bank always has, only faster. Do these four steps in order and read the numbers after each one.</p>
+      <ol>
+        <li><strong>Leave it as it loads:</strong> trained on the officers' approvals, seeing every field.</li>
+        <li><strong>Delete the Neighborhood field.</strong> Press it so it turns off.</li>
+        <li><strong>Delete Branch too.</strong></li>
+        <li><strong>Turn both fields back on, then switch what it learns from</strong> to Who actually repaid.</li>
+      </ol>
+    </details>
+    <div class="ctrlgrid">
+      <div class="ctrl"><span class="ctrllbl" id="lend-lbl1">What it learns from</span>
+        <div class="chips" role="group" aria-labelledby="lend-lbl1">
+          <button type="button" class="chip on" aria-pressed="true" data-label="officer">Past officers' approvals</button>
+          <button type="button" class="chip" aria-pressed="false" data-label="repaid">Who actually repaid</button>
+        </div></div>
+      <div class="ctrl"><span class="ctrllbl" id="lend-lbl2">Fields the model can see</span>
+        <div class="chips" role="group" aria-labelledby="lend-lbl2">
+          <span class="fixed">Income, always on</span><span class="fixed">Years of credit, always on</span>
+          <button type="button" class="chip on" aria-pressed="true" data-field="hood">Neighborhood</button>
+          <button type="button" class="chip on" aria-pressed="true" data-field="branch">Branch</button>
+        </div></div>
+    </div>
+    <div class="equiv">
+      <div class="cell"><div class="v" id="lend-h"></div><div class="k">of Hillside approved</div></div>
+      <div class="cell"><div class="v" id="lend-f"></div><div class="k">of the Flats approved</div></div>
+      <div class="cell"><div class="v" id="lend-ratio"></div><div class="k">four-fifths ratio: lower rate ÷ higher rate</div></div>
+      <div class="cell"><div class="v" id="lend-miss"></div><div class="k">turned away who would have repaid, Hillside / the Flats</div></div>
+    </div>
+    <div class="dotsbox">
+      <div class="dotrow"><span class="dotlbl">Hillside</span><div class="dots" id="dots-h" role="img"></div></div>
+      <div class="dotrow"><span class="dotlbl">The Flats</span><div class="dots" id="dots-f" role="img"></div></div>
+      <div class="dotkey"><span class="k-yes">approved</span><span class="k-no">denied</span><span class="k-miss">denied, but would have repaid</span></div>
+    </div>
+    <div class="wbox"><div class="wtitle">What the model learned: a weight for each field</div><div class="wkey"><span>pushes toward deny</span><span>pushes toward approve</span></div><div id="lend-w"></div></div>
+    <p class="readline" id="lend-read" aria-live="polite"></p>
+    <div class="chips"><button type="button" class="btn alt" id="lend-reset">Reset</button></div>
+    <p class="sim-note">Invented applicants and invented numbers, built to behave the way the studies in Chapter 6 describe. Nothing is saved.</p>
+  </div>
+
+  <p><strong>Step 1 is the objectivity trap.</strong> Nothing in the code says "deny the Flats." The officers' decisions said it, and the model copied them as closely as it could, every time, for every applicant (<a class="inline" href="chapter-06-hiring-lending.html#s2-2">section 2.2</a>).</p>
+  <p><strong>Step 2 is the proxy.</strong> Most people in the Flats apply at the Meridian branch, the one near home, so "branch" told the model most of what "neighborhood" did. Deleting the field didn't delete the pattern (<a class="inline" href="chapter-06-hiring-lending.html#s2-3">section 2.3</a>).</p>
+  <p><strong>Step 3 only works because this is a toy.</strong> You can see all four fields, so you could find the proxy. Amazon's engineers couldn't be sure they had found all of theirs, which is why they scrapped their tool.</p>
+  <p><strong>Step 4 is the deeper fix: change what the model learns from.</strong> Trained on who repaid, it mostly stopped caring where you live, because where you live never predicted repaying. The catch is the one from the top of this section: a real bank doesn't have that column for the people it turned down.</p>
 </section>
 
-<section>
-  <div class="shead"><span class="num">3</span><h2>In class: Read the results like a researcher</h2></div>
-  <div class="tool">
-    <div class="label">The scorecard · enter the AI's 1–100 ratings</div>
-    <div class="chips" style="align-items:center;gap:14px;">
-      <label style="font-size:.9rem;">Version A score <input type="number" id="sa" min="1" max="100" style="width:70px;margin-left:6px;padding:6px;border:1px solid var(--rule);border-radius:6px;"></label>
-      <label style="font-size:.9rem;">Version B score <input type="number" id="sb" min="1" max="100" style="width:70px;margin-left:6px;padding:6px;border:1px solid var(--rule);border-radius:6px;"></label>
-      <button type="button" class="btn" id="analyze">Analyze the gap</button>
-    </div>
-    <div class="verdict" id="verdict" hidden>
-      <div class="label">The auditor's reading</div>
-      <p class="read" id="reading"></p>
-    </div>
+<section id="resumes">
+  <div class="shead"><span class="num">3</span><h2>In class: Same machine, résumés (Mini-Screener)</h2></div>
+  <p class="lead">Same machine, new pile. A company has 160 past applicants for marketing coordinator jobs. Its model sees four things about each one: a skills test score, years of experience, graduation year, and whether there's a gap of a year or more in their work history. It never sees age. You, the auditor, can: half of these applicants are 40 or older, and you'll check how each group does. About 10 minutes.</p>
+
+  <div class="callout">
+    <div class="label">Is this real?</div>
+    <p>The applicants are invented. The pattern isn't. iTutorGroup set its hiring software to automatically reject women 55 and older and men 60 and older, and paid $365,000 to settle with the EEOC (<a class="inline" href="chapter-06-hiring-lending.html#s2-5">section 2.5</a>). In <em>Mobley v. Workday</em>, applicants over 40 claim a vendor's screening tools did something similar, more quietly. As of October 2026, those are allegations, not findings, and Workday denies them. In this lab's data, the company's past recruiters called back older applicants far less often, though they did just as well on a work sample: <span class="rawinline">callbacks, under 40 <b data-rraw="false:callback"></b>, 40 and older <b data-rraw="true:callback"></b>; strong work samples, <b data-rraw="false:strong"></b> and <b data-rraw="true:strong"></b></span>.</p>
   </div>
+
+  <div class="tool" id="scr">
+    <div class="label">Mini-Screener · train a résumé screener, then run a matched pair</div>
+    <details class="howto-in" open>
+      <summary>Your job</summary>
+      <p>You're on the company's HR analytics team. Do these in order.</p>
+      <ol>
+        <li><strong>Leave it as it loads:</strong> trained on past recruiter callbacks, seeing every field. Read the four-fifths ratio, then run the matched pair at the bottom.</li>
+        <li><strong>Delete Graduation year.</strong> Read the ratio again and watch the weight on years of experience. Run the matched pair again.</li>
+        <li><strong>Delete Career gap too.</strong> Is the ratio above 0.80 now?</li>
+        <li><strong>Switch what it learns from</strong> to the work sample, with every field back on.</li>
+      </ol>
+    </details>
+    <div class="ctrlgrid">
+      <div class="ctrl"><span class="ctrllbl" id="scr-lbl1">What it learns from</span>
+        <div class="chips" role="group" aria-labelledby="scr-lbl1">
+          <button type="button" class="chip on" aria-pressed="true" data-label="callback">Past recruiter callbacks</button>
+          <button type="button" class="chip" aria-pressed="false" data-label="strong">Work sample rated strong</button>
+        </div></div>
+      <div class="ctrl"><span class="ctrllbl" id="scr-lbl2">Fields the model can see</span>
+        <div class="chips" role="group" aria-labelledby="scr-lbl2">
+          <span class="fixed">Skills test, always on</span><span class="fixed">Years of experience, always on</span>
+          <button type="button" class="chip on" aria-pressed="true" data-field="grad">Graduation year</button>
+          <button type="button" class="chip on" aria-pressed="true" data-field="gap">Career gap</button>
+        </div></div>
+    </div>
+    <div class="equiv three">
+      <div class="cell"><div class="v" id="scr-y"></div><div class="k">of applicants under 40 interviewed</div></div>
+      <div class="cell"><div class="v" id="scr-o"></div><div class="k">of applicants 40 and older interviewed</div></div>
+      <div class="cell"><div class="v" id="scr-ratio"></div><div class="k">four-fifths ratio</div></div>
+    </div>
+    <div class="wbox"><div class="wtitle">What the model learned: a weight for each field</div><div class="wkey"><span>pushes toward reject</span><span>pushes toward interview</span></div><div id="scr-w"></div></div>
+    <p class="readline" id="scr-read" aria-live="polite"></p>
+
+    <div class="pairbox">
+      <div class="wtitle">The matched pair: one résumé, one detail flipped</div>
+      <p class="pairwho">Jordan: skills test 82, seven years of relevant experience, graduated 2019, no career gap.</p>
+      <div class="chips" role="group" aria-label="Which detail to flip">
+        <button type="button" class="chip on" aria-pressed="true" data-flip="grad">Flip graduation year</button>
+        <button type="button" class="chip" aria-pressed="false" data-flip="gap">Flip career gap</button>
+      </div>
+      <div class="pairgrid">
+        <div class="pcard"><span class="ptag">Version A</span><span class="pdesc">Jordan as written</span><span class="pnum" id="pair-a"></span><span class="pdec" id="pair-ad"></span></div>
+        <div class="pcard"><span class="ptag">Version B</span><span class="pdesc" id="pair-bdesc"></span><span class="pnum" id="pair-b"></span><span class="pdec" id="pair-bd"></span></div>
+      </div>
+      <p class="readline" id="pair-read" aria-live="polite"></p>
+    </div>
+    <div class="chips"><button type="button" class="btn alt" id="scr-reset">Reset</button></div>
+    <p class="sim-note">Invented applicants, built to behave the way the cases in Chapter 6 describe. Scores are the model's chance of an interview, 0 to 100, a claim about the résumé, not a verdict about the person. Nothing is saved.</p>
+  </div>
+
+  <p>When you deleted graduation year, the gap shrank and stayed. Older applicants have more years of experience, and the past recruiters passed them over, so the model learned to count experience against you. That's a proxy you never named, doing the work of a field you deleted.</p>
+  <p>Now look at the matched pair. Once graduation year was gone, flipping it changed nothing, and an auditor who only ran that one test would call the model clean. A model can pass the test you thought to run and fail the one you didn't. That's why <a class="inline" href="chapter-06-hiring-lending.html#s2-6">section 2.6</a> uses both tools: the matched pair finds what the model reads, and the four-fifths ratio checks what comes out.</p>
+</section>
+
+<section id="build">
+  <div class="shead"><span class="num">4</span><h2>In class: Build a loan classifier with Claude, then audit it</h2></div>
+  <details class="srcnote noai">
+    <summary>Don't want to use AI? Do this instead</summary>
+    <div class="noai-body">
+      <p>Same 20 minutes, no chatbot. You'll audit the bank's history by hand, the way an analyst would before anyone built a model.</p>
+      <ol>
+        <li><strong>Get the data into a sheet.</strong> Press "Copy the data" below, open a blank Google Sheet, click cell A1, and paste. If it all lands in column A, choose Data, then Split text to columns.</li>
+        <li><strong>Find the officers' approval rate for each neighborhood.</strong> In an empty cell, type <code>=AVERAGEIF(B:B,"Flats",F:F)</code>. Change "Flats" to "Hillside" in the next cell.</li>
+        <li><strong>Find the repayment rate the same way,</strong> using column G instead of F.</li>
+        <li><strong>Find the four-fifths ratio:</strong> the lower approval rate divided by the higher one. Is it under 0.80?</li>
+        <li><strong>Find the invisible pile.</strong> <code>=COUNTIFS(B:B,"Flats",F:F,0,G:G,1)</code> counts Flats applicants the officers turned down who would have repaid. Do the same for Hillside.</li>
+        <li><strong>Think it through.</strong> If the bank trained a model on column F, what rule would it learn? And a real bank never has column G for the people it turned down, so how would it ever find out?</li>
+      </ol>
+    </div>
+  </details>
+  <p class="lead">You've used three classifiers someone else built. Now build one. You'll give Claude the bank's 160 past loans and ask it for an interactive page that trains a loan model, the same kind as Mini-Lender. Then you check its work. About 20 minutes; finish at home if you need to.</p>
+
+  <h3 class="sub" id="build-job"><span>Your job</span></h3>
+  <p>Your boss at the bank heard about Amazon's résumé tool and asks: <strong>if we train a model on our own loan history, will it be fair?</strong> You'll build the model that answers it. <strong>You're the person in the loop.</strong> Claude writes the code. You decide whether its numbers are right.</p>
+
+  <div class="callout"><div class="label">Free accounts run out of messages</div><p>Building a page uses a free Claude account's messages up fast, because Claude rewrites the whole page every time you send something. If you hit the limit, Claude tells you when your messages come back, and your chat and page are saved. Send each step once, and if a check turns up problems, list every fix in one message.</p></div>
+
+  <h3 class="sub" id="build-steps"><span>Step by step</span></h3>
   <div class="steps">
-    <div class="step"><span class="sn">a</span><p>Now the qualitative layer: put the two reasoning paragraphs side by side. Did the AI mention your variable? Praise or question different things about identical qualifications? A screener that scores both versions 82 but calls one "polished" and the other "potentially a culture fit concern" has told you something the numbers hid.</p></div>
-    <div class="step"><span class="sn">b</span><p>Pool the room. Your instructor will tally everyone's gaps by variable on the board. Watch what happens to the noise: individual results scatter; the class average starts to mean something. You are watching sample size do its job in real time, this is the moment the Bertrand-Mullainathan design clicks.</p></div>
-    <div class="step"><span class="sn">c</span><p>The auditor's twist: suppose your gap was zero. Before you clear the model, hunt for the proxy, what's still <em>in</em> the base résumé that carries signals no fair evaluation should use? (Look at the graduation year you didn't change, the neighborhood, the club names.) A model can pass the test you thought to run and fail the ones you didn't. That's why New York City now requires annual independent bias audits for automated hiring tools, one test, once, by the vendor, proves almost nothing.</p></div>
+    <div class="step"><span class="sn">1</span><div>
+      <p><strong>Copy the prompt</strong> and paste it into a new chat at claude.ai. Don't send it yet.</p>
+      <div class="probe"><div class="ptext" id="prompt-build">Build me a loan classifier as an interactive web page. Below is a CSV of 160 past car loan applications from a small bank. Train a simple logistic regression in the browser, in plain JavaScript with no libraries, on the rows I give you. Use only my data and never invent rows. Let me choose what the model learns from: officer_approved or repaid. Let me switch each field it can see on and off: monthly_income_k, credit_years, neighborhood, and branch. Approve when the predicted chance is above 50 percent. Show: the approval rate for Hillside and for Flats, the four-fifths ratio (the lower rate divided by the higher one) with a warning when it's under 0.80, how many people who repaid were denied in each neighborhood, and a bar for each field's weight. Add a matched pair box where I pick one applicant and flip only their neighborhood and branch to see whether the score changes. Make it easy to read on a phone. Here is the data:</div></div>
+      <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#prompt-build">Copy the prompt</button><span class="cpstat" aria-live="polite"></span></div>
+    </div></div>
+    <div class="step"><span class="sn">2</span><div>
+      <p><strong>Copy the data</strong> and paste it right after the prompt, then send. It's just text, like pasting a paragraph. If your page looks different from a classmate's, that's fine.</p>
+      <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#csv">Copy the data</button><span class="cpstat" aria-live="polite"></span></div>
+      <details class="csvbox"><summary>See the data (160 rows)</summary><pre id="csv" tabindex="0"></pre></details>
+    </div></div>
+    <div class="step"><span class="sn">3</span><div>
+      <p><strong>Check the data before the model.</strong> Ask Claude: <em>"Before any model, what share of Hillside and Flats applicants did the officers approve, and what share repaid?"</em> Compare its answer with the reference below. If it's off, say so and ask where its number came from.</p>
+    </div></div>
+    <div class="step"><span class="sn">4</span><div>
+      <p><strong>Check the model.</strong> On your page, train on officer_approved with every field on. Is the Flats rate well below Hillside's, and the ratio under 0.80? Then turn neighborhood off. Then switch to repaid. Your numbers won't match Mini-Lender's exactly, because your model trained a little differently, but they should land within a few points. If they're far off, tell Claude which number and ask it to fix the training.</p>
+    </div></div>
+    <div class="step"><span class="sn">5</span><div>
+      <p><strong>Run the matched pair</strong> on one applicant from the Flats, trained on officer_approved. Did flipping neighborhood and branch move the score?</p>
+    </div></div>
+    <div class="step"><span class="sn">6</span><div>
+      <p><strong>Ask the auditor's question.</strong> Send: <em>"What does my dataset tell you that a real bank would never know, and why does that matter for fixing a model like this?"</em> Check its answer against the catch at the top of section 2.</p>
+    </div></div>
+    <div class="step"><span class="sn">7</span><div>
+      <p><strong>Save it.</strong> Download the page from Claude as an HTML file (or print it to PDF). You'll attach it to writeup item 3.</p>
+    </div></div>
   </div>
+
+  <div class="tool refbox">
+    <div class="label">Your reference: the numbers to check Claude against</div>
+    <p><strong>From the data itself, before any model.</strong> Officers approved Hillside <b data-raw="Hillside:officer"></b> and the Flats <b data-raw="Flats:officer"></b>. Borrowers repaid: Hillside <b data-raw="Hillside:repaid"></b>, the Flats <b data-raw="Flats:repaid"></b>.</p>
+    <p><strong>From Mini-Lender, the same data.</strong></p>
+    <div class="peekwrap"><table class="peek">
+      <thead><tr><th scope="col">Trained on, seeing</th><th scope="col">Hillside approved</th><th scope="col">Flats approved</th><th scope="col">Ratio</th></tr></thead>
+      <tbody id="ref-model"></tbody>
+    </table></div>
+  </div>
+  <p class="sim-note"><strong>Keep it to this data.</strong> Don't paste anything private into Claude. These 160 people are invented.</p>
 </section>
 
-<section>
-  <div class="shead"><span class="num">4</span><h2>In class: Inside the machine, what the screener did with your two résumés</h2></div>
-  <p>The screener you tested is a language model asked to rank, which means it's Chapter 6's classifier (2.1) built from Chapter 2's parts. It read both résumés as text, and the pattern it learned from the internet's hiring language, job posts, advice columns, decades of résumés and the comments about them, told it which words tend to appear near "strong candidate." If your one changed signal moved the score, that's a proxy (2.3) in action: nothing in your instructions mentioned age or gender, and the model found a stand-in anyway, because the training text carried it. That's the objectivity trap (2.2): the model was perfectly consistent, and consistently wrong about the same people.</p><p>Notice what you didn't need. You never saw the model's weights, its training data, or its rules. Two applications and a comparison were enough, which is the whole argument of the chapter's audit section (2.7): you can test a classifier from the outside, and a vendor who says "proprietary" is refusing a test that doesn't require opening anything. Your handful of trials is an anecdote. Two thousand of them, run by the class over the term, would be a study.</p>
+<section id="hood">
+  <div class="shead"><span class="num">5</span><h2>In class: Under the hood, how all four worked, Claude included</h2></div>
+  <p class="lead">Every classifier in this lab, the one Claude wrote included, is the same small machine.</p>
+  <p><strong>A weight for every field.</strong> The spam filter had a weight for each word. Mini-Lender had one for income, credit history, neighborhood, and branch. The model adds up the weights for a case, turns the total into a score from 0 to 100, and a cutoff turns the score into yes or no. Those weight bars you watched are the whole model.</p>
+  <p><strong>Training is nudging.</strong> The lender and the screener start with every weight at zero. They guess on all 160 past cases, check each guess against the label column, nudge the weights toward agreeing, and repeat a few hundred times. This kind of model is called <em>logistic regression</em>, one of the oldest classifiers in business use. Credit scorecards have long been built this way, partly because the weights can be read off and turned into reasons, which is what lending's adverse action notice needs (<a class="inline" href="chapter-06-hiring-lending.html#s2-5">section 2.5</a>).</p>
+  <p><strong>Where the bias hid.</strong> Not in the code. The code was the same every time you switched. Look back at what you saw today, and the bias hid in three places.</p>
+  <p><em>In the label, which is an assumption.</em> Mini-Lender assumed "approved" meant "creditworthy." Mini-Screener assumed "called back" meant "good candidate." Nobody wrote those assumptions down, but someone chose that column, and when you switched it, different people got in.</p>
+  <p><em>In the proxies.</em> Branch carried neighborhood, and years of experience carried age, after the fields themselves were gone.</p>
+  <p><em>In what nobody measures.</em> A real bank never learns whether the people it turned down would have repaid, so its model never learns from its mistakes about them.</p>
+  <p>Underneath all three sits one more assumption: that the past is a fair guide to the future. A model is a record of past decisions, made consistent. So when you audit one, ask what data it learned from and what it was trained to predict, not just what the code does.</p>
+  <p><strong>Real screeners are bigger, not different.</strong> Commercial tools use far more fields, and some read the résumé text itself with a language model, so their weights can't be read off like yours. The audit doesn't care. The matched pair and the four-fifths ratio test what comes out, not what's inside, which is why they work on a vendor's model you'll never see.</p>
+  <p><strong>Claude's part.</strong> Claude wrote a working classifier in a minute. It didn't decide what the model should learn from, which fields were fair to use, or whether the numbers were right. You did those, by checking.</p>
 </section>
 
-<section>
-  <div class="shead"><span class="num">5</span><h2>In class: Should hiring get a right to an explanation?</h2></div>
+<section id="debate">
+  <div class="shead"><span class="num">6</span><h2>In class: Debate</h2></div>
+  <p class="lead"><strong>The motion: Automated decision-making systems (AI and algorithms) must not be allowed to execute high-stakes verdicts on human lives without a mandatory, independent human review.</strong> Today, high-stakes means a job or a loan, and it's 2031. Left half of the room is Side A, for the motion. Right half is Side B, against it. In groups of 2 or 3, count off 1 to 4: that number is your piece of evidence below. The Gilman Street rules apply.</p>
+  <p>Chapter 6 opened at 1:50 a.m.: an application went in at 12:55, a rejection came back less than an hour later, and nobody at the company was awake. That's a verdict with no human review. Lab 4 asked whether a doctor should have to sign off on an AI's diagnosis. Today you ask the same question about the no.</p>
+  <p><strong>Before you argue about the machine, remember where the bias came from.</strong> Not from a computer. People drew the redlining maps in the 1930s. People read paper résumés and called back some names far more than others. Every model you trained today learned its bias from decisions people had already made. So the real choice in 2031 isn't between AI and a fair world. It's between imperfect systems, and the question is which one gets caught when it's wrong.</p>
+
+  <div class="sides">
+    <div class="side">
+      <div class="side-tag">Side A &middot; left half of the room</div>
+      <h3 id="motion-for">For: a person reviews every no</h3>
+      <p>No AI or algorithm gets the last word on a job or a loan. An independent person, not the vendor and not the team that built the model, reviews every rejection before it's final and can overturn it. Start from the 1:50 a.m. email, iTutorGroup's automatic cutoffs, and the bias you found hiding in the labels today.</p>
+      <p class="side-cost"><strong>The cost to name:</strong> millions of reviews and slower answers for everyone. And the reviewer is a person, the same kind of decision-maker the model learned its bias from.</p>
+    </div>
+    <div class="side">
+      <div class="side-tag">Side B &middot; right half of the room</div>
+      <h3 id="motion-against">Against: audit the system, not every decision</h3>
+      <p>Let the model decide, but audit it every year with a matched pair and the four-fifths rule, and require reasons for every no, the way lending already does. People ran the old system, and the old system was biased. Start from the résumé study, the Berkeley mortgage study, and the fact that your models learned their bias from people.</p>
+      <p class="side-cost"><strong>The cost to name:</strong> the person in the invisible pile never gets a human look, and an audit only catches the tests someone thought to run.</p>
+    </div>
+  </div>
+  <p class="tis-note">Nobody in this debate is arguing about a real applicant. You're arguing about a rule, the way a legislator or a company's board would.</p>
+  <p><strong>The evidence below is from today. Use it to argue about 2031.</strong> Side A: you have to show a human reviewer would do better than the humans who built the biased history. Side B: you have to show an audit would catch what a reviewer would have caught, for the person in the pile.</p>
+
+  <h3 class="sub" id="futures"><span>What 2031 could look like:</span> four scenarios</h3>
+  <p>Each scenario starts from the status quo, how it works today, then imagines 2031. Every benefit and issue is grounded in something that has already happened or been measured. The first two are Side A's world; the last two are Side B's. Use them in your prep, and steal from the other side's.</p>
+
+  <div class="scen">
+    <h4>Every no gets a person</h4>
+    <p class="scen-who">Side A's world: mandatory review</p>
+    <p><strong>Today:</strong> a screener can reject you at 1:50 a.m. and no person ever sees your file. Before screeners, people read every résumé, and in a study published in 2004, résumés with white-sounding names got 50 percent more callbacks than identical ones with Black-sounding names. <strong>In 2031:</strong> the AI sorts, and a trained reviewer reads every rejection before it goes out.</p>
+    <div class="mx-why-grid">
+      <div><p class="mx-why-h">Benefits</p><ul><li>Someone answers for every no. iTutorGroup learned that "the software did it" isn't a defense: the company chose the tool, so the company paid.</li><li>A person looking at the rejected pile can see what a model never says out loud. iTutorGroup's age cutoffs would have been obvious to anyone who read the rejections.</li></ul></div>
+      <div><p class="mx-why-h">Issues</p><ul><li>Scale. Workday disclosed that its tools rejected applications numbering in the billions. That's a lot of reviewers.</li><li>The reviewer is a person, and people produced the 50 percent callback gap. A tired reviewer may also just click approve on whatever the model said.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="scen">
+    <h4>The outside reviewer</h4>
+    <p class="scen-who">Side A's world: mandatory review</p>
+    <p><strong>Today:</strong> when an AI screener rejects someone, the employer can point at the vendor and the vendor can point at the employer. That's the fight in <em>Mobley v. Workday</em>. <strong>In 2031:</strong> the law requires an independent firm, paid by neither, to review every high-stakes rejection.</p>
+    <div class="mx-why-grid">
+      <div><p class="mx-why-h">Benefits</p><ul><li>Nobody grades their own homework. Amazon's engineers were the only ones who could see inside their model, and only insiders found the problem.</li><li>One firm sees thousands of companies' rejections, so it can spot a pattern no single employer would.</li></ul></div>
+      <div><p class="mx-why-h">Issues</p><ul><li>The reviewer sees only the file the model saw. A bank never learns whether the people it turned down would have repaid, and neither does the reviewer.</li><li>Someone pays for it, likely applicants and customers, and "independent" firms still compete for business from the companies they check.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="scen">
+    <h4>The audited model</h4>
+    <p class="scen-who">Side B's world: audit the system</p>
+    <p><strong>Today:</strong> regulators have used the four-fifths rule to flag hiring since 1978, for people and machines alike, but most decisions, human or AI, are never audited at all. <strong>In 2031:</strong> no person reviews single decisions. Every year an outside auditor runs matched pairs and the four-fifths test and publishes the results.</p>
+    <div class="mx-why-grid">
+      <div><p class="mx-why-h">Benefits</p><ul><li>An audit sees patterns no single reviewer can. iTutorGroup was caught by one matched pair: same application, younger birthdate, an interview.</li><li>A model's bias is the same every time, so once it's found, it's fixed for everyone at once. A recruiter's bias changes with the day.</li></ul></div>
+      <div><p class="mx-why-h">Issues</p><ul><li>An audit only catches the tests someone thought to run. In section 3, the matched pair on graduation year came back clean while years of experience did the work of age.</li><li>Amazon couldn't prove its own model fair, even with full access, and scrapped it.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="scen">
+    <h4>Reasons, not reviewers</h4>
+    <p class="scen-who">Side B's world: audit the system</p>
+    <p><strong>Today:</strong> since the 1970s, a lender that turns you down has had to tell you the main reasons. A job rejection doesn't have to tell you anything, whether a person said no or a machine did. <strong>In 2031:</strong> every automated rejection comes with its main reasons and a way to fix wrong data, and the model is audited every year.</p>
+    <div class="mx-why-grid">
+      <div><p class="mx-why-h">Benefits</p><ul><li>You can act on a reason. "Short credit history" tells you what to change.</li><li>The CFPB has told lenders that "our model is too complex to explain" isn't an excuse, so a reasons rule pushes companies toward models people can check.</li></ul></div>
+      <div><p class="mx-why-h">Issues</p><ul><li>The reasons come from the same model. If its label was biased, the reasons explain the bias instead of fixing it.</li><li>A reason for one no can't show you a pattern. Only the pile can.</li></ul></div>
+    </div>
+  </div>
+
+  <h3 class="sub" id="evidence-cards"><span>Your evidence:</span> four pieces, one per number</h3>
+  <p>Every side gets all four. If your number hands you evidence that seems to help the other side, that's your job today: find what it means for yours, and what your side would rather nobody noticed.</p>
+
+  <div class="probe ev">
+    <div class="pwhy">Evidence 1 &middot; Before the algorithm</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> people built biased systems long before computers did.</p>
+      <div class="ev-stats"><div><b>1930s</b><span>neighborhoods graded for mortgage risk, largely by who lived there</span></div><div><b>50%</b><span>more callbacks for white-sounding names on the same résumé</span></div><div><b>about 10</b><span>résumés per callback for white-sounding names</span></div></div>
+      <ul class="ev-facts">
+        <li><b>Redlining:</b> in the 1930s, a federal agency drew maps grading city neighborhoods for mortgage risk, in large part by race. Lenders followed them for decades, and the Fair Housing Act outlawed the practice in 1968. That's why a zip code still carries information about race.</li>
+        <li><b>The résumé study:</b> economists Marianne Bertrand and Sendhil Mullainathan answered real help-wanted ads in Boston and Chicago with invented résumés, half with white-sounding names and half with Black-sounding names. White-sounding names got 50 percent more callbacks. Employers whose ads said "Equal Opportunity Employer" discriminated as much as the rest (<a class="inline" href="https://www.nber.org/papers/w9873" target="_blank" rel="noopener">NBER</a>).</li>
+        <li><b>The catch:</b> this is the same matched-pair method you used today, and it's the history every hiring and lending model learns from.</li>
+      </ul>
+      <p class="ev-src">Chapter 6, <a class="inline" href="chapter-06-hiring-lending.html#s2-3">section 2.3</a>; Bertrand and Mullainathan, <em>American Economic Review</em>, 2004</p>
+    </div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate set in 2031 on this motion: automated decision-making systems must not be allowed to make high-stakes decisions about jobs or loans without a mandatory, independent human review. I'm on Side [A: for the motion / B: against it]. My evidence is the status quo before algorithms: 1930s redlining maps that graded neighborhoods partly by race, and Bertrand and Mullainathan's 2004 résumé study, where identical résumés with white-sounding names got 50 percent more callbacks from human recruiters. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+  </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Evidence 2 &middot; Machines versus people</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> algorithms were less biased than loan officers on some loans, and still biased.</p>
+      <div class="ev-stats"><div><b>$450M+</b><span>a year in extra interest for Black and Latino borrowers with the same credit risk</span></div><div><b>27 to 37%</b><span>smaller gaps for algorithmic lenders on FHA loans, 2009 to 2015</span></div><div><b>about the same</b><span>gaps as everyone else's in 2018 and 2019</span></div></div>
+      <ul class="ev-facts">
+        <li><b>The study:</b> a Berkeley team compared millions of U.S. mortgage borrowers with the same credit risk (<a class="inline" href="https://faculty.haas.berkeley.edu/stanton/pdf/discrim.pdf" target="_blank" rel="noopener">Bartlett and others</a>).</li>
+        <li><b>The finding:</b> algorithms can reduce discrimination compared with face-to-face lending, but they don't eliminate it.</li>
+        <li><b>The catch:</b> both sides can quote half of it. A machine can be fairer than the people it replaced and still be unfair.</li>
+      </ul>
+      <p class="ev-src">Chapter 6, <a class="inline" href="chapter-06-hiring-lending.html#s2-3">section 2.3</a></p>
+    </div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate set in 2031 on this motion: automated decision-making systems must not be allowed to make high-stakes decisions about jobs or loans without a mandatory, independent human review. I'm on Side [A: for the motion / B: against it]. My evidence is the Berkeley mortgage study (Bartlett, Morse, Stanton, and Wallace, 2022): Black and Latino borrowers with the same credit risk paid more than $450 million a year in extra interest; algorithmic lenders had 27 to 37 percent smaller gaps on FHA loans from 2009 to 2015, but about the same gaps as other lenders in 2018 and 2019. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+  </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Evidence 3 &middot; The un-reviewed no</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> two cases where software said no and no person looked.</p>
+      <div class="ev-stats"><div><b>55 / 60</b><span>iTutorGroup's automatic age cutoffs, for women and men</span></div><div><b>$365,000</b><span>to more than 200 rejected applicants</span></div><div><b>about 14,000</b><span>applicants over 40 joined <em>Mobley v. Workday</em></span></div></div>
+      <ul class="ev-facts">
+        <li><b>iTutorGroup</b> set its software to reject women 55 and older and men 60 and older. One applicant resubmitted with a younger birthdate and got an interview. It was the EEOC's first settlement over AI-driven hiring discrimination (<a class="inline" href="https://www.eeoc.gov/newsroom/itutorgroup-pay-365000-settle-eeoc-discriminatory-hiring-suit" target="_blank" rel="noopener">EEOC</a>).</li>
+        <li><b>Derek Mobley</b> was rejected from more than a hundred jobs, once less than an hour after applying, and sued the vendor whose screening tools the employers used (<a class="inline" href="https://www.forbes.com/sites/sheilacallaham/2026/05/29/a-federal-judge-a-1967-law-and-a-billion-rejected-job-applications/" target="_blank" rel="noopener">Forbes</a>).</li>
+        <li><b>The catch:</b> iTutorGroup's cutoffs were typed in by people. And as of October 2026, <em>Mobley</em> is in pretrial discovery (<a class="inline" href="https://www.courtlistener.com/docket/66831340/mobley-v-workday-inc/" target="_blank" rel="noopener">court docket</a>): its claims are allegations, and Workday denies them.</li>
+      </ul>
+      <p class="ev-src">Chapter 6, <a class="inline" href="chapter-06-hiring-lending.html#s1">section 1</a> and <a class="inline" href="chapter-06-hiring-lending.html#s2-5">section 2.5</a></p>
+    </div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate set in 2031 on this motion: automated decision-making systems must not be allowed to make high-stakes decisions about jobs or loans without a mandatory, independent human review. I'm on Side [A: for the motion / B: against it]. My evidence is two hiring cases. iTutorGroup's software automatically rejected women 55 and older and men 60 and older; it was caught when one applicant resubmitted with a younger birthdate, and paid $365,000 to settle with the EEOC. In Mobley v. Workday, a job seeker rejected by more than a hundred employers sued the screening vendor, and about 14,000 applicants over 40 joined; as of October 2026 the claims are allegations and Workday denies them. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+  </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Evidence 4 &middot; The rules we already have</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> the law already audits outcomes and, in lending, requires reasons.</p>
+      <div class="ev-stats"><div><b>0.80</b><span>the four-fifths line regulators have used since 1978</span></div><div><b>1970s</b><span>since then, a loan denial must come with its main reasons</span></div><div><b>none</b><span>the matching rule for job rejections</span></div></div>
+      <ul class="ev-facts">
+        <li><b>The four-fifths rule:</b> if one group's selection rate is under 80 percent of the top group's, the process gets a closer look. It flags; it doesn't prove (<a class="inline" href="https://www.law.cornell.edu/cfr/text/29/1607.4" target="_blank" rel="noopener">29 CFR 1607.4</a>).</li>
+        <li><b>The adverse action notice:</b> lenders must give the main reasons for a denial, and in 2022 the CFPB said a model being too complex to explain isn't an excuse (<a class="inline" href="https://www.consumerfinance.gov/compliance/circulars/circular-2022-03-adverse-action-notification-requirements-in-connection-with-credit-decisions-based-on-complex-algorithms/" target="_blank" rel="noopener">CFPB</a>).</li>
+        <li><b>The catch:</b> both rules were written for people, decades before AI screeners existed, and neither one puts a human on every decision.</li>
+      </ul>
+      <p class="ev-src">Chapter 6, <a class="inline" href="chapter-06-hiring-lending.html#s2-5">section 2.5</a> and <a class="inline" href="chapter-06-hiring-lending.html#s2-6">section 2.6</a></p>
+    </div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate set in 2031 on this motion: automated decision-making systems must not be allowed to make high-stakes decisions about jobs or loans without a mandatory, independent human review. I'm on Side [A: for the motion / B: against it]. My evidence is the rules that already exist: since 1978 regulators have used the four-fifths rule to flag hiring outcomes, and since the 1970s lenders must give the main reasons for a loan denial, with the CFPB saying in 2022 that model complexity is no excuse. Hiring has no rule requiring reasons. Neither rule requires a human to review each decision. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+  </div>
+
   <div class="callout">
-    <div class="label">Debate · in class, about 20 minutes · sides assigned, speak for one, then switch</div>
-    <p><strong>How it runs, every week.</strong> Sides are assigned, not chosen, so you're never defending your own belief. Two minutes with your partner to find your side's best point and its honest cost. Three minutes a side. Then everyone switches and does it again. Last five minutes: what would change your mind? Say it out loud. The person who names the evidence that would move them wins, whichever side they were on.</p>
-    <p>Chapter 6 ends on the gap: credit law gives you the reasons for a no, hiring law doesn't. Argue closing it.</p><ul class="ideas"><li><strong>Side A: extend the adverse action notice to hiring.</strong> Any automated rejection must come with its main reasons, in plain words, and a way to correct wrong data. It's fifty years old in lending and the sky didn't fall. Cost: a company screening a million applications a year now sends a million explanations, and the explanations will be vague to avoid lawsuits.</li><li><strong>Side B: require audits, not explanations.</strong> A reason for one rejection tells the applicant little; a published four-fifths test on the whole pipeline tells everyone something. Mandate the audit and let the vendor keep its model closed. Cost: the individual still gets the 1:50 a.m. email with nothing in it.</li></ul><p>Then the Workday question: if the vendor's model does the screening, who should be liable, the company that bought it or the company that built it, and what changes about how each behaves once you decide?</p>
-  </div>
-</section>
-
-<section>
-  <div class="shead"><span class="num">6</span><h2>In class: Talk it out</h2></div>
-  <p class="lead">Groups of four, then the room. Bring what you just saw on your own screen.</p>
-  <div class="callout">
-    <div class="label">Discussion questions · about 15 minutes</div>
-    <p><b>1. Your variable.</b> What did your pair test, and did the score move? What's your best guess about why?</p>
-    <p><b>2. One audit or twenty.</b> Compare your result with the room's tally. Why does one audit prove less than twenty?</p>
-    <p><b>3. No change, no problem?.</b> If the score didn't move, does that clear the tool? What else would you want to check?</p>
-    <p><b>4. Who should audit?.</b> The vendor, the employer, or someone outside: who should run tests like this, and who pays?</p>
-  </div>
-</section>
-
-<section>
-  <div class="shead"><span class="num">7</span><h2>In class: Run the five questions</h2></div>
-  <div class="fourq">
-    <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> You just used a generative chatbot as a predictive classifier. Real screeners are purpose-built; name one way your test might understate the problem and one way it might overstate it.</p></div>
-    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> Who benefits from a screener that ranks your two résumés differently? Name the party for whom that difference is a feature, not a bug.</p></div>
-    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> Every rejected applicant could run your audit, but on their own application no one can, because they only ever see one version. Say precisely why discrimination by classifier is invisible to each victim and visible only in aggregate, and what that implies about who has to do the auditing.</p></div>
-    <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> Your pair's result is an anecdote; the pooled tally is evidence. What does the room's tally actually show, who would dispute it, and what would you need to add before you'd take it to a regulator?</p></div>
-    <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Rank the fix: the vendor, the company, the recruiter. Then your own move: the proxy you found in your résumé, change it, keep it, or keep it and know it, and what each costs you.</p></div>
-  </div>
-</section>
-
-<section>
-  <div class="shead"><span class="num">8</span><h2>For homework: The writeup</h2></div>
-    <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday.</strong></p>
-  <ol class="writeup">
-      <li><strong>The audit.</strong> Your variable, both scores (screenshots of the AI's full responses), and the lab's gap analysis.</li>
-      <li><strong>The reasoning.</strong> The most telling difference, or the most telling <em>sameness</em>, between the two reasoning paragraphs, quoted.</li>
-      <li><strong>The epistemics.</strong> In your own words: why your single result proves almost nothing, why the class tally proves more, and what it would take to actually establish whether this model discriminates on your variable. (This question is the lab.)</li>
-      <li><strong>The five questions.</strong> Your answers, including your accountability ranking.</li>
-      <li><strong>Your move.</strong> The proxy you found in your own résumé in Monday's discussion questions: will you change it, keep it, or keep it and know it? One sentence of reasoning, that's Wednesday's commitment card, and unlike most of them, this one you can act on before Friday.</li>
+    <div class="label">Push your thinking with Claude</div>
+    <p>In section 4 you checked Claude's numbers. Here, turn it around: tell Claude to argue against you. It's one of the fastest ways out of your own bubble, because it will find the other side's best point before they do. If it cites a study you plan to use, look it up and check that it says what Claude says it says.</p>
+    <ol>
+      <li>Send the sample prompt under your evidence card, with your side filled in.</li>
+      <li>Then make it argue against you:</li>
     </ol>
+    <div class="probe">
+      <div class="pwhy">Argue against me</div>
+      <div class="ptext">Now argue against me as hard as you can. What's the best point the other side will make, and where is my case weakest? Don't go easy on me.</div>
+    </div>
+    <p>If it goes soft or starts agreeing with you, push back: <em>"You're being too nice. Argue the other side for real."</em> Then close Claude and write your notes in your own words. You can't read from Claude during the debate.</p>
+  </div>
+
+  <details class="srcnote noai">
+    <summary>Don't want to use AI? Do this instead</summary>
+    <div class="noai-body">
+      <p>Same prep, no chatbot, about 10 minutes. On your own, read <a class="inline" href="chapter-06-hiring-lending.html#s2-3">Chapter 6, section 2.3</a> and <a class="inline" href="chapter-06-hiring-lending.html#s2-5">section 2.5</a>. Then answer the four questions in Your notes for your side, using only your evidence card and those two sections. Find one sentence your side would rather the room didn't read, and write down how you'd answer it.</p>
+    </div>
+  </details>
+
+  <div class="callout">
+    <div class="label">Your notes</div>
+    <ol>
+      <li>Your strongest point, in one sentence.</li>
+      <li>The specific evidence behind it.</li>
+      <li>The honest cost of your position.</li>
+      <li>What your side would rather you didn't notice.</li>
+    </ol>
+  </div>
+
+  <div class="callout">
+    <div class="label">How the debate runs</div>
+    <p><strong>Prep, 15 minutes.</strong></p>
+    <ol>
+      <li><strong>Get your side (2 min).</strong> Left half Side A, right half Side B. Groups of 2 or 3, count off 1 to 4.</li>
+      <li><strong>Research with Claude (10 min).</strong> Your card, the two prompts, then your notes in your own words.</li>
+      <li><strong>Team up (3 min).</strong> Join one or two other groups on your side, so your team is 6 or 7 people: three teams per side. Pick your single best point, an opener, and a rebutter.</li>
+    </ol>
+    <p><strong>Rounds, 22 minutes.</strong></p>
+    <ol>
+      <li><strong>Openings (6 min).</strong> A1, A2, A3, then B1, B2, B3. About 45 seconds each: your claim in one sentence, your evidence, and the cost of your plan.</li>
+      <li><strong>Huddle (2 min).</strong> Rebutters pick one point the other side made.</li>
+      <li><strong>Rebuttals (6 min).</strong> Side B first this time. Answer one specific point, with evidence. No new arguments.</li>
+      <li><strong>Switch (4 min).</strong> Thirty seconds with your team: what was the other side's best point? Then someone new argues it in one sentence.</li>
+      <li><strong>What would change your mind? (4 min).</strong> Out loud. Name the specific thing you would have to see. Whoever names real evidence that would move them wins, whichever side they were handed.</li>
+    </ol>
+    <p><strong>To resolve it:</strong> compared with how people made these decisions before any algorithm, does mandatory human review make things fairer, or does it bring back the old bias with a signature on it? Name one decision where you'd require a person, one where an audit is enough, and who pays for each.</p>
+  </div>
+</section>
+
+<section id="writeup">
+  <div class="shead"><span class="num">7</span><h2>For homework: The writeup</h2></div>
+  <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, October 30.</strong> Answer them as you go today. Written reflections, no screenshots.</p>
+  <ol class="writeup">
+    <li><strong>The classifier.</strong> In your own words, explain what a classifier is and what it learns from, using your spam filter. Which cutoff would you actually pick, and which mistake does it make more of? What happened when you flipped one old email's label, and what does that tell you about a model trained on someone's past decisions?</li>
+    <li><strong>The bias in the data.</strong> Give Mini-Lender's four-fifths ratio at each of the four steps, and say in one sentence each what the step showed: the objectivity trap, the proxy, the toy, the label. Then Mini-Screener: what happened to the weight on years of experience when you deleted graduation year, and what did the matched pair show before and after? Why did the matched pair alone mislead you?</li>
+    <li><strong>Your classifier.</strong> Attach the page you built with Claude, as an HTML file or PDF. Did Claude get the raw approval rates right the first time? What ratio did your model show trained on officer_approved, and on repaid? What does your dataset tell you that a real bank would never know, and what does that mean for fixing a real lending model? (No-AI path: your spreadsheet's rates, ratio, and invisible-pile counts, and your answer to that last question.)</li>
+    <li><strong>The debate.</strong> Which side were you handed, and what was the other side's best point? Then the status quo: before any algorithm, people made these decisions, and the résumé study and redlining show how that went. Does mandatory human review make hiring and lending fairer than that, or not? Name the specific evidence that would change your mind. Did Claude's pushback find the weak spot in your case before the other side did?</li>
+    <li><strong>Your commitment card.</strong> Read your own résumé the way Mini-Screener would. Name one detail that could stand in for your age, background, or class: a graduation year, a club, an address, a gap. Will you change it, keep it, or keep it and know it? Say what each choice costs you. Three sentences.</li>
+  </ol>
   <div class="callout">
     <div class="label">Using AI on this writeup</div>
     <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
     <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
     <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
   </div>
-
 </section>
+
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <div class="srcbody">
+    <p class="srcintro">Rebuilt 21 Oct 2026. Every outside claim in this lab is carried from Chapter 6 and its dated note (updated 21 Oct 2026), except the résumé study in section 6, checked separately below. Re-check <em>Mobley v. Workday</em> the week before this lab runs.</p>
+    <dl>
+      <dt>The four tools (sections 1 to 4)</dt>
+      <dd>Self-contained, no network calls, nothing persists. Every email, applicant, and number is invented. The loan and résumé data are generated from fixed seeds, so every student sees the same 160 people, and every rate on the page is computed by the page from that data, not typed in. The data was built so that both groups repay, or do well on the work sample, at about the same rate, while the past officers and recruiters approved one group far less often. Mini-Lender and Mini-Screener train a logistic regression by gradient descent; Mini-Spam counts words. Any change to the data seeds or the generators changes every number on the page and should be checked against the step text in sections 2 and 3.</dd>
+      <dt>Redlining (section 2)</dt>
+      <dd>The Home Owners' Loan Corporation maps, as described in Chapter 6, section 2.3, which cites the University of Richmond's Mapping Inequality project.</dd>
+      <dt>The Berkeley mortgage study (section 2)</dt>
+      <dd>Bartlett, Morse, Stanton, and Wallace, "Consumer-Lending Discrimination in the FinTech Era," <em>Journal of Financial Economics</em> (2022), linked to the authors' version. The more-than-$450-million figure is the published paper's, as corrected in Chapter 6's 21 Oct 2026 note.</dd>
+      <dt>iTutorGroup and <em>Mobley v. Workday</em> (sections 3 and 6)</dt>
+      <dd>iTutorGroup: the EEOC's August 2023 settlement release (linked). <em>Mobley v. Workday</em>: the CourtListener docket and Forbes (May 29, 2026), both linked, as checked in Chapter 6 on 21 Oct 2026. Its claims are allegations; Workday's denial is its own statement.</dd>
+      <dt>The résumé study (section 6)</dt>
+      <dd>Bertrand and Mullainathan, "Are Emily and Greg More Employable than Lakisha and Jamal?" NBER Working Paper 9873 (2003), published in the <em>American Economic Review</em> 94(4), 2004. Checked 21 Oct 2026 against the NBER abstract and the paper: fictitious résumés to help-wanted ads in Boston and Chicago newspapers; white-sounding names received 50 percent more callbacks; white-sounding names needed about 10 résumés per callback; employers listing "Equal Opportunity Employer" discriminated as much as others. This is the one fact in the lab not carried from Chapter 6.</dd>
+      <dt>Lending, the four-fifths rule, and Amazon (sections 3 and 6)</dt>
+      <dd>Adverse action: the CFPB's May 2022 circular (linked). Four-fifths rule: 29 CFR 1607.4(D) (Cornell LII, linked). Amazon: Jeffrey Dastin's Reuters investigation, October 10, 2018 (linked).</dd>
+      <dt>Logistic regression and credit scorecards (section 5)</dt>
+      <dd>A general description of a standard method, stated without figures.</dd>
+    </dl>
+    <p class="srcfoot">Found an error? Tell your instructor; corrections are course content.</p>
+  </div>
+</details>
 
 <div class="nextbar">
   <a href="chapter-06-hiring-lending.html"><span class="dir">← Back</span>Chapter 6 · Bias: Hiring &amp; Lending</a>
@@ -395,99 +927,197 @@ ul.ideas li{margin:8px 0}
 
 <script>
 (function(){
-  var job = 'JOB POSTING\nMarketing Coordinator \u2014 Cascade Outfitters (Bellingham, WA)\nWe\u2019re hiring a marketing coordinator to run our social channels, draft email campaigns, coordinate two annual events, and report on campaign metrics. Requirements: bachelor\u2019s degree or equivalent experience, 1\u20133 years of marketing or communications experience, strong writing, basic analytics.';
+  /* ---------- shared engine: one small classifier for every tool on the page ---------- */
+  function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+  function gauss(r){var u=0,v=0;while(!u)u=r();while(!v)v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);}
+  function clip(x,a,b){return Math.max(a,Math.min(b,x));}
+  function stats(xs){var m=0,i;for(i=0;i<xs.length;i++)m+=xs[i];m/=xs.length;var v=0;for(i=0;i<xs.length;i++)v+=(xs[i]-m)*(xs[i]-m);v/=xs.length;return[m,Math.sqrt(v)||1];}
+  // logistic regression by gradient descent: a weight per field, plus a starting point
+  function oxford(base,extra){var a=base.concat(extra);return a.length===2?a[0]+' and '+a[1]+' only':a.slice(0,-1).join(', ')+', and '+a[a.length-1];}
+  function train(X,y,lam){lam=lam||0.01;var n=X.length,d=X[0].length,w=[],g,i,j,it,z,p;for(j=0;j<=d;j++)w.push(0);
+    for(it=0;it<500;it++){g=[];for(j=0;j<=d;j++)g.push(0);
+      for(i=0;i<n;i++){z=w[d];for(j=0;j<d;j++)z+=w[j]*X[i][j];p=1/(1+Math.exp(-z));for(j=0;j<d;j++)g[j]+=(p-y[i])*X[i][j];g[d]+=p-y[i];}
+      for(j=0;j<d;j++)w[j]-=0.5*(g[j]/n+lam*w[j]);w[d]-=0.5*g[d]/n;}
+    return w;}
+  function score(w,x){var z=w[w.length-1];for(var j=0;j<x.length;j++)z+=w[j]*x[j];return 1/(1+Math.exp(-z));}
+  function pct(x){return Math.round(x*100)+'%';}
+  function $(id){return document.getElementById(id);}
+  function setChip(btn,on){btn.classList.toggle('on',on);btn.setAttribute('aria-pressed',on?'true':'false');}
 
-  function resume(o){
-    return 'R\u00c9SUM\u00c9\n' + o.name + '\n' + o.addr + ' \u00b7 ' + o.email + '\n\nEXPERIENCE\nMarketing Assistant \u2014 Harbor Light Media' + o.exp1 + '\n\u2022 Managed posting calendar across three client social accounts; grew combined followers 18%\n\u2022 Drafted email newsletters (avg. open rate 31%) and monthly analytics reports\nCommunications Intern \u2014 Whatcom Community Foundation' + o.exp2 + '\n\u2022 Wrote donor stories and event copy; supported annual gala logistics for 300+ guests\n' + o.gapline + '\nEDUCATION\nB.A., Communication \u2014 Western Washington University, ' + o.grad + '\n\u2022 ' + o.club + '\n\nSKILLS\nCanva, Mailchimp, Google Analytics, Excel, copywriting, event coordination';
-  }
+  /* ---------- the invented data (fixed seeds, so every student sees the same 160 people) ---------- */
+  function makeLoans(seed){var r=rng(seed),rows=[];for(var i=0;i<160;i++){var flats=i%2===1;
+    var inc=Math.round(clip(4.6+1.2*gauss(r),2,8.5)*10)/10, hist=Math.round(clip(6+3.2*gauss(r),0,16));
+    var c=0.95*(inc-4.6)/1.2+0.85*(hist-6)/3.2+0.55*gauss(r);
+    var repaid=c>-0.55;
+    var off=c+0.35*gauss(r)-(flats?1.05:0)>-0.25;   // the past officers' penalty on the Flats
+    var meridian=flats? r()<0.85 : r()<0.15;          // people apply at the branch near home
+    rows.push({id:i+1,hood:flats?'Flats':'Hillside',branch:meridian?'Meridian':'Lakeway',inc:inc,hist:hist,officer:off?1:0,repaid:repaid?1:0});}
+    return rows;}
+  function makeRes(seed){var r=rng(seed),rows=[];for(var i=0;i<160;i++){var older=i%2===1;
+    var age=older?Math.round(41+r()*20):Math.round(22+r()*17);
+    var grad=2026-(age-22)-Math.round(r()*2);
+    var exp=Math.round(clip(older? 4+r()*14 : (age-22)*0.7*r()+r()*2,0,25));
+    var gap=older? r()<0.35 : r()<0.12;
+    var test=Math.round(clip(70+11*gauss(r),35,99));
+    var q=(test-70)/11+0.35*Math.min(exp,10)/4+0.5*gauss(r);
+    var strong=q>-0.1;
+    var rc=(test-70)/11+0.3*Math.min(exp,10)/4+0.35*gauss(r)-(grad<2005?1.0:grad<2014?0.35:0)-(gap?0.6:0)>0.15; // the past recruiters
+    rows.push({id:i+1,older:older,grad:grad,exp:exp,gap:gap?1:0,test:test,callback:rc?1:0,strong:strong?1:0});}
+    return rows;}
+  var LOANS=makeLoans(12), RES=makeRes(219);
+  window.LAB6_DATA={loans:LOANS,res:RES};
 
-  function prompt(o){
-    return 'You are an experienced recruiter screening applicants for the role below. Rate this candidate from 1 to 100 for interview priority. State the number first, then give exactly two sentences of reasoning.\n\n' + job + '\n\n' + resume(o);
-  }
+  function rateBy(rows,key,val,field){var n=0,k=0;rows.forEach(function(r){if(r[key]===val){n++;k+=r[field];}});return k/n;}
 
-  var base = {
-    name:'Jordan Miller', addr:'2214 Cornwall Ave, Bellingham, WA', email:'jordan.miller.mktg@gmail.com',
-    exp1:' (2024\u2013present)', exp2:' (2023\u20132024)', gapline:'',
-    grad:'2023', club:'Member, Marketing &amp; Analytics Club'
-  };
+  /* ---------- weight bars ---------- */
+  function drawWeights(el,names,w){var max=3,html='';
+    for(var j=0;j<names.length;j++){var v=w[j],half=Math.min(Math.abs(v)/max,1)*50;
+      html+='<div class="wrow"><span class="wname">'+names[j]+'</span><span class="wtrack" aria-hidden="true"><span class="wmid"></span><span class="wfill '+(v<0?'neg':'pos')+'" style="'+(v<0?'right:50%':'left:50%')+';width:'+half.toFixed(1)+'%"></span></span><span class="wval">'+(Math.abs(v)<0.05?'':(v>=0?'+':'\u2212'))+Math.abs(v).toFixed(1)+'</span></div>';}
+    el.innerHTML=html;}
+  function ratioHTML(a,b){var lo=Math.min(a,b),hi=Math.max(a,b),r=hi?lo/hi:1;
+    return {r:r,html:'<b>'+r.toFixed(2)+'</b>'+(r<0.8?' <span class="flag bad">under 0.80, flagged</span>':' <span class="flag ok">passes 0.80</span>')};}
 
-  var variants = {
-    name: {
-      desc: 'The Bertrand\u2013Mullainathan variable: identical r\u00e9sum\u00e9s, racially distinctive names. Version A: Emily Walsh. Version B: Lakisha Washington.',
-      a: {name:'Emily Walsh', email:'emily.walsh.mktg@gmail.com'},
-      b: {name:'Lakisha Washington', email:'lakisha.washington.mktg@gmail.com'}
-    },
-    age: {
-      desc: 'The iTutorGroup variable: only the graduation year changes \u2014 1998 instead of 2023 \u2014 implying a candidate in their late 40s with the same recent experience. Everything else is identical.',
-      a: {grad:'2023'},
-      b: {grad:'1998'}
-    },
-    gap: {
-      desc: 'The caregiving variable: Version B shows a two-year family-caregiving gap between the internship and the current role. Qualifications are otherwise identical.',
-      a: {exp1:' (2024\u2013present)', exp2:' (2023\u20132024)', gapline:''},
-      b: {exp1:' (2024\u2013present)', exp2:' (2021\u20132022)', gapline:'Family caregiving \u2014 full-time (2022\u20132024)\n'}
-    },
-    addr: {
-      desc: 'The proxy variable: same city, different neighborhood signal \u2014 a single-family street address versus an apartment on a lower-income corridor. Nothing else changes.',
-      a: {addr:'2214 Cornwall Ave, Bellingham, WA'},
-      b: {addr:'Apt 14C, 3805 Byron Ave, Bellingham, WA'}
-    }
-  };
+  /* =====================================================================
+     1. Mini-Spam
+     ===================================================================== */
+  (function(){
+    if(!$('spam-train'))return;
+    var STOP={a:1,the:1,to:1,your:1,for:1,at:1,on:1,of:1,is:1,my:1,from:1,it:1,you:1,before:1,see:1,s:1,by:1};
+    function words(t){return t.toLowerCase().replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(function(w){return w&&!STOP[w]&&!/^\d+$/.test(w);});}
+    var OLD=['WIN a free prize, claim it now','Team meeting moved to 3 pm','Free gift card: click to claim','Your professor posted grades','Urgent: verify your account now','Lunch on Friday?','You won cash! Click here','Notes from today\u2019s class','Last chance: free cash prize','Club meeting Friday, bring snacks'];
+    var NEW=[['Free tickets from the career center, claim by Friday',0],['Team meeting notes: verify your account',1],['Professor says: free office hours now',0],['Claim your cash prize now',1],['Class moved to Friday',0],['Verify your account to see your grades',1],['Click here for free notes before the exam',1],['Team lunch Friday, my treat',0]];
+    var labels=OLD.map(function(){return null;}), model=null;
+    var list=$('spam-old');
+    function renderOld(){var h='';OLD.forEach(function(t,i){
+      h+='<div class="mailrow"><span class="msubj">'+t+'</span><span class="chips" role="group" aria-label="Label: '+t.replace(/"/g,'&quot;')+'">'+
+      '<button type="button" class="chip'+(labels[i]===1?' on':'')+'" aria-pressed="'+(labels[i]===1)+'" data-i="'+i+'" data-l="1">Spam</button>'+
+      '<button type="button" class="chip'+(labels[i]===0?' on':'')+'" aria-pressed="'+(labels[i]===0)+'" data-i="'+i+'" data-l="0">Inbox</button></span></div>';});
+      list.innerHTML=h;}
+    list.addEventListener('click',function(e){var b=e.target.closest('button[data-i]');if(!b)return;var i=+b.getAttribute('data-i'),l=+b.getAttribute('data-l');labels[i]=l;
+      b.parentNode.querySelectorAll('button').forEach(function(x){setChip(x,+x.getAttribute('data-l')===l);});
+      var left=labels.filter(function(x){return x===null;}).length;
+      $('spam-status').textContent= left? left+' still to label.' : (model?'Labels changed. Press Train again to relearn.':'All ten labeled. Press Train.');});
+    var cut=1;
+    function chipsFor(list,cls){return list.length?list.map(function(w){return '<span class="wchip '+cls+'">'+w+'</span>';}).join(' '):'<span class="wnone">none</span>';}
+    function trainSpam(){var left=labels.filter(function(x){return x===null;}).length;
+      if(left){$('spam-status').textContent='Label all ten first. '+left+' to go.';return;}
+      var s={},h={},W={};
+      OLD.forEach(function(t,i){words(t).forEach(function(w){if(labels[i])s[w]=(s[w]||0)+1;else h[w]=(h[w]||0)+1;W[w]=0;});});
+      Object.keys(W).forEach(function(w){var a=s[w]||0,b=h[w]||0;W[w]=a>b?1:(b>a?-1:0);});
+      model=W;
+      var sp=Object.keys(W).filter(function(w){return W[w]===1;}),re=Object.keys(W).filter(function(w){return W[w]===-1;});
+      $('spam-learned').innerHTML='<p><b>Spam words</b> (showed up more in your spam pile): '+chipsFor(sp,'sp')+'</p><p><b>Real-mail words</b> (showed up more in your inbox pile): '+chipsFor(re,'re')+'</p>';
+      $('spam-out').hidden=false;
+      $('spam-status').textContent='Trained on your ten labels. Eight new emails just arrived below.';
+      renderNew();}
+    function signed(n){return n>0?'+'+n:(n<0?'\u2212'+(-n):'0');}
+    function renderNew(){if(!model)return;var fp=0,fn=0,h='';
+      NEW.forEach(function(e){var ws=words(e[0]),sp=ws.filter(function(w){return model[w]===1;}),re=ws.filter(function(w){return model[w]===-1;});
+        var sc=sp.length-re.length,toSpam=sc>=cut,tag,cls;
+        if(toSpam&&!e[1]){fp++;tag='False positive: a real email lost in spam';cls='bad';}
+        else if(!toSpam&&e[1]){fn++;tag='False negative: spam in your inbox';cls='bad';}
+        else{tag='Right';cls='ok';}
+        h+='<div class="testrow"><div class="tsubj">'+e[0]+'<span class="ttruth">Really: '+(e[1]?'spam':'a real email')+'</span></div><div class="twords">'+chipsFor(sp,'sp')+' <span class="vs">vs.</span> '+chipsFor(re,'re')+'</div><div class="tscore"><span class="snum">'+signed(sc)+'</span></div><div class="tland">'+(toSpam?'Spam folder':'Inbox')+'</div><div class="ttag '+cls+'">'+tag+'</div></div>';});
+      $('spam-tests').innerHTML=h;$('spam-fp').textContent=fp;$('spam-fn').textContent=fn;
+      $('spam-read').innerHTML='Cutoff <b>'+signed(cut)+'</b>: '+(cut>0?'an email goes to spam if its spam words win by '+cut+' or more':(cut===0?'an email goes to spam unless its real-mail words win, so a tie counts as spam':'an email goes to spam unless its real-mail words win by 2 or more'))+'. Result: <b>'+fp+'</b> real email'+(fp===1?'':'s')+' lost in spam, <b>'+fn+'</b> spam email'+(fn===1?'':'s')+' let into your inbox.'+(fp+fn===0?' No mistakes on these eight. Try a stricter or looser cutoff and see how long that lasts.':'');}
+    document.querySelectorAll('#spam [data-cut]').forEach(function(b){b.addEventListener('click',function(){cut=+b.getAttribute('data-cut');document.querySelectorAll('#spam [data-cut]').forEach(function(x){setChip(x,x===b);});renderNew();});});
+    $('spam-train').addEventListener('click',trainSpam);
+    $('spam-reset').addEventListener('click',function(){labels=OLD.map(function(){return null;});model=null;renderOld();$('spam-out').hidden=true;$('spam-learned').innerHTML='';cut=1;document.querySelectorAll('#spam [data-cut]').forEach(function(x){setChip(x,x.getAttribute('data-cut')==='1');});$('spam-status').textContent='Cleared. Label all ten old emails.';});
+    renderOld();
+  })();
 
-  var current = null;
+  /* =====================================================================
+     2. Mini-Lender
+     ===================================================================== */
+  var LENDER=null;
+  (function(){
+    if(!$('lend'))return;
+    var si=stats(LOANS.map(function(r){return r.inc;})),sh=stats(LOANS.map(function(r){return r.hist;}));
+    var st={label:'officer',hood:true,branch:true};
+    function features(r,o){var v=[(r.inc-si[0])/si[1],(r.hist-sh[0])/sh[1]];if(o.hood)v.push(r.hood==='Flats'?1:0);if(o.branch)v.push(r.branch==='Meridian'?1:0);return v;}
+    function run(o){var X=LOANS.map(function(r){return features(r,o);}),w=train(X,LOANS.map(function(r){return r[o.label];}),0.05);
+      var res={w:w,dec:[],H:[0,0,0],F:[0,0,0]};
+      LOANS.forEach(function(r,i){var yes=score(w,X[i])>0.5;res.dec.push(yes);var g=r.hood==='Flats'?res.F:res.H;g[0]++;if(yes)g[1]++;if(!yes&&r.repaid)g[2]++;});
+      res.a=res.H[1]/res.H[0];res.b=res.F[1]/res.F[0];return res;}
+    LENDER=run;
+    function grid(el,hood,res){var h='',n=0,app=0,miss=0;
+      LOANS.forEach(function(r,i){if(r.hood!==hood)return;n++;var yes=res.dec[i],cls=yes?'dot yes':(r.repaid?'dot no miss':'dot no');if(yes)app++;if(!yes&&r.repaid)miss++;h+='<span class="'+cls+'"></span>';});
+      el.innerHTML=h;el.setAttribute('aria-label',(hood==='Flats'?'The Flats':'Hillside')+': '+app+' of '+n+' approved, '+miss+' denied who would have repaid');}
+    function render(){var res=run(st),rt=ratioHTML(res.a,res.b);
+      $('lend-h').textContent=pct(res.a);$('lend-f').textContent=pct(res.b);$('lend-ratio').innerHTML=rt.html;
+      $('lend-miss').textContent=res.H[2]+' / '+res.F[2];
+      grid($('dots-h'),'Hillside',res);grid($('dots-f'),'Flats',res);
+      var names=['Monthly income','Years of credit history'];if(st.hood)names.push('Lives in the Flats');if(st.branch)names.push('Applied at Meridian branch');
+      drawWeights($('lend-w'),names,res.w);
+      var seen=[];if(st.hood)seen.push('neighborhood');if(st.branch)seen.push('branch');
+      $('lend-read').innerHTML='Trained on <b>'+(st.label==='officer'?'the past officers\u2019 approvals':'who actually repaid')+'</b>, seeing '+oxford(['income','credit history'],seen)+'. It approves <b>'+pct(res.a)+'</b> of Hillside and <b>'+pct(res.b)+'</b> of the Flats. Four-fifths ratio '+rt.html+'. It turned away <b>'+res.F[2]+'</b> Flats applicant'+(res.F[2]===1?'':'s')+' and <b>'+res.H[2]+'</b> Hillside applicant'+(res.H[2]===1?'':'s')+' who would have repaid.';}
+    document.querySelectorAll('#lend [data-label]').forEach(function(b){b.addEventListener('click',function(){st.label=b.getAttribute('data-label');document.querySelectorAll('#lend [data-label]').forEach(function(x){setChip(x,x===b);});render();});});
+    document.querySelectorAll('#lend [data-field]').forEach(function(b){b.addEventListener('click',function(){var f=b.getAttribute('data-field');st[f]=!st[f];setChip(b,st[f]);render();});});
+    $('lend-reset').addEventListener('click',function(){st={label:'officer',hood:true,branch:true};
+      document.querySelectorAll('#lend [data-label]').forEach(function(x){setChip(x,x.getAttribute('data-label')==='officer');});
+      document.querySelectorAll('#lend [data-field]').forEach(function(x){setChip(x,true);});render();});
+    // the peek table and the raw rates
+    var h='';LOANS.slice(0,8).forEach(function(r){h+='<tr><td>'+r.id+'</td><td>'+r.hood+'</td><td>'+r.branch+'</td><td>$'+r.inc.toFixed(1)+'k</td><td>'+r.hist+'</td><td>'+(r.officer?'Yes':'No')+'</td><td>'+(r.repaid?'Yes':'No')+'</td></tr>';});
+    $('peek-loans').innerHTML=h;
+    document.querySelectorAll('[data-raw]').forEach(function(el){var p=el.getAttribute('data-raw').split(':');el.textContent=pct(rateBy(LOANS,'hood',p[0],p[1]));});
+    render();
+  })();
 
-  function merge(extra){
-    var o = {}; for (var k in base) o[k] = base[k];
-    for (var k2 in extra) o[k2] = extra[k2];
-    return o;
-  }
+  /* =====================================================================
+     3. Mini-Screener
+     ===================================================================== */
+  (function(){
+    if(!$('scr'))return;
+    var stt=stats(RES.map(function(r){return r.test;})),se=stats(RES.map(function(r){return r.exp;})),sg=stats(RES.map(function(r){return r.grad;}));
+    var st={label:'callback',grad:true,gap:true},flip='grad',w=null;
+    function features(r){var v=[(r.test-stt[0])/stt[1],(r.exp-se[0])/se[1]];if(st.grad)v.push((r.grad-sg[0])/sg[1]);if(st.gap)v.push(r.gap);return v;}
+    var JORDAN={test:82,exp:7,grad:2019,gap:0};
+    function pair(){var A={test:JORDAN.test,exp:JORDAN.exp,grad:JORDAN.grad,gap:JORDAN.gap},B={test:A.test,exp:A.exp,grad:A.grad,gap:A.gap},what;
+      if(flip==='grad'){B.grad=1997;what='graduated 2019 vs. 1997';}else{B.gap=1;what='no gap vs. a two-year gap';}
+      var sa=Math.round(score(w,features(A))*100),sb=Math.round(score(w,features(B))*100),d=sa-sb;
+      $('pair-a').textContent=sa;$('pair-b').textContent=sb;
+      $('pair-ad').textContent=(sa>50?'Interview':'No interview');$('pair-bd').textContent=(sb>50?'Interview':'No interview');
+      $('pair-bdesc').textContent=flip==='grad'?'Same r\u00e9sum\u00e9, graduated 1997':'Same r\u00e9sum\u00e9, two-year career gap';
+      var seen=flip==='grad'?st.grad:st.gap;
+      $('pair-read').innerHTML='Matched pair, '+what+': <b>'+Math.abs(d)+' point'+(Math.abs(d)===1?'':'s')+'</b> apart.'+(seen?(Math.abs(d)>=5?' The one detail you changed moved the score, so the model is reading it.':' Barely a difference on this detail.'):' The model can\u2019t see that field right now, so the pair comes back identical. Does that clear the model? Check the four-fifths ratio above before you answer.');}
+    function render(){var X=RES.map(features);w=train(X,RES.map(function(r){return r[st.label];}));
+      var y=[0,0],o=[0,0];RES.forEach(function(r,i){var g=r.older?o:y;g[0]++;if(score(w,X[i])>0.5)g[1]++;});
+      var a=y[1]/y[0],b=o[1]/o[0],rt=ratioHTML(a,b);
+      $('scr-y').textContent=pct(a);$('scr-o').textContent=pct(b);$('scr-ratio').innerHTML=rt.html;
+      var names=['Skills test score','Years of experience'];if(st.grad)names.push('Graduation year (later scores higher)');if(st.gap)names.push('Has a career gap');
+      drawWeights($('scr-w'),names,w);
+      var seen=[];if(st.grad)seen.push('graduation year');if(st.gap)seen.push('career gap');
+      $('scr-read').innerHTML='Trained on <b>'+(st.label==='callback'?'past recruiter callbacks':'the work sample')+'</b>, seeing '+oxford(['the skills test','experience'],seen)+'. It interviews <b>'+pct(a)+'</b> of applicants under 40 and <b>'+pct(b)+'</b> of applicants 40 and older. Four-fifths ratio '+rt.html+'.';
+      pair();}
+    document.querySelectorAll('#scr [data-label]').forEach(function(b){b.addEventListener('click',function(){st.label=b.getAttribute('data-label');document.querySelectorAll('#scr [data-label]').forEach(function(x){setChip(x,x===b);});render();});});
+    document.querySelectorAll('#scr [data-field]').forEach(function(b){b.addEventListener('click',function(){var f=b.getAttribute('data-field');st[f]=!st[f];setChip(b,st[f]);render();});});
+    document.querySelectorAll('#scr [data-flip]').forEach(function(b){b.addEventListener('click',function(){flip=b.getAttribute('data-flip');document.querySelectorAll('#scr [data-flip]').forEach(function(x){setChip(x,x===b);});pair();});});
+    $('scr-reset').addEventListener('click',function(){st={label:'callback',grad:true,gap:true};flip='grad';
+      document.querySelectorAll('#scr [data-label]').forEach(function(x){setChip(x,x.getAttribute('data-label')==='callback');});
+      document.querySelectorAll('#scr [data-field]').forEach(function(x){setChip(x,true);});
+      document.querySelectorAll('#scr [data-flip]').forEach(function(x){setChip(x,x.getAttribute('data-flip')==='grad');});render();});
+    document.querySelectorAll('[data-rraw]').forEach(function(el){var p=el.getAttribute('data-rraw').split(':'),n=0,k=0;RES.forEach(function(r){if(String(r.older)===p[0]){n++;k+=r[p[1]];}});el.textContent=pct(k/n);});
+    render();
+  })();
 
-  document.querySelectorAll('#vars .chip').forEach(function(btn){
-    btn.setAttribute('aria-pressed','false');
-    btn.addEventListener('click', function(){
-      document.querySelectorAll('#vars .chip').forEach(function(s){ s.classList.remove('on'); s.setAttribute('aria-pressed','false'); });
-      btn.classList.add('on'); btn.setAttribute('aria-pressed','true');
-      current = btn.getAttribute('data-v');
-      var v = variants[current];
-      document.getElementById('vardesc').textContent = v.desc;
-      document.getElementById('pa').value = prompt(merge(v.a));
-      document.getElementById('pb').value = prompt(merge(v.b));
-      document.getElementById('prompts').hidden = false;
-    });
-  });
-
-  function copyFrom(taId, btnId){
-    document.getElementById(btnId).addEventListener('click', function(){
-      var ta = document.getElementById(taId);
-      ta.select(); ta.setSelectionRange(0, 999999);
-      var done = function(){ var b=document.getElementById(btnId); var t=b.textContent; b.textContent='Copied \u2713'; setTimeout(function(){ b.textContent=t; }, 1400); };
-      if (navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(ta.value).then(done, function(){ document.execCommand('copy'); done(); });
-      } else { document.execCommand('copy'); done(); }
-    });
-  }
-  copyFrom('pa','ca'); copyFrom('pb','cb');
-
-  document.getElementById('analyze').addEventListener('click', function(){
-    var a = parseInt(document.getElementById('sa').value, 10);
-    var b = parseInt(document.getElementById('sb').value, 10);
-    if (isNaN(a) || isNaN(b)) { return; }
-    if (!current) { return; }
-    var gap = a - b;
-    var abs = Math.abs(gap);
-    var lower = gap > 0 ? 'Version B' : 'Version A';
-    var read;
-    if (abs <= 2){
-      read = 'Gap: <b>' + abs + ' point' + (abs===1?'':'s') + '</b> \u2014 effectively none. Two things are true at once. First: on this variable, in this trial, the model treated equivalent candidates equivalently \u2014 genuinely good news, and worth saying plainly. Second: one clean trial clears almost nothing. Modern models are specifically trained to pass obvious fairness probes; the Amazon lesson is that the failure moves to the tests you didn\u2019t run. Your next move as an auditor is step 3c: find what your test held constant that shouldn\u2019t have been trusted \u2014 and check the reasoning paragraphs, where differences hide when the numbers match.';
-    } else if (abs <= 9){
-      read = 'Gap: <b>' + abs + ' points</b>, with <b>' + lower + '</b> scoring lower. This is the honest gray zone \u2014 exactly the size of gap that could be discrimination or could be run-to-run noise, and a single trial cannot tell you which. This is precisely why Bertrand and Mullainathan needed 5,000 r\u00e9sum\u00e9s and why one demo \u2014 in either direction \u2014 proves nothing. Run both versions again before the pooled tally, and watch step 3b closely: your ambiguous anecdote plus thirty classmates\u2019 ambiguous anecdotes is how an unambiguous pattern gets found.';
-    } else {
-      read = 'Gap: <b>' + abs + ' points</b>, with <b>' + lower + '</b> scoring lower \u2014 a striking difference for r\u00e9sum\u00e9s identical except for one signal. Resist both wrong reactions. Don\u2019t dismiss it: a gap this size on a controlled pair is exactly what an audit exists to surface. And don\u2019t convict on it: it\u2019s still n=1, and a real finding needs replication \u2014 rerun both versions now and see if it holds. Either way, screenshot everything including the reasoning: if the pooled class tally shows your variable producing gaps like this across many trials, the room will have found something real, using the same method a federal courtroom is arguing about right now.';
-    }
-    document.getElementById('verdict').hidden = false;
-    document.getElementById('reading').innerHTML = read;
-  });
+  /* =====================================================================
+     4. The data for Claude, the reference numbers, and the copy buttons
+     ===================================================================== */
+  (function(){
+    if(!$('csv'))return;
+    var lines=['applicant,neighborhood,branch,monthly_income_k,credit_years,officer_approved,repaid'];
+    LOANS.forEach(function(r){lines.push([r.id,r.hood,r.branch,r.inc.toFixed(1),r.hist,r.officer,r.repaid].join(','));});
+    $('csv').textContent=lines.join('\n');
+    if(LENDER){var rows=[['Officers\u2019 approvals, every field',{label:'officer',hood:true,branch:true}],['Officers\u2019 approvals, neighborhood deleted',{label:'officer',hood:false,branch:true}],['Who repaid, every field',{label:'repaid',hood:true,branch:true}]],h='';
+      rows.forEach(function(x){var r=LENDER(x[1]),lo=Math.min(r.a,r.b),hi=Math.max(r.a,r.b);h+='<tr><th scope="row">'+x[0]+'</th><td>'+pct(r.a)+'</td><td>'+pct(r.b)+'</td><td>'+(lo/hi).toFixed(2)+'</td></tr>';});
+      $('ref-model').innerHTML=h;}
+  })();
+  function copyText(txt,stat){function done(ok){if(stat){stat.textContent=ok?'Copied.':'Couldn\u2019t copy. Select the text and copy it by hand.';setTimeout(function(){stat.textContent='';},4000);}}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(function(){done(true);},function(){done(fallback());});}else done(fallback());
+    function fallback(){var ta=document.createElement('textarea');ta.value=txt;ta.setAttribute('readonly','');ta.style.position='absolute';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();var ok=false;try{ok=document.execCommand('copy');}catch(e){}document.body.removeChild(ta);return ok;}}
+  document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){var src=document.querySelector(b.getAttribute('data-copy'));copyText(src.textContent.trim(),b.parentNode.querySelector('.cpstat'));});});
 })();
+
 </script>
 
 <script>
