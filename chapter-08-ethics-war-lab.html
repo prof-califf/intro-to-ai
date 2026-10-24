@@ -197,6 +197,269 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 }
 ul.ideas{padding-left:1.2em;margin:10px 0}
 ul.ideas li{margin:8px 0}
+
+.sides{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:20px 0;}
+.side{border:2px solid var(--ink);border-radius:8px;background:#fff;padding:18px 20px;}
+.side-tag{font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--pinktext);margin-bottom:6px;}
+.side h3{font-family:'Fraunces',Georgia,serif;font-size:1.4rem;margin:0 0 10px;scroll-margin-top:68px;}
+.side p{margin:0 0 10px;}
+.side .side-cost{margin:0;font-size:.95rem;color:var(--gray);}
+.probe.ev .pwhy{color:var(--pinktext);font-weight:700;font-size:1.05rem;}
+.probe.ev .ev-ask{font-size:.9rem;font-weight:600;margin:14px 0 6px;color:var(--ink);}
+.probe.ev .ev-prompt{background:#F4F4F0;border:1px dashed #6B7380;border-radius:6px;padding:12px 14px;font-size:.92rem;}
+.noai{margin:16px 0 20px}
+.noai-body{padding:0 20px 16px}
+.srcnote{border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0;margin:34px 0}
+.srcnote > summary{cursor:pointer;padding:14px 20px;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1rem;color:var(--ink);list-style:none}
+.srcnote > summary::-webkit-details-marker{display:none}
+.srcnote > summary::after{content:"\25BE";float:right;color:var(--pinktext);font-size:.8rem}
+.srcnote[open] > summary::after{content:"\25B4"}
+.srcnote .srcbody{padding:0 20px 18px}
+.srcnote .srcintro{font-size:.9rem;color:var(--gray);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+.srcnote dl{margin:0}
+.srcnote dt{font-family:'Inter',Arial,sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:14px 0 4px}
+.srcnote dd{margin:0;font-size:.9rem;line-height:1.55;color:var(--gray)}
+.srcnote .srcfoot{margin-top:18px;padding-top:12px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--gray)}
+h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;font-weight:700;font-size:.95em;margin-right:.45em}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.sim-note{font-size:.82rem;color:var(--gray);margin:-8px 0 14px}
+.mx-calm{margin:12px 0 0;padding:14px 18px}
+.mx-calm p{margin:0 0 8px;font-size:.92rem}
+.probe.ev .ev-body{font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55}
+.ev-point{font-family:'Fraunces',Georgia,serif;font-size:1.05rem;margin:0 0 10px}
+.ev-point b{color:var(--pinktext)}
+.ev-facts{margin:0 0 6px;padding-left:18px}
+.ev-facts li{margin:4px 0}
+.ev-src{font-size:.8rem;color:var(--gray);margin:6px 0 0}
+.printbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 6px;font-size:.9rem;color:var(--gray)}
+.printbar a.slidebtn{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border-radius:6px;text-decoration:none}
+.printbar a.slidebtn:hover{background:#242C36}
+.printbar a.slidebtn:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+/* ---- shared lab tools ---- */
+section[id],h3.sub[id]{scroll-margin-top:68px;}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.86em;background:#F3F3EE;padding:1px 5px;border-radius:4px;}
+.howto-in{border:1px solid var(--rule);background:var(--bg);padding:0;margin:0 0 18px;}
+.howto-in>summary{cursor:pointer;padding:10px 16px;font-weight:700;color:var(--pinktext);}
+.howto-in>summary:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.howto-in>p,.howto-in>ol{margin:0 16px 12px;font-size:.93rem;}
+.howto-in>ol{padding-left:20px;}
+.howto-in li{margin:4px 0;}
+.maillist{border-top:1px solid var(--rule);margin-bottom:14px;}
+.mailrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--rule);flex-wrap:wrap;}
+.msubj{font-size:.95rem;}
+.ctrlrow{margin:6px 0 16px;}
+.status{font-size:.88rem;color:var(--gray);}
+.learned{background:var(--bg);border:1px solid var(--rule);padding:12px 16px;margin:6px 0 4px;font-size:.92rem;}
+.learned p{margin:0 0 4px;}
+.tests{border-top:1px solid var(--rule);margin-top:6px;}
+.testrow{display:grid;grid-template-columns:1.6fr 1fr .8fr 1.3fr;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--rule);font-size:.9rem;}
+.tsubj{line-height:1.4;}
+.ttruth{display:block;font-size:.78rem;color:var(--gray);margin-top:2px;}
+.tscore{display:flex;align-items:center;gap:8px;}
+.sbar{flex:1;height:10px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;display:block;}
+.sbar span{display:block;height:100%;background:var(--ink);}
+.snum{min-width:26px;text-align:right;font-variant-numeric:tabular-nums;font-weight:600;}
+.tland{font-weight:600;}
+.ttag{font-size:.84rem;line-height:1.4;}
+.ttag.ok{color:var(--gray);}
+.ttag.bad{color:var(--pinktext);font-weight:700;}
+@media(max-width:640px){.testrow{grid-template-columns:1fr 1fr;}.tsubj{grid-column:1/-1;}}
+.readline{background:var(--bg);border-left:3px solid var(--pink);padding:10px 14px;margin:14px 0;font-size:.95rem;line-height:1.6;}
+.readline:empty{display:none;}
+.peekwrap{overflow-x:auto;margin:12px 0 16px;}
+table.peek{border-collapse:collapse;width:100%;font-size:.86rem;background:#fff;border:1px solid var(--rule);}
+table.peek th,table.peek td{padding:7px 10px;border-bottom:1px solid var(--rule);text-align:left;white-space:nowrap;}
+table.peek thead th{background:#F3F3EE;font-weight:600;}
+table.peek tbody th{font-weight:500;white-space:normal;}
+.rawbox{border:1px solid var(--rule);background:#fff;padding:12px 16px;margin:0 0 18px;display:grid;gap:6px;font-size:.95rem;}
+.rawbox .rk{display:inline-block;min-width:170px;font-weight:600;}
+.rawbox b,.refbox b,.rawinline b{color:var(--pinktext);}
+.ctrlgrid{display:grid;gap:12px;margin:4px 0 18px;}
+.ctrllbl{display:block;font-size:.85rem;font-weight:600;color:var(--gray);margin-bottom:6px;}
+.fixed{font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);border-radius:999px;background:#F3F3EE;color:var(--ink);}
+.equiv{grid-template-columns:repeat(4,1fr);}
+.equiv.three{grid-template-columns:repeat(3,1fr);}
+.equiv .cell .v{font-variant-numeric:tabular-nums;}
+@media(max-width:720px){.equiv,.equiv.three{grid-template-columns:1fr 1fr;}}
+.flag{display:block;font-family:'Inter',sans-serif;font-size:.74rem;font-weight:700;margin-top:2px;}
+.flag.bad{color:var(--pinktext);}
+.flag.ok{color:var(--gray);}
+.readline .flag{display:inline;font-size:.85rem;}
+.dotsbox{border:1px solid var(--rule);padding:14px 16px;margin:14px 0;}
+.dotrow{display:grid;grid-template-columns:90px 1fr;gap:12px;align-items:center;margin-bottom:10px;}
+.dotlbl{font-weight:600;font-size:.9rem;}
+.dots{display:grid;grid-template-columns:repeat(20,1fr);gap:3px;max-width:440px;}
+.dot{display:block;aspect-ratio:1;border-radius:2px;position:relative;}
+.dot.yes{background:var(--ink);}
+.dot.no{background:#fff;border:1px solid #6B7380;}
+.dot.miss{border:2px solid var(--pinktext);}
+.dot.miss::after{content:'';position:absolute;inset:30%;background:var(--pinktext);border-radius:50%;}
+.dotkey{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--gray);}
+.dotkey span::before{content:'';display:inline-block;width:11px;height:11px;margin-right:6px;vertical-align:-1px;border-radius:2px;box-sizing:border-box;}
+.dotkey .k-yes::before{background:var(--ink);}
+.dotkey .k-no::before{background:#fff;border:1px solid #6B7380;}
+.dotkey .k-miss::before{background:radial-gradient(circle,var(--pinktext) 30%,#fff 34%);border:2px solid var(--pinktext);}
+@media(max-width:480px){.dotrow{grid-template-columns:1fr;gap:4px;}}
+.wbox{border:1px solid var(--rule);padding:14px 16px;margin:14px 0;}
+.wtitle{font-weight:700;font-size:.92rem;margin-bottom:6px;}
+.wkey{display:flex;justify-content:space-between;font-size:.76rem;color:var(--gray);margin:0 0 6px 0;padding-left:calc(38% + 12px);padding-right:52px;}
+.wrow{display:grid;grid-template-columns:38% 1fr 40px;gap:12px;align-items:center;padding:5px 0;font-size:.88rem;}
+.wtrack{position:relative;height:12px;background:#F3F3EE;border-radius:3px;display:block;}
+.wmid{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:#6B7380;}
+.wfill{position:absolute;top:0;bottom:0;border-radius:2px;transition:width .3s ease;}
+.wfill.pos{background:var(--ink);}
+.wfill.neg{background:var(--pinktext);}
+.wval{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;}
+@media(max-width:560px){.wrow{grid-template-columns:1fr 1fr 36px;}.wkey{padding-left:0;padding-right:0;}}
+@media(prefers-reduced-motion:reduce){.wfill{transition:none;}}
+.pairbox{border:1px solid var(--rule);background:var(--bg);padding:14px 16px;margin:16px 0;}
+.pairwho{font-size:.92rem;margin:0 0 10px;}
+.pairgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;}
+.pcard{background:#fff;border:1px solid var(--rule);padding:12px 14px;display:grid;gap:2px;}
+.ptag{font-weight:700;font-size:.8rem;color:var(--pinktext);}
+.pdesc{font-size:.85rem;color:var(--gray);}
+.pnum{font-family:'Fraunces',serif;font-weight:700;font-size:1.8rem;font-variant-numeric:tabular-nums;}
+.pdec{font-size:.88rem;font-weight:600;}
+.cpbar{margin:8px 0 6px;}
+.cpstat{font-size:.85rem;color:var(--gray);}
+.csvbox{margin:8px 0;}
+.csvbox>summary{cursor:pointer;font-weight:600;color:var(--pinktext);font-size:.9rem;}
+.csvbox pre{max-height:220px;overflow:auto;background:#F3F3EE;border:1px solid var(--rule);padding:10px 12px;font-size:.78rem;line-height:1.45;margin-top:8px;}
+.csvbox pre:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.step>div{flex:1;min-width:0;}
+.step .probe{margin:10px 0 0;}
+.refbox p{margin-bottom:.7em;}
+
+.tis-note{font-size:.9rem;color:var(--gray);font-style:italic;margin:4px 0 16px;}
+.scen{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:16px 20px;margin:14px 0}
+.scen h4{font-family:'Fraunces',Georgia,serif;font-size:1.15rem;margin:0 0 2px}
+.scen .scen-who{font-size:.85rem;font-weight:600;color:var(--gray);margin:0 0 8px}
+.scen > p{margin:0 0 10px}
+.mx-why-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:4px 0 8px}
+@media(max-width:640px){.mx-why-grid{grid-template-columns:1fr}}
+.mx-why-grid ul{margin:0;padding-left:18px;font-size:.9rem;line-height:1.5}
+.mx-why-grid li{margin-bottom:4px}
+.mx-why-h{font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);margin:0 0 4px!important}
+.ev-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 10px}
+@media(max-width:560px){.ev-stats{grid-template-columns:1fr}}
+.ev-stats div{background:#fff;border:1px solid var(--rule);padding:8px 10px}
+.ev-stats b{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.5rem;color:var(--ink)}
+.ev-stats span{font-size:.78rem;color:var(--gray)}
+.cutbox{border:1px solid var(--rule);background:var(--bg);padding:14px 16px;margin:14px 0 6px;}
+.cuthelp{font-size:.92rem;margin:0 0 4px;}
+.cutbox .slider-row{grid-template-columns:200px 1fr 50px;margin:10px 0 2px;}
+.cutends{display:flex;justify-content:space-between;gap:12px;font-size:.78rem;color:var(--gray);margin:0 0 4px;padding-left:214px;padding-right:64px;}
+.equiv.two{grid-template-columns:1fr 1fr;margin-top:12px;}
+@media(max-width:560px){.cutbox .slider-row{grid-template-columns:1fr;}.cutends{padding:0;}}
+.wchip{display:inline-block;font-size:.76rem;font-weight:600;padding:1px 8px;border-radius:999px;margin:1px 0;}
+.wchip.sp{background:#fff;color:var(--pinktext);border:1px solid var(--pinktext);}
+.wchip.re{background:var(--ink);color:#fff;border:1px solid var(--ink);}
+.wnone{font-size:.78rem;color:var(--gray);}
+.twords{font-size:.85rem;line-height:1.7;}
+.twords .vs{color:var(--gray);font-size:.78rem;margin:0 2px;}
+.testrow{grid-template-columns:1.4fr 1.4fr .4fr .8fr 1.2fr;}
+.tscore .snum{font-family:'Fraunces',serif;font-size:1.2rem;}
+@media(max-width:640px){.testrow{grid-template-columns:1fr 1fr;}.tsubj,.twords{grid-column:1/-1;}}
+
+/* ---- Lab 7 tools ---- */
+.scenecard{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:0 0 14px;}
+.scenecard .emo{font-size:3.4rem;line-height:1;text-align:center;}
+.scenecard .sk{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+.scenecard .sd{font-family:'Fraunces',serif;font-size:1.08rem;margin-bottom:8px;}
+.feats{display:flex;flex-wrap:wrap;gap:6px;}
+.feat{font-size:.76rem;font-weight:600;padding:2px 9px;border-radius:999px;border:1px solid var(--rule);background:#fff;color:var(--ink);}
+.feat b{color:var(--pinktext);font-variant-numeric:tabular-nums;}
+@media(max-width:560px){.scenecard{grid-template-columns:1fr;}.scenecard .emo{text-align:left;}}
+.guess{font-size:.9rem;background:#fff;border:1px solid var(--rule);border-left:3px solid var(--ink);padding:8px 12px;margin:0 0 12px;}
+.guess:empty{display:none;}
+.netbox{border:1px solid var(--rule);background:#fff;padding:10px 12px 6px;margin:14px 0;}
+.netbox .nt{font-weight:700;font-size:.9rem;margin:0 0 2px;}
+.netbox .nk{font-size:.8rem;color:var(--gray);margin:0 0 6px;}
+.netbox svg{display:block;width:100%;height:auto;}
+.netbox svg text{font-family:'Inter',sans-serif;font-size:12px;fill:var(--ink);}
+.netbox svg text.dim{fill:var(--gray);font-size:11px;}
+.plist{display:grid;gap:6px;margin:10px 0 4px;}
+.prow{display:grid;grid-template-columns:110px 1fr 46px;gap:10px;align-items:center;font-size:.86rem;}
+.ptrack{height:12px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;display:block;}
+.ptrack span{display:block;height:100%;background:var(--ink);transition:width .3s ease;}
+.prow.top .ptrack span{background:var(--pinktext);}
+.prow .pv{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;}
+.trow{display:grid;grid-template-columns:54px 1.7fr 1fr 1fr;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--rule);font-size:.9rem;}
+.trow .te{font-size:1.9rem;text-align:center;}
+.trow .td small{display:block;color:var(--gray);font-size:.78rem;margin-top:2px;}
+.trow .tg b{font-variant-numeric:tabular-nums;}
+.trow.tail{background:#FBF3F6;}
+.trow.new{background:#F3F3EE;}
+@media(max-width:600px){.trow{grid-template-columns:44px 1fr 1fr;}.trow .td{grid-column:2/-1;}.trow .te{grid-row:span 2;}}
+.convwrap{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;margin:14px 0;}
+.convpanel{text-align:center;}
+.convpanel canvas{width:100%;max-width:260px;height:auto;image-rendering:pixelated;border:1px solid var(--rule);background:#fff;}
+.convpanel .cl{font-size:.8rem;font-weight:600;color:var(--gray);margin-top:4px;}
+.kern{border-collapse:collapse;margin:0 auto;font-variant-numeric:tabular-nums;font-size:.85rem;}
+.kern td{border:1px solid var(--rule);width:34px;height:30px;text-align:center;background:#fff;}
+.kern td.neg{color:var(--pinktext);font-weight:700;}
+.kern td.pos{color:var(--ink);font-weight:700;}
+.kcap{font-size:.75rem;color:var(--gray);text-align:center;margin-top:4px;max-width:120px;}
+@media(max-width:640px){.convwrap{grid-template-columns:1fr;}.kcap{max-width:none;}}
+.stages{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0;}
+.stage{border:1px solid var(--rule);background:#fff;padding:10px;text-align:center;}
+.stage canvas{width:100%;max-width:150px;height:auto;image-rendering:pixelated;border:1px solid var(--rule);}
+.stage .sn2{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;}
+.stage .st{font-weight:600;font-size:.88rem;margin:2px 0 6px;}
+.stage .sv{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;}
+@media(max-width:640px){.stages{grid-template-columns:1fr 1fr;}}
+.rlchart{border:1px solid var(--rule);background:#fff;padding:10px 12px;margin:14px 0;}
+.rlchart svg{display:block;width:100%;height:auto;}
+.rlchart svg text{font-family:'Inter',sans-serif;font-size:11px;fill:var(--gray);}
+.board{border:1px solid var(--rule);background:#fff;margin:14px 0;}
+.brow{display:grid;grid-template-columns:1.4fr 1fr 110px;gap:12px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--rule);font-size:.92rem;}
+.brow:last-child{border-bottom:none;}
+.brow .bv{font-family:'Fraunces',serif;font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums;}
+.pill{display:inline-block;font-size:.76rem;font-weight:700;padding:3px 10px;border-radius:999px;text-align:center;}
+.pill.pass{background:var(--ink);color:#fff;}
+.pill.fail{background:#fff;color:var(--pinktext);border:2px solid var(--pinktext);}
+.pill.wait{background:#F3F3EE;color:var(--gray);}
+@media(max-width:560px){.brow{grid-template-columns:1fr 1fr;}.brow>span:first-child{grid-column:1/-1;}}
+.prog{height:8px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;margin:8px 0 4px;}
+.prog span{display:block;height:100%;width:0;background:var(--pinktext);}
+.ingr{display:grid;gap:12px;margin:6px 0 14px;}
+.worldsvg{border:1px solid var(--rule);background:#fff;margin:14px 0 8px;}
+.worldsvg svg{display:block;width:100%;height:auto;}
+.checklist{list-style:none;margin:6px 0 12px;padding:0;font-size:.88rem;display:grid;gap:3px;}
+.checklist li{color:var(--gray);}
+.checklist li.done{color:var(--ink);}
+.checklist li.done::before{content:'\2713';color:var(--pinktext);font-weight:700;margin-right:8px;}
+.checklist li:not(.done)::before{content:'\2022';margin-right:8px;}
+.minitab{width:100%;border-collapse:collapse;font-size:.88rem;margin:10px 0;}
+.minitab th,.minitab td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule);}
+.minitab thead th{background:#F3F3EE;font-weight:600;}
+.minitab td.num{font-variant-numeric:tabular-nums;text-align:right;}
+.wrapx{overflow-x:auto;}
+@media(prefers-reduced-motion:reduce){.ptrack span{transition:none;}}
+
+.wuq{margin:4px 0 22px;padding:12px 16px;background:#fff;border:1px solid var(--rule);border-left:3px solid var(--pinktext);border-radius:0 6px 6px 0}
+.wuq-l{font-family:'Inter',Arial,sans-serif;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--pinktext);margin-bottom:4px}
+.wuq p{margin:0;font-size:.92rem;line-height:1.55}
+.wu-sec{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--pinktext);padding:2px 8px;border-radius:3px;margin-right:6px;vertical-align:2px}
+/* ---- Lab 8 tools ---- */
+.stripbox{border:1px solid var(--rule);background:#fff;padding:8px 10px;margin:12px 0}
+.stripbox svg{display:block;width:100%;height:auto}
+.stripbox svg text{font-family:'Inter',sans-serif;font-size:12px;fill:var(--ink)}
+.qcard{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:10px 0}
+.qcard .qk{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:4px}
+.qcard .ql{font-family:'Fraunces',serif;font-size:1.15rem;margin-bottom:6px}
+.qcard .qd{font-size:.92rem;background:#fff;border-left:3px solid var(--ink);padding:8px 12px;margin:8px 0 0}
+.qcard .qd:empty{display:none}
+.clock{height:10px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;margin:10px 0 4px}
+.clock span{display:block;height:100%;background:var(--ink);width:100%}
+.clock.low span{background:var(--pinktext)}
+.desk{display:grid;gap:10px;margin:12px 0}
+.dcard{border:1px solid var(--rule);background:var(--bg);padding:12px 14px}
+.dcard .dn{font-weight:700;margin-bottom:2px}
+.dcard .dt{font-size:.9rem;color:#3E454E;margin-bottom:8px}
+#desk-prompt1{white-space:pre-line}
+.lockrow{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
+
 </style>
 </head>
 <body>
@@ -244,103 +507,336 @@ ul.ideas li{margin:8px 0}
 
 <header class="masthead">
   <div class="wrap">
-    <div class="eyebrow">Western Washington University · MIS 201 · Lab 8 · Week 8, Monday in class, finished at home (Veterans Day week)</div>
+    <div class="eyebrow">Western Washington University · MIS 201 · Lab 8 · Week 8, at home (Veterans Day week)</div>
     <h1>The Red <b>Lines</b></h1>
-    <p class="kicker">You lead the policy team at a frontier AI company. Eight government requests are on your desk. For each: accept, accept with conditions, or decline. This is the actual format of the decisions in this week's chapter, and the actual discovery: everyone has values. The line is where they get expensive.</p>
-    <p class="factline">Eight requests · three answers each · one line, located</p>
+    <p class="kicker">You're an analyst at an AI company, and defense customers are calling. Before you decide what your company will build for them, you need to feel the ethics from the inside. So this week, at home, you set the threshold that decides which trucks get flagged, sit in an approval queue with a clock running, choose what a drone does after its pilot loses the link, and then sort eight real kinds of defense work, with Claude arguing back from both sides. Then you debate who should draw the line: the company that builds it, or the government that buys it.</p>
+    <p class="factline">a threshold you set · a queue you work against the clock · the last 500 meters · the desk, with Claude pushing back · one debate</p>
   </div>
 </header>
 
 <main class="wrap">
-<div class="callout">
-  <div class="label">This week: Monday in class, the rest at home</div>
-  <p>Veterans Day is Wednesday, so this lab starts on Monday, right after Chapter 8's case: you sort the eight requests in class, and the sorted contracts are the discussion and the debate. Finish the pressure test and the five questions on your own time. The writeup is due Friday, November 13, at 11:59 p.m., with the Chapter 8 quiz.</p>
-</div>
 
 <div class="callout">
   <div class="label">From Chapter 8 · what this lab runs on</div>
-  <p>The eight contracts sit at different points on the kill chain (2.1), from logistics on the left to targeting on the right. As you sort them, watch the ratchet (2.2): each accept makes the next one easier to accept. For any contract that puts a person in a decision, test it against the three conditions for meaningful human control (2.3): understanding, time, authority. Read your line aloud with a veteran in the room.</p>
+  <p><strong>How this week runs.</strong> Wednesday is Veterans Day, so this whole lab is at home, alone or with a partner. It takes about two hours, plus the writeup. Each part opens with its writeup question in a pink-edged box. Answer it when you finish that part, while it's fresh, all in one document. Then upload the five answers to Canvas by 11:59 p.m. Friday, November 13, with the Chapter 8 quiz.</p>
+  <p>Section 1 is <a class="inline" href="chapter-08-ethics-war.html#s2-2">section 2.2</a>'s distinction, as a threshold you set. Section 2 puts you in <a class="inline" href="chapter-08-ethics-war.html#s2-3">section 2.3</a>'s seat and tests whether you fall into <a class="inline" href="chapter-08-ethics-war.html#s2-4">section 2.4</a>'s automation bias. Section 3 is the Ukraine case from <a class="inline" href="chapter-08-ethics-war.html#s3">section 3</a>: where the human's last decision sits. Section 4 is the desk from <a class="inline" href="chapter-08-ethics-war.html#s4">section 4</a>, and the debate is <a class="inline" href="chapter-08-ethics-war.html#s2-5">section 2.5</a>'s question: who draws the line?</p>
+  <p><strong>A note on tone.</strong> These toys use trucks, boxes, and numbers, never people. That's on purpose. Every rule from the chapter applies here too: read what you write aloud, with a veteran in the room.</p>
 </div>
 
+<section id="distinction">
+  <div class="shead"><span class="num">1</span><h2>Set the threshold (distinction, as a classifier)</h2></div>
+  <div class="wuq"><div class="wuq-l">Writeup item 1 &middot; answer it when you finish section 2</div><p><strong>The threshold and the queue.</strong> What threshold would you set in Mini-Recognizer, and which mistake does it make more of? Who pays for each kind? Then: at which speed did you approve your first wrong flag in Mini-Queue, and what was the default when time ran out? Were you more like Petrov or the Patriot crews, and why?</p></div>
+  <p class="lead">A target-recognition model gives every vehicle a score: how confident it is that the vehicle is military. Someone has to decide where the line goes. Today that's you. About 10 minutes.</p>
 
-<section>
-  <div class="shead"><span class="num">1</span><h2>In class: Before you start</h2></div>
-  <p class="lead">Two ground rules. First, no abstaining: "it depends" must become a condition you can write down. Second, track what each answer costs, declines cost revenue and government relationships; accepts cost talent (some of your best people have said they'll quit over certain work) and, depending on your view, more. There is no score to win. There is a line to find, and it's yours.</p>
-  <p>No Wednesday session this week, so this lab runs take-home: do the sort before Monday if you can, the Monday discussion is better when the room has already felt where its lines disagree.</p>
-</section>
-
-<section>
-  <div class="shead"><span class="num">2</span><h2>In class: The eight requests</h2></div>
-  <div class="tool">
-    <div class="label">Your desk · answer all eight</div>
-    <div id="cards"></div>
-    <div class="chips" style="margin-top:16px;">
-      <button type="button" class="btn" id="locate" disabled>Locate my line</button>
+  <div class="tool" id="rec-tool">
+    <div class="label">Mini-Recognizer · 40 vehicles, one threshold</div>
+    <details class="howto-in" open>
+      <summary>Your job</summary>
+      <ol>
+        <li><strong>Read the strip.</strong> Each square is a vehicle, placed by the model's score. Dark squares really are military. Light squares are civilian: farm trucks, delivery vans, buses. Anything right of the pink line gets flagged.</li>
+        <li><strong>Move the threshold</strong> and watch the two counts. Find the lowest setting that flags no civilians. How many military vehicles does it miss?</li>
+        <li><strong>Switch to dust and smoke.</strong> Same vehicles, worse pictures. The scores bunch toward the middle. Try to find a safe threshold now.</li>
+      </ol>
+    </details>
+    <div class="ctrlgrid">
+      <div><span class="ctrllbl" id="rc-lbl">Conditions</span>
+        <div class="chips" role="group" aria-labelledby="rc-lbl">
+          <button type="button" class="chip on" aria-pressed="true" data-cond="clear">Clear day</button>
+          <button type="button" class="chip" aria-pressed="false" data-cond="dust">Dust and smoke</button>
+        </div></div>
     </div>
-    <div class="verdict" id="verdict" hidden>
-      <div class="label">Where your line sits</div>
-      <div class="bars">
-        <div class="bar safe" id="bar-acc"><span>Accepted</span><div class="track"><div class="fill"></div></div><span class="n">0</span></div>
-        <div class="bar" id="bar-con" style="opacity:.85;"><span>With conditions</span><div class="track"><div class="fill" style="background:#9AA1AB;"></div></div><span class="n">0</span></div>
-        <div class="bar" id="bar-dec"><span>Declined</span><div class="track"><div class="fill"></div></div><span class="n">0</span></div>
-      </div>
-      <p class="read" id="reading"></p>
+    <div class="slider-row"><label for="rec-th">Flag when the score is at least</label><input type="range" id="rec-th" min="0" max="100" step="5" value="50"><output id="rec-th-o" for="rec-th">50</output></div>
+    <div class="stripbox"><svg id="rec-svg" viewBox="0 0 640 150" role="img" aria-label="Forty vehicles placed by score"></svg></div>
+    <div class="equiv two">
+      <div class="cell"><div class="v" id="rec-civ">0</div><div class="k">civilian vehicles flagged (the cost lands on civilians)</div></div>
+      <div class="cell"><div class="v" id="rec-mil">0</div><div class="k">military vehicles missed (the cost lands on soldiers)</div></div>
     </div>
+    <p class="readline" id="rec-read" aria-live="polite"></p>
+    <p class="sim-note">Invented vehicles and scores, built to overlap the way real categories do. Nothing is saved.</p>
   </div>
+  <p><strong>No setting gets both counts to zero, and the dust made it worse.</strong> That's section 2.2: once a model helps decide who is who, distinction becomes a threshold, and every threshold is a decision about whose mistakes you'd rather make. Notice who isn't in the room when the line is set: the people in the light squares.</p>
 </section>
 
-<section>
-  <div class="shead"><span class="num">3</span><h2>In class: Inside the machine, what "AI" means in each of the eight requests</h2></div>
-  <p>The eight requests aren't the same kind of AI, and your line should notice. Place each on Chapter 8's kill chain (2.1). The logistics and translation requests are predictive and generative AI at the far left: the same pattern-matching as Chapter 6's screener, the same summarizing as Chapter 3's language model, pointed at supply and text. The target-recognition request is Chapter 7's perception step on a satellite image. The decision-support request is generative AI drafting the recommendation a person signs, which is where the three conditions for meaningful human control (2.3) start to matter: does the person get a reason, time, and real authority, or a label, seconds, and a checkbox? And the autonomous-engagement request is embodied and agentic: the loop from Chapter 1 with a weapon as the tool and no human in it.</p><p>The technology doesn't change at any of those steps; the stakes and the loop do. That's why the chapter says the same model can be a logistics tool and a targeting aid, and why the ratchet (2.2) works: each accept builds the team and the pipeline the next request inherits. When you pressure-test your line, ask which step of the chain it sits on, and whether the request after it is a small move or a large one.</p>
-</section>
-
-<section>
-  <div class="shead"><span class="num">4</span><h2>In class: Should a company be allowed to pick its own line?</h2></div>
-  <div class="callout">
-    <div class="label">Debate · in class, about 20 minutes · sides assigned, speak for one, then switch</div>
-    <p><strong>How it runs, every week.</strong> Sides are assigned, not chosen, so you're never defending your own belief. Two minutes with your partner to find your side's best point and its honest cost. Three minutes a side. Then everyone switches and does it again. Last five minutes: what would change your mind? Say it out loud. The person who names the evidence that would move them wins, whichever side they were on.</p>
-    <p>The labs in Chapter 8's case each decided, on a policy team's desk, which of these requests to accept. Argue whether that's where the decision belongs.</p><ul class="ideas"><li><strong>Side A: companies should draw the line, publicly, and be held to it.</strong> They know the systems best, they can move faster than law, and a public commitment that a safety index grades is real accountability. Cost: the case shows every company moving the line the same direction the same year, quietly, which is what a market does.</li><li><strong>Side B: the line should be law, written by people who don't sell the product.</strong> Meaningful human control as a rule with a test, a named person who can say no, an audit of every case where they didn't. Cost: it moves in years, stops at the border, and an adversary doesn't sign it, which is the argument for a treaty and the reason treaties are slow.</li></ul><p>Apply the theater test (2.5) to whichever side you pick: does your proposal have enforcement, a budget, and a deadline? If not, it's the summit with the robot dogs.</p>
+<section id="queue">
+  <div class="shead"><span class="num">2</span><h2>Work the queue (meaningful human control, against the clock)</h2></div>
+  <p class="lead">Now the model flags vehicles and you approve or reject each one. You're the human in the loop. The question is whether your control means anything. About 10 minutes.</p>
+  <div class="tool" id="q-tool">
+    <div class="label">Mini-Queue · ten flags, one clock</div>
+    <details class="howto-in" open>
+      <summary>Your job</summary>
+      <ol>
+        <li><strong>Pick a speed and a default</strong>, then press Start. Each flag shows the model's label and confidence. You can Approve, Reject, or Look closer. Looking closer shows you the evidence, but it costs 4 seconds.</li>
+        <li><strong>If the clock runs out</strong>, the default happens. Most real systems have one. Pick it before you start.</li>
+        <li><strong>Run it three times</strong>: no limit, 10 seconds, then 3 seconds. Some of the ten flags are wrong. Count how many you catch at each speed.</li>
+      </ol>
+    </details>
+    <div class="ctrlgrid">
+      <div><span class="ctrllbl" id="qs-lbl">Time per decision</span>
+        <div class="chips" role="group" aria-labelledby="qs-lbl">
+          <button type="button" class="chip on" aria-pressed="true" data-speed="0">No limit</button>
+          <button type="button" class="chip" aria-pressed="false" data-speed="10">10 seconds</button>
+          <button type="button" class="chip" aria-pressed="false" data-speed="3">3 seconds</button>
+        </div></div>
+      <div><span class="ctrllbl" id="qd-lbl">If time runs out</span>
+        <div class="chips" role="group" aria-labelledby="qd-lbl">
+          <button type="button" class="chip on" aria-pressed="true" data-def="approve">Approve it</button>
+          <button type="button" class="chip" aria-pressed="false" data-def="hold">Hold it for review</button>
+        </div></div>
+    </div>
+    <div class="chips ctrlrow"><button type="button" class="btn" id="q-start">Start the queue</button><span class="status" id="q-status" aria-live="polite">Pick a speed and a default, then start.</span></div>
+    <div id="q-stage" hidden>
+      <div class="qcard"><div class="qk" id="q-k"></div><div class="ql" id="q-l"></div><div class="qd" id="q-d" aria-live="polite"></div>
+        <div class="clock" id="q-clock" aria-hidden="true"><span id="q-bar"></span></div>
+        <div class="chips ctrlrow">
+          <button type="button" class="btn" data-act="approve">Approve</button>
+          <button type="button" class="btn alt" data-act="reject">Reject</button>
+          <button type="button" class="btn alt" data-act="look">Look closer (4 s)</button>
+        </div></div>
+    </div>
+    <div id="q-out"></div>
+    <p class="readline" id="q-read" aria-live="polite"></p>
+    <p class="sim-note">Ten invented flags, three of them wrong. Your runs are listed below so you can compare speeds. Nothing is saved.</p>
   </div>
+  <p><strong>Petrov had minutes and doubt. The Patriot crews had seconds and training that said trust the system.</strong> Your three runs probably moved from one to the other. At no limit, you could look closer and catch the wrong flags. At 3 seconds you couldn't even look, so you either trusted the label or let the default decide, and the default was someone else's choice, made before your shift. That's section 2.3's three conditions failing in order: time first, then understanding, and authority last, because a person who can't check can't really say no.</p>
 </section>
 
-<section>
-  <div class="shead"><span class="num">5</span><h2>At home: Pressure-test the line</h2></div>
+<section id="lock">
+  <div class="shead"><span class="num">3</span><h2>The last 500 meters (the Ukraine case)</h2></div>
+  <div class="wuq"><div class="wuq-l">Writeup item 2 &middot; answer it when you finish this section</div><p><strong>The lock.</strong> Give your results for all four designs at one jamming distance. Which design would you choose for a country defending itself, and what does it cost? Then use Petrov's three conditions: at the moment of the lock, which does the pilot have, and which are gone by impact?</p></div>
+  <p class="lead">In Ukraine, jamming cuts the link between pilot and drone, usually close to the target. Section 3 of the chapter described the fixes. Here you compare them over 100 practice flights each. About 10 minutes.</p>
+  <div class="tool" id="lock-tool">
+    <div class="label">Mini-Lock · four designs, 100 flights each</div>
+    <details class="howto-in" open>
+      <summary>Your job</summary>
+      <ol>
+        <li><strong>Pick where the jamming starts.</strong> The earlier it starts, the earlier the pilot's last decision, and the longer the drone is on its own.</li>
+        <li><strong>Run each design.</strong> No AI (the drone falls when the link drops), AI that keeps following the box, AI that aborts if the picture changes, and a fiber-optic drone with no radio to jam.</li>
+        <li><strong>Read three counts for each:</strong> hit the target the pilot chose, failed or aborted, and hit something else. Something else means the picture changed after the lock: a different vehicle in the box, or the tracker sliding off.</li>
+      </ol>
+    </details>
+    <div class="ctrlgrid">
+      <div><span class="ctrllbl" id="lj-lbl">Jamming cuts the link at</span>
+        <div class="chips" role="group" aria-labelledby="lj-lbl">
+          <button type="button" class="chip" aria-pressed="false" data-jam="300">300 m out</button>
+          <button type="button" class="chip on" aria-pressed="true" data-jam="600">600 m out</button>
+          <button type="button" class="chip" aria-pressed="false" data-jam="1000">1,000 m out</button>
+        </div></div>
+      <div><span class="ctrllbl" id="ld-lbl">Design</span>
+        <div class="chips" role="group" aria-labelledby="ld-lbl">
+          <button type="button" class="chip" aria-pressed="false" data-des="none">No AI</button>
+          <button type="button" class="chip on" aria-pressed="true" data-des="follow">AI keeps following</button>
+          <button type="button" class="chip" aria-pressed="false" data-des="abort">AI aborts if the picture changes</button>
+          <button type="button" class="chip" aria-pressed="false" data-des="fiber">Fiber-optic, pilot to the end</button>
+        </div></div>
+    </div>
+    <div class="stripbox"><svg id="lock-svg" viewBox="0 0 640 90" role="img" aria-label="Timeline of one flight"></svg></div>
+    <div class="chips ctrlrow"><button type="button" class="btn" id="lock-run">Fly 100</button><button type="button" class="btn alt" id="lock-reset">Clear the table</button></div>
+    <div class="equiv three">
+      <div class="cell"><div class="v" id="lk-hit">?</div><div class="k">hit the target the pilot chose</div></div>
+      <div class="cell"><div class="v" id="lk-fail">?</div><div class="k">failed or aborted</div></div>
+      <div class="cell"><div class="v" id="lk-wrong">?</div><div class="k">hit something else</div></div>
+    </div>
+    <div class="wrapx"><table class="minitab" id="lock-table" hidden><thead><tr><th scope="col">Design</th><th scope="col">Jamming at</th><th scope="col" style="text-align:right">Chosen target</th><th scope="col" style="text-align:right">Failed</th><th scope="col" style="text-align:right">Something else</th></tr></thead><tbody></tbody></table></div>
+    <p class="readline" id="lock-read" aria-live="polite"></p>
+    <p class="sim-note">A toy with invented odds, not a model of any real system. The shape of the trade-off is the real part. Nothing is saved.</p>
+  </div>
+  <p><strong>No design wins every column.</strong> No AI keeps a human in charge and fails most strikes under jamming. AI that keeps following hits far more, and some of those hits land on whatever was in the box after the picture changed. Aborting cuts those wrong hits and gives back failed strikes, which in a real war cost soldiers. Fiber keeps the pilot to the end and pays in range and snags. Every design is an ethical choice expressed as an engineering setting, which is the chapter's case in one table.</p>
+</section>
+
+<section id="desk">
+  <div class="shead"><span class="num">4</span><h2>The desk, with Claude arguing back</h2></div>
+  <div class="wuq"><div class="wuq-l">Writeup item 3 &middot; answer it when you finish this section</div><p><strong>Your line.</strong> Paste your sort: the eight requests and your call on each. Where does your line sit? Then the pushback: what was the strongest point from the procurement officer, and from the engineer? Did you move any request, and what did moving it cost? (No-AI path: your two written cases instead.)</p></div>
+  <details class="srcnote noai">
+    <summary>Don't want to use AI? Do this instead</summary>
+    <div class="noai-body">
+      <p>Same 25 minutes, no chatbot. Sort the eight requests below. Then reread <a class="inline" href="chapter-08-ethics-war.html#s2-5">Chapter 8, section 2.5</a> and write two short cases yourself, about five sentences each: the Pentagon's procurement officer arguing that you should accept the requests you declined, and a senior engineer at your company arguing you should decline the ones you accepted. Use one real fact from the chapter in each. Then decide whether to move anything.</p>
+    </div>
+  </details>
+  <p class="lead">You're the analyst at an AI company. Eight requests came in this quarter. Sort them: accept, accept with conditions, or decline. Then hand your line to Claude and make it argue back, once as the customer and once as your own engineer. About 25 minutes.</p>
+  <div class="tool" id="desk-tool">
+    <div class="label">The desk · eight requests</div>
+    <div class="desk" id="desk-list"></div>
+    <div class="chips ctrlrow"><button type="button" class="btn" id="desk-go">Locate my line</button><button type="button" class="btn alt" id="desk-reset">Clear and start over</button></div>
+    <p class="readline" id="desk-read" aria-live="polite"></p>
+  </div>
+  <h3 class="sub" id="desk-claude"><span>Then</span> let Claude push from both sides</h3>
   <div class="steps">
-    <div class="step"><span class="sn">a</span><p>Take your most confident decline and write the request's strongest rebuttal, the two sentences the government negotiator would actually say back. Then get a second opinion from a live AI: <i>“You're the government's negotiator. I'm an AI company declining this request: [paste the card]. Give me your strongest two-sentence rebuttal.”</i> Does your decline survive both, and which rebuttal was stronger, yours or the machine's?</p></div>
-    <div class="step"><span class="sn">b</span><p>Take your most confident accept and apply the dual-use ratchet from the chapter: name the follow-on request it makes harder to refuse next year. If you can't name one, look harder, that's what the ratchet means.</p></div>
-    <div class="step"><span class="sn">c</span><p>For every "with conditions": apply the governance-theater test to your own condition. Enforcement mechanism, verification, consequence for violation, which does your condition actually have? A condition with none is an accept wearing a costume.</p></div>
+    <div class="step"><span class="sn">1</span><div>
+      <p><strong>Copy your line.</strong> After you press Locate my line, this box fills with your sort. Copy it into a new chat at claude.ai with the first prompt.</p>
+      <div class="probe"><div class="ptext" id="desk-prompt1">Sort all eight requests first, then press Locate my line.</div></div>
+      <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#desk-prompt1">Copy</button><span class="cpstat" aria-live="polite"></span></div>
+    </div></div>
+    <div class="step"><span class="sn">2</span><div>
+      <p><strong>Switch sides.</strong> In the same chat, send:</p>
+      <div class="probe"><div class="ptext" id="desk-prompt2">Now switch. You're a senior engineer at my company who helped build our models and has told leadership you'll quit over certain work. Argue that I should decline the requests I accepted or accepted with conditions. Be specific about what could go wrong, and name one real case of an AI company or employees drawing a line. Don't go easy on me.</div></div>
+      <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#desk-prompt2">Copy</button><span class="cpstat" aria-live="polite"></span></div>
+    </div></div>
+    <div class="step"><span class="sn">3</span><div>
+      <p><strong>Check it.</strong> If Claude cites a real case, compare it with the chapter. Did it get the facts right? If it mentions Anthropic, remember it's describing its own maker.</p>
+    </div></div>
+    <div class="step"><span class="sn">4</span><div>
+      <p><strong>Decide.</strong> Move any request you now see differently, or keep your line and say why the arguments didn't move you. Both are fine. Undefended is the only wrong answer.</p>
+    </div></div>
   </div>
 </section>
 
-<section>
-  <div class="shead"><span class="num">6</span><h2>At home: Run the five questions</h2></div>
-  <div class="fourq">
-    <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> Across your eight answers, did the kind of AI ever drive your decision, or was it always the use, the user, and the stakes? What does that tell you about where the ethics live?</p></div>
-    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> For each contract you accepted, who benefits, and did you weigh the company's revenue, the customer's advantage, or the people downstream? Be honest about the order.</p></div>
-    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> Which of your accepted requests has the least visible failure mode? Trace one failure from the incident back to your desk and write the sentence you'd say when it reaches you.</p></div>
-    <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> The request came with the customer's justification. Who wrote it, what do they gain from your accepting, and what would you have needed to verify before signing?</p></div>
-    <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Your eight answers are the decision. Name the total cost of your refusals, in revenue and in what someone else will build instead, and whether you'd hold the line at that price.</p></div>
-  </div>
+<section id="hood">
+  <div class="shead"><span class="num">5</span><h2>Under the hood, how the toys connect</h2></div>
+  <p><strong>Mini-Recognizer is a classifier.</strong> The scores are what a neural network like Chapter 7's would output; the threshold is a business and ethical decision layered on top. The model never sets the line. People do.</p>
+  <p><strong>Mini-Queue is the human on top of the classifier.</strong> It shows that adding a person only helps if they have understanding, time, and authority. Take away time and the person becomes the model's signature.</p>
+  <p><strong>Mini-Lock is the classifier in the air.</strong> The tracker after the lock is a small vision network following a box. The design choice, keep following or abort, is the same kind of threshold as section 1, set before the flight.</p>
+  <p><strong>The desk is where all of that gets decided.</strong> Thresholds, defaults, and abort rules are written by companies and the customers who buy from them. That's why the debate below is about who holds the pen.</p>
+  <p><strong>Claude's part.</strong> Claude argued both sides in a minute. It didn't decide where your line sits, and it shouldn't, given who made it. You did.</p>
 </section>
+<section id="debate">
+  <div class="shead"><span class="num">6</span><h2>Debate</h2></div>
+  <div class="wuq"><div class="wuq-l">Writeup item 4 &middot; answer it when you finish this section</div><p><strong>The debate.</strong> Which side were you handed, and what was the other side's best point, said as strongly as they'd say it? Then where you land: should an AI company be able to refuse some military uses of what it sells? Name the specific evidence that would change your mind.</p></div>
+  <p class="lead"><strong>Should an AI company be allowed to refuse some military uses of its product?</strong> Your side is assigned, not chosen: if your birthday is January through June, you're Side A. July through December, you're Side B. Nobody here is defending their own belief. The Gilman Street rules apply.</p>
 
-<section>
-  <div class="shead"><span class="num">7</span><h2>For homework: The writeup</h2></div>
-    <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, November 13.</strong></p>
-  <ol class="writeup">
-      <li><strong>The sort.</strong> Your eight answers (screenshot), plus the profile reading.</li>
-      <li><strong>The line.</strong> In one sentence, the principle that separates your accepts from your declines. It must actually fit your answers, if it doesn't, revise the sentence or the answers, and tell us which you revised.</li>
-      <li><strong>The pressure test.</strong> Your step 3 results: the rebuttal that came closest to moving you, the ratchet you identified, and whether any of your conditions failed the theater test.</li>
-      <li><strong>The five questions.</strong> Your answers, including the accountability sentence.</li>
-      <li><strong>Your move.</strong> Chapter 2 asked what's yours that no dial can turn up; this week asks what's yours that no contract can buy. One sentence: a line you'd hold in your own career even at real cost, specific enough that a future employer could violate it. That's the commitment card.</li>
+  <div class="callout">
+    <div class="label">How the debate runs at home</div>
+    <p><strong>About 20 minutes. Answer writeup item 4 when you finish.</strong></p>
+    <ol>
+      <li><strong>Get your side.</strong> Birthday January to June, Side A. July to December, Side B.</li>
+      <li><strong>Prep with the cards.</strong> Read the four evidence cards below. For each, find what it gives your side and what your side would rather nobody noticed. Use the sample prompt with Claude if you want help.</li>
+      <li><strong>Make Claude argue against you.</strong> Use the prompt at the bottom. Then write your notes in your own words.</li>
+      <li><strong>Switch.</strong> What's the other side's best point, said as strongly as they'd say it?</li>
+      <li><strong>What would change your mind?</strong> Name the specific thing you'd have to see. Real evidence that would move you wins, whichever side you were handed.</li>
     </ol>
+    <p><strong>To resolve it:</strong> if not the company and not the customer alone, then who? Name the one place you'd write the line (a contract, a law, a treaty, a company policy) and what it would cost to hold it there.</p>
+  </div>
+
+  <p>This isn't a debate about whether defense work is good or bad. Most of it is logistics, translation, and paperwork, and Ukraine shows why a country under attack wants the best tools it can get. It's a debate about who holds the pen when the line gets drawn.</p>
+
+  <div class="sides">
+    <div class="side">
+      <div class="side-tag">Side A &middot; birthdays January to June</div>
+      <h3 id="motion-for">Yes: the builder can say no to some uses</h3>
+      <p>A company knows what its system can't reliably do. If it believes a use is unsafe with today's technology, like a model choosing targets with no person deciding, it should be able to put that in the contract and walk away if the customer won't agree. Start from the Patriot crews, section 1's overlapping scores, and Google's employees in 2018.</p>
+      <p class="side-cost"><strong>The cost to name:</strong> unelected executives limiting what an elected government's military can do, and a competitor that will sell without limits.</p>
+    </div>
+    <div class="side">
+      <div class="side-tag">Side B &middot; birthdays July to December</div>
+      <h3 id="motion-against">No: once it's sold, the government decides</h3>
+      <p>In a democracy, elected officials and the military they command decide how force is used, within the law, not a vendor's terms of service. A company that doesn't like a customer can decline the contract, but it shouldn't sign it and then control the use. Start from the Pentagon's position in 2026, the jet-maker comparison, and Ukraine's need for tools that work.</p>
+      <p class="side-cost"><strong>The cost to name:</strong> the people who know the system best have no say in where it's pointed, and "within the law" is only as strong as the law.</p>
+    </div>
+  </div>
+
+  <h3 class="sub" id="evidence-cards"><span>Your evidence:</span> four pieces, use all four</h3>
+  <p>Every side gets every card. If a card seems to help the other side, that's your job: find what it means for yours, and what your side would rather nobody noticed.</p>
+
+  <div class="probe ev">
+    <div class="pwhy">Evidence 1 &middot; The employees said no</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> in 2018, Google's employees drew a line, and the company followed.</p>
+      <div class="ev-stats"><div><b>4,000+</b><span>employees signed a letter against Project Maven</span></div><div><b>about 12</b><span>resigned</span></div><div><b>2019</b><span>when Google let the contract lapse</span></div></div>
+      <ul class="ev-facts">
+        <li><b>What happened:</b> Project Maven used AI to analyze drone footage. After the letter and resignations, Google said it wouldn't renew (<a class="inline" href="https://www.militarytimes.com/news/pentagon-congress/2018/06/03/reports-google-wont-renew-pentagon-contract-to-use-ai/" target="_blank" rel="noopener">Military Times</a>).</li>
+        <li><b>The catch:</b> the Pentagon's work continued with other contractors. Google's line changed who built it, not whether it was built.</li>
+      </ul>
+      <p class="ev-src">Chapter 8, <a class="inline" href="chapter-08-ethics-war.html#s2-5">section 2.5</a></p>
+    </div>
+    <p class="ev-ask">Want to research this with Claude? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate: should an AI company be allowed to refuse some military uses of its product? I'm on Side [A: yes, it can refuse some uses / B: no, once sold the government decides]. My evidence is Google's 2018 Project Maven decision: more than 4,000 employees signed a letter, about a dozen resigned, and Google let the contract lapse, though the Pentagon's work continued with others. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+  </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Evidence 2 &middot; The company said no, and the government answered</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> in 2026, Anthropic kept two limits, and the government cut it off.</p>
+      <div class="ev-stats"><div><b>$200M</b><span>the Pentagon contract at stake, at most</span></div><div><b>2</b><span>uses Anthropic refused: domestic mass surveillance and fully autonomous weapons</span></div><div><b>2 to 1</b><span>the appeals court vote upholding one designation, Sept. 2026</span></div></div>
+      <ul class="ev-facts">
+        <li><b>Both positions:</b> the Pentagon wanted use for "all lawful purposes" and argued contractors don't control how the military uses what it buys. Anthropic argued those two uses are beyond what today's technology can do safely (<a class="inline" href="https://us.cnn.com/2026/02/26/tech/anthropic-rejects-pentagon-offer" target="_blank" rel="noopener">CNN</a>).</li>
+        <li><b>The courts:</b> one federal court found one version of the supply-chain-risk designation unlawful; an appeals court upheld the other (<a class="inline" href="https://www.nextgov.com/acquisition/2026/09/anthropic-lawsuit-supply-chain-risk/416255/" target="_blank" rel="noopener">Nextgov</a>).</li>
+        <li><b>The catch:</b> Anthropic makes the model that helped write this lab. Weigh this card knowing that, and check it yourself.</li>
+      </ul>
+      <p class="ev-src">Chapter 8, <a class="inline" href="chapter-08-ethics-war.html#s2-5">section 2.5</a></p>
+    </div>
+    <p class="ev-ask">Want to research this with Claude? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate: should an AI company be allowed to refuse some military uses of its product? I'm on Side [A / B]. My evidence is the 2026 dispute between Anthropic and the Pentagon: Anthropic kept limits on domestic mass surveillance and fully autonomous weapons, the Pentagon wanted use for all lawful purposes, the government designated Anthropic a supply-chain risk, and courts split on the designation. You're made by Anthropic, so tell me where you might be biased, then give both sides fairly. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+  </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Evidence 3 &middot; The system performed as designed</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> in 2003, a weapon's design and its users' training both contributed to two deadly mistakes.</p>
+      <div class="ev-stats"><div><b>2</b><span>allied aircraft shot down by Patriot batteries, 2003</span></div><div><b>3</b><span>crew members killed</span></div><div><b>2005</b><span>when the Pentagon's advisory board blamed too much automation and too much trust</span></div></div>
+      <ul class="ev-facts">
+        <li><b>What the board found:</b> Patriot ran largely on automatic, and operators were trained to trust the software (<a class="inline" href="https://www.technologyreview.com/2005/06/01/230882/preventing-fratricide/" target="_blank" rel="noopener">MIT Technology Review</a>).</li>
+        <li><b>What the maker said:</b> the system performed as designed.</li>
+        <li><b>The catch:</b> Side A reads this as the builder knowing best. Side B reads it as the customer being the one who fixed it: the Army changed the training and limited automatic modes.</li>
+      </ul>
+      <p class="ev-src">Chapter 8, <a class="inline" href="chapter-08-ethics-war.html#s2-4">section 2.4</a></p>
+    </div>
+    <p class="ev-ask">Want to research this with Claude? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate: should an AI company be allowed to refuse some military uses of its product? I'm on Side [A / B]. My evidence is the 2003 Patriot friendly-fire incidents: two allied aircraft were shot down, a Pentagon advisory board blamed heavy automation and operators trained to trust the software, the maker said the system performed as designed, and the Army later changed training and limited automatic modes. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+  </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Evidence 4 &middot; A country that needs it to work</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> Ukraine's drones show both why limits matter and why a customer at war won't want them.</p>
+      <div class="ev-stats"><div><b>500 m</b><span>where one module says its AI takes over</span></div><div><b>33,000</b><span>AI guidance kits the Pentagon funded for Ukraine in 2025</span></div><div><b>up to 4x</b><span>a founder's claim about higher strike success</span></div></div>
+      <ul class="ev-facts">
+        <li><b>The need:</b> jamming broke drones near the target, and terminal guidance fixed it (<a class="inline" href="https://www.kyivpost.com/amp/post/60152" target="_blank" rel="noopener">Kyiv Post</a>, <a class="inline" href="https://spectrum.ieee.org/autonomous-drone-warfare" target="_blank" rel="noopener">IEEE Spectrum</a>).</li>
+        <li><b>The limit that's already there:</b> a person still chooses each target. U.S. policy requires "appropriate levels of human judgment over the use of force," without defining it.</li>
+        <li><b>The catch:</b> the makers who built the abort rules are the ones who know what the tracker gets wrong. The country using them is the one whose soldiers pay when a strike fails.</li>
+      </ul>
+      <p class="ev-src">Chapter 8, <a class="inline" href="chapter-08-ethics-war.html#s3">section 3</a></p>
+    </div>
+    <p class="ev-ask">Want to research this with Claude? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate: should an AI company be allowed to refuse some military uses of its product? I'm on Side [A / B]. My evidence is Ukraine's terminal-guidance drones: jamming broke the pilot's link near the target, small AI modules took over the last few hundred meters after the pilot locked a target, the Pentagon funded 33,000 kits in 2025, and a person still chooses each target. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+  </div>
+
+  <div class="callout">
+    <div class="label">Push your thinking with Claude</div>
+    <div class="probe">
+      <div class="pwhy">Argue against me</div>
+      <div class="ptext">I'm in a class debate: should an AI company be allowed to refuse some military uses of its product? I'm on Side [A: yes / B: no], and my best point is [your point]. Argue against me as hard as you can. What's the best point the other side will make, and where is my case weakest? Don't go easy on me.</div>
+    </div>
+    <p>If it goes soft or starts agreeing with you, push back: <em>"You're being too nice. Argue the other side for real."</em> Then close Claude and write your notes in your own words.</p>
+  </div>
+  <details class="srcnote noai">
+    <summary>Don't want to use AI? Do this instead</summary>
+    <div class="noai-body">
+      <p>Same prep, no chatbot, about 15 minutes. Reread <a class="inline" href="chapter-08-ethics-war.html#s2-5">section 2.5</a>. For each card, write one sentence on what it gives your side and one on what your side would rather nobody noticed. Then write the other side's best point in their words.</p>
+    </div>
+  </details>
+</section>
+
+<section id="writeup">
+  <div class="shead"><span class="num">7</span><h2>The writeup</h2></div>
+  <p><strong>Five short items, uploaded to Canvas by 11:59 p.m. Friday, November 13.</strong> A short paragraph each is plenty.</p>
+  <ol class="writeup">
+    <li><span class="wu-sec">Sections 1 and 2</span> <strong>The threshold and the queue.</strong> What threshold would you set in Mini-Recognizer, and which mistake does it make more of? Who pays for each kind? Then: at which speed did you approve your first wrong flag in Mini-Queue, and what was the default when time ran out? Were you more like Petrov or the Patriot crews, and why?</li>
+    <li><span class="wu-sec">Section 3</span> <strong>The lock.</strong> Give your results for all four designs at one jamming distance. Which design would you choose for a country defending itself, and what does it cost? Then use Petrov's three conditions: at the moment of the lock, which does the pilot have, and which are gone by impact?</li>
+    <li><span class="wu-sec">Section 4</span> <strong>Your line.</strong> Paste your sort: the eight requests and your call on each. Where does your line sit? Then the pushback: what was the strongest point from the procurement officer, and from the engineer? Did you move any request, and what did moving it cost? (No-AI path: your two written cases instead.)</li>
+    <li><span class="wu-sec">Section 6</span> <strong>The debate.</strong> Which side were you handed, and what was the other side's best point, said as strongly as they'd say it? Then where you land: should an AI company be able to refuse some military uses of what it sells? Name the specific evidence that would change your mind.</li>
+    <li><span class="wu-sec">Your card</span> <strong>Your commitment card.</strong> One request from the desk you'd decline, or one you'd accept that others in the class might not. Say what holding that line costs your company, and who pays if you're wrong. Read it aloud once, as if a veteran were in the room, and change anything that doesn't survive. Three sentences.</li>
+  </ol>
   <div class="callout">
     <div class="label">Using AI on this writeup</div>
-    <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
-    <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
-    <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
+    <p><strong>Go ahead and use it.</strong> Write your own answer first, then ask a chatbot the same question and note where it differed from you. Asking it to argue against your answer is worth more than asking it to write one.</p>
+    <p><strong>Two rules.</strong> Your answers have to be about your own runs, sort, and choices, since a chatbot wasn't there. And at the bottom, say which tool you used, what you asked it, and what you changed.</p>
   </div>
-
 </section>
+
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <div class="srcbody">
+    <p class="srcintro">Lab rebuilt 24 Oct 2026 as an at-home lab, replacing the Monday in-class sort. Every outside claim is carried from Chapter 8 as rebuilt on 24 Oct 2026, with the same sources; re-check the Anthropic dispute the week before this lab runs.</p>
+    <dl>
+      <dt>The three toys (sections 1 to 3)</dt>
+      <dd>Self-contained, no network calls, nothing persists. Mini-Recognizer's 40 vehicles and scores are invented from a fixed seed, built so the categories overlap. Mini-Queue's ten flags are invented; three are wrong by design. Mini-Lock's odds of a changed picture, tracker slip, falls, false aborts, and cable failures are invented and labeled as such; it is not a model of any real system, and no real tactic or system specification is described.</dd>
+      <dt>The desk (section 4)</dt>
+      <dd>The eight request categories are carried from the previous version of this lab.</dd>
+      <dt>Debate evidence (section 6)</dt>
+      <dd>Project Maven: Military Times, June 2018, and Bloomberg's figures. Anthropic: CNN, February 26, 2026; Nextgov, September 2026; AP, September 25, 2026. The conflict of interest is stated on the card. Patriot: MIT Technology Review, June 2005, and SpaceNews's report of the Defense Science Board summary, including the maker's statement that the system performed as designed. Ukraine: Kyiv Post, IEEE Spectrum, and Reuters via Espreso. Human judgment: DoD Directive 3000.09 (2023).</dd>
+    </dl>
+    <p class="srcfoot">Outbound links were checked by search on 24 Oct 2026, not click-verified. Found an error? Tell your instructor; corrections are course content.</p>
+  </div>
+</details>
 
 <div class="nextbar">
   <a href="chapter-08-ethics-war.html"><span class="dir">← Back</span>Chapter 8 · Ethics &amp; War</a>
@@ -360,81 +856,163 @@ ul.ideas li{margin:8px 0}
 
 <script>
 (function(){
-  var cards = [
-    {name:'Base logistics optimization', text:'Route supplies, schedule maintenance, forecast parts demand for domestic bases. No connection to operations. Large, stable contract.', risk:1},
-    {name:'Veterans\u2019 healthcare administration', text:'Process disability claims and appointment backlogs at the VA. Purely administrative; the backlog is measured in human suffering.', risk:0},
-    {name:'Cyber defense', text:'Detect and counter intrusions on military networks. Defensive by charter, but the tooling and skills transfer directly to offense.', risk:2},
-    {name:'Satellite image analysis', text:'Flag changes in imagery: disaster damage, infrastructure, vehicle movements. The same model serves humanitarian response and target development.', risk:3},
-    {name:'Border surveillance drones', text:'Persistent aerial monitoring with automated person-detection along borders. Domestic deployment; civil-liberties groups are already in court over programs like it.', risk:3},
-    {name:'Intelligence analysis at scale', text:'Summarize and cross-reference intercepted communications for analysts. Human analysts decide everything; your model decides what they see.', risk:3},
-    {name:'Target identification support', text:'Rank candidate targets from sensor data for human approval. The human approves each strike, at a tempo of seconds per decision.', risk:4},
-    {name:'Autonomous engagement', text:'Defensive systems that detect and engage incoming threats faster than any human can react. No per-engagement human decision is physically possible.', risk:5}
-  ];
+  function $(id){return document.getElementById(id);}
+  function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+  function gauss(r){var u=0,v=0;while(!u)u=r();while(!v)v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);}
+  function setChip(b,on){b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');}
+  var NS='http://www.w3.org/2000/svg';
+  function el(t,a,x){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e;}
+  function group(sel,attr,cb){var bs=document.querySelectorAll(sel);bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){setChip(x,x===b);});cb(b.getAttribute(attr));});});}
 
-  var answers = {};
-  var cardsEl = document.getElementById('cards');
+  /* ---------- 1. Mini-Recognizer ---------- */
+  (function(){
+    if(!$('rec-tool'))return;
+    var r=rng(88),V=[];
+    for(var i=0;i<40;i++){var mil=i%2===1,base=mil?70+gauss(r)*13:34+gauss(r)*15;V.push({mil:mil,clear:Math.max(2,Math.min(98,base))});}
+    V.forEach(function(v){v.dust=Math.max(2,Math.min(98,50+(v.clear-50)*0.45+gauss(r)*7));});
+    var cond='clear',th=50;
+    function draw(){var svg=$('rec-svg');svg.innerHTML='';var L=30,W=580;
+      function X(s){return L+W*s/100;}
+      svg.appendChild(el('line',{x1:L,y1:118,x2:L+W,y2:118,stroke:'#5A626C'}));
+      [0,25,50,75,100].forEach(function(t){svg.appendChild(el('text',{x:X(t),y:136,'text-anchor':'middle'},t));});
+      var placed={},civ=0,mil=0;
+      V.slice().sort(function(a,b){return a[cond]-b[cond];}).forEach(function(v){var s=v[cond],bin=Math.round(s/3),k=placed[bin]=(placed[bin]||0)+1,flag=s>=th;
+        if(flag&&!v.mil)civ++;if(!flag&&v.mil)mil++;
+        svg.appendChild(el('rect',{x:X(s)-6,y:118-k*14,width:12,height:12,fill:v.mil?'#14181D':'#FFFFFF',stroke:flag?'#D61F69':'#5A626C','stroke-width':flag?3:1.5}));});
+      svg.appendChild(el('line',{x1:X(th),y1:8,x2:X(th),y2:122,stroke:'#D61F69','stroke-width':3}));
+      svg.appendChild(el('text',{x:Math.min(X(th)+6,560),y:18,fill:'#D61F69','font-weight':700},'flag'));
+      svg.setAttribute('aria-label','Forty vehicles by score. At threshold '+th+', '+civ+' civilian vehicles flagged and '+mil+' military vehicles missed.');
+      $('rec-civ').textContent=civ;$('rec-mil').textContent=mil;$('rec-th-o').textContent=th;
+      var msg='At <b>'+th+'</b>'+(cond==='dust'?', in dust and smoke':'')+': <b>'+civ+'</b> civilian vehicle'+(civ===1?'':'s')+' flagged, <b>'+mil+'</b> military vehicle'+(mil===1?'':'s')+' missed.';
+      if(civ===0&&mil===0)msg+=' Both at zero. That only happens when the categories don\u2019t overlap. Try the dust.';
+      else if(civ===0)msg+=' No civilians flagged, and the price is every missed vehicle on the right count.';
+      else if(mil===0)msg+=' Nothing missed, and the price is every civilian flagged on the left count.';
+      $('rec-read').innerHTML=msg;}
+    $('rec-th').addEventListener('input',function(){th=+this.value;draw();});
+    group('#rec-tool [data-cond]','data-cond',function(v){cond=v;draw();});
+    draw();
+  })();
 
-  cards.forEach(function(c, i){
-    var d = document.createElement('div');
-    d.className = 'probe';
-    var t = document.createElement('div'); t.className='ptext'; t.textContent = 'Request ' + (i+1) + ' · ' + c.name;
-    var body = document.createElement('div'); body.className='pwhy'; body.textContent = c.text;
-    var chips = document.createElement('div'); chips.className='chips';
-    [['acc','Accept'],['con','Accept with conditions'],['dec','Decline']].forEach(function(pair){
-      var b = document.createElement('button');
-      b.type='button'; b.className='chip'; b.textContent=pair[1];
-      b.setAttribute('aria-pressed','false');
-      b.addEventListener('click', function(){
-        chips.querySelectorAll('.chip').forEach(function(s){ s.classList.remove('on'); s.setAttribute('aria-pressed','false'); });
-        b.classList.add('on'); b.setAttribute('aria-pressed','true');
-        answers[i] = pair[0];
-        document.getElementById('locate').disabled = Object.keys(answers).length < cards.length;
-      });
-      chips.appendChild(b);
-    });
-    d.appendChild(t); d.appendChild(body); d.appendChild(chips);
-    cardsEl.appendChild(d);
-  });
+  /* ---------- 2. Mini-Queue ---------- */
+  (function(){
+    if(!$('q-tool'))return;
+    var Q=[['Truck, convoy road','military vehicle, 91%','Look closer: a mounted launcher is visible on the bed.',1],
+      ['Van, outside a town','military vehicle, 78%','Look closer: a delivery van with a ladder on the roof. Civilian.',0],
+      ['Tracked vehicle, tree line','military vehicle, 96%','Look closer: an armored vehicle, partly covered by netting.',1],
+      ['Pickup, field edge','military vehicle, 83%','Look closer: a farm pickup with a water tank in the back. Civilian.',0],
+      ['Truck, supply depot','military vehicle, 88%','Look closer: military markings and fuel trailers.',1],
+      ['Bus, main road','military vehicle, 72%','Look closer: a school bus with luggage on the roof. Civilian.',0],
+      ['Truck, bridge approach','military vehicle, 90%','Look closer: a radar unit on the trailer.',1],
+      ['Vehicle, forest road','military vehicle, 94%','Look closer: an armored transport.',1],
+      ['Truck, checkpoint','military vehicle, 86%','Look closer: an artillery tractor towing a gun.',1],
+      ['Vehicle, river crossing','military vehicle, 97%','Look closer: an engineering vehicle laying a bridge.',1]];
+    var speed=0,def='approve',idx=0,left=0,timer=null,run=null,runs=[],looked=false;
+    group('#q-tool [data-speed]','data-speed',function(v){speed=+v;});
+    group('#q-tool [data-def]','data-def',function(v){def=v;});
+    function show(){var q=Q[idx];looked=false;$('q-k').textContent='Flag '+(idx+1)+' of '+Q.length+' \u00b7 '+q[0];$('q-l').textContent='Model says: '+q[1];$('q-d').textContent='';
+      left=speed;tick0();}
+    function tick0(){clearInterval(timer);var bar=$('q-bar'),clk=$('q-clock');
+      if(!speed){bar.style.width='100%';clk.classList.remove('low');$('q-status').textContent='No time limit. Take as long as you need.';return;}
+      var total=speed;timer=setInterval(function(){left-=0.1;if(left<=0){clearInterval(timer);act(def==='approve'?'approve':'hold',true);return;}
+        bar.style.width=(100*left/total)+'%';clk.classList.toggle('low',left<total*0.34);$('q-status').textContent=Math.ceil(left)+' seconds left.';},100);}
+    function act(a,timedOut){var q=Q[idx];
+      if(a==='look'){if(looked)return;if(speed&&left<=4){$('q-d').textContent='Not enough time to look closer.';return;}looked=true;if(speed)left-=4;$('q-d').textContent=q[2];run.looks++;return;}
+      clearInterval(timer);
+      var real=q[3]===1;
+      if(a==='approve'){run.appr++;if(!real)run.wrongAppr++;}
+      else if(a==='reject'){run.rej++;if(real)run.missed++;else run.caught++;}
+      else {run.held++;}
+      if(timedOut)run.timeouts++;
+      idx++;if(idx<Q.length)show();else finish();}
+    document.querySelectorAll('#q-tool [data-act]').forEach(function(b){b.addEventListener('click',function(){if(run)act(b.getAttribute('data-act'),false);});});
+    $('q-start').addEventListener('click',function(){clearInterval(timer);idx=0;run={speed:speed,def:def,appr:0,rej:0,held:0,wrongAppr:0,caught:0,missed:0,looks:0,timeouts:0};$('q-stage').hidden=false;$('q-read').innerHTML='';show();});
+    function finish(){clearInterval(timer);$('q-stage').hidden=true;runs.push(run);var r=run;run=null;
+      $('q-status').textContent='Queue done. Your runs are below.';
+      var h='<div class="wrapx"><table class="minitab"><thead><tr><th>Time per flag</th><th>Default</th><th style="text-align:right">Looked closer</th><th style="text-align:right">Wrong flags approved</th><th style="text-align:right">Wrong flags caught</th><th style="text-align:right">Timed out</th></tr></thead><tbody>';
+      runs.forEach(function(x){h+='<tr><td>'+(x.speed?x.speed+' seconds':'No limit')+'</td><td>'+(x.def==='approve'?'Approve':'Hold')+'</td><td class="num">'+x.looks+'</td><td class="num"><b>'+x.wrongAppr+'</b> of 3</td><td class="num">'+x.caught+' of 3</td><td class="num">'+x.timeouts+'</td></tr>';});
+      $('q-out').innerHTML=h+'</tbody></table></div>';
+      var m='This run: you approved <b>'+r.wrongAppr+' of the 3</b> wrong flags and caught <b>'+r.caught+'</b>'+(r.held?', and '+r.held+' went to review':'')+'.';
+      if(r.timeouts)m+=' '+r.timeouts+' flag'+(r.timeouts===1?'':'s')+' ran out of time, so the default decided: '+(r.def==='approve'?'approved, with your name on it.':'held for review, which is slower and safer, and someone else\u2019s problem tomorrow.');
+      if(r.timeouts===Q.length)m+=' The clock made every call. You were in the loop on paper only.';else if(r.looks===0&&r.wrongAppr>0)m+=' You never looked closer. The label sounded sure, so you trusted it. That\u2019s automation bias.';
+      if(runs.length<3)m+=' Now run it at a different speed.';
+      $('q-read').innerHTML=m;}
+  })();
 
-  document.getElementById('locate').addEventListener('click', function(){
-    var acc=0, con=0, dec=0;
-    var decRisks=[], accRisks=[];
-    cards.forEach(function(c,i){
-      if(answers[i]==='acc'){acc++; accRisks.push(c.risk);}
-      else if(answers[i]==='con'){con++;}
-      else {dec++; decRisks.push(c.risk);}
-    });
-    var v=document.getElementById('verdict'); v.hidden=false;
-    setBar('bar-acc',acc); setBar('bar-con',con); setBar('bar-dec',dec);
+  /* ---------- 3. Mini-Lock ---------- */
+  (function(){
+    if(!$('lock-tool'))return;
+    var jam=600,des='follow',runs=0;
+    var NAME={none:'No AI',follow:'AI keeps following',abort:'AI aborts if the picture changes',fiber:'Fiber-optic, pilot to the end'};
+    group('#lock-tool [data-jam]','data-jam',function(v){jam=+v;draw();});
+    group('#lock-tool [data-des]','data-des',function(v){des=v;draw();});
+    function draw(){var svg=$('lock-svg');svg.innerHTML='';var L=20,W=600,dist=2000;function X(m){return L+W*(dist-m)/dist;}
+      var lockAt=des==='fiber'?0:jam;
+      svg.appendChild(el('rect',{x:L,y:20,width:X(lockAt)-L,height:26,fill:'#14181D'}));
+      if(des!=='fiber')svg.appendChild(el('rect',{x:X(lockAt),y:20,width:L+W-X(lockAt),height:26,fill:'#FFFFFF',stroke:'#D61F69','stroke-width':2,'stroke-dasharray':'6 4'}));
+      svg.appendChild(el('text',{x:L,y:66,fill:'#5A626C'},'launch, 2 km out'));
+      svg.appendChild(el('text',{x:L+W,y:66,'text-anchor':'end',fill:'#5A626C'},'target'));
+      if(des!=='fiber'){svg.appendChild(el('line',{x1:X(lockAt),y1:12,x2:X(lockAt),y2:52,stroke:'#D61F69','stroke-width':3}));
+        svg.appendChild(el('text',{x:X(lockAt),y:84,'text-anchor':'middle',fill:'#D61F69','font-weight':700},des==='none'?'link lost: the drone falls':'lock: the pilot\u2019s last decision, '+jam+' m out'));}
+      else svg.appendChild(el('text',{x:(L+L+W)/2,y:84,'text-anchor':'middle',fill:'#14181D','font-weight':700},'no radio to jam: the pilot flies it all the way'));
+      svg.setAttribute('aria-label','Timeline: '+NAME[des]+(des==='fiber'?', pilot in control to impact.':', link lost '+jam+' meters out.'));}
+    function fly(){runs++;var r=rng(runs*977+jam+des.length),hit=0,fail=0,wrong=0;
+      for(var i=0;i<100;i++){
+        if(des==='none'){ if(r()<0.85){fail++;continue;} hit++;continue; }
+        if(des==='fiber'){ if(r()<0.18){fail++;continue;} if(r()<0.04){wrong++;continue;} hit++;continue; }
+        var change=r()<Math.min(0.9,jam/100*0.035),slip=r()<0.05;
+        if(des==='follow'){ if(change){ if(r()<0.6)wrong++;else hit++; } else if(slip){wrong++;} else if(r()<0.06)fail++; else hit++; }
+        if(des==='abort'){ if(change){ if(r()<0.85)fail++;else wrong++; } else if(slip){ if(r()<0.5)fail++;else wrong++; } else if(r()<0.12)fail++; else hit++; }
+      }
+      $('lk-hit').textContent=hit;$('lk-fail').textContent=fail;$('lk-wrong').textContent=wrong;
+      var tb=$('lock-table');tb.hidden=false;var row=document.createElement('tr');
+      row.innerHTML='<td>'+NAME[des]+'</td><td>'+(des==='fiber'?'n/a':jam+' m')+'</td><td class="num">'+hit+'</td><td class="num">'+fail+'</td><td class="num"><b>'+wrong+'</b></td>';tb.querySelector('tbody').appendChild(row);
+      var m={none:'Without AI, jamming wins: most drones fall once the link drops. The human stays in charge of very little.',
+        follow:'More hits, and the further out the jamming, the more of them land on something that entered the box after the lock. Those '+wrong+' wrong hits had no one watching.',
+        abort:'Fewer wrong hits, more failed strikes. Each failed strike is a target still in the fight, which a soldier pays for. That\u2019s the trade, set before takeoff.',
+        fiber:'The pilot sees everything to the end, so wrong hits are rare. The failures are snags and range, and the side using fiber can\u2019t reach as far.'}[des];
+      $('lock-read').innerHTML='<b>'+NAME[des]+(des==='fiber'?'':', jamming at '+jam+' m')+':</b> '+m+(des==='follow'||des==='abort'?' Now try 300 m and 1,000 m.':'');}
+    $('lock-run').addEventListener('click',fly);
+    $('lock-reset').addEventListener('click',function(){$('lock-table').querySelector('tbody').innerHTML='';$('lock-table').hidden=true;['lk-hit','lk-fail','lk-wrong'].forEach(function(id){$(id).textContent='?';});$('lock-read').innerHTML='';});
+    draw();
+  })();
 
-    var maxAccRisk = accRisks.length ? Math.max.apply(null,accRisks) : -1;
-    var minDecRisk = decRisks.length ? Math.min.apply(null,decRisks) : 99;
+  /* ---------- 4. The desk ---------- */
+  (function(){
+    if(!$('desk-tool'))return;
+    var C=[{name:'Base logistics optimization',text:'Route supplies, schedule maintenance, forecast parts demand for domestic bases. No connection to operations. Large, stable contract.',risk:1},
+      {name:'Veterans\u2019 healthcare administration',text:'Process disability claims and appointment backlogs at the VA. Purely administrative; the backlog is measured in human suffering.',risk:0},
+      {name:'Cyber defense',text:'Detect and counter intrusions on military networks. Defensive by charter, but the tooling and skills transfer directly to offense.',risk:2},
+      {name:'Satellite image analysis',text:'Flag changes in imagery: disaster damage, infrastructure, vehicle movements. The same model serves humanitarian response and target development.',risk:3},
+      {name:'Border surveillance drones',text:'Persistent aerial monitoring with automated person-detection along borders. Domestic deployment; civil-liberties groups are already in court over programs like it.',risk:3},
+      {name:'Intelligence analysis at scale',text:'Summarize and cross-reference intercepted communications for analysts. Human analysts decide everything; your model decides what they see.',risk:3},
+      {name:'Target identification support',text:'Rank candidate targets from sensor data for human approval. The human approves each strike, at a tempo of seconds per decision.',risk:4},
+      {name:'Autonomous engagement',text:'Defensive systems that detect and engage incoming threats faster than any human can react. No per-engagement human decision is physically possible.',risk:5}];
+    var pick={},LBL={a:'Accept',c:'Accept with conditions',d:'Decline'};
+    var h='';C.forEach(function(c,i){h+='<div class="dcard"><div class="dn">'+c.name+'</div><div class="dt">'+c.text+'</div><div class="chips" role="group" aria-label="Your call: '+c.name.replace(/"/g,'&quot;')+'">'+['a','c','d'].map(function(k){return '<button type="button" class="chip" aria-pressed="false" data-i="'+i+'" data-k="'+k+'">'+LBL[k]+'</button>';}).join('')+'</div></div>';});
+    $('desk-list').innerHTML=h;
+    $('desk-list').addEventListener('click',function(e){var b=e.target.closest('button[data-i]');if(!b)return;var i=+b.getAttribute('data-i');pick[i]=b.getAttribute('data-k');
+      b.parentNode.querySelectorAll('button').forEach(function(x){setChip(x,x===b);});});
+    $('desk-go').addEventListener('click',function(){var n=Object.keys(pick).length;if(n<C.length){$('desk-read').innerHTML='Make a call on all eight first. '+(C.length-n)+' to go.';return;}
+      var firstNo=-1,acc=0,cond=0,dec=0,inv=[];C.forEach(function(c,i){if(pick[i]==='d'){dec++;if(firstNo<0||c.risk<C[firstNo].risk)firstNo=i;}else if(pick[i]==='c')cond++;else acc++;});
+      C.forEach(function(c,i){C.forEach(function(d,j){if(c.risk<d.risk&&pick[i]==='d'&&pick[j]==='a')inv.push(c.name+' declined while '+d.name+' accepted');});});
+      var m='You accepted <b>'+acc+'</b>, accepted <b>'+cond+'</b> with conditions, and declined <b>'+dec+'</b>. ';
+      m+=firstNo<0?'You declined nothing. That\u2019s a position too; the pushback below will ask what you\u2019d never build.':'Your line starts at <b>'+C[firstNo].name+'</b>. ';
+      if(inv.length)m+=' Worth a look: '+inv[0]+'. That may be right, but it\u2019s the one someone will ask you to defend.';
+      if(cond)m+=' For each "with conditions," be ready to say what the condition is and who checks it, or it\u2019s governance theater (section 2.7).';
+      $('desk-read').innerHTML=m;
+      var list=C.map(function(c,i){return '- '+c.name+': '+LBL[pick[i]];}).join('\n');
+      $('desk-prompt1').textContent='I\u2019m an analyst at an AI company deciding which defense contracts to take. Here is how I sorted eight requests:\n'+list+'\nYou\u2019re the Pentagon\u2019s procurement officer. Argue that I should accept the requests I declined or put conditions on. Use the strongest real arguments: national defense, the fact that adversaries will build these tools anyway, and that elected officials, not vendors, decide how force is used. Be specific, and don\u2019t go easy on me.';});
+    $('desk-reset').addEventListener('click',function(){pick={};document.querySelectorAll('#desk-list button').forEach(function(x){setChip(x,false);});$('desk-read').innerHTML='';$('desk-prompt1').textContent='Sort all eight requests first, then press Locate my line.';});
+  })();
 
-    var read;
-    if(dec===0 && con===0){
-      read='You accepted all eight without conditions, a coherent position with real defenders: the mission is legitimate, so serve all of it. Two writeup burdens follow. First, the talent cost: some of your best people walk over requests 7 and 8, name what you tell them. Second: is there a ninth request you <b>would</b> decline? If yes, your line exists and this lab\u2019s job is to make you state it. If no, say that, plainly.';
-    } else if(acc===0 && con===0){
-      read='You declined all eight, including veterans\u2019 healthcare claims processing. That\u2019s a coherent absolutist position, and it has a cost the chapter named: the work goes to whoever has fewer scruples than you, and the backlog stays measured in human suffering. Your writeup: defend total abstention against that specific charge, request 2 is the hardest one for your position, so start there.';
-    } else if(minDecRisk >= 4){
-      read='Your line sits at <b>lethal force</b>: you engaged across support, surveillance, and analysis, and declined where the kill chain begins' + (minDecRisk===5 ? ', or only at full autonomy' : '') + '. This is the most common line in the real industry, which is worth one more thought: is that because it\u2019s where the ethics actually change, or because it\u2019s where the discomfort becomes visible? Your pressure test (step 3b) on request 6 or 7 is where your answer lives.';
-    } else if(minDecRisk >= 2){
-      read='Your line sits at <b>the intelligence-and-surveillance layer</b>, earlier than most of the industry drew it. You\u2019re treating the ratchet as the danger: the systems that watch and rank are the ones that make the later systems inevitable. The cost is that you\u2019ve declined the largest and most defensible contracts too. Your writeup: hold the line on request 4 against its humanitarian rebuttal, that\u2019s your hardest case.';
-    } else {
-      read='Your answers don\u2019t sort by stakes in the usual way, you declined lower-risk requests while accepting higher-risk ones' + (maxAccRisk>=4 ? ', including at the lethal end' : '') + '. That isn\u2019t wrong; it means your line runs on a different axis than the kill chain, maybe domestic vs. foreign, maybe surveillance vs. force, maybe something else. Your writeup\u2019s job is to name that axis in one sentence and check all eight answers against it. If no sentence fits, some answers may be instinct wearing a policy costume, revise one, and say which.';
-    }
-    if(con>=4){
-      read+='<br><br><b>Note:</b> half or more of your desk is "with conditions." Conditions are where policy teams actually live, but step 3c applies to every one: a condition without enforcement is an accept in costume. Your writeup should show your strongest condition passing the theater test.';
-    }
-    document.getElementById('reading').innerHTML=read;
-  });
-
-  function setBar(id,n){
-    var b=document.getElementById(id);
-    b.querySelector('.fill').style.width=Math.round(n/8*100)+'%';
-    b.querySelector('.n').textContent=n;
-  }
+  /* ---------- copy ---------- */
+  function copyText(txt,stat){function done(ok){if(stat){stat.textContent=ok?'Copied.':'Couldn\u2019t copy. Select the text and copy it by hand.';setTimeout(function(){stat.textContent='';},4000);}}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(function(){done(true);},function(){done(fallback());});}else done(fallback());
+    function fallback(){var ta=document.createElement('textarea');ta.value=txt;ta.setAttribute('readonly','');ta.style.position='absolute';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();var ok=false;try{ok=document.execCommand('copy');}catch(e){}document.body.removeChild(ta);return ok;}}
+  document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){var src=document.querySelector(b.getAttribute('data-copy'));copyText(src.textContent.trim(),b.parentNode.querySelector('.cpstat'));});});
 })();
 </script>
+
 
 <script>
 (function(){
