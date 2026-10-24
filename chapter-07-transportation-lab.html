@@ -12,7 +12,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab 7 · You Are the City Council. Intro to AI in Business | MIS 201</title>
+<title>Lab 7 · The Bellingham Pitch. Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -197,6 +197,246 @@ select{padding:9px 12px;border:1px solid var(--rule);background:#fff;font-family
 }
 ul.ideas{padding-left:1.2em;margin:10px 0}
 ul.ideas li{margin:8px 0}
+
+.sides{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:20px 0;}
+.side{border:2px solid var(--ink);border-radius:8px;background:#fff;padding:18px 20px;}
+.side-tag{font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--pinktext);margin-bottom:6px;}
+.side h3{font-family:'Fraunces',Georgia,serif;font-size:1.4rem;margin:0 0 10px;scroll-margin-top:68px;}
+.side p{margin:0 0 10px;}
+.side .side-cost{margin:0;font-size:.95rem;color:var(--gray);}
+.probe.ev .pwhy{color:var(--pinktext);font-weight:700;font-size:1.05rem;}
+.probe.ev .ev-ask{font-size:.9rem;font-weight:600;margin:14px 0 6px;color:var(--ink);}
+.probe.ev .ev-prompt{background:#F4F4F0;border:1px dashed #6B7380;border-radius:6px;padding:12px 14px;font-size:.92rem;}
+.noai{margin:16px 0 20px}
+.noai-body{padding:0 20px 16px}
+.srcnote{border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0;margin:34px 0}
+.srcnote > summary{cursor:pointer;padding:14px 20px;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1rem;color:var(--ink);list-style:none}
+.srcnote > summary::-webkit-details-marker{display:none}
+.srcnote > summary::after{content:"\25BE";float:right;color:var(--pinktext);font-size:.8rem}
+.srcnote[open] > summary::after{content:"\25B4"}
+.srcnote .srcbody{padding:0 20px 18px}
+.srcnote .srcintro{font-size:.9rem;color:var(--gray);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+.srcnote dl{margin:0}
+.srcnote dt{font-family:'Inter',Arial,sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;margin:14px 0 4px}
+.srcnote dd{margin:0;font-size:.9rem;line-height:1.55;color:var(--gray)}
+.srcnote .srcfoot{margin-top:18px;padding-top:12px;border-top:1px solid var(--rule);font-size:.86rem;color:var(--gray)}
+h3.sub > span:first-child{color:var(--pinktext);font-family:'Inter',sans-serif;font-weight:700;font-size:.95em;margin-right:.45em}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.sim-note{font-size:.82rem;color:var(--gray);margin:-8px 0 14px}
+.mx-calm{margin:12px 0 0;padding:14px 18px}
+.mx-calm p{margin:0 0 8px;font-size:.92rem}
+.probe.ev .ev-body{font-family:'Inter',sans-serif;font-size:.92rem;line-height:1.55}
+.ev-point{font-family:'Fraunces',Georgia,serif;font-size:1.05rem;margin:0 0 10px}
+.ev-point b{color:var(--pinktext)}
+.ev-facts{margin:0 0 6px;padding-left:18px}
+.ev-facts li{margin:4px 0}
+.ev-src{font-size:.8rem;color:var(--gray);margin:6px 0 0}
+.printbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 6px;font-size:.9rem;color:var(--gray)}
+.printbar a.slidebtn{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border-radius:6px;text-decoration:none}
+.printbar a.slidebtn:hover{background:#242C36}
+.printbar a.slidebtn:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+/* ---- shared lab tools ---- */
+section[id],h3.sub[id]{scroll-margin-top:68px;}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.86em;background:#F3F3EE;padding:1px 5px;border-radius:4px;}
+.howto-in{border:1px solid var(--rule);background:var(--bg);padding:0;margin:0 0 18px;}
+.howto-in>summary{cursor:pointer;padding:10px 16px;font-weight:700;color:var(--pinktext);}
+.howto-in>summary:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.howto-in>p,.howto-in>ol{margin:0 16px 12px;font-size:.93rem;}
+.howto-in>ol{padding-left:20px;}
+.howto-in li{margin:4px 0;}
+.maillist{border-top:1px solid var(--rule);margin-bottom:14px;}
+.mailrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--rule);flex-wrap:wrap;}
+.msubj{font-size:.95rem;}
+.ctrlrow{margin:6px 0 16px;}
+.status{font-size:.88rem;color:var(--gray);}
+.learned{background:var(--bg);border:1px solid var(--rule);padding:12px 16px;margin:6px 0 4px;font-size:.92rem;}
+.learned p{margin:0 0 4px;}
+.tests{border-top:1px solid var(--rule);margin-top:6px;}
+.testrow{display:grid;grid-template-columns:1.6fr 1fr .8fr 1.3fr;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--rule);font-size:.9rem;}
+.tsubj{line-height:1.4;}
+.ttruth{display:block;font-size:.78rem;color:var(--gray);margin-top:2px;}
+.tscore{display:flex;align-items:center;gap:8px;}
+.sbar{flex:1;height:10px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;display:block;}
+.sbar span{display:block;height:100%;background:var(--ink);}
+.snum{min-width:26px;text-align:right;font-variant-numeric:tabular-nums;font-weight:600;}
+.tland{font-weight:600;}
+.ttag{font-size:.84rem;line-height:1.4;}
+.ttag.ok{color:var(--gray);}
+.ttag.bad{color:var(--pinktext);font-weight:700;}
+@media(max-width:640px){.testrow{grid-template-columns:1fr 1fr;}.tsubj{grid-column:1/-1;}}
+.readline{background:var(--bg);border-left:3px solid var(--pink);padding:10px 14px;margin:14px 0;font-size:.95rem;line-height:1.6;}
+.readline:empty{display:none;}
+.peekwrap{overflow-x:auto;margin:12px 0 16px;}
+table.peek{border-collapse:collapse;width:100%;font-size:.86rem;background:#fff;border:1px solid var(--rule);}
+table.peek th,table.peek td{padding:7px 10px;border-bottom:1px solid var(--rule);text-align:left;white-space:nowrap;}
+table.peek thead th{background:#F3F3EE;font-weight:600;}
+table.peek tbody th{font-weight:500;white-space:normal;}
+.rawbox{border:1px solid var(--rule);background:#fff;padding:12px 16px;margin:0 0 18px;display:grid;gap:6px;font-size:.95rem;}
+.rawbox .rk{display:inline-block;min-width:170px;font-weight:600;}
+.rawbox b,.refbox b,.rawinline b{color:var(--pinktext);}
+.ctrlgrid{display:grid;gap:12px;margin:4px 0 18px;}
+.ctrllbl{display:block;font-size:.85rem;font-weight:600;color:var(--gray);margin-bottom:6px;}
+.fixed{font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);border-radius:999px;background:#F3F3EE;color:var(--ink);}
+.equiv{grid-template-columns:repeat(4,1fr);}
+.equiv.three{grid-template-columns:repeat(3,1fr);}
+.equiv .cell .v{font-variant-numeric:tabular-nums;}
+@media(max-width:720px){.equiv,.equiv.three{grid-template-columns:1fr 1fr;}}
+.flag{display:block;font-family:'Inter',sans-serif;font-size:.74rem;font-weight:700;margin-top:2px;}
+.flag.bad{color:var(--pinktext);}
+.flag.ok{color:var(--gray);}
+.readline .flag{display:inline;font-size:.85rem;}
+.dotsbox{border:1px solid var(--rule);padding:14px 16px;margin:14px 0;}
+.dotrow{display:grid;grid-template-columns:90px 1fr;gap:12px;align-items:center;margin-bottom:10px;}
+.dotlbl{font-weight:600;font-size:.9rem;}
+.dots{display:grid;grid-template-columns:repeat(20,1fr);gap:3px;max-width:440px;}
+.dot{display:block;aspect-ratio:1;border-radius:2px;position:relative;}
+.dot.yes{background:var(--ink);}
+.dot.no{background:#fff;border:1px solid #6B7380;}
+.dot.miss{border:2px solid var(--pinktext);}
+.dot.miss::after{content:'';position:absolute;inset:30%;background:var(--pinktext);border-radius:50%;}
+.dotkey{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--gray);}
+.dotkey span::before{content:'';display:inline-block;width:11px;height:11px;margin-right:6px;vertical-align:-1px;border-radius:2px;box-sizing:border-box;}
+.dotkey .k-yes::before{background:var(--ink);}
+.dotkey .k-no::before{background:#fff;border:1px solid #6B7380;}
+.dotkey .k-miss::before{background:radial-gradient(circle,var(--pinktext) 30%,#fff 34%);border:2px solid var(--pinktext);}
+@media(max-width:480px){.dotrow{grid-template-columns:1fr;gap:4px;}}
+.wbox{border:1px solid var(--rule);padding:14px 16px;margin:14px 0;}
+.wtitle{font-weight:700;font-size:.92rem;margin-bottom:6px;}
+.wkey{display:flex;justify-content:space-between;font-size:.76rem;color:var(--gray);margin:0 0 6px 0;padding-left:calc(38% + 12px);padding-right:52px;}
+.wrow{display:grid;grid-template-columns:38% 1fr 40px;gap:12px;align-items:center;padding:5px 0;font-size:.88rem;}
+.wtrack{position:relative;height:12px;background:#F3F3EE;border-radius:3px;display:block;}
+.wmid{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:#6B7380;}
+.wfill{position:absolute;top:0;bottom:0;border-radius:2px;transition:width .3s ease;}
+.wfill.pos{background:var(--ink);}
+.wfill.neg{background:var(--pinktext);}
+.wval{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;}
+@media(max-width:560px){.wrow{grid-template-columns:1fr 1fr 36px;}.wkey{padding-left:0;padding-right:0;}}
+@media(prefers-reduced-motion:reduce){.wfill{transition:none;}}
+.pairbox{border:1px solid var(--rule);background:var(--bg);padding:14px 16px;margin:16px 0;}
+.pairwho{font-size:.92rem;margin:0 0 10px;}
+.pairgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;}
+.pcard{background:#fff;border:1px solid var(--rule);padding:12px 14px;display:grid;gap:2px;}
+.ptag{font-weight:700;font-size:.8rem;color:var(--pinktext);}
+.pdesc{font-size:.85rem;color:var(--gray);}
+.pnum{font-family:'Fraunces',serif;font-weight:700;font-size:1.8rem;font-variant-numeric:tabular-nums;}
+.pdec{font-size:.88rem;font-weight:600;}
+.cpbar{margin:8px 0 6px;}
+.cpstat{font-size:.85rem;color:var(--gray);}
+.csvbox{margin:8px 0;}
+.csvbox>summary{cursor:pointer;font-weight:600;color:var(--pinktext);font-size:.9rem;}
+.csvbox pre{max-height:220px;overflow:auto;background:#F3F3EE;border:1px solid var(--rule);padding:10px 12px;font-size:.78rem;line-height:1.45;margin-top:8px;}
+.csvbox pre:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.step>div{flex:1;min-width:0;}
+.step .probe{margin:10px 0 0;}
+.refbox p{margin-bottom:.7em;}
+
+.tis-note{font-size:.9rem;color:var(--gray);font-style:italic;margin:4px 0 16px;}
+.scen{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:16px 20px;margin:14px 0}
+.scen h4{font-family:'Fraunces',Georgia,serif;font-size:1.15rem;margin:0 0 2px}
+.scen .scen-who{font-size:.85rem;font-weight:600;color:var(--gray);margin:0 0 8px}
+.scen > p{margin:0 0 10px}
+.mx-why-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:4px 0 8px}
+@media(max-width:640px){.mx-why-grid{grid-template-columns:1fr}}
+.mx-why-grid ul{margin:0;padding-left:18px;font-size:.9rem;line-height:1.5}
+.mx-why-grid li{margin-bottom:4px}
+.mx-why-h{font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);margin:0 0 4px!important}
+.ev-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 10px}
+@media(max-width:560px){.ev-stats{grid-template-columns:1fr}}
+.ev-stats div{background:#fff;border:1px solid var(--rule);padding:8px 10px}
+.ev-stats b{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.5rem;color:var(--ink)}
+.ev-stats span{font-size:.78rem;color:var(--gray)}
+.cutbox{border:1px solid var(--rule);background:var(--bg);padding:14px 16px;margin:14px 0 6px;}
+.cuthelp{font-size:.92rem;margin:0 0 4px;}
+.cutbox .slider-row{grid-template-columns:200px 1fr 50px;margin:10px 0 2px;}
+.cutends{display:flex;justify-content:space-between;gap:12px;font-size:.78rem;color:var(--gray);margin:0 0 4px;padding-left:214px;padding-right:64px;}
+.equiv.two{grid-template-columns:1fr 1fr;margin-top:12px;}
+@media(max-width:560px){.cutbox .slider-row{grid-template-columns:1fr;}.cutends{padding:0;}}
+.wchip{display:inline-block;font-size:.76rem;font-weight:600;padding:1px 8px;border-radius:999px;margin:1px 0;}
+.wchip.sp{background:#fff;color:var(--pinktext);border:1px solid var(--pinktext);}
+.wchip.re{background:var(--ink);color:#fff;border:1px solid var(--ink);}
+.wnone{font-size:.78rem;color:var(--gray);}
+.twords{font-size:.85rem;line-height:1.7;}
+.twords .vs{color:var(--gray);font-size:.78rem;margin:0 2px;}
+.testrow{grid-template-columns:1.4fr 1.4fr .4fr .8fr 1.2fr;}
+.tscore .snum{font-family:'Fraunces',serif;font-size:1.2rem;}
+@media(max-width:640px){.testrow{grid-template-columns:1fr 1fr;}.tsubj,.twords{grid-column:1/-1;}}
+
+/* ---- Lab 7 tools ---- */
+.scenecard{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;border:1px solid var(--rule);background:var(--bg);padding:16px 18px;margin:0 0 14px;}
+.scenecard .emo{font-size:3.4rem;line-height:1;text-align:center;}
+.scenecard .sk{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+.scenecard .sd{font-family:'Fraunces',serif;font-size:1.08rem;margin-bottom:8px;}
+.feats{display:flex;flex-wrap:wrap;gap:6px;}
+.feat{font-size:.76rem;font-weight:600;padding:2px 9px;border-radius:999px;border:1px solid var(--rule);background:#fff;color:var(--ink);}
+.feat b{color:var(--pinktext);font-variant-numeric:tabular-nums;}
+@media(max-width:560px){.scenecard{grid-template-columns:1fr;}.scenecard .emo{text-align:left;}}
+.guess{font-size:.9rem;background:#fff;border:1px solid var(--rule);border-left:3px solid var(--ink);padding:8px 12px;margin:0 0 12px;}
+.guess:empty{display:none;}
+.netbox{border:1px solid var(--rule);background:#fff;padding:10px 12px 6px;margin:14px 0;}
+.netbox .nt{font-weight:700;font-size:.9rem;margin:0 0 2px;}
+.netbox .nk{font-size:.8rem;color:var(--gray);margin:0 0 6px;}
+.netbox svg{display:block;width:100%;height:auto;}
+.netbox svg text{font-family:'Inter',sans-serif;font-size:12px;fill:var(--ink);}
+.netbox svg text.dim{fill:var(--gray);font-size:11px;}
+.plist{display:grid;gap:6px;margin:10px 0 4px;}
+.prow{display:grid;grid-template-columns:110px 1fr 46px;gap:10px;align-items:center;font-size:.86rem;}
+.ptrack{height:12px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;display:block;}
+.ptrack span{display:block;height:100%;background:var(--ink);transition:width .3s ease;}
+.prow.top .ptrack span{background:var(--pinktext);}
+.prow .pv{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;}
+.trow{display:grid;grid-template-columns:54px 1.7fr 1fr 1fr;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--rule);font-size:.9rem;}
+.trow .te{font-size:1.9rem;text-align:center;}
+.trow .td small{display:block;color:var(--gray);font-size:.78rem;margin-top:2px;}
+.trow .tg b{font-variant-numeric:tabular-nums;}
+.trow.tail{background:#FBF3F6;}
+.trow.new{background:#F3F3EE;}
+@media(max-width:600px){.trow{grid-template-columns:44px 1fr 1fr;}.trow .td{grid-column:2/-1;}.trow .te{grid-row:span 2;}}
+.convwrap{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;margin:14px 0;}
+.convpanel{text-align:center;}
+.convpanel canvas{width:100%;max-width:260px;height:auto;image-rendering:pixelated;border:1px solid var(--rule);background:#fff;}
+.convpanel .cl{font-size:.8rem;font-weight:600;color:var(--gray);margin-top:4px;}
+.kern{border-collapse:collapse;margin:0 auto;font-variant-numeric:tabular-nums;font-size:.85rem;}
+.kern td{border:1px solid var(--rule);width:34px;height:30px;text-align:center;background:#fff;}
+.kern td.neg{color:var(--pinktext);font-weight:700;}
+.kern td.pos{color:var(--ink);font-weight:700;}
+.kcap{font-size:.75rem;color:var(--gray);text-align:center;margin-top:4px;max-width:120px;}
+@media(max-width:640px){.convwrap{grid-template-columns:1fr;}.kcap{max-width:none;}}
+.stages{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0;}
+.stage{border:1px solid var(--rule);background:#fff;padding:10px;text-align:center;}
+.stage canvas{width:100%;max-width:150px;height:auto;image-rendering:pixelated;border:1px solid var(--rule);}
+.stage .sn2{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pinktext);font-weight:700;}
+.stage .st{font-weight:600;font-size:.88rem;margin:2px 0 6px;}
+.stage .sv{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;}
+@media(max-width:640px){.stages{grid-template-columns:1fr 1fr;}}
+.rlchart{border:1px solid var(--rule);background:#fff;padding:10px 12px;margin:14px 0;}
+.rlchart svg{display:block;width:100%;height:auto;}
+.rlchart svg text{font-family:'Inter',sans-serif;font-size:11px;fill:var(--gray);}
+.board{border:1px solid var(--rule);background:#fff;margin:14px 0;}
+.brow{display:grid;grid-template-columns:1.4fr 1fr 110px;gap:12px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--rule);font-size:.92rem;}
+.brow:last-child{border-bottom:none;}
+.brow .bv{font-family:'Fraunces',serif;font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums;}
+.pill{display:inline-block;font-size:.76rem;font-weight:700;padding:3px 10px;border-radius:999px;text-align:center;}
+.pill.pass{background:var(--ink);color:#fff;}
+.pill.fail{background:#fff;color:var(--pinktext);border:2px solid var(--pinktext);}
+.pill.wait{background:#F3F3EE;color:var(--gray);}
+@media(max-width:560px){.brow{grid-template-columns:1fr 1fr;}.brow>span:first-child{grid-column:1/-1;}}
+.prog{height:8px;background:#EFEFEA;border:1px solid var(--rule);border-radius:999px;overflow:hidden;margin:8px 0 4px;}
+.prog span{display:block;height:100%;width:0;background:var(--pinktext);}
+.ingr{display:grid;gap:12px;margin:6px 0 14px;}
+.worldsvg{border:1px solid var(--rule);background:#fff;margin:14px 0 8px;}
+.worldsvg svg{display:block;width:100%;height:auto;}
+.checklist{list-style:none;margin:6px 0 12px;padding:0;font-size:.88rem;display:grid;gap:3px;}
+.checklist li{color:var(--gray);}
+.checklist li.done{color:var(--ink);}
+.checklist li.done::before{content:'\2713';color:var(--pinktext);font-weight:700;margin-right:8px;}
+.checklist li:not(.done)::before{content:'\2022';margin-right:8px;}
+.minitab{width:100%;border-collapse:collapse;font-size:.88rem;margin:10px 0;}
+.minitab th,.minitab td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule);}
+.minitab thead th{background:#F3F3EE;font-weight:600;}
+.minitab td.num{font-variant-numeric:tabular-nums;text-align:right;}
+.wrapx{overflow-x:auto;}
+@media(prefers-reduced-motion:reduce){.ptrack span{transition:none;}}
+
 </style>
 </head>
 <body>
@@ -234,7 +474,7 @@ ul.ideas li{margin:8px 0}
 <a href="chapter-04-medicine-lab.html"><span class="lbl">Lab 4 · Week 4</span>Inside the Graph</a>
 <a href="chapter-05-environment-lab.html"><span class="lbl">Lab 5 · Week 5</span>The Footprint Machine</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
-<a href="chapter-07-transportation-lab.html" class="current" aria-current="page"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
+<a href="chapter-07-transportation-lab.html" class="current" aria-current="page"><span class="lbl">Lab 7 · Week 7</span>The Bellingham Pitch</a>
 <a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
 <a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
 </div></div>
@@ -245,117 +485,562 @@ ul.ideas li{margin:8px 0}
 <header class="masthead">
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 7 · Week 7, Wednesday, in class</div>
-    <h1>You Are the City <b>Council</b></h1>
-    <p class="kicker">A robotaxi company has applied to operate in Bellingham. You sit on the council. Today you weigh the evidence, write the permit, or refuse it, and defend your conditions to the room. Refusal is a legitimate outcome. So is approval. Undefended is the only wrong answer.</p>
-    <p class="factline">Ten evidence cards · one decision · every condition has a cost</p>
+    <h1>The Bellingham <b>Pitch</b></h1>
+    <p class="kicker">You're a strategy analyst at a robotaxi company, and your boss wants to launch in Bellingham. Before you can pitch the city council, you have to understand what you're selling and what it costs the town. So today you open the car up. You train a tiny neural network to see the road, watch a filter scan a camera frame, write the reward function that teaches the car when to turn, and prompt a world model to invent a street it has never driven. Then you build the pitch math with Claude, crashes avoided on one side and driver work replaced on the other, decide what to offer the council before it asks, and debate the question underneath the whole chapter: a public health breakthrough, or a job killer?</p>
+    <p class="factline">a network you train on road scenes · a filter sliding across a camera frame · a reward function you write · a world model you prompt · the pitch math, built with Claude · the conditions you offer · one debate</p>
   </div>
 </header>
 
 <main class="wrap">
-<div class="callout">
-  <div class="label">How today runs</div>
-  <p>Almost all of this lab happens in class, right now, at the machine in front of you. Work through the sections in order. At the end there are five questions to upload to Canvas by 11:59 p.m. Friday, and most people finish most of them before they leave, so answer them as you go rather than saving them for later.</p>
-</div>
+
 <div class="callout">
   <div class="label">From Chapter 7 · what this lab runs on</div>
-  <p>The evidence cards are section 2.6 in practice: each is tagged by who's saying it, because the safety claim reads differently by source. The conditions you can attach to the permit are the chapter's Business implications, priced: reporting requirements are section 2.9's track-record keeper, school-zone limits are the long tail (2.8), and a fleet cap is the coverage map (2.7) written by a city instead of a company. Refusal is a legitimate outcome; undefended is the only wrong one.</p>
+  <p><strong>How today runs.</strong> Almost all of this lab happens in class, right now, at the machine in front of you. Work through the sections in order. At the end there are five questions to upload to Canvas by 11:59 p.m. Friday, November 6, and most people finish most of them before they leave, so answer them as you go.</p>
+  <p>Every toy here is one step of the loop from <a class="inline" href="chapter-07-transportation.html#s2-1">section 2.1</a>. Sections 1 and 2 are perception, the neural network and the convolutional network from <a class="inline" href="chapter-07-transportation.html#s2-2">section 2.2</a>, and the scenes they get wrong are <a class="inline" href="chapter-07-transportation.html#s2-8">section 2.8</a>'s long tail. Section 3 is planning, the reinforcement learning and reward function from <a class="inline" href="chapter-07-transportation.html#s2-3">section 2.3</a>. Section 4 is the simulator from the end of that section. Section 5 puts <a class="inline" href="chapter-07-transportation.html#s2-6">section 2.6</a>'s safety claim on a ledger next to <a class="inline" href="chapter-07-transportation.html#s4-3">section 4.3</a>'s drivers. Section 6 is <a class="inline" href="chapter-07-transportation.html#s4-5">section 4.5</a>'s three jobs for a manager: know who gains and who pays, bring a priced plan, and negotiate locally, with <a class="inline" href="chapter-07-transportation.html#s2-9">section 2.9</a>'s reporting condition on the table. Section 8 is <a class="inline" href="chapter-07-transportation.html#s4">section 4</a>'s argument, out loud.</p>
+  <p><strong>Your role.</strong> You work for the company, but you can't win this permit by only seeing the company's side. The council will weigh riders against drivers, crashes against paychecks. So will you, because the pitch that ignores the other column is the one that loses the vote.</p>
 </div>
 
+<section id="see">
+  <div class="shead"><span class="num">1</span><h2>In class: Teach it to see (a neural network on road scenes)</h2></div>
+  <p class="lead">A robotaxi's cameras don't see a pedestrian. They see numbers. A neural network turns those numbers into a label, and it learns how by being shown examples someone already labeled. Today that someone is you. About 12 minutes.</p>
+  <p>In a real car, the early layers of the network find the clues on their own, straight from the pixels (section 2 shows how). Here they're already found for you, as six clues scored 0 to 1: legs, wheels, tall and upright, moving fast, a big metal body, and flutters like it weighs nothing. Your labels decide what the clues mean.</p>
 
-<section>
-  <div class="shead"><span class="num">1</span><h2>In class: Weigh the evidence</h2></div>
-  <p class="lead">Below are ten evidence cards drawn from the real robotaxi record. Each is tagged with its source type, company data, journalism, independent research, advocacy, or local context, because a council that weighs all sources equally isn't weighing at all. Read each card, then mark it: does it move you toward yes, toward no, or neither? Your running lean shows at the bottom. Mark honestly; you'll be asked to explain any gap between your evidence and your vote.</p>
+  <div class="tool" id="see-tool">
+    <div class="label">Mini-Perception · teach a network what's on the road</div>
+    <details class="howto-in" open>
+      <summary>Your job</summary>
+      <ol>
+        <li><strong>Label ten scenes</strong> as Pedestrian, Cyclist, Vehicle, or Ignore (things the car can drive through, like a bag or a shadow). After each one, the network retrains on everything you've labeled so far.</li>
+        <li><strong>Watch it guess first.</strong> From the second scene on, the network guesses before you answer. Watch the guesses get better, and watch the lines in the diagram thicken as it settles on what matters.</li>
+        <li><strong>Press Test it on new scenes.</strong> Eight scenes it has never seen arrive. Five are ordinary. Three come from the long tail.</li>
+        <li><strong>Then fix it the way a company would</strong>, with more data. Add four rare scenes the data team labeled, and test again.</li>
+      </ol>
+    </details>
 
-  <div class="tool">
-    <div class="label">The evidence · mark every card</div>
-    <div id="cards"></div>
-    <div class="verdict" id="leanbox" hidden>
-      <div class="label">Your evidence lean</div>
-      <div class="bars">
-        <div class="bar safe" id="bar-yes"><span>Toward approval</span><div class="track"><div class="fill"></div></div><span class="n">0</span></div>
-        <div class="bar" id="bar-no"><span>Toward denial</span><div class="track"><div class="fill"></div></div><span class="n">0</span></div>
-        <div class="bar" id="bar-neu" style="opacity:.7;"><span>Neutral / canceled out</span><div class="track"><div class="fill" style="background:#39424D;"></div></div><span class="n">0</span></div>
-      </div>
-      <p class="read" id="leanread"></p>
+    <div id="see-card" class="scenecard" aria-live="polite"></div>
+    <div id="see-guess" class="guess" aria-live="polite"></div>
+    <div class="chips ctrlrow" role="group" aria-label="Label this scene">
+      <button type="button" class="chip" data-lab="0">Pedestrian</button>
+      <button type="button" class="chip" data-lab="1">Cyclist</button>
+      <button type="button" class="chip" data-lab="2">Vehicle</button>
+      <button type="button" class="chip" data-lab="3">Ignore</button>
     </div>
+    <p class="status" id="see-status" aria-live="polite">Scene 1 of 10. Label it.</p>
+
+    <div class="netbox">
+      <p class="nt">The network, as you've trained it</p>
+      <p class="nk">Six clues in, two hidden layers, four labels out. Each line is a weight, one of the dials from section 2.2. Thicker means it matters more. Dark lines push toward a label; pink lines push away. A real network has billions of these.</p>
+      <div id="see-net"></div>
+      <div id="see-probs" class="plist" aria-live="polite"></div>
+    </div>
+
+    <div class="chips ctrlrow">
+      <button type="button" class="btn" id="see-test" disabled>Test it on new scenes</button>
+      <button type="button" class="btn alt" id="see-add" hidden>Add four rare scenes the data team labeled</button>
+      <button type="button" class="btn alt" id="see-reset">Clear and start over</button>
+    </div>
+    <div id="see-tests" class="tests"></div>
+    <p class="readline" id="see-read" aria-live="polite"></p>
+    <p class="sim-note">Invented scenes, a real network: 6 inputs, hidden layers of 4 and 3, 4 outputs, trained by backpropagation in your browser. Nothing is saved.</p>
   </div>
-</section>
 
-<section>
-  <div class="shead"><span class="num">2</span><h2>In class: Write the permit</h2></div>
-  <p>Now decide. If you approve with conditions, choose them below, but read the fine print on each: <strong>every condition has a cost</strong>, usually the risk that the operator walks away, delays, or passes the cost to riders. A permit made entirely of conditions is a denial wearing a costume; a permit with none is a yes you'll own alone. The tool will read your decision back to you, and it will notice if your vote and your evidence disagree.</p>
-
-  <div class="tool">
-    <div class="label">The council's decision</div>
-    <div class="chips" id="decision" style="margin-bottom:18px;">
-      <button type="button" class="chip" data-d="approve">Approve</button>
-      <button type="button" class="chip" data-d="conditions">Approve with conditions</button>
-      <button type="button" class="chip" data-d="delay">Delay, revisit in 12 months</button>
-      <button type="button" class="chip" data-d="deny">Deny</button>
-    </div>
-    <div id="condwrap" hidden>
-      <div class="label">Conditions · check all you'd require</div>
-      <div id="conds"></div>
-    </div>
-    <div class="chips" style="margin-top:16px;">
-      <button type="button" class="btn" id="issue" disabled>Issue the council's decision</button>
-    </div>
-    <div class="verdict" id="permit" hidden>
-      <div class="label">The record of your decision</div>
-      <p class="read" id="permitread"></p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="shead"><span class="num">3</span><h2>In class: Inside the machine, what the car is doing while you decide</h2></div>
-  <p>While the council debates, the system it's debating runs the loop from Chapter 7's section 2.1 about ten times a second: sense, perceive, predict, plan, act. The evidence cards you weighed are mostly about steps two and three, because that's where the failures live. A crash statistic is a claim about how often perception and prediction got it right; a school-bus video is one time they didn't, at the long tail (2.8). The coverage map on one of your cards is the operational design domain (2.7): the streets, speeds, and weather the loop has been proven on, and the edge where the car stops and asks a remote assistant instead of guessing.</p><p>Now look at your permit conditions again with the loop in mind. Crash reporting to the city is you deciding who keeps the track record (2.9). A speed limit near schools is you shortening the tail on the step that fails there. A fleet cap is a coverage map written by a city instead of a company. None of your conditions touches the model, because a city can't. Every one of them touches what surrounds it, which is the same lesson as Chapter 11's cameras: the rules are where the public's hands are.</p>
-</section>
-
-<section>
-  <div class="shead"><span class="num">4</span><h2>In class: Public good, and the people it displaces</h2></div>
   <div class="callout">
-    <div class="label">Debate · in class, about 20 minutes · sides assigned, speak for one, then switch</div>
-    <p><strong>How it runs, every week.</strong> Sides are assigned, not chosen, so you're never defending your own belief. Two minutes with your partner to find your side's best point and its honest cost. Three minutes a side. Then everyone switches and does it again. Last five minutes: what would change your mind? Say it out loud. The person who names the evidence that would move them wins, whichever side they were on.</p>
-    <p>Your permit priced the company's costs. This debate is about the ones the permit form doesn't have a line for.</p><ul class="ideas"><li><strong>Motion 1: a city should approve robotaxis if the independent safety data holds, because fewer crashes is a public good that outweighs the jobs lost.</strong> For: human drivers kill tens of thousands a year; if the numbers are real, refusing is choosing those deaths. Against: "if the numbers are real" is doing all the work, the company keeps the numbers, and the lives saved are statistical while the drivers displaced are people with names.</li><li><strong>Motion 2: a city that approves robotaxis should require the operator to fund transition support for displaced drivers.</strong> For: the operator captures the profit from the drivers' removal, so it should carry the cost; a per-ride fee would do it. Against: every dollar of fee is a reason to launch in the next city instead, and the drivers there don't get support either.</li></ul><p>Then the regulation question Chapter 7 hands to Chapter 11: should this be a city decision at all, or a state one? Bellingham can set conditions Olympia can't police, and Olympia can set conditions Bellingham can't enforce. Whoever decides, name what they can and can't compel.</p>
+    <div class="label">Is this real?</div>
+    <p>The child stepping out from behind a parked SUV is. On January 23, 2026, a Waymo struck a child who ran into the street from behind a double-parked SUV, two blocks from a Santa Monica elementary school at drop-off time. The child had minor injuries. Waymo says its car braked from about 17 mph to under 6 before contact, and that its model shows a fully attentive human would have hit the child at about 14. Federal regulators opened an investigation into how the car behaves around schools (<a class="inline" href="https://static.nhtsa.gov/odi/inv/2026/INOA-PE26001-10005.pdf" target="_blank" rel="noopener">NHTSA</a>, <a class="inline" href="https://www.axios.com/2026/01/29/waymo-accident-santa-monica-nhtsa" target="_blank" rel="noopener">Axios</a>). A partly hidden person is the long tail at its hardest: most of what the camera sees is the SUV.</p>
   </div>
+
+  <p>That's deep learning, small. Labeled examples go in, weights come out, and every new scene gets a label and a confidence. Three things to carry forward.</p>
+  <p><strong>It learned your labels, not the world.</strong> It never knew what a pedestrian is. It learned which clues went with the word you clicked.</p>
+  <p><strong>It was confidently wrong.</strong> Look at the confidence on the three rare scenes before you added data. A network doesn't know what it hasn't seen, so it doesn't know to be unsure. That's why a robotaxi has an operational design domain (<a class="inline" href="chapter-07-transportation.html#s2-7">section 2.7</a>): the company decides where it's allowed to be confident, because the network can't.</p>
+  <p><strong>More data shortened the tail, and the tail kept going.</strong> Four labeled scenes fixed most of the failures, and the hardest one, a child mostly hidden by an SUV, is still hard, because most of what the camera sees there really is an SUV. Then a person on a horse showed up, and your four labels don't even have a box for it. That's every recall in section 2.8, one at a time.</p>
+  <div class="callout"><div class="label">For the pitch</div><p>The first question at the hearing will be some version of "what does your car do with something it has never seen?" The honest answer is "sometimes it's confidently wrong, so we limit where it drives." That answer is an offer with a cost: a smaller service area at launch, and fewer rides to bill.</p></div>
 </section>
 
-<section>
-  <div class="shead"><span class="num">5</span><h2>In class: Defend it to the room</h2></div>
-  <p>Wednesday's Q&amp;A half runs on this: councils pair up and cross-examine. Trade decisions with another student and ask each other, in order: Which single card moved you most, and why that one? Which condition would you drop first if the operator threatened to walk? And the chapter's question in local clothes, whose trust matters more for this permit, the riders' or the pedestrians'? Take notes; the writeup asks what the cross-examination changed.</p>
-  <p>Then bring in one more adversary, a live one. Paste your issued permit into an AI chatbot with this prompt: <i>“You are the robotaxi operator's counsel. My city council just issued this permit. Argue against my two most burdensome conditions, make the strongest case that we'll walk away or that riders lose out.”</i> You just hired the lobbyist every real council faces. Note its single strongest rebuttal, and whether your condition survives it. If the AI's argument moved you where your partner's didn't, that goes in the writeup too: fluent opposition is now cheap, on every side of every hearing.</p>
-</section>
+<section id="conv">
+  <div class="shead"><span class="num">2</span><h2>In class: How the network sees a frame (a convolutional filter)</h2></div>
+  <p class="lead">In section 1 the clues were handed to you. A real car finds its own, straight from the camera's pixels, with a convolutional network: small filters that slide across the whole frame looking for one pattern each. Here's one filter, sliding. About 6 minutes.</p>
 
-<section>
-  <div class="shead"><span class="num">6</span><h2>In class: Run the five questions</h2></div>
-  <div class="fourq">
-    <div class="q"><span class="qn">1</span><p><strong>What is it, and what does it do?</strong> You just regulated a system you can't inspect. What did you actually evaluate instead, and is that what regulators of AI are always really evaluating?</p></div>
-    <div class="q"><span class="qn">2</span><p><strong>Why does it exist, and who benefits?</strong> Who benefits from your permit as written: the company, the riders, the city, the drivers it replaces? Who paid for each condition you added?</p></div>
-    <div class="q"><span class="qn">3</span><p><strong>What happens when it fails, and who finds out?</strong> Under your permit, when the first incident happens on Holly Street: who answers to whom, in what order, and which condition guarantees the public hears about it? If none, was that a choice or an oversight?</p></div>
-    <div class="q"><span class="qn">4</span><p><strong>Who's saying that, and how would we know?</strong> The evidence cards came from the company, the regulator, the press, and a union. Which did you weight most, why, and what would have changed your vote?</p></div>
-    <div class="q"><span class="qn">5</span><p><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Your permit is the decision. Name its total cost, who bears it, and the one condition you'd drop if the company walked.</p></div>
+  <div class="tool" id="conv-tool">
+    <div class="label">Mini-Camera · slide a filter across one frame</div>
+    <details class="howto-in" open>
+      <summary>Your job</summary>
+      <ol>
+        <li><strong>Pick a filter</strong> and press Slide the filter. The pink box is a 3 by 3 filter. At each spot it multiplies nine pixels by its nine numbers and adds them up. A big total means "my pattern is here." That total becomes one square on the map at right.</li>
+        <li><strong>Read the four layers</strong> below the frame: the pixels, the edges both filters found, the shapes made by combining edges, and the network's verdict.</li>
+        <li><strong>Change the weather</strong> to rain, then fog, and slide again. Watch what happens to the edges, then to the verdict.</li>
+      </ol>
+    </details>
+    <div class="ctrlgrid">
+      <div><span class="ctrllbl" id="cf-lbl">Filter</span>
+        <div class="chips" role="group" aria-labelledby="cf-lbl">
+          <button type="button" class="chip on" aria-pressed="true" data-filt="v">Up-and-down edges</button>
+          <button type="button" class="chip" aria-pressed="false" data-filt="h">Side-to-side edges</button>
+        </div></div>
+      <div><span class="ctrllbl" id="cw-lbl">Weather</span>
+        <div class="chips" role="group" aria-labelledby="cw-lbl">
+          <button type="button" class="chip on" aria-pressed="true" data-wx="clear">Clear day</button>
+          <button type="button" class="chip" aria-pressed="false" data-wx="rain">Heavy rain</button>
+          <button type="button" class="chip" aria-pressed="false" data-wx="fog">Thick fog</button>
+        </div></div>
+    </div>
+    <div class="convwrap">
+      <div class="convpanel"><canvas id="conv-in" width="200" height="240" role="img" aria-label="Camera frame: a person standing at a curb"></canvas><div class="cl">The camera frame, 20 by 24 pixels</div></div>
+      <div><table class="kern" id="conv-kern" aria-label="Filter numbers"></table><p class="kcap">The filter's nine numbers. In a trained network, nobody sets these. Training does.</p></div>
+      <div class="convpanel"><canvas id="conv-out" width="180" height="220" role="img" aria-label="Feature map, empty until you slide the filter"></canvas><div class="cl">What the filter found (its feature map)</div></div>
+    </div>
+    <div class="chips ctrlrow">
+      <button type="button" class="btn" id="conv-run">Slide the filter</button>
+      <span class="status" id="conv-status" aria-live="polite">Press Slide the filter.</span>
+    </div>
+    <div class="stages" id="conv-stages">
+      <div class="stage"><div class="sn2">Layer 1</div><div class="st">Pixels</div><canvas id="st1" width="100" height="120" aria-hidden="true"></canvas></div>
+      <div class="stage"><div class="sn2">Layer 2</div><div class="st">Edges</div><canvas id="st2" width="90" height="110" aria-hidden="true"></canvas></div>
+      <div class="stage"><div class="sn2">Layer 3</div><div class="st">Shapes</div><canvas id="st3" width="90" height="110" aria-hidden="true"></canvas></div>
+      <div class="stage"><div class="sn2">Layer 4</div><div class="st">Verdict</div><div class="sv" id="st4v">?</div><div id="st4t" class="cl">pedestrian</div></div>
+    </div>
+    <p class="readline" id="conv-read" aria-live="polite"></p>
+    <p class="sim-note">Two hand-set filters so you can watch them work, plus a simplified shape layer and verdict. Nothing is saved.</p>
   </div>
+
+  <p><strong>Why "convolutional."</strong> The filter never changes as it slides. The same nine numbers check every spot in the frame, which is why the network can find a person on the left edge, the right edge, or dead center. Stack layers and the filters build on each other: edges become arms and wheels, those become people and cars. That's the 2012 ImageNet idea from Chapter 1, running many times a second on every camera.</p>
+  <p><strong>Why the weather mattered.</strong> A filter only fires when the match is strong enough. Fog washed out the contrast, so the edges fell under that line and the shapes never formed. Rain added noise, so the filter fired on raindrops too. Nothing about the code changed. The frame did. That's why a coverage map lists weather (section 2.7), and it's why the camera isn't the car's only sensor: lidar and radar see through what blinds a camera, and sensor fusion has to decide whom to believe (section 2.2).</p>
+  <div class="callout"><div class="label">For the pitch</div><p>Bellingham rains, and none of the five cities in your company's safety record is this wet. Offering a wet-season test period before full service costs you a season of revenue. Not offering it means your first rainy-night mistake is the headline, and the council will remember you didn't offer.</p></div>
+</section>
+<section id="decide">
+  <div class="shead"><span class="num">3</span><h2>In class: Teach it to decide (reinforcement learning at a left turn)</h2></div>
+  <p class="lead">Seeing isn't driving. Once the car knows what's out there, it still has to decide what to do, and there's no labeled right answer for that. So the planner learns by trial and error: try, get a score, adjust. That's reinforcement learning, and the score sheet is the reward function. You write it. About 12 minutes.</p>
+  <p>The task is an unprotected left turn: no green arrow, oncoming traffic, and the car has to pick a gap. Go too early and it risks a crash. Wait too long and it blocks traffic, annoys the rider, and ends up in someone's video. The car's whole habit comes down to one number it learns: how big a gap it needs before it goes. And because perception is never perfect, the car misjudges gaps a little, which is exactly what section 1 showed you.</p>
+
+  <div class="tool" id="rl-tool">
+    <div class="label">Mini-Planner · write the reward function, then let the car practice 2,000 turns</div>
+    <details class="howto-in" open>
+      <summary>Your job</summary>
+      <ol>
+        <li><strong>Start with the chapter's score sheet</strong> (section 2.3's table) and press Train. The car tries 2,000 left turns. Early on it experiments; as the scores pile up, it settles on the habit that scores best.</li>
+        <li><strong>Read what it learned</strong>, then the safety board. The board tests the habit on 300 new turns. It passes only if at least 95 percent finish, there's at most 1 crash, and the average wait is under 8 seconds.</li>
+        <li><strong>Try the other two presets.</strong> Each fails the board a different way. Why?</li>
+        <li><strong>Then write your own.</strong> Find a score sheet you could defend to the board and to the rider.</li>
+      </ol>
+    </details>
+    <div class="chips ctrlrow" role="group" aria-label="Preset score sheets">
+      <span class="ctrllbl" style="margin:0 6px 0 0">Presets:</span>
+      <button type="button" class="chip" data-pre="chapter">The chapter's score sheet</button>
+      <button type="button" class="chip" data-pre="timid">Never get blamed</button>
+      <button type="button" class="chip" data-pre="hurry">Get there fast</button>
+    </div>
+    <div class="slider-row"><label for="rw-done">Points for finishing the turn</label><input type="range" id="rw-done" min="0" max="20" step="1" value="10"><output id="rw-done-o" for="rw-done">+10</output></div>
+    <div class="slider-row"><label for="rw-crash">Points lost for a crash</label><input type="range" id="rw-crash" min="0" max="1000" step="10" value="1000"><output id="rw-crash-o" for="rw-crash">&minus;1000</output></div>
+    <div class="slider-row"><label for="rw-close">Points lost for a close call</label><input type="range" id="rw-close" min="0" max="50" step="1" value="15"><output id="rw-close-o" for="rw-close">&minus;15</output></div>
+    <div class="slider-row"><label for="rw-wait">Points lost per second of waiting</label><input type="range" id="rw-wait" min="0" max="5" step="0.1" value="1"><output id="rw-wait-o" for="rw-wait">&minus;1.0</output></div>
+    <div class="chips ctrlrow">
+      <button type="button" class="btn" id="rl-train">Train (2,000 turns)</button>
+      <button type="button" class="btn alt" id="rl-reset">Back to the chapter's sheet</button>
+    </div>
+    <div class="prog" aria-hidden="true"><span id="rl-prog"></span></div>
+    <p class="status" id="rl-status" aria-live="polite">Set the score sheet, then press Train.</p>
+    <div class="equiv">
+      <div class="cell"><div class="v" id="rl-ok">0</div><div class="k">turns finished cleanly</div></div>
+      <div class="cell"><div class="v" id="rl-close">0</div><div class="k">close calls</div></div>
+      <div class="cell"><div class="v" id="rl-crash">0</div><div class="k">crashes</div></div>
+      <div class="cell"><div class="v" id="rl-time">0</div><div class="k">gave up after 30 seconds</div></div>
+    </div>
+    <div class="rlchart"><svg id="rl-chart" viewBox="0 0 640 200" role="img" aria-label="Learning curve: the car's average score, every 100 practice turns"></svg></div>
+    <div class="board" id="rl-board" aria-live="polite">
+      <div class="brow"><span><strong>What the car learned</strong></span><span class="bv" id="rl-habit">?</span><span></span></div>
+      <div class="brow"><span>Turns finished, of 300 new ones (need 285 or more)</span><span class="bv" id="b-done">?</span><span class="pill wait" id="p-done">not tested</span></div>
+      <div class="brow"><span>Crashes (need 1 or fewer)</span><span class="bv" id="b-crash">?</span><span class="pill wait" id="p-crash">not tested</span></div>
+      <div class="brow"><span>Average wait (need under 8 seconds)</span><span class="bv" id="b-wait">?</span><span class="pill wait" id="p-wait">not tested</span></div>
+    </div>
+    <p class="readline" id="rl-read" aria-live="polite"></p>
+    <p class="sim-note">A toy model, not Waymo's, which isn't published. Gaps, misjudgments, and crash odds are invented; the learning is real trial and error in your browser, so two runs can settle on slightly different habits. Nothing is saved.</p>
+  </div>
+
+  <p><strong>The car didn't learn to drive well. It learned to score well.</strong> When the sheet barely punished waiting, the car waited, forever, because nothing told it a rider was getting angry. When the sheet barely punished crashes, it took gaps a person never would. Every time, it did exactly what the numbers said. Nobody voted on those numbers. Someone in a product meeting picked them.</p>
+  <p>That's why section 2.3 calls the reward function strategy. Early Waymo cars were famously timid, so in 2025 the company tuned them to be more assertive, and the street felt it: lane changes without signaling, and one illegal U-turn in San Bruno with nobody in the driver's seat. Somebody moved a slider like yours.</p>
+  <div class="callout"><div class="label">For the pitch</div><p>The council can't read your model, but it could read your score sheet: what the car is rewarded for and how much. Offering to show it to an independent reviewer costs you a piece of strategy competitors would love to see. Refusing costs you trust, and after the San Bruno U-turn, "trust us" is a weak pitch.</p></div>
 </section>
 
-<section>
-  <div class="shead"><span class="num">7</span><h2>For homework: The writeup</h2></div>
-    <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday.</strong></p>
-  <ol class="writeup">
-      <li><strong>The evidence.</strong> Your lean tally (screenshot), plus the one card you weighted most and the one you deliberately discounted, with the source-type reasoning for both.</li>
-      <li><strong>The decision.</strong> Your issued permit (screenshot), and a defense of your two most important conditions, or of choosing none, or of denial.</li>
-      <li><strong>The cross-examination.</strong> What your partner's hardest question was, and whether anything in your permit changed because of it.</li>
-      <li><strong>The five questions.</strong> Your answers, treating your own permit as the system under review.</li>
-      <li><strong>Your move.</strong> Your entry-ticket instinct vs. your final vote: did the evidence move you, and which specific card did it? One sentence naming what it takes to change your mind, that's Wednesday's commitment card.</li>
+<section id="world">
+  <div class="shead"><span class="num">4</span><h2>At home: Let it practice where it's never been (a world model)</h2></div>
+  <p class="lead">Your planner just practiced 2,000 left turns. A real one can't practice by crashing real cars, and the long tail is too rare to wait for. So it practices inside a world model: an AI that has learned how the world looks and moves from huge amounts of video, and can generate a street that never happened. About 6 minutes, and this one is for after class, before you write item 2.</p>
+
+  <div class="tool" id="world-tool">
+    <div class="label">Mini-World · prompt a scene the fleet has never driven</div>
+    <details class="howto-in" open>
+      <summary>Your job</summary>
+      <ol>
+        <li><strong>Pick one ingredient from each row</strong> and press Build this scene. The world model doesn't look the scene up. It composes it, one layer at a time, from things it learned separately.</li>
+        <li><strong>Read the two numbers</strong>: roughly how many miles of real driving it would take to run into this once, and how that compares with the miles the whole fleet has actually driven.</li>
+        <li><strong>Build at least three.</strong> Make one as weird as you can. Then try the last wildcard and see what a world model can't do.</li>
+      </ol>
+    </details>
+    <div class="ingr" id="world-ingr"></div>
+    <div class="chips ctrlrow">
+      <button type="button" class="btn" id="world-build">Build this scene</button>
+      <button type="button" class="btn alt" id="world-reset">Clear and start over</button>
+    </div>
+    <div class="worldsvg"><svg id="world-svg" viewBox="0 0 640 300" role="img" aria-label="The generated scene appears here"></svg></div>
+    <ul class="checklist" id="world-check" aria-live="polite"></ul>
+    <div class="equiv three">
+      <div class="cell"><div class="v" id="w-miles">?</div><div class="k">miles of real driving to meet this once (rough)</div></div>
+      <div class="cell"><div class="v" id="w-fleet">?</div><div class="k">times the whole fleet has likely met it, in about 271 million real miles</div></div>
+      <div class="cell"><div class="v" id="w-count">0</div><div class="k">scenes you've built</div></div>
+    </div>
+    <p class="readline" id="world-read" aria-live="polite"></p>
+    <p class="sim-note">The rarity multipliers are invented, order of magnitude only; the point is that rare things multiply. The 271 million is Waymo's reported driverless miles through June 2026. Nothing is saved.</p>
+  </div>
+
+  <div class="callout">
+    <div class="label">Is this real?</div>
+    <p>Yes. In February 2026 Waymo announced the Waymo World Model, built on Google DeepMind's Genie 3, a general world model trained on a very large and varied set of videos. Because Genie 3 learned from video of everything, not just driving, Waymo says it can generate scenes its fleet has never seen, including an elephant in the road, and produce both camera and lidar views of them. Engineers can steer it with plain-language prompts, much like your ingredient rows (<a class="inline" href="https://blog.waymo.com/blog/2026/02/the-waymo-world-model-a-new-frontier-for-autonomous-driving-simulation" target="_blank" rel="noopener">Waymo</a>). The announcement didn't include independent tests of how realistic the scenes are.</p>
+  </div>
+
+  <p><strong>Practice can be manufactured; reality can't.</strong> Your weirdest scene might take more real miles than the fleet will ever drive, and the world model made it in a second. That's why simulated miles outnumber real ones by a wide margin (section 2.3), and why a competitor can't catch up just by buying the same sensors. But look at the last wildcard. A world model only recombines what's in its video. A simulated pedestrian is the model's idea of a pedestrian, so the practice is honest where the data was and silent where it wasn't.</p>
+  <div class="callout"><div class="label">For the pitch</div><p>Simulation is your best answer to "you've never driven here." You can stage a Bellingham November before the first car arrives. But it's your simulation, scored by your company. Paying for an outside party to test Bellingham-specific scenarios costs money and control, and it's the only version of the answer the council can check.</p></div>
+</section>
+<section id="ledger">
+  <div class="shead"><span class="num">5</span><h2>In class: Build the pitch math with Claude</h2></div>
+  <details class="srcnote noai">
+    <summary>Don't want to use AI? Do this instead</summary>
+    <div class="noai-body">
+      <p>Same 20 minutes, no chatbot. You'll build the same ledger in a spreadsheet, the way an analyst would before a pitch meeting.</p>
+      <ol>
+        <li><strong>Open a blank Google Sheet.</strong> In A1 to A4 type the labels <em>robotaxi miles per year</em>, <em>share of the claim I trust</em>, <em>miles per driver hour</em>, <em>driver pay per hour</em>. In B1 to B4 type <code>10000000</code>, <code>1</code>, <code>15</code>, <code>20</code>. Those are assumptions, not facts.</li>
+        <li><strong>Crashes avoided.</strong> Waymo reports 841 fewer injury crashes and 55 fewer serious-or-worse crashes across 271.3 million driverless miles. In B6 type <code>=841/271.3*B1/1000000*B2</code> for injury crashes avoided a year, and in B7 <code>=55/271.3*B1/1000000*B2</code> for serious ones.</li>
+        <li><strong>Driver work replaced.</strong> In B9 type <code>=B1/B3</code> for driver hours, in B10 <code>=B9/2000</code> for full-time driver jobs, and in B11 <code>=B9*B4</code> for driver earnings.</li>
+        <li><strong>Check yourself</strong> against the reference numbers below.</li>
+        <li><strong>Change B2</strong> to the share of the safety claim you think the council will actually believe, and say why. Then list two things this ledger can't see.</li>
+      </ol>
+    </div>
+  </details>
+  <p class="lead">Every robotaxi permit fight is a fight about a ledger: lives on one side, livelihoods on the other. The council will build one whether you do or not, so build it first. You'll ask Claude for a small interactive page that turns Waymo's published safety numbers, standing in for your company's record, and a few assumptions about Bellingham into both columns. Then you check it. About 20 minutes; finish at home if you need to.</p>
+
+  <h3 class="sub" id="ledger-job"><span>Your job</span></h3>
+  <p>Your boss asks: <strong>if our cars drive 10 million miles a year in Bellingham, what can we promise the city, and what will the drivers' side say it costs them?</strong> The second number matters as much as the first. If you don't bring it, the drivers will, and theirs won't be friendly. <strong>You're the person in the loop.</strong> Claude writes the code. You decide which numbers are facts, which are guesses, and whether the math is right.</p>
+
+  <div class="callout"><div class="label">Free accounts run out of messages</div><p>Building a page uses a free Claude account's messages up fast, because Claude rewrites the whole page every time you send something. If you hit the limit, Claude tells you when your messages come back, and your chat and page are saved. Send each step once, and if a check turns up problems, list every fix in one message.</p></div>
+
+  <h3 class="sub" id="ledger-steps"><span>Step by step</span></h3>
+  <div class="steps">
+    <div class="step"><span class="sn">1</span><div>
+      <p><strong>Copy the prompt</strong>, paste it into a new chat at claude.ai, and send it.</p>
+      <div class="probe"><div class="ptext" id="prompt-ledger">Build me an interactive web page called "The Bellingham robotaxi ledger," for a robotaxi company preparing to ask the Bellingham city council for a permit. Use plain HTML and JavaScript with no libraries, and make it easy to read on a phone. Two columns. Left column, crashes: Waymo reports that across 271.3 million driverless miles through June 2026, its cars were involved in 841 fewer injury crashes and 55 fewer serious-injury-or-worse crashes than human drivers would have been on the same roads. Turn those into crashes avoided per million miles. Right column, driver work: the hours of paid human driving those robotaxi miles would replace. Give me four sliders: robotaxi miles driven in Bellingham per year (1 to 30 million, start at 10 million); how much of the claimed safety benefit the council will believe (0 to 100 percent, start at 100); miles a human driver covers per paid hour (5 to 30, start at 15); and driver pay per hour (10 to 40 dollars, start at 20). Show injury crashes avoided per year, serious-or-worse crashes avoided per year, driver hours replaced per year, the full-time driver jobs that equals at 2,000 hours a year each, and driver earnings replaced per year. Under each number, show the formula in plain words, and tag every input as "the company's claim," "my assumption," or "math." At the bottom, add an empty box called "What this ledger can't see."</div></div>
+      <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#prompt-ledger">Copy the prompt</button><span class="cpstat" aria-live="polite"></span></div>
+    </div></div>
+    <div class="step"><span class="sn">2</span><div>
+      <p><strong>Check the math.</strong> With every slider at its starting value, your page should match the reference below. If a number is off, tell Claude which one and ask it to show its formula.</p>
+    </div></div>
+    <div class="step"><span class="sn">3</span><div>
+      <p><strong>Ask whose numbers these are.</strong> Send this, then compare the answer with <a class="inline" href="chapter-07-transportation.html#s2-6">section 2.6</a>:</p>
+      <div class="probe"><div class="ptext" id="prompt-whose">Which inputs on this page come from the company, which are my guesses, and which are math? For the company's numbers, what do they compare, where were they collected, and who counted? What would an independent check look like?</div></div>
+      <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#prompt-whose">Copy</button><span class="cpstat" aria-live="polite"></span></div>
+    </div></div>
+    <div class="step"><span class="sn">4</span><div>
+      <p><strong>Set the trust slider to what the council will actually believe</strong>, and change any assumption you think is wrong for Bellingham. Bellingham gets a lot of rain and the occasional snow; Waymo's numbers come from Phoenix, San Francisco, Los Angeles, Austin, and Atlanta. Does that change what you trust?</p>
+    </div></div>
+    <div class="step"><span class="sn">5</span><div>
+      <p><strong>Think of two things the ledger can't see</strong> before you ask. Then send: <em>"What important costs or benefits does this ledger leave out? Name at least three on each side."</em> Did it find yours? Did it find something you missed? Add the best ones to the box at the bottom.</p>
+    </div></div>
+    <div class="step"><span class="sn">6</span><div>
+      <p><strong>Save it.</strong> Download the page from Claude as an HTML file (or print it to PDF). You'll use it in section 6, attach it to writeup item 3, and want it open during the debate.</p>
+    </div></div>
+  </div>
+
+  <div class="callout refbox">
+    <div class="label">Your reference: the numbers to check Claude against</div>
+    <p>At the starting values (10 million miles, 100 percent trust, 15 miles per driver hour, $20 an hour):</p>
+    <div class="wrapx"><table class="minitab">
+      <thead><tr><th scope="col">Line</th><th scope="col">How it's figured</th><th scope="col" style="text-align:right">At the start</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Injury crashes avoided per year</th><td>841 ÷ 271.3 = about 3.1 per million miles, × 10</td><td class="num"><b>about 31</b></td></tr>
+        <tr><th scope="row">Serious-or-worse crashes avoided</th><td>55 ÷ 271.3 = about 0.2 per million miles, × 10</td><td class="num"><b>about 2</b></td></tr>
+        <tr><th scope="row">Driver hours replaced</th><td>10,000,000 ÷ 15</td><td class="num"><b>about 666,700</b></td></tr>
+        <tr><th scope="row">Full-time driver jobs</th><td>666,700 ÷ 2,000</td><td class="num"><b>about 333</b></td></tr>
+        <tr><th scope="row">Driver earnings replaced</th><td>666,700 × $20</td><td class="num"><b>about $13.3 million</b></td></tr>
+      </tbody></table></div>
+    <p>Set trust to 50 percent and the crash column halves: about 15 and about 1. The driver column doesn't move, because nobody is unsure that a robotaxi has no driver. Notice which column carries the doubt.</p>
+  </div>
+  <p class="tis-note">The 10 million miles, the 15 miles an hour, and the $20 are made-up starting points, not Bellingham data. That's the lesson of this section: half the ledger is the company's claim and the other half is the analyst's guesses, and the page looks equally confident about both.</p>
+  <p>Keep it to this. Don't paste anything private into Claude.</p>
+</section>
+
+<section id="pitch">
+  <div class="shead"><span class="num">6</span><h2>In class: Build the pitch</h2></div>
+  <p class="lead">Now decide what to walk into the hearing with. A council that likes robotaxis will still attach conditions, and a council that's unsure will invent its own. The analyst's job is to offer the right ones before anyone asks, knowing each one costs the company something. About 10 minutes.</p>
+
+  <div class="tool" id="pitch-tool">
+    <div class="label">The pitch · decide whether to launch, and what to offer the council</div>
+    <details class="howto-in" open>
+      <summary>Your job</summary>
+      <ol>
+        <li><strong>Pick a plan.</strong> Launching isn't the only move. Waiting and walking away are real options with real costs.</li>
+        <li><strong>Pick the conditions you'd offer.</strong> Read both lines on each: what it costs your company, and what it answers for the council. Each one ties back to a toy or a section of the chapter.</li>
+        <li><strong>Press Write the pitch</strong> and read it back. Would you vote for it if you drove for a living? If your kid walked to school past that curb?</li>
+      </ol>
+    </details>
+    <span class="ctrllbl" id="pl-lbl">Your plan for Bellingham</span>
+    <div class="chips ctrlrow" role="group" aria-labelledby="pl-lbl">
+      <button type="button" class="chip" aria-pressed="false" data-plan="launch">Launch citywide</button>
+      <button type="button" class="chip" aria-pressed="false" data-plan="small">Launch small and grow</button>
+      <button type="button" class="chip" aria-pressed="false" data-plan="wait">Wait a year</button>
+      <button type="button" class="chip" aria-pressed="false" data-plan="walk">Walk away, launch somewhere easier</button>
+    </div>
+    <div id="pitch-conds" class="ingr" role="group" aria-label="Conditions to offer"></div>
+    <div class="chips ctrlrow">
+      <button type="button" class="btn" id="pitch-go">Write the pitch</button>
+      <button type="button" class="btn alt" id="pitch-reset">Clear and start over</button>
+    </div>
+    <div class="verdict" id="pitch-out" hidden>
+      <div class="label">Your pitch to the council</div>
+      <div class="read" id="pitch-read" aria-live="polite"></div>
+    </div>
+    <p class="sim-note">The conditions are drawn from Chapter 7 and from fights other cities have had. The costs are described, not calculated. Nothing is saved.</p>
+  </div>
+
+  <p><strong>Every condition is a trade.</strong> The ones that cost your company least are the ones the council trusts least, because a company offers them easily. The ones that cost most, sharing your data on the city's schedule or paying into a fund for the drivers you replace, are the ones that answer the other column of your ledger. That's value capture (section 4.5) turned into a negotiating position: who keeps the gains, and who pays.</p>
+</section>
+
+<section id="hood">
+  <div class="shead"><span class="num">7</span><h2>At home: Under the hood, how the four toys make one car</h2></div>
+  <p>Put sections 1 to 4 back together and you have section 2.1's loop, small.</p>
+  <p><strong>Perception is a neural network.</strong> Section 2's filters turn pixels into clues; section 1's layers turn clues into labels with a confidence. It learned from labeled examples, and it's only as good as what it saw. The real one has billions of weights instead of your few dozen, reads lidar and radar as well as cameras, and still misses the costume it never met.</p>
+  <p><strong>Planning is reinforcement learning.</strong> Your planner never saw a correct answer. It tried, got a score from your sheet, and drifted toward whatever scored well. That's how AlphaGo learned Go in Chapter 1, and it's why the reward function is the most quietly important document in the company.</p>
+  <p><strong>Both practice in a world model.</strong> Simulation is where the rare scenes get manufactured, for perception to label and for the planner to try. It shortens the tail. It can't end it, because it can only imagine what its video showed it.</p>
+  <p><strong>And the human?</strong> Out of the loop in the moment (section 2.4). But people chose the labels, the six clues, the reward numbers, the ingredients, and the coverage map. The car's judgment is theirs, frozen into weights and executed many times a second on a street where people live.</p>
+  <p><strong>Claude's part.</strong> In section 5 Claude wrote a working ledger in a minute. It didn't decide whether to trust Waymo's count, what a Bellingham driver earns, or what belongs in the box at the bottom. You did, and those choices, not the code, are where the argument with the council actually lives.</p>
+  <p><strong>Your part.</strong> In section 6 you decided what your company would give up to launch. No model made that call. It came down to whose costs you were willing to carry, which is the question the toys can't answer for you.</p>
+</section>
+<section id="debate">
+  <div class="shead"><span class="num">8</span><h2>In class: Debate</h2></div>
+  <p class="lead"><strong>The question: Robotaxis, a public health breakthrough or a job killer?</strong> It's 2031. Washington has created a path for paid driverless rides, and a robotaxi company has applied to run in Bellingham. Left half of the room is Side A: <em>a public health breakthrough, so the city should say yes.</em> Right half is Side B: <em>a job killer, so the city should say no.</em> In groups of 2 or 3, count off 1 to 4: that number is your piece of evidence below. The Gilman Street rules apply.</p>
+  <p>Chapter 7 put it in one line: the crashes it prevents are invisible and statistical, and the jobs it ends have names and addresses (<a class="inline" href="chapter-07-transportation.html#s4-5">section 4.5</a>). Your ledger from section 5 is that sentence with numbers in it. Today you argue about which column should win, and you'll be handed a side you might not pick. Leave your company badge at the door: in the debate, you speak for Bellingham.</p>
+  <p><strong>Before you argue about the robot, remember the status quo.</strong> Today, every ride in Bellingham has a person driving it. Those drivers earn a living, and those drivers also crash: tens of thousands of Americans die on the road every year, almost all of them in crashes involving human drivers. So the real choice in 2031 isn't between robotaxis and a safe, fully employed city. It's between two imperfect systems, and the question is who pays for each one's mistakes.</p>
+
+  <div class="sides">
+    <div class="side">
+      <div class="side-tag">Side A &middot; left half of the room</div>
+      <h3 id="motion-for">A public health breakthrough: say yes</h3>
+      <p>Robotaxis prevent crashes, and crashes kill and injure people every day. A city that says no is choosing crashes it will never see, count, or explain. Start from your ledger's crash column, section 4.1's trauma surgeon, and the riders in section 4.2 who can't drive or don't feel safe with a stranger.</p>
+      <p class="side-cost"><strong>The cost to name:</strong> real people lose income, and the safety numbers you're leaning on are mostly the company's own, from sunnier cities than this one.</p>
+    </div>
+    <div class="side">
+      <div class="side-tag">Side B &middot; right half of the room</div>
+      <h3 id="motion-against">A job killer: say no</h3>
+      <p>Robotaxis move money from local drivers to a company somewhere else, and the people who pay are the ones with the fewest other options. Start from your ledger's driver column, section 4.3's drivers, and the fact that the safety record is kept by the company that profits from it.</p>
+      <p class="side-cost"><strong>The cost to name:</strong> the crashes human drivers will keep causing, which is a real number too, and the riders who keep waiting for a ride they can take alone.</p>
+    </div>
+  </div>
+  <p class="tis-note">Nobody in this debate is arguing about a real driver or a real crash victim. You're arguing about a rule, the way a council member would.</p>
+  <p><strong>The evidence below is from today. Use it to argue about 2031.</strong> Side A: you have to show the crash benefit is real enough to outweigh the drivers' cost, and say who should pay that cost. Side B: you have to show the job loss is real and large, and say what your city does about the crashes instead.</p>
+
+  <h3 class="sub" id="futures"><span>What 2031 could look like:</span> four scenarios</h3>
+  <p>Each scenario starts from how it works today, then imagines Bellingham in 2031. Every benefit and issue is grounded in something that has already happened or been measured. The first two are Side A's world; the last two are Side B's. Use them in your prep, and steal from the other side's.</p>
+
+  <div class="scen">
+    <h4>Open streets</h4>
+    <p class="scen-who">Side A's world: yes, citywide</p>
+    <p><strong>Today:</strong> Waymo gives about 500,000 paid rides a week across 10 U.S. cities (<a class="inline" href="https://techcrunch.com/2026/03/27/waymo-skyrocketing-ridership-in-one-chart/" target="_blank" rel="noopener">TechCrunch</a>, March 2026). In Washington it has tested in Seattle and Bellevue, but Seattle's transportation department says state law has to change before anyone can sell a driverless ride here (<a class="inline" href="https://www.knkx.org/transportation/2025-10-27/waymo-autonomous-car-seattle-bellevue" target="_blank" rel="noopener">KNKX</a>). <strong>In 2031:</strong> robotaxis run anywhere in Bellingham, day and night.</p>
+    <div class="mx-why-grid">
+      <div><p class="mx-why-h">Benefits</p><ul><li>The crash column from your ledger, every year, if the numbers hold here.</li><li>A ride for people who can't drive, at the hour they choose. In section 4.2 a legally blind rider described being alone in a car for the first time in her life.</li></ul></div>
+      <div><p class="mx-why-h">Issues</p><ul><li>The driver column from your ledger, every year, landing on people who chose driving because it fit their lives.</li><li>The safety record comes from five sunnier metro areas. Bellingham's rain and dark winter afternoons are exactly where section 2's filters struggled.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="scen">
+    <h4>Yes, with a bill attached</h4>
+    <p class="scen-who">Side A's world: yes, with conditions</p>
+    <p><strong>Today:</strong> cities that allow robotaxis mostly set no condition for the drivers they replace. Chapter 7 floats one: a per-ride fee that funds retraining (section 4.5). <strong>In 2031:</strong> Bellingham says yes, charges a fee on every robotaxi ride for a driver transition fund, and slows the cars down around schools.</p>
+    <div class="mx-why-grid">
+      <div><p class="mx-why-h">Benefits</p><ul><li>The company that captures the drivers' income pays part of their cost. That's value capture (section 4.5) handled on purpose.</li><li>School zones get extra margin, the place regulators are already watching: federal investigators opened a probe in January 2026 after a Waymo struck a child near a school.</li></ul></div>
+      <div><p class="mx-why-h">Issues</p><ul><li>Every dollar of fee is a reason to launch in the next city instead, where the drivers get nothing (section 4.5).</li><li>Retraining money doesn't hand a 55-year-old driver a new career, and nobody has shown what the fund should buy.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="scen">
+    <h4>Keep the wheel</h4>
+    <p class="scen-who">Side B's world: no driverless rides</p>
+    <p><strong>Today:</strong> this is Washington now. No paid driverless rides, and a state House committee still studying how to allow them (<a class="inline" href="https://app.leg.wa.gov/committeeschedules/Home/Documents/34077" target="_blank" rel="noopener">work session, March 2026</a>). <strong>In 2031:</strong> still a person in every driver's seat in Bellingham.</p>
+    <div class="mx-why-grid">
+      <div><p class="mx-why-h">Benefits</p><ul><li>Driver income stays local, and nobody's job is the test case.</li><li>No fleet of cars recording the street around the clock, and no company running its experiment on roads where nobody consented (section 3, Question 4).</li></ul></div>
+      <div><p class="mx-why-h">Issues</p><ul><li>The crashes stay at the human rate. An estimated 36,640 people died on U.S. roads in 2025 (<a class="inline" href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813800" target="_blank" rel="noopener">NHTSA</a>). "Wait and see" isn't free (section 4.1).</li><li>The riders who can't drive, or don't want a stranger at 1 a.m., keep waiting.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="scen">
+    <h4>The slow lane</h4>
+    <p class="scen-who">Side B's world: not yet, and not on the company's count</p>
+    <p><strong>Today:</strong> the main safety record is Waymo's analysis of its own crashes. <strong>In 2031:</strong> Bellingham allows a small, capped pilot, and the cap only rises when an independent party, not the company, shows the crash numbers hold on Bellingham's streets in Bellingham's weather. Drivers get years of notice.</p>
+    <div class="mx-why-grid">
+      <div><p class="mx-why-h">Benefits</p><ul><li>The city, not the company, keeps the track record. That's section 2.9's power question, answered.</li><li>Drivers see it coming and can plan, instead of finding out from their earnings app.</li></ul></div>
+      <div><p class="mx-why-h">Issues</p><ul><li>Every slow year is a year of crashes the cars might have prevented.</li><li>A small market with strict rules may never get a pilot at all. Companies go where the rules are easiest.</li></ul></div>
+    </div>
+  </div>
+
+  <h3 class="sub" id="evidence-cards"><span>Your evidence:</span> four pieces, one per number</h3>
+  <p>Every side gets all four. If your number hands you evidence that seems to help the other side, that's your job today: find what it means for yours, and what your side would rather nobody noticed.</p>
+
+  <div class="probe ev">
+    <div class="pwhy">Evidence 1 &middot; The public health case</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> road deaths are enormous, and the company's own numbers say robotaxis cut serious crashes sharply.</p>
+      <div class="ev-stats"><div><b>36,640</b><span>estimated U.S. traffic deaths in 2025</span></div><div><b>95%</b><span>fewer serious-injury-or-worse crashes than the human benchmark, per Waymo</span></div><div><b>93%</b><span>fewer injury crashes involving pedestrians, per Waymo</span></div></div>
+      <ul class="ev-facts">
+        <li><b>The deaths:</b> NHTSA's early estimate for 2025 is 36,640 people killed in motor vehicle crashes, down from 2024 but still about a hundred a day (<a class="inline" href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813800" target="_blank" rel="noopener">NHTSA</a>).</li>
+        <li><b>The claim:</b> across 271 million driverless miles through June 2026, in five metro areas, Waymo reports 82 percent fewer injury crashes (841 fewer) and 95 percent fewer serious-or-worse crashes than human drivers would have had on the same roads (<a class="inline" href="https://waymo.com/blog/shorts/safetydata-september26/" target="_blank" rel="noopener">Waymo</a>).</li>
+        <li><b>The doctor:</b> a trauma surgeon who reviewed the data called self-driving cars a public health breakthrough (<a class="inline" href="https://www.npr.org/2025/12/12/nx-s1-5634879/why-one-trauma-doctor-sees-self-driving-cars-as-a-public-health-breakthrough" target="_blank" rel="noopener">NPR</a>).</li>
+        <li><b>The catch:</b> it's Waymo's own analysis, on roads and in weather Waymo chose, against a human average that includes drunk and distracted drivers (section 2.6).</li>
+      </ul>
+      <p class="ev-src">Chapter 7, <a class="inline" href="chapter-07-transportation.html#s2-6">section 2.6</a> and <a class="inline" href="chapter-07-transportation.html#s4-1">section 4.1</a>; NHTSA early estimate, 2025; Waymo, September 2026</p>
+    </div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate set in 2031: a robotaxi company wants to operate in Bellingham, Washington. The question is whether robotaxis are a public health breakthrough (Side A, the city should say yes) or a job killer (Side B, the city should say no). I'm on Side [A / B]. My evidence: NHTSA estimates 36,640 people died on U.S. roads in 2025, and Waymo reports that across 271 million driverless miles through June 2026 its cars had 82 percent fewer injury crashes and 95 percent fewer serious-or-worse crashes than human drivers on the same roads, by its own analysis. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+  </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Evidence 2 &middot; Checking the claim</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> an insurer's data points the same way as Waymo's, and a regulator is still asking hard questions.</p>
+      <div class="ev-stats"><div><b>92%</b><span>fewer bodily injury claims than human drivers, in Swiss Re's insurance data</span></div><div><b>17 to 6</b><span>mph: how much Waymo says its car slowed before hitting a child near a school</span></div><div><b>14</b><span>mph: Waymo's estimate of how fast an attentive human would have hit</span></div></div>
+      <ul class="ev-facts">
+        <li><b>The insurer:</b> Swiss Re, a reinsurer that loses money when it misjudges risk, compared liability claims over 25.3 million Waymo miles with its own data on human drivers and found 92 percent fewer bodily injury claims. The study was released with Waymo (<a class="inline" href="https://waymo.com/blog/2024/12/new-swiss-re-study-waymo/" target="_blank" rel="noopener">Waymo and Swiss Re</a>).</li>
+        <li><b>The investigation:</b> in January 2026 NHTSA opened a probe into whether a Waymo used enough caution near a Santa Monica school, after it struck a child who ran out from behind a double-parked SUV. The child had minor injuries. A separate probe into passing stopped school buses opened in October 2025 (<a class="inline" href="https://static.nhtsa.gov/odi/inv/2026/INOA-PE26001-10005.pdf" target="_blank" rel="noopener">NHTSA</a>, <a class="inline" href="https://www.axios.com/2026/01/29/waymo-accident-santa-monica-nhtsa" target="_blank" rel="noopener">Axios</a>).</li>
+        <li><b>The catch:</b> both sides can use the same crash. Waymo says it reacted better than a person would have. The regulator wants to know why it was going 17 near a school at drop-off. The 14 mph figure is the company's model, not a measurement.</li>
+      </ul>
+      <p class="ev-src">Chapter 7, <a class="inline" href="chapter-07-transportation.html#s2-8">section 2.8</a> and <a class="inline" href="chapter-07-transportation.html#s2-9">section 2.9</a>; Swiss Re and Waymo, December 2024; NHTSA PE26001</p>
+    </div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate set in 2031: a robotaxi company wants to operate in Bellingham, Washington. The question is whether robotaxis are a public health breakthrough (Side A, the city should say yes) or a job killer (Side B, the city should say no). I'm on Side [A / B]. My evidence: a Swiss Re study released with Waymo found 92 percent fewer bodily injury claims over 25.3 million Waymo miles; and in January 2026 NHTSA opened an investigation after a Waymo struck a child near a Santa Monica school, where Waymo says it braked from about 17 mph to under 6 and its model shows an attentive human would have hit at about 14. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+  </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Evidence 3 &middot; The paycheck</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> in robotaxi cities, drivers are getting fewer trips an hour, and the pay picture is mixed.</p>
+      <div class="ev-stats"><div><b>5.3%</b><span>drop in trips per hour in robotaxi cities, vs. 2.6% nationwide</span></div><div><b>&minus;3.7%</b><span>change in drivers' hourly pay in Los Angeles over a year, while it rose 1.8% nationwide</span></div><div><b>+16%</b><span>San Francisco drivers' quarterly earnings, as the platforms cut their fees</span></div></div>
+      <ul class="ev-facts">
+        <li><b>The squeeze:</b> Gridwise, which tracks rideshare drivers' earnings, found trips per hour fell almost twice as fast in robotaxi cities as nationwide at the end of 2025, and hourly pay fell in Los Angeles, San Francisco, and Phoenix while it rose nationally (<a class="inline" href="https://gridwise.io/analytics/2026-av-impact-report" target="_blank" rel="noopener">Gridwise</a>).</li>
+        <li><b>The twist:</b> in San Francisco, riders paid the same, the platforms took a much smaller share of each fare, and drivers earned more per quarter. One way to read it: the platforms are giving up their own margin to keep drivers on the road while robotaxis compete. That can't last forever, and nobody knows how long it lasts.</li>
+        <li><b>The catch:</b> Gridwise says its comparison can't separate the robotaxis' effect from everything else going on in those markets. Displacement shows up first as fewer trips an hour, not pink slips, because drivers are contractors.</li>
+      </ul>
+      <p class="ev-src">Chapter 7, <a class="inline" href="chapter-07-transportation.html#s4-3">section 4.3</a>; Gridwise Analytics, 2026 AV Impact Report</p>
+    </div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate set in 2031: a robotaxi company wants to operate in Bellingham, Washington. The question is whether robotaxis are a public health breakthrough (Side A, the city should say yes) or a job killer (Side B, the city should say no). I'm on Side [A / B]. My evidence is Gridwise Analytics' 2026 AV Impact Report: in robotaxi cities, rideshare trips per hour fell 5.3 percent at the end of 2025 versus 2.6 percent nationwide; hourly pay fell in Los Angeles, San Francisco, and Phoenix while it rose 1.8 percent nationally; but San Francisco drivers earned 16 percent more per quarter as platforms cut their fees. Gridwise says it can't separate the robotaxis' effect from other factors. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+  </div>
+
+  <div class="probe ev">
+    <div class="pwhy">Evidence 4 &middot; Who drives, who rides</div>
+    <div class="ptext ev-body">
+      <p class="ev-point"><b>In one line:</b> the people who drive and the people who gain most from no driver are different people.</p>
+      <div class="ev-stats"><div><b>5%</b><span>of U.S. adults have ever earned money driving for a ride-hailing app</span></div><div><b>42%</b><span>of lower-income recent gig workers say it was their main job</span></div><div><b>alone</b><span>how a legally blind rider described her first robotaxi trip</span></div></div>
+      <ul class="ev-facts">
+        <li><b>The drivers:</b> in a 2021 Pew survey, 5 percent of American adults said they had driven for a ride-hailing app, and 2 percent in the past year. Lower-income adults were more likely to do gig work, and 42 percent of lower-income current or recent gig workers said it had been their main job (<a class="inline" href="https://www.pewresearch.org/internet/2021/12/08/the-state-of-gig-work-in-2021/" target="_blank" rel="noopener">Pew</a>).</li>
+        <li><b>The riders:</b> reporters keep finding riders who choose robotaxis because no stranger is driving, many of them women traveling alone or late, and riders with disabilities who can travel alone for the first time (<a class="inline" href="https://www.nbcnews.com/tech/innovation/are-taxis-safer-no-driver-women-think-rcna173936" target="_blank" rel="noopener">NBC News</a>; section 4.2).</li>
+        <li><b>The catch:</b> the Pew numbers are from 2021, and many drivers do it part time. The rider stories are interviews, not a survey. Neither side gets a clean number here.</li>
+      </ul>
+      <p class="ev-src">Chapter 7, <a class="inline" href="chapter-07-transportation.html#s4-2">section 4.2</a> and <a class="inline" href="chapter-07-transportation.html#s4-3">section 4.3</a>; Pew Research Center, 2021</p>
+    </div>
+    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
+    <div class="ev-prompt">I'm in a class debate set in 2031: a robotaxi company wants to operate in Bellingham, Washington. The question is whether robotaxis are a public health breakthrough (Side A, the city should say yes) or a job killer (Side B, the city should say no). I'm on Side [A / B]. My evidence: a 2021 Pew survey found 5 percent of U.S. adults had ever driven for a ride-hailing app and 2 percent in the past year, that lower-income adults were more likely to do gig work, and that 42 percent of lower-income current or recent gig workers said it was their main job. On the other side, news interviews find riders, many of them women and people with disabilities, who choose robotaxis because there is no driver. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
+  </div>
+
+  <div class="callout">
+    <div class="label">Push your thinking with Claude</div>
+    <p>In section 5 you checked Claude's numbers. Here, turn it around: tell Claude to argue against you. It's one of the fastest ways out of your own bubble, because it will find the other side's best point before they do. If it cites a study you plan to use, look it up and check that it says what Claude says it says.</p>
+    <ol>
+      <li>Send the sample prompt under your evidence card, with your side filled in.</li>
+      <li>Then make it argue against you:</li>
     </ol>
+    <div class="probe">
+      <div class="pwhy">Argue against me</div>
+      <div class="ptext">Now argue against me as hard as you can. What's the best point the other side will make, and where is my case weakest? Don't go easy on me.</div>
+    </div>
+    <p>If it goes soft or starts agreeing with you, push back: <em>"You're being too nice. Argue the other side for real."</em> Then close Claude and write your notes in your own words. You can't read from Claude during the debate.</p>
+  </div>
+
+  <details class="srcnote noai">
+    <summary>Don't want to use AI? Do this instead</summary>
+    <div class="noai-body">
+      <p>Same prep, no chatbot, about 10 minutes. On your own, read <a class="inline" href="chapter-07-transportation.html#s4-1">Chapter 7, section 4.1</a> and <a class="inline" href="chapter-07-transportation.html#s4-3">section 4.3</a>. Then answer the four questions in Your notes for your side, using only your evidence card, your ledger, and those two sections. Find one sentence your side would rather the room didn't read, and write down how you'd answer it.</p>
+    </div>
+  </details>
+
+  <div class="callout">
+    <div class="label">Your notes</div>
+    <ol>
+      <li>Your strongest point, in one sentence.</li>
+      <li>The specific evidence behind it.</li>
+      <li>The honest cost of your position.</li>
+      <li>What your side would rather you didn't notice.</li>
+    </ol>
+  </div>
+
+  <div class="callout">
+    <div class="label">How the debate runs</div>
+    <p><strong>Prep, 15 minutes.</strong></p>
+    <ol>
+      <li><strong>Get your side (2 min).</strong> Left half Side A, right half Side B. Groups of 2 or 3, count off 1 to 4.</li>
+      <li><strong>Research with Claude (10 min).</strong> Your card, the two prompts, then your notes in your own words.</li>
+      <li><strong>Team up (3 min).</strong> Join one or two other groups on your side, so your team is 6 or 7 people: three teams per side. Pick your single best point, an opener, and a rebutter.</li>
+    </ol>
+    <p><strong>Rounds, 22 minutes.</strong></p>
+    <ol>
+      <li><strong>Openings (6 min).</strong> A1, A2, A3, then B1, B2, B3. About 45 seconds each: your claim in one sentence, your evidence, and the cost of your plan.</li>
+      <li><strong>Huddle (2 min).</strong> Rebutters pick one point the other side made.</li>
+      <li><strong>Rebuttals (6 min).</strong> Side B first this time. Answer one specific point, with evidence. No new arguments.</li>
+      <li><strong>Switch (4 min).</strong> Thirty seconds with your team: what was the other side's best point? Then someone new argues it in one sentence.</li>
+      <li><strong>What would change your mind? (4 min).</strong> Out loud. Name the specific thing you would have to see. Whoever names real evidence that would move them wins, whichever side they were handed.</li>
+    </ol>
+    <p><strong>To resolve it:</strong> a city that says yes is trading drivers' income for fewer crashes, and a city that says no is trading fewer crashes for drivers' income. Neither trade is free. Back in your analyst's seat: which condition in your pitch survives this debate, and what did the debate show you'd have to add?</p>
+  </div>
+</section>
+
+<section id="writeup">
+  <div class="shead"><span class="num">9</span><h2>For homework: The writeup</h2></div>
+  <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, November 6.</strong> Answer them as you go today. Written reflections, no screenshots.</p>
+  <ol class="writeup">
+    <li><strong>How it sees.</strong> In your own words, explain what a neural network is and what it learns from, using your Mini-Perception run. Which of the three rare scenes did it get wrong, how confident was it, and why didn't it know to be unsure? Then explain what a convolutional filter does, and what the fog did to the verdict, without using the word "convolution."</li>
+    <li><strong>How it decides and practices.</strong> Give the four numbers in the score sheet you'd take to the safety board, the habit it learned, and its results. Which bar was hardest to pass, and what trade-off did you accept to pass it? Then: one scene you built in Mini-World, why real driving can't collect it, and what the world model can't do.</li>
+    <li><strong>Your pitch math.</strong> Attach the page you built with Claude, as an HTML file or PDF. Did its numbers match the reference the first time? Where did you set the trust slider, and why would the council believe that much and no more? Name two things the ledger can't see, and say whether Claude found them or you did. (No-AI path: your spreadsheet's five numbers, your trust setting, and your two things.)</li>
+    <li><strong>The debate.</strong> Which side were you handed, and what was the other side's best point? Then the status quo: today, people drive every ride and people cause almost every crash. Is Bellingham better off in 2031 with robotaxis or without them, and who pays for your answer? Name the specific evidence that would change your mind. Did Claude's pushback find the weak spot in your case before the other side did?</li>
+    <li><strong>Your commitment card.</strong> Your plan from section 6, and the one condition you'd offer first, or your reason for walking away. Say what it costs the company, what it answers for the drivers or the riders, and what evidence would make you change it. Then the switch: if you sat on the council instead, would you accept your own pitch? Three or four sentences.</li>
+  </ol>
   <div class="callout">
     <div class="label">Using AI on this writeup</div>
     <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
     <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
     <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
   </div>
-
 </section>
+<details class="srcnote">
+  <summary>Sources &amp; verification</summary>
+  <div class="srcbody">
+    <p class="srcintro">Rebuilt 24 Oct 2026. The concepts are carried from Chapter 7 (verified 17 Sep 2026, updated 18 Sep). The safety figures, the Santa Monica investigation, the world model, and the labor evidence were checked separately for this lab on 24 Oct 2026, below. Waymo's figures move quarterly and the NHTSA investigation is open; re-check both the week before this lab runs.</p>
+    <dl>
+      <dt>The four toys (sections 1 to 4)</dt>
+      <dd>Self-contained, no network calls, nothing persists. Mini-Perception is a real two-hidden-layer network (6, 4, 3, 4) trained by backpropagation on the student's labels from a fixed starting seed; the scenes and their six clue scores are invented, and the three rare test scenes were built so that a network trained on the ten ordinary ones misreads them. Mini-Camera runs two standard 3 by 3 edge filters over an invented 20 by 24 frame; its shape layer and verdict are simplified for display. Mini-Planner is trial-and-error learning over nine gap thresholds with invented gap, misjudgment, and crash odds; with the chapter's score sheet it settles on a habit that passes the board, the other two presets fail it in different ways, and two runs can differ. Mini-World's rarity multipliers are invented and labeled as order of magnitude only.</dd>
+      <dt>Waymo's safety figures (sections 4, 5, and 8)</dt>
+      <dd>Waymo, "From the road," September 24, 2026 (linked): 271.3 million rider-only miles through June 2026 in five metro areas (Atlanta, Austin, Los Angeles, Phoenix, San Francisco); 82 percent fewer injury-causing crashes (841 fewer) and 95 percent fewer serious-injury-or-worse crashes (55 fewer); its Safety Impact page lists 93 percent fewer pedestrian injury crashes. These are the company's analysis of crashes it reports to NHTSA, treated in the text as a company claim. The ledger's per-million-mile rates are 841 and 55 divided by 271.3. Chapter 7, section 4.1, still cites the March 2026 figures (220 million miles, 94 percent) and should be brought up to date.</dd>
+      <dt>Swiss Re (section 8)</dt>
+      <dd>Waymo's December 2024 post on its study with Swiss Re (linked): 25.3 million miles, 88 percent fewer property damage and 92 percent fewer bodily injury claims than Swiss Re's human-driver baseline. Released jointly, which the evidence card says.</dd>
+      <dt>The Santa Monica investigation (sections 1 and 8)</dt>
+      <dd>NHTSA Office of Defects Investigation, PE26001, opened January 28, 2026 (linked), for the facts of the January 23 incident and the scope of the probe. The 17-to-under-6 mph braking and the 14 mph human estimate are Waymo's statements, as reported by Axios, January 29, 2026 (linked). The October 2025 school-bus probe is as reported in the same coverage and in Chapter 7, section 2.8.</dd>
+      <dt>The world model (section 4)</dt>
+      <dd>Waymo's February 2026 announcement of the Waymo World Model (linked): built on Google DeepMind's Genie 3, generates camera and lidar output, controllable by driving actions, scene layout, and language, with an elephant among its examples. Coverage noted that the announcement included no independent evaluation.</dd>
+      <dt>Road deaths (section 8)</dt>
+      <dd>NHTSA, "Early Estimate of Motor Vehicle Traffic Fatalities and Fatality Rate in 2025," Report 813800 (linked): 36,640. Chapter 7, section 4.1's "more than 38,000" is an older year's figure and should be updated.</dd>
+      <dt>Drivers and riders (section 8)</dt>
+      <dd>Gridwise Analytics, 2026 AV Impact Report (linked), for trips per hour (5.3 percent vs. 2.6 percent, Q4 2025), hourly gross pay (Los Angeles −3.7, San Francisco −1.7, Phoenix −0.4, nationwide +1.8, year over year in Q4), and San Francisco's fee and quarterly-earnings change; Gridwise states its comparison can't separate the effect of robotaxis from other market factors. Pew Research Center, "The State of Gig Work in 2021" (linked), for the 5 percent, 2 percent, and 42 percent figures. Riders: NBC News (linked) and Chapter 7, section 4.2.</dd>
+      <dt>Washington State and Waymo's scale (section 8)</dt>
+      <dd>KNKX, October 27, 2025 (linked), for Waymo's testing in Seattle and Bellevue and SDOT's statement that state law must change before paid rides; the Washington House Transportation Committee's March 2, 2026 work session documents (linked). TechCrunch, March 27, 2026 (linked), for about 500,000 paid rides a week across 10 cities. The 2031 Bellingham application is invented for the debate.</dd>
+      <dt>The pitch conditions (section 6)</dt>
+      <dd>Drawn from Chapter 7 (sections 2.9, 3, 4.5) and the previous version of this lab's permit conditions. The costs are qualitative and not computed.</dd>
+      <dt>The ledger's assumptions (section 5)</dt>
+      <dd>The 10 million miles, 15 miles per driver hour, $20 an hour, and 2,000 hours per full-time job are invented starting points, labeled as such on the page, not Bellingham data.</dd>
+    </dl>
+    <p class="srcfoot">Outbound links were checked by search on 24 Oct 2026, not click-verified. Found an error? Tell your instructor; corrections are course content.</p>
+  </div>
+</details>
 
 <div class="nextbar">
   <a href="chapter-07-transportation.html"><span class="dir">← Back</span>Chapter 7 · Transportation</a>
@@ -375,138 +1060,356 @@ ul.ideas li{margin:8px 0}
 
 <script>
 (function(){
-  var cards = [
-    {tag:'Company data', text:'The operator\u2019s published safety analysis reports substantially fewer injury-causing crashes per million miles than human-driver benchmarks, across tens of millions of driverless miles.', hint:'The strongest card on the table, and the company wrote it. What\u2019s in the denominator?'},
-    {tag:'Journalism / regulator', text:'The operator recently issued a software recall after reports that vehicles failed to stop properly for school buses.', hint:'A real failure, found, reported, and corrected in public. Read it both ways.'},
-    {tag:'Company / press', text:'The service already runs over 400,000 paid rides a week across ten-plus cities, including freeways and airport runs.', hint:'Scale is evidence of maturity, and of how fast this arrives once permitted.'},
-    {tag:'Journalism', text:'In early rollout cities, driverless vehicles were documented blocking buses and interfering with emergency responders while confused.', hint:'Mostly early-years incidents. Do old failures expire, or accumulate?'},
-    {tag:'Independent survey', text:'Recurring national surveys find a majority of Americans say they would be afraid to ride in a fully self-driving vehicle.', hint:'Fear is real data, and also famously trails experience. Which way does causation run?'},
-    {tag:'Advocacy / testimonial', text:'Riders with disabilities, including blind riders, describe robotaxis as the first truly independent door-to-door transportation of their lives.', hint:'A benefit invisible in crash statistics. Who speaks for it at your hearing?'},
-    {tag:'Labor / local economy', text:'Rideshare and taxi driving are income for hundreds of thousands of U.S. workers, gig counting is contested, but the jobs at stake in Bellingham are real and countable.', hint:'Chapter 9\u2019s data says displacement lands on specific groups first. Who, here?'},
-    {tag:'Journalism / international', text:'In China, Baidu\u2019s Apollo Go and rivals run large robotaxi fleets at fares that undercut human drivers, scale and price pressure are proven, not hypothetical.', hint:'Evidence about trajectory: what does year five look like if year one is approved?'},
-    {tag:'Local context', text:'Bellingham: roughly 95,000 people, heavy rain much of the year, an active WTA bus system, a university district full of pedestrians and cyclists.', hint:'Operational design domain, in local clothes. Is this city inside the map the safety data was drawn on?'},
-    {tag:'Company data', text:'The operator commits to sharing incident data with regulators and to remote-assistance staffing, humans who advise stuck vehicles but do not drive them.', hint:'A condition pre-offered. Pre-offered conditions are the ones that cost the operator least.'}
-  ];
+  function $(id){return document.getElementById(id);}
+  function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+  function gauss(r){var u=0,v=0;while(!u)u=r();while(!v)v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);}
+  function setChip(btn,on){btn.classList.toggle('on',on);btn.setAttribute('aria-pressed',on?'true':'false');}
+  var REDUCED=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var SVGNS='http://www.w3.org/2000/svg';
+  function el(tag,attrs,txt){var e=document.createElementNS(SVGNS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);if(txt!=null)e.textContent=txt;return e;}
+  function fmt(n){return n.toLocaleString('en-US');}
 
-  var conds = [
-    {id:'report', label:'Quarterly public incident reporting, every collision, blockage, and responder interaction, published', cost:'Cost: operators resist public granularity; expect pushback or delay.'},
-    {id:'school', label:'School-zone and school-bus protocol certification before launch, re-tested after every software update', cost:'Cost: slows every update; the company\u2019s update speed is part of its safety case.'},
-    {id:'weather', label:'Rain-performance validation in Pacific Northwest conditions before unrestricted service', cost:'Cost: could delay launch by seasons, and "validated" needs someone to define it.'},
-    {id:'cap', label:'Fleet cap for the first year (e.g., 25 vehicles), lifted only by council review', cost:'Cost: caps the benefits too, accessibility rides, late-night safety, data from scale.'},
-    {id:'responder', label:'A tested emergency-responder protocol, developed with the fire department, before day one', cost:'Cost: low. If you skipped this one, ask yourself why.'},
-    {id:'transit', label:'Transit integration: no operating in WTA\u2019s highest-ridership corridors during peak hours', cost:'Cost: protects the bus system by making the new service worse, riders pay the difference.'},
-    {id:'jobs', label:'A per-ride fee funding transition support for displaced local drivers', cost:'Cost: raises fares; also concedes the displacement is coming.'},
-    {id:'sunset', label:'A 12-month sunset clause: the permit expires unless renewed after public review', cost:'Cost: companies underinvest in cities that might evict them. Leverage cuts both ways.'}
-  ];
+  /* =====================================================================
+     1. Mini-Perception: a real 6-4-3-4 network trained by backpropagation
+     ===================================================================== */
+  (function(){
+    if(!$('see-tool'))return;
+    var CLUES=['legs','wheels','tall and upright','moving fast','big metal body','flutters, no weight'];
+    var LABELS=['Pedestrian','Cyclist','Vehicle','Ignore'];
+    // [emoji, description, clue scores, true label]
+    var TRAIN=[
+      ['\u{1F6B6}','A person in a crosswalk, daytime',[1,0,1,.1,0,0],0],
+      ['\u{1F697}','A sedan turning left',[0,1,.2,.6,1,0],2],
+      ['\u{1F6B4}','A cyclist in the bike lane',[.8,1,.8,.5,.1,0],1],
+      ['\u{1F6CD}\uFE0F','A plastic bag blowing across the lane',[0,0,.1,.55,0,1],3],
+      ['\u{1F3C3}','A jogger on the sidewalk',[1,0,1,.45,0,0],0],
+      ['\u{1F690}','A delivery van, parked',[0,1,.6,0,1,0],2],
+      ['\u{1F6B2}','A cyclist waiting at a red light',[.9,.9,.9,0,.1,0],1],
+      ['\u{1F333}','A tree\u2019s shadow on the pavement',[0,0,.3,0,0,.6],3],
+      ['\u2602\uFE0F','A person with an umbrella at the curb',[.9,0,.9,.05,0,.15],0],
+      ['\u{1F68C}','A bus pulling away from a stop',[0,1,.7,.3,1,0],2]];
+    var TEST=[
+      ['\u{1F415}','A person walking a dog',[1,0,1,.1,0,0],0,0],
+      ['\u{1F6B4}','A cyclist at night, with a headlight',[.8,1,.8,.4,.05,0],1,0],
+      ['\u{1F699}','An SUV changing lanes',[0,1,.4,.5,1,0],2,0],
+      ['\u{1F342}','Leaves swirling in the wind',[0,0,.1,.4,0,.9],3,0],
+      ['\u{1F6FB}','A pickup truck at a stop sign',[0,1,.45,.3,1,0],2,0],
+      ['\u267F','A person in a wheelchair, crossing',[.15,1,.55,.1,.3,0],0,1],
+      ['\u{1F996}','A kid in a dinosaur costume',[.35,0,.35,.3,0,.6],0,1],
+      ['\u{1F9D2}','A child stepping out from behind a double-parked SUV',[.3,1,.3,.3,1,0],0,1]];
+    var EXTRA=[
+      ['\u267F','A wheelchair user at a crosswalk',[.1,1,.6,.1,.35,0],0],
+      ['\u{1F383}','A person in an inflatable costume',[.3,0,.45,.2,0,.65],0],
+      ['\u{1F9D2}','A person half hidden behind a parked car',[.4,.9,.35,.2,.9,0],0],
+      ['\u{1F9BC}','A person on a mobility scooter',[.2,.9,.7,.15,.4,0],0]];
+    var HORSE=['\u{1F40E}','A person riding a horse in the bike lane',[1,0,1,.3,.6,0],-1,2];
 
-  var marks = {}, decision = null, checked = {};
+    function initNet(seed){var r=rng(seed);function m(a,b){var M=[];for(var i=0;i<b;i++){var row=[];for(var j=0;j<=a;j++)row.push((r()*2-1)*0.8);M.push(row);}return M;}return {W1:m(6,4),W2:m(4,3),W3:m(3,4)};}
+    function fwd(net,x){var h1=net.W1.map(function(w){var z=w[6];for(var j=0;j<6;j++)z+=w[j]*x[j];return Math.tanh(z);});
+      var h2=net.W2.map(function(w){var z=w[4];for(var j=0;j<4;j++)z+=w[j]*h1[j];return Math.tanh(z);});
+      var o=net.W3.map(function(w){var z=w[3];for(var j=0;j<3;j++)z+=w[j]*h2[j];return z;});
+      var mx=Math.max.apply(null,o),e=o.map(function(v){return Math.exp(v-mx);}),s=e.reduce(function(a,b){return a+b;},0);
+      return {h1:h1,h2:h2,p:e.map(function(v){return v/s;})};}
+    function train(X,Y){var net=initNet(7),lr=0.15,ep,n,j,k;
+      for(ep=0;ep<600;ep++){for(n=0;n<X.length;n++){var x=X[n],f=fwd(net,x);
+        var d3=f.p.map(function(p,q){return p-(q===Y[n]?1:0);});
+        var d2=f.h2.map(function(h,q){var s=0;for(var t=0;t<4;t++)s+=d3[t]*net.W3[t][q];return s*(1-h*h);});
+        var d1=f.h1.map(function(h,q){var s=0;for(var t=0;t<3;t++)s+=d2[t]*net.W2[t][q];return s*(1-h*h);});
+        for(k=0;k<4;k++){for(j=0;j<3;j++)net.W3[k][j]-=lr*d3[k]*f.h2[j];net.W3[k][3]-=lr*d3[k];}
+        for(k=0;k<3;k++){for(j=0;j<4;j++)net.W2[k][j]-=lr*d2[k]*f.h1[j];net.W2[k][4]-=lr*d2[k];}
+        for(k=0;k<4;k++){for(j=0;j<6;j++)net.W1[k][j]-=lr*d1[k]*x[j];net.W1[k][6]-=lr*d1[k];}}}
+      return net;}
+    function argmax(p){var b=0;for(var i=1;i<p.length;i++)if(p[i]>p[b])b=i;return b;}
 
-  var cardsEl = document.getElementById('cards');
-  cards.forEach(function(c, i){
-    var d = document.createElement('div');
-    d.className = 'probe';
-    var t = document.createElement('div'); t.className='ptext'; t.textContent = 'Card ' + (i+1) + ' · ' + c.tag;
-    var body = document.createElement('p'); body.style.marginBottom='8px'; body.textContent = c.text;
-    var hint = document.createElement('div'); hint.className='pwhy'; hint.textContent = c.hint;
-    var chips = document.createElement('div'); chips.className='chips';
-    [['yes','Toward approval'],['neu','Neutral'],['no','Toward denial']].forEach(function(pair){
-      var b = document.createElement('button');
-      b.type='button'; b.className='chip'; b.textContent = pair[1];
-      b.setAttribute('aria-pressed','false');
-      b.addEventListener('click', function(){
-        chips.querySelectorAll('.chip').forEach(function(s){ s.classList.remove('on'); s.setAttribute('aria-pressed','false'); });
-        b.classList.add('on'); b.setAttribute('aria-pressed','true');
-        marks[i] = pair[0];
-        lean();
-      });
-      chips.appendChild(b);
-    });
-    d.appendChild(t); d.appendChild(body); d.appendChild(hint); d.appendChild(chips);
-    cardsEl.appendChild(d);
-  });
+    var labels=[],idx=0,net=initNet(7),guessed=0,right=0,phase='label',extraOn=false;
+    var labBtns=[].slice.call(document.querySelectorAll('#see-tool [data-lab]'));
 
-  function lean(){
-    var yes=0,no=0,neu=0,total=0;
-    Object.keys(marks).forEach(function(k){
-      total++;
-      if(marks[k]==='yes')yes++; else if(marks[k]==='no')no++; else neu++;
-    });
-    if(!total){ document.getElementById('leanbox').hidden=true; return; }
-    document.getElementById('leanbox').hidden=false;
-    setBar('bar-yes',yes,total); setBar('bar-no',no,total); setBar('bar-neu',neu,total);
-    var read;
-    if(total<cards.length) read='Marked '+total+' of '+cards.length+', finish the docket before reading your lean.';
-    else if(yes-no>=3) read='Your evidence leans clearly <b>toward approval</b>. If your vote below isn\u2019t some form of yes, your writeup owes the room an explanation, sometimes a good one exists (one card can outweigh seven), but it must be named.';
-    else if(no-yes>=3) read='Your evidence leans clearly <b>toward denial or heavy conditions</b>. Same rule in reverse: an approval now needs a named reason that outweighs your own tally.';
-    else read='Your evidence is <b>genuinely mixed</b>, the honest position for most real councils. Mixed evidence is what conditions were invented for. Choose yours to answer the specific "no" cards.';
-    document.getElementById('leanread').innerHTML=read;
-  }
-  function setBar(id,n,total){
-    var b=document.getElementById(id);
-    b.querySelector('.fill').style.width=(total?Math.round(n/total*100):0)+'%';
-    b.querySelector('.n').textContent=n;
-  }
-
-  var condwrap=document.getElementById('condwrap');
-  var condsEl=document.getElementById('conds');
-  conds.forEach(function(c){
-    var row=document.createElement('div'); row.className='step';
-    var box=document.createElement('input'); box.type='checkbox'; box.id='c_'+c.id; box.style.marginTop='6px';
-    box.addEventListener('change',function(){ checked[c.id]=box.checked; });
-    var lb=document.createElement('label'); lb.setAttribute('for','c_'+c.id); lb.style.cursor='pointer';
-    var p1=document.createElement('p'); p1.textContent=c.label;
-    var p2=document.createElement('p'); p2.style.cssText='font-size:.85rem;color:var(--gray);margin-top:4px;'; p2.textContent=c.cost;
-    lb.appendChild(p1); lb.appendChild(p2);
-    row.appendChild(box); row.appendChild(lb);
-    condsEl.appendChild(row);
-  });
-
-  document.querySelectorAll('#decision .chip').forEach(function(b){
-    b.setAttribute('aria-pressed','false');
-    b.addEventListener('click',function(){
-      document.querySelectorAll('#decision .chip').forEach(function(s){ s.classList.remove('on'); s.setAttribute('aria-pressed','false'); });
-      b.classList.add('on'); b.setAttribute('aria-pressed','true');
-      decision=b.getAttribute('data-d');
-      condwrap.hidden = (decision!=='conditions');
-      document.getElementById('issue').disabled=false;
-    });
-  });
-
-  document.getElementById('issue').addEventListener('click',function(){
-    var yes=0,no=0;
-    Object.keys(marks).forEach(function(k){ if(marks[k]==='yes')yes++; else if(marks[k]==='no')no++; });
-    var chosen=conds.filter(function(c){ return checked[c.id]; });
-    var read='';
-    if(decision==='approve'){
-      read='The council <b>approves</b> the application without conditions. You\u2019ve accepted the operator\u2019s own safety case and pre-offered terms as sufficient, which means when the first incident happens, the record shows this council asked for nothing. Own that in the writeup, or add conditions and re-issue.';
-    } else if(decision==='deny'){
-      read='The council <b>denies</b> the application. A legitimate outcome, this course means that. The writeup burden: name the evidence that carried the denial, and name what would have to change for a future application to succeed. A denial with no path forward isn\u2019t a decision; it\u2019s an exit.';
-    } else if(decision==='delay'){
-      read='The council <b>delays</b>, revisit in 12 months. Honest when the evidence is mixed, but notice what it costs: the accessibility benefits wait a year too, and the operator\u2019s data will still be the operator\u2019s data next year. Your writeup should say what specific new evidence twelve months buys you.';
-    } else {
-      if(chosen.length===0){
-        read='The council approves "with conditions", but selected none. That\u2019s an unconditional approval wearing a costume. Check the conditions you actually mean, or switch your vote to Approve and defend it straight.';
-      } else if(chosen.length>=7){
-        read='The council approves with <b>'+chosen.length+' conditions</b>, nearly the whole menu. Fair warning from the chapter: a permit made entirely of conditions is often a denial in costume, and operators can read costumes. If you mean no, deny. If you mean yes, pick the conditions that answer your actual "no" cards: ';
+    function clueChips(x){return '<div class="feats">'+x.map(function(v,i){return '<span class="feat">'+CLUES[i]+' <b>'+v.toFixed(2).replace(/^0/,'').replace(/^1\.00$/,'1').replace(/^\.00$/,'0')+'</b></span>';}).join('')+'</div>';}
+    function renderCard(){var c=$('see-card');
+      if(idx<TRAIN.length){var s=TRAIN[idx];
+        c.innerHTML='<div class="emo" aria-hidden="true">'+s[0]+'</div><div><div class="sk">Scene '+(idx+1)+' of 10 \u00b7 the clues the camera found, 0 to 1</div><div class="sd">'+s[1]+'</div>'+clueChips(s[2])+'</div>';
+        if(labels.length){var p=fwd(net,s[2]).p,k=argmax(p);$('see-guess').innerHTML='The network\u2019s guess before you answer: <b>'+LABELS[k]+'</b>, '+Math.round(p[k]*100)+'% sure.';}
+        else $('see-guess').innerHTML='No guess yet. The network has seen nothing, so its weights are still random.';
+        drawNet(s[2]);
       } else {
-        read='The council approves with <b>'+chosen.length+' condition'+(chosen.length===1?'':'s')+'</b>: ';
+        c.innerHTML='<div class="emo" aria-hidden="true">\u2705</div><div><div class="sk">Training data complete</div><div class="sd">You labeled all ten scenes.</div><p style="margin:0;font-size:.92rem">The network was right on <b>'+right+' of '+guessed+'</b> guesses it made before you answered. Now press <b>Test it on new scenes</b>.</p></div>';
+        $('see-guess').innerHTML='';drawNet(TRAIN[9][2]);
       }
-      if(chosen.length>0 && chosen.length<7){
-        read+='<br><br>'+chosen.map(function(c){return '\u2022 '+c.label;}).join('<br>');
-        read+='<br><br>Each of those has the cost printed under it, your writeup defends the two that matter most.';
-      } else if(chosen.length>=7){
-        read+='<br><br>'+chosen.map(function(c){return '\u2022 '+c.label;}).join('<br>');
-      }
+      labBtns.forEach(function(b){b.disabled=idx>=TRAIN.length;setChip(b,false);});
     }
-    var lean_ = yes-no;
-    if((decision==='deny'&&lean_>=3)||(decision==='approve'&&lean_<=-3)){
-      read+='<br><br><b>Flag:</b> your vote runs against your own evidence lean. That can be legitimate, one card can outweigh seven, but the writeup must name which card, and why it carried that weight.';
+    function drawNet(x){var box=$('see-net');box.innerHTML='';
+      var svg=el('svg',{viewBox:'0 0 640 250',role:'img','aria-label':'Network diagram: six clues, two hidden layers of four and three units, four labels. '+(labels.length?'Trained on '+labels.length+' labeled scene'+(labels.length===1?'':'s')+'.':'Weights are random before training.')});
+      var f=fwd(net,x);
+      var L=[{x:150,n:6},{x:300,n:4},{x:420,n:3},{x:530,n:4}];
+      function ys(n){var a=[],top=125-(n-1)*20;for(var i=0;i<n;i++)a.push(top+i*40);return a;}
+      var P=L.map(function(l){return ys(l.n);});
+      var W=[net.W1,net.W2,net.W3];
+      for(var li=0;li<3;li++){for(var to=0;to<L[li+1].n;to++){for(var fr=0;fr<L[li].n;fr++){var w=W[li][to][fr];
+        svg.appendChild(el('line',{x1:L[li].x,y1:P[li][fr],x2:L[li+1].x,y2:P[li+1][to],stroke:w>=0?'#14181D':'#D61F69','stroke-width':(0.4+Math.min(Math.abs(w),3)*1.3).toFixed(2),'stroke-opacity':'0.7'}));}}}
+      function shade(v){var c=Math.round(255-Math.max(0,Math.min(1,v))*220);return 'rgb('+c+','+c+','+c+')';}
+      var acts=[x,f.h1.map(function(v){return (v+1)/2;}),f.h2.map(function(v){return (v+1)/2;}),f.p];
+      var top=argmax(f.p);
+      for(li=0;li<4;li++){for(var i=0;i<L[li].n;i++){
+        var isTop=li===3&&i===top&&labels.length>0;
+        svg.appendChild(el('circle',{cx:L[li].x,cy:P[li][i],r:li===0||li===3?11:9,fill:shade(acts[li][i]),stroke:isTop?'#D61F69':'#5A626C','stroke-width':isTop?3:1.5}));}}
+      CLUES.forEach(function(c,i){svg.appendChild(el('text',{x:132,y:P[0][i]+4,'text-anchor':'end'},c));});
+      LABELS.forEach(function(c,i){svg.appendChild(el('text',{x:548,y:P[3][i]+4,'font-weight':(i===top&&labels.length)?'700':'400'},c));});
+      [['clues in',150],['hidden layer 1',300],['hidden layer 2',420],['label out',530]].forEach(function(t){svg.appendChild(el('text',{x:t[1],y:245,'text-anchor':'middle','class':'dim'},t[0]));});
+      box.appendChild(svg);
+      var h='';LABELS.forEach(function(l,i){h+='<div class="prow'+(i===top?' top':'')+'"><span>'+l+'</span><span class="ptrack" aria-hidden="true"><span style="width:'+(f.p[i]*100).toFixed(1)+'%"></span></span><span class="pv">'+Math.round(f.p[i]*100)+'%</span></div>';});
+      $('see-probs').innerHTML=h;
     }
-    document.getElementById('permit').hidden=false;
-    document.getElementById('permitread').innerHTML=read;
-  });
+    function retrain(){var set=labels.map(function(l,i){return [TRAIN[i][2],l];});if(extraOn)EXTRA.forEach(function(e){set.push([e[2],e[3]]);});
+      net=train(set.map(function(s){return s[0];}),set.map(function(s){return s[1];}));}
+    labBtns.forEach(function(b){b.addEventListener('click',function(){if(idx>=TRAIN.length)return;var l=+b.getAttribute('data-lab');
+      if(labels.length){var p=fwd(net,TRAIN[idx][2]).p;guessed++;if(argmax(p)===l)right++;}
+      labels.push(l);retrain();idx++;
+      $('see-status').textContent=idx<TRAIN.length?'You said '+LABELS[l]+'. The network retrained on '+labels.length+' scene'+(labels.length===1?'':'s')+'. Scene '+(idx+1)+' of 10.':'All ten labeled. Press Test it on new scenes.';
+      $('see-test').disabled=idx<TRAIN.length;renderCard();});});
+    function runTests(){var rows=TEST.slice();if(extraOn)rows.push(HORSE);var h='',ok=[0,0],n=[0,0],conf=0,childP=0;
+      rows.forEach(function(t){var p=fwd(net,t[2]).p,k=argmax(p),c=Math.round(p[k]*100),cls=t[4]===1?' tail':(t[4]===2?' new':'');
+        var good=t[3]===k;if(t[4]<2){n[t[4]]++;if(good)ok[t[4]]++;}if(t[4]===1)conf+=c;if(t[1].indexOf('double-parked')>-1)childP=Math.round(p[0]*100);
+        var truth=t[3]<0?'none of your four labels fits':LABELS[t[3]];
+        var tag=t[3]<0?'<span class="ttag bad">No box for this</span>':(good?'<span class="ttag ok">Right</span>':'<span class="ttag bad">Wrong</span>');
+        h+='<div class="trow'+cls+'"><div class="te" aria-hidden="true">'+t[0]+'</div><div class="td">'+t[1]+'<small>Really: '+truth+(t[4]===1?' \u00b7 a rare scene':(t[4]===2?' \u00b7 new after retraining':''))+'</small></div><div class="tg">Network says <b>'+LABELS[k]+'</b></div><div>'+c+'% sure '+tag+'</div></div>';});
+      $('see-tests').innerHTML=h;
+      var read=(extraOn?'Retrained with the data team\u2019s four rare scenes (14 examples). ':'Trained on your ten labels. ')+'Ordinary scenes: <b>'+ok[0]+' of '+n[0]+'</b> right. Rare scenes: <b>'+ok[1]+' of '+n[1]+'</b> right, at an average of <b>'+Math.round(conf/n[1])+'%</b> sure.';
+      if(!extraOn)read+=ok[1]<n[1]?' It was confident and wrong, because it has no way to know what it hasn\u2019t seen. Now press <b>Add four rare scenes</b>.':' It handled the rare ones. That\u2019s unusual; check your labels against the scenes. Then press <b>Add four rare scenes</b> anyway.';
+      else read+=' The child behind the SUV is now '+childP+'% likely a pedestrian. And look at the new row: a person on a horse. Your four labels don\u2019t have a box for it, so the network forces it into one, sure of itself. The tail got shorter. It didn\u2019t end.';
+      $('see-read').innerHTML=read;}
+    $('see-test').addEventListener('click',function(){if(labels.length<TRAIN.length)return;phase='test';runTests();$('see-add').hidden=extraOn;$('see-status').textContent='Tested on eight new scenes. Read the rows below.';});
+    $('see-add').addEventListener('click',function(){extraOn=true;retrain();runTests();$('see-add').hidden=true;$('see-status').textContent='Added four labeled rare scenes and retrained. Tested again below.';drawNet(TEST[7][2]);});
+    $('see-reset').addEventListener('click',function(){labels=[];idx=0;net=initNet(7);guessed=0;right=0;extraOn=false;$('see-tests').innerHTML='';$('see-read').innerHTML='';$('see-add').hidden=true;$('see-test').disabled=true;$('see-status').textContent='Cleared. Scene 1 of 10. Label it.';renderCard();});
+    renderCard();
+  })();
+
+  /* =====================================================================
+     2. Mini-Camera: two 3x3 filters slide across one frame
+     ===================================================================== */
+  (function(){
+    if(!$('conv-tool'))return;
+    var ART=['ssssssssssssssssssss','ssssssssssssssssssss','ssssssss##ssssssssss','sssssss####sssssssss','sssssss####sssssssss','ssssssss##ssssssssss','ssssss######ssssssss','sssss########sssssss','sssss#s####s#sssssss','sssss#s####s#sssssss','sssss#s####s#sssssss','sssssss####sssssssss','sssssss##s##ssssssss','sssssss##s##ssssssss','sssssss##s##ssssssss','cccccccc#cc#cccccccc','........#..#........','........#..#........','....................','....................','..ww....ww....ww....','....................','....................','....................'];
+    var VAL={s:.62,'.':.38,'#':.92,c:.12,w:.95},Wd=20,Ht=24;
+    var K={v:[[-1,0,1],[-2,0,2],[-1,0,1]],h:[[-1,-2,-1],[0,0,0],[1,2,1]]};
+    var filt='v',wx='clear',busy=false;
+    function frame(w){var r=rng(w==='rain'?31:47),img=[];for(var y=0;y<Ht;y++){var row=[];for(var x=0;x<Wd;x++){var v=VAL[ART[y][x]];
+      if(w==='rain'){v+=(r()-.5)*0.62;if(r()<0.09)v=.98;}
+      if(w==='fog'){v=.55+(v-.55)*0.34+(r()-.5)*0.04;}
+      row.push(Math.max(0,Math.min(1,v)));}img.push(row);}return img;}
+    function conv(img,k){var out=[];for(var y=0;y<Ht-2;y++){var row=[];for(var x=0;x<Wd-2;x++){var s=0;for(var i=0;i<3;i++)for(var j=0;j<3;j++)s+=k[i][j]*img[y+i][x+j];row.push(s);}out.push(row);}return out;}
+    function fire(v){var a=Math.abs(v)/4;return Math.max(0,a-0.18)/0.82;}
+    function pool(m){var out=[];for(var y=0;y<m.length;y+=3){var row=[];for(var x=0;x<m[0].length;x+=3){var mx=0;for(var i=y;i<Math.min(y+3,m.length);i++)for(var j=x;j<x+3;j++)mx=Math.max(mx,m[i][j]);row.push(mx);}out.push(row);}return out;}
+    function combined(img){var a=conv(img,K.v),b=conv(img,K.h);return a.map(function(r,y){return r.map(function(v,x){return Math.max(fire(v),fire(b[y][x]));});});}
+    function flat(m){return [].concat.apply([],m);}
+    var TEMPLATE=flat(pool(combined(frame('clear'))));
+    function verdict(img){var p=flat(pool(combined(img))),d=0,a=0,b=0;for(var i=0;i<p.length;i++){d+=p[i]*TEMPLATE[i];a+=p[i]*p[i];b+=TEMPLATE[i]*TEMPLATE[i];}
+      var cos=a?d/Math.sqrt(a*b):0,strength=Math.sqrt(a/b);   // how much fired, compared with a clear day
+      return Math.max(0,Math.min(97,Math.round(100*Math.pow(Math.max(0,cos),3)*Math.min(1,strength))));}
+    function paint(cv,m,cell,colorFn){var ctx=cv.getContext('2d');cv.width=m[0].length*cell;cv.height=m.length*cell;
+      for(var y=0;y<m.length;y++)for(var x=0;x<m[0].length;x++){ctx.fillStyle=colorFn(m[y][x]);ctx.fillRect(x*cell,y*cell,cell,cell);}return ctx;}
+    function gray(v){var c=Math.round(v*255);return 'rgb('+c+','+c+','+c+')';}
+    function heat(v){var c=Math.round(255-v*240);return 'rgb('+c+','+c+','+Math.round(255-v*200)+')';}
+    function kern(){var k=K[filt],h='';k.forEach(function(r){h+='<tr>'+r.map(function(v){return '<td class="'+(v<0?'neg':(v>0?'pos':''))+'">'+(v<0?'\u2212'+(-v):v)+'</td>';}).join('')+'</tr>';});$('conv-kern').innerHTML=h;}
+    function stages(img){paint($('st1'),img,5,gray);var c=combined(img);paint($('st2'),c,5,heat);paint($('st3'),pool(c),15,heat);
+      var v=verdict(img);$('st4v').textContent=v+'%';$('st4t').textContent=v>=70?'pedestrian':(v>=35?'pedestrian? not sure':'no one detected');return v;}
+    function blank(){var img=frame(wx);paint($('conv-in'),img,10,gray);var ctx=$('conv-out').getContext('2d');$('conv-out').width=180;$('conv-out').height=220;ctx.fillStyle='#fff';ctx.fillRect(0,0,180,220);
+      ['st2','st3'].forEach(function(id){var c=$(id),x=c.getContext('2d');x.fillStyle='#F3F3EE';x.fillRect(0,0,c.width,c.height);});paint($('st1'),img,5,gray);$('st4v').textContent='?';$('st4t').textContent='pedestrian';}
+    function run(){if(busy)return;busy=true;var img=frame(wx),m=conv(img,K[filt]),cin=$('conv-in'),cout=$('conv-out');
+      var octx=cout.getContext('2d');cout.width=180;cout.height=220;octx.fillStyle='#fff';octx.fillRect(0,0,180,220);
+      var pos=0,total=(Wd-2)*(Ht-2),step=REDUCED?total:6;
+      $('conv-status').textContent='Sliding the '+(filt==='v'?'up-and-down':'side-to-side')+' edge filter across '+total+' spots\u2026';
+      function tick(){for(var s=0;s<step&&pos<total;s++,pos++){var y=Math.floor(pos/(Wd-2)),x=pos%(Wd-2);octx.fillStyle=heat(fire(m[y][x]));octx.fillRect(x*10,y*10,10,10);}
+        var ictx=paint(cin,img,10,gray);if(pos<total){var y2=Math.floor(pos/(Wd-2)),x2=pos%(Wd-2);ictx.strokeStyle='#FF3D8A';ictx.lineWidth=3;ictx.strokeRect(x2*10+1.5,y2*10+1.5,27,27);}
+        if(pos<total)requestAnimationFrame(tick);else{busy=false;var v=stages(img);
+          cout.setAttribute('aria-label','Feature map: where the '+(filt==='v'?'up-and-down':'side-to-side')+' edge filter fired');
+          $('conv-status').textContent='Done. The filter checked all '+total+' spots with the same nine numbers.';
+          var msg='<b>'+(wx==='clear'?'Clear day':(wx==='rain'?'Heavy rain':'Thick fog'))+'.</b> ';
+          if(wx==='clear')msg+='The edges trace the person and the curb cleanly, the shape layer finds a head, shoulders, and legs, and the verdict is <b>'+v+'% pedestrian</b>. Now try the other filter, then change the weather.';
+          else if(wx==='rain')msg+='The filter fired on raindrops as well as the person, so the shapes are cluttered. Verdict: <b>'+v+'% pedestrian</b>. Same filter, same code, worse frame.';
+          else msg+='The contrast washed out, so most edges never got strong enough to fire, and the shapes never formed. Verdict: <b>'+v+'% pedestrian</b>. The person is still standing there.';
+          $('conv-read').innerHTML=msg;}}
+      tick();}
+    document.querySelectorAll('#conv-tool [data-filt]').forEach(function(b){b.addEventListener('click',function(){if(busy)return;filt=b.getAttribute('data-filt');document.querySelectorAll('#conv-tool [data-filt]').forEach(function(x){setChip(x,x===b);});kern();});});
+    document.querySelectorAll('#conv-tool [data-wx]').forEach(function(b){b.addEventListener('click',function(){if(busy)return;wx=b.getAttribute('data-wx');document.querySelectorAll('#conv-tool [data-wx]').forEach(function(x){setChip(x,x===b);});blank();$('conv-read').innerHTML='';$('conv-status').textContent='Weather changed. Press Slide the filter.';
+      $('conv-in').setAttribute('aria-label','Camera frame: a person standing at a curb, '+(wx==='clear'?'clear day':(wx==='rain'?'heavy rain':'thick fog')));});});
+    $('conv-run').addEventListener('click',run);
+    kern();blank();
+    window.LAB7_CONV={verdict:function(w){return verdict(frame(w));}};
+  })();
+
+  /* =====================================================================
+     3. Mini-Planner: trial-and-error learning at an unprotected left turn
+     ===================================================================== */
+  (function(){
+    if(!$('rl-tool'))return;
+    var TS=[2,2.5,3,3.5,4,4.5,5,5.5,6];
+    function sig(z){return 1/(1+Math.exp(-z));}
+    function episode(T,r){var wait=0;for(;;){var g=1.2+(-Math.log(1-r()))*2.8,pg=g+gauss(r)*0.6;
+      if(pg>=T){var pc=sig((2.4-g)/0.22),pcc=g<4.2?Math.max(0,(4.2-g)/1.8)*0.55:0,u=r();
+        if(u<pc)return{o:'crash',w:wait};if(u<pc+pcc)return{o:'close',w:wait};return{o:'ok',w:wait};}
+      wait+=g+0.8;if(wait>30)return{o:'timeout',w:30};}}
+    function reward(e,R){var x=0;if(e.o==='ok'||e.o==='close')x+=R.done;if(e.o==='close')x-=R.close;if(e.o==='crash')x-=R.crash;return x-R.wait*e.w;}
+    var PRE={chapter:{done:10,crash:1000,close:15,wait:1},timid:{done:2,crash:1000,close:50,wait:0},hurry:{done:10,crash:20,close:2,wait:3}};
+    var S={done:'rw-done',crash:'rw-crash',close:'rw-close',wait:'rw-wait'},runs=0,busy=false;
+    function R(){return {done:+$('rw-done').value,crash:+$('rw-crash').value,close:+$('rw-close').value,wait:+$('rw-wait').value};}
+    function outs(){var r=R();$('rw-done-o').textContent='+'+r.done;$('rw-crash-o').textContent='\u2212'+r.crash;$('rw-close-o').textContent='\u2212'+r.close;$('rw-wait-o').textContent='\u2212'+r.wait.toFixed(1);}
+    function clearBoard(){['done','crash','wait'].forEach(function(k){$('b-'+k).textContent='?';var p=$('p-'+k);p.className='pill wait';p.textContent='not tested';});$('rl-habit').textContent='?';$('rl-read').innerHTML='';}
+    function setPre(name){var p=PRE[name];for(var k in S)$(S[k]).value=p[k];outs();document.querySelectorAll('#rl-tool [data-pre]').forEach(function(b){setChip(b,b.getAttribute('data-pre')===name);});clearBoard();$('rl-status').textContent='Score sheet set. Press Train.';}
+    Object.keys(S).forEach(function(k){$(S[k]).addEventListener('input',function(){outs();document.querySelectorAll('#rl-tool [data-pre]').forEach(function(b){setChip(b,false);});clearBoard();$('rl-status').textContent='Score sheet changed. Press Train to let the car learn it.';});});
+    document.querySelectorAll('#rl-tool [data-pre]').forEach(function(b){b.addEventListener('click',function(){if(!busy)setPre(b.getAttribute('data-pre'));});});
+    function chart(pts){var svg=$('rl-chart');svg.innerHTML='';var W=640,H=200,l=56,rr=12,t=14,bm=34;
+      var mn=Math.min.apply(null,pts.concat([0])),mx=Math.max.apply(null,pts.concat([0]));if(mx-mn<1){mx+=1;mn-=1;}
+      function X(i){return l+(W-l-rr)*i/19;}function Y(v){return t+(H-t-bm)*(mx-v)/(mx-mn);}
+      svg.appendChild(el('line',{x1:l,y1:Y(0),x2:W-rr,y2:Y(0),stroke:'#9AA1AB','stroke-dasharray':'4 4'}));
+      svg.appendChild(el('line',{x1:l,y1:t,x2:l,y2:H-bm,stroke:'#9AA1AB'}));
+      svg.appendChild(el('text',{x:l-6,y:Y(mx)+4,'text-anchor':'end'},Math.round(mx)));
+      svg.appendChild(el('text',{x:l-6,y:Y(mn)+4,'text-anchor':'end'},Math.round(mn)));
+      svg.appendChild(el('text',{x:l-6,y:Y(0)+4,'text-anchor':'end'},'0'));
+      svg.appendChild(el('text',{x:l,y:H-12},'first turns'));
+      svg.appendChild(el('text',{x:W-rr,y:H-12,'text-anchor':'end'},'turn 2,000'));
+      svg.appendChild(el('text',{x:(W+l)/2,y:H-12,'text-anchor':'middle'},'average score per 100 practice turns'));
+      if(pts.length>1){var d=pts.map(function(v,i){return (i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1);}).join(' ');svg.appendChild(el('path',{d:d,fill:'none',stroke:'#D61F69','stroke-width':2.5}));}
+      pts.forEach(function(v,i){svg.appendChild(el('circle',{cx:X(i),cy:Y(v),r:3,fill:'#14181D'}));});}
+    function habit(T){return 'goes when a gap looks at least '+T+' seconds long';}
+    function train(){if(busy)return;busy=true;runs++;var Rw=R(),r=rng(runs*101+7),sum=TS.map(function(){return 0;}),n=TS.map(function(){return 0;}),tally={ok:0,close:0,crash:0,timeout:0},pts=[],blk=0,i=0;
+      clearBoard();$('rl-train').disabled=true;
+      function best(){var b=-1,bv=-1e12;for(var k=0;k<TS.length;k++){if(!n[k])continue;var v=sum[k]/n[k];if(v>bv){bv=v;b=k;}}return b;}
+      function tick(){for(var s=0;s<(REDUCED?2000:25)&&i<2000;s++,i++){var eps=Math.max(0.05,0.5*(1-i/1200)),b=best(),a=(r()<eps||b<0)?Math.floor(r()*TS.length):b;
+          var e=episode(TS[a],r),x=reward(e,Rw);sum[a]+=x;n[a]++;tally[e.o]++;blk+=x;if((i+1)%100===0){pts.push(blk/100);blk=0;}}
+        $('rl-ok').textContent=fmt(tally.ok);$('rl-close').textContent=fmt(tally.close);$('rl-crash').textContent=fmt(tally.crash);$('rl-time').textContent=fmt(tally.timeout);
+        $('rl-prog').style.width=(i/20)+'%';chart(pts);
+        var b=best();$('rl-status').textContent='Practice turn '+fmt(i)+' of 2,000. Current habit: '+(b<0?'still exploring':habit(TS[b]))+'.';
+        if(i<2000){requestAnimationFrame(tick);return;}
+        // pick the habit, only counting thresholds it actually tried enough
+        var B=0,BV=-1e12;for(var k=0;k<TS.length;k++){if(n[k]<5)continue;var v=sum[k]/n[k];if(v>BV){BV=v;B=k;}}
+        var T=TS[B],tr=rng(2026),c={ok:0,close:0,crash:0,timeout:0},w=0;for(var q=0;q<300;q++){var e2=episode(T,tr);c[e2.o]++;w+=e2.w;}
+        var done=c.ok+c.close,aw=w/300,pd=done>=285,pc=c.crash<=1,pw=aw<8;
+        $('rl-habit').textContent='It '+habit(T);
+        $('b-done').textContent=done+' of 300';$('b-crash').textContent=c.crash;$('b-wait').textContent=aw.toFixed(1)+' s';
+        [['done',pd],['crash',pc],['wait',pw]].forEach(function(z){var p=$('p-'+z[0]);p.className='pill '+(z[1]?'pass':'fail');p.textContent=z[1]?'passes':'fails';});
+        var msg;
+        if(pd&&pc&&pw)msg='<b>The board passes it.</b> '+c.close+' close call'+(c.close===1?'':'s')+' and '+c.timeout+' turn'+(c.timeout===1?'':'s')+' where it gave up still happened; no setting gets everything to zero. Name the trade-off you accepted, because the board will ask.';
+        else if(!pc)msg='<b>Too aggressive.</b> Your score sheet made crashes cheap enough, or waiting costly enough, that taking small gaps paid off on average. The car did exactly what your numbers asked: '+c.crash+' crashes in 300 turns.';
+        else if(!pw||!pd)msg='<b>Too timid.</b> Your score sheet made waiting nearly free, so the car learned that the safest move is to sit there. Average wait '+aw.toFixed(1)+' seconds, and '+c.timeout+' turns where it gave up after 30. That\u2019s the rider\u2019s two-star review, learned on purpose.';
+        $('rl-read').innerHTML=msg+' <span class="flag ok">Train again and it may settle a half second differently; trial and error is noisy.</span>';
+        $('rl-status').textContent='Done: 2,000 practice turns, then 300 new ones for the board.';
+        busy=false;$('rl-train').disabled=false;}
+      tick();}
+    $('rl-train').addEventListener('click',train);
+    $('rl-reset').addEventListener('click',function(){if(!busy){setPre('chapter');chart([]);['rl-ok','rl-close','rl-crash','rl-time'].forEach(function(id){$(id).textContent='0';});$('rl-prog').style.width='0';}});
+    setPre('chapter');chart([]);
+  })();
+
+  /* =====================================================================
+     4. Mini-World: compose a scene from ingredients
+     ===================================================================== */
+  (function(){
+    if(!$('world-tool'))return;
+    var ROWS=[
+      {k:'wx',t:'Weather',o:[['clear','Clear skies',1],['rain','Heavy rain',3],['fog','Thick fog',6],['snow','Snow and ice',10],['glare','Low sun glare',4]]},
+      {k:'tod',t:'Time of day',o:[['day','Daytime',1],['dusk','Dusk',2],['night','Night',3]]},
+      {k:'who',t:'Who\u2019s on the road',o:[['ped','A pedestrian at a crosswalk',1],['bike','A cyclist',1.5],['kids','Kids near the street',4],['chair','A wheelchair user',6],['dog','A loose dog',5]]},
+      {k:'wild',t:'The wildcard',o:[['none','Nothing unusual',1],['costume','They\u2019re in a Halloween costume',20],['truck','They\u2019re hidden behind a parked truck',3],['mattress','A mattress in the lane',15],['cop','An officer waving cars through a red light',8],['elephant','An elephant in the road (Waymo\u2019s own example)',0],['unknown','Something no video anywhere has ever shown',-1]]}];
+    var pick={wx:'clear',tod:'day',who:'ped',wild:'none'},built=0,busy=false;
+    var box=$('world-ingr'),h='';
+    ROWS.forEach(function(row){h+='<div><span class="ctrllbl" id="wl-'+row.k+'">'+row.t+'</span><div class="chips" role="group" aria-labelledby="wl-'+row.k+'">';
+      row.o.forEach(function(o){h+='<button type="button" class="chip'+(pick[row.k]===o[0]?' on':'')+'" aria-pressed="'+(pick[row.k]===o[0])+'" data-row="'+row.k+'" data-v="'+o[0]+'">'+o[1]+'</button>';});h+='</div></div>';});
+    box.innerHTML=h;
+    box.addEventListener('click',function(e){var b=e.target.closest('button[data-row]');if(!b||busy)return;var k=b.getAttribute('data-row');pick[k]=b.getAttribute('data-v');
+      box.querySelectorAll('button[data-row="'+k+'"]').forEach(function(x){setChip(x,x===b);});});
+    function opt(k){var row=ROWS.filter(function(r){return r.k===k;})[0];return row.o.filter(function(o){return o[0]===pick[k];})[0];}
+    function big(n){if(n>=1e9)return (n/1e9).toFixed(1).replace(/\.0$/,'')+' billion';if(n>=1e6)return (n/1e6).toFixed(1).replace(/\.0$/,'')+' million';return fmt(Math.round(n/1000)*1000);}
+    var SKY={day:['#BFD9EA','#E9F2F7'],dusk:['#4A3F6B','#F2A97E'],night:['#0E1116','#26303C']};
+    var ACT={ped:'\u{1F6B6}',bike:'\u{1F6B4}',kids:'\u{1F9D2}\u{1F9D2}',chair:'\u267F',dog:'\u{1F415}'};
+    function layer(step,svg){
+      if(step===0){var g=el('linearGradient',{id:'wsky',x1:0,y1:0,x2:0,y2:1});g.appendChild(el('stop',{offset:'0','stop-color':SKY[pick.tod][0]}));g.appendChild(el('stop',{offset:'1','stop-color':SKY[pick.tod][1]}));
+        var defs=el('defs',{});defs.appendChild(g);svg.appendChild(defs);svg.appendChild(el('rect',{x:0,y:0,width:640,height:300,fill:'url(#wsky)'}));
+        if(pick.tod==='night')svg.appendChild(el('circle',{cx:560,cy:46,r:16,fill:'#E7EAEF'}));else svg.appendChild(el('circle',{cx:pick.tod==='dusk'?520:560,cy:pick.tod==='dusk'?120:46,r:22,fill:pick.tod==='dusk'?'#F28C5A':'#E4FF32'}));}
+      if(step===1){svg.appendChild(el('polygon',{points:'0,300 260,140 380,140 640,300',fill:pick.tod==='night'?'#2A3038':'#5A626C'}));
+        svg.appendChild(el('rect',{x:0,y:138,width:640,height:4,fill:'#9AA1AB'}));
+        for(var i=0;i<5;i++){var y=150+i*30,w=4+i*3;svg.appendChild(el('rect',{x:320-w/2,y:y,width:w,height:12+i*4,fill:'#E4FF32'}));}}
+      if(step===2){var who=ACT[pick.who],t=el('text',{x:pick.wild==='truck'?300:250,y:250,'font-size':64,'text-anchor':'middle'},who);svg.appendChild(t);
+        if(pick.wild==='costume')svg.appendChild(el('text',{x:292,y:230,'font-size':40,'text-anchor':'middle'},'\u{1F383}'));}
+      if(step===3){var w=pick.wild;
+        if(w==='truck')svg.appendChild(el('text',{x:250,y:262,'font-size':96,'text-anchor':'middle'},'\u{1F69A}'));
+        if(w==='mattress'){svg.appendChild(el('rect',{x:360,y:228,width:120,height:30,rx:6,fill:'#F3F3EE',stroke:'#5A626C','stroke-width':2}));svg.appendChild(el('line',{x1:380,y1:243,x2:460,y2:243,stroke:'#9AA1AB','stroke-dasharray':'6 6'}));}
+        if(w==='cop')svg.appendChild(el('text',{x:430,y:250,'font-size':56,'text-anchor':'middle'},'\u{1F46E}'));
+        if(w==='elephant')svg.appendChild(el('text',{x:450,y:262,'font-size':96,'text-anchor':'middle'},'\u{1F418}'));
+        if(w==='unknown'){svg.appendChild(el('ellipse',{cx:440,cy:230,rx:60,ry:34,fill:'#9AA1AB'}));svg.appendChild(el('text',{x:440,y:244,'font-size':40,'text-anchor':'middle',fill:'#14181D','font-family':'Inter, sans-serif','font-weight':'700'},'?'));}}
+      if(step===4){var r=rng(5),k;
+        if(pick.wx==='rain')for(k=0;k<90;k++){var x=r()*660-10,y=r()*300;svg.appendChild(el('line',{x1:x,y1:y,x2:x-8,y2:y+22,stroke:'#C9D6E2','stroke-width':1.5}));}
+        if(pick.wx==='snow')for(k=0;k<110;k++)svg.appendChild(el('circle',{cx:r()*640,cy:r()*300,r:1.5+r()*2.5,fill:'#FFFFFF'}));
+        if(pick.wx==='fog')svg.appendChild(el('rect',{x:0,y:0,width:640,height:300,fill:'#E7E7E2','fill-opacity':0.72}));
+        if(pick.wx==='glare'){svg.appendChild(el('circle',{cx:330,cy:150,r:120,fill:'#FFF6B0','fill-opacity':0.55}));svg.appendChild(el('circle',{cx:330,cy:150,r:40,fill:'#FFFFFF','fill-opacity':0.8}));}}
+    }
+    var STEPS=['Time of day: sky and light','Road and lane lines','Who\u2019s on the road','The wildcard','Weather, laid over everything'];
+    function build(){if(busy)return;busy=true;var svg=$('world-svg');svg.innerHTML='';var list=$('world-check');list.innerHTML=STEPS.map(function(s){return '<li>'+s+'</li>';}).join('');
+      var s=0,lis=list.querySelectorAll('li');
+      function next(){layer(s,svg);lis[s].className='done';s++;if(s<STEPS.length){setTimeout(next,REDUCED?0:320);}else finish();}
+      next();}
+    function finish(){busy=false;built++;$('w-count').textContent=built;
+      var mult=opt('wx')[2]*opt('tod')[2]*opt('who')[2],w=opt('wild')[2],lc=function(t){return t.charAt(0).toLowerCase()+t.slice(1);},desc=[opt('wx')[1],lc(opt('tod')[1]),lc(opt('who')[1]),lc(opt('wild')[1])].join(', ');
+      var svg=$('world-svg'),msg;
+      svg.setAttribute('aria-label','Generated scene: '+desc);
+      if(w>0){var miles=20000*mult*w,times=271.3e6/miles;$('w-miles').textContent=big(miles);$('w-fleet').textContent=times>=1?'about '+(times>=10?fmt(Math.round(times)):times.toFixed(1)):'less than once';
+        msg='<b>Built:</b> '+desc+'. Real driving would meet this roughly once every <b>'+big(miles)+' miles</b>. '+(times>=1?'The whole fleet has probably met it '+(times>=10?'about '+fmt(Math.round(times)):'about '+times.toFixed(1))+' times. A world model can make it a thousand more times by lunch.':'The fleet has probably never met it. The world model made it in a second, because it knew each ingredient separately.');}
+      else if(w===0){$('w-miles').textContent='no record';$('w-fleet').textContent='0, as far as anyone knows';
+        msg='<b>Built:</b> an elephant in the road. Waymo\u2019s cars have no recorded meeting with one, but Genie 3 watched video of elephants, so the world model can stage one, in the rain, at night, on any street. That\u2019s transfer: knowledge learned from general video, put to work on driving.';}
+      else {$('w-miles').textContent='?';$('w-fleet').textContent='?';
+        svg.setAttribute('aria-label','Generated scene with a gray blank where the wildcard should be: the world model has nothing to draw it from');
+        msg='<b>It couldn\u2019t build it.</b> The gray blob is the honest answer. A world model only recombines what was in its training video. It can stage an elephant because elephants are on video. It can\u2019t stage what no camera has caught, and that\u2019s exactly where the long tail lives.';}
+      $('world-read').innerHTML=msg+(built<3?' Build '+(3-built)+' more.':'');}
+    $('world-build').addEventListener('click',build);
+    $('world-reset').addEventListener('click',function(){if(busy)return;built=0;$('w-count').textContent='0';$('w-miles').textContent='?';$('w-fleet').textContent='?';$('world-svg').innerHTML='';$('world-check').innerHTML='';$('world-read').innerHTML='';
+      pick={wx:'clear',tod:'day',who:'ped',wild:'none'};box.querySelectorAll('button[data-row]').forEach(function(x){setChip(x,pick[x.getAttribute('data-row')]===x.getAttribute('data-v'));});});
+  })();
+
+  /* =====================================================================
+     6. The pitch: plan plus offered conditions, read back
+     ===================================================================== */
+  (function(){
+    if(!$('pitch-tool'))return;
+    var C=[
+      ['report','Share crash and disengagement data with the city every quarter, in a format someone else can check','Costs us: our mistakes go public on the city\u2019s schedule, not ours.','Answers: who keeps the count (section 2.9).'],
+      ['school','Slower speeds and extra caution near schools at drop-off and pickup','Costs us: longer trips and fewer rides an hour across part of the city.','Answers: the Santa Monica question regulators are already asking (section 1).'],
+      ['rain','A wet-season test period before full service','Costs us: a season of delay, and someone has to define what \u201cpassed\u201d means.','Answers: what the fog and rain did to the camera (section 2).'],
+      ['scores','Let an independent reviewer see what the car is rewarded for','Costs us: a piece of strategy competitors would love to see.','Answers: who wrote the score sheet (section 3).'],
+      ['cap','Start with a capped fleet, raised only after council review','Costs us: slower revenue, and fewer late-night and accessibility rides at first.','Answers: the slow lane, without saying no.'],
+      ['fee','A per-ride fee that funds a transition program for displaced drivers','Costs us: higher fares or thinner margins, and it admits the displacement is real.','Answers: the driver column of your ledger (section 4.5).'],
+      ['hire','Hire local drivers first for fleet jobs: charging, cleaning, maintenance, remote assistance','Costs us: some wages we\u2019d pay anyway, and it covers only a small share of the jobs replaced.','Answers: \u201cwhat happens to us?\u201d with something more than a fund.'],
+      ['sunset','Accept a permit that expires in 12 months unless the council renews it','Costs us: we invest in a city that could send us away.','Answers: the council keeps its leverage.']];
+    var plan=null,on={};
+    var h='';C.forEach(function(c){h+='<div class="pairbox" style="margin:0"><div class="chips"><button type="button" class="chip" aria-pressed="false" data-cond="'+c[0]+'">Offer this</button></div><p class="pairwho" style="margin:8px 0 4px"><strong>'+c[1]+'</strong></p><p class="pdesc" style="margin:0">'+c[2]+' '+c[3]+'</p></div>';});
+    $('pitch-conds').innerHTML=h;
+    document.querySelectorAll('#pitch-tool [data-plan]').forEach(function(b){b.addEventListener('click',function(){plan=b.getAttribute('data-plan');document.querySelectorAll('#pitch-tool [data-plan]').forEach(function(x){setChip(x,x===b);});});});
+    document.querySelectorAll('#pitch-tool [data-cond]').forEach(function(b){b.addEventListener('click',function(){var k=b.getAttribute('data-cond');on[k]=!on[k];setChip(b,on[k]);b.textContent=on[k]?'Offered':'Offer this';});});
+    function name(k){for(var i=0;i<C.length;i++)if(C[i][0]===k)return C[i];}
+    $('pitch-go').addEventListener('click',function(){var out=$('pitch-out'),r=$('pitch-read');out.hidden=false;
+      if(!plan){r.innerHTML='Pick a plan first: launch citywide, launch small, wait a year, or walk away.';return;}
+      var picked=Object.keys(on).filter(function(k){return on[k];}),msg='';
+      if(plan==='walk'){r.innerHTML='<b>You walk away</b> and launch somewhere with easier rules. Bellingham keeps its drivers\u2019 income and its human crash rate; your ledger\u2019s crash column happens in some other town. Notice who decides where robotaxis go now: whichever city asks for the least. Is that a good way for the map to get drawn?';return;}
+      if(plan==='wait'){r.innerHTML='<b>You wait a year.</b> Say what a year buys you: more miles somewhere else, a newer car, a state law. '+(picked.length?'You\u2019d come back offering '+picked.length+' condition'+(picked.length===1?'':'s')+'. ':'')+'Meanwhile the crash column of your ledger doesn\u2019t happen here, and neither does the driver column. Waiting is a choice with both costs, not neither.';return;}
+      msg='<b>'+(plan==='launch'?'Launch citywide':'Launch small and grow')+'</b>, offering '+(picked.length?picked.length+' condition'+(picked.length===1?'':'s')+':':'nothing.');
+      if(picked.length){msg+='<ul style="margin:8px 0 10px;padding-left:20px">'+picked.map(function(k){var c=name(k);return '<li>'+c[1]+'. <span style="color:#C9CED6">'+c[2]+'</span></li>';}).join('')+'</ul>';}
+      var notes=[];
+      if(!picked.length)notes.push('A pitch with no conditions doesn\u2019t mean a permit with no conditions. It means the council writes them, and theirs will cost more.');
+      if(picked.length>=7)notes.push('That\u2019s nearly the whole menu. Every one costs something, and a pitch this heavy may not pencil out. Which two answer the council\u2019s real worry?');
+      if(!on.fee&&!on.hire)notes.push('Nothing here answers the driver column of your ledger. The drivers\u2019 side will bring that number to the hearing whether you do or not.');
+      if(!on.report)notes.push('You kept the count to yourself. Chapter 7, section 2.9: whoever keeps the track record holds the power, and the council knows it.');
+      if(plan==='launch'&&!on.rain&&!on.cap)notes.push('Citywide on day one, in a rain city, with no test period and no cap. Mini-Camera\u2019s fog is the reason a council asks about that.');
+      if(!notes.length)notes.push('This answers both columns of your ledger and gives the council the count. The question now is whether it still makes money, and that\u2019s your boss\u2019s next question.');
+      r.innerHTML=msg+'<p style="margin:10px 0 0">'+notes.join(' ')+'</p>';});
+    $('pitch-reset').addEventListener('click',function(){plan=null;on={};document.querySelectorAll('#pitch-tool [data-plan]').forEach(function(x){setChip(x,false);});document.querySelectorAll('#pitch-tool [data-cond]').forEach(function(x){setChip(x,false);x.textContent='Offer this';});$('pitch-out').hidden=true;});
+  })();
+
+  /* ---------- copy buttons ---------- */
+  function copyText(txt,stat){function done(ok){if(stat){stat.textContent=ok?'Copied.':'Couldn\u2019t copy. Select the text and copy it by hand.';setTimeout(function(){stat.textContent='';},4000);}}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(function(){done(true);},function(){done(fallback());});}else done(fallback());
+    function fallback(){var ta=document.createElement('textarea');ta.value=txt;ta.setAttribute('readonly','');ta.style.position='absolute';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();var ok=false;try{ok=document.execCommand('copy');}catch(e){}document.body.removeChild(ta);return ok;}}
+  document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){var src=document.querySelector(b.getAttribute('data-copy'));copyText(src.textContent.trim(),b.parentNode.querySelector('.cpstat'));});});
 })();
 </script>
+
 
 <script>
 (function(){
