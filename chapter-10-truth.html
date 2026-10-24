@@ -289,7 +289,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <a href="chapter-04-medicine-lab.html"><span class="lbl">Lab 4 · Week 4</span>Inside the Graph</a>
 <a href="chapter-05-environment-lab.html"><span class="lbl">Lab 5 · Week 5</span>The Footprint Machine</a>
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
-<a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>The Bellingham Pitch</a>
+<a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>You Are the City Council</a>
 <a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
 <a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Run the Firm</a>
 </div></div>
@@ -372,10 +372,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   </figure>
 
   <p>This is why <strong>hallucination</strong>, the industry's word for confident fabrication, is not a bug being patched out. It's the machine working as designed, in the cases where plausible and true come apart. The systems have gotten meaningfully better at staying aligned with truth, and the grounding tools in <a class="inline" href="#s2-4">section 2.4</a> help a lot. They have not changed what the model fundamentally optimizes.</p>
-  <div class="concept">
-    <div class="term">Hallucination</div>
-    <p>Confident fabrication by a generative model: invented facts, quotes, sources, delivered in the same fluent voice as everything accurate. What people get wrong: they picture it as a malfunction. It's the plausibility engine running in territory where plausible and true diverge, and the fluency is the same either way.</p>
-  </div>
+  <p>That's a <strong>hallucination</strong>: confident fabrication by a generative model, invented facts, quotes, and sources delivered in the same fluent voice as everything accurate. People picture it as a malfunction. It's the plausibility engine running in territory where plausible and true diverge, and the fluency sounds the same either way.</p>
 
   <h3 class="sub" id="s2-2"><span>2.2</span> The verification asymmetry</h3>
   <p>Now the economics. A phantom citation took seconds to generate and hours of professional time to expose. The same shape shows up wherever generation gets cheap. Two days before the 2024 New Hampshire presidential primary, thousands of voters got a robocall in Joe Biden's voice telling them not to vote. It was an AI clone, commissioned by a political consultant who testified that he <a class="inline" href="https://www.wbur.org/news/2025/06/16/biden-ai-robocall-new-hampshire-steven-kramer-not-guilty" target="_blank" rel="noopener">paid a magician $150</a> to create the recording. The consequences ran for more than a year: a state investigation, a <a class="inline" href="https://cyberscoop.com/fcc-fine-joe-biden-deepfake-new-hampshire-robocall-steve-kramer/" target="_blank" rel="noopener">$6 million federal fine</a> finalized in September 2024, and a criminal trial on 22 counts, at which a New Hampshire jury acquitted him of all of them in June 2025. He argued the primary was an unsanctioned straw poll and the call never used Biden's name. A hundred and fifty dollars of generation consumed investigators, regulators, and courts, and the criminal law, written before voice clones existed, didn't reach him.</p>
@@ -400,10 +397,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <figcaption>The verification asymmetry. The left bars are what generation costs now; the right bars are what checking still costs. Most of what this chapter recommends is an attempt to shorten the right bars.</figcaption>
   </figure>
 
-  <div class="concept">
-    <div class="term">The verification asymmetry</div>
-    <p>Fabricating content costs seconds and cents; checking it costs minutes, expertise, and institutional time. Whoever benefits from noise can now produce it faster than anyone can clean it up. What people get wrong: they treat this as a problem of gullible people. It's a problem of cost, and the fixes are things that make checking cheap.</p>
-  </div>
+  <p>Call it <strong>the verification asymmetry</strong>: fabricating content costs seconds and cents, while checking it costs minutes, expertise, and institutional time. Whoever benefits from noise can now produce it faster than anyone can clean it up. It's tempting to blame gullible people. It's really a problem of cost, and the fixes are the things that make checking cheap.</p>
 
 
   <div class="tool">
@@ -442,10 +436,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   </figure>
 
   <p>Follow that to its end state and you get the real stakes of this chapter: not a world where people believe false things, but a world where people can't be made to believe true ones, where every inconvenient fact has a plausible exit. A society can survive some lies. It cannot govern itself without a shared way to settle what happened.</p>
-  <div class="concept">
-    <div class="term">The liar's dividend</div>
-    <p>The bonus fakery pays the dishonest: real evidence becomes deniable. What people get wrong: they count the harm in fakes believed. Count it in truths dismissed, and the number is larger.</p>
-  </div>
+  <p>That's <strong>the liar's dividend</strong>: the bonus fakery pays the dishonest, because real evidence becomes deniable. We tend to count the harm in fakes believed. Count it in truths dismissed, and the number is larger.</p>
 
   <h3 class="sub" id="s2-4"><span>2.4</span> Making verification cheap again</h3>
   <p>If the problem is a cost gap, the fixes are things that close it from the checking side. Two matter most, and you'll use both.</p>
@@ -479,10 +470,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
     <figcaption>Cheapening verification. Grounding makes a model's claims clickable; provenance makes a photo's history readable. Both attack the asymmetry from the checking side, which is the side that matters.</figcaption>
   </figure>
 
-  <div class="concept">
-    <div class="term">Provenance</div>
-    <p>Cryptographic content credentials: cameras and tools signing what they produce, so that a viewer can check where a file came from and what changed. What people get wrong: they expect it to detect fakes. It doesn't. It makes real things provable, which is the side of the asymmetry worth fixing.</p>
-  </div>
+  <p>Notice what <strong>provenance</strong> does and doesn't do. Content credentials let cameras and tools sign what they produce, so a viewer can check where a file came from and what changed. They don't detect fakes. They make real things provable, which is the side of the asymmetry worth fixing.</p>
 
 
   <h3 class="sub" id="s2-5"><span>2.5</span> The other edge: AI built for truth, and the feed it's competing with</h3>
@@ -512,10 +500,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <p>Now the evidence, because this shouldn't rest on a diagram. In 2024, three researchers, Thomas Costello, Gordon Pennycook, and David Rand, <a class="inline" href="https://www.science.org/doi/10.1126/science.adq1814" target="_blank" rel="noopener">put 2,190 conspiracy believers into three rounds of conversation</a> with GPT-4, which was asked to respond to each person's own reasons with evidence. Belief in the person's chosen conspiracy fell by about 20 percent, the effect held two months later, and it worked even on people with deeply entrenched views. Decades of human fact-checking had rarely moved believers at all; a model that could answer their specific argument did. A <a class="inline" href="https://www.adl.org/resources/report/short-dialogues-ai-reduce-belief-antisemitic-conspiracy-theories" target="_blank" rel="noopener">2025 follow-up</a> with 1,224 people used a different lab's model on antisemitic conspiracies and found the same thing. The mechanism is the plausibility machine again, pointed the other way: it can produce the specific, tailored counterargument a believer has never actually heard.</p>
   <p>Two caveats, and both are course material. First, Science <a class="inline" href="https://pubmed.ncbi.nlm.nih.gov/39264999/" target="_blank" rel="noopener">posted an editorial expression of concern</a> on the 2024 paper in June 2026. That's a journal saying it's looking into something; it's not a retraction and it's not an all-clear, and the replication stands on its own. Check where it lands, and run Question 4 on whatever you find. Second, a <a class="inline" href="https://arxiv.org/pdf/2601.05050" target="_blank" rel="noopener">2026 study</a> found the same models persuade people <em>into</em> conspiracies about as effectively as out of them. The capability is symmetric. The objective decides the direction, which is exactly the point of the diagram: what a system is built to optimize for is the whole difference between a debunking tool and a propaganda machine, and it's a choice someone makes.</p>
   <p>So the honest version of this chapter's claim is narrower than "AI is a truth problem." Generation got cheap, and that created the asymmetry and the dividend, which are real and getting worse. And, at the same time, the most capable tool anyone has ever had for tailored, evidence-based correction just arrived, and whether it's used that way depends on who's paying for it and what for. Both edges. The chapter's job is to make sure you can see both.</p>
-  <div class="concept">
-    <div class="term">The objective decides</div>
-    <p>A model that can produce the perfect tailored counterargument can produce the perfect tailored lie; which one you get depends on what it's optimized for and who's paying. What people get wrong: they ask whether AI is good or bad for truth. Ask what the system in front of you is judged on, and by whom.</p>
-  </div>
+  <p>So the principle for this section is that <strong>the objective decides</strong>. A model that can write the perfect tailored counterargument can write the perfect tailored lie, and which one you get depends on what it's optimized for and who's paying. Don't ask whether AI is good or bad for truth. Ask what the system in front of you is judged on, and by whom.</p>
 
   <div class="callout tryit">
     <div class="label">Try it · practice for Friday's quiz. Five situations: which concept is doing the work? Decide, then click to check.</div>
