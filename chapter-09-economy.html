@@ -252,6 +252,12 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   h2,h3{break-after:avoid;page-break-after:avoid}
   svg{max-width:100% !important}
 }
+
+figure.photo{margin:22px auto;max-width:440px}
+figure.photo img{display:block;width:100%;height:auto;border-radius:6px}
+figure.photo figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;margin-top:8px}
+figure.photo .credit{display:block;font-size:.76rem;margin-top:3px}
+@media print{figure.photo{break-inside:avoid;max-width:320px}}
 </style>
 <style>
 .tryit details{border-top:1px dashed var(--rule);padding:10px 0;}
@@ -394,7 +400,17 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <h3 class="sub" id="s2-2"><span>2.2</span> General-purpose technologies, and the dynamo's forty years</h3>
   <p>The best history lesson for this moment is a hundred years old, and Krugman's essay leans on it for good reason. The economic historian Paul David studied what happened when American factories got electricity, and found that for decades, almost nothing happened.</p>
   <p>Here's why. A steam-powered factory was built vertically around one giant engine, with power carried by belts and shafts through the whole building. When electric motors arrived, owners did the obvious thing: swapped the steam engine for a big electric one and kept everything else. Same building, same layout, same workflow, new power source. The gain was small, and it stayed small for about a generation.</p>
+  <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/NORTH_TO_CIRCA_1920_CINCINNATI_AMES_MFG._CO._TURRET_LATHE_WITH_PARTS-TOOL_BINS_ALONG_THE_EAST_INTERIOR_WALL_OF_THE_BUILDING._NEAR_THE_CEILING_IS_THE_LINE_SHAFT_WITH_BELTS_AND_HAER_NEB%2C66-NEBCI%2C6-24.tif/lossy-page1-960px-thumbnail.tif.jpg" alt="An old machine shop with a long shaft and leather belts running along the ceiling to drive the machines below" loading="lazy" width="880" height="630">
+      <figcaption><b>Belts and shafts on the ceiling.</b> Before small electric motors, one engine drove every machine through a line shaft like this one, and the whole building was laid out around it. <span class="credit">Photo: <a class="inline" href="https://commons.wikimedia.org/wiki/File:NORTH_TO_CIRCA_1920_CINCINNATI_AMES_MFG._CO._TURRET_LATHE_WITH_PARTS-TOOL_BINS_ALONG_THE_EAST_INTERIOR_WALL_OF_THE_BUILDING._NEAR_THE_CEILING_IS_THE_LINE_SHAFT_WITH_BELTS_AND_HAER_NEB,66-NEBCI,6-24.tif" target="_blank" rel="noopener">Historic American Engineering Record, Library of Congress</a>, Public domain, via Wikimedia Commons.</span></figcaption>
+    </figure>
+
   <p>The payoff came only when a new generation of managers stopped <em>retrofitting</em> and started <em>redesigning</em>: small motors on each machine, single-story factories laid out around the flow of work instead of the flow of power, assembly lines that were impossible in the old buildings. The technology hadn't improved much. The <em>organization</em> had finally been rebuilt around it, and productivity took off, forty years after the dynamo arrived.</p>
+  <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ford_assembly_line_-_1913_%28restored%29.jpg/960px-Ford_assembly_line_-_1913_%28restored%29.jpg" alt="Workers along a moving assembly line at Ford in 1913" loading="lazy" width="880" height="635">
+      <figcaption><b>The redesign.</b> Ford's assembly line in 1913, a factory organized around the flow of work rather than the flow of power. <span class="credit">Photo: <a class="inline" href="https://commons.wikimedia.org/wiki/File:Ford_assembly_line_-_1913_(restored).jpg" target="_blank" rel="noopener">unknown photographer</a>, Public domain, via Wikimedia Commons.</span></figcaption>
+    </figure>
+
   <div class="callout">
     <div class="label">The sentence to carry out of this chapter</div>
     <p>A general-purpose technology pays off not when it's adopted, but when work is reorganized around it. Swapping the engine is fast. Redesigning the factory is slow, expensive, and disruptive, and it's where the gains were hiding.</p>
@@ -525,6 +541,11 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <div class="shead"><span class="num">3</span><h2>The case: canaries in the coal mine</h2></div>
   <h3 class="sub" id="s3-background"><span>Background</span> A lab, a payroll company, and a bird</h3>
   <p>Coal miners used to carry canaries underground. The birds were more sensitive to dangerous gas than the miners were, so if the canary stopped singing, you got out. The same Stanford lab borrowed the image for a study called <a class="inline" href="https://digitaleconomy.stanford.edu/news/canariesaug26/" target="_blank" rel="noopener">"Canaries in the Coal Mine? Six Facts About the Recent Employment Effects of Artificial Intelligence."</a> The question: if AI is starting to change the job market, who feels it first?</p>
+  <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Canary_coal_mine.jpg/960px-Canary_coal_mine.jpg" alt="A mine rescue worker holding a small cage with a canary inside" loading="lazy" width="880" height="660">
+      <figcaption><b>A canary in a cage</b>, carried by mine rescue crews to detect dangerous gas. The study borrowed the image. <span class="credit">Photo: <a class="inline" href="https://commons.wikimedia.org/wiki/File:Canary_coal_mine.jpg" target="_blank" rel="noopener">George McCaa, U.S. Bureau of Mines</a>, Public domain, via Wikimedia Commons.</span></figcaption>
+    </figure>
+
   <p>The data source matters. Instead of surveys or predictions, the researchers, Erik Brynjolfsson, Bharat Chandar, and Ruyu Chen, used payroll records from ADP, a company that processes paychecks for millions of American workers. Real hires, real paychecks, month by month, since ChatGPT launched in late 2022. The August 2026 revision says two things at once, and we need to hold both.</p>
   <p><strong>First: there is no widespread, economy-wide job displacement from AI.</strong> Across the whole workforce, employment looks broadly normal.</p>
   <p><strong>Second: workers ages 22 to 25 in the jobs most exposed to AI are falling behind.</strong> Their employment now sits about 19% below where it would be if it had kept pace with less-exposed peers of the same age. Experienced workers in the same occupations show no comparable gap. A year earlier the number was 15%. It is widening. That second finding is about this room: the age group entering the job market in the next few years, in exactly the white-collar roles a business degree points toward.</p>

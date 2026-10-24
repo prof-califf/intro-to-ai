@@ -238,6 +238,12 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   h2,h3{break-after:avoid;page-break-after:avoid}
   svg{max-width:100% !important}
 }
+
+figure.photo{margin:22px auto;max-width:440px}
+figure.photo img{display:block;width:100%;height:auto;border-radius:6px}
+figure.photo figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;margin-top:8px}
+figure.photo .credit{display:block;font-size:.76rem;margin-top:3px}
+@media print{figure.photo{break-inside:avoid;max-width:320px}}
 </style>
 <style>
   .srcnote{border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0;margin:34px 0}
@@ -517,6 +523,11 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   <div class="shead"><span class="num">3</span><h2>The case: the phantom citations</h2></div>
   <h3 class="sub" id="s3-background"><span>Background</span> A serving cart, a brief, and six cases that didn't exist</h3>
   <p>In 2022, a passenger sued the airline Avianca in federal court in New York, saying a metal serving cart had struck his knee on a flight. A routine case. In 2023, his lawyers filed a brief citing multiple court cases supporting their argument: cases with convincing names, plausible citations, quotable passages. Avianca's lawyers couldn't find them. Neither could the judge. Because they did not exist. One of the lawyers had asked ChatGPT for supporting cases; it produced them, complete and confident and fictional. Asked directly whether the cases were real, it assured him they were. When the judge ordered copies, what came back was fabricated too. On June 22, 2023, the court dismissed the case and <a class="inline" href="https://en.wikipedia.org/wiki/Mata_v._Avianca,_Inc." target="_blank" rel="noopener">fined the lawyers $5,000</a>, and <em>Mata v. Avianca</em> became the first famous collision between a plausibility machine and an institution built on verification.</p>
+  <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Daniel_Patrick_Moynihan_U.S._Courthouse%2C_Manhattan%2C_New_York_%287237347688%29.jpg/960px-Daniel_Patrick_Moynihan_U.S._Courthouse%2C_Manhattan%2C_New_York_%287237347688%29.jpg" alt="The entrance of a granite federal courthouse in Lower Manhattan" loading="lazy" width="880" height="660">
+      <figcaption><b>A federal courthouse in Manhattan</b>, home of the Southern District of New York, the court where the Avianca case was filed. <span class="credit">Photo: <a class="inline" href="https://commons.wikimedia.org/wiki/File:Daniel_Patrick_Moynihan_U.S._Courthouse,_Manhattan,_New_York_(7237347688).jpg" target="_blank" rel="noopener">Ken Lund from Reno, Nevada, USA</a>, <a class="inline" href="https://creativecommons.org/licenses/by-sa/2.0" target="_blank" rel="noopener">CC BY-SA 2.0</a>, via Wikimedia Commons.</span></figcaption>
+    </figure>
+
   
   <figure class="diagram">
     <svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="av-t av-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
