@@ -918,7 +918,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     <p class="sim-note">Cascade Outfitters, Jordan, the job posting, the learned words, and all 160 past applicants are invented, built to behave the way the cases in Chapter 6 describe. Nothing is saved.</p>
   </div>
 
-  <p><strong>Step 1 is the keyword gate.</strong> The scanner didn't judge whether Jordan could do the job. It counted matching words. Same person, same skills, and a few word swaps moved Jordan from rejected to passed. Before you apply anywhere, read the posting and use its words for the things you've actually done.</p>
+  <p><strong>Step 1 is the keyword gate.</strong> The scanner didn't judge whether Jordan could do the job. It counted matching words. Same person, same skills, and a few word swaps moved Jordan from rejected to passed. Before you apply anywhere, read the posting and use its words for the things you've actually done. And notice where most of Jordan's experience came from: class projects. For an entry-level job, they count.</p>
   <p><strong>Step 2 is bias hiding in words.</strong> The scanner learned from past hires, and the past hires were mostly men, so a word about women became a penalty. That's the same objectivity trap as Mini-Lender: nothing in the code says "prefer men." The history said it.</p>
   <p><strong>Steps 3 and 4 are the proxy, again.</strong> When you deleted graduation year, the matched pair came back identical, and an auditor who only ran that one test would call the scanner clean. But the ratio stayed flagged, because years of experience was doing the work of age. A model can pass the test you thought to run and fail the one you didn't. That's why <a class="inline" href="chapter-06-hiring-lending.html#s2-6">section 2.6</a> uses both tools: the matched pair finds what the model reads, and the four-fifths ratio checks what comes out.</p>
   <p><strong>Step 5 is the label, again.</strong> Trained on how people actually did on the work, the age gap mostly went away. But a real company only has work samples for the people it hired, which is the same catch as the bank.</p>
@@ -943,6 +943,8 @@ p.runnote{font-size:.9rem;color:var(--gray);}
   <h3 class="sub" id="build-job"><span>Your job</span></h3>
   <p>Build a tool that shows how a screener might read your résumé before you hit Apply. Claude writes the code. You decide which of its suggestions are true and worth using.</p>
 
+  <div class="callout"><div class="label">Why class projects matter right now</div><p>Entry-level hiring is tight. Unemployment for recent college graduates, ages 22 to 27, was about 5.6 percent in March 2026, up from 3.6 percent in March 2019 (<a class="inline" href="https://www.newyorkfed.org/newsevents/mediaadvisory/2026/0528-2026" target="_blank" rel="noopener">New York Fed</a>). About 42 percent of recent grads are working jobs that don't need their degree (<a class="inline" href="https://www.newyorkfed.org/research/college-labor-market" target="_blank" rel="noopener">New York Fed</a>). With fewer entry-level jobs and more applicants for each one, your class projects are real experience. List them like a job, and in the posting's words: <strong>the problem, what you built, the tools you used, and what changed because of it.</strong> Jordan's data visualization project says all four in three lines, and the AI prototype shows a business problem, a build, and a test.</p></div>
+
   <div class="callout"><div class="label">Before you start</div><p><strong>Messages run out.</strong> Every scan uses some of your Claude account's limit. Send the build prompt once. If you hit the limit, Claude tells you when it resets, and your page is saved.</p><p><strong>If the page says it can't reach Claude,</strong> look in your Claude settings for an option to let artifacts use AI and turn it on, then ask Claude to try again.</p></div>
 
   <h3 class="sub" id="build-steps"><span>Step by step</span></h3>
@@ -956,7 +958,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
       <p><strong>Try it on Jordan first.</strong> Copy the job posting and Jordan's résumé, the same ones from Mini-Screener, into the two boxes and press Scan. Did the AI figure out that "database queries" means SQL, or does it list SQL as missing like the keyword scanner did? Do its rewrite suggestions match the ones you made in Mini-Screener?</p>
       <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#job-text">Copy the job posting</button><span class="cpstat" aria-live="polite"></span></div>
       <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#resume-text">Copy Jordan's résumé</button><span class="cpstat" aria-live="polite"></span></div>
-      <details class="csvbox"><summary>See the posting and the résumé</summary><pre id="job-text" tabindex="0">Data &amp; Systems Analyst
+      <details class="csvbox"><summary>See the posting and the résumé</summary><pre id="job-text" tabindex="0">Junior Data &amp; Systems Analyst
 Cascade Outfitters, Bellingham, WA
 
 Help us figure out why our rain jackets sell out every October. You'll turn sales and inventory data from our 12 stores into decisions, and help pick the systems we run on.
@@ -968,31 +970,39 @@ You'll:
 - Work in Agile sprints with our developers.
 
 You have:
-- A bachelor's degree in MIS, information systems, or business.
+- A bachelor's degree in MIS, information systems, or business, finished or finishing by June 2026.
 - Some Python, and comfort with cloud tools like AWS.
-- 2+ years as an analyst.</pre><pre id="resume-text" tabindex="0">Jordan Lee
-Business analyst with 7 years of experience turning messy data into decisions.
-
-EXPERIENCE
-Business Analyst, Bellwether Coffee Co., 2022 to now
-- Ran the move of 40 cafés' sales data to AWS, cutting report time from a day to an hour.
-- Built dashboards showing which drinks sell at each café, hour by hour.
-- Wrote database queries to pull sales data for the finance team.
-
-IT Analyst, Sound Credit Union, 2019 to 2022
-- Interviewed branch managers about what they needed for a new loan system.
-- Automated monthly reports in spreadsheets with Python.
-- Worked in two-week Agile sprints with the developers.
+- Entry level: internships and class projects count as experience.</pre><pre id="resume-text" tabindex="0">Jordan Lee
+Management Information Systems graduate (June 2026) who turns messy data into decisions.
 
 EDUCATION
-B.S., Management Information Systems, Cascade State University, 2019
+B.S., Management Information Systems, Cascade State University, 2026
+
+CLASS PROJECTS
+Data visualization project, Spring 2026 (team of four)
+- Gathered a year of a local café's sales data and wrote database queries to clean and combine it.
+- Built dashboards and charts showing which drinks sell, hour by hour.
+- Presented the data story to the owner, who changed staffing on slow afternoons.
+
+AI in Business prototype, Fall 2025 (team of three)
+- Built a working AI prototype that answers gear-return questions for a local outdoor shop.
+- Tested it with 12 shoppers and pitched it to the owner, who is trying it this holiday season.
+
+Systems analysis project, Winter 2026
+- Interviewed library staff about what they needed for a new room-booking system.
+- Worked in two-week Agile sprints with three classmates.
+
+EXPERIENCE
+IT Help Desk Assistant (part-time), Cascade State University, 2025 to 2026
+- Ran the move of the help desk's ticket reports to AWS.
+- Automated weekly ticket reports in spreadsheets with Python.
 
 SKILLS AND ACTIVITIES
 Python, AWS, data cleaning
 Captain, women's ultimate frisbee club</pre></details>
     </div></div>
     <div class="step"><span class="sn">3</span><div>
-      <p><strong>Now scan yourself.</strong> Find a real posting you'd apply for, on Handshake, LinkedIn, or a company's careers page, and paste it in with your own résumé. <strong>Delete your phone number, email, and address first.</strong> No résumé handy? Use Jordan's, or a rough one: list your jobs, classes, and projects. Then read the results like a skeptic:</p>
+      <p><strong>Now scan yourself.</strong> Find a real posting you'd apply for, on Handshake, LinkedIn, or a company's careers page, and paste it in with your own résumé. <strong>Delete your phone number, email, and address first.</strong> No résumé handy? Use Jordan's, or a rough one. Short on work experience? Add a <strong>Class projects</strong> section like Jordan's, with your best two or three projects from MIS classes. Then read the results like a skeptic:</p>
       <ul class="ideas">
         <li>Which missing keywords do you actually have, just in different words? Those are the easy wins.</li>
         <li>Is every suggested rewrite true? If it claims something you didn't do, don't use it. Getting caught in an interview costs more than a lower score.</li>
@@ -1203,7 +1213,7 @@ Captain, women's ultimate frisbee club</pre></details>
     <li><strong>The bias in the data.</strong> Give Mini-Lender's four-fifths ratio at each of the three steps. Your boss reads step 2 and says, "We deleted neighborhood, so the model is fair now." Using your numbers and the Meridian branch, write what you'd say back in two or three sentences. Then Mini-Screener: when you deleted graduation year, the matched pair came back identical. Why was that the wrong place to stop, and what did the four-fifths ratio and the experience weight show that the pair didn't?</li>
     <li><strong>Your scanner.</strong> Attach your page, as a link, an HTML file, or a PDF. When you scanned Jordan, did the AI figure out that "database queries" means SQL, or did it miss it like Mini-Screener? Then your own scan: which suggestion helped most, and was any suggestion something you couldn't honestly claim? Last, you saw in Mini-Screener that scanners can reward the wrong things. Name one thing your scanner might be rewarding or punishing that has nothing to do with the job, and how you'd find out. (No-AI path: your keyword tally, your two rewrites, your list of things to learn, and the same last question about a real employer's scanner.)</li>
     <li><strong>The debate.</strong> Which side were you handed, and what was the other side's best point? Then the hard part: Amazon's scanner learned its bias from Amazon's own hiring. When a lender or employer is unfair, is a person or a model easier to catch, and why? Use at least one source from the debate. Name the specific evidence that would change your mind.</li>
-    <li><strong>Your commitment card.</strong> From your own scan in section 4: name two keywords your résumé already showed in different words, and how you rewrote them. Name one the scanner said was missing that you don't have yet, and how you'd get it. Then name one detail on your résumé that could stand in for your age, gender, background, or class: a graduation year, a club, an address, a gap. Will you change it, keep it, or keep it and know it? Say what each choice costs you.</li>
+    <li><strong>Your commitment card.</strong> From your own scan in section 4: name two keywords your résumé already showed in different words, and how you rewrote them. Name one class project you could list as experience, and write its best line in the posting's words: what you built, the tools, and what changed. Then name one detail on your résumé that could stand in for your age, gender, background, or class: a graduation year, a club, an address, a gap. Will you change it, keep it, or keep it and know it? Say what each choice costs you.</li>
   </ol>
   <div class="callout">
     <div class="label">Using AI on this writeup</div>
@@ -1223,7 +1233,7 @@ Captain, women's ultimate frisbee club</pre></details>
       <dt>Section 2: redlining and lending</dt>
       <dd>Redlining maps: <a class="inline" href="https://news.richmond.edu/releases/article/-/13821/university-of-richmond-digital-scholarship-lab-unveils-new-highly-sought-after-mapping-project-about-redlining.html" target="_blank" rel="noopener">University of Richmond, Mapping Inequality</a>. Mortgage pricing gaps: <a class="inline" href="https://faculty.haas.berkeley.edu/stanton/pdf/discrim.pdf" target="_blank" rel="noopener">Bartlett, Morse, Stanton &amp; Wallace, <em>Journal of Financial Economics</em> (2022)</a>.</dd>
       <dt>Section 3: résumé screening</dt>
-      <dd>Screening software use: <a class="inline" href="https://www.library.hbs.edu/working-knowledge/how-to-tap-the-talent-automated-hr-platforms-miss" target="_blank" rel="noopener">Harvard Business School, <em>Hidden Workers: Untapped Talent</em> (2021)</a>. iTutorGroup: <a class="inline" href="https://www.eeoc.gov/newsroom/itutorgroup-pay-365000-settle-eeoc-discriminatory-hiring-suit" target="_blank" rel="noopener">EEOC settlement release (2023)</a>. <em>Mobley v. Workday</em>: <a class="inline" href="https://www.courtlistener.com/docket/66831340/mobley-v-workday-inc/" target="_blank" rel="noopener">court docket</a>; claims are allegations. Amazon: <a class="inline" href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G" target="_blank" rel="noopener">Dastin, Reuters (2018)</a>.</dd>
+      <dd>Screening software use: <a class="inline" href="https://www.library.hbs.edu/working-knowledge/how-to-tap-the-talent-automated-hr-platforms-miss" target="_blank" rel="noopener">Harvard Business School, <em>Hidden Workers: Untapped Talent</em> (2021)</a>. iTutorGroup: <a class="inline" href="https://www.eeoc.gov/newsroom/itutorgroup-pay-365000-settle-eeoc-discriminatory-hiring-suit" target="_blank" rel="noopener">EEOC settlement release (2023)</a>. <em>Mobley v. Workday</em>: <a class="inline" href="https://www.courtlistener.com/docket/66831340/mobley-v-workday-inc/" target="_blank" rel="noopener">court docket</a>; claims are allegations. Amazon: <a class="inline" href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G" target="_blank" rel="noopener">Dastin, Reuters (2018)</a>. Recent graduates’ job market (section 4): <a class="inline" href="https://www.newyorkfed.org/newsevents/mediaadvisory/2026/0528-2026" target="_blank" rel="noopener">New York Fed, March 2026 rates</a> and <a class="inline" href="https://www.newyorkfed.org/research/college-labor-market" target="_blank" rel="noopener">New York Fed, The Labor Market for Recent College Graduates (2026 Q2)</a>.</dd>
       <dt>Section 5: under the hood</dt>
       <dd>Adverse action notices: <a class="inline" href="https://www.consumerfinance.gov/compliance/circulars/circular-2022-03-adverse-action-notification-requirements-in-connection-with-credit-decisions-based-on-complex-algorithms/" target="_blank" rel="noopener">CFPB Circular 2022-03</a>. Four-fifths rule: <a class="inline" href="https://www.law.cornell.edu/cfr/text/29/1607.4" target="_blank" rel="noopener">29 CFR 1607.4</a>. AI résumé screening study: <a class="inline" href="https://www.washington.edu/news/2024/10/31/ai-bias-resume-screening-race-gender/" target="_blank" rel="noopener">Wilson &amp; Caliskan, AIES (2024), via UW News</a>. Logistic regression and credit scorecards: a general description of a standard method, stated without figures.</dd>
       <dt>Section 6: the debate</dt>
@@ -1498,34 +1508,39 @@ Captain, women's ultimate frisbee club</pre></details>
     /* ---------- stage 1: keywords ---------- */
     var KW=[['SQL',/\bSQL\b/i],['Tableau',/tableau/i],['Excel',/\bexcel\b/i],['Python',/python/i],['AWS',/\bAWS\b/],['Agile',/\bagile\b/i],['requirements gathering',/requirements gathering/i],['bachelor\u2019s degree',/bachelor\u2019s(?: degree)?/i]];
     var NEED=6;
-    var SWAPS=[['s1','database queries','SQL queries'],['s2','dashboards','Tableau dashboards'],['s3','spreadsheets','Excel'],['s4','Interviewed branch managers about what they needed','Led requirements gathering with branch managers'],['s5','B.S., Management Information Systems','Bachelor\u2019s degree, Management Information Systems']];
+    var SWAPS=[['s1','database queries','SQL queries'],['s2','dashboards','Tableau dashboards'],['s3','spreadsheets','Excel'],['s4','Interviewed library staff about what they needed','Led requirements gathering with library staff'],['s5','B.S., Management Information Systems','Bachelor\u2019s degree, Management Information Systems']];
     var sw={},verb=false,womens=true;
     function T(k){var s=SWAPS.filter(function(x){return x[0]===k;})[0];return sw[k]?s[2]:s[1];}
     function resumeLines(grad,gap){return [
-      ['h','Jordan Lee'],['m','Business analyst with 7 years of experience turning messy data into decisions.'],
-      ['s','Experience'],['b','Business Analyst, Bellwether Coffee Co., 2022 to now'],
-      ['l',(verb?'Executed':'Ran')+' the move of 40 caf\u00e9s\u2019 sales data to AWS, cutting report time from a day to an hour.'],
-      ['l','Built '+T('s2')+' showing which drinks sell at each caf\u00e9, hour by hour.'],
-      ['l','Wrote '+T('s1')+' to pull sales data for the finance team.'],
-      ['b','IT Analyst, Sound Credit Union, 2019 to 2022'+(gap?' (then two years out of work, caring for a parent)':'')],
-      ['l',T('s4')+' for a new loan system.'],
-      ['l','Automated monthly reports in '+T('s3')+' with Python.'],
-      ['l','Worked in two-week Agile sprints with the developers.'],
+      ['h','Jordan Lee'],['m','Management Information Systems graduate (June 2026) who turns messy data into decisions.'],
       ['s','Education'],['l',T('s5')+', Cascade State University, '+grad],
+      ['s','Class projects'],['b','Data visualization project, Spring 2026 (team of four)'],
+      ['l','Gathered a year of a local caf\u00e9\u2019s sales data and wrote '+T('s1')+' to clean and combine it.'],
+      ['l','Built '+T('s2')+' and charts showing which drinks sell, hour by hour.'],
+      ['l','Presented the data story to the owner, who changed staffing on slow afternoons.'],
+      ['b','AI in Business prototype, Fall 2025 (team of three)'],
+      ['l','Built a working AI prototype that answers gear-return questions for a local outdoor shop.'],
+      ['l','Tested it with 12 shoppers and pitched it to the owner, who is trying it this holiday season.'],
+      ['b','Systems analysis project, Winter 2026'],
+      ['l',T('s4')+' for a new room-booking system.'],
+      ['l','Worked in two-week Agile sprints with three classmates.'],
+      ['s','Experience'],['b','IT Help Desk Assistant (part-time), Cascade State University, 2025 to 2026'],
+      ['l',(verb?'Executed':'Ran')+' the move of the help desk\u2019s ticket reports to AWS.'],
+      ['l','Automated weekly ticket reports in '+T('s3')+' with Python.'],
       ['s','Skills and activities'],['l','Python, AWS, data cleaning'],['l','Captain, '+(womens?'women\u2019s ':'')+'ultimate frisbee club']];}
-    function resumeText(){return resumeLines(2019,0).map(function(x){return x[1];}).join(' ');}
+    function resumeText(){return resumeLines(2026,0).map(function(x){return x[1];}).join(' ');}
     function matched(){var t=resumeText();return KW.map(function(k){return k[1].test(t);});}
     function hl(text,mode){var out=esc(text);
       KW.forEach(function(k){out=out.replace(new RegExp('('+k[1].source+')',k[1].flags.indexOf('i')>-1?'gi':'g'),'<mark class="kwhit">$1</mark>');});
       if(mode===2){out=out.replace(/\b(Executed)\b/,'<mark class="lw plus">$1 +8</mark>').replace(/(women\u2019s)/,'<mark class="lw minus">$1 \u221212</mark>');}
       return out;}
-    function resumeHTML(mode){return '<div class="doc resume">'+resumeLines(2019,0).map(function(x){
+    function resumeHTML(mode){return '<div class="doc resume">'+resumeLines(2026,0).map(function(x){
       var c={h:'rname',m:'rsum',s:'rsec',b:'rjob',l:'rline'}[x[0]];return '<p class="'+c+'">'+(x[0]==='h'||x[0]==='s'?esc(x[1]):hl(x[1],mode))+'</p>';}).join('')+'</div>';}
     function postingHTML(m){var k=function(i,t){return '<span class="kw '+(m?(m[i]?'got':'miss'):'')+'">'+t+'</span>';};
-      return '<div class="doc posting"><p class="rname">Data &amp; Systems Analyst</p><p class="rsum">Cascade Outfitters &middot; Bellingham, WA</p>'+
+      return '<div class="doc posting"><p class="rname">Junior Data &amp; Systems Analyst</p><p class="rsum">Cascade Outfitters &middot; Bellingham, WA</p>'+
       '<p class="rline">Help us figure out why our rain jackets sell out every October. You\u2019ll turn sales and inventory data from our 12 stores into decisions, and help pick the systems we run on.</p>'+
       '<p class="rsec">You\u2019ll</p><p class="rline">Write '+k(0,'SQL')+' to pull sales and inventory data.</p><p class="rline">Build '+k(1,'Tableau')+' dashboards and '+k(2,'Excel')+' reports for store managers.</p><p class="rline">Lead '+k(6,'requirements gathering')+' for our new inventory system.</p><p class="rline">Work in '+k(5,'Agile')+' sprints with our developers.</p>'+
-      '<p class="rsec">You have</p><p class="rline">A '+k(7,'bachelor\u2019s degree')+' in MIS, information systems, or business.</p><p class="rline">Some '+k(3,'Python')+', and comfort with cloud tools like '+k(4,'AWS')+'.</p><p class="rline">2+ years as an analyst.</p></div>';}
+      '<p class="rsec">You have</p><p class="rline">A '+k(7,'bachelor\u2019s degree')+' in MIS, information systems, or business, finished or finishing by June 2026.</p><p class="rline">Some '+k(3,'Python')+', and comfort with cloud tools like '+k(4,'AWS')+'.</p><p class="rline">Entry level: internships and class projects count as experience.</p></div>';}
     var scanned=false;
     /* ---------- stage 1b: learned words ---------- */
     function wordScore(){var n=matched().filter(Boolean).length;return Math.round(n/8*80)+(verb?8:0)+(womens?-12:0);}
@@ -1534,7 +1549,7 @@ Captain, women's ultimate frisbee club</pre></details>
     function features(r,o){var v=[(r.test-stt[0])/stt[1],(r.exp-se[0])/se[1]];if(o.grad)v.push((r.grad-sg[0])/sg[1]);if(o.gap)v.push(r.gap);return v;}
     function fit(o){var X=RES.map(function(r){return features(r,o);}),w=train(X,RES.map(function(r){return r[o.label];}));
       var y=[0,0],ol=[0,0];RES.forEach(function(r,i){var g=r.older?ol:y;g[0]++;if(score(w,X[i])>0.5)g[1]++;});return {w:w,a:y[1]/y[0],b:ol[1]/ol[0]};}
-    var JORDAN={test:74,exp:7,grad:2019,gap:0};
+    var JORDAN={test:74,exp:1,grad:2026,gap:0};
     function rate(older,key){var n=0,k=0;RES.forEach(function(r){if(r.older===older){n++;k+=r[key];}});return k/n;}
     function meanExp(older){var n=0,k=0;RES.forEach(function(r){if(r.older===older){n++;k+=r.exp;}});return k/n;}
     var FIT={3:{label:'callback',grad:true,gap:true},4:{label:'callback',grad:false,gap:true},5:{label:'strong',grad:true,gap:true}};
@@ -1589,12 +1604,12 @@ Captain, women's ultimate frisbee club</pre></details>
       }else{var o=FIT[cur],res=fit(o),rt=ratioHTML(res.a,res.b);
         var A=JORDAN,B={test:A.test,exp:A.exp,grad:1997,gap:0},G={test:A.test,exp:A.exp,grad:A.grad,gap:1};
         var sa=Math.round(score(res.w,features(A,o))*100),sb=Math.round(score(res.w,features(B,o))*100),sg2=Math.round(score(res.w,features(G,o))*100);
-        h+='<p class="pairintro">Jordan passed stage 1. Here are two versions of the same résumé. Everything matches: skills test 74, seven years of experience, no gap. Only the graduation year is different. Make the call on each.</p>';
-        h+='<div class="desk">'+pairCard('Jordan, graduated 2019','Skills test 74 &middot; 7 years of experience &middot; no career gap'+(o.grad?'':' &middot; <span class="hidtag">graduation year hidden from the scanner</span>'),sa,0)+pairCard('Same résumé, graduated 1997','Skills test 74 &middot; 7 years of experience &middot; no career gap'+(o.grad?'':' &middot; <span class="hidtag">graduation year hidden from the scanner</span>'),sb,1)+'</div>';
+        h+='<p class="pairintro">Jordan passed stage 1. Here are two versions of the same résumé. Everything matches: skills test 74, one year of part-time experience, no gap. Only the graduation year is different. (A real 1997 graduate would have a different résumé. That\u2019s the point of a matched pair: change one thing only.) Make the call on each.</p>';
+        h+='<div class="desk">'+pairCard('Jordan, graduated 2026','Skills test 74 &middot; 1 year part-time experience &middot; no career gap'+(o.grad?'':' &middot; <span class="hidtag">graduation year hidden from the scanner</span>'),sa,0)+pairCard('Same résumé, graduated 1997','Skills test 74 &middot; 1 year part-time experience &middot; no career gap'+(o.grad?'':' &middot; <span class="hidtag">graduation year hidden from the scanner</span>'),sb,1)+'</div>';
         var cs=calls[cur]||[];
         if(cs[0]&&cs[1]){var gap=sa-sb;
           h+='<div class="reveal"><div class="biashit'+(Math.abs(gap)>=2?'':' even')+'"><span class="bhn">'+(Math.abs(gap)>=2?gap+' points':'Same score')+'</span><span class="bht">'+(Math.abs(gap)>=2?'for a graduation year. Same skills, same experience. That\u2019s age bias the scanner learned.':'for the two versions. The scanner can\u2019t see graduation year anymore.')+'</span></div>';
-          h+='<div class="biastest"><p class="btq"><b>Bias test:</b> what if Jordan (2019) had a two-year gap for caring for a parent? Change nothing else.</p><div class="btrow"><span>No gap</span><b>'+sa+'</b><span class="btarrow" aria-hidden="true">&rarr;</span><span>Two-year gap</span><b>'+sg2+'</b></div><p class="btnote">'+(sa-sg2>=2?'A gap in the work history costs <b>'+(sa-sg2)+' points</b>'+((sa>50)!==(sg2>50)?', enough to flip interview to reject.':'.')+' Career gaps show up more often on older applicants\u2019 and caregivers\u2019 résumés.':'The gap changes nothing now.')+'</p></div>';
+          h+='<div class="biastest"><p class="btq"><b>Bias test:</b> what if Jordan (2026) had a two-year gap for caring for a parent? Change nothing else.</p><div class="btrow"><span>No gap</span><b>'+sa+'</b><span class="btarrow" aria-hidden="true">&rarr;</span><span>Two-year gap</span><b>'+sg2+'</b></div><p class="btnote">'+(sa-sg2>=2?'A gap in the work history costs <b>'+(sa-sg2)+' points</b>'+((sa>50)!==(sg2>50)?', enough to flip interview to reject.':'.')+' Career gaps show up more often on older applicants\u2019 and caregivers\u2019 résumés.':'The gap changes nothing now.')+'</p></div>';
           if(o.label==='callback'){
             h+='<div class="history"><p class="hhead">Where the bias came from</p><p>The scanner learned from which past applicants the company\u2019s recruiters called back. Here are all 160, and what the recruiters did:</p>'+
               '<div class="dotsbox hdots wide"><p class="dothow">Each square is one past applicant, sorted by what the recruiter did.</p><div class="dotrow"><span class="dotlbl">'+dotLabel('Under 40',callItems(false),'called back','strong workers passed over')+'</span><div class="dots">'+callDots(false)+'</div></div><div class="dotrow"><span class="dotlbl">'+dotLabel('40 and older',callItems(true),'called back','strong workers passed over')+'</span><div class="dots">'+callDots(true)+'</div></div>'+
@@ -1607,7 +1622,7 @@ Captain, women's ultimate frisbee club</pre></details>
           $('scr-report').hidden=false;$('scr-y').textContent=pct(res.a);$('scr-o').textContent=pct(res.b);$('scr-ratio').innerHTML=rt.html;
           var names=['Skills test score','Years of experience'];if(o.grad)names.push('Graduation year (later scores higher)');if(o.gap)names.push('Has a career gap');
           drawWeights($('scr-w'),names,res.w);
-          setLog(cur,'Jordan 2019: '+sa+', Jordan 1997: '+sb+' (your calls: '+cs.join(' / ')+'). Under 40 interviewed '+pct(res.a)+', 40 and older '+pct(res.b)+', ratio '+rt.r.toFixed(2)+(rt.r<0.8?' (flagged)':'')+'. Experience weight '+fw(res.w[1])+'.');showQ=true;
+          setLog(cur,'Jordan 2026: '+sa+', Jordan 1997: '+sb+' (your calls: '+cs.join(' / ')+'). Under 40 interviewed '+pct(res.a)+', 40 and older '+pct(res.b)+', ratio '+rt.r.toFixed(2)+(rt.r<0.8?' (flagged)':'')+'. Experience weight '+fw(res.w[1])+'.');showQ=true;
         }else h+='<div class="reveal"><p class="rvwait">Make a call on both versions to see what happened.</p></div>';
       }
       $('scr-stage').innerHTML=h;
