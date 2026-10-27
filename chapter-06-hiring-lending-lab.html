@@ -663,6 +663,26 @@ p.runnote{font-size:.9rem;color:var(--gray);}
 .fcall.made .chip.callbtn:not(.on){opacity:.45;box-shadow:none;}
 #lend-desk .file,#scr .desk .file{border-width:2px;}
 @media(prefers-reduced-motion:reduce){.fcall .chip.callbtn{transition:none;}}
+.printbar button{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border:none;border-radius:6px;cursor:pointer}
+.printbar button:hover{background:#242C36}
+.printbar button:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+@media print{
+  nav,.topnav,.printbar,.nextbar,footer.foot{display:none !important}
+  body{background:#fff;color:#000}
+  main.wrap{max-width:none;padding:0}
+  header.masthead{background:#fff !important;color:#000 !important;padding:0 0 12px}
+  header.masthead h1,header.masthead .kicker,header.masthead .eyebrow{color:#000 !important}
+  header.masthead h1 b{color:#000 !important}
+  a{color:#000;text-decoration:none}
+  a.inline::after{content:" (" attr(href) ")";font-size:.75em;color:#555;word-break:break-all}
+  details{display:block}
+  details>summary{list-style:none}
+  details:not([open])>*:not(summary){display:block}
+  .concept,.callout,.term-card,.ticket,figure.diagram{break-inside:avoid;page-break-inside:avoid}
+  .concept{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  h2,h3{break-after:avoid;page-break-after:avoid}
+  svg{max-width:100% !important}
+}
 </style>
 </head>
 <body>
@@ -719,6 +739,13 @@ p.runnote{font-size:.9rem;color:var(--gray);}
 </header>
 
 <main class="wrap">
+
+<div class="printbar">
+  <button type="button" onclick="window.print()">Wanna go analog? Print or save as a PDF</button>
+  <a class="slidebtn" href="slides/week06-wed.pdf">Wednesday slides (PDF)</a>
+  <span>Links print with full web addresses; the interactive tools only work on screen.</span>
+</div>
+
 
 <div class="callout">
   <div class="label">From Chapter 6 · what this lab runs on</div>
@@ -1002,7 +1029,7 @@ Captain, women's ultimate frisbee club</pre></details>
 
 <section id="debate">
   <div class="shead"><span class="num">6</span><h2>In class: Debate</h2></div>
-  <p class="lead"><strong>The motion: A bank's audited model, not a loan officer, should make the final call on every car loan and mortgage.</strong> Left half of the room argues for it (Side A). Right half argues against it (Side B). About 45 minutes: 8 to read the history below, 12 to prep, 25 to debate.</p>
+  <p class="lead"><strong>The motion: A bank's audited model, not a loan officer, should make the final call on every car loan and mortgage.</strong> Left half of the room argues for it (Side A). Right half argues against it (Side B). About 45 minutes: 8 to read the history below, 12 to prep, 25 to debate. The Gilman Street rules apply.</p>
 
   <div class="callout casebox">
     <div class="label">This week’s case: Amazon’s résumé scanner</div>
