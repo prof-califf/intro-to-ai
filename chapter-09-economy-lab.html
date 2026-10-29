@@ -459,6 +459,55 @@ table.peek tbody th{font-weight:500;white-space:normal;}
 .dcard .dt{font-size:.9rem;color:#3E454E;margin-bottom:8px}
 .lockrow{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
 
+
+/* Debate records and talking points, shared with Labs 6 to 8 */
+.tpgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 26px;}
+@media(max-width:700px){.tpgrid{grid-template-columns:1fr;}}
+.tpside{border:2px solid var(--ink);background:#fff;padding:0 0 6px;}
+.tphead{background:var(--dark);color:var(--yellow);font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;padding:10px 16px;margin:0 0 4px;}
+.tpside.b .tphead{background:var(--pinktext);color:#fff;}
+.tp{padding:12px 16px;border-bottom:1px solid var(--rule);}
+.tp:last-child{border-bottom:none;}
+.tp p{margin:0 0 6px;font-size:.9rem;line-height:1.55;}
+.tp p.tpc{font-family:'Fraunces',serif;font-weight:600;font-size:1.02rem;line-height:1.35;margin-bottom:8px;}
+.tpl{display:block;font-size:.72rem;font-weight:700;color:var(--gray);margin-bottom:1px;}
+.tp p.tpb{color:var(--gray);font-style:italic;}
+.tp p.tpb .tpl{font-style:normal;}
+a.tpsrc{display:inline-block;font-size:.74rem;font-weight:700;color:var(--pinktext);text-decoration:none;border:1px solid var(--pinktext);border-radius:999px;padding:0 7px;margin-left:2px;white-space:nowrap;}
+a.tpsrc:hover{background:#FFE6F0;}
+ol.timeline{list-style:none;margin:16px 0 14px;padding:0;border-left:3px solid var(--pink);}
+.tli{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:12px 0 12px 16px;border-bottom:1px solid var(--rule);position:relative;}
+.tli::before{content:'';position:absolute;left:-8px;top:18px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:3px solid var(--pink);}
+.tly{font-family:'Fraunces',serif;font-weight:700;color:var(--pinktext);font-size:1.1rem;line-height:1.3;}
+.tli p{margin:0;}
+.tlt{font-weight:700;margin-bottom:2px!important;}
+.tlx{font-size:.92rem;line-height:1.6;}
+.tlnote{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--ink);padding:12px 16px;font-size:.95rem;}
+@media(max-width:560px){.tli{grid-template-columns:1fr;gap:2px;}}
+ol.timeline.alt{border-left-color:var(--ink);}
+ol.timeline.alt .tli::before{border-color:var(--ink);}
+ol.timeline.alt .tly{color:var(--ink);}
+.tlc{font-size:.85rem;color:var(--gray);font-style:italic;margin-top:4px!important;}
+.tlhead{display:grid;grid-template-columns:110px 1fr 230px;gap:14px;padding:6px 0 6px 16px;font-size:.72rem;font-weight:700;color:var(--gray);border-bottom:2px solid var(--rule);}
+.tli{grid-template-columns:110px 1fr 230px!important;}
+.tlcite{font-size:.76rem!important;line-height:1.45;color:var(--gray);margin:0!important;}
+.tlcite em{font-style:italic;}
+.tlcite .tpsrc{margin:4px 0 0;}
+@media(max-width:760px){.tlhead{display:none;}.tli{grid-template-columns:1fr!important;gap:4px;}.tlcite{border-top:1px dashed var(--rule);padding-top:6px;}}
+ol.reflist{padding-left:20px;margin:0;font-size:.86rem;line-height:1.5;color:var(--ink);}
+ol.reflist li{margin:0 0 8px;}
+ol.timeline.worse{border-left-color:var(--pinktext);}
+.casebox{border-top-color:var(--ink);}
+.tpn{display:inline-block;font-family:'Fraunces',serif;font-weight:700;font-size:.9rem;width:24px;height:24px;line-height:24px;text-align:center;border-radius:50%;background:var(--dark);color:var(--yellow);margin-bottom:6px;}
+.tpside.b .tpn{background:var(--pinktext);color:#fff;}
+.noai-line{font-size:.9rem;color:var(--gray);margin:8px 0 0;}
+table.runshow{max-width:620px;}
+table.runshow th[scope=row]{white-space:normal;font-weight:500;}
+table.runshow td:first-child{font-variant-numeric:tabular-nums;color:var(--pinktext);font-weight:600;}
+p.runnote{font-size:.9rem;color:var(--gray);}
+.printbar button{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border:none;border-radius:6px;cursor:pointer}
+.printbar button:hover{background:#242C36}
+.printbar button:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -509,17 +558,32 @@ table.peek tbody th{font-weight:500;white-space:normal;}
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 9 · Week 9, Wednesday, in class</div>
     <h1>Run the <b>Firm</b></h1>
-    <p class="kicker">You're the operations analyst at a mid-sized company, and the CEO wants an AI plan. Chapter 9 said a general-purpose technology pays off only when work is reorganized around it, and that the first people to feel the reorganization are the ones trying to get hired. Today you feel both from the inside. You run the firm for eight quarters and live through the dip, decide how many junior people to hire while AI does their old work, and map a job you actually want with Claude. Then you debate the question the chapter wouldn't settle: is AI closing the door on entry-level jobs, or is something else?</p>
+    <p class="kicker">You're the operations analyst at a mid-sized company, and the CEO wants an AI plan. Chapter 9 said a general-purpose technology pays off only when work is reorganized around it, and that the first people to feel the reorganization are the ones trying to get hired. Today you feel both from the inside. You run the firm for eight quarters and live through the dip, decide how many junior people to hire while AI does their old work, and map a job you actually want with Claude. Then you sit in the hiring manager's chair and debate what to do when AI can do most of the old junior work: cut entry-level hiring, or rebuild the entry-level job?</p>
     <p class="factline">eight quarters in the chair · the senior bench · your first job, mapped with Claude · under the hood · one debate</p>
   </div>
 </header>
 
 <main class="wrap">
 
+<div class="printbar">
+  <button type="button" onclick="window.print()">Wanna go analog? Print or save as a PDF</button>
+  <a class="slidebtn" href="slides/week09-wed.pdf">Wednesday slides (PDF)</a>
+  <span>Links print with full web addresses; the interactive tools only work on screen.</span>
+</div>
+
 <div class="callout">
   <div class="label">From Chapter 9 · what this lab runs on</div>
-  <p><strong>How today runs.</strong> Almost all of this lab happens in class, right now, at the machine in front of you. Work through the sections in order. At the end there are five questions to upload to Canvas by 11:59 p.m. Friday, November 20, and most people finish most of them before they leave, so answer them as you go.</p>
-  <p>Section 1 is the dynamo from <a class="inline" href="chapter-09-economy.html#s2-2">section 2.2</a>, with you as the manager: buying tools is the extensive margin and redesigning work is the intensive margin (<a class="inline" href="chapter-09-economy.html#s2-3">section 2.3</a>). Section 2 is <a class="inline" href="chapter-09-economy.html#s2-4">section 2.4</a>'s automating-versus-complementing choice, made with hiring. Section 3 puts codified and tacit knowledge on a job you want. And the debate is the causal fight from <a class="inline" href="chapter-09-economy.html#s3">section 3</a>, the case.</p>
+  <p><strong>How today runs.</strong> Sections 1 to 3 and the debate happen in class, at the machine in front of you, in this order. Section 4 and the writeup are for after class. The five writeup questions are due on Canvas by 11:59 p.m. Friday, November 20; jot notes for them as you go.</p>
+  <div class="peekwrap"><table class="peek runshow"><thead><tr><th scope="col">Clock</th><th scope="col">What</th><th scope="col">Time</th></tr></thead><tbody>
+    <tr><td>0:00</td><th scope="row">1. Eight quarters in the chair</th><td>12 min</td></tr>
+    <tr><td>0:12</td><th scope="row">2. Build the senior bench</th><td>10 min</td></tr>
+    <tr><td>0:22</td><th scope="row">3. Map your first job with Claude</th><td>20 min</td></tr>
+    <tr><td>0:42</td><th scope="row">5. Debate: read the records, prep, speak</th><td>45 min</td></tr>
+    <tr><td>1:27</td><th scope="row">Wrap-up and questions</th><td>5 min</td></tr>
+    <tr><td>After class</td><th scope="row">4. Under the hood, and the writeup</th><td></td></tr>
+  </tbody></table></div>
+  <p class="runnote">That’s about 92 minutes of a 110-minute class, so there’s room. If a section runs long, keep moving; you can come back to the tools later.</p>
+  <p>Section 1 is the dynamo from <a class="inline" href="chapter-09-economy.html#s2-2">section 2.2</a>, with you as the manager: buying tools is the extensive margin and redesigning work is the intensive margin (<a class="inline" href="chapter-09-economy.html#s2-3">section 2.3</a>). Section 2 is <a class="inline" href="chapter-09-economy.html#s2-4">section 2.4</a>'s automating-versus-complementing choice, made with hiring. Section 3 puts codified and tacit knowledge on a job you want. And the debate takes <a class="inline" href="chapter-09-economy.html#s3">the case</a> into the hiring manager’s chair: what should a company do while the cause is still being argued?</p>
 </div>
 
 <section id="firm">
@@ -622,7 +686,7 @@ table.peek tbody th{font-weight:500;white-space:normal;}
 </section>
 
 <section id="hood">
-  <div class="shead"><span class="num">4</span><h2>In class: Under the hood, what the toys were computing</h2></div>
+  <div class="shead"><span class="num">4</span><h2>At home: Under the hood, what the toys were computing</h2></div>
   <p><strong>The firm simulator has no AI in it at all.</strong> It's the economics of AI with the AI removed: a small bonus that plateaus for tools, and a dip followed by a permanent gain for redesign. That the strategic problem survives without any AI in the model is the point. The hard part of a general-purpose technology isn't the technology. It's the reorganization, and who absorbs the dip.</p>
   <p><strong>The bench is a pipeline with a delay.</strong> Juniors take three years to become seniors, and seniors leave on their own schedule. Any system with a delay punishes decisions that look fine in the short run. That's why the Canaries gap shows up in hiring, not firing: the cost of not opening the door arrives years later, at a different desk.</p>
   <p><strong>Your job map is section 2.4 on one person.</strong> Exposure says how much of a job AI could touch. The build says what the employer does with that. Codified tasks are where AI is strong, because they're written down, which is what the models trained on. Tacit tasks are where you're scarce.</p>
@@ -630,136 +694,162 @@ table.peek tbody th{font-weight:500;white-space:normal;}
 </section>
 <section id="debate">
   <div class="shead"><span class="num">5</span><h2>In class: Debate</h2></div>
-  <p class="lead"><strong>The question: Is AI closing the door on entry-level jobs, or is something else?</strong> Left half of the room is Side A: <em>AI is a main reason young workers in exposed jobs are falling behind.</em> Right half is Side B: <em>something else is doing most of it: remote work, interest rates, and an economy coming off a hiring boom.</em> In groups of 2 or 3, count off 1 to 4: that number is your piece of evidence below. The Gilman Street rules apply.</p>
-  <p>This one is personal, and the evidence really is split, which is why it's a good debate. Economists who all looked carefully at real data disagree, in public, and there's a dashboard that updates every month. You'll be handed a side. Argue it with the best evidence it has, then admit what would move you.</p>
+  <p class="lead"><strong>The question: AI can now do most of the old junior work at your company. Do you cut entry-level hiring, or rebuild the entry-level job?</strong> Left half of the room is Side A: <strong>cut it, and hire experienced people.</strong> Right half is Side B: <strong>rebuild it, and keep hiring juniors for a bigger job.</strong> About 45 minutes: 8 to read the records below, 12 to prep, 25 to debate. The Gilman Street rules apply.</p>
+  <p>Today you’re the hiring manager, not the applicant. You’re deciding what a company should do, the way you did with the senior bench in <a class="inline" href="#bench">section 2</a>. And before you start, one honest thing about the room: nobody here is arguing about whether you will get a job. The evidence below is mixed, the first rung is moving, and a lot of what’s hard about this job market right now has nothing to do with AI.</p>
+
+  <div class="callout casebox">
+    <div class="label">This week’s case: the canaries</div>
+    <p>Stanford researchers used ADP payroll records to compare young workers in jobs AI can do a lot of with young workers in jobs it can’t. Their August 2026 update found workers ages 22 to 25 in the most AI-exposed jobs about 19 percent behind their less-exposed peers, with no comparable gap for experienced workers. The same update’s headline: no widespread displacement (<a class="inline" href="https://digitaleconomy.stanford.edu/news/canariesaug26/" target="_blank" rel="noopener">Stanford Digital Economy Lab</a>).</p>
+    <p><strong>Both sides can use it.</strong> Side A: the gap is real, it’s in exactly the junior work AI does, and it’s widening. Side B: the authors call it a correlation, not proof of cause, and the jobs where AI helps people instead of replacing them aren’t shrinking.</p>
+  </div>
+
+  <h3 class="sub" id="economy-record"><span>Before you blame AI:</span> the economy right now</h3>
+  <p>Start with the honest part. The job market in fall 2026 is strange for reasons that hit everyone, not just people in AI-exposed jobs. Every number in the next two records lands on top of this one, which is why it’s so hard to tell how much is AI.</p>
+  <ol class="timeline">
+    <li class="tlhead" aria-hidden="true"><span>When</span><span>What happened</span><span>Source</span></li>
+    <li class="tli"><span class="tly">2025</span><div><p class="tlt">A slow year to look for work</p><p class="tlx">Employers added an average of about 9,700 jobs a month in 2025, the weakest hiring outside a recession since 2002, by the AP’s account of Labor Department data.</p></div><p class="tlcite">AP, via WTTW. (2026, October 2). US hiring slows and unemployment ticks higher. <a class="tpsrc" href="https://news.wttw.com/2026/10/02/us-hiring-slows-and-unemployment-ticks-higher-month-remaining-americans-head-polls" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">2025 to 2026</span><div><p class="tlt">Tariffs</p><p class="tlx">Broad new tariffs raised costs for consumers and for American companies that import parts. Stanford economists flagged tariffs, interest rates, and a low-hire, low-fire labor market among the biggest economic issues for 2026.</p><p class="tlc">The catch: it’s hard to separate what tariffs did to hiring from everything else happening at the same time. That’s true of AI too.</p></div><p class="tlcite">Stanford Institute for Economic Policy Research. (2026). The U.S. economy in 2026: What to watch for. <a class="tpsrc" href="https://siepr.stanford.edu/publications/policy-brief/us-economy-2026-what-watch" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">Since February 2026</span><div><p class="tlt">War and oil</p><p class="tlx">The war with Iran set off a major oil shock. The World Bank projected energy prices up 24 percent in 2026 and warned the hit would arrive in waves: energy first, then food, then broader inflation and higher interest rates.</p></div><p class="tlcite">World Bank, Commodity Markets Outlook, as reported by <em>The Standard</em>, April 2026. <a class="tpsrc" href="https://www.thestandard.com.hk/finance/article/330573/World-Bank-forecasts-24pc-surge-in-energy-prices-in-2026-due-to-Middle-East-war" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">March 2026</span><div><p class="tlt">Recent graduates</p><p class="tlx">Unemployment for recent college graduates, ages 22 to 27, was about 5.6 percent, up from 3.6 percent in March 2019.</p><p class="tlc">The catch: higher than before, and still most recent graduates are working.</p></div><p class="tlcite">Federal Reserve Bank of New York. (2026). <a class="tpsrc" href="https://www.newyorkfed.org/newsevents/mediaadvisory/2026/0528-2026" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">September 2026</span><div><p class="tlt">Low hire, low fire</p><p class="tlx">Employers added 29,000 jobs and unemployment ticked up to 4.2 percent. Companies aren’t laying off many people, but they aren’t hiring many either, and a measure of gross hiring has been stuck in a rut for more than two years.</p><p class="tlc">The catch: few layoffs is good news for people who have jobs. Few openings is bad news for people looking for their first one.</p></div><p class="tlcite">AP, via WTTW. (2026, October 2). <a class="tpsrc" href="https://news.wttw.com/2026/10/02/us-hiring-slows-and-unemployment-ticks-higher-month-remaining-americans-head-polls" target="_blank" rel="noopener">Open source</a></p></li>
+  </ol>
+  <p class="tlnote"><strong>Notice the pattern.</strong> A slow, cautious economy hits first-time job seekers hardest, AI or no AI, because the first thing a nervous company stops doing is opening new seats. Side A will say caution is exactly why you hire experienced people. Side B will say that’s the economy talking, not AI, and cutting the pipeline fixes the wrong problem.</p>
+
+  <h3 class="sub" id="ai-record"><span>What the data says:</span> AI and young workers</h3>
+  <p>Now the part that is about AI. These are the strongest numbers for Side A, each with its catch.</p>
+  <ol class="timeline alt">
+    <li class="tlhead" aria-hidden="true"><span>When</span><span>What the record shows</span><span>Source</span></li>
+    <li class="tli"><span class="tly">February 2026</span><div><p class="tlt">The timing question</p><p class="tlx">When the Stanford authors added the broadest set of controls, the declines in AI-exposed jobs only became statistically significant in 2024. They say the earlier declines are likely driven by things other than AI.</p><p class="tlc">The catch for Side B: from 2024 on, the controls didn’t make the gap go away.</p></div><p class="tlcite">Stanford Digital Economy Lab. (2026, February). Canaries, interest rates, and timing. <a class="tpsrc" href="https://digitaleconomy.stanford.edu/news/canaries-interest-rates-and-timinga-more-on-recent-drivers-of-employment-changes-for-young-workers/" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">2026</span><div><p class="tlt">Specific jobs</p><p class="tlx">On Stanford’s live dashboard, early-career software developers and customer service workers show large declines. Stock clerks show almost no age pattern. Young home health aides, whose work is relational and physical, are gaining faster than older ones.</p><p class="tlc">The catch: the sample is 25,000 firms that use ADP, and the lab says it represents neither the whole U.S. labor market nor every ADP firm.</p></div><p class="tlcite">Stanford Digital Economy Lab and ADP Research. Canaries Dashboard. <a class="tpsrc" href="https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">2026</span><div><p class="tlt">Automating versus helping</p><p class="tlx">Jobs where more of the AI use is automation, people handing a whole task to AI, show declines or weaker growth for young workers. Jobs where AI is used to help people work show no clear relationship with employment.</p><p class="tlc">The catch: the usage data comes from the Anthropic Economic Index, and Anthropic makes Claude. It’s also a correlation.</p></div><p class="tlcite">Canaries Dashboard, “Automation v. Augmentation.” <a class="tpsrc" href="https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">2026</span><div><p class="tlt">Who’s in the exposed jobs</p><p class="tlx">Among workers ages 22 to 25, 43.8 percent of women work in the most AI-exposed group of jobs, compared with 32.4 percent of men. The researchers say the gender gap they see comes mostly from which jobs people hold, not from unequal effects within the same job.</p></div><p class="tlcite">Canaries Dashboard, “Gender partition,” updated July 22, 2026. <a class="tpsrc" href="https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">2025 to 2026</span><div><p class="tlt">The firm-level test</p><p class="tlx">Tracking tens of millions of résumés, two Harvard researchers found junior employment falls at firms that start building generative AI into their work, while senior employment holds.</p><p class="tlc">The catch: other careful studies using different data find small effects, including whole-population records from Finland and Norway that show no clear effect on young workers.</p></div><p class="tlcite">Hosseini Maasoum & Lichtinger, SSRN. <a class="tpsrc" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5425555" target="_blank" rel="noopener">Open source</a> Humlum &amp; Vestergaard, Becker Friedman Institute. <a class="tpsrc" href="https://bfi.uchicago.edu/working-papers/large-language-models-small-labor-market-effects/" target="_blank" rel="noopener">Open source</a> Finland, ETLA. <a class="tpsrc" href="https://www.etla.fi/wp-content/uploads/ETLA-Working-Papers-135.pdf" target="_blank" rel="noopener">Open source</a> Norway, CESifo. <a class="tpsrc" href="https://ideas.repec.org/p/ces/ceswps/_12752.html" target="_blank" rel="noopener">Open source</a></p></li>
+  </ol>
+  <p class="tlnote"><strong>Notice the pattern.</strong> The gap shows up in specific jobs, at specific ages, where AI does the work instead of helping with it. That’s a real signal. It’s also a correlation in a cautious economy, and two whole countries don’t see it. Side A leans on the signal. Side B leans on the catches.</p>
+
+  <h3 class="sub" id="rung-record"><span>The first rung is moving:</span> what’s growing</h3>
+  <p>The evidence that the entry-level job is changing shape rather than disappearing. These are the strongest numbers for Side B, each with its catch.</p>
+  <ol class="timeline worse">
+    <li class="tlhead" aria-hidden="true"><span>When</span><span>What the record shows</span><span>Source</span></li>
+    <li class="tli"><span class="tly">February 2026</span><div><p class="tlt">Reshaped, not erased</p><p class="tlx">The Economist’s economics correspondent reports that over three years, white-collar employment grew by about 3 million jobs, software developers were up 7 percent and paralegals 20 percent, and jobs that mix technical and people skills, like project managers and information security analysts, grew more than 30 percent. Secretaries and administrative assistants fell about 20 percent.</p><p class="tlc">The catch: these are The Economist’s own figures, counting all ages. The same video says entry-level analysts and programmers are the most exposed, and Stanford finds young software developers down sharply.</p></div><p class="tlcite"><em>The Economist.</em> (2026, February 23). Why AI won’t wipe out white-collar jobs [Video]. <a class="tpsrc" href="https://www.youtube.com/watch?v=1CAvNn5tUR8" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">June 2026</span><div><p class="tlt">The “seniorised” entry level</p><p class="tlx">Looking at 2.4 million U.S. entry-level job ads, PwC found AI-exposed entry-level roles are seven times more likely to ask for skills that used to be senior, like judgment and leadership. Openings for these roles grew 35 percent since 2019, while other entry-level roles shrank 10 percent.</p><p class="tlc">The catch: job ads show what employers ask for, not who got hired. And PwC sells AI consulting.</p></div><p class="tlcite">PwC. (2026). <em>2026 Global AI Jobs Barometer</em> [Press release]. <a class="tpsrc" href="https://www.pwc.com/id/en/media-centre/press-release/2026/english/ai-jobs-barometer-en.html" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">Ramp data</span><div><p class="tlt">The heaviest AI spenders</p><p class="tlx">In Ramp’s spending data, the companies spending most on AI grew their entry-level headcount by about 12 percent.</p><p class="tlc">The catch: those firms were already larger and growing faster.</p></div><p class="tlcite">Ramp. AI jobs impact. <a class="tpsrc" href="https://ramp.com/data/ai-jobs-impact/paper" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">July 2026</span><div><p class="tlt">Economists on steering it</p><p class="tlx">Over 200 economists and AI experts, including 17 Nobel laureates, called for building the incentives, guardrails, and institutions to steer AI toward complementing people.</p><p class="tlc">The catch: a statement is a goal, not a result.</p></div><p class="tlcite">Stanford Digital Economy Lab, homepage, on the July 2026 statement. <a class="tpsrc" href="https://digitaleconomy.stanford.edu/" target="_blank" rel="noopener">Open source</a></p></li>
+  </ol>
+  <p class="tlnote"><strong>Notice the pattern.</strong> When people count all ages, AI-touched jobs are mostly growing. When they look only at the youngest workers, the picture is worse. And the entry-level jobs that are growing ask for more on day one. Side B leans on the growth. Side A asks where a 22-year-old gets senior skills.</p>
 
   <div class="sides">
     <div class="side">
-      <div class="side-tag">Side A &middot; left half of the room</div>
-      <h3 id="motion-for">Yes: AI is a main cause</h3>
-      <p>The gap is concentrated exactly where the theory predicts: the youngest workers, in the most exposed jobs, in roles where AI automates rather than complements. It survives the obvious controls, and it kept widening after interest rates peaked. Start from the Canaries study and your senior-bench run.</p>
-      <p class="side-cost"><strong>The cost to name:</strong> the study is descriptive, not causal, by its authors' own account, and some careful studies find no clear effect.</p>
+      <div class="side-tag">Side A &middot; left half</div>
+      <h3 id="motion-for">Cut it: hire experienced people</h3>
+      <p>AI does the old junior work. The company hires people who already have judgment, and pays more for fewer of them.</p>
+      <p class="side-cost"><strong>What you have to prove:</strong> that the savings now are worth the empty bench later, and say where your seniors come from in five years.</p>
     </div>
     <div class="side">
-      <div class="side-tag">Side B &middot; right half of the room</div>
-      <h3 id="motion-against">No: mostly something else</h3>
-      <p>Young graduates had a hard year for reasons that hit at the same time as ChatGPT: remote work makes training juniors harder, interest rates cooled hiring, and companies were correcting after a pandemic hiring spree. Start from the New York Fed analysis, the firm-level tests, and the Nordic records.</p>
-      <p class="side-cost"><strong>The cost to name:</strong> if you're wrong, telling a cohort "it's just the economy" means nobody prepares them for the change that's actually happening.</p>
+      <div class="side-tag">Side B &middot; right half</div>
+      <h3 id="motion-against">Rebuild it: keep hiring juniors, for a bigger job</h3>
+      <p>Juniors start higher: checking AI’s work, handling the exceptions, learning judgment on purpose. The company pays to train them.</p>
+      <p class="side-cost"><strong>What you have to prove:</strong> that the training cost is worth it in a cautious economy, and say how a 22-year-old learns senior skills without the old junior work.</p>
     </div>
   </div>
-  <p class="tis-note">Nobody in this debate is arguing about a real applicant. You're arguing about what the evidence shows, the way an economist or a hiring manager would have to.</p>
 
-  <h3 class="sub" id="evidence-cards"><span>Your evidence:</span> four pieces, one per number</h3>
-  <p>Every side gets all four. If your number hands you evidence that seems to help the other side, that's your job today: find what it means for yours, and what your side would rather nobody noticed.</p>
-
-  <div class="probe ev">
-    <div class="pwhy">Evidence 1 &middot; The payroll signal</div>
-    <div class="ptext ev-body">
-      <p class="ev-point"><b>In one line:</b> young workers in the most exposed jobs are falling behind, and the gap is widening.</p>
-      <div class="ev-stats"><div><b>19%</b><span>below where they'd be if they'd kept pace with less-exposed peers, ages 22 to 25</span></div><div><b>about 0</b><span>comparable gap for experienced workers in the same jobs</span></div><div><b>monthly</b><span>how often the Canaries Dashboard updates</span></div></div>
-      <ul class="ev-facts">
-        <li><b>The study:</b> Stanford researchers used ADP payroll records, real paychecks, and found the gap concentrated where AI automates work, with employment flat or rising where it complements (<a class="inline" href="https://digitaleconomy.stanford.edu/news/canariesaug26/" target="_blank" rel="noopener">Stanford Digital Economy Lab</a>).</li>
-        <li><b>The stress tests:</b> the gap survives excluding tech companies and controlling for interest-rate exposure and remote work.</li>
-        <li><b>The catch:</b> the authors call it descriptive, not causal. The gap shrinks when education is accounted for, and some trends started before ChatGPT.</li>
-      </ul>
-      <p class="ev-src">Chapter 9, <a class="inline" href="chapter-09-economy.html#s3">section 3</a></p>
+  <h3 class="sub" id="talking-points"><span>Talking points:</span> your group takes one</h3>
+  <p>Each point has a claim, the evidence behind it, and the comeback to expect. The tags jump to the full record.</p>
+  <div class="tpgrid">
+    <div class="tpside">
+      <p class="tphead">Side A: cut it</p>
+      <div class="tp"><span class="tpn">1</span>
+        <p class="tpc">“AI already does the junior work.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>Young workers in the most AI-exposed jobs are about 19 percent behind their peers, concentrated where AI automates the work. Harvard’s résumé data finds junior employment falls at firms that adopt generative AI. <a class="tpsrc" href="#ai-record">The AI record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“Stanford calls its own finding a correlation, and Finland and Norway show no clear effect.”</p>
+      </div>
+      <div class="tp"><span class="tpn">2</span>
+        <p class="tpc">“In this economy, experience is the safer bet.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>Hiring in 2025 was the weakest outside a recession in more than two decades, tariffs and an oil shock are raising costs, and companies are cautious. An experienced hire is productive on day one. <a class="tpsrc" href="#economy-record">The economy record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“That’s the economy, not AI. Cutting your pipeline because of oil prices fixes the wrong problem.”</p>
+      </div>
+      <div class="tp"><span class="tpn">3</span>
+        <p class="tpc">“The new entry-level job asks for skills juniors don’t have.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>PwC finds AI-exposed entry-level ads are seven times more likely to ask for senior skills like judgment and leadership. <a class="tpsrc" href="#rung-record">The rung record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“Then train for them. That’s what rebuilding the job means.”</p>
+      </div>
+      <div class="tp"><span class="tpn">4</span>
+        <p class="tpc">“Even the optimists say juniors are the most exposed.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>The Economist’s correspondent, arguing AI won’t wipe out white-collar jobs, names interns, entry-level analysts, and entry-level programmers as the most exposed. <a class="tpsrc" href="#rung-record">The rung record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“He also says white-collar work grew by about 3 million jobs, and that jobs get reshaped more than erased.”</p>
+      </div>
+      <div class="tp"><span class="tpn">5</span>
+        <p class="tpc">“Let someone else train them.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>In section 2’s bench toy, if other firms keep training juniors, you can hire their experienced people later. <a class="tpsrc" href="#bench">Section 2</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“Run it again with the whole industry doing that. When everyone stops, there’s no one to hire.”</p>
+      </div>
     </div>
-    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate: is AI closing the door on entry-level jobs (Side A), or is something else, like remote work and interest rates, doing most of it (Side B)? I'm on Side [A / B]. My evidence is Stanford's Canaries in the Coal Mine study (August 2026 update): using ADP payroll data, workers ages 22 to 25 in the most AI-exposed jobs are about 19 percent behind less-exposed peers, with no comparable gap for experienced workers; the gap concentrates where AI automates work and survives controls for interest rates and remote work, but the authors say it's descriptive, not causal. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
-  </div>
-
-  <div class="probe ev">
-    <div class="pwhy">Evidence 2 &middot; The firm-level test</div>
-    <div class="ptext ev-body">
-      <p class="ev-point"><b>In one line:</b> if AI is the cause, the firms adopting it fastest should cut junior hiring fastest. Studies disagree on whether they do.</p>
-      <div class="ev-stats"><div><b>yes</b><span>a Harvard team's r&eacute;sum&eacute; data: junior jobs fall at firms that start building generative AI into their work</span></div><div><b>no</b><span>Chicago economists: large language models, small labor market effects</span></div><div><b>+12%</b><span>entry-level headcount at the heaviest AI spenders, in Ramp's data</span></div></div>
-      <ul class="ev-facts">
-        <li><b>For a link:</b> Hosseini Maasoum and Lichtinger, tracking tens of millions of r&eacute;sum&eacute;s, find junior employment falls at adopting firms while senior employment holds (<a class="inline" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5425555" target="_blank" rel="noopener">SSRN</a>).</li>
-        <li><b>Against:</b> Humlum and Vestergaard find small effects (<a class="inline" href="https://bfi.uchicago.edu/working-papers/large-language-models-small-labor-market-effects/" target="_blank" rel="noopener">Becker Friedman Institute</a>), and Ramp found the heaviest spenders grew entry-level headcount, though those firms were already larger and faster-growing (<a class="inline" href="https://ramp.com/data/ai-jobs-impact/paper" target="_blank" rel="noopener">Ramp</a>).</li>
-        <li><b>The catch:</b> same test, different data, different answers. Which data set you trust is most of the argument.</li>
-      </ul>
-      <p class="ev-src">Chapter 9, <a class="inline" href="chapter-09-economy.html#s3">section 3</a></p>
+    <div class="tpside b">
+      <p class="tphead">Side B: rebuild it</p>
+      <div class="tp"><span class="tpn">1</span>
+        <p class="tpc">“The first rung moved up. It didn’t disappear.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>PwC finds “seniorised” entry-level openings grew 35 percent since 2019 while other entry-level roles shrank 10 percent. <a class="tpsrc" href="#rung-record">The rung record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“Job ads aren’t hires, and PwC sells AI consulting.”</p>
+      </div>
+      <div class="tp"><span class="tpn">2</span>
+        <p class="tpc">“Today’s juniors are tomorrow’s seniors.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>In section 2’s bench toy, a company that stops hiring juniors runs short of seniors about three years later, and when the whole industry stops, there’s no one left to hire. <a class="tpsrc" href="#bench">Section 2</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“That’s a cost three years out. The board wants this quarter, and this quarter is expensive.”</p>
+      </div>
+      <div class="tp"><span class="tpn">3</span>
+        <p class="tpc">“The jobs AI touches are still growing.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>The Economist reports software developers up 7 percent and paralegals up 20 percent over three years. Stanford’s own August headline was no widespread displacement. <a class="tpsrc" href="#rung-record">The rung record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“That counts all ages. Stanford finds young software developers down sharply.”</p>
+      </div>
+      <div class="tp"><span class="tpn">4</span>
+        <p class="tpc">“The heaviest AI users are still hiring juniors.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>In Ramp’s data, the biggest AI spenders grew entry-level headcount about 12 percent. <a class="tpsrc" href="#rung-record">The rung record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“Those firms were already bigger and growing faster. They’d hire more of everyone.”</p>
+      </div>
+      <div class="tp"><span class="tpn">5</span>
+        <p class="tpc">“How you use AI decides who loses.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>Jobs where AI mostly automates show declines for young workers. Jobs where AI mostly helps people show no clear relationship with employment. The build is a choice. <a class="tpsrc" href="#ai-record">The AI record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“That’s a correlation, and the usage data comes from Anthropic, which makes Claude.”</p>
+      </div>
     </div>
-    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate: is AI closing the door on entry-level jobs (Side A), or is something else doing most of it (Side B)? I'm on Side [A / B]. My evidence is the firm-level test: if AI were the cause, firms adopting it fastest should cut junior hiring fastest. Hosseini Maasoum and Lichtinger's r&eacute;sum&eacute; data finds junior employment falls at adopting firms; Humlum and Vestergaard find small labor market effects; and Ramp found the heaviest AI spenders grew entry-level headcount about 12 percent, though they were already larger, faster-growing firms. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
-  </div>
-
-  <div class="probe ev">
-    <div class="pwhy">Evidence 3 &middot; The other suspects</div>
-    <div class="ptext ev-body">
-      <p class="ev-point"><b>In one line:</b> remote work, interest rates, and a post-pandemic correction all hit the same graduates at the same time.</p>
-      <div class="ev-stats"><div><b>450</b><span>applications one recent graduate in NPR's story sent</span></div><div><b>19</b><span>interviews</span></div><div><b>0</b><span>offers</span></div></div>
-      <ul class="ev-facts">
-        <li><b>The New York Fed:</b> its analysis found AI didn't explain the rise in young-graduate unemployment; remote work fit better (as reported by <a class="inline" href="https://www.npr.org/2026/08/18/nx-s1-5910677/many-recent-grads-say-ai-is-making-it-harder-to-get-a-job-economists-arent-so-sure" target="_blank" rel="noopener">NPR</a>).</li>
-        <li><b>A mechanism with no algorithm:</b> Harvard's David Deming points out that training a junior from afar is costly, so remote work tilts hiring toward experienced people.</li>
-        <li><b>The catch:</b> the Stanford gap kept widening after interest rates peaked, and it has an age pattern rates alone wouldn't produce.</li>
-      </ul>
-      <p class="ev-src">Chapter 9, <a class="inline" href="chapter-09-economy.html#s3">section 3</a></p>
-    </div>
-    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate: is AI closing the door on entry-level jobs (Side A), or is something else doing most of it (Side B)? I'm on Side [A / B]. My evidence is the other explanations: a New York Fed analysis, as reported by NPR in August 2026, found AI didn't explain the rise in young-graduate unemployment and remote work fit better; Harvard's David Deming argues that training juniors remotely is costly, so remote work tilts hiring toward experienced people; and interest rates and a post-pandemic hiring correction hit at the same time. Against that, the Stanford gap kept widening after rates peaked. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
-  </div>
-
-  <div class="probe ev">
-    <div class="pwhy">Evidence 4 &middot; Whole countries</div>
-    <div class="ptext ev-body">
-      <p class="ev-point"><b>In one line:</b> records covering entire populations in two countries show no clear effect on young workers.</p>
-      <div class="ev-stats"><div><b>Finland</b><span>whole-population records: no clear effect on young workers</span></div><div><b>Norway</b><span>whole-population records: no clear effect either</span></div><div><b>U.S.</b><span>the Stanford data: a clear, widening gap</span></div></div>
-      <ul class="ev-facts">
-        <li><b>The Nordic studies:</b> researchers with records for everyone in the workforce, not a sample, found no clear AI effect on young workers (<a class="inline" href="https://www.etla.fi/wp-content/uploads/ETLA-Working-Papers-135.pdf" target="_blank" rel="noopener">Finland</a>, <a class="inline" href="https://ideas.repec.org/p/ces/ceswps/_12752.html" target="_blank" rel="noopener">Norway</a>).</li>
-        <li><b>The catch:</b> different countries have different labor laws, different job ladders, and different adoption. A null result in Oslo doesn't settle Ohio, and a gap in Ohio doesn't settle Oslo.</li>
-      </ul>
-      <p class="ev-src">Chapter 9, <a class="inline" href="chapter-09-economy.html#s3">section 3</a></p>
-    </div>
-    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate: is AI closing the door on entry-level jobs (Side A), or is something else doing most of it (Side B)? I'm on Side [A / B]. My evidence is whole-population records from Finland and Norway, which show no clear AI effect on young workers, compared with Stanford's U.S. payroll data, which shows a clear, widening gap. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
   </div>
 
   <div class="callout">
-    <div class="label">Push your thinking with Claude</div>
-    <p>In section 3 you checked Claude's tags. Here, turn it around: tell Claude to argue against you. If it cites a study you plan to use, look it up in the chapter and check that it says what Claude says it says.</p>
-    <div class="probe">
-      <div class="pwhy">Argue against me</div>
-      <div class="ptext">Now argue against me as hard as you can. What's the best point the other side will make, and where is my case weakest? Don't go easy on me.</div>
-    </div>
-    <p>If it goes soft, push back: <em>"You're being too nice. Argue the other side for real."</em> Then close Claude and write your notes in your own words. You can't read from Claude during the debate.</p>
+    <div class="label">Prep, 12 minutes</div>
+    <ol>
+      <li><strong>Get your point (1 min).</strong> Groups of 2 or 3. Count off 1 to 5 on your side. That’s your talking point.</li>
+      <li><strong>Check the evidence (3 min).</strong> Click the tag on your point, reread the entries behind it, and open at least one source. Stanford’s dashboard updates on November 18, which is today. If the new numbers are out, check whether the gap for young workers grew or shrank.</li>
+      <li><strong>Pressure-test it with Claude (5 min).</strong> Fill in the brackets and send:</li>
+    </ol>
+    <div class="probe"><div class="ptext" id="prompt-debate">I'm in a class debate. AI can now do most of the old junior work at a company. Should the company cut entry-level hiring and hire experienced people (Side A), or rebuild the entry-level job and keep hiring juniors for bigger work (Side B)? I'm on Side [A / B]. My point is: [paste the claim]. My evidence is: [paste the evidence]. Argue against me as hard as you can: what's the other side's best answer, and where is my point weakest? Don't go easy on me.</div></div>
+    <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#prompt-debate">Copy the prompt</button><span class="cpstat" aria-live="polite"></span></div>
+    <p>If Claude cites a study, check it against the records above. Then close it. You can’t read from Claude during the debate.</p>
+    <ol start="4">
+      <li><strong>Write your notes (3 min),</strong> in your own words: your point in one sentence, the evidence, the comeback you expect, and your answer to it.</li>
+    </ol>
+    <p class="noai-line"><strong>No AI?</strong> Skip step 3. Instead, read two entries in the other side’s record and write the strongest thing they’ll say to you.</p>
   </div>
 
-  <details class="srcnote noai">
-    <summary>Don't want to use AI? Do this instead</summary>
-    <div class="noai-body">
-      <p>Same prep, no chatbot, about 10 minutes. On your own, reread <a class="inline" href="chapter-09-economy.html#s3">Chapter 9's case</a>, the part titled "Is AI actually causing the entry-level gap?" Then answer the four questions in Your notes for your side, using only your evidence card and that section.</p>
+  <div class="callout">
+    <div class="label">Rounds, 25 minutes</div>
+    <ol>
+      <li><strong>Team up (3 min).</strong> Join the other groups on your side. Pick your best two points, an opener, and a rebutter.</li>
+      <li><strong>Openings (6 min).</strong> Side A, then Side B. About 45 seconds each: your claim, your evidence, and its source.</li>
+      <li><strong>Huddle (2 min).</strong> Rebutters pick one point the other side made.</li>
+      <li><strong>Rebuttals (6 min).</strong> Side B first. Answer one specific point, with evidence. No new points.</li>
+      <li><strong>Switch (4 min).</strong> What was the other side’s best point? Someone new says it in one sentence.</li>
+      <li><strong>What would change your mind? (4 min).</strong> Name the specific reading on the dashboard, or the study result, that would move you. Whoever names real evidence that would move them wins, whichever side they were handed.</li>
+    </ol>
+    <p><strong>To resolve it:</strong> design the new first job. What does a 22-year-old do on day one when AI does the old junior work? How do they learn judgment, and who pays for the training? Then the personal version: name one skill from that job description you could start building this year.</p>
+  </div>
+
+  <details class="srcnote" id="debate-sources">
+    <summary>Every source in this debate, with links</summary>
+    <div class="srcbody">
+      <p class="srcintro">Research institutions, government and central bank data, and established news organizations. Company and consulting-firm figures are labeled as theirs.</p>
+      <ol class="reflist"><li>AP, via WTTW. (2026, October 2). US hiring slows and unemployment ticks higher with a month remaining before Americans head to polls. <a class="inline" href="https://news.wttw.com/2026/10/02/us-hiring-slows-and-unemployment-ticks-higher-month-remaining-americans-head-polls" target="_blank" rel="noopener">Link</a></li><li>Federal Reserve Bank of New York. (2026). Recent college graduates’ labor market, March 2026 rates. <a class="inline" href="https://www.newyorkfed.org/newsevents/mediaadvisory/2026/0528-2026" target="_blank" rel="noopener">Link</a></li><li>Hosseini Maasoum, S. M., &amp; Lichtinger, G. Generative AI and junior employment. SSRN. <a class="inline" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5425555" target="_blank" rel="noopener">Link</a></li><li>Humlum, A., &amp; Vestergaard, E. Large language models, small labor market effects. Becker Friedman Institute. <a class="inline" href="https://bfi.uchicago.edu/working-papers/large-language-models-small-labor-market-effects/" target="_blank" rel="noopener">Link</a></li><li>ETLA. Working Paper 135 (Finland). <a class="inline" href="https://www.etla.fi/wp-content/uploads/ETLA-Working-Papers-135.pdf" target="_blank" rel="noopener">Link</a></li><li>CESifo Working Paper 12752 (Norway). <a class="inline" href="https://ideas.repec.org/p/ces/ceswps/_12752.html" target="_blank" rel="noopener">Link</a></li><li>PwC. (2026). <em>2026 Global AI Jobs Barometer</em> [Press release]. <a class="inline" href="https://www.pwc.com/id/en/media-centre/press-release/2026/english/ai-jobs-barometer-en.html" target="_blank" rel="noopener">Link</a></li><li>Ramp. AI jobs impact. <a class="inline" href="https://ramp.com/data/ai-jobs-impact/paper" target="_blank" rel="noopener">Link</a></li><li>Stanford Digital Economy Lab. (2026, August). No widespread displacement, but the AI employment gap for young workers has widened to 19%. <a class="inline" href="https://digitaleconomy.stanford.edu/news/canariesaug26/" target="_blank" rel="noopener">Link</a></li><li>Stanford Digital Economy Lab. (2026, February). Canaries, interest rates, and timing. <a class="inline" href="https://digitaleconomy.stanford.edu/news/canaries-interest-rates-and-timinga-more-on-recent-drivers-of-employment-changes-for-young-workers/" target="_blank" rel="noopener">Link</a></li><li>Stanford Digital Economy Lab and ADP Research. Canaries Dashboard, last updated October 21, 2026. <a class="inline" href="https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/" target="_blank" rel="noopener">Link</a></li><li>Stanford Digital Economy Lab. Homepage, on the July 2026 economists’ statement. <a class="inline" href="https://digitaleconomy.stanford.edu/" target="_blank" rel="noopener">Link</a></li><li>Stanford Institute for Economic Policy Research. (2026). The U.S. economy in 2026: What to watch for. <a class="inline" href="https://siepr.stanford.edu/publications/policy-brief/us-economy-2026-what-watch" target="_blank" rel="noopener">Link</a></li><li><em>The Economist.</em> (2026, February 23). Why AI won’t wipe out white-collar jobs [Video]. <a class="inline" href="https://www.youtube.com/watch?v=1CAvNn5tUR8" target="_blank" rel="noopener">Link</a></li><li>World Bank, Commodity Markets Outlook (April 2026), as reported by <em>The Standard</em>. <a class="inline" href="https://www.thestandard.com.hk/finance/article/330573/World-Bank-forecasts-24pc-surge-in-energy-prices-in-2026-due-to-Middle-East-war" target="_blank" rel="noopener">Link</a></li></ol>
     </div>
   </details>
-
-  <div class="callout">
-    <div class="label">Your notes</div>
-    <ol>
-      <li>Your strongest point, in one sentence.</li>
-      <li>The specific evidence behind it.</li>
-      <li>The honest cost of your position.</li>
-      <li>What your side would rather you didn't notice.</li>
-    </ol>
-  </div>
-
-  <div class="callout">
-    <div class="label">How the debate runs</div>
-    <p><strong>Prep, 15 minutes.</strong></p>
-    <ol>
-      <li><strong>Get your side (2 min).</strong> Left half Side A, right half Side B. Groups of 2 or 3, count off 1 to 4.</li>
-      <li><strong>Research with Claude (10 min).</strong> Your card, the two prompts, then your notes in your own words.</li>
-      <li><strong>Team up (3 min).</strong> Join one or two other groups on your side, so your team is 6 or 7 people: three teams per side. Pick your single best point, an opener, and a rebutter.</li>
-    </ol>
-    <p><strong>Rounds, 22 minutes.</strong></p>
-    <ol>
-      <li><strong>Openings (6 min).</strong> A1, A2, A3, then B1, B2, B3. About 45 seconds each: your claim in one sentence, your evidence, and the cost of your position.</li>
-      <li><strong>Huddle (2 min).</strong> Rebutters pick one point the other side made.</li>
-      <li><strong>Rebuttals (6 min).</strong> Side B first this time. Answer one specific point, with evidence. No new arguments.</li>
-      <li><strong>Switch (4 min).</strong> Thirty seconds with your team: what was the other side's best point? Then someone new argues it in one sentence.</li>
-      <li><strong>What would change your mind? (4 min).</strong> Out loud. Name the specific reading on the Canaries Dashboard, or the specific study result, that would move you. Whoever names real evidence that would move them wins, whichever side they were handed.</li>
-    </ol>
-    <p><strong>To resolve it:</strong> suppose nobody settles the cause for five more years. As the operations analyst from section 2, what should your company do about its entry-level pipeline in the meantime, and who pays for it?</p>
-  </div>
 </section>
 
 <section id="writeup">
@@ -769,7 +859,7 @@ table.peek tbody th{font-weight:500;white-space:normal;}
     <li><strong>The dip.</strong> Give both runs' final numbers and shapes: plateau, J-curve, flat, or something else. Name the quarter you felt the most pressure to avoid the dip, and what exactly it threatened. Then this month's Adoption Monitor readings, and one sentence explaining the gap between worker and firm adoption from the inside: not "firms are slow," but why.</li>
     <li><strong>The bench.</strong> How many juniors did it take to keep the judgment work covered in year 8, and what did that cost compared with hiring none? What happened when the whole industry stopped hiring juniors? In two sentences, explain why a company that closes the entry-level door this year might not notice for three years.</li>
     <li><strong>Your first job.</strong> Attach the page you built with Claude, as an HTML file or PDF. Name one task Claude got wrong or invented compared with O*NET, and one tag you changed and why. How much of the job is left for you under each build? (No-AI path: your sheet's ten tasks, tags, and counts.)</li>
-    <li><strong>The debate.</strong> Which side were you handed, and what was the other side's best point? Where do you actually land on the cause, and what specific reading or study would change your mind? Did Claude's pushback find the weak spot in your case before the other side did?</li>
+    <li><strong>The debate.</strong> Which side were you handed, and what was the other side’s best point? Then where you actually land: should a company cut entry-level hiring or rebuild the job, and who pays for your answer? Use at least one source from the debate, and name one thing in the records that has nothing to do with AI. What specific reading or study would change your mind? Did Claude’s pushback find the weak spot in your case before the other side did?</li>
     <li><strong>Your commitment card.</strong> From your job map: the one tacit skill you'll start building before you graduate, and how, specifically (a class, a job, a person you'll learn from). Then what it costs you this year, in time or money. Three sentences.</li>
   </ol>
   <div class="callout">
@@ -783,7 +873,7 @@ table.peek tbody th{font-weight:500;white-space:normal;}
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p class="srcintro">Lab rebuilt 24 Oct 2026. Every outside claim is carried from Chapter 9 and its dated note (verified 29 Sep 2026); the 19 percent figure was re-checked against Stanford's August 12, 2026 update on 24 Oct 2026. The Canaries Dashboard updates monthly; check it the week before this lab runs.</p>
+    <p class="srcintro">Lab rebuilt 24 Oct 2026. Every outside claim is carried from Chapter 9 and its dated note (verified 29 Sep 2026); the 19 percent figure was re-checked against Stanford's August 12, 2026 update on 24 Oct 2026. The Canaries Dashboard updates monthly; check it the week before this lab runs. Debate rebuilt 29 Oct 2026 in the format of Labs 6 to 8, with the economy record, the Stanford dashboard findings, PwC, and The Economist added; the October jobs report comes out Nov 6, so update the September figures before Nov 18.</p>
     <dl>
       <dt>The two toys (sections 1 and 2)</dt>
       <dd>Self-contained, no network calls, nothing persists. The firm simulator is carried unchanged from the previous version of this lab: tools +4, +2, +1, then nothing; each redesign −4 that quarter and −1 the next, then +7 every quarter after. Mini-Bench is new and its numbers are invented: 8 seniors at the start, 7 needed for judgment work, one leaving each year, three years to train a junior, outside hires at 1.5 times the cost, two a year available only when the industry keeps training. The previous version's "Inside the machine" described a hiring lever the simulator didn't have; Mini-Bench now supplies it.</dd>
@@ -791,8 +881,8 @@ table.peek tbody th{font-weight:500;white-space:normal;}
       <dd>Stanford Digital Economy Lab: AI Adoption Monitor and Canaries Dashboard (linked), and the August 12, 2026 Canaries update (linked).</dd>
       <dt>Job tasks (section 3)</dt>
       <dd>O*NET OnLine, the U.S. Department of Labor's occupational database (linked). Claude's task lists and exposure tags are its own judgment and are framed as claims to check.</dd>
-      <dt>Debate evidence (section 5)</dt>
-      <dd>All carried from Chapter 9, section 3, with its links: Stanford (Canaries); Hosseini Maasoum and Lichtinger (SSRN); Humlum and Vestergaard (Becker Friedman Institute); Kharazian, Simon, and Stevens (Ramp); the New York Fed analysis and David Deming as reported by NPR, August 18, 2026; ETLA (Finland) and the CESifo working paper (Norway).</dd>
+      <dt>Debate (section 5)</dt>
+      <dd>Every source is listed in "Every source in this debate," at the end of section 5. Carried from Chapter 9: Stanford's August 2026 Canaries update, Hosseini Maasoum and Lichtinger, Humlum and Vestergaard, Ramp, ETLA (Finland), CESifo (Norway). New on 29 Oct 2026: the Canaries Dashboard's job-level, automation-versus-augmentation, and gender findings (dashboard last updated Oct 21, 2026; the usage data is from the Anthropic Economic Index, which the record says); Stanford's February 2026 timing update; PwC's 2026 Global AI Jobs Barometer (job ads, labeled as PwC's); The Economist's February 23, 2026 video (figures labeled as The Economist's); the AP's October 2, 2026 jobs report coverage; SIEPR's 2026 outlook; the World Bank's April 2026 energy forecast via The Standard; the New York Fed's March 2026 recent-graduate rate. The NPR anecdote of one graduate's applications was removed: it is a story, not data, and the debate no longer needs it.</dd>
     </dl>
     <p class="srcfoot">Outbound links were checked by search, not click-verified. Found an error? Tell your instructor; corrections are course content.</p>
   </div>
