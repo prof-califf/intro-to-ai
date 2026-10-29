@@ -437,6 +437,52 @@ table.peek tbody th{font-weight:500;white-space:normal;}
 .wrapx{overflow-x:auto;}
 @media(prefers-reduced-motion:reduce){.ptrack span{transition:none;}}
 
+
+/* Debate records and talking points, shared with Lab 6 */
+.tpgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 26px;}
+@media(max-width:700px){.tpgrid{grid-template-columns:1fr;}}
+.tpside{border:2px solid var(--ink);background:#fff;padding:0 0 6px;}
+.tphead{background:var(--dark);color:var(--yellow);font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;padding:10px 16px;margin:0 0 4px;}
+.tpside.b .tphead{background:var(--pinktext);color:#fff;}
+.tp{padding:12px 16px;border-bottom:1px solid var(--rule);}
+.tp:last-child{border-bottom:none;}
+.tp p{margin:0 0 6px;font-size:.9rem;line-height:1.55;}
+.tp p.tpc{font-family:'Fraunces',serif;font-weight:600;font-size:1.02rem;line-height:1.35;margin-bottom:8px;}
+.tpl{display:block;font-size:.72rem;font-weight:700;color:var(--gray);margin-bottom:1px;}
+.tp p.tpb{color:var(--gray);font-style:italic;}
+.tp p.tpb .tpl{font-style:normal;}
+a.tpsrc{display:inline-block;font-size:.74rem;font-weight:700;color:var(--pinktext);text-decoration:none;border:1px solid var(--pinktext);border-radius:999px;padding:0 7px;margin-left:2px;white-space:nowrap;}
+a.tpsrc:hover{background:#FFE6F0;}
+ol.timeline{list-style:none;margin:16px 0 14px;padding:0;border-left:3px solid var(--pink);}
+.tli{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:12px 0 12px 16px;border-bottom:1px solid var(--rule);position:relative;}
+.tli::before{content:'';position:absolute;left:-8px;top:18px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:3px solid var(--pink);}
+.tly{font-family:'Fraunces',serif;font-weight:700;color:var(--pinktext);font-size:1.1rem;line-height:1.3;}
+.tli p{margin:0;}
+.tlt{font-weight:700;margin-bottom:2px!important;}
+.tlx{font-size:.92rem;line-height:1.6;}
+.tlnote{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--ink);padding:12px 16px;font-size:.95rem;}
+@media(max-width:560px){.tli{grid-template-columns:1fr;gap:2px;}}
+ol.timeline.alt{border-left-color:var(--ink);}
+ol.timeline.alt .tli::before{border-color:var(--ink);}
+ol.timeline.alt .tly{color:var(--ink);}
+.tlc{font-size:.85rem;color:var(--gray);font-style:italic;margin-top:4px!important;}
+.tlhead{display:grid;grid-template-columns:110px 1fr 230px;gap:14px;padding:6px 0 6px 16px;font-size:.72rem;font-weight:700;color:var(--gray);border-bottom:2px solid var(--rule);}
+.tli{grid-template-columns:110px 1fr 230px!important;}
+.tlcite{font-size:.76rem!important;line-height:1.45;color:var(--gray);margin:0!important;}
+.tlcite em{font-style:italic;}
+.tlcite .tpsrc{margin:4px 0 0;}
+@media(max-width:760px){.tlhead{display:none;}.tli{grid-template-columns:1fr!important;gap:4px;}.tlcite{border-top:1px dashed var(--rule);padding-top:6px;}}
+ol.reflist{padding-left:20px;margin:0;font-size:.86rem;line-height:1.5;color:var(--ink);}
+ol.reflist li{margin:0 0 8px;}
+ol.timeline.worse{border-left-color:var(--pinktext);}
+.casebox{border-top-color:var(--ink);}
+.tpn{display:inline-block;font-family:'Fraunces',serif;font-weight:700;font-size:.9rem;width:24px;height:24px;line-height:24px;text-align:center;border-radius:50%;background:var(--dark);color:var(--yellow);margin-bottom:6px;}
+.tpside.b .tpn{background:var(--pinktext);color:#fff;}
+.noai-line{font-size:.9rem;color:var(--gray);margin:8px 0 0;}
+table.runshow{max-width:620px;}
+table.runshow th[scope=row]{white-space:normal;font-weight:500;}
+table.runshow td:first-child{font-variant-numeric:tabular-nums;color:var(--pinktext);font-weight:600;}
+p.runnote{font-size:.9rem;color:var(--gray);}
 </style>
 </head>
 <body>
@@ -487,17 +533,33 @@ table.peek tbody th{font-weight:500;white-space:normal;}
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 7 · Week 7, Wednesday, in class</div>
     <h1>The Bellingham <b>Pitch</b></h1>
-    <p class="kicker">You're a strategy analyst at a robotaxi company, and your boss wants to launch in Bellingham. Before you can pitch the city council, you have to understand what you're selling and what it costs the town. So today you open the car up. You train a tiny neural network to see the road, watch a filter scan a camera frame, write the reward function that teaches the car when to turn, and prompt a world model to invent a street it has never driven. Then you build the pitch math with Claude, crashes avoided on one side and driver work replaced on the other, decide what to offer the council before it asks, and debate the question underneath the whole chapter: a public health breakthrough, or a job killer?</p>
+    <p class="kicker">You're a strategy analyst at a robotaxi company, and your boss wants to launch in Bellingham. Before you can pitch the city council, you have to understand what you're selling and what it costs the town. So today you open the car up. You train a tiny neural network to see the road, watch a filter scan a camera frame, write the reward function that teaches the car when to turn, and prompt a world model to invent a street it has never driven. Then you build the pitch math with Claude, crashes avoided on one side and driver work replaced on the other, decide what to offer the council before it asks, and debate the question Seattle is fighting over right now: should the safety numbers win, or the drivers' jobs?</p>
     <p class="factline">a network you train on road scenes · a filter sliding across a camera frame · a reward function you write · a world model you prompt · the pitch math, built with Claude · the conditions you offer · one debate</p>
   </div>
 </header>
 
 <main class="wrap">
 
+<div class="printbar">
+  <button type="button" onclick="window.print()">Wanna go analog? Print or save as a PDF</button>
+  <a class="slidebtn" href="slides/week07-wed.pdf">Wednesday slides (PDF)</a>
+  <span>Links print with full web addresses; the interactive tools only work on screen.</span>
+</div>
+
 <div class="callout">
   <div class="label">From Chapter 7 · what this lab runs on</div>
-  <p><strong>How today runs.</strong> Almost all of this lab happens in class, right now, at the machine in front of you. Work through the sections in order. At the end there are five questions to upload to Canvas by 11:59 p.m. Friday, November 6, and most people finish most of them before they leave, so answer them as you go.</p>
-  <p>Every toy here is one step of the loop from <a class="inline" href="chapter-07-transportation.html#s2-1">section 2.1</a>. Sections 1 and 2 are perception, the neural network and the convolutional network from <a class="inline" href="chapter-07-transportation.html#s2-2">sections 2.2</a> and <a class="inline" href="chapter-07-transportation.html#s2-3">2.3</a>, and the scenes they get wrong are <a class="inline" href="chapter-07-transportation.html#s2-6">section 2.6</a>'s long tail. Section 3 is planning, the reinforcement learning and reward function from <a class="inline" href="chapter-07-transportation.html#s2-4">section 2.4</a>. Section 4 is the world model from <a class="inline" href="chapter-07-transportation.html#s2-5">section 2.5</a>. Section 5 puts the safety claim from <a class="inline" href="chapter-07-transportation.html#s3-q4">the case's Question 4</a> on a ledger next to the drivers from <a class="inline" href="chapter-07-transportation.html#s3-q2">Question 2</a>. Section 6 turns <a class="inline" href="chapter-07-transportation.html#s3-business">the case's business lessons</a> into a pitch: know who gains and who pays, bring a priced plan, and put <a class="inline" href="chapter-07-transportation.html#s3-q5">Question 5</a>'s reporting condition on the table. Section 8 is <a class="inline" href="chapter-07-transportation.html#s3-q2">Question 2</a>'s argument, out loud.</p>
+  <p><strong>How today runs.</strong> Sections 1, 2, 3, and 5 and the debate happen in class, at the machine in front of you, in this order. Sections 4, 6, and 7 and the writeup are for after class. The five writeup questions are due on Canvas by 11:59 p.m. Friday, November 6; jot notes for them as you go.</p>
+  <div class="peekwrap"><table class="peek runshow"><thead><tr><th scope="col">Clock</th><th scope="col">What</th><th scope="col">Time</th></tr></thead><tbody>
+    <tr><td>0:00</td><th scope="row">1. Mini-Perception: teach it to see</th><td>12 min</td></tr>
+    <tr><td>0:12</td><th scope="row">2. Mini-Camera: the convolutional filter</th><td>6 min</td></tr>
+    <tr><td>0:18</td><th scope="row">3. Mini-Planner: the reward function</th><td>12 min</td></tr>
+    <tr><td>0:30</td><th scope="row">5. Build the pitch math with Claude</th><td>20 min</td></tr>
+    <tr><td>0:50</td><th scope="row">8. Debate: read the records, prep, speak</th><td>45 min</td></tr>
+    <tr><td>1:35</td><th scope="row">Wrap-up and questions</th><td>5 min</td></tr>
+    <tr><td>After class</td><th scope="row">4. Mini-World, 6. Build the pitch, 7. Under the hood, and the writeup</th><td></td></tr>
+  </tbody></table></div>
+  <p class="runnote">That’s about 100 minutes of a 110-minute class, so there’s a little room. If a section runs long, keep moving; you can come back to the tools later.</p>
+  <p>Every toy here is one step of the loop from <a class="inline" href="chapter-07-transportation.html#s2-1">section 2.1</a>. Sections 1 and 2 are perception, the neural network and the convolutional network from <a class="inline" href="chapter-07-transportation.html#s2-2">sections 2.2</a> and <a class="inline" href="chapter-07-transportation.html#s2-3">2.3</a>, and the scenes they get wrong are <a class="inline" href="chapter-07-transportation.html#s2-6">section 2.6</a>'s long tail. Section 3 is planning, the reinforcement learning and reward function from <a class="inline" href="chapter-07-transportation.html#s2-4">section 2.4</a>. Section 4 is the world model from <a class="inline" href="chapter-07-transportation.html#s2-5">section 2.5</a>. Section 5 puts the safety claim from <a class="inline" href="chapter-07-transportation.html#s3-q4">the case's Question 4</a> on a ledger next to the drivers from <a class="inline" href="chapter-07-transportation.html#s3-q2">Question 2</a>. Section 6 turns <a class="inline" href="chapter-07-transportation.html#s3-business">the case's business lessons</a> into a pitch: know who gains and who pays, bring a priced plan, and put <a class="inline" href="chapter-07-transportation.html#s3-q5">Question 5</a>'s reporting condition on the table. Section 8 is <a class="inline" href="chapter-07-transportation.html#s3-q2">Question 2</a>'s argument, out loud, set in Seattle, where the fight is happening now.</p>
   <p><strong>Your role.</strong> You work for the company, but you can't win this permit by only seeing the company's side. The council will weigh riders against drivers, crashes against paychecks. So will you, because the pitch that ignores the other column is the one that loses the vote.</p>
 </div>
 
@@ -766,7 +828,7 @@ table.peek tbody th{font-weight:500;white-space:normal;}
 </section>
 
 <section id="pitch">
-  <div class="shead"><span class="num">6</span><h2>In class: Build the pitch</h2></div>
+  <div class="shead"><span class="num">6</span><h2>At home: Build the pitch</h2></div>
   <p class="lead">Now decide what to walk into the hearing with. A council that likes robotaxis will still attach conditions, and a council that's unsure will invent its own. The analyst's job is to offer the right ones before anyone asks, knowing each one costs the company something. About 10 minutes.</p>
 
   <div class="tool" id="pitch-tool">
@@ -813,187 +875,164 @@ table.peek tbody th{font-weight:500;white-space:normal;}
 </section>
 <section id="debate">
   <div class="shead"><span class="num">8</span><h2>In class: Debate</h2></div>
-  <p class="lead"><strong>The question: Robotaxis, a public health breakthrough or a job killer?</strong> It's 2031. Washington has created a path for paid driverless rides, and a robotaxi company has applied to run in Bellingham. Left half of the room is Side A: <em>a public health breakthrough, so the city should say yes.</em> Right half is Side B: <em>a job killer, so the city should say no.</em> In groups of 2 or 3, count off 1 to 4: that number is your piece of evidence below. The Gilman Street rules apply.</p>
-  <p>Chapter 7 put it in one line: the crashes it prevents are invisible and statistical, and the jobs it ends have names and addresses (<a class="inline" href="chapter-07-transportation.html#s3-q2">the case's Question 2</a>). Your ledger from section 5 is that sentence with numbers in it. Today you argue about which column should win, and you'll be handed a side you might not pick. Leave your company badge at the door: in the debate, you speak for Bellingham.</p>
-  <p><strong>Before you argue about the robot, remember the status quo.</strong> Today, every ride in Bellingham has a person driving it. Those drivers earn a living, and those drivers also crash: tens of thousands of Americans die on the road every year, almost all of them in crashes involving human drivers. So the real choice in 2031 isn't between robotaxis and a safe, fully employed city. It's between two imperfect systems, and the question is who pays for each one's mistakes.</p>
+  <p class="lead"><strong>The question: Should Seattle let driverless robotaxis take over its taxi and rideshare work?</strong> Left half of the room is Side A: <strong>yes, because the safety numbers win.</strong> Right half is Side B: <strong>no, because the drivers’ jobs win.</strong> About 45 minutes: 8 to read the records below, 12 to prep, 25 to debate. The Gilman Street rules apply.</p>
+  <p>Leave your company badge at the door. Seattle is where this fight is happening right now, so in the debate you speak for Seattle, not for the robotaxi company. Chapter 7 put the whole argument in one line: the crashes a robotaxi prevents are invisible and statistical, and the jobs it ends have names and addresses (<a class="inline" href="chapter-07-transportation.html#s3-q2">the case’s Question 2</a>). Your ledger from section 5 is that sentence with numbers in it.</p>
+
+  <div class="callout casebox">
+    <div class="label">This week’s case: Waymo in Seattle</div>
+    <p>Waymo has been driving its cars around Seattle and the Eastside since fall 2025, with a trained human behind the wheel, because Washington law doesn’t allow paid driverless rides (<a class="inline" href="https://www.king5.com/article/news/local/waymo-seattle-rideshare-drivers-union-rally/281-21d776a6-f139-422f-a714-d566d849b7e2" target="_blank" rel="noopener">KING 5</a>). In the 2026 session, legislators filed one bill that would require a human safety operator in every autonomous vehicle carrying passengers (<a class="inline" href="https://app.leg.wa.gov/billsummary/?BillNumber=1984&amp;Year=2025&amp;Initiative=false" target="_blank" rel="noopener">HB 1984</a>) and another that would open the door to driverless operation statewide (<a class="inline" href="https://app.leg.wa.gov/billsummary?BillNumber=6243&amp;Year=2026&amp;Initiative=false" target="_blank" rel="noopener">SB 6243</a>). Neither passed. In October 2025, rideshare drivers and Teamsters rallied downtown against Waymo’s plans.</p>
+    <p><strong>Both sides can use it.</strong> Side A: Waymo reports far fewer crashes than human drivers across hundreds of millions of miles, and Seattle still has a person in every driver’s seat. Side B: those drivers organized, won the strongest pay protections in the country, and showed up to say no.</p>
+  </div>
+
+  <h3 class="sub" id="human-record"><span>Before robotaxis:</span> the human driver record</h3>
+  <p>Before you argue about the robot, look at the status quo. Today a person drives every ride in Seattle, and people also cause almost every crash. This is the record Side A wants to replace. Almost all of it comes from government data.</p>
+  <ol class="timeline">
+    <li class="tlhead" aria-hidden="true"><span>When</span><span>What happened</span><span>Source</span></li>
+    <li class="tli"><span class="tly">2019 to 2020</span><div><p class="tlt">Uber’s own safety report</p><p class="tlx">Uber reported 3,824 reports in its five most serious categories of sexual assault on U.S. rides over two years. Riders were the accused party in 43 percent of those reports, so drivers were often the ones harmed.</p><p class="tlc">The catch: it’s Uber’s own count, it’s several years old, and sexual assault is underreported everywhere, so the real number is probably higher.</p></div><p class="tlcite">O’Brien, S. A. (2022, July 1). Uber releases safety data. <em>CNN Business</em>, via ABC7. <a class="tpsrc" href="https://abc7chicago.com/uber-safety-report-sexual-assault-rape-statistics-ride/12009375/" target="_blank" rel="noopener">Open source</a> Also reported by <em>Business Standard</em> (IANS), July 2, 2022. <a class="tpsrc" href="https://www.business-standard.com/article/international/uber-recorded-998-sexual-assault-incidents-in-us-in-2020-says-report-122070200198_1.html" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">2023</span><div><p class="tlt">Drunk driving</p><p class="tlx">12,429 people died in crashes where at least one driver was alcohol-impaired. That was 30 percent of all U.S. traffic deaths that year.</p><p class="tlc">The catch: most of those drivers were in their own cars, not taxis. A robotaxi only prevents a drunk-driving crash if the drunk person rides instead of driving.</p></div><p class="tlcite">NHTSA. (2025). <em>Alcohol-impaired driving: 2023 data</em> (DOT HS 813 713). <a class="tpsrc" href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813713" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">2025</span><div><p class="tlt">The country</p><p class="tlx">An estimated 36,640 people died in motor vehicle crashes in the U.S., about a hundred a day. It was down from 2024.</p></div><p class="tlcite">NHTSA. (2026). <em>Early estimate of motor vehicle traffic fatalities in 2025</em> (DOT HS 813 800). <a class="tpsrc" href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813800" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">2025</span><div><p class="tlt">Seattle</p><p class="tlx">By city data, 30 people were killed and 221 seriously injured in traffic collisions in Seattle, most of the dead pedestrians struck by drivers. The city’s goal, set in 2015, is zero by 2030.</p><p class="tlc">The catch: these are all drivers, not rideshare drivers. No one has counted how many Seattle crashes involve a taxi or an Uber.</p></div><p class="tlcite">KUOW. (2026, August 28). Seattle leaders launch new Vision Zero push as traffic deaths continue to rise. <a class="tpsrc" href="https://www.kuow.org/governing/2026-08-28/seattle-leaders-launch-new-vision-zero-push-as-traffic-deaths-continue-to-rise" target="_blank" rel="noopener">Open source</a></p></li>
+  </ol>
+  <p class="tlnote"><strong>Notice the pattern.</strong> The human record is huge and steady: thousands of deaths a year, every year, and a real personal-safety problem inside the car. Side A leans on this record. Side B will point out that most of it happens in private cars a robotaxi never touches.</p>
+
+  <h3 class="sub" id="safety-record"><span>Robotaxis on the road:</span> the safety numbers</h3>
+  <p>Robotaxis have now driven hundreds of millions of miles with nobody at the wheel, so there are real numbers to check. Some point one way, some the other, and nearly all of them start with the company.</p>
+  <ol class="timeline alt">
+    <li class="tlhead" aria-hidden="true"><span>When</span><span>What the record shows</span><span>Source</span></li>
+    <li class="tli"><span class="tly">October 2023</span><div><p class="tlt">Cruise loses its permit</p><p class="tlx">In San Francisco, a hit-and-run driver knocked a pedestrian into the path of a Cruise robotaxi. The robotaxi stopped, then tried to pull over and dragged her about 20 feet. California’s DMV suspended Cruise’s driverless permits, saying it had only learned of the dragging from another agency. Cruise disputed that.</p><p class="tlc">The catch: this was Cruise, owned by GM, not Waymo. Side A will say the system worked: the regulator pulled the permit.</p></div><p class="tlcite">KQED. (2023, October 24). California DMV pumps the brakes on Cruise driverless taxis in San Francisco. <a class="tpsrc" href="https://www.kqed.org/news/11965443/california-dmv-pumps-the-brakes-on-cruise-driverless-taxis-in-san-francisco" target="_blank" rel="noopener">Open source</a> <em>Mission Local.</em> (2023, October 24). Cruise robotaxis grounded in SF by DMV, effective immediately. <a class="tpsrc" href="https://missionlocal.org/2023/10/cruise-robotaxis-grounded-in-sf-by-dmv-effective-immediately/" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">December 2024</span><div><p class="tlt">The insurer’s numbers</p><p class="tlx">Swiss Re, a reinsurer that loses money when it misjudges risk, compared liability claims over 25.3 million Waymo miles with its data on human drivers and found 92 percent fewer bodily injury claims.</p><p class="tlc">The catch: the study was released jointly with Waymo.</p></div><p class="tlcite">Waymo. (2024, December). New Swiss Re study. <a class="tpsrc" href="https://waymo.com/blog/2024/12/new-swiss-re-study-waymo/" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">December 2025</span><div><p class="tlt">The trauma surgeon</p><p class="tlx">A trauma surgeon who reviewed the crash data called self-driving cars a public health breakthrough.</p><p class="tlc">The catch: one doctor’s reading of the company’s data.</p></div><p class="tlcite">NPR. (2025, December 12). Why one trauma doctor sees self-driving cars as a public health breakthrough. <a class="tpsrc" href="https://www.npr.org/2025/12/12/nx-s1-5634879/why-one-trauma-doctor-sees-self-driving-cars-as-a-public-health-breakthrough" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">January 2026</span><div><p class="tlt">The child near a school</p><p class="tlx">A Waymo struck a child who ran out from behind a double-parked SUV near a Santa Monica elementary school at drop-off. The child had minor injuries. Waymo says its car braked from about 17 mph to under 6, and that its model shows an attentive human would have hit the child at about 14. Federal regulators opened an investigation into how the car behaves around schools, on top of an October 2025 probe into passing stopped school buses.</p><p class="tlc">The catch: both sides can use it. The 14 mph is Waymo’s model, not a measurement, and the regulator wants to know why the car was going 17 at drop-off.</p></div><p class="tlcite">NHTSA, PE26001 (2026). <a class="tpsrc" href="https://static.nhtsa.gov/odi/inv/2026/INOA-PE26001-10005.pdf" target="_blank" rel="noopener">Open source</a> Axios, January 29, 2026. <a class="tpsrc" href="https://www.axios.com/2026/01/29/waymo-accident-santa-monica-nhtsa" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">Spring 2026</span><div><p class="tlt">Who feels safe</p><p class="tlx">A USC survey of Los Angeles County residents found that women feel a lot safer from harassment in a Waymo than in an Uber or Lyft, while men’s answers barely differ. Waymo’s own surveys and reporters’ interviews point the same way: many women riding alone or late choose a car with no stranger in it.</p><p class="tlc">The catch: the same survey found only 9 percent rated robotaxis safe, fewer than rated ride-hailing safe (12 percent), and far fewer than rated driving themselves safe (27 percent). Feeling safe from a person isn’t the same as feeling safe from a crash.</p></div><p class="tlcite">LAist. (2026). Waymos in L.A., but how many people are taking them? <a class="tpsrc" href="https://laist.com/news/transportation/waymos-in-la-but-how-many-people-are-taking-them" target="_blank" rel="noopener">Open source</a> NBC News. Are taxis safer with no driver? These women think so. <a class="tpsrc" href="https://www.nbcnews.com/tech/innovation/are-taxis-safer-no-driver-women-think-rcna173936" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">Through June 2026</span><div><p class="tlt">Waymo’s own count</p><p class="tlx">Across 271.3 million driverless miles in five metro areas, Waymo reports 82 percent fewer injury crashes (841 fewer) and 95 percent fewer serious-injury-or-worse crashes (55 fewer) than human drivers would have had on the same roads.</p><p class="tlc">The catch: it’s Waymo’s analysis, in Phoenix, San Francisco, Los Angeles, Austin, and Atlanta. None of them is as wet as Seattle, and the human comparison includes drunk and distracted drivers.</p></div><p class="tlcite">Waymo. (2026, September 24). From the road. <a class="tpsrc" href="https://waymo.com/blog/shorts/safetydata-september26/" target="_blank" rel="noopener">Open source</a></p></li>
+  </ol>
+  <p class="tlnote"><strong>Notice the pattern.</strong> Every big crash number either comes from Waymo or was released with Waymo. The failures got found because regulators and reporters went looking. Side A leans on the numbers. Side B asks who counted them.</p>
+
+  <h3 class="sub" id="jobs-record"><span>Who drives for a living:</span> the jobs numbers</h3>
+  <p>Now the other column. The people who drive are real, many of them have few other options, and in Washington they’ve organized.</p>
+  <ol class="timeline worse">
+    <li class="tlhead" aria-hidden="true"><span>When</span><span>What the record shows</span><span>Source</span></li>
+    <li class="tli"><span class="tly">2021</span><div><p class="tlt">Who drives</p><p class="tlx">In a Pew survey, 5 percent of U.S. adults said they had ever driven for a ride-hailing app, and 2 percent in the past year. Lower-income adults were more likely to do gig work, and 42 percent of lower-income current or recent gig workers said it was their main job.</p><p class="tlc">The catch: it’s from 2021, and many drivers drive part time.</p></div><p class="tlcite">Pew Research Center. (2021, December 8). <em>The state of gig work in 2021.</em> <a class="tpsrc" href="https://www.pewresearch.org/internet/2021/12/08/the-state-of-gig-work-in-2021/" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">2022</span><div><p class="tlt">Washington’s driver law</p><p class="tlx">After years of organizing, Washington’s rideshare drivers won a state law, HB 2076, with a guaranteed minimum pay rate per trip, paid sick leave, and workers’ compensation. Its supporters called it the highest statewide pay floor for rideshare drivers in the country.</p><p class="tlc">The catch: it was a compromise. Drivers stayed independent contractors, not employees, and some labor groups opposed it for that reason.</p></div><p class="tlcite">KING 5. (2022). Uber, Lyft drivers win minimum pay, sick leave. <a class="tpsrc" href="https://king5.com/article/news/politics/state-politics/uber-lyft-washington-minimum-pay-sick-leave-protections/281-ecdb659b-4a54-4487-975a-95769bdf5c0d" target="_blank" rel="noopener">Open source</a> Washington House Democrats. (2022). HB 2076 press release. <a class="tpsrc" href="https://housedemocrats.wa.gov/?p=46560" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">2024 to 2034</span><div><p class="tlt">The federal forecast</p><p class="tlx">The Bureau of Labor Statistics counts about 447,900 taxi, ride-hailing, shuttle, and chauffeur jobs, and projects them to grow 9 percent over the decade, much faster than average, with about 58,800 openings a year.</p><p class="tlc">The catch: a projection, not a count, and it lumps ride-hailing in with shuttle and limo work. It doesn’t say how much robotaxis were built into it.</p></div><p class="tlcite">U.S. Bureau of Labor Statistics. <em>Occupational outlook handbook: Taxi drivers, shuttle drivers, and chauffeurs.</em> <a class="tpsrc" href="https://www.bls.gov/ooh/transportation-and-material-moving/taxi-drivers-and-chauffeurs.htm" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">Late 2025</span><div><p class="tlt">The paycheck in robotaxi cities</p><p class="tlx">Gridwise, which tracks drivers’ earnings, found trips per hour fell 5.3 percent in robotaxi cities versus 2.6 percent nationwide, and hourly pay fell in Los Angeles (3.7 percent), San Francisco, and Phoenix while it rose 1.8 percent nationally.</p><p class="tlc">The catch: in San Francisco, drivers earned 16 percent more per quarter because the platforms cut their own fees, and Gridwise says it can’t separate robotaxis’ effect from everything else in those markets.</p></div><p class="tlcite">Gridwise Analytics. (2026). <em>2026 AV impact report.</em> <a class="tpsrc" href="https://gridwise.io/analytics/2026-av-impact-report" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">October 2025 to March 2026</span><div><p class="tlt">Seattle’s drivers say no</p><p class="tlx">Rideshare drivers, Teamsters, and labor advocates rallied in downtown Seattle against Waymo’s plans, citing jobs and safety. The president of the Washington Drivers Union told KIRO 7 there are about 30,000 rideshare drivers in Washington.</p><p class="tlc">The catch: the 30,000 is the union’s estimate, and it counts everyone who drives, including people who drive a few hours a week.</p></div><p class="tlcite">KING 5. (2025, October). ‘Hell no, Waymo’: Seattle rideshare drivers, union advocates rally. <a class="tpsrc" href="https://www.king5.com/article/news/local/waymo-seattle-rideshare-drivers-union-rally/281-21d776a6-f139-422f-a714-d566d849b7e2" target="_blank" rel="noopener">Open source</a> KIRO 7, via Yahoo News. (2026, March). Driverless car app Waymo moves forward in Seattle as ride-share drivers protest. <a class="tpsrc" href="https://www.yahoo.com/news/articles/driverless-car-app-waymo-moves-015335962.html" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">July 2026</span><div><p class="tlt">A middle path, proposed</p><p class="tlx">In Washington, D.C., a proposed bill would allow robotaxis but cap the fleet at 200 cars until 2028 and charge operators 15 cents for every mile driven.</p><p class="tlc">The catch: it hasn’t passed, and unions still oppose it.</p></div><p class="tlcite"><em>Washington Times.</em> (2026, July 13). D.C. Council weighs future of automated ridesharing vehicles that draw the ire of unions. <a class="tpsrc" href="https://www.washingtontimes.com/news/2026/jul/13/dc-council-weighs-future-automated-ridesharing-vehicles-draw-ire/" target="_blank" rel="noopener">Open source</a></p></li>
+  </ol>
+  <p class="tlnote"><strong>Notice the pattern.</strong> The job loss shows up first as fewer trips an hour, not pink slips, because drivers are contractors. The numbers are mixed, and the people are not hypothetical. Side B leans on this record. Side A will point at the federal forecast and the middle path.</p>
 
   <div class="sides">
     <div class="side">
-      <div class="side-tag">Side A &middot; left half of the room</div>
-      <h3 id="motion-for">A public health breakthrough: say yes</h3>
-      <p>Robotaxis prevent crashes, and crashes kill and injure people every day. A city that says no is choosing crashes it will never see, count, or explain. Start from your ledger's crash column, the trauma surgeon in the case's Question 2, and the riders there who can't drive or don't feel safe with a stranger.</p>
-      <p class="side-cost"><strong>The cost to name:</strong> real people lose income, and the safety numbers you're leaning on are mostly the company's own, from sunnier cities than this one.</p>
+      <div class="side-tag">Side A &middot; left half</div>
+      <h3 id="motion-for">Yes: the safety numbers win</h3>
+      <p>Seattle lets robotaxis carry paying riders with no driver, and lets them grow as fast as riders choose them.</p>
+      <p class="side-cost"><strong>What you have to prove:</strong> that the safety numbers are real enough to be worth the paychecks they cost, even though the company counted most of them, in cities drier than this one.</p>
     </div>
     <div class="side">
-      <div class="side-tag">Side B &middot; right half of the room</div>
-      <h3 id="motion-against">A job killer: say no</h3>
-      <p>Robotaxis move money from local drivers to a company somewhere else, and the people who pay are the ones with the fewest other options. Start from your ledger's driver column, the drivers in the case's Question 2, and the fact that the safety record is kept by the company that profits from it.</p>
-      <p class="side-cost"><strong>The cost to name:</strong> the crashes human drivers will keep causing, which is a real number too, and the riders who keep waiting for a ride they can take alone.</p>
-    </div>
-  </div>
-  <p class="tis-note">Nobody in this debate is arguing about a real driver or a real crash victim. You're arguing about a rule, the way a council member would.</p>
-  <p><strong>The evidence below is from today. Use it to argue about 2031.</strong> Side A: you have to show the crash benefit is real enough to outweigh the drivers' cost, and say who should pay that cost. Side B: you have to show the job loss is real and large, and say what your city does about the crashes instead.</p>
-
-  <h3 class="sub" id="futures"><span>What 2031 could look like:</span> four scenarios</h3>
-  <p>Each scenario starts from how it works today, then imagines Bellingham in 2031. Every benefit and issue is grounded in something that has already happened or been measured. The first two are Side A's world; the last two are Side B's. Use them in your prep, and steal from the other side's.</p>
-
-  <div class="scen">
-    <h4>Open streets</h4>
-    <p class="scen-who">Side A's world: yes, citywide</p>
-    <p><strong>Today:</strong> Waymo gives about 500,000 paid rides a week across 10 U.S. cities (<a class="inline" href="https://techcrunch.com/2026/03/27/waymo-skyrocketing-ridership-in-one-chart/" target="_blank" rel="noopener">TechCrunch</a>, March 2026). In Washington it has tested in Seattle and Bellevue, but Seattle's transportation department says state law has to change before anyone can sell a driverless ride here (<a class="inline" href="https://www.knkx.org/transportation/2025-10-27/waymo-autonomous-car-seattle-bellevue" target="_blank" rel="noopener">KNKX</a>). <strong>In 2031:</strong> robotaxis run anywhere in Bellingham, day and night.</p>
-    <div class="mx-why-grid">
-      <div><p class="mx-why-h">Benefits</p><ul><li>The crash column from your ledger, every year, if the numbers hold here.</li><li>A ride for people who can't drive, at the hour they choose. In Chapter 7, the president of a National Federation of the Blind chapter says rideshare's unpredictability usually makes her anxious.</li></ul></div>
-      <div><p class="mx-why-h">Issues</p><ul><li>The driver column from your ledger, every year, landing on people who chose driving because it fit their lives.</li><li>The safety record comes from five sunnier metro areas. Bellingham's rain and dark winter afternoons are exactly where section 2's filters struggled.</li></ul></div>
+      <div class="side-tag">Side B &middot; right half</div>
+      <h3 id="motion-against">No: the drivers’ jobs win</h3>
+      <p>Seattle keeps a person in every driver’s seat. Robotaxis can keep testing, with a safety driver aboard.</p>
+      <p class="side-cost"><strong>What you have to prove:</strong> that protecting those jobs is worth the crashes human drivers will keep causing, and say what Seattle does about those crashes instead.</p>
     </div>
   </div>
 
-  <div class="scen">
-    <h4>Yes, with a bill attached</h4>
-    <p class="scen-who">Side A's world: yes, with conditions</p>
-    <p><strong>Today:</strong> cities that allow robotaxis mostly set no condition for the drivers they replace. Chapter 7 asks for a plan for them (the case's Question 5); one version is a per-ride fee that funds retraining. <strong>In 2031:</strong> Bellingham says yes, charges a fee on every robotaxi ride for a driver transition fund, and slows the cars down around schools.</p>
-    <div class="mx-why-grid">
-      <div><p class="mx-why-h">Benefits</p><ul><li>The company that captures the drivers' income pays part of their cost. That's value capture (the case's Question 2) handled on purpose.</li><li>School zones get extra margin, the place regulators are already watching: federal investigators opened a probe in January 2026 after a Waymo struck a child near a school.</li></ul></div>
-      <div><p class="mx-why-h">Issues</p><ul><li>Every dollar of fee is a reason to launch in the next city instead, where the drivers get nothing.</li><li>Retraining money doesn't hand a 55-year-old driver a new career, and nobody has shown what the fund should buy.</li></ul></div>
+  <h3 class="sub" id="talking-points"><span>Talking points:</span> your group takes one</h3>
+  <p>Each point has a claim, the real evidence behind it, and the comeback to expect. The tags jump to the full record, with sources.</p>
+  <div class="tpgrid">
+    <div class="tpside">
+      <p class="tphead">Side A: yes, the safety numbers win</p>
+      <div class="tp"><span class="tpn">1</span>
+        <p class="tpc">“Human drivers kill people every single day.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>An estimated 36,640 people died on U.S. roads in 2025, about a hundred a day. In Seattle, 30 were killed and 221 seriously injured, most of the dead pedestrians hit by drivers. In 2023, 30 percent of U.S. traffic deaths involved a drunk driver. <a class="tpsrc" href="#human-record">The human record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“Almost none of those crashes involved a taxi. Robotaxis don’t take drunk people out of their own cars.”</p>
+      </div>
+      <div class="tp"><span class="tpn">2</span>
+        <p class="tpc">“The numbers say robotaxis crash far less.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>Across 271.3 million driverless miles, Waymo reports 82 percent fewer injury crashes and 95 percent fewer serious-or-worse crashes than human drivers on the same roads. Swiss Re, an insurer, found 92 percent fewer bodily injury claims. <a class="tpsrc" href="#safety-record">The safety record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“That’s Waymo’s own count, and the insurer’s study was released with Waymo. And none of those five cities is as wet as Seattle.”</p>
+      </div>
+      <div class="tp"><span class="tpn">3</span>
+        <p class="tpc">“The doctors who treat crash victims are on our side.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>A trauma surgeon who reviewed the crash data called self-driving cars a public health breakthrough. <a class="tpsrc" href="#safety-record">The safety record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“One doctor reading the company’s data. Federal regulators are investigating after a Waymo hit a child near a school.”</p>
+      </div>
+      <div class="tp"><span class="tpn">4</span>
+        <p class="tpc">“No driver means no stranger in the car.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>Uber’s own report counted 3,824 reports of serious sexual assault on its U.S. rides in 2019 and 2020. In a 2026 USC survey, women felt a lot safer from harassment in a Waymo than in an Uber or Lyft. <a class="tpsrc" href="#human-record">The human record</a> <a class="tpsrc" href="#safety-record">The safety record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“Riders were the accused in 43 percent of those reports, so drivers get hurt too. And in that same survey, fewer people rated robotaxis safe than rated Uber safe.”</p>
+      </div>
+      <div class="tp"><span class="tpn">5</span>
+        <p class="tpc">“Driving jobs are growing anyway.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>The Bureau of Labor Statistics projects taxi, ride-hailing, shuttle, and chauffeur jobs to grow 9 percent from 2024 to 2034, with about 58,800 openings a year. <a class="tpsrc" href="#jobs-record">The jobs record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“That’s a forecast. In cities that already have robotaxis, trips per hour are falling twice as fast as everywhere else.”</p>
+      </div>
     </div>
-  </div>
-
-  <div class="scen">
-    <h4>Keep the wheel</h4>
-    <p class="scen-who">Side B's world: no driverless rides</p>
-    <p><strong>Today:</strong> this is Washington now. No paid driverless rides, and a state House committee still studying how to allow them (<a class="inline" href="https://app.leg.wa.gov/committeeschedules/Home/Documents/34077" target="_blank" rel="noopener">work session, March 2026</a>). <strong>In 2031:</strong> still a person in every driver's seat in Bellingham.</p>
-    <div class="mx-why-grid">
-      <div><p class="mx-why-h">Benefits</p><ul><li>Driver income stays local, and nobody's job is the test case.</li><li>No fleet of cars recording the street around the clock, and no company running its experiment on roads where nobody consented (section 3, Question 4).</li></ul></div>
-      <div><p class="mx-why-h">Issues</p><ul><li>The crashes stay at the human rate. An estimated 36,640 people died on U.S. roads in 2025 (<a class="inline" href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813800" target="_blank" rel="noopener">NHTSA</a>). "Wait and see" isn't free (the case's Question 2).</li><li>The riders who can't drive, or don't want a stranger at 1 a.m., keep waiting.</li></ul></div>
+    <div class="tpside b">
+      <p class="tphead">Side B: no, the drivers’ jobs win</p>
+      <div class="tp"><span class="tpn">1</span>
+        <p class="tpc">“Thousands of Washington families drive for a living.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>The Washington Drivers Union says about 30,000 people drive rideshare in the state. Nationally, 42 percent of lower-income gig workers say gig work is their main job. <a class="tpsrc" href="#jobs-record">The jobs record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“That’s the union’s count, and plenty of those people drive a few hours a week. The Pew numbers are from 2021.”</p>
+      </div>
+      <div class="tp"><span class="tpn">2</span>
+        <p class="tpc">“Washington drivers fought for these jobs, and won.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>Washington’s 2022 driver law guarantees minimum pay per trip, paid sick leave, and workers’ compensation, the strongest statewide floor in the country. Robotaxis would replace a job the state just made better. <a class="tpsrc" href="#jobs-record">The jobs record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“Then make the robotaxi company pay in too, the way D.C.’s bill would charge 15 cents a mile. Protecting drivers doesn’t require keeping the crashes.”</p>
+      </div>
+      <div class="tp"><span class="tpn">3</span>
+        <p class="tpc">“It’s already hitting paychecks.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>In robotaxi cities, drivers’ trips per hour fell 5.3 percent at the end of 2025, about twice the national drop, and hourly pay fell in Los Angeles, San Francisco, and Phoenix while it rose nationally. <a class="tpsrc" href="#jobs-record">The jobs record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“Gridwise says it can’t separate robotaxis from everything else, and San Francisco drivers earned 16 percent more per quarter.”</p>
+      </div>
+      <div class="tp"><span class="tpn">4</span>
+        <p class="tpc">“The safety record is kept by the company that profits from it.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>Waymo’s headline numbers are Waymo’s own analysis, and the insurance study was released with Waymo. When Cruise dragged a pedestrian, California’s DMV said it only learned about the dragging from another agency. <a class="tpsrc" href="#safety-record">The safety record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“Cruise isn’t Waymo, and the regulator pulled Cruise’s permit within weeks. The oversight worked.”</p>
+      </div>
+      <div class="tp"><span class="tpn">5</span>
+        <p class="tpc">“People don’t trust it yet, and a driver does more than drive.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>In a 2026 USC survey, only 9 percent of people rated robotaxis safe from crashes. A San Francisco driver told NBC that he would never have let a rider be harassed the way one Waymo rider was while she sat trapped in the car. <a class="tpsrc" href="#safety-record">The safety record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“In the same survey, women felt much safer from harassment in a robotaxi. For a lot of riders, the driver is the risk.”</p>
+      </div>
     </div>
-  </div>
-
-  <div class="scen">
-    <h4>The slow lane</h4>
-    <p class="scen-who">Side B's world: not yet, and not on the company's count</p>
-    <p><strong>Today:</strong> the main safety record is Waymo's analysis of its own crashes. <strong>In 2031:</strong> Bellingham allows a small, capped pilot, and the cap only rises when an independent party, not the company, shows the crash numbers hold on Bellingham's streets in Bellingham's weather. Drivers get years of notice.</p>
-    <div class="mx-why-grid">
-      <div><p class="mx-why-h">Benefits</p><ul><li>The city, not the company, keeps the track record. That's section 2.8's "who keeps the score?" question, answered.</li><li>Drivers see it coming and can plan, instead of finding out from their earnings app.</li></ul></div>
-      <div><p class="mx-why-h">Issues</p><ul><li>Every slow year is a year of crashes the cars might have prevented.</li><li>A small market with strict rules may never get a pilot at all. Companies go where the rules are easiest.</li></ul></div>
-    </div>
-  </div>
-
-  <h3 class="sub" id="evidence-cards"><span>Your evidence:</span> four pieces, one per number</h3>
-  <p>Every side gets all four. If your number hands you evidence that seems to help the other side, that's your job today: find what it means for yours, and what your side would rather nobody noticed.</p>
-
-  <div class="probe ev">
-    <div class="pwhy">Evidence 1 &middot; The public health case</div>
-    <div class="ptext ev-body">
-      <p class="ev-point"><b>In one line:</b> road deaths are enormous, and the company's own numbers say robotaxis cut serious crashes sharply.</p>
-      <div class="ev-stats"><div><b>36,640</b><span>estimated U.S. traffic deaths in 2025</span></div><div><b>95%</b><span>fewer serious-injury-or-worse crashes than the human benchmark, per Waymo</span></div><div><b>93%</b><span>fewer injury crashes involving pedestrians, per Waymo</span></div></div>
-      <ul class="ev-facts">
-        <li><b>The deaths:</b> NHTSA's early estimate for 2025 is 36,640 people killed in motor vehicle crashes, down from 2024 but still about a hundred a day (<a class="inline" href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813800" target="_blank" rel="noopener">NHTSA</a>).</li>
-        <li><b>The claim:</b> across 271 million driverless miles through June 2026, in five metro areas, Waymo reports 82 percent fewer injury crashes (841 fewer) and 95 percent fewer serious-or-worse crashes than human drivers would have had on the same roads (<a class="inline" href="https://waymo.com/blog/shorts/safetydata-september26/" target="_blank" rel="noopener">Waymo</a>).</li>
-        <li><b>The doctor:</b> a trauma surgeon who reviewed the data called self-driving cars a public health breakthrough (<a class="inline" href="https://www.npr.org/2025/12/12/nx-s1-5634879/why-one-trauma-doctor-sees-self-driving-cars-as-a-public-health-breakthrough" target="_blank" rel="noopener">NPR</a>).</li>
-        <li><b>The catch:</b> it's Waymo's own analysis, on roads and in weather Waymo chose, against a human average that includes drunk and distracted drivers (the case's Question 4).</li>
-      </ul>
-      <p class="ev-src">Chapter 7, <a class="inline" href="chapter-07-transportation.html#s3-q2">the case's Questions 2</a> and <a class="inline" href="chapter-07-transportation.html#s3-q4">4</a>; NHTSA early estimate, 2025; Waymo, September 2026</p>
-    </div>
-    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate set in 2031: a robotaxi company wants to operate in Bellingham, Washington. The question is whether robotaxis are a public health breakthrough (Side A, the city should say yes) or a job killer (Side B, the city should say no). I'm on Side [A / B]. My evidence: NHTSA estimates 36,640 people died on U.S. roads in 2025, and Waymo reports that across 271 million driverless miles through June 2026 its cars had 82 percent fewer injury crashes and 95 percent fewer serious-or-worse crashes than human drivers on the same roads, by its own analysis. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
-  </div>
-
-  <div class="probe ev">
-    <div class="pwhy">Evidence 2 &middot; Checking the claim</div>
-    <div class="ptext ev-body">
-      <p class="ev-point"><b>In one line:</b> an insurer's data points the same way as Waymo's, and a regulator is still asking hard questions.</p>
-      <div class="ev-stats"><div><b>92%</b><span>fewer bodily injury claims than human drivers, in Swiss Re's insurance data</span></div><div><b>17 to 6</b><span>mph: how much Waymo says its car slowed before hitting a child near a school</span></div><div><b>14</b><span>mph: Waymo's estimate of how fast an attentive human would have hit</span></div></div>
-      <ul class="ev-facts">
-        <li><b>The insurer:</b> Swiss Re, a reinsurer that loses money when it misjudges risk, compared liability claims over 25.3 million Waymo miles with its own data on human drivers and found 92 percent fewer bodily injury claims. The study was released with Waymo (<a class="inline" href="https://waymo.com/blog/2024/12/new-swiss-re-study-waymo/" target="_blank" rel="noopener">Waymo and Swiss Re</a>).</li>
-        <li><b>The investigation:</b> in January 2026 NHTSA opened a probe into whether a Waymo used enough caution near a Santa Monica school, after it struck a child who ran out from behind a double-parked SUV. The child had minor injuries. A separate probe into passing stopped school buses opened in October 2025 (<a class="inline" href="https://static.nhtsa.gov/odi/inv/2026/INOA-PE26001-10005.pdf" target="_blank" rel="noopener">NHTSA</a>, <a class="inline" href="https://www.axios.com/2026/01/29/waymo-accident-santa-monica-nhtsa" target="_blank" rel="noopener">Axios</a>).</li>
-        <li><b>The catch:</b> both sides can use the same crash. Waymo says it reacted better than a person would have. The regulator wants to know why it was going 17 near a school at drop-off. The 14 mph figure is the company's model, not a measurement.</li>
-      </ul>
-      <p class="ev-src">Chapter 7, <a class="inline" href="chapter-07-transportation.html#s2-6">section 2.6</a> and <a class="inline" href="chapter-07-transportation.html#s3-q3">the case's Question 3</a>; Swiss Re and Waymo, December 2024; NHTSA PE26001</p>
-    </div>
-    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate set in 2031: a robotaxi company wants to operate in Bellingham, Washington. The question is whether robotaxis are a public health breakthrough (Side A, the city should say yes) or a job killer (Side B, the city should say no). I'm on Side [A / B]. My evidence: a Swiss Re study released with Waymo found 92 percent fewer bodily injury claims over 25.3 million Waymo miles; and in January 2026 NHTSA opened an investigation after a Waymo struck a child near a Santa Monica school, where Waymo says it braked from about 17 mph to under 6 and its model shows an attentive human would have hit at about 14. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
-  </div>
-
-  <div class="probe ev">
-    <div class="pwhy">Evidence 3 &middot; The paycheck</div>
-    <div class="ptext ev-body">
-      <p class="ev-point"><b>In one line:</b> in robotaxi cities, drivers are getting fewer trips an hour, and the pay picture is mixed.</p>
-      <div class="ev-stats"><div><b>5.3%</b><span>drop in trips per hour in robotaxi cities, vs. 2.6% nationwide</span></div><div><b>&minus;3.7%</b><span>change in drivers' hourly pay in Los Angeles over a year, while it rose 1.8% nationwide</span></div><div><b>+16%</b><span>San Francisco drivers' quarterly earnings, as the platforms cut their fees</span></div></div>
-      <ul class="ev-facts">
-        <li><b>The squeeze:</b> Gridwise, which tracks rideshare drivers' earnings, found trips per hour fell almost twice as fast in robotaxi cities as nationwide at the end of 2025, and hourly pay fell in Los Angeles, San Francisco, and Phoenix while it rose nationally (<a class="inline" href="https://gridwise.io/analytics/2026-av-impact-report" target="_blank" rel="noopener">Gridwise</a>).</li>
-        <li><b>The twist:</b> in San Francisco, riders paid the same, the platforms took a much smaller share of each fare, and drivers earned more per quarter. One way to read it: the platforms are giving up their own margin to keep drivers on the road while robotaxis compete. That can't last forever, and nobody knows how long it lasts.</li>
-        <li><b>The catch:</b> Gridwise says its comparison can't separate the robotaxis' effect from everything else going on in those markets. Displacement shows up first as fewer trips an hour, not pink slips, because drivers are contractors.</li>
-      </ul>
-      <p class="ev-src">Chapter 7, <a class="inline" href="chapter-07-transportation.html#s3-q2">the case's Question 2</a>; Gridwise Analytics, 2026 AV Impact Report</p>
-    </div>
-    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate set in 2031: a robotaxi company wants to operate in Bellingham, Washington. The question is whether robotaxis are a public health breakthrough (Side A, the city should say yes) or a job killer (Side B, the city should say no). I'm on Side [A / B]. My evidence is Gridwise Analytics' 2026 AV Impact Report: in robotaxi cities, rideshare trips per hour fell 5.3 percent at the end of 2025 versus 2.6 percent nationwide; hourly pay fell in Los Angeles, San Francisco, and Phoenix while it rose 1.8 percent nationally; but San Francisco drivers earned 16 percent more per quarter as platforms cut their fees. Gridwise says it can't separate the robotaxis' effect from other factors. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
-  </div>
-
-  <div class="probe ev">
-    <div class="pwhy">Evidence 4 &middot; Who drives, who rides</div>
-    <div class="ptext ev-body">
-      <p class="ev-point"><b>In one line:</b> the people who drive and the people who gain most from no driver are different people.</p>
-      <div class="ev-stats"><div><b>5%</b><span>of U.S. adults have ever earned money driving for a ride-hailing app</span></div><div><b>42%</b><span>of lower-income recent gig workers say it was their main job</span></div><div><b>alone</b><span>how a legally blind rider described her first robotaxi trip</span></div></div>
-      <ul class="ev-facts">
-        <li><b>The drivers:</b> in a 2021 Pew survey, 5 percent of American adults said they had driven for a ride-hailing app, and 2 percent in the past year. Lower-income adults were more likely to do gig work, and 42 percent of lower-income current or recent gig workers said it had been their main job (<a class="inline" href="https://www.pewresearch.org/internet/2021/12/08/the-state-of-gig-work-in-2021/" target="_blank" rel="noopener">Pew</a>).</li>
-        <li><b>The riders:</b> reporters keep finding riders who choose robotaxis because no stranger is driving, many of them women traveling alone or late, and riders with disabilities who can travel alone for the first time (<a class="inline" href="https://www.nbcnews.com/tech/innovation/are-taxis-safer-no-driver-women-think-rcna173936" target="_blank" rel="noopener">NBC News</a>; the case's Question 2).</li>
-        <li><b>The catch:</b> the Pew numbers are from 2021, and many drivers do it part time. The rider stories are interviews, not a survey. Neither side gets a clean number here.</li>
-      </ul>
-      <p class="ev-src">Chapter 7, <a class="inline" href="chapter-07-transportation.html#s3-q2">the case's Question 2</a>; Pew Research Center, 2021</p>
-    </div>
-    <p class="ev-ask">Want to research this with Claude for the debate? Here's a sample prompt:</p>
-    <div class="ev-prompt">I'm in a class debate set in 2031: a robotaxi company wants to operate in Bellingham, Washington. The question is whether robotaxis are a public health breakthrough (Side A, the city should say yes) or a job killer (Side B, the city should say no). I'm on Side [A / B]. My evidence: a 2021 Pew survey found 5 percent of U.S. adults had ever driven for a ride-hailing app and 2 percent in the past year, that lower-income adults were more likely to do gig work, and that 42 percent of lower-income current or recent gig workers said it was their main job. On the other side, news interviews find riders, many of them women and people with disabilities, who choose robotaxis because there is no driver. Help me with four things: the strongest point this gives my side, in one sentence; the specific facts behind it; the honest cost of my side's position; and what my side would rather the room didn't notice.</div>
   </div>
 
   <div class="callout">
-    <div class="label">Push your thinking with Claude</div>
-    <p>In section 5 you checked Claude's numbers. Here, turn it around: tell Claude to argue against you. It's one of the fastest ways out of your own bubble, because it will find the other side's best point before they do. If it cites a study you plan to use, look it up and check that it says what Claude says it says.</p>
+    <div class="label">Prep, 12 minutes</div>
     <ol>
-      <li>Send the sample prompt under your evidence card, with your side filled in.</li>
-      <li>Then make it argue against you:</li>
+      <li><strong>Get your point (1 min).</strong> Groups of 2 or 3. Count off 1 to 5 on your side. That’s your talking point.</li>
+      <li><strong>Check the evidence (3 min).</strong> Click the tag on your point to jump to its record, reread the entries behind it, and open at least one source.</li>
+      <li><strong>Pressure-test it with Claude (5 min).</strong> Fill in the brackets and send:</li>
     </ol>
-    <div class="probe">
-      <div class="pwhy">Argue against me</div>
-      <div class="ptext">Now argue against me as hard as you can. What's the best point the other side will make, and where is my case weakest? Don't go easy on me.</div>
-    </div>
-    <p>If it goes soft or starts agreeing with you, push back: <em>"You're being too nice. Argue the other side for real."</em> Then close Claude and write your notes in your own words. You can't read from Claude during the debate.</p>
+    <div class="probe"><div class="ptext" id="prompt-debate">I'm in a class debate on this question: should Seattle let driverless robotaxis take over its taxi and rideshare work? I'm on Side [A, yes, the safety numbers win / B, no, the drivers' jobs win]. My point is: [paste the claim]. My evidence is: [paste the evidence]. Then argue against me as hard as you can: what's the other side's best answer, and where is my point weakest? Don't go easy on me.</div></div>
+    <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#prompt-debate">Copy the prompt</button><span class="cpstat" aria-live="polite"></span></div>
+    <p>If Claude cites a study, check it against the records above. Then close it. You can’t read from Claude during the debate.</p>
+    <ol start="4">
+      <li><strong>Write your notes (3 min),</strong> in your own words: your point in one sentence, the evidence, the comeback you expect, and your answer to it.</li>
+    </ol>
+    <p class="noai-line"><strong>No AI?</strong> Skip step 3. Instead, read two entries in the other side’s record and write the strongest thing they’ll say to you.</p>
   </div>
 
-  <details class="srcnote noai">
-    <summary>Don't want to use AI? Do this instead</summary>
-    <div class="noai-body">
-      <p>Same prep, no chatbot, about 10 minutes. On your own, read <a class="inline" href="chapter-07-transportation.html#s3-q2">Chapter 7, the case's Question 2 (who benefits, and who doesn't)</a>. Then answer the four questions in Your notes for your side, using only your evidence card, your ledger, and those two sections. Find one sentence your side would rather the room didn't read, and write down how you'd answer it.</p>
+  <div class="callout">
+    <div class="label">Rounds, 25 minutes</div>
+    <ol>
+      <li><strong>Team up (3 min).</strong> Join the other groups on your side. Pick your best two points, an opener, and a rebutter.</li>
+      <li><strong>Openings (6 min).</strong> Side A, then Side B. About 45 seconds each: your claim, your evidence, and its source.</li>
+      <li><strong>Huddle (2 min).</strong> Rebutters pick one point the other side made.</li>
+      <li><strong>Rebuttals (6 min).</strong> Side B first. Answer one specific point, with evidence. No new points.</li>
+      <li><strong>Switch (4 min).</strong> What was the other side’s best point? Someone new says it in one sentence.</li>
+      <li><strong>What would change your mind? (4 min).</strong> Name the specific evidence you’d have to see. Whoever names real evidence that would move them wins, whichever side they were handed.</li>
+    </ol>
+    <p><strong>To resolve it:</strong> a city that says yes trades drivers’ paychecks for fewer crashes, and a city that says no trades fewer crashes for drivers’ paychecks. Neither trade is free. Name the one number that would make you say yes, the one that would make you say no, and who should keep the score.</p>
+  </div>
+
+  <details class="srcnote" id="debate-sources">
+    <summary>Every source in this debate, with links</summary>
+    <div class="srcbody">
+      <p class="srcintro">Government records, research organizations, and established news organizations. Company figures are labeled as the company’s.</p>
+      <ol class="reflist"><li>Axios. (2026, January 29). Waymo accident in Santa Monica draws NHTSA investigation. <a class="inline" href="https://www.axios.com/2026/01/29/waymo-accident-santa-monica-nhtsa" target="_blank" rel="noopener">Link</a></li><li>Gridwise Analytics. (2026). <em>2026 AV impact report.</em> <a class="inline" href="https://gridwise.io/analytics/2026-av-impact-report" target="_blank" rel="noopener">Link</a></li><li>KING 5. (2022). Uber, Lyft drivers in Washington win minimum pay, sick leave protections. <a class="inline" href="https://king5.com/article/news/politics/state-politics/uber-lyft-washington-minimum-pay-sick-leave-protections/281-ecdb659b-4a54-4487-975a-95769bdf5c0d" target="_blank" rel="noopener">Link</a></li><li>KING 5. (2025, October). ‘Hell no, Waymo’: Seattle rideshare drivers, union advocates rally against driverless taxi service. <a class="inline" href="https://www.king5.com/article/news/local/waymo-seattle-rideshare-drivers-union-rally/281-21d776a6-f139-422f-a714-d566d849b7e2" target="_blank" rel="noopener">Link</a></li><li>KIRO 7, via Yahoo News. (2026, March). Driverless car app Waymo moves forward in Seattle as ride-share drivers protest. <a class="inline" href="https://www.yahoo.com/news/articles/driverless-car-app-waymo-moves-015335962.html" target="_blank" rel="noopener">Link</a></li><li>KQED. (2023, October 24). California DMV pumps the brakes on Cruise driverless taxis in San Francisco. <a class="inline" href="https://www.kqed.org/news/11965443/california-dmv-pumps-the-brakes-on-cruise-driverless-taxis-in-san-francisco" target="_blank" rel="noopener">Link</a></li><li>KUOW. (2026, August 28). Seattle leaders launch new Vision Zero push as traffic deaths continue to rise. <a class="inline" href="https://www.kuow.org/governing/2026-08-28/seattle-leaders-launch-new-vision-zero-push-as-traffic-deaths-continue-to-rise" target="_blank" rel="noopener">Link</a></li><li>LAist. (2026). Waymos in L.A., but how many people are taking them? (USC LABarometer survey). <a class="inline" href="https://laist.com/news/transportation/waymos-in-la-but-how-many-people-are-taking-them" target="_blank" rel="noopener">Link</a></li><li><em>Mission Local.</em> (2023, October 24). Cruise robotaxis grounded in SF by DMV, effective immediately. <a class="inline" href="https://missionlocal.org/2023/10/cruise-robotaxis-grounded-in-sf-by-dmv-effective-immediately/" target="_blank" rel="noopener">Link</a></li><li>NBC News. Are taxis safer with no driver? These women think so. <a class="inline" href="https://www.nbcnews.com/tech/innovation/are-taxis-safer-no-driver-women-think-rcna173936" target="_blank" rel="noopener">Link</a></li><li>NHTSA. (2025). <em>Alcohol-impaired driving: 2023 data</em> (DOT HS 813 713). <a class="inline" href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813713" target="_blank" rel="noopener">Link</a></li><li>NHTSA. (2026). <em>Early estimate of motor vehicle traffic fatalities in 2025</em> (DOT HS 813 800). <a class="inline" href="https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813800" target="_blank" rel="noopener">Link</a></li><li>NHTSA Office of Defects Investigation. (2026). PE26001. <a class="inline" href="https://static.nhtsa.gov/odi/inv/2026/INOA-PE26001-10005.pdf" target="_blank" rel="noopener">Link</a></li><li>NPR. (2025, December 12). Why one trauma doctor sees self-driving cars as a public health breakthrough. <a class="inline" href="https://www.npr.org/2025/12/12/nx-s1-5634879/why-one-trauma-doctor-sees-self-driving-cars-as-a-public-health-breakthrough" target="_blank" rel="noopener">Link</a></li><li>O’Brien, S. A. (2022, July 1). Uber releases safety data. <em>CNN Business</em>, via ABC7. <a class="inline" href="https://abc7chicago.com/uber-safety-report-sexual-assault-rape-statistics-ride/12009375/" target="_blank" rel="noopener">Link</a></li><li>Pew Research Center. (2021, December 8). <em>The state of gig work in 2021.</em> <a class="inline" href="https://www.pewresearch.org/internet/2021/12/08/the-state-of-gig-work-in-2021/" target="_blank" rel="noopener">Link</a></li><li>U.S. Bureau of Labor Statistics. <em>Occupational outlook handbook: Taxi drivers, shuttle drivers, and chauffeurs.</em> <a class="inline" href="https://www.bls.gov/ooh/transportation-and-material-moving/taxi-drivers-and-chauffeurs.htm" target="_blank" rel="noopener">Link</a></li><li>Uber 2019–2020 safety report, as reported by <em>Business Standard</em> (IANS), July 2, 2022. <a class="inline" href="https://www.business-standard.com/article/international/uber-recorded-998-sexual-assault-incidents-in-us-in-2020-says-report-122070200198_1.html" target="_blank" rel="noopener">Link</a></li><li>Washington House Democrats. (2022). HB 2076 press release. <a class="inline" href="https://housedemocrats.wa.gov/?p=46560" target="_blank" rel="noopener">Link</a></li><li>Washington State Legislature. HB 1984 (2025–26) and SB 6243 (2026). <a class="inline" href="https://app.leg.wa.gov/billsummary/?BillNumber=1984&amp;Year=2025&amp;Initiative=false" target="_blank" rel="noopener">HB 1984</a> <a class="inline" href="https://app.leg.wa.gov/billsummary?BillNumber=6243&amp;Year=2026&amp;Initiative=false" target="_blank" rel="noopener">SB 6243</a></li><li><em>Washington Times.</em> (2026, July 13). D.C. Council weighs future of automated ridesharing vehicles that draw the ire of unions. <a class="inline" href="https://www.washingtontimes.com/news/2026/jul/13/dc-council-weighs-future-automated-ridesharing-vehicles-draw-ire/" target="_blank" rel="noopener">Link</a></li><li>Waymo. (2024, December). New Swiss Re study. <a class="inline" href="https://waymo.com/blog/2024/12/new-swiss-re-study-waymo/" target="_blank" rel="noopener">Link</a></li><li>Waymo. (2026, September 24). From the road: safety data through June 2026. <a class="inline" href="https://waymo.com/blog/shorts/safetydata-september26/" target="_blank" rel="noopener">Link</a></li></ol>
     </div>
   </details>
-
-  <div class="callout">
-    <div class="label">Your notes</div>
-    <ol>
-      <li>Your strongest point, in one sentence.</li>
-      <li>The specific evidence behind it.</li>
-      <li>The honest cost of your position.</li>
-      <li>What your side would rather you didn't notice.</li>
-    </ol>
-  </div>
-
-  <div class="callout">
-    <div class="label">How the debate runs</div>
-    <p><strong>Prep, 15 minutes.</strong></p>
-    <ol>
-      <li><strong>Get your side (2 min).</strong> Left half Side A, right half Side B. Groups of 2 or 3, count off 1 to 4.</li>
-      <li><strong>Research with Claude (10 min).</strong> Your card, the two prompts, then your notes in your own words.</li>
-      <li><strong>Team up (3 min).</strong> Join one or two other groups on your side, so your team is 6 or 7 people: three teams per side. Pick your single best point, an opener, and a rebutter.</li>
-    </ol>
-    <p><strong>Rounds, 22 minutes.</strong></p>
-    <ol>
-      <li><strong>Openings (6 min).</strong> A1, A2, A3, then B1, B2, B3. About 45 seconds each: your claim in one sentence, your evidence, and the cost of your plan.</li>
-      <li><strong>Huddle (2 min).</strong> Rebutters pick one point the other side made.</li>
-      <li><strong>Rebuttals (6 min).</strong> Side B first this time. Answer one specific point, with evidence. No new arguments.</li>
-      <li><strong>Switch (4 min).</strong> Thirty seconds with your team: what was the other side's best point? Then someone new argues it in one sentence.</li>
-      <li><strong>What would change your mind? (4 min).</strong> Out loud. Name the specific thing you would have to see. Whoever names real evidence that would move them wins, whichever side they were handed.</li>
-    </ol>
-    <p><strong>To resolve it:</strong> a city that says yes is trading drivers' income for fewer crashes, and a city that says no is trading fewer crashes for drivers' income. Neither trade is free. Back in your analyst's seat: which condition in your pitch survives this debate, and what did the debate show you'd have to add?</p>
-  </div>
 </section>
 
 <section id="writeup">
@@ -1003,7 +1042,7 @@ table.peek tbody th{font-weight:500;white-space:normal;}
     <li><strong>How it sees.</strong> In your own words, explain what a neural network is and what it learns from, using your Mini-Perception run. Which of the three rare scenes did it get wrong, how confident was it, and why didn't it know to be unsure? Then explain what a convolutional filter does, and what the fog did to the verdict, without using the word "convolution."</li>
     <li><strong>How it decides and practices.</strong> Give the four numbers in the score sheet you'd take to the safety board, the habit it learned, and its results. Which bar was hardest to pass, and what trade-off did you accept to pass it? Then: one scene you built in Mini-World, why real driving can't collect it, and what the world model can't do.</li>
     <li><strong>Your pitch math.</strong> Attach the page you built with Claude, as an HTML file or PDF. Did its numbers match the reference the first time? Where did you set the trust slider, and why would the council believe that much and no more? Name two things the ledger can't see, and say whether Claude found them or you did. (No-AI path: your spreadsheet's five numbers, your trust setting, and your two things.)</li>
-    <li><strong>The debate.</strong> Which side were you handed, and what was the other side's best point? Then the status quo: today, people drive every ride and people cause almost every crash. Is Bellingham better off in 2031 with robotaxis or without them, and who pays for your answer? Name the specific evidence that would change your mind. Did Claude's pushback find the weak spot in your case before the other side did?</li>
+    <li><strong>The debate.</strong> Which side were you handed, and what was the other side's best point? Then the status quo: today, a person drives every ride in Seattle, and people cause almost every crash. Should Seattle let robotaxis take over its taxi and rideshare work, and who pays for your answer? Use at least one source from the debate. Name the specific evidence that would change your mind. Did Claude's pushback find the weak spot in your case before the other side did?</li>
     <li><strong>Your commitment card.</strong> Your plan from section 6, and the one condition you'd offer first, or your reason for walking away. Say what it costs the company, what it answers for the drivers or the riders, and what evidence would make you change it. Then the switch: if you sat on the council instead, would you accept your own pitch? Three or four sentences.</li>
   </ol>
   <div class="callout">
@@ -1016,24 +1055,22 @@ table.peek tbody th{font-weight:500;white-space:normal;}
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p class="srcintro">Rebuilt 24 Oct 2026. The concepts are carried from Chapter 7 (verified 17 Sep 2026, updated 18 Sep). The safety figures, the Santa Monica investigation, the world model, and the labor evidence were checked separately for this lab on 24 Oct 2026, below. Waymo's figures move quarterly and the NHTSA investigation is open; re-check both the week before this lab runs.</p>
+    <p class="srcintro">Rebuilt 24 Oct 2026; debate rebuilt 29 Oct 2026 around Seattle. The concepts are carried from Chapter 7 (verified 17 Sep 2026, updated 18 Sep). The safety figures, the Santa Monica investigation, the world model, and the labor evidence were checked separately for this lab on 24 Oct 2026, below. Waymo's figures move quarterly and the NHTSA investigation is open; re-check both the week before this lab runs. Washington's legislature next meets in January 2027; if it acts on driverless rides, update the case box in section 8.</p>
     <dl>
       <dt>The four toys (sections 1 to 4)</dt>
       <dd>Self-contained, no network calls, nothing persists. Mini-Perception is a real two-hidden-layer network (6, 4, 3, 4) trained by backpropagation on the student's labels from a fixed starting seed; the scenes and their six clue scores are invented, and the three rare test scenes were built so that a network trained on the ten ordinary ones misreads them. Mini-Camera runs two standard 3 by 3 edge filters over an invented 20 by 24 frame; its shape layer and verdict are simplified for display. Mini-Planner is trial-and-error learning over nine gap thresholds with invented gap, misjudgment, and crash odds; with the chapter's score sheet it settles on a habit that passes the board, the other two presets fail it in different ways, and two runs can differ. Mini-World's rarity multipliers are invented and labeled as order of magnitude only.</dd>
       <dt>Waymo's safety figures (sections 4, 5, and 8)</dt>
       <dd>Waymo, "From the road," September 24, 2026 (linked): 271.3 million rider-only miles through June 2026 in five metro areas (Atlanta, Austin, Los Angeles, Phoenix, San Francisco); 82 percent fewer injury-causing crashes (841 fewer) and 95 percent fewer serious-injury-or-worse crashes (55 fewer); its Safety Impact page lists 93 percent fewer pedestrian injury crashes. These are the company's analysis of crashes it reports to NHTSA, treated in the text as a company claim. The ledger's per-million-mile rates are 841 and 55 divided by 271.3. Chapter 7 now uses the same June 2026 figures.</dd>
       <dt>Swiss Re (section 8)</dt>
-      <dd>Waymo's December 2024 post on its study with Swiss Re (linked): 25.3 million miles, 88 percent fewer property damage and 92 percent fewer bodily injury claims than Swiss Re's human-driver baseline. Released jointly, which the evidence card says.</dd>
+      <dd>Waymo's December 2024 post on its study with Swiss Re (linked): 25.3 million miles, 88 percent fewer property damage and 92 percent fewer bodily injury claims than Swiss Re's human-driver baseline. Released jointly, which the debate record says.</dd>
       <dt>The Santa Monica investigation (sections 1 and 8)</dt>
       <dd>NHTSA Office of Defects Investigation, PE26001, opened January 28, 2026 (linked), for the facts of the January 23 incident and the scope of the probe. The 17-to-under-6 mph braking and the 14 mph human estimate are Waymo's statements, as reported by Axios, January 29, 2026 (linked). The October 2025 school-bus probe is as reported in the same coverage and in Chapter 7, the case's Question 3.</dd>
       <dt>The world model (section 4)</dt>
       <dd>Waymo's February 2026 announcement of the Waymo World Model (linked): built on Google DeepMind's Genie 3, generates camera and lidar output, controllable by driving actions, scene layout, and language, with an elephant among its examples. Coverage noted that the announcement included no independent evaluation.</dd>
       <dt>Road deaths (section 8)</dt>
-      <dd>NHTSA, "Early Estimate of Motor Vehicle Traffic Fatalities and Fatality Rate in 2025," Report 813800 (linked): 36,640. Chapter 7 uses the same figure.</dd>
-      <dt>Drivers and riders (section 8)</dt>
-      <dd>Gridwise Analytics, 2026 AV Impact Report (linked), for trips per hour (5.3 percent vs. 2.6 percent, Q4 2025), hourly gross pay (Los Angeles −3.7, San Francisco −1.7, Phoenix −0.4, nationwide +1.8, year over year in Q4), and San Francisco's fee and quarterly-earnings change; Gridwise states its comparison can't separate the effect of robotaxis from other market factors. Pew Research Center, "The State of Gig Work in 2021" (linked), for the 5 percent, 2 percent, and 42 percent figures. Riders: NBC News (linked) and Chapter 7, the case's Question 2.</dd>
-      <dt>Washington State and Waymo's scale (section 8)</dt>
-      <dd>KNKX, October 27, 2025 (linked), for Waymo's testing in Seattle and Bellevue and SDOT's statement that state law must change before paid rides; the Washington House Transportation Committee's March 2, 2026 work session documents (linked). TechCrunch, March 27, 2026 (linked), for about 500,000 paid rides a week across 10 cities (14 by September 2026, per Waymo). The 2031 Bellingham application is invented for the debate.</dd>
+      <dd>NHTSA, "Early Estimate of Motor Vehicle Traffic Fatalities and Fatality Rate in 2025," Report 813800 (linked): 36,640. Chapter 7 uses the same figure. NHTSA, "Alcohol-Impaired Driving: 2023 Data," Report 813713 (linked): 12,429 deaths, 30 percent. Seattle's 2025 figures (30 killed, 221 seriously injured) are city data as reported by KUOW, August 28, 2026 (linked); an earlier revision reported 27, so cite the KUOW figure as reported.</dd>
+      <dt>The debate (section 8)</dt>
+      <dd>Every source is listed with a full citation in "Every source in this debate," at the end of section 8. Notes: Washington's legal status rests on the Legislature's bill pages for HB 1984 and SB 6243, neither of which passed in the 2026 session. The 30,000 drivers figure is the Washington Drivers Union president's estimate as reported by KIRO 7, labeled as such. Uber's sexual assault figures are from its 2019 to 2020 U.S. Safety Report as reported by CNN and Business Standard (3,824 reports in the five most serious categories; riders accused in 43 percent). The USC LABarometer figures (9, 12, and 27 percent; the gender gap on harassment) are as reported by LAist. The BLS figures are the 2024 to 2034 projections. The D.C. bill is as reported by the Washington Times, July 13, 2026; it had not passed as of this check. The Cruise incident and DMV statement are as reported by KQED and Mission Local; Cruise disputed the DMV's account.</dd>
       <dt>The pitch conditions (section 6)</dt>
       <dd>Drawn from Chapter 7 (sections 2.8 and 3) and the previous version of this lab's permit conditions. The costs are qualitative and not computed.</dd>
       <dt>The ledger's assumptions (section 5)</dt>
