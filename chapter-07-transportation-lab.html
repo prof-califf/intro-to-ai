@@ -104,8 +104,10 @@ ol.writeup li:last-child{margin-bottom:0;}
 .foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
 
 /* ---- lab widgets ---- */
-.tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
-.tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
+.tool{border:2px solid var(--ink);border-radius:10px;background:#F5F5F0;padding:0 24px 22px;margin:26px 0;overflow:hidden;}
+.tool > .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--yellow);background:var(--dark);margin:0 -24px 18px;padding:12px 24px;}
+.tool .howto-in,.tool .pairbox{background:#fff;}
+@media(max-width:560px){.tool{padding:0 14px 18px;}.tool > .label{margin:0 -14px 16px;padding:12px 14px;}}
 .tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
 .tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
 .chip{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:6px 14px;border:1px solid var(--rule);background:#fff;color:var(--gray);cursor:pointer;border-radius:999px;}
@@ -399,7 +401,10 @@ table.peek tbody th{font-weight:500;white-space:normal;}
 .kern td{border:1px solid var(--rule);width:34px;height:30px;text-align:center;background:#fff;}
 .kern td.neg{color:var(--pinktext);font-weight:700;}
 .kern td.pos{color:var(--ink);font-weight:700;}
-.kcap{font-size:.75rem;color:var(--gray);text-align:center;margin-top:4px;max-width:120px;}
+.kcap{font-size:.8rem;color:var(--ink);text-align:left;margin-top:8px;max-width:210px;line-height:1.45;}
+.kern th{font-size:.68rem;font-weight:600;color:var(--gray);padding:2px 4px;border:none;background:none;}
+.kneg{color:var(--pinktext);font-weight:700;}
+.kpos{font-weight:700;}
 @media(max-width:640px){.convwrap{grid-template-columns:1fr;}.kcap{max-width:none;}}
 .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0;}
 .stage{border:1px solid var(--rule);background:#fff;padding:10px;text-align:center;}
@@ -436,6 +441,215 @@ table.peek tbody th{font-weight:500;white-space:normal;}
 .minitab td.num{font-variant-numeric:tabular-nums;text-align:right;}
 .wrapx{overflow-x:auto;}
 @media(prefers-reduced-motion:reduce){.ptrack span{transition:none;}}
+
+/* ---- v3 additions ---- */
+.scenario{border-top-color:var(--ink);background:#FFFEF0;}
+.scen-path{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:4px 0 14px;}
+.scen-path div{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--pink);padding:10px 12px;font-size:.88rem;line-height:1.45;}
+.scen-path b{display:block;font-family:'Fraunces',serif;font-size:1rem;margin-bottom:2px;}
+@media(max-width:640px){.scen-path{grid-template-columns:1fr;}}
+.te.two{font-size:1.25rem;letter-spacing:-2px;}
+.scenecard .emo.two{font-size:2.4rem;letter-spacing:-4px;}
+.edgeexp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 16px;}
+.edgeexp div{background:#fff;border:1px solid var(--rule);padding:12px 14px;font-size:.9rem;line-height:1.5;}
+.edgeexp b{display:block;margin-bottom:2px;}
+@media(max-width:640px){.edgeexp{grid-template-columns:1fr;}}
+.bigbtn{font-family:'Inter',sans-serif;font-weight:700;font-size:1.05rem;padding:14px 26px;background:var(--pinktext);color:#fff;border:2px solid var(--ink);border-radius:10px;cursor:pointer;box-shadow:0 4px 0 var(--ink);}
+.bigbtn:hover{background:var(--pink);}
+.bigbtn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink);}
+.bigbtn:disabled{background:#9AA1AB;cursor:wait;}
+.bigbtn:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;}
+.slidebar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#fff;border:1px solid var(--rule);border-radius:8px;padding:12px 14px;margin:0 0 14px;}
+.mathbox{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;font-size:.85rem;background:#fff;border:1px solid var(--rule);border-radius:8px;padding:10px 12px;margin:10px 0 0;min-height:58px;}
+.mathbox table{border-collapse:collapse;font-variant-numeric:tabular-nums;}
+.mathbox td{border:1px solid var(--rule);width:34px;height:22px;text-align:center;font-size:.78rem;}
+.mathbox .op{font-weight:700;color:var(--gray);}
+.mathbox .tot{font-family:'Fraunces',serif;font-weight:700;font-size:1.2rem;}
+.mathbox .fires{font-weight:700;color:var(--pinktext);}
+.mathbox .quiet{color:var(--gray);}
+/* planner cartoon */
+.sliderguide{display:grid;gap:6px;background:#fff;border:1px solid var(--rule);border-left:3px solid var(--pink);border-radius:6px;padding:10px 14px;margin:6px 0 10px;font-size:.88rem;line-height:1.45;}
+.roadbar #rl-watch{font-size:.95rem;padding:10px 18px;}
+.roadbar #rl-watch:not(:disabled){animation:nudge 1.6s ease-in-out 2;}
+@keyframes nudge{0%,100%{transform:none;}50%{transform:translateY(-3px);}}
+@media(prefers-reduced-motion:reduce){.roadbar #rl-watch{animation:none!important;}}
+.road{border:1px solid var(--rule);background:#fff;border-radius:8px;overflow:hidden;margin:14px 0;}
+.road svg{display:block;width:100%;height:auto;}
+.road svg text{font-family:'Inter',sans-serif;}
+.roadbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid var(--rule);font-size:.9rem;}
+.roadbar .rb-out{font-weight:600;}
+.verdictbanner{font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;padding:12px 14px;border-bottom:1px solid var(--rule);}
+.verdictbanner.pass{background:var(--ink);color:var(--yellow);}
+.verdictbanner.fail{background:#FBF3F6;color:var(--pinktext);}
+.verdictbanner.wait{background:#F3F3EE;color:var(--gray);font-size:1rem;font-family:'Inter',sans-serif;font-weight:600;}
+/* world at scale */
+.scalebox{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:14px 16px;margin:18px 0 8px;}
+.scalebox h4{font-family:'Fraunces',serif;font-size:1.1rem;margin:0 0 4px;}
+.night{background:#0E1116;border-radius:8px;padding:16px;margin:10px 0;color:#E7EAEF;}
+.nightsky{display:flex;justify-content:space-between;align-items:center;font-size:1.6rem;margin-bottom:10px;}
+.nightsky .stars{font-size:1rem;color:#E4FF32;letter-spacing:4px;}
+.nightbar{height:10px;background:#242C36;border-radius:999px;overflow:hidden;}
+.nightbar span{display:block;height:100%;width:0;background:#FF3D8A;}
+.nightcount{margin:8px 0 0;font-variant-numeric:tabular-nums;font-size:.9rem;}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin:12px 0;}
+.wday{background:#fff;border:2px solid var(--rule);border-radius:8px;padding:8px 6px;text-align:center;font-size:.76rem;line-height:1.35;opacity:0;transform:translateY(6px);transition:opacity .3s ease,transform .3s ease;}
+.wday.show{opacity:1;transform:none;}
+.wday .wd{font-weight:700;font-size:.8rem;}
+.wday .we{font-size:1.6rem;line-height:1.3;}
+.wday .wr{font-weight:700;margin-top:2px;}
+.wday.go{border-color:var(--ink);}
+.wday.park{border-color:var(--pinktext);background:#FFF8FB;}
+.wday.park .wr{color:var(--pinktext);}
+.wday.surp{border-color:#C9B37E;background:#FFFCF2;}
+@media(max-width:640px){.week{grid-template-columns:repeat(4,1fr);}}
+@media(prefers-reduced-motion:reduce){.wday{transition:none;}}
+.wmath{font-size:.85rem;line-height:1.55;background:#fff;border:1px dashed #6B7380;border-radius:6px;padding:10px 12px;margin:8px 0 4px;}
+.wmath:empty{display:none;}
+.budgethead{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.88rem;margin:10px 0 6px;}
+.budgethead b{font-family:'Fraunces',serif;font-size:1.15rem;}
+.bkey{color:var(--gray);font-size:.78rem;display:flex;align-items:center;gap:6px;}
+.bkey i{display:inline-block;width:12px;height:10px;border-radius:2px;background:var(--c);}
+.bkey i.tick{width:2px;height:12px;background:var(--ink);margin-left:6px;}
+.brow2{display:grid;grid-template-columns:150px 1fr 118px;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid var(--rule);font-size:.9rem;}
+.brow2 .bn small{display:block;color:var(--gray);font-size:.76rem;}
+.btrack{position:relative;height:16px;background:#F3F3EE;border-radius:999px;overflow:hidden;display:flex;}
+.btrack .real{background:#9AA1AB;height:100%;}
+.btrack .sim{background:#FF3D8A;height:100%;transition:width .2s ease;}
+.btrack .line{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--ink);left:60%;}
+.bstep{display:flex;align-items:center;gap:6px;justify-content:flex-end;}
+.bstep button{width:32px;height:32px;border:2px solid var(--ink);border-radius:8px;background:#fff;font-weight:700;font-size:1.05rem;cursor:pointer;}
+.bstep button:hover{background:var(--yellow);}
+.bstep button:disabled{opacity:.3;cursor:not-allowed;background:#fff;}
+.bstep b{min-width:22px;text-align:center;font-variant-numeric:tabular-nums;}
+.brow2.ready .bn::after{content:' \2713 ready';color:var(--ink);font-weight:700;font-size:.8rem;}
+@media(max-width:560px){.brow2{grid-template-columns:1fr 112px;}.btrack{grid-column:1 / -1;grid-row:2;}}
+.cgrid{display:grid;grid-template-columns:repeat(25,1fr);gap:2px;margin:12px 0 8px;}
+.cgrid button{aspect-ratio:1;border:none;padding:0;cursor:pointer;border-radius:2px;min-width:0;}
+.cgrid button:focus-visible{outline:2px solid var(--pink);outline-offset:1px;}
+.cgrid button.dim{opacity:.18;}
+.ckey{display:flex;gap:14px;flex-wrap:wrap;font-size:.78rem;color:var(--gray);}
+.ckey span::before{content:'';display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px;background:var(--c);}
+@media(max-width:560px){.cgrid{grid-template-columns:repeat(15,1fr);}}
+/* data explorer */
+.dx{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:14px 16px;margin:14px 0;}
+.dxrow{display:grid;grid-template-columns:150px 1fr 100px;gap:10px;align-items:center;margin:8px 0;font-size:.88rem;}
+.dxbars{display:grid;gap:3px;}
+.dxbar{height:12px;border-radius:999px;display:block;transition:width .3s ease;}
+.dxbar.h{background:#C9CED6;}
+.dxbar.w{background:var(--pinktext);}
+.dxv{text-align:right;font-variant-numeric:tabular-nums;font-size:.8rem;line-height:1.35;}
+.dxkey{display:flex;gap:16px;font-size:.78rem;color:var(--gray);margin:2px 0 6px;}
+.dxkey span::before{content:'';display:inline-block;width:18px;height:8px;border-radius:999px;margin-right:6px;vertical-align:0;background:var(--c);}
+@media(max-width:560px){.dxrow{grid-template-columns:1fr;gap:3px;}.dxv{text-align:left;}}
+.qcard{border:1px solid var(--rule);background:var(--bg);padding:12px 14px;margin:10px 0;}
+.qcard p{margin:0 0 6px;}
+.qcard details summary{cursor:pointer;color:var(--pinktext);font-weight:600;font-size:.88rem;}
+.qcard details p{font-size:.9rem;margin:6px 0 0;}
+/* hearing */
+.council{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:12px 0;}
+.member{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;}
+.member .mh{display:flex;align-items:center;gap:10px;}
+.member .mav{font-size:1.7rem;line-height:1;}
+.member .mn{font-weight:700;font-size:.95rem;line-height:1.25;}
+.member .mr{font-size:.78rem;color:var(--gray);}
+.member .mq{font-family:'Fraunces',serif;font-size:.95rem;line-height:1.4;margin:4px 0 0;}
+.member .mv{margin-top:auto;padding-top:8px;font-size:.84rem;line-height:1.45;}
+.member.yes{border:2px solid var(--ink);}
+.member.no{border:2px solid var(--pinktext);background:#FFF8FB;}
+.votepill{display:inline-block;font-size:.74rem;font-weight:700;padding:2px 9px;border-radius:999px;margin-right:4px;}
+.votepill.yes{background:var(--ink);color:#fff;}
+.votepill.no{background:#fff;color:var(--pinktext);border:2px solid var(--pinktext);}
+.offer{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:start;background:#fff;border:1px solid var(--rule);border-radius:8px;padding:10px 12px;}
+.offer.on{border:2px solid var(--ink);background:#FFFEF0;}
+.offer input{width:20px;height:20px;margin-top:2px;accent-color:var(--pinktext);}
+.offer .ot{font-weight:600;font-size:.92rem;line-height:1.4;}
+.offer .od{font-size:.82rem;color:var(--gray);line-height:1.45;margin-top:2px;}
+.offer .oc{font-variant-numeric:tabular-nums;font-weight:700;font-size:.88rem;white-space:nowrap;color:var(--pinktext);}
+.offers{display:grid;gap:8px;margin:10px 0 14px;}
+.profit{position:sticky;bottom:0;background:var(--dark);color:#E7EAEF;border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:12px 0;z-index:2;}
+.profit .pv2{font-family:'Fraunces',serif;font-weight:700;font-size:1.5rem;font-variant-numeric:tabular-nums;color:var(--yellow);}
+.profit .pv2.bad{color:var(--pink);}
+.profit .pk{font-size:.82rem;color:#C9CED6;}
+.tally{font-family:'Fraunces',serif;font-weight:700;font-size:1.6rem;}
+@media(prefers-reduced-motion:reduce){.dxbar{transition:none;}}
+
+
+
+.goalboard{border:2px solid var(--ink);border-radius:8px;overflow:hidden;margin:0 0 18px;}
+.goalboard .brow{grid-template-columns:1.6fr .8fr 100px;}
+.bhint{display:block;font-size:.78rem;color:var(--gray);line-height:1.4;margin-top:2px;}
+.steplbl{font-size:.92rem;color:var(--ink);margin:18px 0 8px;font-weight:700;}
+.resultline{font-size:.95rem;line-height:1.5;padding:10px 14px;border-radius:6px;margin:8px 0;}
+.resultline.pass{background:var(--ink);color:var(--yellow);}
+.resultline.fail{background:#FBF3F6;color:var(--pinktext);border:1px solid var(--pinktext);}
+.sliderguide b{color:var(--ink);}
+
+.rlgrid{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:20px;align-items:start;}
+.rlside{position:static;}
+.rlside .goalboard{margin:0;}
+.rlgrid .steplbl{grid-column:1 / -1;}
+.goalline{font-size:.95rem;background:#fff;border:2px solid var(--ink);border-radius:8px;padding:10px 14px;margin:0 0 14px;}
+.goalhead{background:var(--dark);color:var(--yellow);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:8px 12px;}
+.rlside .verdictbanner{font-size:1rem;padding:10px 12px;}
+.rlside .verdictbanner.wait{font-size:.88rem;}
+.rlside .brow{grid-template-columns:1fr auto;gap:4px 10px;padding:10px 12px;font-size:.86rem;}
+.rlside .brow .bv{grid-column:1;font-size:1.05rem;}
+.rlside .brow .pill{grid-column:2;grid-row:1 / span 2;align-self:center;}
+.rlside .brow:last-child .bv{font-size:.92rem;line-height:1.35;}
+.rlside .bhint{display:none;}
+.rlside .brow.failrow .bhint{display:block;color:var(--pinktext);}
+.rlside .brow{padding:8px 12px;}
+.rlside .brow:last-child{font-size:.8rem;}
+.rlside .brow:last-child .bv{font-size:.85rem;}
+.rlgrid{margin-top:4px;}
+@media(max-width:820px){.rlgrid{grid-template-columns:1fr;}.rlside{position:static;order:-1;}.rlside .goalboard{margin:0 0 6px;}}
+/* ---- responsible AI thread ---- */
+.rai{background:#fff;border:2px solid var(--ink);border-radius:8px;padding:16px 20px;margin:24px 0;}
+.rai .rq{display:inline-block;background:var(--yellow);color:var(--ink);font-weight:700;font-size:.76rem;padding:3px 10px;border-radius:999px;margin-bottom:8px;}
+.rai .rq a.inline{color:var(--ink);}
+.rai h4{font-family:'Fraunces',serif;font-size:1.2rem;margin:0 0 8px;}
+.rai p{font-size:.95rem;}
+.rai .rask{background:var(--bg);border-left:3px solid var(--pink);padding:8px 12px;margin:0;}
+.raimap{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:8px 0 12px;}
+.raimap div{background:#fff;border:2px solid var(--ink);border-radius:8px;padding:10px 12px;font-size:.86rem;line-height:1.45;}
+.raimap b{display:block;font-family:'Fraunces',serif;font-size:1rem;margin-bottom:4px;}
+.raimap span{color:var(--gray);}
+@media(max-width:760px){.raimap{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.raimap{grid-template-columns:1fr;}}
+.otag{display:inline-block;font-size:.72rem;font-weight:700;padding:1px 8px;border-radius:999px;background:var(--yellow);color:var(--ink);margin-top:4px;}
+.otag.ben{background:#F3F3EE;color:var(--gray);}
+.rscore{margin:12px 0 0;display:grid;gap:6px;}
+.rscore div{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:.9rem;line-height:1.45;}
+.rscore .ok{color:var(--yellow);font-weight:700;}
+.rscore .no{color:var(--pink);font-weight:700;}
+
+/* ---- Mini-Perception workbench ---- */
+.bench{background:#fff;border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin:0 0 16px;}
+.bench .scenecard{border:none;background:transparent;margin:0;padding:18px 20px 10px;}
+.bench .guess{margin:0 20px 4px;}
+.askq{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;margin:10px 20px 10px;}
+.labpad{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:0 20px 18px;}
+.labbtn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:12px 8px 10px;border:2px solid var(--ink);border-radius:10px;background:#fff;color:var(--ink);font-family:'Inter',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;box-shadow:0 4px 0 var(--ink);transition:transform .08s ease,box-shadow .08s ease,background .15s ease;}
+.labbtn .li{font-size:1.7rem;line-height:1.1;}
+.labbtn small{font-weight:500;font-size:.74rem;color:var(--gray);line-height:1.3;}
+.labbtn:hover{background:var(--yellow);}
+.labbtn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink);}
+.labbtn:focus-visible{outline:3px solid var(--pink);outline-offset:3px;}
+.labbtn.on{background:var(--dark);color:var(--yellow);}
+.labbtn.on small{color:#C9CED6;}
+.labbtn:disabled{opacity:.38;cursor:not-allowed;background:#fff;transform:none;box-shadow:0 4px 0 var(--ink);}
+@media(max-width:560px){.labpad{grid-template-columns:1fr 1fr;}}
+.bench .status{padding:0 20px 16px;margin:0;}
+.bench .netbox{border:none;border-top:1px solid var(--rule);margin:0;padding:16px 20px 12px;background:#FCFCFA;}
+.trainline{font-size:.85rem;color:var(--gray);min-height:1.5em;margin:4px 0 2px;font-variant-numeric:tabular-nums;}
+.trainline b{color:var(--ink);}
+.deltaline{font-size:.86rem;line-height:1.55;background:#fff;border:1px solid var(--rule);border-left:3px solid var(--yellow);padding:8px 12px;margin:8px 0 4px;}
+.deltaline:empty{display:none;}
+.deltaline .wv{font-variant-numeric:tabular-nums;font-weight:700;}
+.netbox svg line.edge{cursor:help;}
+.netbox svg text.wlab{font-size:10.5px;font-weight:700;font-variant-numeric:tabular-nums;}
+@media(prefers-reduced-motion:reduce){.labbtn{transition:none;}}
+
 
 
 /* Debate records and talking points, shared with Lab 6 */
@@ -533,8 +747,8 @@ p.runnote{font-size:.9rem;color:var(--gray);}
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 7 · Week 7, Wednesday, in class</div>
     <h1>The Bellingham <b>Pitch</b></h1>
-    <p class="kicker">You're a strategy analyst at a robotaxi company, and your boss wants to launch in Bellingham. Before you can pitch the city council, you have to understand what you're selling and what it costs the town. So today you open the car up. You train a tiny neural network to see the road, watch a filter scan a camera frame, write the reward function that teaches the car when to turn, and prompt a world model to invent a street it has never driven. Then you build the pitch math with Claude, crashes avoided on one side and driver work replaced on the other, decide what to offer the council before it asks, and debate the question Seattle is fighting over right now: should the safety numbers win, or the drivers' jobs?</p>
-    <p class="factline">a network you train on road scenes · a filter sliding across a camera frame · a reward function you write · a world model you prompt · the pitch math, built with Claude · the conditions you offer · one debate</p>
+    <p class="kicker">You're a strategy analyst at a robotaxi company, and your boss wants to launch in Bellingham. Before you can pitch the city council, you have to understand what you're selling and what it costs the town. So today you open the car up. You train a tiny neural network to see the road, watch a filter scan a camera frame, write the reward function that teaches the car when to turn, and prompt a world model to invent a street it has never driven. Then you dig into Waymo's own safety data, build the pitch math with Claude, crashes avoided on one side and driver work replaced on the other, try to win a city council vote, and debate the question Seattle is fighting over right now: should the safety numbers win, or the drivers' jobs?</p>
+    <p class="factline">a network you train on road scenes · a filter sliding across a camera frame · a car you teach to turn · a world model you prompt · Waymo's real crash data · the pitch math, built with Claude · a council vote to win · one debate</p>
   </div>
 </header>
 
@@ -546,21 +760,45 @@ p.runnote{font-size:.9rem;color:var(--gray);}
   <span>Links print with full web addresses; the interactive tools only work on screen.</span>
 </div>
 
+<div class="callout scenario">
+  <div class="label">The scenario: read this first</div>
+  <p><strong>It’s 2028, and this is made up.</strong> In this story, Washington has changed its law so driverless rides are allowed, but each city gets to decide whether a robotaxi company can operate there and on what terms. (Today, as section 8 explains, Washington doesn’t allow paid driverless rides at all.)</p>
+  <p><strong>You</strong> are a strategy analyst at an invented robotaxi company. Your boss wants to launch in Bellingham. To do that, the company needs a permit from the <strong>Bellingham City Council</strong>: the seven elected people who make the city’s local laws. They hold a public hearing, they listen to residents, and then they vote. You need four yes votes.</p>
+  <div class="scen-path">
+    <div><b>Sections 1 to 4</b><span>Open the car up, so you can answer the council’s questions about how it sees, decides, and practices.</span></div>
+    <div><b>Section 5</b><span>Check the safety numbers in Waymo’s own data, then build the math for the pitch: crashes avoided, driving jobs replaced.</span></div>
+    <div><b>Section 6</b><span>The hearing. Meet the seven council members, decide what to offer, and see if you get four votes.</span></div>
+  </div>
+  <p>Waymo is a real company and its numbers are real. Your company is invented, so we borrow Waymo’s record to stand in for yours.</p>
+</div>
+
 <div class="callout">
   <div class="label">From Chapter 7 · what this lab runs on</div>
-  <p><strong>How today runs.</strong> Sections 1, 2, 3, and 5 and the debate happen in class, at the machine in front of you, in this order. Sections 4, 6, and 7 and the writeup are for after class. The five writeup questions are due on Canvas by 11:59 p.m. Friday, November 6; jot notes for them as you go.</p>
+  <p><strong>How today runs.</strong> Sections 1 to 5 and the debate happen in class, at the machine in front of you, in this order. Sections 6 and 7 and the writeup are for after class. The five writeup questions are due on Canvas by 11:59 p.m. Friday, November 6; jot notes for them as you go.</p>
   <div class="peekwrap"><table class="peek runshow"><thead><tr><th scope="col">Clock</th><th scope="col">What</th><th scope="col">Time</th></tr></thead><tbody>
     <tr><td>0:00</td><th scope="row">1. Mini-Perception: teach it to see</th><td>12 min</td></tr>
     <tr><td>0:12</td><th scope="row">2. Mini-Camera: the convolutional filter</th><td>6 min</td></tr>
-    <tr><td>0:18</td><th scope="row">3. Mini-Planner: the reward function</th><td>12 min</td></tr>
-    <tr><td>0:30</td><th scope="row">5. Build the pitch math with Claude</th><td>20 min</td></tr>
-    <tr><td>0:50</td><th scope="row">8. Debate: read the records, prep, speak</th><td>45 min</td></tr>
-    <tr><td>1:35</td><th scope="row">Wrap-up and questions</th><td>5 min</td></tr>
-    <tr><td>After class</td><th scope="row">4. Mini-World, 6. Build the pitch, 7. Under the hood, and the writeup</th><td></td></tr>
+    <tr><td>0:18</td><th scope="row">3. Mini-Planner: teach the car to turn</th><td>12 min</td></tr>
+    <tr><td>0:30</td><th scope="row">4. Mini-World: the world model</th><td>6 min</td></tr>
+    <tr><td>0:36</td><th scope="row">5. Check Waymo's data, then build the pitch math with Claude</th><td>20 min</td></tr>
+    <tr><td>0:56</td><th scope="row">8. Debate: read the records, prep, speak</th><td>45 min</td></tr>
+    <tr><td>1:41</td><th scope="row">Wrap-up and questions</th><td>5 min</td></tr>
+    <tr><td>After class</td><th scope="row">6. The council hearing, 7. Under the hood, and the writeup</th><td></td></tr>
   </tbody></table></div>
-  <p class="runnote">That’s about 100 minutes of a 110-minute class, so there’s a little room. If a section runs long, keep moving; you can come back to the tools later.</p>
-  <p>Every toy here is one step of the loop from <a class="inline" href="chapter-07-transportation.html#s2-1">section 2.1</a>. Sections 1 and 2 are perception, the neural network and the convolutional network from <a class="inline" href="chapter-07-transportation.html#s2-2">sections 2.2</a> and <a class="inline" href="chapter-07-transportation.html#s2-3">2.3</a>, and the scenes they get wrong are <a class="inline" href="chapter-07-transportation.html#s2-6">section 2.6</a>'s long tail. Section 3 is planning, the reinforcement learning and reward function from <a class="inline" href="chapter-07-transportation.html#s2-4">section 2.4</a>. Section 4 is the world model from <a class="inline" href="chapter-07-transportation.html#s2-5">section 2.5</a>. Section 5 puts the safety claim from <a class="inline" href="chapter-07-transportation.html#s3-q4">the case's Question 4</a> on a ledger next to the drivers from <a class="inline" href="chapter-07-transportation.html#s3-q2">Question 2</a>. Section 6 turns <a class="inline" href="chapter-07-transportation.html#s3-business">the case's business lessons</a> into a pitch: know who gains and who pays, bring a priced plan, and put <a class="inline" href="chapter-07-transportation.html#s3-q5">Question 5</a>'s reporting condition on the table. Section 8 is <a class="inline" href="chapter-07-transportation.html#s3-q2">Question 2</a>'s argument, out loud, set in Seattle, where the fight is happening now.</p>
+  <p class="runnote">That’s about 106 minutes of a 110-minute class, so it’s tight. If a section runs long, keep moving; you can come back to the tools later.</p>
+  <p>Every toy here is one step of the loop from <a class="inline" href="chapter-07-transportation.html#s2-1">section 2.1</a>. Sections 1 and 2 are perception, the neural network and the convolutional network from <a class="inline" href="chapter-07-transportation.html#s2-2">sections 2.2</a> and <a class="inline" href="chapter-07-transportation.html#s2-3">2.3</a>, and the scenes they get wrong are <a class="inline" href="chapter-07-transportation.html#s2-6">section 2.6</a>'s long tail. Section 3 is planning, the reinforcement learning and reward function from <a class="inline" href="chapter-07-transportation.html#s2-4">section 2.4</a>. Section 4 is the world model from <a class="inline" href="chapter-07-transportation.html#s2-5">section 2.5</a>. Section 5 puts the safety claim from <a class="inline" href="chapter-07-transportation.html#s3-q4">the case's Question 4</a> on a ledger next to the drivers from <a class="inline" href="chapter-07-transportation.html#s3-q2">Question 2</a>. Section 6 turns <a class="inline" href="chapter-07-transportation.html#s3-business">the case's business lessons</a> into a council hearing: know who gains and who pays, bring a priced plan, and put <a class="inline" href="chapter-07-transportation.html#s3-q5">Question 5</a>'s reporting condition on the table. Section 8 is <a class="inline" href="chapter-07-transportation.html#s3-q2">Question 2</a>'s argument, out loud, set in Seattle, where the fight is happening now.</p>
   <p><strong>Your role.</strong> You work for the company, but you can't win this permit by only seeing the company's side. The council will weigh riders against drivers, crashes against paychecks. So will you, because the pitch that ignores the other column is the one that loses the vote.</p>
+</div>
+
+<div class="callout">
+  <div class="label">Running through every section: responsible AI</div>
+  <p>Chapter 7 (<a class="inline" href="chapter-07-transportation.html#s2-8">section 2.8</a>) defines <strong>responsible AI</strong> as building and running AI so its benefits are real, its risks are known and limited, and someone answers when it fails. For a machine on a public street, that comes down to four plain questions. Each toy today puts one of them in your hands; look for the cards with the yellow tag. In section 6, the council asks all four.</p>
+  <div class="raimap">
+    <div><b>1. Can anyone explain a mistake?</b><span>Section 1, where you can see every weight.</span></div>
+    <div><b>2. Does it know where it's allowed to be confident?</b><span>Sections 2 and 4: rain, fog, snow, and the edge of what it has practiced.</span></div>
+    <div><b>3. Who keeps the score?</b><span>Section 5, Waymo's own data.</span></div>
+    <div><b>4. Who answers when it's wrong?</b><span>Section 3, the score sheet you write.</span></div>
+  </div>
 </div>
 
 <section id="see">
@@ -580,21 +818,26 @@ p.runnote{font-size:.9rem;color:var(--gray);}
       </ol>
     </details>
 
-    <div id="see-card" class="scenecard" aria-live="polite"></div>
-    <div id="see-guess" class="guess" aria-live="polite"></div>
-    <div class="chips ctrlrow" role="group" aria-label="Label this scene">
-      <button type="button" class="chip" data-lab="0">Pedestrian</button>
-      <button type="button" class="chip" data-lab="1">Cyclist</button>
-      <button type="button" class="chip" data-lab="2">Vehicle</button>
-      <button type="button" class="chip" data-lab="3">Ignore</button>
-    </div>
-    <p class="status" id="see-status" aria-live="polite">Scene 1 of 10. Label it.</p>
+    <div class="bench">
+      <div id="see-card" class="scenecard" aria-live="polite"></div>
+      <div id="see-guess" class="guess" aria-live="polite"></div>
+      <p class="askq" id="see-ask">What is it?</p>
+      <div class="labpad" role="group" aria-labelledby="see-ask">
+        <button type="button" class="labbtn" data-lab="0"><span class="li" aria-hidden="true">🚶</span>Pedestrian<small>a person on foot</small></button>
+        <button type="button" class="labbtn" data-lab="1"><span class="li" aria-hidden="true">🚲</span>Cyclist<small>someone on a bike</small></button>
+        <button type="button" class="labbtn" data-lab="2"><span class="li" aria-hidden="true">🚗</span>Vehicle<small>car, truck, or bus</small></button>
+        <button type="button" class="labbtn" data-lab="3"><span class="li" aria-hidden="true">🍃</span>Ignore<small>safe to drive through</small></button>
+      </div>
+      <p class="status" id="see-status" aria-live="polite">Scene 1 of 10. Label it.</p>
 
-    <div class="netbox">
-      <p class="nt">The network, as you've trained it</p>
-      <p class="nk">Six clues in, two hidden layers, four labels out. Each line is a weight, one of the dials from section 2.2. Thicker means it matters more. Dark lines push toward a label; pink lines push away. A real network has billions of these.</p>
-      <div id="see-net"></div>
-      <div id="see-probs" class="plist" aria-live="polite"></div>
+      <div class="netbox">
+        <p class="nt">The network, as you've trained it</p>
+        <p class="nk">Six clues in, two hidden layers, four labels out. Each line is a weight, one of the dials from section 2.2. Thicker means it matters more. Dark lines push toward a label; pink lines push away. The six strongest weights show their numbers, and you can hover over any line to see its value. Every time you label a scene, watch the lines shift as the network retrains. A real network has billions of these.</p>
+        <div id="see-net"></div>
+        <p class="trainline" id="see-train" aria-live="polite"></p>
+        <div class="deltaline" id="see-delta"></div>
+        <div id="see-probs" class="plist" aria-live="polite"></div>
+      </div>
     </div>
 
     <div class="chips ctrlrow">
@@ -604,7 +847,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     </div>
     <div id="see-tests" class="tests"></div>
     <p class="readline" id="see-read" aria-live="polite"></p>
-    <p class="sim-note">Invented scenes, a real network: 6 inputs, hidden layers of 4 and 3, 4 outputs, trained by backpropagation in your browser. Nothing is saved.</p>
+    <p class="sim-note">Invented scenes, a real network: 6 inputs, hidden layers of 4 and 3, 4 outputs, trained by backpropagation in your browser. Each new label adds 300 training passes on top of what it already learned. Nothing is saved.</p>
   </div>
 
   <div class="callout">
@@ -616,6 +859,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
   <p><strong>It learned your labels, not the world.</strong> It never knew what a pedestrian is. It learned which clues went with the word you clicked.</p>
   <p><strong>It was confidently wrong.</strong> Look at the confidence on the three rare scenes before you added data. A network doesn't know what it hasn't seen, so it doesn't know to be unsure. That's why a robotaxi has an operational design domain (<a class="inline" href="chapter-07-transportation.html#s2-8">section 2.8</a>): the company decides where it's allowed to be confident, because the network can't.</p>
   <p><strong>More data shortened the tail, and the tail kept going.</strong> Four labeled scenes fixed most of the failures, and the hardest one, a child mostly hidden by an SUV, is still hard, because most of what the camera sees there really is an SUV. Then a person on a horse showed up, and your four labels don't even have a box for it. That's every recall in section 2.6, one at a time.</p>
+  <div class="rai"><span class="rq">Responsible AI &middot; question 1 of 4 from <a class="inline" href="chapter-07-transportation.html#s2-8">section 2.8</a></span><h4>Can anyone explain a mistake?</h4><p>You had something no real engineer has: every weight, on screen. Use it. The network called the child behind the SUV a Vehicle, at high confidence. Now point to the lines in the diagram that made it say that. Hard, isn't it? Your network has fewer than 60 numbers and you still can't explain its mistake in a sentence. Waymo's has billions.</p><p>That's why section 2.8 says a responsible company doesn't count on explaining the network. It counts on <strong>testing, records, and the ability to replay a failure</strong> and fix it, the way the data team's four labels fixed most of yours.</p><p class="rask"><strong>Remember this:</strong> If the network can't explain itself, what would you want the company to keep after every mistake so someone could figure it out later?</p></div>
   <div class="callout"><div class="label">For the pitch</div><p>The first question at the hearing will be some version of "what does your car do with something it has never seen?" The honest answer is "sometimes it's confidently wrong, so we limit where it drives." That answer is an offer with a cost: a smaller service area at launch, and fewer rides to bill.</p></div>
 </section>
 
@@ -628,16 +872,21 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     <details class="howto-in" open>
       <summary>Your job</summary>
       <ol>
-        <li><strong>Pick a filter</strong> and press Slide the filter. The pink box is a 3 by 3 filter. At each spot it multiplies nine pixels by its nine numbers and adds them up. A big total means "my pattern is here." That total becomes one square on the map at right.</li>
+        <li><strong>Pick a filter</strong> and press the pink <strong>Slide the filter</strong> button. The pink box is a 3 by 3 filter. At each spot it multiplies nine pixels by its nine numbers and adds them up (you’ll see the math live under the frame). A big total means "my pattern is here," and that spot turns pink on the map at right.</li>
         <li><strong>Read the four layers</strong> below the frame: the pixels, the edges both filters found, the shapes made by combining edges, and the network's verdict.</li>
         <li><strong>Change the weather</strong> to rain, then fog, and slide again. Watch what happens to the edges, then to the verdict.</li>
       </ol>
     </details>
+    <p style="font-size:.95rem;margin:0 0 8px"><strong>What’s an edge?</strong> A spot where the picture suddenly jumps from dark to light, like where a person’s body meets the background. Edges are how a network starts to find outlines. Each filter hunts for one direction:</p>
+    <div class="edgeexp">
+      <div><b>Vertical-edge filter</b>Compares the pixels on its left with the pixels on its right. Same on both sides, the total is near zero. Big difference, big total. So it lights up on up-and-down lines: the sides of the body, arms, and legs.</div>
+      <div><b>Horizontal-edge filter</b>Same idea, but compares the pixels above with the pixels below. It lights up on side-to-side lines: the curb, the shoulders, the top of the head.</div>
+    </div>
     <div class="ctrlgrid">
       <div><span class="ctrllbl" id="cf-lbl">Filter</span>
         <div class="chips" role="group" aria-labelledby="cf-lbl">
-          <button type="button" class="chip on" aria-pressed="true" data-filt="v">Up-and-down edges</button>
-          <button type="button" class="chip" aria-pressed="false" data-filt="h">Side-to-side edges</button>
+          <button type="button" class="chip on" aria-pressed="true" data-filt="v">Vertical edges (sides of the body)</button>
+          <button type="button" class="chip" aria-pressed="false" data-filt="h">Horizontal edges (curb, shoulders)</button>
         </div></div>
       <div><span class="ctrllbl" id="cw-lbl">Weather</span>
         <div class="chips" role="group" aria-labelledby="cw-lbl">
@@ -646,15 +895,16 @@ p.runnote{font-size:.9rem;color:var(--gray);}
           <button type="button" class="chip" aria-pressed="false" data-wx="fog">Thick fog</button>
         </div></div>
     </div>
+    <div class="slidebar">
+      <button type="button" class="bigbtn" id="conv-run">&#9654; Slide the filter</button>
+      <span class="status" id="conv-status" aria-live="polite">Press Slide the filter and watch the pink box move.</span>
+    </div>
     <div class="convwrap">
       <div class="convpanel"><canvas id="conv-in" width="200" height="240" role="img" aria-label="Camera frame: a person standing at a curb"></canvas><div class="cl">The camera frame, 20 by 24 pixels</div></div>
-      <div><table class="kern" id="conv-kern" aria-label="Filter numbers"></table><p class="kcap">The filter's nine numbers. In a trained network, nobody sets these. Training does.</p></div>
+      <div><table class="kern" id="conv-kern" aria-label="Filter numbers"></table><p class="kcap" id="conv-kcap"></p></div>
       <div class="convpanel"><canvas id="conv-out" width="180" height="220" role="img" aria-label="Feature map, empty until you slide the filter"></canvas><div class="cl">What the filter found (its feature map)</div></div>
     </div>
-    <div class="chips ctrlrow">
-      <button type="button" class="btn" id="conv-run">Slide the filter</button>
-      <span class="status" id="conv-status" aria-live="polite">Press Slide the filter.</span>
-    </div>
+    <div class="mathbox" id="conv-math" aria-hidden="true"><span class="quiet">The math at each spot shows up here while the filter slides.</span></div>
     <div class="stages" id="conv-stages">
       <div class="stage"><div class="sn2">Layer 1</div><div class="st">Pixels</div><canvas id="st1" width="100" height="120" aria-hidden="true"></canvas></div>
       <div class="stage"><div class="sn2">Layer 2</div><div class="st">Edges</div><canvas id="st2" width="90" height="110" aria-hidden="true"></canvas></div>
@@ -667,6 +917,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
 
   <p><strong>Why "convolutional."</strong> The filter never changes as it slides. The same nine numbers check every spot in the frame, which is why the network can find a person on the left edge, the right edge, or dead center. Stack layers and the filters build on each other: edges become arms and wheels, those become people and cars. That's the 2012 ImageNet idea from Chapter 1, running many times a second on every camera.</p>
   <p><strong>Why the weather mattered.</strong> A filter only fires when the match is strong enough. Fog washed out the contrast, so the edges fell under that line and the shapes never formed. Rain added noise, so the filter fired on raindrops too. Nothing about the code changed. The frame did. That's why a coverage map lists weather (section 2.8), and it's why the camera isn't the car's only sensor: lidar and radar see through what blinds a camera, and sensor fusion has to decide whom to believe (section 2.3).</p>
+  <div class="rai"><span class="rq">Responsible AI &middot; question 2 of 4 from <a class="inline" href="chapter-07-transportation.html#s2-8">section 2.8</a></span><h4>Does it know where it's allowed to be confident?</h4><p>Nothing in the filter changed in the fog. The frame did, and the verdict fell. Compare that with section 1, where the network was 100 percent sure and wrong. A car can't always tell when it's out of its depth, so a responsible company draws the line for it: an <strong>operational design domain</strong>, the streets, speeds, weather, and hours where the car has proven itself. Outside it, the car should stop or ask for help. A small domain isn't a failure. Not knowing you've left it is.</p><p class="rask"><strong>Remember this:</strong> Should Bellingham's domain include heavy rain on day one? Who should decide where that line goes: the company, the city, or both?</p></div>
   <div class="callout"><div class="label">For the pitch</div><p>Bellingham rains, and none of the five cities in your company's safety record is this wet. Offering a wet-season test period before full service costs you a season of revenue. Not offering it means your first rainy-night mistake is the headline, and the council will remember you didn't offer.</p></div>
 </section>
 <section id="decide">
@@ -679,12 +930,15 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     <details class="howto-in" open>
       <summary>Your job</summary>
       <ol>
-        <li><strong>Start with the chapter's score sheet</strong> (section 2.4's table) and press Train. The car tries 2,000 left turns. Early on it experiments; as the scores pile up, it settles on the habit that scores best.</li>
-        <li><strong>Read what it learned</strong>, then the safety board. The board tests the habit on 300 new turns. It passes only if at least 95 percent finish, there's at most 1 crash, and the average wait is under 8 seconds.</li>
-        <li><strong>Try the other two presets.</strong> Each fails the board a different way. Why?</li>
-        <li><strong>Then write your own.</strong> Find a score sheet you could defend to the board and to the rider.</li>
+        <li><strong>Read the goal.</strong> A safety board will test your car on 300 left turns. To pass, it has to clear all three checks; the results appear in the goal box next to the car.</li>
+        <li><strong>Write the score sheet.</strong> The sliders are the reward function: how many points the car gets or loses for each thing that can happen. Start with the chapter's sheet.</li>
+        <li><strong>Train.</strong> The car practices 2,000 turns and learns whatever habit scores the most points. Then the board tests it, and the goal box fills in.</li>
+        <li><strong>Watch it drive</strong>, then try the other two presets. Each fails a different check. Then write your own sheet that passes.</li>
       </ol>
     </details>
+
+    <p class="goalline"><b>The goal:</b> pass the safety board&rsquo;s three checks on 300 test turns: finish at least <b>285</b>, <b>1 crash or fewer</b>, and wait under <b>8 seconds</b> on average. The results show up next to the car in step 3.</p>
+    <span class="ctrllbl steplbl">Step 1 &middot; Write the score sheet</span>
     <div class="chips ctrlrow" role="group" aria-label="Preset score sheets">
       <span class="ctrllbl" style="margin:0 6px 0 0">Presets:</span>
       <button type="button" class="chip" data-pre="chapter">The chapter's score sheet</button>
@@ -695,37 +949,68 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     <div class="slider-row"><label for="rw-crash">Points lost for a crash</label><input type="range" id="rw-crash" min="0" max="1000" step="10" value="1000"><output id="rw-crash-o" for="rw-crash">&minus;1000</output></div>
     <div class="slider-row"><label for="rw-close">Points lost for a close call</label><input type="range" id="rw-close" min="0" max="50" step="1" value="15"><output id="rw-close-o" for="rw-close">&minus;15</output></div>
     <div class="slider-row"><label for="rw-wait">Points lost per second of waiting</label><input type="range" id="rw-wait" min="0" max="5" step="0.1" value="1"><output id="rw-wait-o" for="rw-wait">&minus;1.0</output></div>
+    <div class="sliderguide">
+      <span><b>Crashes cheap, waiting expensive:</b> the car learns to rush and crashes. That's "Get there fast."</span>
+      <span><b>Waiting free:</b> the car learns to sit there forever. That's "Never get blamed."</span>
+      <span><b>To pass:</b> crashes have to cost far more than waiting, but waiting can't be free.</span>
+    </div>
+
+    <span class="ctrllbl steplbl">Step 2 &middot; Train it</span>
     <div class="chips ctrlrow">
-      <button type="button" class="btn" id="rl-train">Train (2,000 turns)</button>
+      <button type="button" class="bigbtn" id="rl-train">&#9654; Train (2,000 turns)</button>
       <button type="button" class="btn alt" id="rl-reset">Back to the chapter's sheet</button>
     </div>
     <div class="prog" aria-hidden="true"><span id="rl-prog"></span></div>
     <p class="status" id="rl-status" aria-live="polite">Set the score sheet, then press Train.</p>
-    <div class="equiv">
-      <div class="cell"><div class="v" id="rl-ok">0</div><div class="k">turns finished cleanly</div></div>
-      <div class="cell"><div class="v" id="rl-close">0</div><div class="k">close calls</div></div>
-      <div class="cell"><div class="v" id="rl-crash">0</div><div class="k">crashes</div></div>
-      <div class="cell"><div class="v" id="rl-time">0</div><div class="k">gave up after 30 seconds</div></div>
-    </div>
-    <div class="rlchart"><svg id="rl-chart" viewBox="0 0 640 200" role="img" aria-label="Learning curve: the car's average score, every 100 practice turns"></svg></div>
-    <div class="board" id="rl-board" aria-live="polite">
-      <div class="brow"><span><strong>What the car learned</strong></span><span class="bv" id="rl-habit">?</span><span></span></div>
-      <div class="brow"><span>Turns finished, of 300 new ones (need 285 or more)</span><span class="bv" id="b-done">?</span><span class="pill wait" id="p-done">not tested</span></div>
-      <div class="brow"><span>Crashes (need 1 or fewer)</span><span class="bv" id="b-crash">?</span><span class="pill wait" id="p-crash">not tested</span></div>
-      <div class="brow"><span>Average wait (need under 8 seconds)</span><span class="bv" id="b-wait">?</span><span class="pill wait" id="p-wait">not tested</span></div>
-    </div>
+    <div class="resultline" id="rl-result" hidden></div>
     <p class="readline" id="rl-read" aria-live="polite"></p>
+
+    <div class="rlgrid">
+      <div class="rlmain">
+    <span class="ctrllbl steplbl">Step 3 &middot; Watch it drive (the first turn plays by itself; press the pink button for more)</span>
+    <div class="road">
+      <svg id="rl-road" viewBox="0 0 640 320" role="img" aria-label="Cartoon intersection: a yellow robotaxi waits to turn left across oncoming traffic"></svg>
+      <div class="roadbar"><button type="button" class="bigbtn" id="rl-watch" disabled>&#9654; Watch another turn</button><span class="rb-out" id="rl-out" aria-live="polite">Train the car, then watch it try the turn.</span></div>
+    </div>
+      </div>
+      <aside class="rlside" aria-label="Safety board goal">
+    <div class="board goalboard" id="rl-board" aria-live="polite">
+      <div class="goalhead">The goal</div>
+      <div class="verdictbanner wait" id="rl-verdict">Pass all three checks. Not tested yet.</div>
+      <div class="brow"><span>Finishes at least <b>285 of 300</b> turns<small class="bhint">Moved by the waiting slider: if waiting is free, the car gives up. Crashes don't count as finished either.</small></span><span class="bv" id="b-done">?</span><span class="pill wait" id="p-done">not tested</span></div>
+      <div class="brow"><span><b>1 crash or fewer</b><small class="bhint">Moved by the crash slider: if crashes are cheap, the car takes risky little gaps.</small></span><span class="bv" id="b-crash">?</span><span class="pill wait" id="p-crash">not tested</span></div>
+      <div class="brow"><span>Waits under <b>8 seconds</b> on average<small class="bhint">Moved by the waiting slider: the less waiting costs, the longer the car sits there.</small></span><span class="bv" id="b-wait">?</span><span class="pill wait" id="p-wait">not tested</span></div>
+      <div class="brow"><span><strong>The habit it learned</strong></span><span class="bv" id="rl-habit">?</span><span></span></div>
+    </div>
+
+      </aside>
+    </div>
+
+    <details class="howto-in" style="margin-top:14px" open>
+      <summary>How it learned: the climb</summary>
+      <div style="padding:0 16px 12px">
+      <div class="equiv">
+        <div class="cell"><div class="v" id="rl-ok">0</div><div class="k">practice turns finished cleanly</div></div>
+        <div class="cell"><div class="v" id="rl-close">0</div><div class="k">close calls</div></div>
+        <div class="cell"><div class="v" id="rl-crash">0</div><div class="k">crashes</div></div>
+        <div class="cell"><div class="v" id="rl-time">0</div><div class="k">gave up after 30 seconds</div></div>
+      </div>
+      <div class="rlchart"><svg id="rl-chart" viewBox="0 0 640 220" role="img" aria-label="Learning curve: the car's average score, every 100 practice turns"></svg></div>
+      <p style="font-size:.88rem;margin:0" id="rl-chartcap">After you train, this chart shows the car's average score for every 100 practice turns. Look for <b>the climb</b> (the car trying things and learning what scores) and then <b>the flat part</b> (it has settled on a habit). That's reinforcement learning: no one shows it the right answer; the score sheet does all the teaching.</p>
+      </div>
+    </details>
     <p class="sim-note">A toy model, not Waymo's, which isn't published. Gaps, misjudgments, and crash odds are invented; the learning is real trial and error in your browser, so two runs can settle on slightly different habits. Nothing is saved.</p>
   </div>
 
   <p><strong>The car didn't learn to drive well. It learned to score well.</strong> When the sheet barely punished waiting, the car waited, forever, because nothing told it a rider was getting angry. When the sheet barely punished crashes, it took gaps a person never would. Every time, it did exactly what the numbers said. Nobody voted on those numbers. Someone in a product meeting picked them.</p>
   <p>That's why section 2.4 calls the reward function strategy. Early Waymo cars were famously timid, so in 2025 the company tuned them to be more assertive, and the street felt it: lane changes without signaling, and one illegal U-turn in San Bruno with nobody in the driver's seat. Somebody moved a slider like yours.</p>
+  <div class="rai"><span class="rq">Responsible AI &middot; question 4 of 4 from <a class="inline" href="chapter-07-transportation.html#s2-8">section 2.8</a></span><h4>Who answers when it's wrong?</h4><p>When your car crashed under the "Get there fast" sheet, it wasn't malfunctioning. It did exactly what the numbers told it to. The numbers were yours. In a real company they're chosen by people in a meeting, and there's no driver to ticket or sue when it goes wrong. Section 2.8 says someone has to own those choices: the company, the city that issued the permit, or both.</p><p class="rask"><strong>Remember this:</strong> A robotaxi crashes because of a reward setting. Who should answer for it: the engineer who set it, the executive who approved it, the company, or the city that let it drive? Pick one and say why.</p></div>
   <div class="callout"><div class="label">For the pitch</div><p>The council can't read your model, but it could read your score sheet: what the car is rewarded for and how much. Offering to show it to an independent reviewer costs you a piece of strategy competitors would love to see. Refusing costs you trust, and after the San Bruno U-turn, "trust us" is a weak pitch.</p></div>
 </section>
 
 <section id="world">
-  <div class="shead"><span class="num">4</span><h2>At home: Let it practice where it's never been (a world model)</h2></div>
-  <p class="lead">Your planner just practiced 2,000 left turns. A real one can't practice by crashing real cars, and the long tail is too rare to wait for. So it practices inside a world model: an AI that has learned how the world looks and moves from huge amounts of video, and can generate a street that never happened. About 6 minutes, and this one is for after class, before you write item 2.</p>
+  <div class="shead"><span class="num">4</span><h2>In class: Let it practice where it's never been (a world model)</h2></div>
+  <p class="lead">Your planner just practiced 2,000 left turns. A real one can't practice by crashing real cars, and the long tail is too rare to wait for. So it practices inside a world model: an AI that has learned how the world looks and moves from huge amounts of video, and can generate a street that never happened. About 6 minutes.</p>
 
   <div class="tool" id="world-tool">
     <div class="label">Mini-World · prompt a scene the fleet has never driven</div>
@@ -735,6 +1020,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
         <li><strong>Pick one ingredient from each row</strong> and press Build this scene. The world model doesn't look the scene up. It composes it, one layer at a time, from things it learned separately.</li>
         <li><strong>Read the two numbers</strong>: roughly how many miles of real driving it would take to run into this once, and how that compares with the miles the whole fleet has actually driven.</li>
         <li><strong>Build at least three.</strong> Make one as weird as you can. Then try the last wildcard and see what a world model can't do.</li>
+        <li><strong>Then scale it up.</strong> Below the builder, spend a practice budget the way a company would, and get the car ready for Bellingham's weather.</li>
       </ol>
     </details>
     <div class="ingr" id="world-ingr"></div>
@@ -745,12 +1031,40 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     <div class="worldsvg"><svg id="world-svg" viewBox="0 0 640 300" role="img" aria-label="The generated scene appears here"></svg></div>
     <ul class="checklist" id="world-check" aria-live="polite"></ul>
     <div class="equiv three">
-      <div class="cell"><div class="v" id="w-miles">?</div><div class="k">miles of real driving to meet this once (rough)</div></div>
-      <div class="cell"><div class="v" id="w-fleet">?</div><div class="k">times the whole fleet has likely met it, in about 271 million real miles</div></div>
+      <div class="cell"><div class="v" id="w-miles">?</div><div class="k" id="w-miles-k">miles of driving to meet this once (a made-up estimate; see how it's figured below)</div></div>
+      <div class="cell"><div class="v" id="w-fleet">?</div><div class="k" id="w-fleet-k">times the whole fleet has likely met it, in about 271 million real miles</div></div>
       <div class="cell"><div class="v" id="w-count">0</div><div class="k">scenes you've built</div></div>
     </div>
+    <p class="wmath" id="w-math"></p>
     <p class="readline" id="world-read" aria-live="polite"></p>
-    <p class="sim-note">The rarity multipliers are invented, order of magnitude only; the point is that rare things multiply. The 271 million is Waymo's reported driverless miles through June 2026. Nothing is saved.</p>
+    <div class="scalebox" id="world-scale">
+      <h4>Scale it up: spend tonight's practice budget</h4>
+      <p style="font-size:.92rem;margin:0 0 6px">You built scenes one at a time. A real company runs the world model all night, millions of scenes, but computing power costs money, so somebody has to decide <b>what to practice</b>. That somebody is you. You have <b>60 practice credits</b> for Bellingham. Each gray bar is how much real driving the fleet already has in that weather. Spend credits to add simulated practice (pink) until the car is ready for the weather Bellingham actually gets.</p>
+      <div class="budgethead"><span>Credits left: <b id="bud-left">60</b> of 60</span><span class="bkey"><i style="--c:#9AA1AB"></i>real miles <i style="--c:#FF3D8A"></i>simulated practice <i class="tick"></i>ready line</span></div>
+      <div id="bud-rows"></div>
+      <div class="equiv two">
+        <div class="cell"><div class="v" id="bud-ready">?</div><div class="k">of a Bellingham-like year the car has practiced for</div></div>
+        <div class="cell"><div class="v" id="bud-waste">0</div><div class="k">credits spent on weather the car was already ready for</div></div>
+      </div>
+      <p class="readline" id="bud-read"></p>
+      <div class="slidebar" style="margin-top:12px">
+        <button type="button" class="bigbtn" id="night-go">&#127769; Train overnight</button>
+        <span class="status" id="night-status">Spend your credits, then train overnight and see how the car does in its first Bellingham week.</span>
+      </div>
+      <div class="night" id="night" hidden>
+        <div class="nightsky" aria-hidden="true"><span class="moon">&#127765;</span><span class="stars">&#10022; &#183; &#10022; &#183; &#10023; &#183; &#10022;</span></div>
+        <div class="nightbar"><span id="night-prog"></span></div>
+        <p class="nightcount" id="night-count" aria-live="polite">Simulated scenes: 0</p>
+      </div>
+      <div class="week" id="week" aria-live="polite"></div>
+      <div class="equiv three" id="week-stats" hidden>
+        <div class="cell"><div class="v" id="wk-days">?</div><div class="k">days in service, of 7</div></div>
+        <div class="cell"><div class="v" id="wk-rides">?</div><div class="k">rides given this week</div></div>
+        <div class="cell"><div class="v" id="wk-surp">?</div><div class="k">surprises: real weather didn't match the simulation</div></div>
+      </div>
+      <p class="readline" id="week-read"></p>
+    </div>
+    <p class="sim-note">The rarity multipliers are invented, order of magnitude only; the point is that rare things multiply. The 271 million is Waymo's reported driverless miles through June 2026. The practice budget, the fleet's real experience in each weather, the Bellingham weather mix, the sample week, ride counts, and the chance that simulated practice doesn't match real weather are invented for the exercise; only the fact that Waymo's cities get almost no snow is real. Nothing is saved.</p>
   </div>
 
   <div class="callout">
@@ -759,109 +1073,162 @@ p.runnote{font-size:.9rem;color:var(--gray);}
   </div>
 
   <p><strong>Practice can be manufactured; reality can't.</strong> Your weirdest scene might take more real miles than the fleet will ever drive, and the world model made it in a second. That's why simulated miles outnumber real ones by a wide margin (section 2.5), and why a competitor can't catch up just by buying the same sensors. But look at the last wildcard. A world model only recombines what's in its video. A simulated pedestrian is the model's idea of a pedestrian, so the practice is honest where the data was and silent where it wasn't.</p>
-  <div class="callout"><div class="label">For the pitch</div><p>Simulation is your best answer to "you've never driven here." You can stage a Bellingham November before the first car arrives. But it's your simulation, scored by your company. Paying for an outside party to test Bellingham-specific scenarios costs money and control, and it's the only version of the answer the council can check.</p></div>
+  <div class="rai"><span class="rq">Responsible AI &middot; question 2 of 4 from <a class="inline" href="chapter-07-transportation.html#s2-8">section 2.8</a></span><h4>Does it know where it's allowed to be confident? (part two)</h4><p>Simulation is how a company stretches its domain before it drives somewhere new: practice a rainy Bellingham night a million times. But a world model's rain is the model's idea of rain, and a scene no camera has ever filmed can't be practiced at all. Practice isn't proof. The gap between how the car does in simulation and how it does on a real street is exactly where the next surprise lives.</p><p class="rask"><strong>Remember this:</strong> What would have to be true before simulated Bellingham Novembers count as evidence that the car can handle real ones?</p></div>
+  <div class="callout"><div class="label">For the pitch</div><p>Simulation is your best answer to "you've never driven here." Your practice budget shows the catch: you can't afford to practice everything, so you chose which Bellingham days to be ready for. You can stage a Bellingham November before the first car arrives. But it's your simulation, scored by your company. Paying for an outside party to test Bellingham-specific scenarios costs money and control, and it's the only version of the answer the council can check.</p></div>
 </section>
 <section id="ledger">
-  <div class="shead"><span class="num">5</span><h2>In class: Build the pitch math with Claude</h2></div>
+  <div class="shead"><span class="num">5</span><h2>In class: Check Waymo's data, then build the pitch math</h2></div>
+  <p class="lead">At the hearing, the council will ask two questions before anything else: <strong>how many crashes would your cars prevent here, and how many people who drive for a living would lose work?</strong> Your answer is a <strong>ledger</strong>. That's an old accounting word for a record with two columns, what you gain and what it costs. Yours has crashes avoided on one side and paid driving work replaced on the other. About 20 minutes: 7 to dig into the data, 13 to build the ledger with Claude.</p>
+  <p>The crash column starts with numbers from Waymo, so before you use them, look at what they are and where they come from. A good analyst checks the data before building on it.</p>
+
+  <h3 class="sub" id="ledger-data"><span>Part A:</span> Meet the data (about 7 minutes)</h3>
+  <p><strong>What it is.</strong> Waymo runs a public <a class="inline" href="https://waymo.com/safety/impact/" target="_blank" rel="noopener">Safety Impact data hub</a>. Every crash its driverless cars are in has to be reported to federal regulators (NHTSA), no matter who was at fault. Waymo divides those crashes by the miles its cars drove. Then it compares that rate with a <strong>human benchmark</strong>: how often human drivers crash per mile, from police reports, on the same kinds of streets in the same cities.</p>
+  <p><strong>How to read it.</strong> Every rate below is <strong>crashes per million miles</strong>. The gray bar is human drivers. The pink bar is Waymo. The gap between them, times the miles you drive, is the crashes avoided. These are the real numbers, through June 2026.</p>
+
+  <div class="tool" id="dx-tool">
+    <div class="label">Data explorer · Waymo's own safety numbers</div>
+    <span class="ctrllbl" id="dx-lbl">Show me</span>
+    <div class="chips ctrlrow" role="group" aria-labelledby="dx-lbl" id="dx-cities"></div>
+    <div class="dx">
+      <div class="dxkey"><span style="--c:#C9CED6">Human drivers (benchmark)</span><span style="--c:#D61F69">Waymo</span></div>
+      <div id="dx-rows"></div>
+      <div class="equiv two">
+        <div class="cell"><div class="v" id="dx-miles">?</div><div class="k">driverless miles behind these numbers</div></div>
+        <div class="cell"><div class="v" id="dx-avoid">?</div><div class="k">injury crashes avoided per 10 million miles, if humans here crash like humans there</div></div>
+      </div>
+    </div>
+    <div class="dx">
+      <p style="font-weight:700;font-size:.92rem;margin:0 0 2px">Injury crashes by type, all five cities</p>
+      <p style="font-size:.82rem;color:var(--gray);margin:0 0 6px">Gray is how many injury crashes human drivers would be expected to have over Waymo's 271 million miles. Pink is how many Waymo actually had.</p>
+      <div id="dx-types"></div>
+    </div>
+    <p class="sim-note">Source: Waymo Safety Impact hub, data through June 2026 (rider-only miles, surface streets). Rates are Waymo's analysis of crashes it reports to NHTSA.</p>
+  </div>
+
+  <p><strong>Be the detective.</strong> Answer each one with your partner before you open the answer. Jot your answers; writeup item 3 asks for two of them.</p>
+  <div class="qcard"><p><strong>1.</strong> The same car avoids about 14 injury crashes per 10 million miles in Phoenix and about 60 in San Francisco. Click both cities. What's actually different?</p><details><summary>Open the answer</summary><p>Waymo's own rate barely moves (0.56 versus 0.67). The <em>human</em> rate moves a lot: San Francisco drivers crash more than three times as often per mile as Phoenix drivers. So "crashes avoided" depends mostly on which humans you compare against. Bellingham isn't in this data, so whoever picks the comparison city picks the answer.</p></details></div>
+  <div class="qcard"><p><strong>2.</strong> Look at the crash types. Which one improved the least? Why might that be?</p><details><summary>Open the answer</summary><p>Front-to-rear crashes: 88 against an expected 169, only about half as many. In a rear-end crash the car in back usually does the hitting, and Waymo's count includes every crash, whoever was at fault. A car that stops when a human driver wouldn't expect it can still get hit from behind.</p></details></div>
+  <div class="qcard"><p><strong>3.</strong> Which city's numbers should you trust least?</p><details><summary>Open the answer</summary><p>Atlanta. It has only about 8.6 million miles, around 3 percent of the total. With few miles, a handful of crashes swings the rate a lot. A serious-injury rate of 0.00 there means none so far, not none forever.</p></details></div>
+  <div class="qcard"><p><strong>4.</strong> What does Bellingham have that none of these five cities do?</p><details><summary>Open the answer</summary><p>Snow and ice, and a lot more rain. Waymo's own FAQ says its cities don't get much snow, so neither the robotaxi numbers nor the human comparison include it. The data can't tell you how the car does in a Bellingham January.</p></details></div>
+  <div class="qcard"><p><strong>5.</strong> Who counted, and who checks?</p><details><summary>Open the answer</summary><p>Waymo counts its own crashes from the reports it must file with NHTSA. The human numbers come from police reports, adjusted by Waymo's researchers; for example, they assume about a third of human injury crashes never get reported to police, and add them back. Waymo posts the raw files so anyone can redo the math, and its methods are in peer-reviewed journals, but the papers are written by Waymo's own researchers. That's real transparency, and it's still the company grading itself.</p></details></div>
+
+<div class="rai"><span class="rq">Responsible AI &middot; question 3 of 4 from <a class="inline" href="chapter-07-transportation.html#s2-8">section 2.8</a></span><h4>Who keeps the score?</h4><p>Most people trust robotaxis the way they trust elevators: not because they understand them, but because they keep working. Section 2.8 calls that <strong>results-based trust</strong>, and it hands the power to whoever keeps the track record. You just saw the track record. It's detailed, public, and peer reviewed, and Waymo keeps it.</p><p class="rask"><strong>Remember this:</strong> Name one number from the data explorer you'd want someone other than Waymo to count. Who should count it, and why don't they now?</p></div>
+    <h3 class="sub" id="ledger-job"><span>Part B:</span> Build the ledger with Claude (about 13 minutes)</h3>
   <details class="srcnote noai">
     <summary>Don't want to use AI? Do this instead</summary>
     <div class="noai-body">
-      <p>Same 20 minutes, no chatbot. You'll build the same ledger in a spreadsheet, the way an analyst would before a pitch meeting.</p>
+      <p>Same time, no chatbot. You'll build the same ledger in a spreadsheet, the way an analyst would before a pitch meeting.</p>
       <ol>
         <li><strong>Open a blank Google Sheet.</strong> In A1 to A4 type the labels <em>robotaxi miles per year</em>, <em>share of the claim I trust</em>, <em>miles per driver hour</em>, <em>driver pay per hour</em>. In B1 to B4 type <code>10000000</code>, <code>1</code>, <code>15</code>, <code>20</code>. Those are assumptions, not facts.</li>
-        <li><strong>Crashes avoided.</strong> Waymo reports 841 fewer injury crashes and 55 fewer serious-or-worse crashes across 271.3 million driverless miles. In B6 type <code>=841/271.3*B1/1000000*B2</code> for injury crashes avoided a year, and in B7 <code>=55/271.3*B1/1000000*B2</code> for serious ones.</li>
+        <li><strong>Crashes avoided.</strong> From the data explorer, all cities: injury crashes are 3.77 per million miles for humans and 0.67 for Waymo; serious-or-worse are 0.21 and 0.01. In B6 type <code>=(3.77-0.67)*B1/1000000*B2</code> for injury crashes avoided a year, and in B7 <code>=(0.21-0.01)*B1/1000000*B2</code> for serious ones.</li>
         <li><strong>Driver work replaced.</strong> In B9 type <code>=B1/B3</code> for driver hours, in B10 <code>=B9/2000</code> for full-time driver jobs, and in B11 <code>=B9*B4</code> for driver earnings.</li>
-        <li><strong>Check yourself</strong> against the reference numbers below.</li>
+        <li><strong>Check yourself</strong> against the reference numbers below. Then swap in Phoenix's rates (1.95 and 0.56) and San Francisco's (6.71 and 0.67) and watch B6 move.</li>
         <li><strong>Change B2</strong> to the share of the safety claim you think the council will actually believe, and say why. Then list two things this ledger can't see.</li>
       </ol>
     </div>
   </details>
-  <p class="lead">Every robotaxi permit fight is a fight about a ledger: lives on one side, livelihoods on the other. The council will build one whether you do or not, so build it first. You'll ask Claude for a small interactive page that turns Waymo's published safety numbers, standing in for your company's record, and a few assumptions about Bellingham into both columns. Then you check it. About 20 minutes; finish at home if you need to.</p>
-
-  <h3 class="sub" id="ledger-job"><span>Your job</span></h3>
-  <p>Your boss asks: <strong>if our cars drive 10 million miles a year in Bellingham, what can we promise the city, and what will the drivers' side say it costs them?</strong> The second number matters as much as the first. If you don't bring it, the drivers will, and theirs won't be friendly. <strong>You're the person in the loop.</strong> Claude writes the code. You decide which numbers are facts, which are guesses, and whether the math is right.</p>
+  <p>Your boss asks: <strong>if our cars drive 10 million miles a year in Bellingham, what can we promise the city, and what will the drivers' side say it costs them?</strong> The second number matters as much as the first. If you don't bring it, the drivers will. <strong>You're the person in the loop.</strong> Claude writes the code. You decide which numbers are facts, which are guesses, and whether the math is right.</p>
 
   <div class="callout"><div class="label">Free accounts run out of messages</div><p>Building a page uses a free Claude account's messages up fast, because Claude rewrites the whole page every time you send something. If you hit the limit, Claude tells you when your messages come back, and your chat and page are saved. Send each step once, and if a check turns up problems, list every fix in one message.</p></div>
 
-  <h3 class="sub" id="ledger-steps"><span>Step by step</span></h3>
   <div class="steps">
     <div class="step"><span class="sn">1</span><div>
-      <p><strong>Copy the prompt</strong>, paste it into a new chat at claude.ai, and send it.</p>
-      <div class="probe"><div class="ptext" id="prompt-ledger">Build me an interactive web page called "The Bellingham robotaxi ledger," for a robotaxi company preparing to ask the Bellingham city council for a permit. Use plain HTML and JavaScript with no libraries, and make it easy to read on a phone. Two columns. Left column, crashes: Waymo reports that across 271.3 million driverless miles through June 2026, its cars were involved in 841 fewer injury crashes and 55 fewer serious-injury-or-worse crashes than human drivers would have been on the same roads. Turn those into crashes avoided per million miles. Right column, driver work: the hours of paid human driving those robotaxi miles would replace. Give me four sliders: robotaxi miles driven in Bellingham per year (1 to 30 million, start at 10 million); how much of the claimed safety benefit the council will believe (0 to 100 percent, start at 100); miles a human driver covers per paid hour (5 to 30, start at 15); and driver pay per hour (10 to 40 dollars, start at 20). Show injury crashes avoided per year, serious-or-worse crashes avoided per year, driver hours replaced per year, the full-time driver jobs that equals at 2,000 hours a year each, and driver earnings replaced per year. Under each number, show the formula in plain words, and tag every input as "the company's claim," "my assumption," or "math." At the bottom, add an empty box called "What this ledger can't see."</div></div>
-      <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#prompt-ledger">Copy the prompt</button><span class="cpstat" aria-live="polite"></span></div>
+      <p><strong>Get Waymo's raw file (optional, 2 minutes).</strong> Go to <a class="inline" href="https://waymo.com/safety/impact/" target="_blank" rel="noopener">Waymo's Safety Impact page</a>, scroll to <em>Download Data</em>, and download the third file, <em>Collision count and comparisons to benchmarks by outcome and location</em>. It's a CSV, a spreadsheet saved as plain text. Upload it to a new chat at claude.ai and send:</p>
+      <div class="probe"><div class="ptext" id="prompt-csv">This is Waymo's own crash data file. Before you do anything else, tell me in plain language what one row of this file is, what the most important columns mean, and what the file can't tell me. Then make a small table of the any-injury crash rate for Waymo and for the human benchmark in each city. Don't build anything yet.</div></div>
+      <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#prompt-csv">Copy</button><span class="cpstat" aria-live="polite"></span></div>
+      <p>Check Claude's table against the data explorer above. Do they match? If the download doesn't work, skip this step; the next prompt has the numbers in it.</p>
     </div></div>
     <div class="step"><span class="sn">2</span><div>
-      <p><strong>Check the math.</strong> With every slider at its starting value, your page should match the reference below. If a number is off, tell Claude which one and ask it to show its formula.</p>
+      <p><strong>Build the ledger.</strong> In the same chat (or a new one), send:</p>
+      <div class="probe"><div class="ptext" id="prompt-ledger">Build me an interactive web page called "The Bellingham robotaxi ledger," for a robotaxi company preparing to ask the Bellingham city council for a permit. Use plain HTML and JavaScript with no libraries, and make it easy to read on a phone. Two columns. Left column, crashes: use Waymo's published rates in crashes per million miles, from 271.3 million driverless miles through June 2026. Injury crashes: human drivers 3.77, Waymo 0.67. Serious-injury-or-worse crashes: human drivers 0.21, Waymo 0.01. Crashes avoided per million miles is the human rate minus the Waymo rate. Add a dropdown that swaps in one city's injury rates instead of the all-cities rates: Phoenix 1.95 and 0.56, San Francisco 6.71 and 0.67, Los Angeles 2.49 and 0.86, Austin 3.25 and 0.52, Atlanta 6.44 and 0.81 (human first, Waymo second; keep the serious rates at the all-cities values). If I uploaded Waymo's file, check these numbers against it first and tell me about any that differ. Right column, driver work: the hours of paid human driving those robotaxi miles would replace. Give me four sliders: robotaxi miles driven in Bellingham per year (1 to 30 million, start at 10 million); how much of the claimed safety benefit the council will believe (0 to 100 percent, start at 100); miles a human driver covers per paid hour (5 to 30, start at 15); and driver pay per hour (10 to 40 dollars, start at 20). Show injury crashes avoided per year, serious-or-worse crashes avoided per year, driver hours replaced per year, the full-time driver jobs that equals at 2,000 hours a year each, and driver earnings replaced per year. Under each number, show the formula in plain words, and tag every input as "Waymo's data," "my assumption," or "math." At the bottom, add an empty box called "What this ledger can't see."</div></div>
+      <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#prompt-ledger">Copy the prompt</button><span class="cpstat" aria-live="polite"></span></div>
     </div></div>
     <div class="step"><span class="sn">3</span><div>
-      <p><strong>Ask whose numbers these are.</strong> Send this, then compare the answer with <a class="inline" href="chapter-07-transportation.html#s3-q4">the case's Question 4</a>:</p>
-      <div class="probe"><div class="ptext" id="prompt-whose">Which inputs on this page come from the company, which are my guesses, and which are math? For the company's numbers, what do they compare, where were they collected, and who counted? What would an independent check look like?</div></div>
-      <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#prompt-whose">Copy</button><span class="cpstat" aria-live="polite"></span></div>
+      <p><strong>Check the math.</strong> With every slider at its starting value and the dropdown on all cities, your page should match the reference below. If a number is off, tell Claude which one and ask it to show its formula.</p>
     </div></div>
     <div class="step"><span class="sn">4</span><div>
-      <p><strong>Set the trust slider to what the council will actually believe</strong>, and change any assumption you think is wrong for Bellingham. Bellingham gets a lot of rain and the occasional snow; Waymo's numbers come from Phoenix, San Francisco, Los Angeles, Austin, and Atlanta. Does that change what you trust?</p>
+      <p><strong>Pick Bellingham's stand-in.</strong> Which city in the dropdown is most like Bellingham, and why? Switch to it. Then set the trust slider to what the council will actually believe, knowing what you found in Part A.</p>
     </div></div>
     <div class="step"><span class="sn">5</span><div>
       <p><strong>Think of two things the ledger can't see</strong> before you ask. Then send: <em>"What important costs or benefits does this ledger leave out? Name at least three on each side."</em> Did it find yours? Did it find something you missed? Add the best ones to the box at the bottom.</p>
     </div></div>
     <div class="step"><span class="sn">6</span><div>
-      <p><strong>Save it.</strong> Download the page from Claude as an HTML file (or print it to PDF). You'll use it in section 6, attach it to writeup item 3, and want it open during the debate.</p>
+      <p><strong>Save it.</strong> Download the page from Claude as an HTML file (or print it to PDF). You'll attach it to writeup item 3 and want it open during the debate and the hearing.</p>
     </div></div>
   </div>
 
   <div class="callout refbox">
     <div class="label">Your reference: the numbers to check Claude against</div>
-    <p>At the starting values (10 million miles, 100 percent trust, 15 miles per driver hour, $20 an hour):</p>
+    <p>At the starting values (all cities, 10 million miles, 100 percent trust, 15 miles per driver hour, $20 an hour):</p>
     <div class="wrapx"><table class="minitab">
       <thead><tr><th scope="col">Line</th><th scope="col">How it's figured</th><th scope="col" style="text-align:right">At the start</th></tr></thead>
       <tbody>
-        <tr><th scope="row">Injury crashes avoided per year</th><td>841 ÷ 271.3 = about 3.1 per million miles, × 10</td><td class="num"><b>about 31</b></td></tr>
-        <tr><th scope="row">Serious-or-worse crashes avoided</th><td>55 ÷ 271.3 = about 0.2 per million miles, × 10</td><td class="num"><b>about 2</b></td></tr>
-        <tr><th scope="row">Driver hours replaced</th><td>10,000,000 ÷ 15</td><td class="num"><b>about 666,700</b></td></tr>
-        <tr><th scope="row">Full-time driver jobs</th><td>666,700 ÷ 2,000</td><td class="num"><b>about 333</b></td></tr>
-        <tr><th scope="row">Driver earnings replaced</th><td>666,700 × $20</td><td class="num"><b>about $13.3 million</b></td></tr>
+        <tr><th scope="row">Injury crashes avoided per year</th><td>3.77 &minus; 0.67 = 3.10 per million miles, &times; 10</td><td class="num"><b>about 31</b></td></tr>
+        <tr><th scope="row">Serious-or-worse crashes avoided</th><td>0.21 &minus; 0.01 = 0.20 per million miles, &times; 10</td><td class="num"><b>about 2</b></td></tr>
+        <tr><th scope="row">Driver hours replaced</th><td>10,000,000 &divide; 15</td><td class="num"><b>about 666,700</b></td></tr>
+        <tr><th scope="row">Full-time driver jobs</th><td>666,700 &divide; 2,000</td><td class="num"><b>about 333</b></td></tr>
+        <tr><th scope="row">Driver earnings replaced</th><td>666,700 &times; $20</td><td class="num"><b>about $13.3 million</b></td></tr>
       </tbody></table></div>
-    <p>Set trust to 50 percent and the crash column halves: about 15 and about 1. The driver column doesn't move, because nobody is unsure that a robotaxi has no driver. Notice which column carries the doubt.</p>
+    <p>Switch to Phoenix and injury crashes avoided drop to about 14; San Francisco, about 60. Set trust to 50 percent and the crash column halves. The driver column doesn't move either way, because nobody is unsure that a robotaxi has no driver. Notice which column carries the doubt.</p>
   </div>
-  <p class="tis-note">The 10 million miles, the 15 miles an hour, and the $20 are made-up starting points, not Bellingham data. That's the lesson of this section: half the ledger is the company's claim and the other half is the analyst's guesses, and the page looks equally confident about both.</p>
+  <p class="tis-note">The 10 million miles, the 15 miles an hour, and the $20 are made-up starting points, not Bellingham data. Half the ledger is Waymo's data and the other half is the analyst's guesses, and the page looks equally confident about both.</p>
   <p>Keep it to this. Don't paste anything private into Claude.</p>
 </section>
 
+
 <section id="pitch">
-  <div class="shead"><span class="num">6</span><h2>At home: Build the pitch</h2></div>
-  <p class="lead">Now decide what to walk into the hearing with. A council that likes robotaxis will still attach conditions, and a council that's unsure will invent its own. The analyst's job is to offer the right ones before anyone asks, knowing each one costs the company something. About 10 minutes.</p>
+  <div class="shead"><span class="num">6</span><h2>At home: The council hearing</h2></div>
+  <p class="lead">Everything so far was preparation for one night: the public hearing where the Bellingham City Council votes on your permit. You need four of seven votes. About 15 minutes. It's at home only because class is full; do it before you write item 5.</p>
+
+  <div class="callout scenario">
+    <div class="label">Tonight's hearing</div>
+    <p><strong>Your boss has two rules.</strong> Win the permit, and keep the first year profitable: at least <strong>$1 million</strong>. Your company expects to make about $3 million in year one if it launches citywide with no strings attached, or about $1.9 million if it starts in a smaller zone (downtown, the university, and Fairhaven).</p>
+    <p><strong>The council won't vote yes for nothing.</strong> Each member has a worry, and you've already studied most of them in sections 1 to 5. Look closely and you'll see section 2.8's four responsible AI questions hiding in their quotes. Each condition is tagged with the question it answers. You can offer conditions that answer those worries, but every one costs money. Offer too little and you lose the vote. Offer too much and you lose your boss.</p>
+    <p>The council members and the dollar amounts are invented. The worries are the real ones from Chapter 7 and from cities fighting about this now.</p>
+  </div>
 
   <div class="tool" id="pitch-tool">
-    <div class="label">The pitch · decide whether to launch, and what to offer the council</div>
+    <div class="label">The hearing · win four votes and keep the launch profitable</div>
     <details class="howto-in" open>
       <summary>Your job</summary>
       <ol>
-        <li><strong>Pick a plan.</strong> Launching isn't the only move. Waiting and walking away are real options with real costs.</li>
-        <li><strong>Pick the conditions you'd offer.</strong> Read both lines on each: what it costs your company, and what it answers for the council. Each one ties back to a toy or a section of the chapter.</li>
-        <li><strong>Press Write the pitch</strong> and read it back. Would you vote for it if you drove for a living? If your kid walked to school past that curb?</li>
+        <li><strong>Pick a service plan.</strong> Citywide makes more money; a smaller zone costs less to make promises about.</li>
+        <li><strong>Read the seven council members.</strong> Each quote tells you what it would take to get their vote. Some want opposite things.</li>
+        <li><strong>Choose what to offer.</strong> Watch the profit bar at the bottom as you check boxes.</li>
+        <li><strong>Hold the vote.</strong> See who voted yes, who voted no, and why. Lost? Change your offer and vote again. Keep track of what you tried.</li>
+        <li><strong>Read your responsible AI scorecard.</strong> After the vote, you'll see which of the four questions your offer answers. Winning four votes and answering all four questions aren't the same thing.</li>
       </ol>
     </details>
-    <span class="ctrllbl" id="pl-lbl">Your plan for Bellingham</span>
+
+    <span class="ctrllbl" id="pl-lbl">1. Your service plan</span>
     <div class="chips ctrlrow" role="group" aria-labelledby="pl-lbl">
-      <button type="button" class="chip" aria-pressed="false" data-plan="launch">Launch citywide</button>
-      <button type="button" class="chip" aria-pressed="false" data-plan="small">Launch small and grow</button>
-      <button type="button" class="chip" aria-pressed="false" data-plan="wait">Wait a year</button>
-      <button type="button" class="chip" aria-pressed="false" data-plan="walk">Walk away, launch somewhere easier</button>
+      <button type="button" class="chip on" aria-pressed="true" data-plan="city">Launch citywide (about $3.0M profit before conditions)</button>
+      <button type="button" class="chip" aria-pressed="false" data-plan="small">Start in a smaller zone (about $1.9M)</button>
     </div>
-    <div id="pitch-conds" class="ingr" role="group" aria-label="Conditions to offer"></div>
-    <div class="chips ctrlrow">
-      <button type="button" class="btn" id="pitch-go">Write the pitch</button>
-      <button type="button" class="btn alt" id="pitch-reset">Clear and start over</button>
+
+    <span class="ctrllbl">2. The council</span>
+    <div class="council" id="council"></div>
+
+    <span class="ctrllbl">3. What you'll offer</span>
+    <div class="offers" id="pitch-conds"></div>
+
+    <div class="profit" id="profit-bar">
+      <div><div class="pk">Year-one profit after your offers</div><div class="pv2" id="profit-v">$3.0M</div></div>
+      <div class="pk" id="profit-note">Your boss's floor: $1.0M</div>
+      <button type="button" class="bigbtn" id="pitch-go" style="margin-left:auto">Hold the vote</button>
     </div>
+
     <div class="verdict" id="pitch-out" hidden>
-      <div class="label">Your pitch to the council</div>
+      <div class="label" id="pitch-tally-l">The vote</div>
       <div class="read" id="pitch-read" aria-live="polite"></div>
     </div>
-    <p class="sim-note">The conditions are drawn from Chapter 7 and from fights other cities have had. The costs are described, not calculated. Nothing is saved.</p>
+    <div class="chips ctrlrow" style="margin-top:12px"><button type="button" class="btn alt" id="pitch-reset">Clear and start over</button><span class="status" id="pitch-tries"></span></div>
+    <p class="sim-note">The members, their rules, and the dollar figures are invented for this exercise; the conditions come from Chapter 7 and from fights other cities have had. Nothing is saved.</p>
   </div>
 
-  <p><strong>Every condition is a trade.</strong> The ones that cost your company least are the ones the council trusts least, because a company offers them easily. The ones that cost most, sharing your data on the city's schedule or paying into a fund for the drivers you replace, are the ones that answer the other column of your ledger. That's value capture (the case's Question 2) turned into a negotiating position: who keeps the gains, and who pays.</p>
+  <p><strong>Every condition is a trade.</strong> Notice which conditions were cheap and which were expensive. The cheap ones, like sharing data or showing your score sheet, cost the company a little pride. The expensive ones, like a fund for drivers or a wet-season test, cost real money, and they're the ones that answer the other column of your ledger. That's value capture (the case's Question 2) turned into a vote count: who keeps the gains, and who pays. And notice that nobody gets all seven votes. Somebody always loses the argument.</p>
 </section>
+
 
 <section id="hood">
   <div class="shead"><span class="num">7</span><h2>At home: Under the hood, how the four toys make one car</h2></div>
@@ -870,8 +1237,9 @@ p.runnote{font-size:.9rem;color:var(--gray);}
   <p><strong>Planning is reinforcement learning.</strong> Your planner never saw a correct answer. It tried, got a score from your sheet, and drifted toward whatever scored well. That's how AlphaGo learned Go in Chapter 1, and it's why the reward function is the most quietly important document in the company.</p>
   <p><strong>Both practice in a world model.</strong> Simulation is where the rare scenes get manufactured, for perception to label and for the planner to try. It shortens the tail. It can't end it, because it can only imagine what its video showed it.</p>
   <p><strong>And the human?</strong> Out of the loop in the moment (section 2.7). But people chose the labels, the six clues, the reward numbers, the ingredients, and the coverage map. The car's judgment is theirs, frozen into weights and executed many times a second on a street where people live.</p>
-  <p><strong>Claude's part.</strong> In section 5 Claude wrote a working ledger in a minute. It didn't decide whether to trust Waymo's count, what a Bellingham driver earns, or what belongs in the box at the bottom. You did, and those choices, not the code, are where the argument with the council actually lives.</p>
-  <p><strong>Your part.</strong> In section 6 you decided what your company would give up to launch. No model made that call. It came down to whose costs you were willing to carry, which is the question the toys can't answer for you.</p>
+  <p><strong>The four responsible AI questions, on your car.</strong> Put the toys next to section 2.8 and each question has an answer you watched happen. <em>Can anyone explain a mistake?</em> Not even you, with every weight on screen, so the answer has to be records and replay. <em>Does it know where it's allowed to be confident?</em> No: it was nearly certain about a kid in a costume, and wrong, so people have to draw the domain for it, and simulation can stretch that line but not prove it. <em>Who keeps the score?</em> Today, the company, even when it shares its data generously. <em>Who answers when it's wrong?</em> Whoever wrote the score sheet, which in your lab was you. Every permit condition in section 6 is an attempt to answer one of these four with a promise someone can check.</p>
+  <p><strong>Claude's part.</strong> In section 5 Claude read Waymo's file and wrote a working ledger in a minute. It didn't decide whether to trust Waymo's count, which city stands in for Bellingham, what a Bellingham driver earns, or what belongs in the box at the bottom. You did, and those choices, not the code, are where the argument with the council actually lives.</p>
+  <p><strong>Your part.</strong> In section 6 you decided what your company would give up to launch, and which council member you were willing to lose. No model made that call. It came down to whose costs you were willing to carry, which is the question the toys can't answer for you.</p>
 </section>
 <section id="debate">
   <div class="shead"><span class="num">8</span><h2>In class: Debate</h2></div>
@@ -1040,10 +1408,10 @@ p.runnote{font-size:.9rem;color:var(--gray);}
   <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, November 6.</strong> Answer them as you go today. Written reflections, no screenshots.</p>
   <ol class="writeup">
     <li><strong>How it sees.</strong> In your own words, explain what a neural network is and what it learns from, using your Mini-Perception run. Which of the three rare scenes did it get wrong, how confident was it, and why didn't it know to be unsure? Then explain what a convolutional filter does, and what the fog did to the verdict, without using the word "convolution."</li>
-    <li><strong>How it decides and practices.</strong> Give the four numbers in the score sheet you'd take to the safety board, the habit it learned, and its results. Which bar was hardest to pass, and what trade-off did you accept to pass it? Then: one scene you built in Mini-World, why real driving can't collect it, and what the world model can't do.</li>
-    <li><strong>Your pitch math.</strong> Attach the page you built with Claude, as an HTML file or PDF. Did its numbers match the reference the first time? Where did you set the trust slider, and why would the council believe that much and no more? Name two things the ledger can't see, and say whether Claude found them or you did. (No-AI path: your spreadsheet's five numbers, your trust setting, and your two things.)</li>
+    <li><strong>How it decides and practices.</strong> Give the four numbers in the score sheet you'd take to the safety board, the habit it learned, and its results. Describe one turn you watched in the cartoon: how big did the gap look, how big was it really, and what happened? Which check was hardest to pass, and what trade-off did you accept to pass it? Then: one scene you built in Mini-World, why real driving can't collect it, and what the world model can't do.</li>
+    <li><strong>Waymo's data and your pitch math.</strong> Answer two of the five detective questions from section 5 in your own words. Then attach the page you built with Claude, as an HTML file or PDF. Did its numbers match the reference the first time? Which city did you pick to stand in for Bellingham, where did you set the trust slider, and why? Name two things the ledger can't see, and say whether Claude found them or you did. (No-AI path: your spreadsheet's five numbers, your city and trust setting, and your two things.)</li>
     <li><strong>The debate.</strong> Which side were you handed, and what was the other side's best point? Then the status quo: today, a person drives every ride in Seattle, and people cause almost every crash. Should Seattle let robotaxis take over its taxi and rideshare work, and who pays for your answer? Use at least one source from the debate. Name the specific evidence that would change your mind. Did Claude's pushback find the weak spot in your case before the other side did?</li>
-    <li><strong>Your commitment card.</strong> Your plan from section 6, and the one condition you'd offer first, or your reason for walking away. Say what it costs the company, what it answers for the drivers or the riders, and what evidence would make you change it. Then the switch: if you sat on the council instead, would you accept your own pitch? Three or four sentences.</li>
+    <li><strong>The hearing.</strong> Your final offer from section 6: your plan, the conditions you offered, your vote count, and your year-one profit. How many votes did it take you? Which council member did you decide to lose, and why were you willing to? Which of the four responsible AI questions from section 2.8 did your final offer answer worst, and would you add a condition to fix that even if it cost you a vote? Then the switch: if you were the council member you lost, what would you say at the next hearing? Five or six sentences.</li>
   </ol>
   <div class="callout">
     <div class="label">Using AI on this writeup</div>
@@ -1055,10 +1423,10 @@ p.runnote{font-size:.9rem;color:var(--gray);}
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p class="srcintro">Rebuilt 24 Oct 2026; debate rebuilt 29 Oct 2026 around Seattle. The concepts are carried from Chapter 7 (verified 17 Sep 2026, updated 18 Sep). The safety figures, the Santa Monica investigation, the world model, and the labor evidence were checked separately for this lab on 24 Oct 2026, below. Waymo's figures move quarterly and the NHTSA investigation is open; re-check both the week before this lab runs. Washington's legislature next meets in January 2027; if it acts on driverless rides, update the case box in section 8.</p>
+    <p class="srcintro">Rebuilt 24 Oct 2026; debate rebuilt 29 Oct 2026 around Seattle; Waymo data explorer, planner cartoon, and council hearing added 2 Nov 2026. The concepts are carried from Chapter 7 (verified 17 Sep 2026, updated 18 Sep). The safety figures, the Santa Monica investigation, the world model, and the labor evidence were checked separately for this lab on 24 Oct 2026, below. Waymo's figures move quarterly and the NHTSA investigation is open; re-check both the week before this lab runs. Washington's legislature next meets in January 2027; if it acts on driverless rides, update the case box in section 8.</p>
     <dl>
       <dt>The four toys (sections 1 to 4)</dt>
-      <dd>Self-contained, no network calls, nothing persists. Mini-Perception is a real two-hidden-layer network (6, 4, 3, 4) trained by backpropagation on the student's labels from a fixed starting seed; the scenes and their six clue scores are invented, and the three rare test scenes were built so that a network trained on the ten ordinary ones misreads them. Mini-Camera runs two standard 3 by 3 edge filters over an invented 20 by 24 frame; its shape layer and verdict are simplified for display. Mini-Planner is trial-and-error learning over nine gap thresholds with invented gap, misjudgment, and crash odds; with the chapter's score sheet it settles on a habit that passes the board, the other two presets fail it in different ways, and two runs can differ. Mini-World's rarity multipliers are invented and labeled as order of magnitude only.</dd>
+      <dd>Self-contained, no network calls, nothing persists. Mini-Perception is a real two-hidden-layer network (6, 4, 3, 4) trained by backpropagation on the student's labels from a fixed starting seed; the scenes and their six clue scores are invented, and the three rare test scenes were built so that a network trained on the ten ordinary ones misreads them. Mini-Camera runs two standard 3 by 3 edge filters over an invented 20 by 24 frame; its shape layer and verdict are simplified for display. Mini-Planner is trial-and-error learning over nine gap thresholds with invented gap, misjudgment, and crash odds; with the chapter's score sheet it settles on a habit that passes the board, the other two presets fail it in different ways, and two runs can differ. The cartoon replays real test turns from the board; its timing is stylized, but each turn's gaps, the car's misjudgment, and the outcome come from the simulation. Mini-World's rarity multipliers are invented and labeled as order of magnitude only; the practice-budget exercise uses invented levels of real experience per weather type and an invented Bellingham weather mix, except that Waymo's own FAQ confirms its cities get almost no snow.</dd>
       <dt>Waymo's safety figures (sections 4, 5, and 8)</dt>
       <dd>Waymo, "From the road," September 24, 2026 (linked): 271.3 million rider-only miles through June 2026 in five metro areas (Atlanta, Austin, Los Angeles, Phoenix, San Francisco); 82 percent fewer injury-causing crashes (841 fewer) and 95 percent fewer serious-injury-or-worse crashes (55 fewer); its Safety Impact page lists 93 percent fewer pedestrian injury crashes. These are the company's analysis of crashes it reports to NHTSA, treated in the text as a company claim. The ledger's per-million-mile rates are 841 and 55 divided by 271.3. Chapter 7 now uses the same June 2026 figures.</dd>
       <dt>Swiss Re (section 8)</dt>
@@ -1071,8 +1439,10 @@ p.runnote{font-size:.9rem;color:var(--gray);}
       <dd>NHTSA, "Early Estimate of Motor Vehicle Traffic Fatalities and Fatality Rate in 2025," Report 813800 (linked): 36,640. Chapter 7 uses the same figure. NHTSA, "Alcohol-Impaired Driving: 2023 Data," Report 813713 (linked): 12,429 deaths, 30 percent. Seattle's 2025 figures (30 killed, 221 seriously injured) are city data as reported by KUOW, August 28, 2026 (linked); an earlier revision reported 27, so cite the KUOW figure as reported.</dd>
       <dt>The debate (section 8)</dt>
       <dd>Every source is listed with a full citation in "Every source in this debate," at the end of section 8. Notes: Washington's legal status rests on the Legislature's bill pages for HB 1984 and SB 6243, neither of which passed in the 2026 session. The 30,000 drivers figure is the Washington Drivers Union president's estimate as reported by KIRO 7, labeled as such. Uber's sexual assault figures are from its 2019 to 2020 U.S. Safety Report as reported by CNN and Business Standard (3,824 reports in the five most serious categories; riders accused in 43 percent). The USC LABarometer figures (9, 12, and 27 percent; the gender gap on harassment) are as reported by LAist. The BLS figures are the 2024 to 2034 projections. The D.C. bill is as reported by the Washington Times, July 13, 2026; it had not passed as of this check. The Cruise incident and DMV statement are as reported by KQED and Mission Local; Cruise disputed the DMV's account.</dd>
-      <dt>The pitch conditions (section 6)</dt>
-      <dd>Drawn from Chapter 7 (sections 2.8 and 3) and the previous version of this lab's permit conditions. The costs are qualitative and not computed.</dd>
+      <dt>Waymo's Safety Impact data (section 5)</dt>
+      <dd>Waymo Safety Impact hub (linked), checked 2 Nov 2026, data through June 2026: rider-only miles by city (Phoenix 92.121M, San Francisco Bay Area 82.421M, Los Angeles 67.098M, Austin 21.064M, Atlanta 8.624M); crashes per million miles for Waymo and the human benchmark by city for any-injury-reported, airbag deployment in any vehicle, and serious injury or worse; and any-injury-reported crashes by crash type, all locations. The detective answers on snow, the 32 percent underreporting adjustment for human injury crashes, and the downloadable CSV files come from the hub's methodology section and FAQ. The CSV download names are as listed on the hub; re-check them the week before this lab runs.</dd>
+      <dt>The council hearing (section 6)</dt>
+      <dd>The scenario (a future Washington law letting cities permit driverless rides), the seven council members, their voting rules, the profit figures, and the cost of each condition are invented for the exercise. The conditions are drawn from Chapter 7 (sections 2.8 and 3), the D.C. bill's fleet cap, and the earlier version of this lab. The rules were tuned so several offers win, offering everything loses money, and no offer wins all seven votes. Each condition is tagged with the responsible AI question from Chapter 7, section 2.8, that it answers; the incident-replay condition answers a question no council member votes on, on purpose.</dd>
       <dt>The ledger's assumptions (section 5)</dt>
       <dd>The 10 million miles, 15 miles per driver hour, $20 an hour, and 2,000 hours per full-time job are invented starting points, labeled as such on the page, not Bellingham data.</dd>
     </dl>
@@ -1123,49 +1493,54 @@ p.runnote{font-size:.9rem;color:var(--gray);}
       ['\u{1F3C3}','A jogger on the sidewalk',[1,0,1,.45,0,0],0],
       ['\u{1F690}','A delivery van, parked',[0,1,.6,0,1,0],2],
       ['\u{1F6B2}','A cyclist waiting at a red light',[.9,.9,.9,0,.1,0],1],
-      ['\u{1F333}','A tree\u2019s shadow on the pavement',[0,0,.3,0,0,.6],3],
-      ['\u2602\uFE0F','A person with an umbrella at the curb',[.9,0,.9,.05,0,.15],0],
+      ['\u{1F333}|\u{1F311}','A tree\u2019s shadow on the pavement',[0,0,.3,0,0,.6],3],
+      ['\u{1F9CD}|\u2602\uFE0F','A person with an umbrella at the curb',[.9,0,.9,.05,0,.15],0],
       ['\u{1F68C}','A bus pulling away from a stop',[0,1,.7,.3,1,0],2]];
     var TEST=[
-      ['\u{1F415}','A person walking a dog',[1,0,1,.1,0,0],0,0],
+      ['\u{1F6B6}|\u{1F415}','A person walking a dog',[1,0,1,.1,0,0],0,0],
       ['\u{1F6B4}','A cyclist at night, with a headlight',[.8,1,.8,.4,.05,0],1,0],
       ['\u{1F699}','An SUV changing lanes',[0,1,.4,.5,1,0],2,0],
       ['\u{1F342}','Leaves swirling in the wind',[0,0,.1,.4,0,.9],3,0],
       ['\u{1F6FB}','A pickup truck at a stop sign',[0,1,.45,.3,1,0],2,0],
-      ['\u267F','A person in a wheelchair, crossing',[.15,1,.55,.1,.3,0],0,1],
-      ['\u{1F996}','A kid in a dinosaur costume',[.35,0,.35,.3,0,.6],0,1],
-      ['\u{1F9D2}','A child stepping out from behind a double-parked SUV',[.3,1,.3,.3,1,0],0,1]];
+      ['\u{1F9D1}\u200D\u{1F9BD}','A person in a wheelchair, crossing',[.15,1,.55,.1,.3,0],0,1],
+      ['\u{1F9D2}|\u{1F996}','A kid in a dinosaur costume',[.35,0,.35,.3,0,.6],0,1],
+      ['\u{1F699}|\u{1F9D2}','A child stepping out from behind a double-parked SUV',[.3,1,.3,.3,1,0],0,1]];
     var EXTRA=[
-      ['\u267F','A wheelchair user at a crosswalk',[.1,1,.6,.1,.35,0],0],
-      ['\u{1F383}','A person in an inflatable costume',[.3,0,.45,.2,0,.65],0],
-      ['\u{1F9D2}','A person half hidden behind a parked car',[.4,.9,.35,.2,.9,0],0],
+      ['\u{1F9D1}\u200D\u{1F9BD}','A wheelchair user at a crosswalk',[.1,1,.6,.1,.35,0],0],
+      ['\u{1F9CD}|\u{1F383}','A person in an inflatable costume',[.3,0,.45,.2,0,.65],0],
+      ['\u{1F697}|\u{1F9D2}','A person half hidden behind a parked car',[.4,.9,.35,.2,.9,0],0],
       ['\u{1F9BC}','A person on a mobility scooter',[.2,.9,.7,.15,.4,0],0]];
-    var HORSE=['\u{1F40E}','A person riding a horse in the bike lane',[1,0,1,.3,.6,0],-1,2];
+    var HORSE=['\u{1F3C7}','A person riding a horse in the bike lane',[1,0,1,.3,.6,0],-1,2];
 
     function initNet(seed){var r=rng(seed);function m(a,b){var M=[];for(var i=0;i<b;i++){var row=[];for(var j=0;j<=a;j++)row.push((r()*2-1)*0.8);M.push(row);}return M;}return {W1:m(6,4),W2:m(4,3),W3:m(3,4)};}
+    function clone(n){return {W1:n.W1.map(function(r){return r.slice();}),W2:n.W2.map(function(r){return r.slice();}),W3:n.W3.map(function(r){return r.slice();})};}
     function fwd(net,x){var h1=net.W1.map(function(w){var z=w[6];for(var j=0;j<6;j++)z+=w[j]*x[j];return Math.tanh(z);});
       var h2=net.W2.map(function(w){var z=w[4];for(var j=0;j<4;j++)z+=w[j]*h1[j];return Math.tanh(z);});
       var o=net.W3.map(function(w){var z=w[3];for(var j=0;j<3;j++)z+=w[j]*h2[j];return z;});
       var mx=Math.max.apply(null,o),e=o.map(function(v){return Math.exp(v-mx);}),s=e.reduce(function(a,b){return a+b;},0);
       return {h1:h1,h2:h2,p:e.map(function(v){return v/s;})};}
-    function train(X,Y){var net=initNet(7),lr=0.15,ep,n,j,k;
-      for(ep=0;ep<600;ep++){for(n=0;n<X.length;n++){var x=X[n],f=fwd(net,x);
+    // one pass of backpropagation through every labeled example
+    function epoch(net,X,Y,lr){var n,j,k;for(n=0;n<X.length;n++){var x=X[n],f=fwd(net,x);
         var d3=f.p.map(function(p,q){return p-(q===Y[n]?1:0);});
         var d2=f.h2.map(function(h,q){var s=0;for(var t=0;t<4;t++)s+=d3[t]*net.W3[t][q];return s*(1-h*h);});
         var d1=f.h1.map(function(h,q){var s=0;for(var t=0;t<3;t++)s+=d2[t]*net.W2[t][q];return s*(1-h*h);});
         for(k=0;k<4;k++){for(j=0;j<3;j++)net.W3[k][j]-=lr*d3[k]*f.h2[j];net.W3[k][3]-=lr*d3[k];}
         for(k=0;k<3;k++){for(j=0;j<4;j++)net.W2[k][j]-=lr*d2[k]*f.h1[j];net.W2[k][4]-=lr*d2[k];}
         for(k=0;k<4;k++){for(j=0;j<6;j++)net.W1[k][j]-=lr*d1[k]*x[j];net.W1[k][6]-=lr*d1[k];}}}
-      return net;}
+    function lossOf(net,X,Y){var L=0;for(var i=0;i<X.length;i++)L-=Math.log(Math.max(1e-9,fwd(net,X[i]).p[Y[i]]));return L/X.length;}
     function argmax(p){var b=0;for(var i=1;i<p.length;i++)if(p[i]>p[b])b=i;return b;}
 
-    var labels=[],idx=0,net=initNet(7),guessed=0,right=0,phase='label',extraOn=false;
+    var EPOCHS=300;
+    var labels=[],idx=0,net=initNet(7),before=null,guessed=0,right=0,phase='label',extraOn=false,training=false,runId=0,shownX=TRAIN[0][2];
     var labBtns=[].slice.call(document.querySelectorAll('#see-tool [data-lab]'));
+    var LAYERNAME=['hidden layer 1','hidden layer 2','the label'];
 
+    function emo(e,cls){var two=e.indexOf('|')>-1;return '<div class="'+cls+(two?' two':'')+'" aria-hidden="true">'+e.split('|').join('')+'</div>';}
     function clueChips(x){return '<div class="feats">'+x.map(function(v,i){return '<span class="feat">'+CLUES[i]+' <b>'+v.toFixed(2).replace(/^0/,'').replace(/^1\.00$/,'1').replace(/^\.00$/,'0')+'</b></span>';}).join('')+'</div>';}
+    function setButtons(){labBtns.forEach(function(b){b.disabled=training||idx>=TRAIN.length;});}
     function renderCard(){var c=$('see-card');
       if(idx<TRAIN.length){var s=TRAIN[idx];
-        c.innerHTML='<div class="emo" aria-hidden="true">'+s[0]+'</div><div><div class="sk">Scene '+(idx+1)+' of 10 \u00b7 the clues the camera found, 0 to 1</div><div class="sd">'+s[1]+'</div>'+clueChips(s[2])+'</div>';
+        c.innerHTML=emo(s[0],'emo')+'<div><div class="sk">Scene '+(idx+1)+' of 10 \u00b7 the clues the camera found, 0 to 1</div><div class="sd">'+s[1]+'</div>'+clueChips(s[2])+'</div>';
         if(labels.length){var p=fwd(net,s[2]).p,k=argmax(p);$('see-guess').innerHTML='The network\u2019s guess before you answer: <b>'+LABELS[k]+'</b>, '+Math.round(p[k]*100)+'% sure.';}
         else $('see-guess').innerHTML='No guess yet. The network has seen nothing, so its weights are still random.';
         drawNet(s[2]);
@@ -1173,23 +1548,40 @@ p.runnote{font-size:.9rem;color:var(--gray);}
         c.innerHTML='<div class="emo" aria-hidden="true">\u2705</div><div><div class="sk">Training data complete</div><div class="sd">You labeled all ten scenes.</div><p style="margin:0;font-size:.92rem">The network was right on <b>'+right+' of '+guessed+'</b> guesses it made before you answered. Now press <b>Test it on new scenes</b>.</p></div>';
         $('see-guess').innerHTML='';drawNet(TRAIN[9][2]);
       }
-      labBtns.forEach(function(b){b.disabled=idx>=TRAIN.length;setChip(b,false);});
+      labBtns.forEach(function(b){setChip(b,false);});setButtons();
     }
-    function drawNet(x){var box=$('see-net');box.innerHTML='';
+    // every weight as {layer,to,from,w,ref}
+    function edges(n,ref){var W=[n.W1,n.W2,n.W3],R=ref?[ref.W1,ref.W2,ref.W3]:null,out=[];
+      var sizes=[6,4,3,4];
+      for(var li=0;li<3;li++)for(var to=0;to<sizes[li+1];to++)for(var fr=0;fr<sizes[li];fr++)out.push({li:li,to:to,fr:fr,w:W[li][to][fr],ref:R?R[li][to][fr]:null});
+      return out;}
+    function sgn(v){return (v>=0?'+':'\u2212')+Math.abs(v).toFixed(2);}
+    function fromName(e){return e.li===0?'\u201c'+CLUES[e.fr]+'\u201d':(e.li===1?'hidden layer 1, unit '+(e.fr+1):'hidden layer 2, unit '+(e.fr+1));}
+    function toName(e){return e.li===2?'\u201c'+LABELS[e.to]+'\u201d':LAYERNAME[e.li]+', unit '+(e.to+1);}
+    function drawNet(x){shownX=x;var box=$('see-net');box.innerHTML='';
       var svg=el('svg',{viewBox:'0 0 640 250',role:'img','aria-label':'Network diagram: six clues, two hidden layers of four and three units, four labels. '+(labels.length?'Trained on '+labels.length+' labeled scene'+(labels.length===1?'':'s')+'.':'Weights are random before training.')});
       var f=fwd(net,x);
       var L=[{x:150,n:6},{x:300,n:4},{x:420,n:3},{x:530,n:4}];
       function ys(n){var a=[],top=125-(n-1)*20;for(var i=0;i<n;i++)a.push(top+i*40);return a;}
       var P=L.map(function(l){return ys(l.n);});
-      var W=[net.W1,net.W2,net.W3];
-      for(var li=0;li<3;li++){for(var to=0;to<L[li+1].n;to++){for(var fr=0;fr<L[li].n;fr++){var w=W[li][to][fr];
-        svg.appendChild(el('line',{x1:L[li].x,y1:P[li][fr],x2:L[li+1].x,y2:P[li+1][to],stroke:w>=0?'#14181D':'#D61F69','stroke-width':(0.4+Math.min(Math.abs(w),3)*1.3).toFixed(2),'stroke-opacity':'0.7'}));}}}
+      var E=edges(net,before);
+      // the three weights that moved most since the last label get a yellow glow
+      var moved=before?E.slice().sort(function(a,b){return Math.abs(b.w-b.ref)-Math.abs(a.w-a.ref);}).slice(0,3):[];
+      moved.forEach(function(e){if(Math.abs(e.w-e.ref)<0.05)return;svg.appendChild(el('line',{x1:L[e.li].x,y1:P[e.li][e.fr],x2:L[e.li+1].x,y2:P[e.li+1][e.to],stroke:'#E4FF32','stroke-width':(8+Math.min(Math.abs(e.w),3)*1.3).toFixed(1),'stroke-linecap':'round'}));});
+      E.forEach(function(e){var ln=el('line',{'class':'edge',x1:L[e.li].x,y1:P[e.li][e.fr],x2:L[e.li+1].x,y2:P[e.li+1][e.to],stroke:e.w>=0?'#14181D':'#D61F69','stroke-width':(0.4+Math.min(Math.abs(e.w),3)*1.3).toFixed(2),'stroke-opacity':'0.7'});
+        ln.appendChild(el('title',{},fromName(e)+' \u2192 '+toName(e)+': weight '+sgn(e.w)));svg.appendChild(ln);});
       function shade(v){var c=Math.round(255-Math.max(0,Math.min(1,v))*220);return 'rgb('+c+','+c+','+c+')';}
       var acts=[x,f.h1.map(function(v){return (v+1)/2;}),f.h2.map(function(v){return (v+1)/2;}),f.p];
       var top=argmax(f.p);
-      for(li=0;li<4;li++){for(var i=0;i<L[li].n;i++){
+      for(var li=0;li<4;li++){for(var i=0;i<L[li].n;i++){
         var isTop=li===3&&i===top&&labels.length>0;
         svg.appendChild(el('circle',{cx:L[li].x,cy:P[li][i],r:li===0||li===3?11:9,fill:shade(acts[li][i]),stroke:isTop?'#D61F69':'#5A626C','stroke-width':isTop?3:1.5}));}}
+      // number labels on the six strongest weights, placed along the line so they don't stack
+      var T=[0.36,0.5,0.62];
+      E.slice().sort(function(a,b){return Math.abs(b.w)-Math.abs(a.w);}).slice(0,6).forEach(function(e,k){var t=T[k%3],x1=L[e.li].x,y1=P[e.li][e.fr],x2=L[e.li+1].x,y2=P[e.li+1][e.to];
+        var mx=x1+(x2-x1)*t,my=y1+(y2-y1)*t,txt=sgn(e.w),w=txt.length*6.2+6;
+        svg.appendChild(el('rect',{x:(mx-w/2).toFixed(1),y:(my-8).toFixed(1),width:w.toFixed(1),height:15,rx:3,fill:'#fff',stroke:e.w>=0?'#14181D':'#D61F69','stroke-width':1}));
+        svg.appendChild(el('text',{'class':'wlab',x:mx.toFixed(1),y:(my+3.5).toFixed(1),'text-anchor':'middle',fill:e.w>=0?'#14181D':'#D61F69'},txt));});
       CLUES.forEach(function(c,i){svg.appendChild(el('text',{x:132,y:P[0][i]+4,'text-anchor':'end'},c));});
       LABELS.forEach(function(c,i){svg.appendChild(el('text',{x:548,y:P[3][i]+4,'font-weight':(i===top&&labels.length)?'700':'400'},c));});
       [['clues in',150],['hidden layer 1',300],['hidden layer 2',420],['label out',530]].forEach(function(t){svg.appendChild(el('text',{x:t[1],y:245,'text-anchor':'middle','class':'dim'},t[0]));});
@@ -1197,27 +1589,43 @@ p.runnote{font-size:.9rem;color:var(--gray);}
       var h='';LABELS.forEach(function(l,i){h+='<div class="prow'+(i===top?' top':'')+'"><span>'+l+'</span><span class="ptrack" aria-hidden="true"><span style="width:'+(f.p[i]*100).toFixed(1)+'%"></span></span><span class="pv">'+Math.round(f.p[i]*100)+'%</span></div>';});
       $('see-probs').innerHTML=h;
     }
-    function retrain(){var set=labels.map(function(l,i){return [TRAIN[i][2],l];});if(extraOn)EXTRA.forEach(function(e){set.push([e[2],e[3]]);});
-      net=train(set.map(function(s){return s[0];}),set.map(function(s){return s[1];}));}
-    labBtns.forEach(function(b){b.addEventListener('click',function(){if(idx>=TRAIN.length)return;var l=+b.getAttribute('data-lab');
+    function showDelta(){if(!before){$('see-delta').innerHTML='';return;}
+      var E=edges(net,before).sort(function(a,b){return Math.abs(b.w-b.ref)-Math.abs(a.w-a.ref);}).slice(0,3);
+      $('see-delta').innerHTML='<b>Biggest moves this round</b> (glowing yellow in the diagram): '+E.map(function(e){return fromName(e)+' into '+toName(e)+', <span class="wv">'+sgn(e.ref)+'</span> to <span class="wv">'+sgn(e.w)+'</span>';}).join('; ')+'. Units count from the top.';}
+    function trainSet(){var set=labels.map(function(l,i){return [TRAIN[i][2],l];});if(extraOn)EXTRA.forEach(function(e){set.push([e[2],e[3]]);});return set;}
+    // keep training from where the network left off, redrawing the weights as they move
+    function retrain(showX,done){var set=trainSet(),X=set.map(function(s){return s[0];}),Y=set.map(function(s){return s[1];});
+      var my=++runId,e=0,per=REDUCED?EPOCHS:6;before=clone(net);training=true;setButtons();$('see-test').disabled=true;
+      function tick(){if(my!==runId)return;
+        for(var s=0;s<per&&e<EPOCHS;s++,e++)epoch(net,X,Y,0.15);
+        drawNet(showX);
+        $('see-train').innerHTML=(e<EPOCHS?'Training: ':'Trained: ')+'pass <b>'+e+'</b> of '+EPOCHS+' through your '+X.length+' labeled scene'+(X.length===1?'':'s')+'. Error <b>'+lossOf(net,X,Y).toFixed(2)+'</b> (lower is better).';
+        if(e<EPOCHS){requestAnimationFrame(tick);return;}
+        training=false;showDelta();setButtons();done&&done();}
+      tick();}
+    labBtns.forEach(function(b){b.addEventListener('click',function(){if(training||idx>=TRAIN.length)return;var l=+b.getAttribute('data-lab');
       if(labels.length){var p=fwd(net,TRAIN[idx][2]).p;guessed++;if(argmax(p)===l)right++;}
-      labels.push(l);retrain();idx++;
-      $('see-status').textContent=idx<TRAIN.length?'You said '+LABELS[l]+'. The network retrained on '+labels.length+' scene'+(labels.length===1?'':'s')+'. Scene '+(idx+1)+' of 10.':'All ten labeled. Press Test it on new scenes.';
-      $('see-test').disabled=idx<TRAIN.length;renderCard();});});
+      labBtns.forEach(function(x){setChip(x,x===b);});
+      labels.push(l);var justX=TRAIN[idx][2];idx++;
+      $('see-status').textContent='You said '+LABELS[l]+'. Watch the weights move as the network retrains on '+labels.length+' scene'+(labels.length===1?'':'s')+'.';
+      retrain(justX,function(){
+        $('see-status').textContent=idx<TRAIN.length?'You said '+LABELS[l]+'. The network retrained on '+labels.length+' scene'+(labels.length===1?'':'s')+'. Scene '+(idx+1)+' of 10.':'All ten labeled. Press Test it on new scenes.';
+        $('see-test').disabled=idx<TRAIN.length;renderCard();});});});
     function runTests(){var rows=TEST.slice();if(extraOn)rows.push(HORSE);var h='',ok=[0,0],n=[0,0],conf=0,childP=0;
       rows.forEach(function(t){var p=fwd(net,t[2]).p,k=argmax(p),c=Math.round(p[k]*100),cls=t[4]===1?' tail':(t[4]===2?' new':'');
         var good=t[3]===k;if(t[4]<2){n[t[4]]++;if(good)ok[t[4]]++;}if(t[4]===1)conf+=c;if(t[1].indexOf('double-parked')>-1)childP=Math.round(p[0]*100);
         var truth=t[3]<0?'none of your four labels fits':LABELS[t[3]];
         var tag=t[3]<0?'<span class="ttag bad">No box for this</span>':(good?'<span class="ttag ok">Right</span>':'<span class="ttag bad">Wrong</span>');
-        h+='<div class="trow'+cls+'"><div class="te" aria-hidden="true">'+t[0]+'</div><div class="td">'+t[1]+'<small>Really: '+truth+(t[4]===1?' \u00b7 a rare scene':(t[4]===2?' \u00b7 new after retraining':''))+'</small></div><div class="tg">Network says <b>'+LABELS[k]+'</b></div><div>'+c+'% sure '+tag+'</div></div>';});
+        h+='<div class="trow'+cls+'">'+emo(t[0],'te')+'<div class="td">'+t[1]+'<small>Really: '+truth+(t[4]===1?' \u00b7 a rare scene':(t[4]===2?' \u00b7 new after retraining':''))+'</small></div><div class="tg">Neural network says <b>'+LABELS[k]+'</b></div><div>'+c+'% sure '+tag+'</div></div>';});
       $('see-tests').innerHTML=h;
       var read=(extraOn?'Retrained with the data team\u2019s four rare scenes (14 examples). ':'Trained on your ten labels. ')+'Ordinary scenes: <b>'+ok[0]+' of '+n[0]+'</b> right. Rare scenes: <b>'+ok[1]+' of '+n[1]+'</b> right, at an average of <b>'+Math.round(conf/n[1])+'%</b> sure.';
       if(!extraOn)read+=ok[1]<n[1]?' It was confident and wrong, because it has no way to know what it hasn\u2019t seen. Now press <b>Add four rare scenes</b>.':' It handled the rare ones. That\u2019s unusual; check your labels against the scenes. Then press <b>Add four rare scenes</b> anyway.';
       else read+=' The child behind the SUV is now '+childP+'% likely a pedestrian. And look at the new row: a person on a horse. Your four labels don\u2019t have a box for it, so the network forces it into one, sure of itself. The tail got shorter. It didn\u2019t end.';
       $('see-read').innerHTML=read;}
-    $('see-test').addEventListener('click',function(){if(labels.length<TRAIN.length)return;phase='test';runTests();$('see-add').hidden=extraOn;$('see-status').textContent='Tested on eight new scenes. Read the rows below.';});
-    $('see-add').addEventListener('click',function(){extraOn=true;retrain();runTests();$('see-add').hidden=true;$('see-status').textContent='Added four labeled rare scenes and retrained. Tested again below.';drawNet(TEST[7][2]);});
-    $('see-reset').addEventListener('click',function(){labels=[];idx=0;net=initNet(7);guessed=0;right=0;extraOn=false;$('see-tests').innerHTML='';$('see-read').innerHTML='';$('see-add').hidden=true;$('see-test').disabled=true;$('see-status').textContent='Cleared. Scene 1 of 10. Label it.';renderCard();});
+    $('see-test').addEventListener('click',function(){if(training||labels.length<TRAIN.length)return;phase='test';runTests();$('see-add').hidden=extraOn;$('see-status').textContent='Tested on eight new scenes. Read the rows below.';});
+    $('see-add').addEventListener('click',function(){if(training)return;extraOn=true;$('see-add').hidden=true;$('see-status').textContent='Adding four labeled rare scenes. Watch the weights move as it retrains.';
+      retrain(TEST[7][2],function(){runTests();$('see-test').disabled=false;$('see-status').textContent='Added four labeled rare scenes and retrained. Tested again below.';});});
+    $('see-reset').addEventListener('click',function(){runId++;training=false;labels=[];idx=0;net=initNet(7);before=null;guessed=0;right=0;extraOn=false;$('see-tests').innerHTML='';$('see-read').innerHTML='';$('see-train').innerHTML='';$('see-delta').innerHTML='';$('see-add').hidden=true;$('see-test').disabled=true;$('see-status').textContent='Cleared. Scene 1 of 10. Label it.';renderCard();});
     renderCard();
   })();
 
@@ -1246,29 +1654,38 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     function paint(cv,m,cell,colorFn){var ctx=cv.getContext('2d');cv.width=m[0].length*cell;cv.height=m.length*cell;
       for(var y=0;y<m.length;y++)for(var x=0;x<m[0].length;x++){ctx.fillStyle=colorFn(m[y][x]);ctx.fillRect(x*cell,y*cell,cell,cell);}return ctx;}
     function gray(v){var c=Math.round(v*255);return 'rgb('+c+','+c+','+c+')';}
-    function heat(v){var c=Math.round(255-v*240);return 'rgb('+c+','+c+','+Math.round(255-v*200)+')';}
-    function kern(){var k=K[filt],h='';k.forEach(function(r){h+='<tr>'+r.map(function(v){return '<td class="'+(v<0?'neg':(v>0?'pos':''))+'">'+(v<0?'\u2212'+(-v):v)+'</td>';}).join('')+'</tr>';});$('conv-kern').innerHTML=h;}
+    function heat(v){var a=Math.pow(Math.max(0,Math.min(1,v)),0.55);return 'rgb('+Math.round(255-a*41)+','+Math.round(255-a*224)+','+Math.round(255-a*150)+')';}
+    function cell(v){return '<td class="'+(v<0?'neg':(v>0?'pos':''))+'">'+(v<0?'\u2212'+(-v):v)+'</td>';}
+    function kern(){var k=K[filt],h='';
+      if(filt==='v'){h='<tr><th></th><th>left</th><th>middle</th><th>right</th></tr>';k.forEach(function(r){h+='<tr><th></th>'+r.map(cell).join('')+'</tr>';});
+        h+='<tr><th></th><th>subtract</th><th>ignore</th><th>add</th></tr>';
+        $('conv-kcap').innerHTML='<b>How to read it:</b> the filter <span class="kneg">subtracts</span> the three pixels on its left, ignores the middle, and <span class="kpos">adds</span> the three on its right (the middle row counts double). Same brightness on both sides? They cancel to 0. Dark on one side, light on the other? A big number: an up-and-down edge.';}
+      else{var lab=[['top','subtract'],['middle','ignore'],['bottom','add']];k.forEach(function(r,i){h+='<tr><th>'+lab[i][0]+'</th>'+r.map(cell).join('')+'<th>'+lab[i][1]+'</th></tr>';});
+        $('conv-kcap').innerHTML='<b>How to read it:</b> the filter <span class="kneg">subtracts</span> the three pixels above, ignores the middle row, and <span class="kpos">adds</span> the three below (the middle column counts double). Same brightness above and below? They cancel to 0. A jump from dark to light? A big number: a side-to-side edge.';}
+      $('conv-kern').innerHTML=h;}
     function stages(img){paint($('st1'),img,5,gray);var c=combined(img);paint($('st2'),c,5,heat);paint($('st3'),pool(c),15,heat);
       var v=verdict(img);$('st4v').textContent=v+'%';$('st4t').textContent=v>=70?'pedestrian':(v>=35?'pedestrian? not sure':'no one detected');return v;}
     function blank(){var img=frame(wx);paint($('conv-in'),img,10,gray);var ctx=$('conv-out').getContext('2d');$('conv-out').width=180;$('conv-out').height=220;ctx.fillStyle='#fff';ctx.fillRect(0,0,180,220);
       ['st2','st3'].forEach(function(id){var c=$(id),x=c.getContext('2d');x.fillStyle='#F3F3EE';x.fillRect(0,0,c.width,c.height);});paint($('st1'),img,5,gray);$('st4v').textContent='?';$('st4t').textContent='pedestrian';}
+    function showMath(img,k,y,x,sum){var px='<table>',kt='<table>';for(var i=0;i<3;i++){px+='<tr>';kt+='<tr>';for(var j=0;j<3;j++){px+='<td>'+img[y+i][x+j].toFixed(1)+'</td>';kt+='<td style="color:'+(k[i][j]<0?'#D61F69':'#14181D')+';font-weight:700">'+(k[i][j]<0?'\u2212'+(-k[i][j]):k[i][j])+'</td>';}px+='</tr>';kt+='</tr>';}
+      var f=fire(sum)>0;$('conv-math').innerHTML='<span>9 pixels<br>'+px+'</table></span><span class="op">\u00d7</span><span>filter<br>'+kt+'</table></span><span class="op">= add up \u2192</span><span class="tot">'+(sum<0?'\u2212':'')+Math.abs(sum).toFixed(1)+'</span><span class="'+(f?'fires':'quiet')+'">'+(f?'big: an edge is here':'small: no edge')+'</span>';}
     function run(){if(busy)return;busy=true;var img=frame(wx),m=conv(img,K[filt]),cin=$('conv-in'),cout=$('conv-out');
       var octx=cout.getContext('2d');cout.width=180;cout.height=220;octx.fillStyle='#fff';octx.fillRect(0,0,180,220);
-      var pos=0,total=(Wd-2)*(Ht-2),step=REDUCED?total:6;
-      $('conv-status').textContent='Sliding the '+(filt==='v'?'up-and-down':'side-to-side')+' edge filter across '+total+' spots\u2026';
+      var pos=0,total=(Wd-2)*(Ht-2),step=REDUCED?total:2,K0=K[filt];$('conv-run').disabled=true;$('conv-run').innerHTML='Sliding\u2026';
+      $('conv-status').textContent='Sliding the '+(filt==='v'?'vertical':'horizontal')+'-edge filter across '+total+' spots\u2026';
       function tick(){for(var s=0;s<step&&pos<total;s++,pos++){var y=Math.floor(pos/(Wd-2)),x=pos%(Wd-2);octx.fillStyle=heat(fire(m[y][x]));octx.fillRect(x*10,y*10,10,10);}
-        var ictx=paint(cin,img,10,gray);if(pos<total){var y2=Math.floor(pos/(Wd-2)),x2=pos%(Wd-2);ictx.strokeStyle='#FF3D8A';ictx.lineWidth=3;ictx.strokeRect(x2*10+1.5,y2*10+1.5,27,27);}
-        if(pos<total)requestAnimationFrame(tick);else{busy=false;var v=stages(img);
-          cout.setAttribute('aria-label','Feature map: where the '+(filt==='v'?'up-and-down':'side-to-side')+' edge filter fired');
+        var ictx=paint(cin,img,10,gray);if(pos<total){var y2=Math.floor(pos/(Wd-2)),x2=pos%(Wd-2);ictx.strokeStyle='#FF3D8A';ictx.lineWidth=3;ictx.strokeRect(x2*10+1.5,y2*10+1.5,27,27);showMath(img,K0,y2,x2,m[y2][x2]);}
+        if(pos<total)requestAnimationFrame(tick);else{busy=false;$('conv-run').disabled=false;$('conv-run').innerHTML='&#9654; Slide it again';var v=stages(img);
+          cout.setAttribute('aria-label','Feature map: where the '+(filt==='v'?'vertical':'horizontal')+'-edge filter fired');
           $('conv-status').textContent='Done. The filter checked all '+total+' spots with the same nine numbers.';
           var msg='<b>'+(wx==='clear'?'Clear day':(wx==='rain'?'Heavy rain':'Thick fog'))+'.</b> ';
-          if(wx==='clear')msg+='The edges trace the person and the curb cleanly, the shape layer finds a head, shoulders, and legs, and the verdict is <b>'+v+'% pedestrian</b>. Now try the other filter, then change the weather.';
+          if(wx==='clear')msg+='The edges trace the person and the curb cleanly, the shape layer finds a head, shoulders, and legs, and the verdict is <b>'+v+'% pedestrian</b>. Now try the other filter and see which lines light up, then change the weather.';
           else if(wx==='rain')msg+='The filter fired on raindrops as well as the person, so the shapes are cluttered. Verdict: <b>'+v+'% pedestrian</b>. Same filter, same code, worse frame.';
           else msg+='The contrast washed out, so most edges never got strong enough to fire, and the shapes never formed. Verdict: <b>'+v+'% pedestrian</b>. The person is still standing there.';
           $('conv-read').innerHTML=msg;}}
       tick();}
     document.querySelectorAll('#conv-tool [data-filt]').forEach(function(b){b.addEventListener('click',function(){if(busy)return;filt=b.getAttribute('data-filt');document.querySelectorAll('#conv-tool [data-filt]').forEach(function(x){setChip(x,x===b);});kern();});});
-    document.querySelectorAll('#conv-tool [data-wx]').forEach(function(b){b.addEventListener('click',function(){if(busy)return;wx=b.getAttribute('data-wx');document.querySelectorAll('#conv-tool [data-wx]').forEach(function(x){setChip(x,x===b);});blank();$('conv-read').innerHTML='';$('conv-status').textContent='Weather changed. Press Slide the filter.';
+    document.querySelectorAll('#conv-tool [data-wx]').forEach(function(b){b.addEventListener('click',function(){if(busy)return;wx=b.getAttribute('data-wx');document.querySelectorAll('#conv-tool [data-wx]').forEach(function(x){setChip(x,x===b);});blank();$('conv-read').innerHTML='';$('conv-run').innerHTML='&#9654; Slide the filter';$('conv-status').textContent='Weather changed. Press Slide the filter.';
       $('conv-in').setAttribute('aria-label','Camera frame: a person standing at a curb, '+(wx==='clear'?'clear day':(wx==='rain'?'heavy rain':'thick fog')));});});
     $('conv-run').addEventListener('click',run);
     kern();blank();
@@ -1282,20 +1699,20 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     if(!$('rl-tool'))return;
     var TS=[2,2.5,3,3.5,4,4.5,5,5.5,6];
     function sig(z){return 1/(1+Math.exp(-z));}
-    function episode(T,r){var wait=0;for(;;){var g=1.2+(-Math.log(1-r()))*2.8,pg=g+gauss(r)*0.6;
+    function episode(T,r,trace){var wait=0,c=trace?[]:null;for(;;){var g=1.2+(-Math.log(1-r()))*2.8,pg=g+gauss(r)*0.6;if(c)c.push([g,pg]);
       if(pg>=T){var pc=sig((2.4-g)/0.22),pcc=g<4.2?Math.max(0,(4.2-g)/1.8)*0.55:0,u=r();
-        if(u<pc)return{o:'crash',w:wait};if(u<pc+pcc)return{o:'close',w:wait};return{o:'ok',w:wait};}
-      wait+=g+0.8;if(wait>30)return{o:'timeout',w:30};}}
+        if(u<pc)return{o:'crash',w:wait,c:c};if(u<pc+pcc)return{o:'close',w:wait,c:c};return{o:'ok',w:wait,c:c};}
+      wait+=g+0.8;if(wait>30)return{o:'timeout',w:30,c:c};}}
     function reward(e,R){var x=0;if(e.o==='ok'||e.o==='close')x+=R.done;if(e.o==='close')x-=R.close;if(e.o==='crash')x-=R.crash;return x-R.wait*e.w;}
     var PRE={chapter:{done:10,crash:1000,close:15,wait:1},timid:{done:2,crash:1000,close:50,wait:0},hurry:{done:10,crash:20,close:2,wait:3}};
     var S={done:'rw-done',crash:'rw-crash',close:'rw-close',wait:'rw-wait'},runs=0,busy=false;
     function R(){return {done:+$('rw-done').value,crash:+$('rw-crash').value,close:+$('rw-close').value,wait:+$('rw-wait').value};}
     function outs(){var r=R();$('rw-done-o').textContent='+'+r.done;$('rw-crash-o').textContent='\u2212'+r.crash;$('rw-close-o').textContent='\u2212'+r.close;$('rw-wait-o').textContent='\u2212'+r.wait.toFixed(1);}
-    function clearBoard(){['done','crash','wait'].forEach(function(k){$('b-'+k).textContent='?';var p=$('p-'+k);p.className='pill wait';p.textContent='not tested';});$('rl-habit').textContent='?';$('rl-read').innerHTML='';}
+    function clearBoard(){['done','crash','wait'].forEach(function(k){$('b-'+k).textContent='?';var p=$('p-'+k);p.className='pill wait';p.textContent='not tested';p.parentNode.classList.remove('failrow');});$('rl-habit').textContent='?';$('rl-read').innerHTML='';var vb=$('rl-verdict');vb.className='verdictbanner wait';vb.textContent='Pass all three checks. Not tested yet.';var rr=$('rl-result');if(rr)rr.hidden=true;stopRoad();idleRoad();$('rl-watch').disabled=true;$('rl-out').textContent='Train the car, then watch it try the turn.';}
     function setPre(name){var p=PRE[name];for(var k in S)$(S[k]).value=p[k];outs();document.querySelectorAll('#rl-tool [data-pre]').forEach(function(b){setChip(b,b.getAttribute('data-pre')===name);});clearBoard();$('rl-status').textContent='Score sheet set. Press Train.';}
     Object.keys(S).forEach(function(k){$(S[k]).addEventListener('input',function(){outs();document.querySelectorAll('#rl-tool [data-pre]').forEach(function(b){setChip(b,false);});clearBoard();$('rl-status').textContent='Score sheet changed. Press Train to let the car learn it.';});});
     document.querySelectorAll('#rl-tool [data-pre]').forEach(function(b){b.addEventListener('click',function(){if(!busy)setPre(b.getAttribute('data-pre'));});});
-    function chart(pts){var svg=$('rl-chart');svg.innerHTML='';var W=640,H=200,l=56,rr=12,t=14,bm=34;
+    function chart(pts){var svg=$('rl-chart');svg.innerHTML='';var W=640,H=220,l=56,rr=12,t=44,bm=34;
       var mn=Math.min.apply(null,pts.concat([0])),mx=Math.max.apply(null,pts.concat([0]));if(mx-mn<1){mx+=1;mn-=1;}
       function X(i){return l+(W-l-rr)*i/19;}function Y(v){return t+(H-t-bm)*(mx-v)/(mx-mn);}
       svg.appendChild(el('line',{x1:l,y1:Y(0),x2:W-rr,y2:Y(0),stroke:'#9AA1AB','stroke-dasharray':'4 4'}));
@@ -1307,9 +1724,94 @@ p.runnote{font-size:.9rem;color:var(--gray);}
       svg.appendChild(el('text',{x:W-rr,y:H-12,'text-anchor':'end'},'turn 2,000'));
       svg.appendChild(el('text',{x:(W+l)/2,y:H-12,'text-anchor':'middle'},'average score per 100 practice turns'));
       if(pts.length>1){var d=pts.map(function(v,i){return (i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1);}).join(' ');svg.appendChild(el('path',{d:d,fill:'none',stroke:'#D61F69','stroke-width':2.5}));}
-      pts.forEach(function(v,i){svg.appendChild(el('circle',{cx:X(i),cy:Y(v),r:3,fill:'#14181D'}));});}
+      pts.forEach(function(v,i){svg.appendChild(el('circle',{cx:X(i),cy:Y(v),r:3,fill:'#14181D'}));});
+      if(pts.length===20){
+        // where did it settle? the first point after which every score stays near the final level
+        var fin=pts.slice(15).reduce(function(a,b){return a+b;},0)/5,band=Math.max(2,0.12*(mx-mn)),si=19;
+        for(var i=0;i<20;i++){var ok=true;for(var j=i;j<20;j++)if(Math.abs(pts[j]-fin)>band){ok=false;break;}if(ok){si=i;break;}}
+        if(si<1)si=1;
+        var xs=X(si);
+        svg.appendChild(el('rect',{x:l,y:t,width:xs-l,height:H-t-bm,fill:'#FF3D8A','fill-opacity':.07}));
+        svg.appendChild(el('line',{x1:xs,y1:t,x2:xs,y2:H-bm,stroke:'#14181D','stroke-dasharray':'3 3'}));
+        svg.appendChild(el('text',{x:l+4,y:16,fill:'#D61F69','font-weight':'700','font-size':12},'\u2197 the climb: trying things, learning what scores'));
+        svg.appendChild(el('text',{x:Math.min(xs+4,W-rr-250),y:34,fill:'#14181D','font-weight':'700','font-size':12},'\u2192 flat: settled on a habit (around turn '+fmt((si+1)*100)+')'));
+        var cap=$('rl-chartcap');if(cap)cap.innerHTML='<b>Read the shape, not the height.</b> The pink area is the climb: the car is still experimenting, sometimes with tiny gaps, and every crash drags its average down. It stops climbing around practice turn <b>'+fmt((si+1)*100)+'</b>; after the dashed line the score goes flat, which means it has settled on its habit and isn\u2019t learning anything new. Where it goes flat depends on your score sheet, so a higher line isn\u2019t a safer car. "Get there fast" can go flat at a decent score and still crash 31 times on the board.';
+      }}
+
+    /* ---- the cartoon intersection ---- */
+    var roadAnim=0,playTally='',playlist=[],playIdx=0,playT=0,playR=null;
+    var ROAD=$('rl-road'),CARCOL=['#5A626C','#3E6E8E','#8E3E5A','#6B7380','#2F4F3A'];
+    function stopRoad(){roadAnim++;}
+    function base(){ROAD.innerHTML='';
+      ROAD.appendChild(el('rect',{x:0,y:0,width:640,height:320,fill:'#DDE6D3'}));
+      ROAD.appendChild(el('rect',{x:250,y:0,width:140,height:320,fill:'#5A626C'}));
+      ROAD.appendChild(el('rect',{x:0,y:110,width:640,height:100,fill:'#5A626C'}));
+      for(var y=0;y<320;y+=28){if(y>100&&y<215)continue;ROAD.appendChild(el('rect',{x:318,y:y,width:4,height:16,fill:'#E4FF32'}));}
+      for(var x=0;x<640;x+=28){if(x>240&&x<395)continue;ROAD.appendChild(el('rect',{x:x,y:158,width:16,height:4,fill:'#FFFFFF','fill-opacity':.8}));}
+      for(var k=0;k<7;k++){ROAD.appendChild(el('rect',{x:256+k*20,y:214,width:10,height:8,fill:'#F3F3EE'}));ROAD.appendChild(el('rect',{x:256+k*20,y:98,width:10,height:8,fill:'#F3F3EE'}));}
+      ROAD.appendChild(el('rect',{x:322,y:224,width:66,height:3,fill:'#FFFFFF'}));
+      ROAD.appendChild(el('text',{x:398,y:300,'font-size':12,fill:'#14181D','font-weight':'700'},'\u2191 your robotaxi wants to turn left'));
+      ROAD.appendChild(el('text',{x:180,y:22,'font-size':12,fill:'#14181D','font-weight':'700','text-anchor':'end'},'oncoming traffic \u2193'));
+      var dyn=el('g',{id:'rl-dyn'});ROAD.appendChild(dyn);return dyn;}
+    function car(g,x,y,rot,fill,mine){var c=el('g',{transform:'translate('+x.toFixed(1)+' '+y.toFixed(1)+') rotate('+rot.toFixed(1)+')'});
+      c.appendChild(el('rect',{x:-12,y:-20,width:24,height:40,rx:6,fill:fill,stroke:'#14181D','stroke-width':1.5}));
+      c.appendChild(el('rect',{x:-9,y:-12,width:18,height:9,rx:2,fill:'#BFD9EA'}));
+      if(mine){c.appendChild(el('circle',{cx:0,cy:4,r:5,fill:'#FF3D8A',stroke:'#14181D','stroke-width':1}));}
+      else{c.appendChild(el('rect',{x:-10,y:16,width:6,height:3,fill:'#FFF6B0'}));c.appendChild(el('rect',{x:4,y:16,width:6,height:3,fill:'#FFF6B0'}));}
+      g.appendChild(c);}
+    function idleRoad(){var g=base();car(g,350,245,0,'#E4FF32',true);}
+    function label(g,x,y,txt,anchor,size,col){var t=el('text',{x:x,y:y,'font-size':size||13,'font-weight':'700',fill:col||'#14181D','text-anchor':anchor||'start'},txt);
+      g.appendChild(t);}
+    function setPlaylist(traces,T,Rw,crashOK,waitOK){var cr=traces.filter(function(t){return t.o==='crash';}),to=traces.filter(function(t){return t.o==='timeout';}),cl=traces.filter(function(t){return t.o==='close';});
+      playTally='Of the 300 test turns: <b>'+cr.length+'</b> crash'+(cr.length===1?'':'es')+', <b>'+cl.length+'</b> close call'+(cl.length===1?'':'s')+', <b>'+to.length+'</b> gave up.';
+      var first=(!crashOK&&cr[0])||(!waitOK&&to[0])||traces.filter(function(t){return t.o==='ok'&&t.w<10;})[0]||traces[0],rest=traces.slice(1),bad=rest.filter(function(t){return t.o==='crash'||t.o==='timeout';});
+      rest=traces.filter(function(t){return t!==first;});bad=rest.filter(function(t){return t.o==='crash'||t.o==='timeout';});playlist=[first].concat(bad.slice(0,2),rest.filter(function(t){return bad.indexOf(t)<0;}));playIdx=0;playT=T;playR=Rw;$('rl-watch').disabled=false;playTurn();}
+    function outcomeText(e){var R=playR,pts=0,parts=[];
+      if(e.o==='ok'||e.o==='close'){pts+=R.done;parts.push('+'+R.done+' for finishing');}
+      if(e.o==='close'){pts-=R.close;parts.push('\u2212'+R.close+' close call');}
+      if(e.o==='crash'){pts-=R.crash;parts.push('\u2212'+R.crash+' crash');}
+      if(R.wait&&e.w>0){pts-=R.wait*e.w;parts.push('\u2212'+(R.wait*e.w).toFixed(1)+' for waiting '+e.w.toFixed(1)+' s');}
+      var name={ok:'Clean turn.',close:'Close call!',crash:'Crash.',timeout:'Gave up after 30 seconds.'}[e.o];
+      if(!parts.length)return '<b>Turn '+playIdx+': '+name+'</b> Score: 0 points. On this sheet, sitting still costs nothing, so the car never learned to hurry.';
+      return '<b>Turn '+playIdx+': '+name+'</b> Score: '+parts.join(', ')+' = <b>'+(pts>=0?'+':'\u2212')+Math.abs(pts).toFixed(1)+' points</b>.';}
+    function playTurn(){if(!playlist.length)return;var e=playlist[playIdx%playlist.length];playIdx++;var my=++roadAnim;
+      var C=e.c,nRej=e.o==='timeout'?C.length:C.length-1,a=[1.0],i;
+      for(i=0;i<nRej;i++)a.push(a[i]+C[i][0]+0.8);
+      var start=e.o==='timeout'?1e9:a[nRej]+0.25,nextA,endS;
+      if(e.o==='timeout'){endS=31;nextA=null;}
+      else if(e.o==='crash'){endS=start+1.3;nextA=endS+0.22;}
+      else if(e.o==='close'){nextA=start+2.1;endS=start+4.2;}
+      else {nextA=Math.max(a[nRej]+C[nRej][0]+0.8,start+3.3);endS=start+4.2;}
+      var arr=a.slice(0,e.o==='timeout'?a.length:nRej+1);if(nextA!=null){arr.push(nextA,nextA+3.2,nextA+6.5);}
+      $('rl-out').innerHTML='Watching turn '+playIdx+'\u2026';
+      var t0=null,SPEED=REDUCED?1e6:3;
+      function frame(ts){if(my!==roadAnim)return;if(t0===null)t0=ts;var sim=Math.min(endS,(ts-t0)/1000*SPEED);
+        var g=base(),done=sim>=endS;
+        arr.forEach(function(av,j){var y=150+55*(sim-av);if(e.o==='crash'&&done&&j===nRej+1)y=150+55*(endS-av);if(y>-40&&y<360)car(g,290,y,180,CARCOL[j%CARCOL.length],false);});
+        var x=350,y=245,rot=0;
+        if(sim>start){var u=(sim-start)/1.6;if(u<=1){x=350-90*u*u;y=135+110*(1-u)*(1-u);rot=Math.atan2(-180*u,180*(1-u)*1.22)*180/Math.PI;}else{x=260-60*(sim-start-1.6);y=135;rot=-90;}}
+        car(g,x,y,rot,'#E4FF32',true);
+        var waited=sim<start?Math.max(0,sim-1.0):e.w;
+        g.appendChild(el('rect',{x:410,y:10,width:220,height:58,rx:6,fill:'#FFFFFF','fill-opacity':.92,stroke:'#14181D'}));
+        label(g,420,30,'Waiting: '+Math.min(30,waited).toFixed(1)+' s');
+        label(g,420,50,'Goes when a gap looks \u2265 '+playT+' s',null,12,'#5A626C');
+        // which gap is open now
+        var gi=-1;for(i=0;i<a.length;i++)if(a[i]<=sim)gi=i;
+        if(gi>=0&&gi<C.length&&sim<start+0.6){var ln=C[gi],go=gi===nRej&&e.o!=='timeout';
+          g.appendChild(el('rect',{x:10,y:240,width:228,height:66,rx:6,fill:'#FFFFFF','fill-opacity':.94,stroke:go?'#14181D':'#D61F69'}));
+          label(g,20,260,'Gap looks like '+ln[1].toFixed(1)+' s',null,13);
+          label(g,20,278,'(really '+ln[0].toFixed(1)+' s)',null,12,'#5A626C');
+          label(g,20,297,go?'Big enough: GO':'Too small: wait',null,13,go?'#14181D':'#D61F69');}
+        if(done&&e.o==='crash')label(g,300,150,'\u{1F4A5}','middle',52);
+        if(e.o==='close'&&sim>start+1.2&&sim<start+3)label(g,250,108,'Close call!','middle',16,'#D61F69');
+        if(done&&e.o==='timeout'){g.appendChild(el('rect',{x:220,y:130,width:200,height:44,rx:8,fill:'#FFFFFF',stroke:'#D61F69','stroke-width':2}));label(g,320,158,'Gave up \u{1F620}','middle',16,'#D61F69');}
+        if(!done){requestAnimationFrame(frame);return;}
+        $('rl-out').innerHTML=outcomeText(e)+' <span style="color:var(--gray)">'+playTally+'</span> <b>Press Watch another turn to see the next one.</b>';}
+      requestAnimationFrame(frame);}
+    $('rl-watch').addEventListener('click',function(){playTurn();});
+    idleRoad();
     function habit(T){return 'goes when a gap looks at least '+T+' seconds long';}
-    function train(){if(busy)return;busy=true;runs++;var Rw=R(),r=rng(runs*101+7),sum=TS.map(function(){return 0;}),n=TS.map(function(){return 0;}),tally={ok:0,close:0,crash:0,timeout:0},pts=[],blk=0,i=0;
+    function train(){if(busy)return;busy=true;runs++;stopRoad();idleRoad();$('rl-watch').disabled=true;var Rw=R(),r=rng(runs*101+7),sum=TS.map(function(){return 0;}),n=TS.map(function(){return 0;}),tally={ok:0,close:0,crash:0,timeout:0},pts=[],blk=0,i=0;
       clearBoard();$('rl-train').disabled=true;
       function best(){var b=-1,bv=-1e12;for(var k=0;k<TS.length;k++){if(!n[k])continue;var v=sum[k]/n[k];if(v>bv){bv=v;b=k;}}return b;}
       function tick(){for(var s=0;s<(REDUCED?2000:25)&&i<2000;s++,i++){var eps=Math.max(0.05,0.5*(1-i/1200)),b=best(),a=(r()<eps||b<0)?Math.floor(r()*TS.length):b;
@@ -1320,17 +1822,19 @@ p.runnote{font-size:.9rem;color:var(--gray);}
         if(i<2000){requestAnimationFrame(tick);return;}
         // pick the habit, only counting thresholds it actually tried enough
         var B=0,BV=-1e12;for(var k=0;k<TS.length;k++){if(n[k]<5)continue;var v=sum[k]/n[k];if(v>BV){BV=v;B=k;}}
-        var T=TS[B],tr=rng(2026),c={ok:0,close:0,crash:0,timeout:0},w=0;for(var q=0;q<300;q++){var e2=episode(T,tr);c[e2.o]++;w+=e2.w;}
+        var T=TS[B],tr=rng(2026),c={ok:0,close:0,crash:0,timeout:0},w=0,traces=[];for(var q=0;q<300;q++){var e2=episode(T,tr,true);c[e2.o]++;w+=e2.w;traces.push(e2);}
         var done=c.ok+c.close,aw=w/300,pd=done>=285,pc=c.crash<=1,pw=aw<8;
         $('rl-habit').textContent='It '+habit(T);
         $('b-done').textContent=done+' of 300';$('b-crash').textContent=c.crash;$('b-wait').textContent=aw.toFixed(1)+' s';
-        [['done',pd],['crash',pc],['wait',pw]].forEach(function(z){var p=$('p-'+z[0]);p.className='pill '+(z[1]?'pass':'fail');p.textContent=z[1]?'passes':'fails';});
+        [['done',pd],['crash',pc],['wait',pw]].forEach(function(z){var p=$('p-'+z[0]);p.className='pill '+(z[1]?'pass':'fail');p.textContent=z[1]?'passes':'fails';p.parentNode.classList.toggle('failrow',!z[1]);});
+        var vb=$('rl-verdict'),np=(pd?1:0)+(pc?1:0)+(pw?1:0);vb.className='verdictbanner '+(np===3?'pass':'fail');var failed=[];if(!pd)failed.push('too few turns finished');if(!pc)failed.push('too many crashes');if(!pw)failed.push('waits too long');vb.textContent=np===3?'\u2713 PASSED all three checks':'\u2717 FAILED: '+failed.join(', ');
+        setPlaylist(traces,T,Rw,pc,pw&&pd);
         var msg;
         if(pd&&pc&&pw)msg='<b>The board passes it.</b> '+c.close+' close call'+(c.close===1?'':'s')+' and '+c.timeout+' turn'+(c.timeout===1?'':'s')+' where it gave up still happened; no setting gets everything to zero. Name the trade-off you accepted, because the board will ask.';
         else if(!pc)msg='<b>Too aggressive.</b> Your score sheet made crashes cheap enough, or waiting costly enough, that taking small gaps paid off on average. The car did exactly what your numbers asked: '+c.crash+' crashes in 300 turns.';
         else if(!pw||!pd)msg='<b>Too timid.</b> Your score sheet made waiting nearly free, so the car learned that the safest move is to sit there. Average wait '+aw.toFixed(1)+' seconds, and '+c.timeout+' turns where it gave up after 30. That\u2019s the rider\u2019s two-star review, learned on purpose.';
         $('rl-read').innerHTML=msg+' <span class="flag ok">Train again and it may settle a half second differently; trial and error is noisy.</span>';
-        $('rl-status').textContent='Done: 2,000 practice turns, then 300 new ones for the board.';
+        $('rl-status').textContent='Done: 2,000 practice turns, then 300 new ones for the board.';var rr=$('rl-result');rr.hidden=false;rr.className='resultline '+(np===3?'pass':'fail');rr.innerHTML=np===3?'\u2713 <b>Goal met.</b> The safety board passed it on all three checks (see the goal box).':'\u2717 <b>Goal not met:</b> '+failed.join(', ')+'. Check the goal box to see which slider moves each one, then change the score sheet and train again.';
         busy=false;$('rl-train').disabled=false;}
       tick();}
     $('rl-train').addEventListener('click',train);
@@ -1389,55 +1893,175 @@ p.runnote{font-size:.9rem;color:var(--gray);}
       var mult=opt('wx')[2]*opt('tod')[2]*opt('who')[2],w=opt('wild')[2],lc=function(t){return t.charAt(0).toLowerCase()+t.slice(1);},desc=[opt('wx')[1],lc(opt('tod')[1]),lc(opt('who')[1]),lc(opt('wild')[1])].join(', ');
       var svg=$('world-svg'),msg;
       svg.setAttribute('aria-label','Generated scene: '+desc);
-      if(w>0){var miles=20000*mult*w,times=271.3e6/miles;$('w-miles').textContent=big(miles);$('w-fleet').textContent=times>=1?'about '+(times>=10?fmt(Math.round(times)):times.toFixed(1)):'less than once';
-        msg='<b>Built:</b> '+desc+'. Real driving would meet this roughly once every <b>'+big(miles)+' miles</b>. '+(times>=1?'The whole fleet has probably met it '+(times>=10?'about '+fmt(Math.round(times)):'about '+times.toFixed(1))+' times. A world model can make it a thousand more times by lunch.':'The fleet has probably never met it. The world model made it in a second, because it knew each ingredient separately.');}
-      else if(w===0){$('w-miles').textContent='no record';$('w-fleet').textContent='0, as far as anyone knows';
+      var parts=[['wx','weather'],['tod','time of day'],['who','who\u2019s on the road'],['wild','wildcard']].map(function(z){var o=opt(z[0]);return '\u00d7 '+o[2]+' <span style="color:var(--gray)">('+lc(o[1])+')</span>';}).join(' ');
+      $('w-miles-k').textContent='miles of driving to meet this once (a made-up estimate; see how it\u2019s figured below)';$('w-fleet-k').textContent='times the whole fleet has likely met it, in about 271 million real miles';
+      if(w>0){var mth='<b>How this is figured.</b> Start with <b>20,000 miles</b>, a made-up baseline for how often an ordinary scene comes along. Multiply by how much rarer each ingredient makes it: '+parts+' = <b>'+big(20000*mult*w)+' miles</b>. Every multiplier is an invented, order-of-magnitude guess, not data; the point is that rare things multiply. ';
+        mth+=pick.wx==='snow'?'The fleet number is set to zero for snow because Waymo\u2019s own FAQ says its cities get almost no snow.':'Then the one real number: Waymo\u2019s fleet has driven about <b>271.3 million</b> driverless miles (Waymo, through June 2026). 271.3 million \u00f7 '+big(20000*mult*w)+' = about <b>'+((271.3e6/(20000*mult*w))>=10?fmt(Math.round(271.3e6/(20000*mult*w))):(271.3e6/(20000*mult*w)).toFixed(1))+'</b> times, if the fleet drove everywhere equally (it doesn\u2019t).';
+        $('w-math').innerHTML=mth;}
+      else $('w-math').innerHTML=w===0?'<b>How this is figured.</b> No estimate here: Waymo has no published record of meeting an elephant, so there\u2019s nothing honest to multiply. The point is that the world model can still stage one.':'<b>How this is figured.</b> No estimate: there\u2019s nothing to multiply when no video anywhere has shown it.';
+      if(w>0){var miles=20000*mult*w,times=pick.wx==='snow'?0:271.3e6/miles;$('w-miles').textContent=big(miles);$('w-fleet').textContent=times>=1?'about '+(times>=10?fmt(Math.round(times)):times.toFixed(1)):'less than once';
+        msg='<b>Built:</b> '+desc+'. Real driving would meet this roughly once every <b>'+big(miles)+' miles</b>. '+(pick.wx==='snow'?'The fleet has almost certainly never met it: none of Waymo\u2019s five cities gets real snow, so it barely matters how common the rest of the scene is. ':'')+(times>=1?'The whole fleet has probably met it '+(times>=10?'about '+fmt(Math.round(times)):'about '+times.toFixed(1))+' times. A world model can make it a thousand more times by lunch.':'The fleet has probably never met it. The world model made it in a second, because it knew each ingredient separately.');}
+      else if(w===0){$('w-miles').textContent='Too rare';$('w-miles-k').textContent='to guess how many miles it takes to meet an elephant in the road';$('w-fleet').textContent='None reported';$('w-fleet-k').textContent='Waymo hasn\u2019t reported its cars ever meeting one. Its world model can still make one up.';
         msg='<b>Built:</b> an elephant in the road. Waymo\u2019s cars have no recorded meeting with one, but Genie 3 watched video of elephants, so the world model can stage one, in the rain, at night, on any street. That\u2019s transfer: knowledge learned from general video, put to work on driving.';}
-      else {$('w-miles').textContent='?';$('w-fleet').textContent='?';
+      else {$('w-miles').textContent='Unknown';$('w-miles-k').textContent='nobody can estimate how rare something is if no one has ever filmed it';$('w-fleet').textContent='Unknown';$('w-fleet-k').textContent='and the world model can\u2019t build it either, because it has no video to learn from';
         svg.setAttribute('aria-label','Generated scene with a gray blank where the wildcard should be: the world model has nothing to draw it from');
         msg='<b>It couldn\u2019t build it.</b> The gray blob is the honest answer. A world model only recombines what was in its training video. It can stage an elephant because elephants are on video. It can\u2019t stage what no camera has caught, and that\u2019s exactly where the long tail lives.';}
       $('world-read').innerHTML=msg+(built<3?' Build '+(3-built)+' more.':'');}
+
+    /* ---- spend a practice budget ---- */
+    // real experience per weather (0-100, invented); Bellingham-like year mix (percent of driving hours, invented)
+    var BW=[['clear','Clear skies',100,40],['rain','Rain',30,40],['fog','Fog',10,10],['glare','Low sun glare',40,7],['snow','Snow and ice',0,3]];
+    var READY=60,PER=2,BUDGET=60,spend={clear:0,rain:0,fog:0,glare:0,snow:0};
+    function left(){var u=0;for(var k in spend)u+=spend[k];return BUDGET-u;}
+    function drawBudget(){var h='',ready=0,waste=0,L=left();
+      BW.forEach(function(w){var real=w[2],sim=Math.min(100-real,spend[w[0]]*PER),tot=real+sim,ok=tot>=READY;
+        if(ok)ready+=w[3];else ready+=w[3]*tot/READY;
+        if(real>=READY)waste+=spend[w[0]];else waste+=Math.max(0,spend[w[0]]-Math.ceil((READY-real)/PER));
+        h+='<div class="brow2'+(ok?' ready':'')+'"><span class="bn">'+w[1]+'<small>'+w[3]+'% of the year'+(w[0]==='snow'?' \u00b7 fleet has none':'')+'</small></span><span class="btrack" aria-hidden="true"><span class="real" style="width:'+real+'%"></span><span class="sim" style="width:'+sim+'%"></span><span class="line"></span></span><span class="bstep"><button type="button" data-bw="'+w[0]+'" data-d="-5" aria-label="Fewer credits for '+w[1]+'"'+(spend[w[0]]<=0?' disabled':'')+'>\u2212</button><b>'+spend[w[0]]+'</b><button type="button" data-bw="'+w[0]+'" data-d="5" aria-label="More credits for '+w[1]+'"'+(L<=0||tot>=100?' disabled':'')+'>+</button></span></div>';});
+      $('bud-rows').innerHTML=h;$('bud-left').textContent=L;$('bud-ready').textContent=Math.round(ready)+'%';$('bud-waste').textContent=waste;
+      var msg;
+      if(L===BUDGET)msg='Start where it matters most. Which weather does Bellingham get a lot of that the fleet has barely driven in?';
+      else if(waste>=10)msg='<b>'+waste+' credits went to weather the car already handles.</b> Practicing sunny days is cheap comfort; the fleet has driven millions of miles in them. Move those credits to where the gray bar is short.';
+      else if(L>0)msg='You have <b>'+L+'</b> credits left. The car is practiced for <b>'+Math.round(ready)+'%</b> of a Bellingham-like year so far.';
+      else{var snowOK=BW[4][2]+spend.snow*PER>=READY;
+        msg='<b>Budget spent: ready for about '+Math.round(ready)+'% of a Bellingham-like year.</b> You couldn\u2019t afford everything, so you picked. '+(snowOK?'You covered snow even though it\u2019s only 3% of the year, because the fleet has none. ':'Snow is only 3% of the year, but the fleet has zero real miles in it. Leaving it out means your operational design domain has to exclude snow days, and the car has to know when it\u2019s left. ')+'And remember: every pink bar is the world model\u2019s idea of the weather. Practice isn\u2019t proof.';}
+      $('bud-read').innerHTML=msg;}
+
+    /* ---- train overnight, then a Bellingham week ---- */
+    var WEEK=[['Mon','rain'],['Tue','fog'],['Wed','rain'],['Thu','clear'],['Fri','glare'],['Sat','snow'],['Sun','rain']];
+    var WEMO={clear:'\u2600\uFE0F',rain:'\u{1F327}\uFE0F',fog:'\u{1F32B}\uFE0F',glare:'\u{1F305}',snow:'\u2744\uFE0F'};
+    var WNAME={clear:'clear',rain:'rain',fog:'fog',glare:'sun glare',snow:'snow'};
+    var nightBusy=false,nightRun=0;
+    function resetWeek(){nightRun++;nightBusy=false;$('week').innerHTML='';$('week-stats').hidden=true;$('week-read').innerHTML='';$('night').hidden=true;$('night-go').disabled=false;}
+    function level(k){var w=BW.filter(function(x){return x[0]===k;})[0];var sim=Math.min(100-w[2],spend[k]*PER);return {real:w[2],sim:sim,tot:w[2]+sim};}
+    $('night-go').addEventListener('click',function(){if(nightBusy)return;var used=BUDGET-left();
+      if(!used){$('night-status').textContent='Spend at least a few credits first. Otherwise there\u2019s nothing to practice.';return;}
+      nightBusy=true;var my=++nightRun;$('night-go').disabled=true;$('week').innerHTML='';$('week-stats').hidden=true;$('week-read').innerHTML='';
+      $('night').hidden=false;var total=used*100000,t0=null,DUR=REDUCED?1:2600;
+      $('night-status').textContent='Training overnight on '+used+' credits'+(left()?' ('+left()+' left unused)':'')+'\u2026';
+      function step(ts){if(my!==nightRun)return;if(t0===null)t0=ts;var f=Math.min(1,(ts-t0)/DUR);
+        $('night-prog').style.width=(f*100)+'%';$('night-count').textContent='Simulated scenes: '+fmt(Math.round(total*f))+' \u00b7 '+(f<1?'the world model is generating rain, fog, glare, and snow for the car to practice in':'done. Morning in Bellingham.');
+        if(f<1){requestAnimationFrame(step);return;}showWeek(my);}
+      requestAnimationFrame(step);});
+    function showWeek(my){var r=rng(7+spend.rain*3+spend.fog*5+spend.glare*7+spend.snow*11),days=0,rides=0,surp=0,cells=[],notes=[];
+      WEEK.forEach(function(d){var L=level(d[1]),ready=L.tot>=READY,cls,res,detail;
+        if(!ready){cls='park';res='Stayed parked';detail='outside its domain';}
+        else{var simShare=L.sim/L.tot,u=r();
+          if(u<0.55*simShare){cls='surp';res='Drove, slowly';detail='real '+WNAME[d[1]]+' didn\u2019t look like the simulation; asked for remote help';surp++;days++;rides+=250;}
+          else{cls='go';res='Full service';detail='practiced enough';days++;rides+=420;}}
+        cells.push('<div class="wday '+cls+'"><div class="wd">'+d[0]+'</div><div class="we" aria-hidden="true">'+WEMO[d[1]]+'</div><div>'+WNAME[d[1]]+'</div><div class="wr">'+res+'</div><div>'+detail+'</div></div>');});
+      $('week').innerHTML=cells.join('');var els=$('week').querySelectorAll('.wday'),i=0;
+      (function reveal(){if(my!==nightRun)return;if(i<els.length){els[i].classList.add('show');i++;setTimeout(reveal,REDUCED?0:260);return;}
+        nightBusy=false;$('night-go').disabled=false;$('night-go').innerHTML='&#127769; Train overnight again';
+        $('week-stats').hidden=false;$('wk-days').textContent=days;$('wk-rides').textContent=fmt(rides);$('wk-surp').textContent=surp;
+        var parked=WEEK.filter(function(d){return level(d[1]).tot<READY;}).map(function(d){return d[0];});
+        var msg='<b>Your first Bellingham week: '+days+' of 7 days in service, '+fmt(rides)+' rides.</b> ';
+        if(parked.length)msg+='The car stayed parked on '+parked.join(', ')+' because it hadn\u2019t practiced enough for that weather. That\u2019s the operational design domain doing its job: a parked car makes no money, but it doesn\u2019t make headlines either. ';
+        else msg+='It had practiced enough to drive every day. ';
+        if(surp)msg+='On '+surp+' day'+(surp===1?'':'s')+', the real weather didn\u2019t match the world model\u2019s version, so the car slowed down and asked for help. The more of its practice was simulated, the more often that happens. Practice isn\u2019t proof. ';
+        else msg+='No surprises this week, but the more of its practice is simulated, the more likely the real street looks different. ';
+        msg+='Move your credits and train again: can you get more days in service without more surprises?';
+        $('week-read').innerHTML=msg;$('night-status').textContent='Morning came. Here\u2019s the week.';})();}
+    $('bud-rows').addEventListener('click',function(e){var b=e.target.closest('button[data-bw]');if(!b||b.disabled)return;var k=b.getAttribute('data-bw'),d=+b.getAttribute('data-d');
+      if(d>0)d=Math.min(d,left());spend[k]=Math.max(0,spend[k]+d);drawBudget();resetWeek();$('night-go').innerHTML='&#127769; Train overnight';$('night-status').textContent='Credits changed. Train overnight to see the new week.';});
+    drawBudget();
     $('world-build').addEventListener('click',build);
-    $('world-reset').addEventListener('click',function(){if(busy)return;built=0;$('w-count').textContent='0';$('w-miles').textContent='?';$('w-fleet').textContent='?';$('world-svg').innerHTML='';$('world-check').innerHTML='';$('world-read').innerHTML='';
+    $('world-reset').addEventListener('click',function(){if(busy)return;built=0;$('w-math').innerHTML='';$('w-count').textContent='0';$('w-miles').textContent='?';$('w-fleet').textContent='?';$('world-svg').innerHTML='';$('world-check').innerHTML='';$('world-read').innerHTML='';
       pick={wx:'clear',tod:'day',who:'ped',wild:'none'};box.querySelectorAll('button[data-row]').forEach(function(x){setChip(x,pick[x.getAttribute('data-row')]===x.getAttribute('data-v'));});});
   })();
 
   /* =====================================================================
-     6. The pitch: plan plus offered conditions, read back
+     6. The hearing: seven council members, priced conditions, a vote
      ===================================================================== */
   (function(){
     if(!$('pitch-tool'))return;
+    var BASE={city:3.0,small:1.9},FLOOR=1.0;
     var C=[
-      ['report','Share crash and disengagement data with the city every quarter, in a format someone else can check','Costs us: our mistakes go public on the city\u2019s schedule, not ours.','Answers: who keeps the count (Chapter 7, section 2.8).'],
-      ['school','Slower speeds and extra caution near schools at drop-off and pickup','Costs us: longer trips and fewer rides an hour across part of the city.','Answers: the Santa Monica question regulators are already asking (section 1).'],
-      ['rain','A wet-season test period before full service','Costs us: a season of delay, and someone has to define what \u201cpassed\u201d means.','Answers: what the fog and rain did to the camera (section 2).'],
-      ['scores','Let an independent reviewer see what the car is rewarded for','Costs us: a piece of strategy competitors would love to see.','Answers: who wrote the score sheet (section 3).'],
-      ['cap','Start with a capped fleet, raised only after council review','Costs us: slower revenue, and fewer late-night and accessibility rides at first.','Answers: the slow lane, without saying no.'],
-      ['fee','A per-ride fee that funds a transition program for displaced drivers','Costs us: higher fares or thinner margins, and it admits the displacement is real.','Answers: the driver column of your ledger (Chapter 7, the case\u2019s Question 2).'],
-      ['hire','Hire local drivers first for fleet jobs: charging, cleaning, maintenance, remote assistance','Costs us: some wages we\u2019d pay anyway, and it covers only a small share of the jobs replaced.','Answers: \u201cwhat happens to us?\u201d with something more than a fund.'],
-      ['sunset','Accept a permit that expires in 12 months unless the council renews it','Costs us: we invest in a city that could send us away.','Answers: the council keeps its leverage.']];
-    var plan=null,on={};
-    var h='';C.forEach(function(c){h+='<div class="pairbox" style="margin:0"><div class="chips"><button type="button" class="chip" aria-pressed="false" data-cond="'+c[0]+'">Offer this</button></div><p class="pairwho" style="margin:8px 0 4px"><strong>'+c[1]+'</strong></p><p class="pdesc" style="margin:0">'+c[2]+' '+c[3]+'</p></div>';});
-    $('pitch-conds').innerHTML=h;
-    document.querySelectorAll('#pitch-tool [data-plan]').forEach(function(b){b.addEventListener('click',function(){plan=b.getAttribute('data-plan');document.querySelectorAll('#pitch-tool [data-plan]').forEach(function(x){setChip(x,x===b);});});});
-    document.querySelectorAll('#pitch-tool [data-cond]').forEach(function(b){b.addEventListener('click',function(){var k=b.getAttribute('data-cond');on[k]=!on[k];setChip(b,on[k]);b.textContent=on[k]?'Offered':'Offer this';});});
-    function name(k){for(var i=0;i<C.length;i++)if(C[i][0]===k)return C[i];}
-    $('pitch-go').addEventListener('click',function(){var out=$('pitch-out'),r=$('pitch-read');out.hidden=false;
-      if(!plan){r.innerHTML='Pick a plan first: launch citywide, launch small, wait a year, or walk away.';return;}
-      var picked=Object.keys(on).filter(function(k){return on[k];}),msg='';
-      if(plan==='walk'){r.innerHTML='<b>You walk away</b> and launch somewhere with easier rules. Bellingham keeps its drivers\u2019 income and its human crash rate; your ledger\u2019s crash column happens in some other town. Notice who decides where robotaxis go now: whichever city asks for the least. Is that a good way for the map to get drawn?';return;}
-      if(plan==='wait'){r.innerHTML='<b>You wait a year.</b> Say what a year buys you: more miles somewhere else, a newer car, a state law. '+(picked.length?'You\u2019d come back offering '+picked.length+' condition'+(picked.length===1?'':'s')+'. ':'')+'Meanwhile the crash column of your ledger doesn\u2019t happen here, and neither does the driver column. Waiting is a choice with both costs, not neither.';return;}
-      msg='<b>'+(plan==='launch'?'Launch citywide':'Launch small and grow')+'</b>, offering '+(picked.length?picked.length+' condition'+(picked.length===1?'':'s')+':':'nothing.');
-      if(picked.length){msg+='<ul style="margin:8px 0 10px;padding-left:20px">'+picked.map(function(k){var c=name(k);return '<li>'+c[1]+'. <span style="color:#C9CED6">'+c[2]+'</span></li>';}).join('')+'</ul>';}
+      ['report','Share crash and disengagement data with the city every quarter, in a format someone else can check','Answers who keeps the count (what you found in section 5).',[.2,.15],'q3'],
+      ['replay','Record every incident and let a city-appointed reviewer replay the car\u2019s sensor data afterward','Answers "why did it do that?" when the network can\u2019t (section 1).',[.25,.2],'q1'],
+      ['school','Slow down and add extra caution near schools at drop-off and pickup','Answers the Santa Monica question regulators are already asking (section 1).',[.4,.2],'q2'],
+      ['rain','A wet-season test: no paid rides from October to March in year one','Answers what rain and fog do to the camera (section 2). Costs a season of fares.',[1.2,.6],'q2'],
+      ['scores','Let an independent reviewer see what the car is rewarded for','Answers who wrote the score sheet (section 3).',[.15,.15],'q4'],
+      ['sim','Pay an outside lab to test Bellingham scenarios in simulation before launch: rain, snow, wheelchairs, kids','Answers "you\u2019ve never driven here" with a check someone else runs (section 4).',[.35,.35],'q2'],
+      ['cap','Cap the fleet at 30 cars until the council reviews it','Slower growth until someone other than the company has checked the numbers.',[1.0,.2],'q3'],
+      ['fee','Charge a per-ride fee that funds a transition program for displaced drivers','Answers the driver column of your ledger (the case\u2019s Question 2).',[.9,.4],'ben'],
+      ['hire','Hire local drivers first for fleet jobs: charging, cleaning, repair, remote help','Covers only a small share of the driving jobs replaced.',[.3,.15],'ben'],
+      ['sunset','Accept a permit that expires in 12 months unless the council renews it','The city keeps the power to end it if things go wrong.',[.2,.2],'q4']];
+    var RQ={q1:'Can anyone explain a mistake?',q2:'Does it know where it\u2019s allowed to be confident?',q3:'Who keeps the score?',q4:'Who answers when it\u2019s wrong?',ben:'Who benefits, and who pays? (case Question 2)'};
+    var M=[
+      {n:'Rosa Delgado',a:'\u{1F9D1}\u200D\u{1F4BC}',r:'Council member; her ward has the most rideshare drivers in town',q:'\u201cHundreds of people in my ward drive for a living. What do they get?\u201d',
+        v:function(on,small){return on.fee?[1,'A transition fund is real money for my drivers.']:(on.hire&&on.cap?[1,'Local hiring plus a slow start gives my drivers time.']:[0,'Nothing here does enough for the people in my ward who drive.']);}},
+      {n:'Mark Ellison',a:'\u{1F468}\u200D\u{1F467}',r:'Parent of two; served on the school board',q:'\u201cMy kids cross three streets to get to school. Tell me what your car does at 8 a.m.\u201d',
+        v:function(on){return on.school?[1,'You\u2019re slowing down where my kids walk. That\u2019s what I needed.']:[0,'You never said what your car does near a school.'];}},
+      {n:'Dr. Anita Shah',a:'\u{1FA7A}',r:'Emergency room physician',q:'\u201cI treat crash victims, and your numbers might be good. But I want the city to get the count, and proof it works in our weather.\u201d',
+        v:function(on){if(!on.report)return [0,'Your numbers stay your numbers. I want the city to get the count.'];if(!(on.rain||on.sim))return [0,'You\u2019ll share data, but you haven\u2019t shown it works in Bellingham weather.'];return [1,'The city gets the count, and you\u2019re testing it in our weather first.'];}},
+      {n:'Tom Brekke',a:'\u{1F3EA}',r:'Owns a bar downtown',q:'\u201cMy customers need a safe ride home at 1 a.m. Don\u2019t make us wait a year, and don\u2019t give us ten cars.\u201d',
+        v:function(on,small){if(on.rain)return [0,'Six months with no paid rides? My customers need them this winter.'];if(small&&on.cap)return [0,'A small zone and a tiny fleet. Nobody will get a ride.'];return [1,'People can get home safely, starting now.'];}},
+      {n:'Jess Nakamura',a:'\u{1F9D1}\u200D\u{1F9BD}',r:'Disability rights advocate; uses a wheelchair',q:'\u201cA car with no driver could change my life. But your network didn\u2019t recognize a wheelchair until someone labeled one. Test it on people like me, here. And don\u2019t shrink the fleet so much nobody can get a ride.\u201d',
+        v:function(on){if(!on.sim)return [0,'You haven\u2019t tested it on wheelchair users in Bellingham.'];if(on.cap)return [0,'Thirty cars citywide means I\u2019ll never get one.'];return [1,'You\u2019re testing it on people like me, and there will be enough cars to use.'];}},
+      {n:'Greg Olsen',a:'\u{1F9D3}',r:'Retired; worried about being a test site',q:'\u201cI don\u2019t want Bellingham to be your test track forever. Start small, and let us take it back if it goes wrong.\u201d',
+        v:function(on,small){if(!on.sunset)return [0,'If it goes wrong, we can\u2019t take it back.'];if(!(small||on.cap))return [0,'We can take it back, but you\u2019re starting with the whole city.'];return [1,'It starts small and we keep the right to end it.'];}},
+      {n:'Leila Haddad',a:'\u{1F469}\u200D\u{1F4BB}',r:'Software engineer',q:'\u201cI\u2019ve written reward functions. Show someone independent what your car is scored on, and give us the data to check it.\u201d',
+        v:function(on){if(!on.scores)return [0,'Nobody outside your company gets to see what the car is rewarded for.'];if(!on.report)return [0,'A reviewer sees the score sheet, but we never see the results.'];return [1,'Someone independent sees the score sheet, and we see the data.'];}}];
+    var plan='city',on={},tries=0;
+    function cost(k){var c=C.filter(function(x){return x[0]===k;})[0];return c[3][plan==='city'?0:1];}
+    function profit(){var p=BASE[plan];Object.keys(on).forEach(function(k){if(on[k])p-=cost(k);});return p;}
+    function money(v){return (v<0?'\u2212':'')+'$'+Math.abs(v).toFixed(2).replace(/0$/,'')+'M';}
+    function drawCouncil(results){$('council').innerHTML=M.map(function(m,i){var r=results?results[i]:null;
+      return '<div class="member'+(r?(r[0]?' yes':' no'):'')+'"><div class="mh"><span class="mav" aria-hidden="true">'+m.a+'</span><div><div class="mn">'+m.n+'</div><div class="mr">'+m.r+'</div></div></div><p class="mq">'+m.q+'</p>'+(r?'<div class="mv"><span class="votepill '+(r[0]?'yes">Yes':'no">No')+'</span>'+r[1]+'</div>':'')+'</div>';}).join('');}
+    function drawOffers(){$('pitch-conds').innerHTML=C.map(function(c){var id='cond-'+c[0];
+      return '<label class="offer'+(on[c[0]]?' on':'')+'" for="'+id+'"><input type="checkbox" id="'+id+'" data-cond="'+c[0]+'"'+(on[c[0]]?' checked':'')+'><span><span class="ot">'+c[1]+'</span><span class="od" style="display:block">'+c[2]+'</span><span class="otag'+(c[4]==='ben'?' ben':'')+'">'+RQ[c[4]]+'</span></span><span class="oc">\u2212'+money(cost(c[0]))+'</span></label>';}).join('');}
+    function drawProfit(){var p=profit(),v=$('profit-v');v.textContent=money(p);v.classList.toggle('bad',p<FLOOR);
+      $('profit-note').textContent=p<FLOOR?'Below your boss\u2019s $1.0M floor':'Your boss\u2019s floor: $1.0M. You\u2019re above it.';}
+    $('pitch-conds').addEventListener('change',function(e){var k=e.target.getAttribute('data-cond');if(!k)return;on[k]=e.target.checked;e.target.closest('.offer').classList.toggle('on',on[k]);drawProfit();drawCouncil(null);$('pitch-out').hidden=true;});
+    document.querySelectorAll('#pitch-tool [data-plan]').forEach(function(b){b.addEventListener('click',function(){plan=b.getAttribute('data-plan');document.querySelectorAll('#pitch-tool [data-plan]').forEach(function(x){setChip(x,x===b);});drawOffers();drawProfit();drawCouncil(null);$('pitch-out').hidden=true;});});
+    $('pitch-go').addEventListener('click',function(){tries++;var small=plan==='small',res=M.map(function(m){return m.v(on,small);}),yes=res.filter(function(r){return r[0];}).length,p=profit(),pass=yes>=4,ok=p>=FLOOR;
+      drawCouncil(res);var out=$('pitch-out'),r=$('pitch-read');out.hidden=false;
+      $('pitch-tally-l').textContent='The vote: '+yes+' yes, '+(7-yes)+' no';
+      var offered=Object.keys(on).filter(function(k){return on[k];}).length,msg;
+      if(pass&&ok)msg='<b>Permit granted, and it pencils out.</b> '+yes+' votes, '+money(p)+' in year-one profit. Now look at who voted no and why. Those people still live here, and you\u2019ll be back in front of them.';
+      else if(pass)msg='<b>You won the vote and lost your boss.</b> '+yes+' votes, but year-one profit is '+money(p)+', under the $1.0M floor. Which promise could you drop and still keep four votes?';
+      else if(ok)msg='<b>Permit denied, '+yes+' to '+(7-yes)+'.</b> You kept the money and lost the room. Read the no votes on the cards above: each one tells you what was missing.';
+      else msg='<b>Permit denied, and over budget.</b> '+yes+' votes and '+money(p)+' in profit. You spent money on promises that didn\u2019t move enough votes. Which ones bought nobody?';
       var notes=[];
-      if(!picked.length)notes.push('A pitch with no conditions doesn\u2019t mean a permit with no conditions. It means the council writes them, and theirs will cost more.');
-      if(picked.length>=7)notes.push('That\u2019s nearly the whole menu. Every one costs something, and a pitch this heavy may not pencil out. Which two answer the council\u2019s real worry?');
-      if(!on.fee&&!on.hire)notes.push('Nothing here answers the driver column of your ledger. The drivers\u2019 side will bring that number to the hearing whether you do or not.');
-      if(!on.report)notes.push('You kept the count to yourself. Chapter 7, section 2.8: whoever keeps the track record holds the power, and the council knows it.');
-      if(plan==='launch'&&!on.rain&&!on.cap)notes.push('Citywide on day one, in a rain city, with no test period and no cap. Mini-Camera\u2019s fog is the reason a council asks about that.');
-      if(!notes.length)notes.push('This answers both columns of your ledger and gives the council the count. The question now is whether it still makes money, and that\u2019s your boss\u2019s next question.');
-      r.innerHTML=msg+'<p style="margin:10px 0 0">'+notes.join(' ')+'</p>';});
-    $('pitch-reset').addEventListener('click',function(){plan=null;on={};document.querySelectorAll('#pitch-tool [data-plan]').forEach(function(x){setChip(x,false);});document.querySelectorAll('#pitch-tool [data-cond]').forEach(function(x){setChip(x,false);x.textContent='Offer this';});$('pitch-out').hidden=true;});
+      if(!offered)notes.push('A pitch with no conditions doesn\u2019t mean a permit with no conditions. It means the council writes them.');
+      if(pass&&!res[0][0])notes.push('You won without Rosa Delgado. Nothing in your offer answers the drivers\u2019 column of your ledger, and they\u2019ll bring that number to the next hearing.');
+      if(yes===6)notes.push('Six is the most anyone can get. Tom Brekke and Greg Olsen want opposite things, so somebody always loses.');
+      var sc='<p style="margin:14px 0 4px;color:var(--yellow);font-weight:700">Your responsible AI scorecard</p><div class="rscore">',miss=0;
+      ['q1','q2','q3','q4','ben'].forEach(function(q){var by=C.filter(function(c){return c[4]===q&&on[c[0]];}).map(function(c){return c[1].split(/[,:]/)[0];});
+        if(!by.length&&q!=='ben')miss++;
+        sc+='<div><span class="'+(by.length?'ok">\u2713':'no">\u2717')+'</span><span><b>'+RQ[q]+'</b> '+(by.length?'Answered by: '+by.join('; ')+'.':'Nothing in your offer answers this.')+'</span></div>';});
+      sc+='</div><p style="margin:10px 0 0">'+(miss===0?'Your offer answers all four responsible AI questions.':'Your offer leaves '+miss+' of the four responsible AI questions unanswered. '+(pass?'You won the vote anyway. That\u2019s the point: a permit is a political win, not proof the system is responsible.':'Answering them might not have won the vote by itself, but now you know what you didn\u2019t promise.'))+'</p>';
+      r.innerHTML=msg+(notes.length?'<p style="margin:10px 0 0">'+notes.join(' ')+'</p>':'')+sc;
+      $('pitch-tries').textContent='Votes held so far: '+tries+'.';
+      out.scrollIntoView({behavior:REDUCED?'auto':'smooth',block:'nearest'});});
+    $('pitch-reset').addEventListener('click',function(){plan='city';on={};tries=0;document.querySelectorAll('#pitch-tool [data-plan]').forEach(function(x){setChip(x,x.getAttribute('data-plan')==='city');});drawOffers();drawProfit();drawCouncil(null);$('pitch-out').hidden=true;$('pitch-tries').textContent='';});
+    drawCouncil(null);drawOffers();drawProfit();
+  })();
+
+  /* =====================================================================
+     5. Data explorer: Waymo's Safety Impact numbers (through June 2026)
+     ===================================================================== */
+  (function(){
+    if(!$('dx-tool'))return;
+    // [human benchmark, Waymo] per million miles
+    var D={
+      all:{n:'All five cities',mi:271.3,inj:[3.77,.67],air:[1.61,.29],ser:[.21,.01]},
+      phx:{n:'Phoenix',mi:92.121,inj:[1.95,.56],air:[1.32,.30],ser:[.10,.01]},
+      sf:{n:'San Francisco',mi:82.421,inj:[6.71,.67],air:[1.93,.32],ser:[.39,.02]},
+      la:{n:'Los Angeles',mi:67.098,inj:[2.49,.86],air:[1.23,.28],ser:[.15,0]},
+      atx:{n:'Austin',mi:21.064,inj:[3.25,.52],air:[2.32,.24],ser:[.17,0]},
+      atl:{n:'Atlanta',mi:8.624,inj:[6.44,.81],air:[2.77,.23],ser:[.22,0]}};
+    var TYPES=[['Hit at an intersection',404,15,96],['Rear-end (front-to-rear)',169,88,48],['Pedestrian',93,7,93],['Single vehicle (no other car)',72,2,97],['Side-swipe (lateral)',68,12,82],['Cyclist',65,9,86],['Secondary crash',55,23,59],['Motorcycle',43,8,82],['All others',20,3,85]];
+    var cur='all';
+    $('dx-cities').innerHTML=Object.keys(D).map(function(k){return '<button type="button" class="chip'+(k===cur?' on':'')+'" aria-pressed="'+(k===cur)+'" data-city="'+k+'">'+D[k].n+'</button>';}).join('');
+    function row(lbl,v,max){return '<div class="dxrow"><span>'+lbl+'</span><span class="dxbars" aria-hidden="true"><span class="dxbar h" style="width:'+(v[0]/max*100).toFixed(1)+'%"></span><span class="dxbar w" style="width:'+Math.max(.6,v[1]/max*100).toFixed(1)+'%"></span></span><span class="dxv">Humans '+v[0].toFixed(2)+'<br>Waymo '+v[1].toFixed(2)+'</span></div>';}
+    function draw(){var d=D[cur];
+      $('dx-rows').innerHTML=row('Any injury',d.inj,7)+row('Airbag went off',d.air,7)+row('Serious injury or death',d.ser,7);
+      $('dx-miles').textContent=d.mi.toFixed(1)+' million';$('dx-avoid').textContent='about '+Math.round((d.inj[0]-d.inj[1])*10);}
+    $('dx-types').innerHTML=TYPES.map(function(t){return '<div class="dxrow"><span>'+t[0]+'</span><span class="dxbars" aria-hidden="true"><span class="dxbar h" style="width:'+(t[1]/404*100).toFixed(1)+'%"></span><span class="dxbar w" style="width:'+Math.max(.6,t[2]/404*100).toFixed(1)+'%"></span></span><span class="dxv">Expected '+t[1]+'<br>Waymo '+t[2]+'<br><b>'+t[3]+'% fewer</b></span></div>';}).join('');
+    document.querySelectorAll('#dx-cities [data-city]').forEach(function(b){b.addEventListener('click',function(){cur=b.getAttribute('data-city');document.querySelectorAll('#dx-cities [data-city]').forEach(function(x){setChip(x,x===b);});draw();});});
+    draw();
   })();
 
   /* ---------- copy buttons ---------- */
