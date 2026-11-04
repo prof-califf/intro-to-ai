@@ -832,7 +832,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
 
       <div class="netbox">
         <p class="nt">The network, as you've trained it</p>
-        <p class="nk">Six clues in, two hidden layers, four labels out. Each line is a weight, one of the dials from section 2.2. Thicker means it matters more. Dark lines push toward a label; pink lines push away. The six strongest weights show their numbers, and you can hover over any line to see its value. Every time you label a scene, watch the lines shift as the network retrains. A real network has billions of these.</p>
+        <p class="nk">Six clues in, two hidden layers, four labels out. Each line is a weight, one of the dials from section 2.2. Thicker means it matters more. Dark lines push toward a label; pink lines push away. The six strongest weights show their numbers, and you can hover over any line to see its value. Before you label anything, these lines are random: that’s where training starts, and the network knows nothing yet. Every time you label a scene, watch the lines shift as the network retrains. A real network has billions of these. Real companies rarely start from random, though. They take a model someone else already trained and fine-tune it on their own labels.</p>
         <div id="see-net"></div>
         <p class="trainline" id="see-train" aria-live="polite"></p>
         <div class="deltaline" id="see-delta"></div>
