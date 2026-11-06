@@ -230,6 +230,33 @@ figure.photo img{display:block;width:100%;height:auto;border-radius:6px}
 figure.photo figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;margin-top:8px}
 figure.photo .credit{display:block;font-size:.76rem;margin-top:3px}
 @media print{figure.photo{break-inside:avoid;max-width:320px}}
+/* ---- added 6 Nov 2026 to mirror Chapter 7 ---- */
+ul.teach{margin:0 0 1.1em 1.2em}
+ul.teach li{margin-bottom:.5em}
+ul.decide{margin:0 0 1.1em 1.2em}
+ul.decide li{margin-bottom:.6em}
+.photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0}
+.photo-pair figure.photo{margin:0;max-width:none}
+.photo-pair img{aspect-ratio:16/10;object-fit:cover}
+@media(max-width:560px){.photo-pair{grid-template-columns:1fr}}
+.res3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#242C36;border:1px solid #242C36;margin:14px 0 0;}
+.res3 .cell{background:var(--dark);padding:14px 12px;text-align:center;}
+.res3 .v{font-family:'Fraunces',serif;font-weight:700;font-size:1.5rem;color:#E7EAEF;}
+.res3 .v.warn{color:var(--pink);}
+.res3 .k{font-size:.76rem;color:#A9B0B9;margin-top:3px;line-height:1.35;}
+.rw{display:grid;grid-template-columns:1fr 160px 64px;gap:12px;align-items:center;margin:10px 0;font-size:.88rem;}
+.rw input[type=range]{width:100%;accent-color:var(--pink);}
+.rw .val{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;}
+@media(max-width:560px){.rw{grid-template-columns:1fr 64px}.rw input[type=range]{grid-column:1 / -1;grid-row:2}}
+.thstrip{position:relative;height:74px;margin:16px 0 4px;background:#F3F3EF;border:1px solid var(--rule);}
+.thstrip .mk{position:absolute;width:10px;height:10px;margin-left:-5px;}
+.thstrip .mk.civ{top:14px;background:#fff;border:1.5px solid #5A626C;}
+.thstrip .mk.mil{top:46px;background:var(--dark);}
+.thstrip .mk.civ.flag{background:var(--pink);border-color:var(--pink);}
+.thstrip .mk.mil.miss{background:#fff;border:2px solid var(--dark);}
+.thstrip .line{position:absolute;top:0;bottom:0;width:3px;margin-left:-1.5px;background:var(--pink);}
+.thkey{display:flex;justify-content:space-between;font-size:.78rem;color:var(--gray);}
+.btn:disabled{background:#E7E7E2;color:#5A626C;cursor:default}
 </style>
 <style>
   .srcnote{border:1px solid var(--rule);border-radius:10px;background:#fff;padding:0;margin:34px 0}
@@ -319,7 +346,7 @@ figure.photo .credit{display:block;font-size:.76rem;margin-top:3px}
   <div class="secs">
     <div class="label">Chapter sections</div>
     <ul class="seclist">
-      <li><a href="#s1"><span class="sn">1</span>Holding two things</a></li>
+      <li><a href="#s1"><span class="sn">1</span>Context: two drones</a></li>
       <li><a href="#s2"><span class="sn">2</span>The concepts: the old rules of war, and what AI does to each</a></li>
       <li><a href="#s3"><span class="sn">3</span>The case: Ukraine's drones, and the moving human</a></li>
       <li><a href="#s4"><span class="sn">4</span>Decide: the desk</a></li>
@@ -329,13 +356,34 @@ figure.photo .credit{display:block;font-size:.76rem;margin-top:3px}
 </div>
 
 <section id="s1">
-  <div class="shead"><span class="num">1</span><h2>Holding two things</h2></div>
-  <p>This is the chapter where our five questions carry the most weight they'll ever carry, because "what happens when it fails?" stops being a metaphor. It's also a chapter where easy positions are cheap on every side. "Tech companies should never touch defense" is easy until you ask who defends a country that has been invaded, and with what. "Whatever keeps us safe" is easy until you ask who defines us, and safe, and who checks the answer.</p>
-  <p>So we'll do the harder thing. War already has ethics, worked out over centuries by soldiers, lawyers, and philosophers: fight only combatants, keep a person responsible for every use of force, don't let a tool decide what its user should. Each section below takes one of those old ideas, tells a true story about what happened when a machine got involved, and asks what AI changes. One rule for the week, stated once: every sentence in this chapter should survive being read aloud to a veteran in the room.</p>
+  <div class="shead"><span class="num">1</span><h2>Context: two drones</h2></div>
+  <p class="lead">Drone one: a Ukrainian pilot, goggles on, flies a small drone toward a target. A moment before the end, the pilot draws a box around the target on the screen. Then, close in, where the defenses are thickest, a jammer finds the radio link and the video goes dark. A small computer on the drone holds the box and steers the last stretch alone. From here on, nobody can call it off.</p>
+  <p class="lead">Drone two: same war, same kind of target. This one trails a thin fiber-optic cable behind it, so there's no radio link to jam. The pilot sees through its camera all the way in and flies it to the end. It's slower, it can't go as far, and the cable can snag.</p>
+  <div class="photo-pair">
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/UA_FPV_strike_drones_02.jpg/960px-UA_FPV_strike_drones_02.jpg" alt="Two small quadcopter drones in flight over a field" loading="lazy" width="880" height="473">
+      <figcaption><b>Drone one:</b> a person draws the lock, the machine finishes. <span class="credit">Photo: <a class="inline" href="https://commons.wikimedia.org/wiki/File:UA_FPV_strike_drones_02.jpg" target="_blank" rel="noopener">АрміяInform</a>, <a class="inline" href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener">CC BY 4.0</a>, via Wikimedia Commons.</span></figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/UA_fiber-optic_FPV_drone_02.webp/960px-UA_fiber-optic_FPV_drone_02.webp" alt="A small quadcopter drone in flight over a field, with a cylindrical cable spool hanging beneath it and a thin line trailing behind" loading="lazy" width="880" height="587">
+      <figcaption><b>Drone two:</b> a person flies it to the end, on a cable. <span class="credit">Photo: <a class="inline" href="https://commons.wikimedia.org/wiki/File:UA_fiber-optic_FPV_drone_02.webp" target="_blank" rel="noopener">АрміяInform</a>, <a class="inline" href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener">CC BY 4.0</a>, via Wikimedia Commons.</span></figcaption>
+    </figure>
+  </div>
+
+  <p>Both drones do the same job for a country defending itself, and both are flown by soldiers who carry the cost when a strike fails. But the people who built them made opposite choices about one thing: where the person's last decision sits. On the first drone it sits at the lock, before the last thing happens. On the second it sits at impact, and the price is range and speed. That makes the pair a useful comparison: same war, same mission, and the only big difference is where the human stands. So we can watch what changes when you move the human. Who decides? Who answers when it goes wrong? Who would ever find out? This week's lab, at home because of Veterans Day, puts you at a different desk: you're an analyst at an AI company deciding what your company will build for defense customers.</p>
+  <p>This is also the chapter where our five questions carry the most weight they'll ever carry, because "what happens when it fails?" stops being a metaphor. Easy positions are cheap on every side. "Tech companies should never touch defense" is easy until you ask who defends a country that has been invaded, and with what. "Whatever keeps us safe" is easy until you ask who defines us, and safe, and who checks the answer. We read this chapter in Veterans Day week on purpose, and we hold two things at once: respect for the people who serve, and hard questions about the tools they're handed. One rule for the week, stated once: every sentence in this chapter should survive being read aloud to a veteran in the room.</p>
+  <p><strong>The point of this chapter, in one sentence:</strong> AI doesn't erase the old rules of war, it turns each one into a setting someone picks in advance, and the question that decides whether a person is really in control is where their last decision sits and who finds out what happens after it.</p>
+  <p><strong>What this chapter teaches:</strong></p>
+  <ul class="teach">
+    <li><strong>Concepts:</strong> the kill chain, distinction as a threshold, meaningful human control, automation bias, dual use and who draws the line, the inversion and the accountability gap, and governance theater.</li>
+    <li><strong>The case:</strong> Ukraine's drones, run through the five critical AI questions, including how jamming moved the human's last decision and who finds out when a strike goes wrong.</li>
+    <li><strong>The lab:</strong> at home this week, as an analyst at an AI company, you sort eight requests from defense customers and put a price on every line you draw.</li>
+  </ul>
 </section>
 
 <section id="s2">
   <div class="shead"><span class="num">2</span><h2>The concepts: the old rules of war, and what AI does to each</h2></div>
+  <p>War already has ethics, worked out over centuries by soldiers, lawyers, and philosophers: fight only combatants, keep a person responsible for every use of force, don't let a tool decide what its user should. Each section below takes one of those old ideas, tells a true story about what happened when a machine got involved, and asks what AI changes. Section 3 then runs every one of them on Ukraine's drones.</p>
 
   <h3 class="sub" id="s2-1"><span>2.1</span> The chain, and where AI already sits in it</h3>
   <p>"Military AI" is a phrase that makes people picture a robot with a rifle. Almost none of it looks like that. Militaries describe a strike as a chain of steps, usually six: <strong>find</strong> a target, <strong>fix</strong> its location, <strong>track</strong> it, <strong>target</strong> it (match it to a weapon and a plan), <strong>engage</strong>, and <strong>assess</strong> whether it worked. The chain is decades older than AI, and it's useful here because it shows where AI actually went first.</p>
@@ -383,6 +431,21 @@ figure.photo .credit{display:block;font-size:.76rem;margin-top:3px}
     <figcaption>Distinction, as a classifier sees it. Where the two curves overlap, no setting gets both mistakes to zero. Slide the line right and fewer civilians are flagged, but more real threats are missed. Slide it left and the reverse. That choice is made by people, before anyone is in the frame.</figcaption>
   </figure>
 
+  <p>Try it. Forty invented vehicles, scored by an invented model. You set the line.</p>
+  <div class="tool" id="th-tool">
+    <div class="label">Set the threshold · 40 vehicles, one line</div>
+    <p style="font-size:.92rem">Top row: civilian vehicles, like farm trucks, delivery vans, and buses. Bottom row: military vehicles. Each sits at the model's confidence that it's military. Anything right of the pink line gets flagged. Find a setting that makes neither mistake.</p>
+    <div class="rw"><span>Flag when the score is at least</span><input type="range" id="th-r" min="0" max="100" step="1" value="50" aria-label="Threshold: flag a vehicle when the model's score is at least this"><span class="val" id="th-v">50</span></div>
+    <div class="thstrip" id="th-strip" role="img" aria-label="Forty vehicles placed by score, with the threshold line at 50"></div>
+    <div class="thkey"><span>0: surely civilian</span><span>100: surely military</span></div>
+    <div class="res3">
+      <div class="cell"><div class="v" id="th-civ">--</div><div class="k">civilian vehicles flagged, of 20</div></div>
+      <div class="cell"><div class="v" id="th-mil">--</div><div class="k">military vehicles missed, of 20</div></div>
+      <div class="cell"><div class="v" id="th-ok">--</div><div class="k">vehicles sorted right, of 40</div></div>
+    </div>
+    <div class="verdict" id="th-out" aria-live="polite"><div class="read" id="th-read"></div></div>
+    <p style="font-size:.85rem;color:var(--gray);margin-top:10px">Invented vehicles and scores, built to overlap the way real categories do. Not any real system. Nothing is saved.</p>
+  </div>
   <p>So <strong>distinction</strong> is a moral rule and an engineering setting at the same time. It's easy to treat it as a matter of good intentions. Once a model helps decide who is who, it becomes a threshold someone sets in advance, with a known rate of wrong answers on each side.</p>
 
   <h3 class="sub" id="s2-3"><span>2.3</span> Meaningful human control, and the officer who didn't trust his screen</h3>
@@ -422,6 +485,25 @@ figure.photo .credit{display:block;font-size:.76rem;margin-top:3px}
     </figure>
 
   <p>Hold the two stories together. Petrov had time and doubt, and the human saved the day. The Patriot crews had seconds and trust, and the human approved the machine's mistake. Same arrangement, a person between a computer and a weapon, with opposite outcomes. The lesson isn't "humans good" or "machines bad." It's that a human in the loop only helps if the loop is built to let them doubt. After 2003, the Army changed how Patriot crews trained and how much they could leave on automatic. Notice that it took deaths to do it.</p>
+  <div class="tool" id="sh-tool">
+    <div class="label">Seconds and trust · one shift, 200 alerts</div>
+    <p style="font-size:.92rem">You're the person between the machine and the weapon. The machine sends 200 alerts in a shift and is right on 194 of them. Six are wrong. Set how long you get per alert and how you were trained, then run the shift.</p>
+    <div class="rw"><span>Seconds you get per alert</span><input type="range" id="sh-t" min="2" max="60" step="1" value="10" aria-label="Seconds per alert"><span class="val" id="sh-tv">10 s</span></div>
+    <div class="chips" role="group" aria-label="How the crew was trained" style="margin-top:10px">
+      <button type="button" class="chip on" id="sh-trust" aria-pressed="true">Trained to trust the system</button>
+      <button type="button" class="chip" id="sh-doubt" aria-pressed="false">Trained to doubt it</button>
+    </div>
+    <div class="chips" style="margin-top:16px">
+      <button type="button" class="btn" id="sh-run">Run the shift</button>
+    </div>
+    <div class="res3">
+      <div class="cell"><div class="v" id="sh-chk">--</div><div class="k">alerts really checked, of 200</div></div>
+      <div class="cell"><div class="v" id="sh-catch">--</div><div class="k">wrong alerts caught, of 6</div></div>
+      <div class="cell"><div class="v" id="sh-miss">--</div><div class="k">wrong alerts approved</div></div>
+    </div>
+    <div class="verdict" id="sh-out" aria-live="polite" style="display:none"><div class="read" id="sh-read"></div></div>
+    <p style="font-size:.85rem;color:var(--gray);margin-top:10px">A toy model with invented odds, not any real system. The shape of the trade-off is the real part. Nothing is saved.</p>
+  </div>
   <p>The lesson people miss about <strong>automation bias</strong> is that putting a person in the loop doesn't fix a machine's errors on its own. If the person has been trained to trust the machine, they approve the errors too, and now the error has a signature on it.</p>
 
   <h3 class="sub" id="s2-5"><span>2.5</span> Dual use, and who draws the line</h3>
@@ -517,23 +599,26 @@ figure.photo .credit{display:block;font-size:.76rem;margin-top:3px}
 
   <h3 class="sub" id="s3-background"><span>Background</span> A war fought with cheap drones</h3>
   <p>Since Russia's full-scale invasion in 2022, Ukraine has fought one of the first wars in which small, cheap drones do much of the work. The most common is the FPV drone, short for first-person view: a racing-style quadcopter, often carrying an explosive, flown by a pilot wearing goggles that show the drone's camera feed. Ukraine planned to buy 4.5 million of them in 2025 alone, and in 2024 it created a separate branch of its armed forces just for unmanned systems (<a class="inline" href="https://www.wpxi.com/news/politics/ukrainians-embed/Q3KYIFADAI5WPBE34MB5UFVRSE/" target="_blank" rel="noopener">AP</a>).</p>
-  <figure class="photo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/UA_FPV_strike_drones_02.jpg/960px-UA_FPV_strike_drones_02.jpg" alt="Two small quadcopter drones in flight over a field" loading="lazy" width="880" height="473">
-      <figcaption><b>FPV strike drones</b>, the small, cheap quadcopters at the center of this case. <span class="credit">Photo: <a class="inline" href="https://commons.wikimedia.org/wiki/File:UA_FPV_strike_drones_02.jpg" target="_blank" rel="noopener">АрміяInform</a>, <a class="inline" href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener">CC BY 4.0</a>, via Wikimedia Commons.</span></figcaption>
-    </figure>
-
-  <p>Then the other side adapted. An FPV drone depends on a radio link: video down to the pilot, commands up to the drone. Jammers flood those frequencies with noise, and the link drops, usually in the last stretch near the target, where defenses are thickest. A drone that loses its pilot a few hundred meters out either falls or drifts. Both sides went looking for a fix, and they found two.</p>
+  <div class="facts">
+    <div class="fact"><div class="big"><em>4.5M</em></div><div class="small">FPV drones Ukraine planned to buy in 2025 alone</div></div>
+    <div class="fact"><div class="big"><em>~$50</em></div><div class="small">What one terminal-guidance module can cost, by makers' accounts</div></div>
+    <div class="fact"><div class="big"><em>33,000</em></div><div class="small">AI guidance kits for Ukraine's drones, funded by the Pentagon in 2025</div></div>
+  </div>
+    <p>Then the other side adapted. An FPV drone depends on a radio link: video down to the pilot, commands up to the drone. Jammers flood those frequencies with noise, and the link drops, usually in the last stretch near the target, where defenses are thickest. A drone that loses its pilot a few hundred meters out either falls or drifts. Both sides went looking for a fix, and they found two.</p>
   <p>One fix keeps the human: <strong>fiber-optic drones</strong> that unspool a thin cable behind them, so there's no radio link to jam. The pilot flies all the way to the end. The other fix is AI. A small onboard computer, sometimes a module that costs about $50, watches the camera feed. The pilot flies the drone toward the target and draws a box around it. That's the <strong>lock</strong>. From then on, if the link drops, the onboard AI keeps tracking whatever is inside the box and steers the drone the rest of the way. Ukrainian makers have announced mass production of FPV drones with this <strong>terminal guidance</strong>; one module maker says its system takes over in the last 500 meters, and its founder claims it can raise strike success rates as much as four times (<a class="inline" href="https://www.kyivpost.com/amp/post/60152" target="_blank" rel="noopener">Kyiv Post</a>, <a class="inline" href="https://spectrum.ieee.org/autonomous-drone-warfare" target="_blank" rel="noopener">IEEE Spectrum</a>). The United States noticed: in 2025 the Pentagon funded 33,000 AI guidance kits for Ukraine's drones (<a class="inline" href="https://global.espreso.tv/aid-pentagon-taps-auterion-for-massive-ai-drone-boost-to-ukraine-in-50m-deal" target="_blank" rel="noopener">Reuters, via Espreso</a>), and by 2026 U.S. officials were saying openly that they were learning drone warfare from Ukraine (<a class="inline" href="https://www.pravda.com.ua/eng/news/2026/05/30/8037089/" target="_blank" rel="noopener">Ukrainska Pravda</a>).</p>
-
-  <figure class="photo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/UA_fiber-optic_FPV_drone_02.webp/960px-UA_fiber-optic_FPV_drone_02.webp" alt="A small quadcopter drone in flight over a field, with a cylindrical cable spool hanging beneath it and a thin line trailing behind" loading="lazy" width="880" height="587">
-      <figcaption><b>A fiber-optic FPV drone</b>, with the cable spool hanging beneath it and the line trailing behind. There's no radio link to jam, so the pilot flies it to the end. The costs are range, speed, and a cable that can snag. <span class="credit">Photo: <a class="inline" href="https://commons.wikimedia.org/wiki/File:UA_fiber-optic_FPV_drone_02.webp" target="_blank" rel="noopener">АрміяInform</a>, <a class="inline" href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener">CC BY 4.0</a>, via Wikimedia Commons.</span></figcaption>
-    </figure>
   <p>This is the chapter's case because it's where section 2's questions stopped being hypothetical. A country defending itself needed its drones to work under jamming, and the fastest fix moved the machine one step further right on the kill chain.</p>
   <p>The five critical AI questions, run on this case:</p>
 
   <h3 class="sub" id="s3-what-this-ai-is-and-how-it-w"><span>What this AI is, and how it works</span> Question 1: what is the AI system, and what does it do?</h3>
-  <p>An embodied system with a small neural network inside. Run Chapter 1's AI systems model on it. <strong>Data:</strong> video from combat flights, used to train the onboard model to keep tracking a target through smoke, motion, and partial views. <strong>Model:</strong> a compact vision network, the same family as Chapter 7's perception step, small enough to run on a chip that rides on the drone. <strong>Output:</strong> steering commands, many times a second, for the last few hundred meters. <strong>Feedback loop:</strong> every flight's video can become training data for the next version, which is why both sides improve week to week. <strong>Humans:</strong> the pilot who chooses the target and draws the lock, the commanders who send them, and the engineers who decided what the model will and won't follow. Notice what it's not. It's not a robot choosing its own targets across a battlefield. A person picks the target. The machine finishes the job.</p>
+  <p>An embodied system with a small neural network inside. Now the AI systems model from Chapter 1, run on it:</p>
+  <ul class="decide">
+    <li><strong>Data:</strong> video from combat flights, used to train the onboard model to keep tracking a target through smoke, motion, and partial views.</li>
+    <li><strong>Model:</strong> a compact vision network, the same family as Chapter 7's perception step, small enough to run on a chip that rides on the drone.</li>
+    <li><strong>Output:</strong> steering commands, many times a second, for the last few hundred meters.</li>
+    <li><strong>Feedback loop:</strong> every flight's video can become training data for the next version, which is why both sides improve week to week.</li>
+    <li><strong>Humans:</strong> the pilot who chooses the target and draws the lock, the commanders who send them, and the engineers who decided what the model will and won't follow.</li>
+  </ul>
+  <p>Notice what it's not. It's not a robot choosing its own targets across a battlefield. A person picks the target. The machine finishes the job.</p>
   <figure class="diagram">
     <svg viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ukr-t ukr-d" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto">
       <title id="ukr-t">Where the human's last moment sits in a jammed drone strike</title>
@@ -570,7 +655,11 @@ figure.photo .credit{display:block;font-size:.76rem;margin-top:3px}
   <p>And who finds out? Mostly the people who fly the missions and review the footage, inside a military at war. That's the inversion from section 2.6, in a case where the users have every reason to want the system to be accurate, and no one outside to check that it is.</p>
 
   <h3 class="sub" id="s3-business-implications"><span>Business implications</span> What this means for a company selling into a war</h3>
-  <p>The companies in this case are small: Ukrainian startups, Western investors, and a few American defense-tech firms. Three lessons carry to any company whose product could end up in this chain. First, the feature is the ethics. Whether the module keeps following a target after the lock, or aborts when the picture changes too much, is a product decision, made by engineers and managers, with a cost either way: abort too easily and the strike fails, too rarely and the machine finishes what the human might have stopped. Second, battlefield speed changes how you ship. Ukraine's makers update weekly; the faster the cycle, the less time for the testing section 2.4 shows was missing in 2003. Third, the customer decides the use. Once a module is sold, the seller rarely controls where it goes next, which is exactly what Anthropic's fight was about.</p>
+  <p>The companies in this case are small: Ukrainian startups, Western investors, and a few American defense-tech firms. Most of you won't sell into a war, but any company whose product could end up in this chain faces the same three lessons:</p>
+  <p><strong>The feature is the ethics.</strong> Whether the module keeps following a target after the lock, or aborts when the picture changes too much, is a product decision, made by engineers and managers, with a cost either way: abort too easily and the strike fails, too rarely and the machine finishes what the human might have stopped.</p>
+  <p><strong>Battlefield speed changes how you ship.</strong> Ukraine's makers update weekly; the faster the cycle, the less time for the testing section 2.4 shows was missing in 2003.</p>
+  <p><strong>The customer decides the use.</strong> Once a module is sold, the seller rarely controls where it goes next, which is exactly what Anthropic's fight was about.</p>
+  <p>The costs of taking these seriously: slower updates in a war that rewards speed, strikes that abort where a looser rule would have hit, and contracts you turn down. The alternative cost is a failure nobody outside will ever see, which section 2.6 says is the worst kind.</p>
 
   <h3 class="sub" id="s3-societal-implications"><span>Societal implications</span> Question 4: who's saying that, and how would we know?</h3>
   <p>Most of what we know comes from the companies selling the modules, the governments buying them, and reporters with limited access to a war zone. "Up to four times the success rate" is a founder's claim. "More precise means fewer civilian deaths" is a reasonable argument that nobody outside can currently check. Meanwhile the technology is spreading: the U.S. is studying Ukraine's lessons and budgeting for drones at scale, and the same techniques are available to other armies, including ones you'd least want to have them. A treaty on autonomous weapons has been discussed at the United Nations for years without becoming binding, which is section 2.7's theater test, applied.</p>
@@ -581,14 +670,14 @@ figure.photo .credit{display:block;font-size:.76rem;margin-top:3px}
     <li><strong>Fix</strong> it by building the doubt in: modules that abort when the picture changes too much, a lock that expires after a set time, a record of every strike's final seconds kept for review. The cost: more strikes that fail, in a war where failed strikes cost soldiers.</li>
     <li><strong>Drop</strong> systems that pick their own targets with no person choosing, and push for a binding international rule. The cost: an adversary may build them anyway, which is the argument for the rule, not against the line.</li>
   </ul>
-  <div class="callout">
-    <div class="label">How to make it good</div>
-    <p>Keep a person choosing every target, and say plainly that the lock is the human's last decision, not their last moment of responsibility. Fix the gap after the lock with designed doubt: aborts, time limits, and a record someone outside the unit can audit. Drop target selection by machine, and back a binding rule so that line holds for everyone. The cost is real: more failed strikes, slower updates, and a limit the other side may not accept. That cost is the reason the line has to be written down, rather than left to each new module.</p>
+  <div class="concept">
+    <div class="term">How to make it good</div>
+    <p><em>Keep</em> a person choosing every target, and say plainly that the lock is the human's last decision, not their last moment of responsibility. <em>Fix</em> the gap after the lock with designed doubt: aborts, time limits, and a record someone outside the unit can audit. <em>Drop</em> target selection by machine, and back a binding rule so that line holds for everyone. The cost is real: more failed strikes, slower updates, and a limit the other side may not accept. That cost is the reason the line has to be written down, rather than left to each new module.</p>
   </div>
 
   <h3 class="sub" id="s3-thinking-critically"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
-  <div class="callout">
-    <div class="label">Thinking critically · for Monday's discussion · read the IEEE Spectrum piece on Ukraine's drones first (linked above) · one question each, answered by you, not by the chapter</div>
+  <div class="ticket">
+    <div class="label">Thinking critically · for Monday's discussion · one question each, answered by you, not by the chapter</div>
     <ol>
       <li><strong>What is it, and what does it do?</strong> Draw the timeline of one terminal-guided strike from launch to impact. Mark where the pilot decides, where the machine decides, and where the jamming starts. Which of Petrov's three conditions is the first to go?</li>
       <li><strong>Why does it exist, and who benefits?</strong> Make the strongest case, in three sentences, that a country defending itself is right to use terminal guidance. Then name the person that case leaves out.</li>
@@ -597,8 +686,8 @@ figure.photo .credit{display:block;font-size:.76rem;margin-top:3px}
       <li><strong>Keep it, fix it, or drop it, and what does that cost?</strong> Should a terminal-guidance module abort if the picture inside the box changes after the lock? Pick a rule, then say who pays for it: the soldier whose strike fails, or the person who walks into the frame. Keep your answer; the lab asks for it again.</li>
     </ol>
   </div>
-  <div class="callout">
-    <div class="label">The takeaway from the case</div>
+  <div class="concept">
+    <div class="term">The takeaway from the case</div>
     <p>A human in the loop is a place, not a guarantee. In Ukraine, jamming moved that place to the moment of the lock, and everything after it belongs to the machine. Petrov and the Patriot crews show the two ways that can go. The question the case leaves you with isn't whether drones should exist. It's where the last human decision should sit, and who answers for what happens after it.</p>
   </div>
 </section>
@@ -606,6 +695,10 @@ figure.photo .credit{display:block;font-size:.76rem;margin-top:3px}
 <section id="s4">
   <div class="shead"><span class="num">4</span><h2>Decide: the desk</h2></div>
   <p>This is the one chapter where deciding is a task with a form. This week's lab runs at home, because Veterans Day takes Wednesday. It puts you at a desk at an AI company and hands you real categories of defense work to sort: accept, accept with conditions, or decline, with a price on each line you draw. That's the same choice Google faced in 2018 and Anthropic faced this year, with the same discovery waiting: the hard part isn't having values, it's finding where they actually sit and what it costs to hold them. Refusal is legitimate. So is engagement. Undefended is the only wrong answer. Read your answer aloud with a veteran in the room.</p>
+  <p><strong>Three takeaways.</strong></p>
+  <p><strong>The old rules become settings.</strong> Distinction turns into a threshold, and every threshold trades missed threats for wrongly flagged civilians. Someone picks the line in advance, before anyone is in the frame.</p>
+  <p><strong>A person in the loop is a place, not a guarantee.</strong> Control means understanding, time, and authority. Petrov had all three, the Patriot crews had seconds and trust, and in Ukraine, jamming moved the last decision to the lock.</p>
+  <p><strong>The gravest failures are the least visible.</strong> Secrecy and stakes rise together, so ask who finds out before anything else, and check every pledge for enforcement, a budget, and a deadline.</p>
 </section>
 
 <section id="s5">
@@ -633,7 +726,7 @@ figure.photo .credit{display:block;font-size:.76rem;margin-top:3px}
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p class="srcintro">Rebuilt 24 Oct 2026 around the Ukraine case and an ethics-first concepts section; sections 2.1, 2.6, and 2.7 carry over from the 17 Sep 2026 version. The Anthropic dispute and Ukraine's drone technology both move fast; re-check both the week before this chapter is read.</p>
+    <p class="srcintro">Restructured 6 Nov 2026 to mirror Chapter 7: an opening scene (two drones), two in-chapter toys in 2.2 and 2.4 with invented numbers and no network calls, a facts row and a list form of the AI systems model in the case, and three takeaways in Decide. No fact, figure, or source changed; the facts row repeats figures already sourced below. Rebuilt 24 Oct 2026 around the Ukraine case and an ethics-first concepts section; sections 2.1, 2.6, and 2.7 carry over from the 17 Sep 2026 version. The Anthropic dispute and Ukraine's drone technology both move fast; re-check both the week before this chapter is read.</p>
     <dl>
       <dt>Petrov (2.3)</dt><dd>NPR (WBEZ), September 18, 2017, and AP (via VOA), both linked: the September 26, 1983 alarm, five reported launches, his judgment that it was false, the cause (sunlight on high clouds), and the reprimand.</dd>
       <dt>Human judgment policy (2.3)</dt><dd>U.S. Department of Defense Directive 3000.09, Autonomy in Weapon Systems (updated January 2023), for the phrase "appropriate levels of human judgment over the use of force."</dd>
@@ -672,6 +765,62 @@ figure.photo .credit{display:block;font-size:.76rem;margin-top:3px}
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
   document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
 })();
+</script>
+<script>
+(function(){
+  /* 2.2 threshold toy: invented scores, built to overlap */
+  var CIV=[8,12,15,18,21,24,26,28,30,32,34,36,39,42,45,48,52,57,63,71];
+  var MIL=[33,41,47,52,55,58,61,63,66,68,70,72,74,77,80,83,86,89,92,96];
+  var r=document.getElementById('th-r'); if(!r) return;
+  var strip=document.getElementById('th-strip');
+  function pos(v){return (2+v*0.96)+'%';}
+  function draw(){
+    var t=+r.value, civ=0, mil=0, h='';
+    CIV.forEach(function(v){var f=v>=t; if(f)civ++; h+='<span class="mk civ'+(f?' flag':'')+'" style="left:'+pos(v)+'"></span>';});
+    MIL.forEach(function(v){var m=v<t; if(m)mil++; h+='<span class="mk mil'+(m?' miss':'')+'" style="left:'+pos(v)+'"></span>';});
+    h+='<span class="line" style="left:'+pos(t)+'"></span>';
+    strip.innerHTML=h;
+    strip.setAttribute('aria-label','Forty vehicles placed by score. Threshold at '+t+': '+civ+' civilian vehicles flagged, '+mil+' military vehicles missed.');
+    document.getElementById('th-v').textContent=t;
+    document.getElementById('th-civ').textContent=civ;
+    document.getElementById('th-mil').textContent=mil;
+    document.getElementById('th-ok').textContent=40-civ-mil;
+    document.getElementById('th-civ').className='v'+(civ?' warn':'');
+    document.getElementById('th-mil').className='v'+(mil?' warn':'');
+    var msg;
+    if(civ===0&&mil===0) msg='<b>Both at zero.</b> That can only happen when the two rows don\u2019t overlap, and here they do.';
+    else if(civ===0) msg='<b>No civilian vehicles flagged.</b> The cost: '+mil+' military vehicle'+(mil===1?'':'s')+' missed. In a real war, a missed threat can cost soldiers\u2019 lives. That\u2019s the price of this line.';
+    else if(mil===0) msg='<b>Every military vehicle caught.</b> The cost: '+civ+' civilian vehicle'+(civ===1?'':'s')+' flagged, a farm truck or a bus treated as a target unless a person catches it. That\u2019s the price of this line.';
+    else msg='<b>Both mistakes at once:</b> '+civ+' civilian flagged, '+mil+' military missed. Move the line right and civilians are safer while more threats get through. Move it left and the reverse. No setting gets both to zero, because the rows overlap.';
+    document.getElementById('th-read').innerHTML=msg;
+  }
+  r.addEventListener('input',draw); draw();
+})();
+(function(){
+  /* 2.4 seconds-and-trust toy: invented odds */
+  var t=document.getElementById('sh-t'); if(!t) return;
+  var trust=true;
+  var bT=document.getElementById('sh-trust'), bD=document.getElementById('sh-doubt');
+  function setTrust(v){trust=v; bT.classList.toggle('on',v); bD.classList.toggle('on',!v); bT.setAttribute('aria-pressed',v?'true':'false'); bD.setAttribute('aria-pressed',v?'false':'true');}
+  bT.addEventListener('click',function(){setTrust(true);});
+  bD.addEventListener('click',function(){setTrust(false);});
+  t.addEventListener('input',function(){document.getElementById('sh-tv').textContent=t.value+' s';});
+  document.getElementById('sh-run').addEventListener('click',function(){
+    var sec=+t.value;
+    var p=Math.min(1,sec/30)*(trust?0.35:1);
+    var chk=Math.round(200*p), caught=Math.round(6*p*0.9), miss=6-caught;
+    document.getElementById('sh-chk').textContent=chk;
+    document.getElementById('sh-catch').textContent=caught;
+    var m=document.getElementById('sh-miss'); m.textContent=miss; m.className='v'+(miss?' warn':'');
+    var mins=Math.round(200*sec/60), msg;
+    if(miss>=5) msg='<b>The Patriot pattern.</b> With '+sec+' seconds and training that said trust the system, you approved '+miss+' of the 6 wrong alerts. You were in the loop every time. Your signature is on each mistake.';
+    else if(miss<=1) msg='<b>The Petrov pattern.</b> Time and doubt let you catch '+caught+' of the 6 wrong alerts. The cost: at '+sec+' seconds an alert, this shift takes about '+mins+' minutes of looking, and a real threat doesn\u2019t wait.';
+    else msg='<b>Somewhere in between.</b> You caught '+caught+' of 6 and approved '+miss+'. '+(trust?'Try the same time with training to doubt it.':'Try giving yourself more seconds.')+' The person in the loop helps only as much as the time and training let them.';
+    document.getElementById('sh-read').innerHTML=msg;
+    document.getElementById('sh-out').style.display='';
+  });
+})();
+
 </script>
 </body>
 </html>
