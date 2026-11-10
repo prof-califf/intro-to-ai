@@ -116,6 +116,17 @@ ol.writeup li:last-child{margin-bottom:0;}
 .lockkey b{color:var(--ink);}
 .vidwrap{position:relative;width:100%;max-width:480px;aspect-ratio:16/9;margin:14px 0;background:#000;}
 .vidwrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+.rules5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:14px 0 6px;}
+@media (max-width:760px){.rules5{grid-template-columns:repeat(2,1fr);}}
+.rules5 .rc{background:#F2F3F5;padding:14px 12px 12px;display:flex;flex-direction:column;}
+.rules5 .rc:nth-child(even){background:#FCEAF1;}
+.rules5 .rc h4{margin:0 0 8px;font-family:'Inter',sans-serif;font-size:1rem;font-weight:800;letter-spacing:.02em;text-transform:uppercase;color:#B5175A;line-height:1.2;}
+.rules5 .rc p{margin:0;font-size:.88rem;line-height:1.45;}
+.rules5 .rc .cost{margin-top:auto;padding-top:12px;font-size:.82rem;}
+.rules5 .rc .cost b{color:#B5175A;}
+.rules5 .rc.dark{background:#14181D;color:#fff;}
+.rules5 .rc.dark h4{color:#E4FF32;}
+.rules5 .rc.dark .cost b{color:#FF3D8A;}
 .tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
 .tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
 .tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
@@ -643,7 +654,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
 
 <section id="distinction">
   <div class="shead"><span class="num">1</span><h2>At home: Set the threshold (distinction, as a classifier)</h2></div>
-  <p class="lead"><strong>Distinction</strong> is the rule in the laws of war that you may only attack military targets, never civilians. Chapter 8 (<a class="inline" href="chapter-08-ethics-war.html#s2-2">section 2.2</a>) shows what happens when a machine helps make that call. A target-recognition model looks at a camera picture of each vehicle and gives it a score from 0 to 100: how military it looks to the model. The score isn't a decision. A person sets a cutoff ahead of time. Any vehicle that scores at or above it gets flagged as a possible target and sent to a drone operator. Everything below it is left alone. Today you set that cutoff. About 10 minutes.</p>
+  <p class="lead"><strong>Distinction</strong> is the rule in the laws of war that you may only attack military targets, never civilians. Chapter 8 (<a class="inline" href="chapter-08-ethics-war.html#s2-2">section 2.2</a>) shows what happens when a machine helps make that call. A target-recognition model looks at a camera picture of each vehicle and gives it a score from 0 to 100: how military it looks to the model. Where does the score come from? The model was trained on thousands of pictures that people had already labeled military or civilian. It learned which shapes and features showed up in the military ones, so a new picture scores high when it looks like those. It never learns why a vehicle is military, only what military vehicles tended to look like. (In this toy, the scores are made up.) The score isn't a decision. A person sets a cutoff ahead of time. Any vehicle that scores at or above it gets flagged as a possible target and sent to a drone operator. Everything below it is left alone. Today you set that cutoff. About 10 minutes.</p>
 
   <div class="tool toy" id="rec-tool">
     <div class="label"><span class="toytag">Toy</span>Mini-Recognizer · 40 vehicles, one threshold</div>
@@ -777,31 +788,38 @@ p.runnote{font-size:.9rem;color:var(--gray);}
   <details class="srcnote noai">
     <summary>Don't want to use AI? Do this instead</summary>
     <div class="noai-body">
-      <p>Same 25 minutes, no chatbot. Pick your rule from step 1 and write it in one sentence. Then make the tester on paper: a table with the six weapons from step 2 down the side. For each one, write banned, allowed, or allowed with conditions, plus one sentence on why. Find the weapon where your rule gives an answer you don't like, rewrite the rule, and run all six again. Take a photo of your table for the writeup.</p>
+      <p>Same 25 minutes, no chatbot. Pick your rule from step 1 and write it in one sentence. Then make the tester on paper: a table with the six weapons from step 2 down the side. For each one, write banned, allowed, or allowed with conditions, plus one sentence on why. Find the weapon where your rule gives an answer you don't like, then rewrite the rule and run all six again, twice. Take a photo of your table for the writeup.</p>
     </div>
   </details>
   <p class="lead">Next week in Geneva, countries decide whether to start writing a treaty on autonomous weapons. Here you write one rule for it, then use Claude to build a small tool that tests your rule on six weapons. You'll bring the rule to the vote in section 6. About 25 minutes.</p>
   <div class="steps">
     <div class="step"><span class="sn">1</span><div>
       <p><strong>Pick your rule.</strong> Start from one of Monday's five, then put it in your own words, in one sentence.</p>
-      <ul>
-        <li><strong>Ban</strong> weapons that pick their own targets.</li>
-        <li><strong>Require control:</strong> a person with understanding, time, and authority for every strike.</li>
-        <li><strong>Protect people:</strong> AI weapons may target vehicles and objects, never people.</li>
-        <li><strong>Log everything:</strong> every AI-assisted strike is recorded and reviewed by someone outside.</li>
-        <li><strong>No new treaty:</strong> the existing laws of war already apply.</li>
-      </ul>
+      <div class="rules5" role="list" aria-label="Monday's five Geneva rules">
+        <div class="rc" role="listitem"><h4>Ban</h4><p>Weapons that pick their own targets.</p><p class="cost"><b>Cost:</b> Rivals may not sign, and drones get built anyway.</p></div>
+        <div class="rc" role="listitem"><h4>Require control</h4><p>A person with understanding, time, and authority for every strike.</p><p class="cost"><b>Cost:</b> Slower, and who checks that it was real?</p></div>
+        <div class="rc" role="listitem"><h4>Protect people</h4><p>No AI weapons that target people. Vehicles and objects only.</p><p class="cost"><b>Cost:</b> The line blurs: people ride in vehicles.</p></div>
+        <div class="rc" role="listitem"><h4>Log everything</h4><p>Every AI-assisted strike recorded and reviewed by someone outside.</p><p class="cost"><b>Cost:</b> Secrecy. Militaries will push back.</p></div>
+        <div class="rc dark" role="listitem"><h4>No new treaty</h4><p>The existing laws of war already apply.</p><p class="cost"><b>Cost:</b> "Appropriate human judgment" stays undefined.</p></div>
+      </div>
     </div></div>
     <div class="step"><span class="sn">2</span><div>
-      <p><strong>Build the tester.</strong> Open a new chat at claude.ai and paste this prompt. Put your rule where it says [MY RULE].</p>
-      <div class="probe"><div class="ptext" id="treaty-prompt">I'm a student playing a delegate at the UN's November 2026 talks on autonomous weapons in Geneva. My proposed treaty rule is: [MY RULE]. Build me a simple one-page "treaty tester" as an artifact. Show six weapon cards. On each card, show my rule's verdict in large text (Banned, Allowed, or Allowed with conditions) and one plain sentence on why, quoting the words of my rule that decide it. The six weapons: (1) a ship's defense gun that shoots down incoming missiles on its own; (2) an air-defense missile system where a crew approves each launch with a few seconds to decide; (3) an attack drone whose AI keeps following the target after jamming cuts the pilot's signal; (4) a fiber-optic drone flown by its pilot all the way to the target; (5) software that ranks possible targets for a human to approve; (6) a drone that searches an area for hours and picks its own target. If my rule doesn't clearly decide a weapon, show "Unclear" instead of guessing. Keep everything general: no real tactics or technical weapon details.</div></div>
+      <p><strong>Build the tester.</strong> Open a new chat at claude.ai and paste this prompt. Fill in the three blanks: the card you started from, your rule in your own words, and that card's cost from the row above.</p>
+      <div class="probe"><div class="ptext" id="treaty-prompt">I'm a student playing a delegate at the UN's November 2026 talks on autonomous weapons in Geneva. My treaty rule starts from [PICK ONE: Ban, Require control, Protect people, Log everything, or No new treaty]. In my own words, it says: [MY RULE]. The cost of that starting rule, from class, is: [COPY THE COST FROM YOUR CARD]. Build me a simple one-page "treaty tester" as an artifact. At the top, show my rule and its cost. Then show six weapon cards. On each card, show my rule's verdict in large text (Banned, Allowed, or Allowed with conditions) and one plain sentence on why, quoting the words of my rule that decide it. The six weapons: (1) a ship's defense system that shoots down incoming missiles on its own; (2) an air-defense missile system where a crew approves each launch with a few seconds to decide; (3) an attack drone whose AI keeps following the target after jamming cuts the pilot's signal; (4) a fiber-optic drone flown by its pilot all the way to the target; (5) software that ranks possible targets for a human to approve; (6) a drone that searches an area for hours and picks its own target. If my rule doesn't clearly decide a weapon, show "Unclear" instead of guessing. Mark any card where the cost of my rule shows up, and say how in one sentence. Keep everything general: no real tactics or technical weapon details.</div></div>
       <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#treaty-prompt">Copy</button><span class="cpstat" aria-live="polite"></span></div>
+      <p><strong>How the verdicts get made.</strong> There's no formula or legal database behind your tester. Claude reads the words of your rule and judges how they apply to each weapon, the way a delegate in Geneva would read them. So every verdict is Claude's reading of your words, and a different reader could land somewhere else. That's why the next step asks which words decided each one.</p>
     </div></div>
     <div class="step"><span class="sn">3</span><div>
       <p><strong>Find the hole.</strong> Look for the card where your rule gives an answer you don't like, or says Unclear. That's the weapon the other delegations will bring up in Geneva. If a verdict surprises you, ask Claude which words in your rule decided it. If the reason isn't in your words, Claude filled the gap, and a real treaty can't leave gaps for someone else to fill.</p>
     </div></div>
     <div class="step"><span class="sn">4</span><div>
-      <p><strong>Fix it and run it again.</strong> Rewrite your rule once to close the hole, send the new version, and ask Claude to update the tester. Did fixing one card break another? Take a screenshot of your final tester for the writeup.</p>
+      <p><strong>Improve it twice.</strong> Make two rounds of changes. Each round, change your rule, the tester, or both, and ask Claude to update it. Not sure what to change? Copy one of these, or adapt it:</p>
+      <ul>
+        <li><strong>Tighten a word:</strong> "My rule says 'pick their own targets.' Add a definition: a weapon picks its own target if no person chose that specific target. Rerun all six."</li>
+        <li><strong>Add a hard case:</strong> "Add a seventh card: a drone that waits over an area and strikes any vehicle that matches a picture a person loaded before launch. Score it with my rule."</li>
+        <li><strong>Make it clearer:</strong> "On each card, add one line: who could call off this strike, and when?"</li>
+      </ul>
+      <p>After each round, check: did fixing one card break another? Jot down what you changed each time, and take a screenshot of your final tester for the writeup.</p>
     </div></div>
     <div class="step"><span class="sn">5</span><div>
       <p><strong>Check it.</strong> Claude is reading your rule, not the law, and it doesn't know what Geneva will decide. It's also made by Anthropic, which has its own fight with the Pentagon in Chapter 8. Treat its verdicts as a first draft to argue with.</p>
@@ -983,7 +1001,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
   <p><strong>Five short items, uploaded to Canvas by 11:59 p.m. Friday, November 13.</strong> A short paragraph each is plenty.</p>
   <ol class="writeup">
     <li><span class="wu-sec">Sections 1 to 3</span> <strong>The three toys.</strong> What cutoff would you set in Mini-Recognizer, and which mistake does it make more of in dust or snow? Then, as the drone operator: at which speed did you approve your first wrong strike, and what was your default when the drone arrived first? Last, Mini-Lock: which design would you choose for a country defending itself, and what does it cost?</li>
-    <li><span class="wu-sec">Section 4</span> <strong>Your treaty.</strong> Paste your final rule and a screenshot of your treaty tester (no-AI path: a photo of your table). Which weapon did your first rule get wrong or leave unclear, and what did you change? Did Claude ever decide something your words didn't actually say?</li>
+    <li><span class="wu-sec">Section 4</span> <strong>Your treaty.</strong> Paste your final rule and a screenshot of your treaty tester (no-AI path: a photo of your table). Which card did you start from, and where did its cost show up in your tester? Then your two rounds of changes: what did you change each time, and why? Did either change break a different card? Last, did Claude ever decide something your words didn't actually say?</li>
     <li><span class="wu-sec">Section 6</span> <strong>The debate and your vote.</strong> Which side were you handed, and what was the other side's best point, said as strongly as they'd say it? Then where you land: should a drone be allowed to finish a strike on its own after it loses its pilot? Use at least one source from the debate. Then your vote: does your rule from section 4 settle the drone, who is most likely to block it, and what would you offer to keep them in the room?</li>
     <li><span class="wu-sec">60 Minutes</span> <strong>Adapting under pressure.</strong> Watch <a class="inline" href="https://www.cbsnews.com/video/drones-transform-warfare-60-minutes-video-2026-03-29" target="_blank" rel="noopener">60 Minutes' report on Ukraine's drone war</a> (CBS News, March 29, 2026). Oleksandr Kamyshin, who helped build Ukraine's drone program, says Ukraine changes its drones about once a week: try a design, see what the other side does to stop it, fix it, and try again. What helps them change that fast? Then pick one thing a business could learn from this. For example, a store when a product it sells suddenly runs out, or a small company when a bigger one copies its idea. What would that business do differently if it worked like Ukraine's drone teams?</li>
     <li><span class="wu-sec">Your card</span> <strong>The future of war.</strong> Look back at your answer to Monday's question 5: where does the human sit in a war ten years from now? After this week, answer it again in three sentences. Name one thing that could keep a person in the decision, and one thing pushing them out. Read it aloud once, as if a veteran were in the room, and change anything that doesn't survive.</li>
