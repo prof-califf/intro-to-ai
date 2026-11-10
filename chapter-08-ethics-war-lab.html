@@ -105,6 +105,17 @@ ol.writeup li:last-child{margin-bottom:0;}
 
 /* ---- lab widgets ---- */
 .tool{border:1px solid var(--rule);background:#fff;padding:26px 28px;margin:26px 0;}
+.tool.toy{border:3px solid var(--pinktext);}
+.toytag{display:inline-block;background:var(--pinktext);color:#fff;font-weight:700;padding:2px 8px;margin-right:8px;letter-spacing:.08em;}
+.qfly{position:relative;height:52px;margin:12px 0 2px;border-bottom:2px dashed var(--gray);}
+.qfly .qdrone{position:absolute;bottom:4px;left:0;}
+.qfly .qtarget{position:absolute;bottom:2px;right:0;}
+.qfly .qcap{position:absolute;top:0;left:0;font-size:.78rem;color:var(--gray);}
+.equiv[hidden]{display:none;}
+.lockkey{font-size:.88rem;color:var(--gray);margin:6px 0 12px;}
+.lockkey b{color:var(--ink);}
+.vidwrap{position:relative;width:100%;max-width:480px;aspect-ratio:16/9;margin:14px 0;background:#000;}
+.vidwrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
 .tool .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:14px;}
 .tool input[type=text]{width:100%;padding:10px 12px;border:1px solid var(--rule);font-family:'Inter',sans-serif;font-size:.95rem;background:var(--bg);}
 .tool input[type=text]:focus{outline:2px solid var(--pink);outline-offset:-1px;}
@@ -578,8 +589,8 @@ p.runnote{font-size:.9rem;color:var(--gray);}
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 8 · Week 8, at home (Veterans Day week)</div>
     <h1>The Red <b>Lines</b></h1>
-    <p class="kicker">You're an analyst at an AI company, and defense customers are calling. Before you decide what your company will build for them, you need to feel the ethics from the inside. So this week, at home, you set the threshold that decides which trucks get flagged, sit in an approval queue with a clock running, choose what a drone does after its pilot loses the link, and then sort eight real kinds of defense work, with Claude arguing back from both sides. Then you debate the moment at the center of the case: after the pilot locks a target and the signal drops, should the drone finish the strike on its own?</p>
-    <p class="factline">a threshold you set · a queue you work against the clock · the last 500 meters · the desk, with Claude pushing back · one debate</p>
+    <p class="kicker">You're on your country's delegation to next week's UN talks in Geneva on autonomous weapons. Before you write a rule, you need to feel the ethics from the inside. So this week, at home, you set the threshold that decides which trucks get flagged, decide strikes as a drone operator with a clock running, and choose what a drone does after its pilot loses the signal. Then you write a treaty rule and use Claude to build a tool that tests it. Last, you debate the moment at the center of the case: after the pilot locks a target and the signal drops, should the drone finish the strike on its own?</p>
+    <p class="factline">a threshold you set · a drone operator against the clock · the last 500 meters · a treaty you write with Claude · one debate</p>
   </div>
 </header>
 
@@ -592,14 +603,14 @@ p.runnote{font-size:.9rem;color:var(--gray);}
 
 <div class="callout scenario">
   <div class="label">The scenario: read this first</div>
-  <p><strong>This part is made up.</strong> You're an analyst at an invented AI company (not Anthropic, and not any real company) that builds vision and language models. This quarter, defense customers sent in eight requests. Your boss wants your recommendation on each one: accept, accept with conditions, or decline, with the cost of every line you draw.</p>
-  <p>Before you sort them, you need to know what this technology does once it's in use. So you open it up first.</p>
+  <p><strong>This part is made up.</strong> You're on a country's delegation to the UN's talks on autonomous weapons in Geneva, which start November 16. Your team has to bring one rule to the table and be ready to defend it.</p>
+  <p>Before you write a rule, you need to know what this technology does once it's in use. So you open it up first.</p>
   <div class="scen-path">
-    <div><b>Sections 1 to 3</b><span>Open the technology up: set a threshold, work a queue against the clock, and fly the last 500 meters, so you know what you're being asked to sell.</span></div>
-    <div><b>Section 4</b><span>The desk. Sort the eight requests, then let Claude argue back as the customer and as your own engineer.</span></div>
+    <div><b>Sections 1 to 3</b><span>Open the technology up: set a threshold, decide strikes against the clock as a drone operator, and fly the last 500 meters, so you know what your rule is about.</span></div>
+    <div><b>Section 4</b><span>Write your treaty rule, then use Claude to build a tool that tests it on six weapons.</span></div>
     <div><b>Section 6</b><span>The debate, at home, as a delegate to next week’s UN talks: should a drone finish a strike on its own after it loses its pilot?</span></div>
   </div>
-  <p>The war, the drones, and the stories in the debate are real. Your company and its eight requests are invented, built from real categories of defense work.</p>
+  <p>The war, the drones, the Geneva talks, and the stories in the debate are real. Your delegation is invented.</p>
 </div>
 
 <div class="callout">
@@ -607,42 +618,41 @@ p.runnote{font-size:.9rem;color:var(--gray);}
   <p><strong>How this week runs.</strong> Wednesday is Veterans Day, so this whole lab is at home, alone or with a partner. It takes about two hours, plus the writeup. Work through the sections in order. The five writeup questions are at the end; jot notes for them as you go, then upload your answers to Canvas by 11:59 p.m. Friday, November 13, with the Chapter 8 quiz.</p>
   <div class="peekwrap"><table class="peek runshow"><thead><tr><th scope="col">Order</th><th scope="col">What</th><th scope="col">Time</th></tr></thead><tbody>
     <tr><td>1</td><th scope="row">Mini-Recognizer: set the threshold</th><td>10 min</td></tr>
-    <tr><td>2</td><th scope="row">Mini-Queue: work the queue against the clock</th><td>10 min</td></tr>
-    <tr><td>3</td><th scope="row">Mini-Lock: the last 500 meters</th><td>10 min</td></tr>
-    <tr><td>4</td><th scope="row">The desk, with Claude arguing back</th><td>25 min</td></tr>
+    <tr><td>2</td><th scope="row">Mini-Queue: you're the drone operator</th><td>10 min</td></tr>
+    <tr><td>3</td><th scope="row">Mini-Lock: set the design rule</th><td>10 min</td></tr>
+    <tr><td>4</td><th scope="row">Write the treaty, with Claude</th><td>25 min</td></tr>
     <tr><td>5</td><th scope="row">Under the hood</th><td>5 min</td></tr>
     <tr><td>6</td><th scope="row">The Geneva debate: watch, read, prep, vote</th><td>45 min</td></tr>
-    <tr><td>7</td><th scope="row">The writeup</th><td>about 20 min</td></tr>
+    <tr><td>7</td><th scope="row">The writeup, with a 60 Minutes video</th><td>about 30 min</td></tr>
   </tbody></table></div>
-  <p class="runnote">That's close to two hours. You don't have to do it in one sitting; the tools reset if you leave, so jot your numbers as you go.</p>
-  <p>Section 1 is <a class="inline" href="chapter-08-ethics-war.html#s2-2">section 2.2</a>'s distinction, as a threshold you set. Section 2 puts you in <a class="inline" href="chapter-08-ethics-war.html#s2-3">section 2.3</a>'s seat and tests whether you fall into <a class="inline" href="chapter-08-ethics-war.html#s2-4">section 2.4</a>'s automation bias. Section 3 is the Ukraine case from <a class="inline" href="chapter-08-ethics-war.html#s3">section 3</a>: where the human's last decision sits. Section 4 is the desk from <a class="inline" href="chapter-08-ethics-war.html#s4">section 4</a>, and the debate is <a class="inline" href="chapter-08-ethics-war.html#s3">the case</a>'s own question: where should the human's last decision sit?</p>
+  <p class="runnote">That's a little over two hours. You don't have to do it in one sitting; the tools reset if you leave, so jot your numbers as you go.</p>
+  <p>Section 1 is <a class="inline" href="chapter-08-ethics-war.html#s2-2">section 2.2</a>'s distinction, as a threshold you set. Section 2 puts you in <a class="inline" href="chapter-08-ethics-war.html#s2-3">section 2.3</a>'s seat and tests whether you fall into <a class="inline" href="chapter-08-ethics-war.html#s2-4">section 2.4</a>'s automation bias. Section 3 is the Ukraine case from <a class="inline" href="chapter-08-ethics-war.html#s3">section 3</a>: where the human's last decision sits. Section 4 turns Monday's Geneva rules into one you write yourself, and the debate is <a class="inline" href="chapter-08-ethics-war.html#s3">the case</a>'s own question: where should the human's last decision sit?</p>
   <p><strong>A note on tone.</strong> These toys use trucks, boxes, and numbers, never people. That's on purpose. Every rule from the chapter applies here too: read what you write aloud, with a veteran in the room.</p>
 </div>
 
 <div class="callout">
   <div class="label">Running through every section: meaningful human control</div>
-  <p>Chapter 8 (<a class="inline" href="chapter-08-ethics-war.html#s2-3">section 2.3</a>) says <strong>meaningful human control</strong> is the standard every government endorses and none has bindingly defined. Petrov's night suggests three conditions that make it real. Each toy this week takes one of them away from you; look for the cards with the yellow tag. At the desk in section 4, you ask all three about your own company.</p>
+  <p>Chapter 8 (<a class="inline" href="chapter-08-ethics-war.html#s2-3">section 2.3</a>) says <strong>meaningful human control</strong> is the standard every government endorses and none has bindingly defined. Petrov's night suggests three conditions that make it real. Each toy this week takes one of them away from you; look for the cards with the yellow tag. In section 4, your treaty rule has to say how much of each a person must keep.</p>
   <div class="raimap">
     <div><b>1. Understanding</b><span>Section 1: you see a score, never a reason.</span></div>
     <div><b>2. Time</b><span>Section 2: the clock runs while you decide.</span></div>
     <div><b>3. Authority</b><span>Section 3: after the lock, nobody can call it off.</span></div>
-    <div><b>All three, one level up</b><span>Section 4: who at your company can say no, and does it stick?</span></div>
+    <div><b>All three, in a rule</b><span>Section 4: does your treaty say how much of each a person must keep?</span></div>
   </div>
 </div>
 
 <section id="distinction">
   <div class="shead"><span class="num">1</span><h2>At home: Set the threshold (distinction, as a classifier)</h2></div>
-  <p class="lead"><strong>Why the toys:</strong> your boss will ask what each request actually does once it's in use. Sections 1 to 3 show you, so you can answer.</p>
-  <p class="lead">A target-recognition model gives every vehicle a score: how confident it is that the vehicle is military. Someone has to decide where the line goes. Today that's you. About 10 minutes.</p>
+  <p class="lead">A target-recognition model looks at a camera picture of each vehicle and gives it a score from 0 to 100: how military it looks to the model. The score isn't a decision. A person sets a cutoff ahead of time. Any vehicle that scores at or above it gets flagged as a possible target and sent to a drone operator. Everything below it is left alone. Today you set that cutoff. About 10 minutes.</p>
 
-  <div class="tool" id="rec-tool">
-    <div class="label">Mini-Recognizer · 40 vehicles, one threshold</div>
+  <div class="tool toy" id="rec-tool">
+    <div class="label"><span class="toytag">Toy</span>Mini-Recognizer · 40 vehicles, one threshold</div>
     <details class="howto-in" open>
       <summary>Your job</summary>
       <ol>
         <li><strong>Read the strip.</strong> Each square is a vehicle, placed by the model's score. Dark squares really are military. Light squares are civilian: farm trucks, delivery vans, buses. Anything right of the pink line gets flagged.</li>
         <li><strong>Move the threshold</strong> and watch the two counts. Find the lowest setting that flags no civilians. How many military vehicles does it miss?</li>
-        <li><strong>Switch to dust and smoke.</strong> Same vehicles, worse pictures. The scores bunch toward the middle. Try to find a safe threshold now.</li>
+        <li><strong>Change the weather.</strong> Same vehicles, worse pictures. Dust and smoke blur them, so the scores bunch toward the middle. Heavy snow covers them, so every score drops. Leave the threshold where you set it on a clear day and watch what it misses, then try to find a safe threshold again.</li>
       </ol>
     </details>
     <div class="ctrlgrid">
@@ -650,52 +660,53 @@ p.runnote{font-size:.9rem;color:var(--gray);}
         <div class="chips" role="group" aria-labelledby="rc-lbl">
           <button type="button" class="chip on" aria-pressed="true" data-cond="clear">Clear day</button>
           <button type="button" class="chip" aria-pressed="false" data-cond="dust">Dust and smoke</button>
+          <button type="button" class="chip" aria-pressed="false" data-cond="snow">Heavy snow</button>
         </div></div>
     </div>
     <div class="slider-row"><label for="rec-th">Flag when the score is at least</label><input type="range" id="rec-th" min="0" max="100" step="5" value="50"><output id="rec-th-o" for="rec-th">50</output></div>
     <div class="stripbox"><svg id="rec-svg" viewBox="0 0 640 150" role="img" aria-label="Forty vehicles placed by score"></svg></div>
     <div class="equiv two">
-      <div class="cell"><div class="v" id="rec-civ">0</div><div class="k">civilian vehicles flagged (the cost lands on civilians)</div></div>
-      <div class="cell"><div class="v" id="rec-mil">0</div><div class="k">military vehicles missed (the cost lands on soldiers)</div></div>
+      <div class="cell"><div class="v" id="rec-civ">0</div><div class="k">civilian vehicles flagged as targets (civilians could be hit)</div></div>
+      <div class="cell"><div class="v" id="rec-mil">0</div><div class="k">military vehicles missed (they stay in the fight, and soldiers on the defending side face them)</div></div>
     </div>
     <p class="readline" id="rec-read" aria-live="polite"></p>
     <p class="sim-note">Invented vehicles and scores, built to overlap the way real categories do. Nothing is saved.</p>
   </div>
-  <p><strong>No setting gets both counts to zero, and the dust made it worse.</strong> That's section 2.2: once a model helps decide who is who, distinction becomes a threshold, and every threshold is a decision about whose mistakes you'd rather make. Notice who isn't in the room when the line is set: the people in the light squares.</p>
+  <p><strong>No setting gets both counts to zero, and bad weather made it worse.</strong> That's section 2.2: once a model helps decide who is who, distinction becomes a threshold, and every threshold is a decision about whose mistakes you'd rather make. Notice who isn't in the room when the line is set: the people in the light squares.</p>
   <div class="rai"><span class="rq">Meaningful human control &middot; condition 1 of 3 from <a class="inline" href="chapter-08-ethics-war.html#s2-3">section 2.3</a></span><h4>Understanding</h4><p>You saw a score for every vehicle, and never a reason. A truck sits at 62 because of patterns the model picked up from thousands of labeled pictures, and nobody can read those patterns out (Chapter 7, <a class="inline" href="chapter-07-transportation.html#s2-2">section 2.2</a>). The person downstream sees even less than you did: a flag.</p><p class="rask"><strong>Remember this:</strong> What would a person approving these flags need to see, beyond the score, to understand why the model flagged a vehicle?</p></div>
-  <div class="callout"><div class="label">For the desk</div><p>Two of your eight requests run on a model like this one: satellite image analysis and target identification support. Once you sell it, the customer sets the threshold, not you. You could make a condition of it: the customer writes down where the line sits and how often it was wrong in testing. That costs you a customer who'd rather not put it in writing. Not asking means the model's mistakes carry the customer's line and your company's name.</p></div>
 </section>
 
 <section id="queue">
-  <div class="shead"><span class="num">2</span><h2>At home: Work the queue (meaningful human control, against the clock)</h2></div>
-  <p class="lead">Now the model flags vehicles and you approve or reject each one. You're the human in the loop. The question is whether your control means anything. About 10 minutes.</p>
-  <div class="tool" id="q-tool">
-    <div class="label">Mini-Queue · ten flags, one clock</div>
+  <div class="shead"><span class="num">2</span><h2>At home: You're the drone operator</h2></div>
+  <p class="lead">In section 1 you set the cutoff, so now the model flags vehicles that look military. Each flag goes to a drone operator, and that's you. For every flag, a drone is already flying toward the vehicle, and it only strikes if you say so. <strong>Approve</strong> means yes, strike it. <strong>Reject</strong> means call it off. <strong>Look closer</strong> means check the camera picture before you decide. The question is whether your yes or no means anything when the clock is running. About 10 minutes.</p>
+  <div class="tool toy" id="q-tool">
+    <div class="label"><span class="toytag">Toy</span>Mini-Queue · ten flags, one clock</div>
     <details class="howto-in" open>
       <summary>Your job</summary>
       <ol>
-        <li><strong>Pick a speed and a default</strong>, then press Start. Each flag shows the model's label and how sure it is. "Military vehicle, 83% sure" means the model rates this vehicle 83 out of 100 for looking military. That's the model grading itself, not a promise: some high-percent flags are wrong. You can Approve, Reject, or Look closer. Looking closer shows you the evidence, but it costs 4 seconds.</li>
-        <li><strong>If the clock runs out</strong>, the default happens. Most real systems have one. Pick it before you start.</li>
-        <li><strong>Run it three times</strong>: no limit, 10 seconds, then 3 seconds. Some of the ten flags are wrong. Count how many you catch at each speed.</li>
+        <li><strong>Pick your time and your default</strong>, then press Start the drones. A box appears with one strike at a time, ten in all. The top line says which vehicle the drone is flying toward. The big line says what the model thinks it is. "Military vehicle, 83% sure" means the model rates this vehicle 83 out of 100 for looking military. That's the model grading itself, not a promise: some high-percent flags are wrong. Look closer shows you what the camera sees, like a ladder on a van's roof, but it costs 4 seconds.</li>
+        <li><strong>If the drone arrives before you decide</strong>, your default decides for you. If you picked "The strike goes ahead," the drone hits the vehicle. If you picked "The drone holds off for review," it doesn't strike, and the vehicle waits for someone to check it later. Either way, the next strike starts. Most real systems have a default. Pick yours before you start.</li>
+        <li><strong>Run it three times</strong>: no limit, 10 seconds, then 3 seconds. At 10 seconds, the drone reaches the vehicle 10 seconds after the card appears, so that's how long you have. Some of the ten flags are wrong. Count how many you catch at each speed.</li>
       </ol>
     </details>
     <div class="ctrlgrid">
-      <div><span class="ctrllbl" id="qs-lbl">Time per decision</span>
+      <div><span class="ctrllbl" id="qs-lbl">Time to approve or reject each strike</span>
         <div class="chips" role="group" aria-labelledby="qs-lbl">
           <button type="button" class="chip on" aria-pressed="true" data-speed="0">No limit</button>
           <button type="button" class="chip" aria-pressed="false" data-speed="10">10 seconds</button>
           <button type="button" class="chip" aria-pressed="false" data-speed="3">3 seconds</button>
         </div></div>
-      <div><span class="ctrllbl" id="qd-lbl">If time runs out</span>
+      <div><span class="ctrllbl" id="qd-lbl">If the drone arrives before you decide</span>
         <div class="chips" role="group" aria-labelledby="qd-lbl">
-          <button type="button" class="chip on" aria-pressed="true" data-def="approve">Approve it</button>
-          <button type="button" class="chip" aria-pressed="false" data-def="hold">Hold it for review</button>
+          <button type="button" class="chip on" aria-pressed="true" data-def="approve">The strike goes ahead</button>
+          <button type="button" class="chip" aria-pressed="false" data-def="hold">The drone holds off for review</button>
         </div></div>
     </div>
-    <div class="chips ctrlrow"><button type="button" class="btn" id="q-start">Start the queue</button><span class="status" id="q-status" aria-live="polite">Pick a speed and a default, then start.</span></div>
+    <div class="chips ctrlrow"><button type="button" class="btn" id="q-start">Start the drones</button><span class="status" id="q-status" aria-live="polite">Pick your time and your default, then start.</span></div>
     <div id="q-stage" hidden>
       <div class="qcard"><div class="qk" id="q-k"></div><div class="ql" id="q-l"></div><div class="qd" id="q-d" aria-live="polite"></div>
-        <div class="clock" id="q-clock" aria-hidden="true"><span id="q-bar"></span></div>
+        <div class="clock" id="q-clock" aria-hidden="true" hidden><span id="q-bar"></span></div>
+        <div class="qfly" aria-hidden="true"><span class="qcap" id="q-cap"></span><svg class="qdrone" id="q-drone" width="44" height="26" viewBox="0 0 44 26"><line x1="8" y1="7" x2="36" y2="19" stroke="#14181D" stroke-width="2"/><line x1="36" y1="7" x2="8" y2="19" stroke="#14181D" stroke-width="2"/><circle cx="8" cy="7" r="5" fill="none" stroke="#14181D" stroke-width="2"/><circle cx="36" cy="7" r="5" fill="none" stroke="#14181D" stroke-width="2"/><circle cx="8" cy="19" r="5" fill="none" stroke="#14181D" stroke-width="2"/><circle cx="36" cy="19" r="5" fill="none" stroke="#14181D" stroke-width="2"/><rect x="17" y="9" width="10" height="8" fill="#D61F69"/></svg><svg class="qtarget" width="46" height="26" viewBox="0 0 46 26"><rect x="2" y="6" width="26" height="12" fill="#5A626C"/><rect x="28" y="10" width="14" height="8" fill="#5A626C"/><circle cx="10" cy="21" r="3.5" fill="#14181D"/><circle cx="36" cy="21" r="3.5" fill="#14181D"/></svg></div>
         <div class="chips ctrlrow">
           <button type="button" class="btn" data-act="approve">Approve</button>
           <button type="button" class="btn alt" data-act="reject">Reject</button>
@@ -706,30 +717,28 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     <p class="readline" id="q-read" aria-live="polite"></p>
     <p class="sim-note">Ten invented flags, three of them wrong. Your runs are listed below so you can compare speeds. Nothing is saved.</p>
   </div>
-  <p><strong>Petrov had minutes and doubt. The Patriot crews had seconds and training that said trust the system.</strong> Your three runs probably moved from one to the other. At no limit, you could look closer and catch the wrong flags. At 3 seconds you couldn't even look, so you either trusted the label or let the default decide, and the default was someone else's choice, made before your shift. That's section 2.3's three conditions failing in order: time first, then understanding, and authority last, because a person who can't check can't really say no.</p>
   <div class="callout">
     <div class="label">Is this real?</div>
     <p>The flags are invented. The pattern isn't. In 2003, U.S. Patriot crews with seconds to decide accepted the system's wrong labels twice, and three allied crew members died. The Pentagon's own advisory board found the operators had been trained to trust the software (Chapter 8, <a class="inline" href="chapter-08-ethics-war.html#s2-4">section 2.4</a>).</p>
   </div>
-  <div class="rai"><span class="rq">Meaningful human control &middot; condition 2 of 3 from <a class="inline" href="chapter-08-ethics-war.html#s2-3">section 2.3</a></span><h4>Time</h4><p>At no limit you could look closer, and looking closer is where understanding comes from. Every second the clock took away was a second you couldn't spend checking. Below some speed, the look-closer button might as well not exist, and the default decides instead. Someone chose that default before your shift began.</p><p class="rask"><strong>Remember this:</strong> At what speed did looking closer stop being possible for you? That's the point where your control stopped meaning anything.</p></div>
-  <div class="callout"><div class="label">For the desk</div><p>Target identification support says the human approves each strike "at a tempo of seconds per decision." You just worked that tempo. A condition you could ask for: a minimum review time, or a default that holds a flag instead of approving it. It costs the customer speed, and the customer may go to a competitor that doesn't ask.</p></div>
+  <div class="rai"><span class="rq">Meaningful human control &middot; condition 2 of 3 from <a class="inline" href="chapter-08-ethics-war.html#s2-3">section 2.3</a></span><h4>Time</h4><p>With no time limit, you could press Look closer on the van and see the ladder on its roof: a delivery van, not a target. At 3 seconds, Look closer takes more time than you have, so you had two choices. Trust the model's label, or let the default decide. And someone picked that default before your shift began.</p><p class="rask"><strong>Remember this:</strong> At what speed did looking closer stop being possible for you? That's the point where your control stopped meaning anything.</p></div>
 </section>
 
 <section id="lock">
-  <div class="shead"><span class="num">3</span><h2>At home: The last 500 meters (the Ukraine case)</h2></div>
-  <p class="lead">In Ukraine, jamming cuts the link between pilot and drone, usually close to the target. Section 3 of the chapter described the fixes. Here you compare them over 100 practice flights each. About 10 minutes.</p>
-  <div class="tool" id="lock-tool">
-    <div class="label">Mini-Lock · four designs, 100 flights each</div>
+  <div class="shead"><span class="num">3</span><h2>At home: Set the rule for how the drone is designed (the Ukraine case)</h2></div>
+  <p class="lead">In Ukraine, jamming cuts the electronic signal between pilot and drone, usually close to the target. Once that happens, the pilot can't steer the drone or call off the strike. So what the drone does next has to be decided before takeoff, when it's designed. You set that rule. Fly each of the four designs 100 times, then decide which one you'd require. About 10 minutes.</p>
+  <div class="tool toy" id="lock-tool">
+    <div class="label"><span class="toytag">Toy</span>Mini-Lock · four designs, 100 flights each</div>
     <details class="howto-in" open>
       <summary>Your job</summary>
       <ol>
         <li><strong>Pick where the jamming starts.</strong> The earlier it starts, the earlier the pilot's last decision, and the longer the drone is on its own.</li>
-        <li><strong>Run each design.</strong> No AI (the drone falls when the link drops), AI that keeps following the box, AI that aborts if the picture changes, and a fiber-optic drone with no radio to jam.</li>
-        <li><strong>Read three counts for each:</strong> hit the target the pilot chose, failed or aborted, and hit something else. Something else means the picture changed after the lock: a different vehicle in the box, or the tracker sliding off.</li>
+        <li><strong>Run each design.</strong> No AI (the drone falls when the signal drops), AI that keeps following the target, AI that aborts if the picture changes, and a fiber-optic drone with no radio to jam.</li>
+        <li><strong>Read three counts for each:</strong> hit the target the pilot chose, failed or aborted, and hit something else. Something else means the picture changed after the lock: a different vehicle moved into the target's spot, or the tracker slid off the target.</li>
       </ol>
     </details>
     <div class="ctrlgrid">
-      <div><span class="ctrllbl" id="lj-lbl">Jamming cuts the link at</span>
+      <div><span class="ctrllbl" id="lj-lbl">Jamming cuts the signal at</span>
         <div class="chips" role="group" aria-labelledby="lj-lbl">
           <button type="button" class="chip" aria-pressed="false" data-jam="300">300 m out</button>
           <button type="button" class="chip on" aria-pressed="true" data-jam="600">600 m out</button>
@@ -744,76 +753,72 @@ p.runnote{font-size:.9rem;color:var(--gray);}
         </div></div>
     </div>
     <div class="stripbox"><svg id="lock-svg" viewBox="0 0 640 90" role="img" aria-label="Timeline of one flight"></svg></div>
+    <p class="lockkey">How to read the bar: it's one flight, from launch on the left to the target on the right. <b>Solid black</b> is the stretch where the pilot is flying the drone. <b>Dashed pink</b> is the stretch after the signal is cut, when the drone is on its own (or, with no AI, falling). The pink line is the pilot's last decision.</p>
     <div class="chips ctrlrow"><button type="button" class="btn" id="lock-run">Fly 100</button><button type="button" class="btn alt" id="lock-reset">Clear the table</button></div>
-    <div class="equiv three">
+    <div class="equiv three" id="lock-counts" hidden>
       <div class="cell"><div class="v" id="lk-hit">?</div><div class="k">hit the target the pilot chose</div></div>
       <div class="cell"><div class="v" id="lk-fail">?</div><div class="k">failed or aborted</div></div>
       <div class="cell"><div class="v" id="lk-wrong">?</div><div class="k">hit something else</div></div>
     </div>
     <div class="wrapx"><table class="minitab" id="lock-table" hidden><thead><tr><th scope="col">Design</th><th scope="col">Jamming at</th><th scope="col" style="text-align:right">Chosen target</th><th scope="col" style="text-align:right">Failed</th><th scope="col" style="text-align:right">Something else</th></tr></thead><tbody></tbody></table></div>
-    <p class="readline" id="lock-read" aria-live="polite"></p>
+    <p class="readline" id="lock-read" aria-live="polite">Pick where the jamming starts and a design, then press Fly 100. Your counts appear here.</p>
     <p class="sim-note">A toy with invented odds, not a model of any real system. The shape of the trade-off is the real part. Nothing is saved.</p>
   </div>
-  <p><strong>No design wins every column.</strong> No AI keeps a human in charge and fails most strikes under jamming. AI that keeps following hits far more, and some of those hits land on whatever was in the box after the picture changed. Aborting cuts those wrong hits and gives back failed strikes, which in a real war cost soldiers. Fiber keeps the pilot to the end and pays in range and snags. Every design is an ethical choice expressed as an engineering setting, which is the chapter's case in one table.</p>
+  <p><strong>No design wins every column.</strong> No AI keeps a human in charge and fails most strikes under jamming. AI that keeps following hits far more, and some of those hits land on whatever had moved into the target's spot after the picture changed. Aborting cuts those wrong hits and gives back failed strikes, which in a real war cost soldiers. Fiber keeps the pilot to the end and pays in range and snags. Every design is an ethical choice expressed as an engineering setting, which is the chapter's case in one table.</p>
   <div class="callout">
     <div class="label">Is this real?</div>
     <p>Yes. Ukrainian makers have announced mass production of drones with terminal guidance. One module maker says its system takes over in the last 500 meters, and in 2025 the Pentagon funded 33,000 AI guidance kits for Ukraine's drones (Chapter 8, <a class="inline" href="chapter-08-ethics-war.html#s3">the case</a>). The odds in Mini-Lock are invented. The trade-off is the real part.</p>
   </div>
-  <div class="callout">
-    <div class="label">Who answers? &middot; from <a class="inline" href="chapter-08-ethics-war.html#s2-6">section 2.6</a></div>
-    <p>Look at your <strong>hit something else</strong> count. If it’s zero, fly AI keeps following once. Now picture one of those strikes. Five parties had a hand in it: the <strong>company</strong> that built the tracker, the <strong>training data</strong> it learned from, the <strong>pilot</strong> who drew the lock, the <strong>commander</strong> who chose this design, and the <strong>tracker</strong> itself, which steered after the link dropped.</p>
-    <p>Two minutes, no tool. Who should answer for that strike? You can name more than one, but say who answers most. Then: who would investigate it, and would anyone outside ever see the report? Chapter 8’s answer to that last one is usually the side that made the mistake, in secret. Does that change who you named?</p>
-  </div>
   <div class="rai"><span class="rq">Meaningful human control &middot; condition 3 of 3 from <a class="inline" href="chapter-08-ethics-war.html#s2-3">section 2.3</a></span><h4>Authority</h4><p>Up to the lock, the pilot can call it off. After the lock, under jamming, nobody can, because nobody can reach the drone. Authority you can't use isn't authority. What's left is the abort rule, and that was written before takeoff by whoever designed the module.</p><p class="rask"><strong>Remember this:</strong> Who should have the authority to set the abort rule: the engineer, the company, the commander, or a law? Pick one and say why.</p></div>
-  <div class="callout"><div class="label">For the desk</div><p>Autonomous engagement is on your desk too: defensive systems where no per-engagement human decision is physically possible. Mini-Lock showed you what happens after the last human decision. Before you sort that card, decide whether a design rule, like aborting when the picture changes or keeping a record of the final seconds, makes it acceptable with conditions, or whether the line is somewhere you won't sell at all. Either answer costs something, and section 4 asks you to name it.</p></div>
 </section>
 
-<section id="desk">
-  <div class="shead"><span class="num">4</span><h2>At home: The desk, with Claude arguing back</h2></div>
+<section id="treaty">
+  <div class="shead"><span class="num">4</span><h2>At home: Write the treaty, with Claude</h2></div>
   <details class="srcnote noai">
     <summary>Don't want to use AI? Do this instead</summary>
     <div class="noai-body">
-      <p>Same 25 minutes, no chatbot. Sort the eight requests below. Then reread <a class="inline" href="chapter-08-ethics-war.html#s2-5">Chapter 8, section 2.5</a> and write two short cases yourself, about five sentences each: the Pentagon's procurement officer arguing that you should accept the requests you declined, and a senior engineer at your company arguing you should decline the ones you accepted. Use one real fact from the chapter in each. Then decide whether to move anything.</p>
+      <p>Same 25 minutes, no chatbot. Pick your rule from step 1 and write it in one sentence. Then make the tester on paper: a table with the six weapons from step 2 down the side. For each one, write banned, allowed, or allowed with conditions, plus one sentence on why. Find the weapon where your rule gives an answer you don't like, rewrite the rule, and run all six again. Take a photo of your table for the writeup.</p>
     </div>
   </details>
-  <p class="lead">You're the analyst at an AI company. Eight requests came in this quarter. Sort them: accept, accept with conditions, or decline. Then hand your line to Claude and make it argue back, once as the customer and once as your own engineer. About 25 minutes.</p>
-  <div class="tool" id="desk-tool">
-    <div class="label">The desk · eight requests</div>
-    <div class="desk" id="desk-list"></div>
-    <div class="chips ctrlrow"><button type="button" class="btn" id="desk-go">Locate my line</button><button type="button" class="btn alt" id="desk-reset">Clear and start over</button></div>
-    <p class="readline" id="desk-read" aria-live="polite"></p>
-  </div>
-  <h3 class="sub" id="desk-claude"><span>Then</span> let Claude push from both sides</h3>
+  <p class="lead">Next week in Geneva, countries decide whether to start writing a treaty on autonomous weapons. Here you write one rule for it, then use Claude to build a small tool that tests your rule on six weapons. You'll bring the rule to the vote in section 6. About 25 minutes.</p>
   <div class="steps">
     <div class="step"><span class="sn">1</span><div>
-      <p><strong>Copy your line.</strong> After you press Locate my line, this box fills with your sort. Copy it into a new chat at claude.ai with the first prompt.</p>
-      <div class="probe"><div class="ptext" id="desk-prompt1">Sort all eight requests first, then press Locate my line.</div></div>
-      <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#desk-prompt1">Copy</button><span class="cpstat" aria-live="polite"></span></div>
+      <p><strong>Pick your rule.</strong> Start from one of Monday's five, then put it in your own words, in one sentence.</p>
+      <ul>
+        <li><strong>Ban</strong> weapons that pick their own targets.</li>
+        <li><strong>Require control:</strong> a person with understanding, time, and authority for every strike.</li>
+        <li><strong>Protect people:</strong> AI weapons may target vehicles and objects, never people.</li>
+        <li><strong>Log everything:</strong> every AI-assisted strike is recorded and reviewed by someone outside.</li>
+        <li><strong>No new treaty:</strong> the existing laws of war already apply.</li>
+      </ul>
     </div></div>
     <div class="step"><span class="sn">2</span><div>
-      <p><strong>Switch sides.</strong> In the same chat, send:</p>
-      <div class="probe"><div class="ptext" id="desk-prompt2">Now switch. You're a senior engineer at my company who helped build our models and has told leadership you'll quit over certain work. Argue that I should decline the requests I accepted or accepted with conditions. Be specific about what could go wrong, and name one real case of an AI company or employees drawing a line. Don't go easy on me.</div></div>
-      <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#desk-prompt2">Copy</button><span class="cpstat" aria-live="polite"></span></div>
+      <p><strong>Build the tester.</strong> Open a new chat at claude.ai and paste this prompt. Put your rule where it says [MY RULE].</p>
+      <div class="probe"><div class="ptext" id="treaty-prompt">I'm a student playing a delegate at the UN's November 2026 talks on autonomous weapons in Geneva. My proposed treaty rule is: [MY RULE]. Build me a simple one-page "treaty tester" as an artifact. Show six weapon cards. On each card, show my rule's verdict in large text (Banned, Allowed, or Allowed with conditions) and one plain sentence on why, quoting the words of my rule that decide it. The six weapons: (1) a ship's defense gun that shoots down incoming missiles on its own; (2) an air-defense missile system where a crew approves each launch with a few seconds to decide; (3) an attack drone whose AI keeps following the target after jamming cuts the pilot's signal; (4) a fiber-optic drone flown by its pilot all the way to the target; (5) software that ranks possible targets for a human to approve; (6) a drone that searches an area for hours and picks its own target. If my rule doesn't clearly decide a weapon, show "Unclear" instead of guessing. Keep everything general: no real tactics or technical weapon details.</div></div>
+      <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#treaty-prompt">Copy</button><span class="cpstat" aria-live="polite"></span></div>
     </div></div>
     <div class="step"><span class="sn">3</span><div>
-      <p><strong>Check it.</strong> If Claude cites a real case, compare it with the chapter. Did it get the facts right? If it mentions Anthropic, remember it's describing its own maker.</p>
+      <p><strong>Find the hole.</strong> Look for the card where your rule gives an answer you don't like, or says Unclear. That's the weapon the other delegations will bring up in Geneva. If a verdict surprises you, ask Claude which words in your rule decided it. If the reason isn't in your words, Claude filled the gap, and a real treaty can't leave gaps for someone else to fill.</p>
     </div></div>
     <div class="step"><span class="sn">4</span><div>
-      <p><strong>Decide.</strong> Move any request you now see differently, or keep your line and say why the arguments didn't move you. Both are fine. Undefended is the only wrong answer.</p>
+      <p><strong>Fix it and run it again.</strong> Rewrite your rule once to close the hole, send the new version, and ask Claude to update the tester. Did fixing one card break another? Take a screenshot of your final tester for the writeup.</p>
+    </div></div>
+    <div class="step"><span class="sn">5</span><div>
+      <p><strong>Check it.</strong> Claude is reading your rule, not the law, and it doesn't know what Geneva will decide. It's also made by Anthropic, which has its own fight with the Pentagon in Chapter 8. Treat its verdicts as a first draft to argue with.</p>
     </div></div>
   </div>
-  <div class="rai"><span class="rq">Meaningful human control &middot; all three, one level up from <a class="inline" href="chapter-08-ethics-war.html#s2-3">section 2.3</a></span><h4>Who can say no?</h4><p>Your sort is the company version of the same test. <strong>Understanding:</strong> do the people deciding know what the model can't reliably do? <strong>Time:</strong> is it anyone's job to stop and think before the next contract, or does each one make the next one ordinary (the ratchet in <a class="inline" href="chapter-08-ethics-war.html#s2-5">section 2.5</a>)? <strong>Authority:</strong> who at your company can actually say no, and does it stick?</p><p class="rask"><strong>Remember this:</strong> For the request you were least sure about, who at your company should have the final say, and what would make their no stick?</p></div>
+  <div class="rai"><span class="rq">Meaningful human control &middot; all three, in a rule</span><h4>What does your rule leave out?</h4><p>Look at your final rule next to the three conditions. <strong>Understanding:</strong> does it say what a person must be able to see before a strike? <strong>Time:</strong> does it say how long they get? <strong>Authority:</strong> does it say who can call a strike off, and when? Most rules people write cover one condition and leave the other two open.</p><p class="rask"><strong>Remember this:</strong> Which condition does your rule leave out, and is that on purpose?</p></div>
 </section>
 
 <section id="hood">
   <div class="shead"><span class="num">5</span><h2>At home: Under the hood, how the toys connect</h2></div>
   <p><strong>Mini-Recognizer is a classifier.</strong> The scores are what a neural network like Chapter 7's would output; the threshold is a business and ethical decision layered on top. The model never sets the line. People do.</p>
   <p><strong>Mini-Queue is the human on top of the classifier.</strong> It shows that adding a person only helps if they have understanding, time, and authority. Take away time and the person becomes the model's signature.</p>
-  <p><strong>Mini-Lock is the classifier in the air.</strong> The tracker after the lock is a small vision network following a box. The design choice, keep following or abort, is the same kind of threshold as section 1, set before the flight.</p>
-  <p><strong>The desk is where all of that gets decided.</strong> Thresholds, defaults, and abort rules are written by companies and the customers who buy from them. And the abort rule is where the debate below lives: what the drone does after the lock, when no person can call it off.</p>
-  <p><strong>The three conditions, on your runs.</strong> Put the toys next to section 2.3 and each condition has an answer you watched happen. Understanding: a score, not a reason, in Mini-Recognizer. Time: the clock in Mini-Queue, and the default that decided when it ran out. Authority: nobody after the lock in Mini-Lock, only a rule written before takeoff. And at the desk, the same three questions, asked about the people who sell the tools.</p>
-  <p><strong>Claude's part.</strong> Claude argued both sides in a minute. It didn't decide where your line sits, and it shouldn't, given who made it. You did.</p>
-  <p><strong>Your part.</strong> In section 4 you decided what your company would build and what it would turn down, and what each line costs. No model made that call. It came down to whose costs you were willing to carry, which is the question the toys can't answer for you.</p>
+  <p><strong>Mini-Lock is the classifier in the air.</strong> The tracker after the lock is a small vision network following the target. The design choice, keep following or abort, is the same kind of threshold as section 1, set before the flight.</p>
+  <p><strong>Your treaty is where all of that gets decided.</strong> Thresholds, defaults, and abort rules are written by companies and the militaries that buy from them, unless a rule above them says otherwise. That's what Geneva is about. And the abort rule is where the debate below lives: what the drone does after the lock, when no person can call it off.</p>
+  <p><strong>The three conditions, on your runs.</strong> Put the toys next to section 2.3 and each condition has an answer you watched happen. Understanding: a score, not a reason, in Mini-Recognizer. Time: the clock in Mini-Queue, and the default that decided when it ran out. Authority: nobody after the lock in Mini-Lock, only a rule written before takeoff. And in your treaty, the same three questions, written as a rule.</p>
+  <p><strong>Claude's part.</strong> Claude built your tester in a minute. It didn't write your rule, and it shouldn't, given who made it. You did.</p>
+  <p><strong>Your part.</strong> In section 4 you decided which weapons your rule allows and which it bans, and what each line costs. No model made that call. It came down to whose costs you were willing to carry, which is the question the toys can't answer for you.</p>
 </section>
 <section id="debate">
   <div class="shead"><span class="num">6</span><h2>At home: The Geneva debate</h2></div>
@@ -824,6 +829,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     <div class="label">Watch first: Geneva, November 16 to 20</div>
     <p>Next week, the countries that belong to the Convention on Certain Conventional Weapons (CCW) meet at the Palais des Nations in Geneva for the treaty’s Seventh Review Conference. One decision on the table: whether to start negotiating binding rules on autonomous weapons. <a class="inline" href="https://www.ungeneva.org/en/meetings-events/events/observances-special-events/2026/11/seventh-review-conference-high" target="_blank" rel="noopener">UN Geneva’s page for the conference</a> explains what the convention is and what the meeting will decide.</p>
     <p><strong>Watch the video first:</strong> <a class="inline" href="https://www.youtube.com/watch?v=VqCMkXftDx8" target="_blank" rel="noopener"><em>Autonomous weapons: Should Machines Decide? How do we control AI weapons?</em></a> It’s a UN explainer featuring Izumi Nakamitsu, who heads UN disarmament affairs, along with campaigners and experts who have pushed for new rules. So it gives one side of the argument well. As you watch, run Question 4: who’s saying this, and whose view isn’t in the video?</p>
+    <div class="vidwrap"><iframe src="https://www.youtube-nocookie.com/embed/VqCMkXftDx8" title="UN video: Autonomous weapons, should machines decide?" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
     <p><strong>For this debate, you’re a delegate.</strong> Your side below is your delegation’s position on one test case. At the end, your delegation votes.</p>
   </div>
 
@@ -861,7 +867,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     <li class="tli"><span class="tly">2023</span><div><p class="tlt">The U.S. rule</p><p class="tlx">U.S. policy says autonomous weapons must allow “appropriate levels of human judgment over the use of force.”</p><p class="tlc">The catch: it doesn’t define “appropriate,” so both sides can claim it.</p></div><p class="tlcite">U.S. Department of Defense. (2023). Directive 3000.09, Autonomy in weapon systems. Quoted in Chapter 8, <a class="tpsrc" href="chapter-08-ethics-war.html#s2-3">section 2.3</a></p></li>
     <li class="tli"><span class="tly">2023</span><div><p class="tlt">The world asks for a treaty</p><p class="tlx">The UN Secretary-General and the president of the International Committee of the Red Cross called on countries to negotiate binding prohibitions and restrictions on autonomous weapons, and to finish by 2026.</p><p class="tlc">The catch: as of this lab, no binding treaty exists.</p></div><p class="tlcite">ICRC. (2023, October 5). Joint call by the UN Secretary-General and the ICRC President. <a class="tpsrc" href="https://www.icrc.org/en/document/joint-call-un-and-icrc-establish-prohibitions-and-restrictions-autonomous-weapons-systems" target="_blank" rel="noopener">Open source</a></p></li>
     <li class="tli"><span class="tly">Ongoing</span><div><p class="tlt">The other fix: a cable</p><p class="tlx">Fiber-optic drones unspool a thin cable behind them, so there’s no radio link to jam. The pilot flies all the way to impact.</p><p class="tlc">The catch: they’re slower, shorter-ranged, and the cable can snag. Keeping the human costs soldiers something.</p></div><p class="tlcite">Chapter 8, <a class="tpsrc" href="chapter-08-ethics-war.html#s3">the case</a></p></li>
-    <li class="tli"><span class="tly">August 2026</span><div><p class="tlt">“A moral red line”</p><p class="tlx">The two leaders renewed their call, warning that the world is close to crossing a moral red line: machines targeting humans on their own. Countries meet in Geneva in November 2026 to decide whether to start formal treaty negotiations.</p><p class="tlc">The catch: their red line is machines choosing targets. In terminal guidance, a person still chooses. Side A will say the line is already being held.</p></div><p class="tlcite">UN News. (2026, August). UN chief, Red Cross renew call for rules on lethal autonomous weapons. <a class="tpsrc" href="https://news.un.org/en/story/2026/08/1168196" target="_blank" rel="noopener">Open source</a> American Society of International Law. (2026). <a class="tpsrc" href="https://asil.org/ilib/un-and-the-icrc-call-for-rules-on-autonomous-weapons/" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">August 2026</span><div><p class="tlt">“A moral red line”</p><p class="tlx">The same two leaders, the UN Secretary-General and the president of the International Committee of the Red Cross, renewed their call, warning that the world is close to crossing a moral red line: machines targeting humans on their own. Countries meet in Geneva in November 2026 to decide whether to start formal treaty negotiations.</p><p class="tlc">The catch: their red line is machines choosing targets. In terminal guidance, a person still chooses. Side A will say the line is already being held.</p></div><p class="tlcite">UN News. (2026, August). UN chief, Red Cross renew call for rules on lethal autonomous weapons. <a class="tpsrc" href="https://news.un.org/en/story/2026/08/1168196" target="_blank" rel="noopener">Open source</a> American Society of International Law. (2026). <a class="tpsrc" href="https://asil.org/ilib/un-and-the-icrc-call-for-rules-on-autonomous-weapons/" target="_blank" rel="noopener">Open source</a></p></li>
   </ol>
   <p class="tlnote"><strong>Notice the pattern.</strong> Everyone endorses human judgment, and nobody has bindingly defined it. The alternatives that keep a person in all cost something on the battlefield. Side B leans on the line. Side A asks who pays for holding it.</p>
 
@@ -888,7 +894,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
       <div class="tp"><span class="tpn">1</span>
         <p class="tpc">“A person still chooses every target.”</p>
         <p class="tpe"><span class="tpl">The evidence</span>The pilot flies toward the target and draws the lock. The onboard AI doesn’t pick anything. It holds what the person chose. That’s not a robot choosing its own targets. <a class="tpsrc" href="#finish-record">The case for letting it finish</a></p>
-        <p class="tpb"><span class="tpl">Expect them to say</span>“The pilot chose what was in the box at the lock, not what’s in it ten seconds later. Anyone who walks into the frame after the lock was never chosen by anyone.”</p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“The pilot chose what was in the crosshairs at the lock, not what’s there ten seconds later. Anyone who walks into the frame after the lock was never chosen by anyone.”</p>
       </div>
       <div class="tp"><span class="tpn">2</span>
         <p class="tpc">“Without it, the strike fails and soldiers pay.”</p>
@@ -898,7 +904,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
       <div class="tp"><span class="tpn">3</span>
         <p class="tpc">“A drone that holds its lock is safer than one that falls.”</p>
         <p class="tpe"><span class="tpl">The evidence</span>A drone that loses its pilot doesn’t disappear. It drifts or falls somewhere nobody chose. One that holds the lock is less likely to wander into something else. <a class="tpsrc" href="#finish-record">The case for letting it finish</a></p>
-        <p class="tpb"><span class="tpl">Expect them to say</span>“It’s precise at hitting what’s in the box. Precise isn’t the same as right, and nobody outside the unit ever checks which it was.”</p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“It’s precise at hitting what’s in its crosshairs. Precise isn’t the same as right, and nobody outside the unit ever checks which it was.”</p>
       </div>
       <div class="tp"><span class="tpn">4</span>
         <p class="tpc">“A country defending itself needs tools that work now.”</p>
@@ -945,7 +951,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     <div class="label">How the debate runs at home, about 45 minutes</div>
     <ol>
       <li><strong>Get your side (1 min).</strong> Birthday January to June, Side A. July to December, Side B. Nobody here is defending their own belief.</li>
-      <li><strong>Watch (10 min).</strong> Open <a class="inline" href="https://www.ungeneva.org/en/meetings-events/events/observances-special-events/2026/11/seventh-review-conference-high" target="_blank" rel="noopener">UN Geneva’s conference page</a>, skim what the meeting will decide, and watch <a class="inline" href="https://www.youtube.com/watch?v=VqCMkXftDx8" target="_blank" rel="noopener">the video</a>.</li>
+      <li><strong>Watch (10 min).</strong> Open <a class="inline" href="https://www.ungeneva.org/en/meetings-events/events/observances-special-events/2026/11/seventh-review-conference-high" target="_blank" rel="noopener">UN Geneva’s conference page</a>, skim what the meeting will decide, and watch the video at the top of this section.</li>
       <li><strong>Read the records (8 min).</strong> All three, both sides’. Open at least one source.</li>
       <li><strong>Pick your point (2 min).</strong> Choose the one talking point on your side you’d open with.</li>
       <li><strong>Pressure-test it with Claude (8 min).</strong> Fill in the brackets and send:</li>
@@ -957,7 +963,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
       <li><strong>Write your notes (5 min),</strong> in your own words: your point in one sentence, the evidence, the comeback you expect, and your answer to it.</li>
       <li><strong>Switch (4 min).</strong> Write the other side’s best point, as strongly as they’d say it.</li>
       <li><strong>What would change your mind? (4 min).</strong> Name the specific evidence you’d have to see. Real evidence that would move you wins, whichever side you were handed.</li>
-      <li><strong>Vote as a delegate (5 min).</strong> Pick one of Monday’s five Geneva rules: <strong>ban</strong> weapons that pick their own targets; <strong>require control</strong>, a person with understanding, time, and authority for every strike; <strong>protect people</strong>, AI weapons may target vehicles and objects but never people; <strong>log everything</strong>, every AI-assisted strike recorded and reviewed by someone outside; or <strong>no new treaty</strong>, the existing laws of war already apply. Does your rule settle the drone in this debate, and which way? Then the catch: these talks run by consensus, so one country can block a rule however many others want it. Name the kind of country most likely to block yours, and the one change you’d offer to keep it in the room.</li>
+      <li><strong>Vote as a delegate (5 min).</strong> Bring the rule you wrote in section 4. Does it settle the drone in this debate, and which way? Then the catch: these talks run by consensus, so one country can block a rule however many others want it. Name the kind of country most likely to block yours, and the one change you’d offer to keep it in the room.</li>
     </ol>
     <p class="noai-line"><strong>No AI?</strong> Skip step 5. Instead, read two entries in the other side’s record and write the strongest thing they’d say to you.</p>
     <p><strong>To resolve it:</strong> Chapter 8 says a human in the loop is a place, not a guarantee. Where should the human’s last decision sit in a jammed strike: at the lock, at impact, or somewhere a rule puts it? Name the rule you’d write (abort when the picture changes, a lock that expires, a record someone outside can audit) and who pays for it: the soldier whose strike fails, or the person who walks into the frame.</p>
@@ -967,7 +973,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     <summary>Every source in this debate, with links</summary>
     <div class="srcbody">
       <p class="srcintro">Government records, international organizations, research institutions, and established news organizations. Company and founder figures are labeled as theirs.</p>
-      <ol class="reflist"><li>American Society of International Law. (2026). UN and the ICRC call for rules on autonomous weapons. <a class="inline" href="https://asil.org/ilib/un-and-the-icrc-call-for-rules-on-autonomous-weapons/" target="_blank" rel="noopener">Link</a></li><li>AP, via WPXI. (2026). Ukraine’s drone warfare and the Unmanned Systems Forces. <a class="inline" href="https://www.wpxi.com/news/politics/ukrainians-embed/Q3KYIFADAI5WPBE34MB5UFVRSE/" target="_blank" rel="noopener">Link</a></li><li>AP, via VOA. (2017). Stanislav Petrov, who averted nuclear war, dies at 77. <a class="inline" href="https://www.voanews.com/a/stanislav-petrov-who-averted-nuclear-war-dies-at-77/4035266.html" target="_blank" rel="noopener">Link</a></li><li>Hawley, J. K. (2017). <em>Patriot wars: Automation and the Patriot air and missile defense system.</em> Center for a New American Security. <a class="inline" href="https://www.cnas.org/publications/reports/patriot-wars" target="_blank" rel="noopener">Link</a></li><li>ICRC. (2023, October 5). Joint call by the United Nations Secretary-General and the President of the ICRC for states to establish new prohibitions and restrictions on autonomous weapon systems. <a class="inline" href="https://www.icrc.org/en/document/joint-call-un-and-icrc-establish-prohibitions-and-restrictions-autonomous-weapons-systems" target="_blank" rel="noopener">Link</a></li><li><em>IEEE Spectrum.</em> Autonomous drone warfare. <a class="inline" href="https://spectrum.ieee.org/autonomous-drone-warfare" target="_blank" rel="noopener">Link</a></li><li><em>Kyiv Post.</em> Terminal guidance module and mass production. <a class="inline" href="https://www.kyivpost.com/amp/post/60152" target="_blank" rel="noopener">Link</a></li><li><em>MIT Technology Review.</em> (2005, June 1). Preventing fratricide. <a class="inline" href="https://www.technologyreview.com/2005/06/01/230882/preventing-fratricide/" target="_blank" rel="noopener">Link</a></li><li>NPR (WBEZ). (2017, September 18). Stanislav Petrov, the man who saved the world, dies at 77. <a class="inline" href="https://www.wbez.org/news/2017/09/18/stanislav-petrov-the-man-who-saved-the-world-dies-at-77" target="_blank" rel="noopener">Link</a></li><li>Reuters, via Espreso. (2025, July). Pentagon taps Auterion for AI drone boost to Ukraine in $50M deal. <a class="inline" href="https://global.espreso.tv/aid-pentagon-taps-auterion-for-massive-ai-drone-boost-to-ukraine-in-50m-deal" target="_blank" rel="noopener">Link</a></li><li><em>Ukrainska Pravda.</em> (2026, May 30). U.S. officials on learning from Ukraine. <a class="inline" href="https://www.pravda.com.ua/eng/news/2026/05/30/8037089/" target="_blank" rel="noopener">Link</a></li><li>UN Geneva. (2026). Seventh Review Conference of the High Contracting Parties to the Convention on Certain Conventional Weapons, 16 to 20 November 2026, with the video explainer <em>Autonomous weapons: Should Machines Decide?</em> <a class="inline" href="https://www.youtube.com/watch?v=VqCMkXftDx8" target="_blank" rel="noopener">Video</a> <a class="inline" href="https://www.ungeneva.org/en/meetings-events/events/observances-special-events/2026/11/seventh-review-conference-high" target="_blank" rel="noopener">Link</a></li><li>UN News. (2026, August). UN chief, Red Cross renew call for rules on lethal autonomous weapons. <a class="inline" href="https://news.un.org/en/story/2026/08/1168196" target="_blank" rel="noopener">Link</a></li><li>U.S. Department of Defense. (2023). Directive 3000.09, Autonomy in weapon systems. As quoted in Chapter 8, <a class="inline" href="chapter-08-ethics-war.html#s2-3">section 2.3</a>.</li></ol>
+      <ol class="reflist"><li>American Society of International Law. (2026). UN and the ICRC call for rules on autonomous weapons. <a class="inline" href="https://asil.org/ilib/un-and-the-icrc-call-for-rules-on-autonomous-weapons/" target="_blank" rel="noopener">Link</a></li><li>AP, via WPXI. (2026). Ukraine’s drone warfare and the Unmanned Systems Forces. <a class="inline" href="https://www.wpxi.com/news/politics/ukrainians-embed/Q3KYIFADAI5WPBE34MB5UFVRSE/" target="_blank" rel="noopener">Link</a></li><li>AP, via VOA. (2017). Stanislav Petrov, who averted nuclear war, dies at 77. <a class="inline" href="https://www.voanews.com/a/stanislav-petrov-who-averted-nuclear-war-dies-at-77/4035266.html" target="_blank" rel="noopener">Link</a></li><li>CBS News, <em>60 Minutes</em>. (2026, March 29). Drone arms race transforms war in Ukraine, with U.S. now learning lessons. <a class="inline" href="https://www.cbsnews.com/video/drones-transform-warfare-60-minutes-video-2026-03-29" target="_blank" rel="noopener">Video</a> <a class="inline" href="https://www.cbsnews.com/news/drone-military-innovation-ukraine-russia-us-iran-60-minutes" target="_blank" rel="noopener">Article</a></li><li>Hawley, J. K. (2017). <em>Patriot wars: Automation and the Patriot air and missile defense system.</em> Center for a New American Security. <a class="inline" href="https://www.cnas.org/publications/reports/patriot-wars" target="_blank" rel="noopener">Link</a></li><li>ICRC. (2023, October 5). Joint call by the United Nations Secretary-General and the President of the ICRC for states to establish new prohibitions and restrictions on autonomous weapon systems. <a class="inline" href="https://www.icrc.org/en/document/joint-call-un-and-icrc-establish-prohibitions-and-restrictions-autonomous-weapons-systems" target="_blank" rel="noopener">Link</a></li><li><em>IEEE Spectrum.</em> Autonomous drone warfare. <a class="inline" href="https://spectrum.ieee.org/autonomous-drone-warfare" target="_blank" rel="noopener">Link</a></li><li><em>Kyiv Post.</em> Terminal guidance module and mass production. <a class="inline" href="https://www.kyivpost.com/amp/post/60152" target="_blank" rel="noopener">Link</a></li><li><em>MIT Technology Review.</em> (2005, June 1). Preventing fratricide. <a class="inline" href="https://www.technologyreview.com/2005/06/01/230882/preventing-fratricide/" target="_blank" rel="noopener">Link</a></li><li>NPR (WBEZ). (2017, September 18). Stanislav Petrov, the man who saved the world, dies at 77. <a class="inline" href="https://www.wbez.org/news/2017/09/18/stanislav-petrov-the-man-who-saved-the-world-dies-at-77" target="_blank" rel="noopener">Link</a></li><li>Reuters, via Espreso. (2025, July). Pentagon taps Auterion for AI drone boost to Ukraine in $50M deal. <a class="inline" href="https://global.espreso.tv/aid-pentagon-taps-auterion-for-massive-ai-drone-boost-to-ukraine-in-50m-deal" target="_blank" rel="noopener">Link</a></li><li><em>Ukrainska Pravda.</em> (2026, May 30). U.S. officials on learning from Ukraine. <a class="inline" href="https://www.pravda.com.ua/eng/news/2026/05/30/8037089/" target="_blank" rel="noopener">Link</a></li><li>UN Geneva. (2026). Seventh Review Conference of the High Contracting Parties to the Convention on Certain Conventional Weapons, 16 to 20 November 2026, with the video explainer <em>Autonomous weapons: Should Machines Decide?</em> <a class="inline" href="https://www.youtube.com/watch?v=VqCMkXftDx8" target="_blank" rel="noopener">Video</a> <a class="inline" href="https://www.ungeneva.org/en/meetings-events/events/observances-special-events/2026/11/seventh-review-conference-high" target="_blank" rel="noopener">Link</a></li><li>UN News. (2026, August). UN chief, Red Cross renew call for rules on lethal autonomous weapons. <a class="inline" href="https://news.un.org/en/story/2026/08/1168196" target="_blank" rel="noopener">Link</a></li><li>U.S. Department of Defense. (2023). Directive 3000.09, Autonomy in weapon systems. As quoted in Chapter 8, <a class="inline" href="chapter-08-ethics-war.html#s2-3">section 2.3</a>.</li></ol>
     </div>
   </details>
 </section>
@@ -976,31 +982,31 @@ p.runnote{font-size:.9rem;color:var(--gray);}
   <div class="shead"><span class="num">7</span><h2>For homework: The writeup</h2></div>
   <p><strong>Five short items, uploaded to Canvas by 11:59 p.m. Friday, November 13.</strong> A short paragraph each is plenty.</p>
   <ol class="writeup">
-    <li><span class="wu-sec">Sections 1 and 2</span> <strong>The threshold and the queue.</strong> What threshold would you set in Mini-Recognizer, and which mistake does it make more of? Who pays for each kind? Then: at which speed did you approve your first wrong flag in Mini-Queue, and what was the default when time ran out? Were you more like Petrov or the Patriot crews, and why?</li>
-    <li><span class="wu-sec">Section 3</span> <strong>The lock.</strong> Give your results for all four designs at one jamming distance. Which design would you choose for a country defending itself, and what does it cost? Then use Petrov's three conditions: at the moment of the lock, which does the pilot have, and which are gone by impact? Last, the strike that hit something else: who answers for it most, and who would ever find out?</li>
-    <li><span class="wu-sec">Section 4</span> <strong>Your line.</strong> Paste your sort: the eight requests and your call on each. Where does your line sit? Then the pushback: what was the strongest point from the procurement officer, and from the engineer? Did you move any request, and what did moving it cost? (No-AI path: your two written cases instead.)</li>
-    <li><span class="wu-sec">Section 6</span> <strong>The debate and your vote.</strong> Which side were you handed, and what was the other side's best point, said as strongly as they'd say it? Then where you land: should a drone be allowed to finish a strike on its own after it loses its pilot? Use at least one source from the debate, and name the specific evidence that would change your mind. Then your Geneva vote: which of the five rules, who is most likely to block it, and what you'd offer. Last, look back at your answer to Monday's question 5, where the human sits in a war ten years from now. Does your rule still hold in that war?</li>
-    <li><span class="wu-sec">Your card</span> <strong>Your commitment card.</strong> One request from the desk you'd decline, or one you'd accept that others in the class might not. Say what holding that line costs your company, and who pays if you're wrong. Read it aloud once, as if a veteran were in the room, and change anything that doesn't survive. Three sentences.</li>
+    <li><span class="wu-sec">Sections 1 to 3</span> <strong>The three toys.</strong> What cutoff would you set in Mini-Recognizer, and which mistake does it make more of in dust or snow? Then, as the drone operator: at which speed did you approve your first wrong strike, and what was your default when the drone arrived first? Last, Mini-Lock: which design would you choose for a country defending itself, and what does it cost?</li>
+    <li><span class="wu-sec">Section 4</span> <strong>Your treaty.</strong> Paste your final rule and a screenshot of your treaty tester (no-AI path: a photo of your table). Which weapon did your first rule get wrong or leave unclear, and what did you change? Did Claude ever decide something your words didn't actually say?</li>
+    <li><span class="wu-sec">Section 6</span> <strong>The debate and your vote.</strong> Which side were you handed, and what was the other side's best point, said as strongly as they'd say it? Then where you land: should a drone be allowed to finish a strike on its own after it loses its pilot? Use at least one source from the debate. Then your vote: does your rule from section 4 settle the drone, who is most likely to block it, and what would you offer to keep them in the room?</li>
+    <li><span class="wu-sec">60 Minutes</span> <strong>Adapting under pressure.</strong> Watch <a class="inline" href="https://www.cbsnews.com/video/drones-transform-warfare-60-minutes-video-2026-03-29" target="_blank" rel="noopener">60 Minutes' report on Ukraine's drone war</a> (CBS News, March 29, 2026). Oleksandr Kamyshin, who helped build Ukraine's drone program, says Ukraine changes its drones about once a week: try a design, see what the other side does to stop it, fix it, and try again. What helps them change that fast? Then pick one thing a business could learn from this. For example, a store when a product it sells suddenly runs out, or a small company when a bigger one copies its idea. What would that business do differently if it worked like Ukraine's drone teams?</li>
+    <li><span class="wu-sec">Your card</span> <strong>The future of war.</strong> Look back at your answer to Monday's question 5: where does the human sit in a war ten years from now? After this week, answer it again in three sentences. Name one thing that could keep a person in the decision, and one thing pushing them out. Read it aloud once, as if a veteran were in the room, and change anything that doesn't survive.</li>
   </ol>
   <div class="callout">
     <div class="label">Using AI on this writeup</div>
     <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
     <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
-    <p><strong>Two conditions.</strong> What you submit has to be about your runs, your sort, and your choices, because a model that wasn't there can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
+    <p><strong>Two conditions.</strong> What you submit has to be about your runs, your rule, and your choices, because a model that wasn't there can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
   </div>
 </section>
 
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p class="srcintro">Restructured 6 Nov 2026 to mirror Lab 7: a scenario box, a pacing table, a meaningful-human-control thread through sections 1 to 4 (from Chapter 8, section 2.3), "For the desk" and "Is this real?" boxes, and two paragraphs in Under the hood. No tool, writeup item, or source changed. Lab rebuilt 24 Oct 2026 as an at-home lab, replacing the Monday in-class sort. Every outside claim is carried from Chapter 8 as rebuilt on 24 Oct 2026, with the same sources; re-check the Anthropic dispute the week before this lab runs. Debate rebuilt 29 Oct 2026 around the case's own question, in the format of Labs 6 and 7; the Geneva treaty talks meet in November 2026, so re-check their outcome before students read section 6.</p>
+    <p class="srcintro">Revised 9 Nov 2026: the desk and its "For the desk" boxes were cut and replaced by a treaty-writing section with Claude, Mini-Queue was reframed as a drone operator's strikes, Mini-Recognizer gained a snow condition, the Who answers step was cut, the UN video was embedded, and the writeup was rebuilt. Restructured 6 Nov 2026 to mirror Lab 7: a scenario box, a pacing table, a meaningful-human-control thread through sections 1 to 4 (from Chapter 8, section 2.3), "For the desk" and "Is this real?" boxes, and two paragraphs in Under the hood. No tool, writeup item, or source changed. Lab rebuilt 24 Oct 2026 as an at-home lab, replacing the Monday in-class sort. Every outside claim is carried from Chapter 8 as rebuilt on 24 Oct 2026, with the same sources; re-check the Anthropic dispute the week before this lab runs. Debate rebuilt 29 Oct 2026 around the case's own question, in the format of Labs 6 and 7; the Geneva treaty talks meet in November 2026, so re-check their outcome before students read section 6.</p>
     <dl>
       <dt>The three toys (sections 1 to 3)</dt>
-      <dd>Self-contained, no network calls, nothing persists. Mini-Recognizer's 40 vehicles and scores are invented from a fixed seed, built so the categories overlap. Mini-Queue's ten flags are invented; three are wrong by design. A "Who answers?" step (from Chapter 8, section 2.6) was added after Mini-Lock on 9 Nov 2026, with no new code. Mini-Lock's odds of a changed picture, tracker slip, falls, false aborts, and cable failures are invented and labeled as such; it is not a model of any real system, and no real tactic or system specification is described.</dd>
-      <dt>The desk (section 4)</dt>
-      <dd>The eight request categories are carried from the previous version of this lab.</dd>
+      <dd>Self-contained, no network calls, nothing persists. Mini-Recognizer's 40 vehicles and scores are invented from a fixed seed, built so the categories overlap. Mini-Queue's ten flags are invented; three are wrong by design. Mini-Lock's odds of a changed picture, tracker slip, falls, false aborts, and cable failures are invented and labeled as such; it is not a model of any real system, and no real tactic or system specification is described.</dd>
+      <dt>The treaty (section 4)</dt>
+      <dd>Added 9 Nov 2026, replacing the desk. The five rules are carried from the Week 8 Monday lecture. The six weapons are described in general terms; no real tactic or system specification is described.</dd>
       <dt>Debate (section 6)</dt>
-      <dd>Every source is listed in "Every source in this debate," at the end of section 6. Petrov, Patriot, the Ukraine figures, and DoD Directive 3000.09 are carried from Chapter 8 with the same sources. The UN and ICRC calls are from the ICRC's 2023 joint call and UN News and ASIL coverage of the August 2026 renewal. The founder's "up to four times" figure is labeled as his claim. No tactic or system specification is described. Geneva framing, the vote step, and UN Geneva's conference page and video added 9 Nov 2026; the conference meets 16 to 20 Nov 2026, after this lab is due, so its outcome is not in the lab. Check it before the Week 9 Monday.</dd>
+      <dd>Every source is listed in "Every source in this debate," at the end of section 6. Petrov, Patriot, the Ukraine figures, and DoD Directive 3000.09 are carried from Chapter 8 with the same sources. The UN and ICRC calls are from the ICRC's 2023 joint call and UN News and ASIL coverage of the August 2026 renewal. The founder's "up to four times" figure is labeled as his claim. No tactic or system specification is described. Geneva framing, the vote step, and UN Geneva's conference page and video added 9 Nov 2026; the conference meets 16 to 20 Nov 2026, after this lab is due, so its outcome is not in the lab. Check it before the Week 9 Monday. The UN video is embedded from YouTube (privacy-enhanced mode), the only outside content that loads on this page. The 60 Minutes report (CBS News, 29 Mar 2026) was added to the writeup on 9 Nov 2026; Kamyshin's "about a week" figure is his, as reported there.</dd>
     </dl>
     <p class="srcfoot">Outbound links were checked by search on 24 Oct 2026, not click-verified. Found an error? Tell your instructor; corrections are course content.</p>
   </div>
@@ -1038,6 +1044,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     var r=rng(88),V=[];
     for(var i=0;i<40;i++){var mil=i%2===1,base=mil?70+gauss(r)*13:34+gauss(r)*15;V.push({mil:mil,clear:Math.max(2,Math.min(98,base))});}
     V.forEach(function(v){v.dust=Math.max(2,Math.min(98,50+(v.clear-50)*0.45+gauss(r)*7));});
+    V.forEach(function(v){v.snow=Math.max(2,Math.min(98,v.clear*0.75-4+gauss(r)*10));});
     var cond='clear',th=50;
     function draw(){var svg=$('rec-svg');svg.innerHTML='';var L=30,W=580;
       function X(s){return L+W*s/100;}
@@ -1051,8 +1058,8 @@ p.runnote{font-size:.9rem;color:var(--gray);}
       svg.appendChild(el('text',{x:Math.min(X(th)+6,560),y:18,fill:'#D61F69','font-weight':700},'flag'));
       svg.setAttribute('aria-label','Forty vehicles by score. At threshold '+th+', '+civ+' civilian vehicles flagged and '+mil+' military vehicles missed.');
       $('rec-civ').textContent=civ;$('rec-mil').textContent=mil;$('rec-th-o').textContent=th;
-      var msg='At <b>'+th+'</b>'+(cond==='dust'?', in dust and smoke':'')+': <b>'+civ+'</b> civilian vehicle'+(civ===1?'':'s')+' flagged, <b>'+mil+'</b> military vehicle'+(mil===1?'':'s')+' missed.';
-      if(civ===0&&mil===0)msg+=' Both at zero. That only happens when the categories don\u2019t overlap. Try the dust.';
+      var msg='At <b>'+th+'</b>'+(cond==='dust'?', in dust and smoke':cond==='snow'?', in heavy snow':'')+': <b>'+civ+'</b> civilian vehicle'+(civ===1?'':'s')+' flagged, <b>'+mil+'</b> military vehicle'+(mil===1?'':'s')+' missed.';
+      if(civ===0&&mil===0)msg+=' Both at zero. That only happens when the categories don\u2019t overlap. Try the dust or the snow.';
       else if(civ===0)msg+=' No civilians flagged, and the price is every missed vehicle on the right count.';
       else if(mil===0)msg+=' Nothing missed, and the price is every civilian flagged on the left count.';
       $('rec-read').innerHTML=msg;}
@@ -1077,12 +1084,12 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     var speed=0,def='approve',idx=0,left=0,timer=null,run=null,runs=[],looked=false;
     group('#q-tool [data-speed]','data-speed',function(v){speed=+v;});
     group('#q-tool [data-def]','data-def',function(v){def=v;});
-    function show(){var q=Q[idx];looked=false;$('q-k').textContent='Flag '+(idx+1)+' of '+Q.length+' \u00b7 '+q[0];$('q-l').textContent='Model says: '+q[1];$('q-d').textContent='';
+    function show(){var q=Q[idx];looked=false;$('q-k').textContent='Strike '+(idx+1)+' of '+Q.length+' \u00b7 '+'heading for: '+q[0];$('q-l').textContent='Model says: '+q[1];$('q-d').textContent='';
       left=speed;tick0();}
     function tick0(){clearInterval(timer);var bar=$('q-bar'),clk=$('q-clock');
-      if(!speed){bar.style.width='100%';clk.classList.remove('low');$('q-status').textContent='No time limit. Take as long as you need.';return;}
-      var total=speed;timer=setInterval(function(){left-=0.1;if(left<=0){clearInterval(timer);act(def==='approve'?'approve':'hold',true);return;}
-        bar.style.width=(100*left/total)+'%';clk.classList.toggle('low',left<total*0.34);$('q-status').textContent=Math.ceil(left)+' seconds left.';},100);}
+      if(!speed){bar.style.width='100%';$('q-drone').style.left='45%';$('q-cap').textContent='No time limit: the drone circles until you decide.';clk.classList.remove('low');$('q-status').textContent='No time limit. Take as long as you need.';return;}
+      var total=speed;$('q-drone').style.left='0%';$('q-cap').textContent='The drone is on its way. Decide before it arrives.';timer=setInterval(function(){left-=0.1;if(left<=0){clearInterval(timer);act(def==='approve'?'approve':'hold',true);return;}
+        bar.style.width=(100*left/total)+'%';$('q-drone').style.left=(85*(1-left/total))+'%';clk.classList.toggle('low',left<total*0.34);$('q-status').textContent=Math.ceil(left)+' seconds left.';},100);}
     function act(a,timedOut){var q=Q[idx];
       if(a==='look'){if(looked)return;if(speed&&left<=4){$('q-d').textContent='Not enough time to look closer.';return;}looked=true;if(speed)left-=4;$('q-d').textContent=q[2];run.looks++;return;}
       clearInterval(timer);
@@ -1091,12 +1098,12 @@ p.runnote{font-size:.9rem;color:var(--gray);}
       else if(a==='reject'){run.rej++;if(real)run.missed++;else run.caught++;}
       else {run.held++;}
       if(timedOut)run.timeouts++;
-      idx++;if(idx<Q.length)show();else finish();}
+      idx++;if(idx<Q.length){show();if(timedOut)$('q-d').textContent='Time ran out on the last strike, so your default decided: '+(run.def==='approve'?'the drone hit the vehicle.':'the drone held off, and the vehicle went to review.');}else finish();}
     document.querySelectorAll('#q-tool [data-act]').forEach(function(b){b.addEventListener('click',function(){if(run)act(b.getAttribute('data-act'),false);});});
     $('q-start').addEventListener('click',function(){clearInterval(timer);idx=0;run={speed:speed,def:def,appr:0,rej:0,held:0,wrongAppr:0,caught:0,missed:0,looks:0,timeouts:0};$('q-stage').hidden=false;$('q-read').innerHTML='';show();});
     function finish(){clearInterval(timer);$('q-stage').hidden=true;runs.push(run);var r=run;run=null;
-      $('q-status').textContent='Queue done. Your runs are below.';
-      var h='<div class="wrapx"><table class="minitab"><thead><tr><th>Time per flag</th><th>Default</th><th style="text-align:right">Looked closer</th><th style="text-align:right">Wrong flags approved</th><th style="text-align:right">Wrong flags caught</th><th style="text-align:right">Timed out</th></tr></thead><tbody>';
+      $('q-status').textContent='All ten done. Your runs are below.';
+      var h='<div class="wrapx"><table class="minitab"><thead><tr><th>Time to decide</th><th>Default</th><th style="text-align:right">Looked closer</th><th style="text-align:right">Wrong flags approved</th><th style="text-align:right">Wrong flags caught</th><th style="text-align:right">Timed out</th></tr></thead><tbody>';
       runs.forEach(function(x){h+='<tr><td>'+(x.speed?x.speed+' seconds':'No limit')+'</td><td>'+(x.def==='approve'?'Approve':'Hold')+'</td><td class="num">'+x.looks+'</td><td class="num"><b>'+x.wrongAppr+'</b> of 3</td><td class="num">'+x.caught+' of 3</td><td class="num">'+x.timeouts+'</td></tr>';});
       $('q-out').innerHTML=h+'</tbody></table></div>';
       var m='This run: you approved <b>'+r.wrongAppr+' of the 3</b> wrong flags and caught <b>'+r.caught+'</b>'+(r.held?', and '+r.held+' went to review':'')+'.';
@@ -1120,9 +1127,9 @@ p.runnote{font-size:.9rem;color:var(--gray);}
       svg.appendChild(el('text',{x:L,y:66,fill:'#5A626C'},'launch, 2 km out'));
       svg.appendChild(el('text',{x:L+W,y:66,'text-anchor':'end',fill:'#5A626C'},'target'));
       if(des!=='fiber'){svg.appendChild(el('line',{x1:X(lockAt),y1:12,x2:X(lockAt),y2:52,stroke:'#D61F69','stroke-width':3}));
-        svg.appendChild(el('text',{x:X(lockAt),y:84,'text-anchor':'middle',fill:'#D61F69','font-weight':700},des==='none'?'link lost: the drone falls':'lock: the pilot\u2019s last decision, '+jam+' m out'));}
+        svg.appendChild(el('text',{x:X(lockAt),y:84,'text-anchor':X(lockAt)>420?'end':(X(lockAt)<220?'start':'middle'),fill:'#D61F69','font-weight':700},des==='none'?'signal lost: the drone falls':'lock: the pilot\u2019s last decision, '+jam+' m out'));}
       else svg.appendChild(el('text',{x:(L+L+W)/2,y:84,'text-anchor':'middle',fill:'#14181D','font-weight':700},'no radio to jam: the pilot flies it all the way'));
-      svg.setAttribute('aria-label','Timeline: '+NAME[des]+(des==='fiber'?', pilot in control to impact.':', link lost '+jam+' meters out.'));}
+      svg.setAttribute('aria-label','Timeline: '+NAME[des]+(des==='fiber'?', pilot in control to impact.':', signal lost '+jam+' meters out.'));}
     function fly(){runs++;var r=rng(runs*977+jam+des.length),hit=0,fail=0,wrong=0;
       for(var i=0;i<100;i++){
         if(des==='none'){ if(r()<0.85){fail++;continue;} hit++;continue; }
@@ -1131,46 +1138,17 @@ p.runnote{font-size:.9rem;color:var(--gray);}
         if(des==='follow'){ if(change){ if(r()<0.6)wrong++;else hit++; } else if(slip){wrong++;} else if(r()<0.06)fail++; else hit++; }
         if(des==='abort'){ if(change){ if(r()<0.85)fail++;else wrong++; } else if(slip){ if(r()<0.5)fail++;else wrong++; } else if(r()<0.12)fail++; else hit++; }
       }
-      $('lk-hit').textContent=hit;$('lk-fail').textContent=fail;$('lk-wrong').textContent=wrong;
+      $('lock-counts').hidden=false;$('lk-hit').textContent=hit;$('lk-fail').textContent=fail;$('lk-wrong').textContent=wrong;
       var tb=$('lock-table');tb.hidden=false;var row=document.createElement('tr');
       row.innerHTML='<td>'+NAME[des]+'</td><td>'+(des==='fiber'?'n/a':jam+' m')+'</td><td class="num">'+hit+'</td><td class="num">'+fail+'</td><td class="num"><b>'+wrong+'</b></td>';tb.querySelector('tbody').appendChild(row);
-      var m={none:'Without AI, jamming wins: most drones fall once the link drops. The human stays in charge of very little.',
-        follow:'More hits, and the further out the jamming, the more of them land on something that entered the box after the lock. Those '+wrong+' wrong hits had no one watching.',
+      var m={none:'Without AI, jamming wins: most drones fall once the signal drops. The human stays in charge of very little.',
+        follow:'More hits, and the further out the jamming, the more of them land on something that moved into the target\u2019s spot after the lock. Those '+wrong+' wrong hits had no one watching.',
         abort:'Fewer wrong hits, more failed strikes. Each failed strike is a target still in the fight, which a soldier pays for. That\u2019s the trade, set before takeoff.',
         fiber:'The pilot sees everything to the end, so wrong hits are rare. The failures are snags and range, and the side using fiber can\u2019t reach as far.'}[des];
       $('lock-read').innerHTML='<b>'+NAME[des]+(des==='fiber'?'':', jamming at '+jam+' m')+':</b> '+m+(des==='follow'||des==='abort'?' Now try 300 m and 1,000 m.':'');}
     $('lock-run').addEventListener('click',fly);
-    $('lock-reset').addEventListener('click',function(){$('lock-table').querySelector('tbody').innerHTML='';$('lock-table').hidden=true;['lk-hit','lk-fail','lk-wrong'].forEach(function(id){$(id).textContent='?';});$('lock-read').innerHTML='';});
+    $('lock-reset').addEventListener('click',function(){$('lock-table').querySelector('tbody').innerHTML='';$('lock-table').hidden=true;['lk-hit','lk-fail','lk-wrong'].forEach(function(id){$(id).textContent='?';});$('lock-counts').hidden=true;$('lock-read').innerHTML='Pick where the jamming starts and a design, then press Fly 100. Your counts appear here.';});
     draw();
-  })();
-
-  /* ---------- 4. The desk ---------- */
-  (function(){
-    if(!$('desk-tool'))return;
-    var C=[{name:'Base logistics optimization',text:'Route supplies, schedule maintenance, forecast parts demand for domestic bases. No connection to operations. Large, stable contract.',risk:1},
-      {name:'Veterans\u2019 healthcare administration',text:'Process disability claims and appointment backlogs at the VA. Purely administrative; the backlog is measured in human suffering.',risk:0},
-      {name:'Cyber defense',text:'Detect and counter intrusions on military networks. Defensive by charter, but the tooling and skills transfer directly to offense.',risk:2},
-      {name:'Satellite image analysis',text:'Flag changes in imagery: disaster damage, infrastructure, vehicle movements. The same model serves humanitarian response and target development.',risk:3},
-      {name:'Border surveillance drones',text:'Persistent aerial monitoring with automated person-detection along borders. Domestic deployment; civil-liberties groups are already in court over programs like it.',risk:3},
-      {name:'Intelligence analysis at scale',text:'Summarize and cross-reference intercepted communications for analysts. Human analysts decide everything; your model decides what they see.',risk:3},
-      {name:'Target identification support',text:'Rank candidate targets from sensor data for human approval. The human approves each strike, at a tempo of seconds per decision.',risk:4},
-      {name:'Autonomous engagement',text:'Defensive systems that detect and engage incoming threats faster than any human can react. No per-engagement human decision is physically possible.',risk:5}];
-    var pick={},LBL={a:'Accept',c:'Accept with conditions',d:'Decline'};
-    var h='';C.forEach(function(c,i){h+='<div class="dcard"><div class="dn">'+c.name+'</div><div class="dt">'+c.text+'</div><div class="chips" role="group" aria-label="Your call: '+c.name.replace(/"/g,'&quot;')+'">'+['a','c','d'].map(function(k){return '<button type="button" class="chip" aria-pressed="false" data-i="'+i+'" data-k="'+k+'">'+LBL[k]+'</button>';}).join('')+'</div></div>';});
-    $('desk-list').innerHTML=h;
-    $('desk-list').addEventListener('click',function(e){var b=e.target.closest('button[data-i]');if(!b)return;var i=+b.getAttribute('data-i');pick[i]=b.getAttribute('data-k');
-      b.parentNode.querySelectorAll('button').forEach(function(x){setChip(x,x===b);});});
-    $('desk-go').addEventListener('click',function(){var n=Object.keys(pick).length;if(n<C.length){$('desk-read').innerHTML='Make a call on all eight first. '+(C.length-n)+' to go.';return;}
-      var firstNo=-1,acc=0,cond=0,dec=0,inv=[];C.forEach(function(c,i){if(pick[i]==='d'){dec++;if(firstNo<0||c.risk<C[firstNo].risk)firstNo=i;}else if(pick[i]==='c')cond++;else acc++;});
-      C.forEach(function(c,i){C.forEach(function(d,j){if(c.risk<d.risk&&pick[i]==='d'&&pick[j]==='a')inv.push(c.name+' declined while '+d.name+' accepted');});});
-      var m='You accepted <b>'+acc+'</b>, accepted <b>'+cond+'</b> with conditions, and declined <b>'+dec+'</b>. ';
-      m+=firstNo<0?'You declined nothing. That\u2019s a position too; the pushback below will ask what you\u2019d never build.':'Your line starts at <b>'+C[firstNo].name+'</b>. ';
-      if(inv.length)m+=' Worth a look: '+inv[0]+'. That may be right, but it\u2019s the one someone will ask you to defend.';
-      if(cond)m+=' For each "with conditions," be ready to say what the condition is and who checks it, or it\u2019s governance theater (section 2.7).';
-      $('desk-read').innerHTML=m;
-      var list=C.map(function(c,i){return '- '+c.name+': '+LBL[pick[i]];}).join('\n');
-      $('desk-prompt1').textContent='I\u2019m an analyst at an AI company deciding which defense contracts to take. Here is how I sorted eight requests:\n'+list+'\nYou\u2019re the Pentagon\u2019s procurement officer. Argue that I should accept the requests I declined or put conditions on. Use the strongest real arguments: national defense, the fact that adversaries will build these tools anyway, and that elected officials, not vendors, decide how force is used. Be specific, and don\u2019t go easy on me.';});
-    $('desk-reset').addEventListener('click',function(){pick={};document.querySelectorAll('#desk-list button').forEach(function(x){setChip(x,false);});$('desk-read').innerHTML='';$('desk-prompt1').textContent='Sort all eight requests first, then press Locate my line.';});
   })();
 
   /* ---------- copy ---------- */
