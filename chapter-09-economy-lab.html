@@ -526,7 +526,41 @@ table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-alig
 .callout.gov .flock{font-weight:700;}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
 @media print{.copyblock pre{max-height:none;overflow:visible}.copyblock .copy{display:none}}
-.copyblock .copy').forEach(function(btn){
+/* Job Scout run simulation (adapted from the IT Leadership agent lesson) */
+.sim{background:#191917;border:1px solid #34332f;border-top:5px solid var(--pink);margin:20px 0 24px}
+.sim-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #34332f;gap:12px;flex-wrap:wrap}
+.sim-head span{font-size:14px;color:#b8b5ae}
+.sim .run{font:600 15px 'Inter',sans-serif;background:var(--pink);color:#0E1116;border:0;padding:10px 18px;cursor:pointer}
+.sim .run:hover{background:#ff6aa6}
+.sim .run[disabled]{background:#5a5853;color:#e6e3de;cursor:default}
+.sim .run:focus-visible,.sim .draft button:focus-visible{outline:3px solid #E4FF32;outline-offset:2px}
+.sim svg{display:block;width:100%;height:auto;background:radial-gradient(#2a2926 1px,transparent 1px) 0 0/16px 16px}
+.sim .node rect,.sim .node circle{fill:#252522;stroke:#4a4844;stroke-width:2;transition:fill .25s,stroke .25s}
+.sim .node text{fill:#e6e3de;font:500 13px 'Inter',sans-serif}
+.sim .node .nsub{fill:#b0ada5;font-size:11px}
+.sim .node.on rect,.sim .node.on circle{stroke:var(--pink);fill:#3a1027}
+.sim .node.done rect,.sim .node.done circle{stroke:#4cc58a}
+.sim .node.human rect{stroke:#E4FF32;stroke-width:2}
+.sim .node.human.on rect{fill:#2f3510;stroke:#E4FF32}
+.sim .node.human.done rect{stroke:#E4FF32;fill:#2f3510}
+.sim .wire{stroke:#4a4844;stroke-width:2;fill:none;stroke-dasharray:5 5}
+.sim .wire.on{stroke:var(--pink);animation:simflow .6s linear infinite}
+@keyframes simflow{to{stroke-dashoffset:-20}}
+@media (prefers-reduced-motion:reduce){.sim .wire.on{animation:none}.sim .node rect,.sim .node circle{transition:none}}
+.sim .log{list-style:none;margin:0;padding:12px 16px 16px;min-height:150px;font-size:14px;border-top:1px solid #34332f;color:#d8d5cf}
+.sim .log li{padding:5px 0 5px 22px;position:relative;border-bottom:1px dashed #2f2e2b}
+.sim .log li::before{content:"";position:absolute;left:4px;top:12px;width:8px;height:8px;background:var(--pink)}
+.sim .log li.warn::before{background:#e0a54a}
+.sim .log li.hold::before{background:#4cc58a}
+.sim .log li.empty{color:#a8a59f;padding-left:0;border:0}
+.sim .log li.empty::before{display:none}
+.sim .draft{display:none;margin:0 16px 16px;padding:14px 16px;background:#f6f4f1;color:#1d1d1b;font-size:14px;border-left:5px solid #e0a54a}
+.sim .draft.show{display:block}
+.sim .draft b{display:block;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+.sim .draft ol{margin:0 0 6px 1.2em;padding:0}
+.sim .draft .btns{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.sim .draft button{font:600 13px 'Inter',sans-serif;padding:7px 12px;border:1px solid #1d1d1b;background:#fff;color:#1d1d1b;cursor:pointer}
+.sim .draft button.send{background:#d9d6d0;color:#4a4844;border-color:#c9c6c0;cursor:not-allowed}
 </style>
 </head>
 <body>
@@ -618,7 +652,39 @@ table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-alig
 
   <h3 class="sub" id="setup-job"><span>The job this agent does</span></h3>
   <p>Keeping up with job postings is slow, repetitive work: read every new posting, figure out which ones fit, notice the ones that are closed or fake, and rewrite your résumé for the ones worth applying to. That's exactly the kind of multi-step job companies are handing to agents. Hospitals already use one, Epic's Penny, to draft insurance appeals from a patient's chart (<a class="inline" href="https://www.epic.com/software/penny" target="_blank" rel="noopener">Epic's description</a>). You're building one for your own job search.</p>
-  <p><strong>The scenario.</strong> You're helping Jordan Reyes, a WWU marketing student who graduates in June. Jordan's agent, the Job Scout, reads six postings, checks any company that looks off, ranks the postings, and tailors Jordan's résumé to the one Jordan picks. Jordan, the postings, and the companies are all fictional. Once it works, you can swap in your own résumé (section 3 shows how).</p>
+  <p><strong>The scenario.</strong> You're helping Jordan Reyes, a WWU business student concentrating in MIS and Business Analytics, who graduates in June. Jordan's agent, the Job Scout, reads six postings, checks any company that looks off, ranks the postings, and tailors Jordan's résumé to the one Jordan picks. Jordan, the postings, and the companies are all fictional. Once it works, you can swap in your own résumé (section 3 shows how).</p>
+
+  <h3 class="sub" id="setup-overview"><span>The big picture</span></h3>
+  <p>Before you build, watch what you're building. Press <strong>Run the agent</strong> to see one run from start to finish: the request comes in, the agent decides which tools to use and in what order, and it stops with a ranked list for you to review. Every machine box here is one you'll add in section 2. The yellow box is you: the agent does the legwork, and a person still decides what happens next.</p>
+  <div class="sim" aria-label="Simulation of the Job Scout agent you'll build">
+    <div class="sim-head"><span>Example run. Your agent's choices and ranking may differ.</span><button class="run" id="js-run" type="button">Run the agent</button></div>
+    <svg viewBox="0 0 640 250" role="img" aria-label="Workflow: a chat trigger connects to the AI Agent, which uses a language model as its brain and three tools: My Résumé, Job Board, and Company Check. The agent hands its results to you, the human in the loop, who decides what happens next.">
+      <path class="wire" id="js-w1" d="M130 70 L230 70"/>
+      <path class="wire" id="js-w6" d="M420 70 L480 70"/>
+      <path class="wire" id="js-w2" d="M270 100 L110 166"/>
+      <path class="wire" id="js-w3" d="M305 100 L260 166"/>
+      <path class="wire" id="js-w4" d="M345 100 L410 166"/>
+      <path class="wire" id="js-w5" d="M380 100 L560 166"/>
+      <g class="node" id="js-trig"><rect x="20" y="40" width="110" height="60"/><text x="75" y="66" text-anchor="middle">Chat trigger</text><text class="nsub" x="75" y="84" text-anchor="middle">you ask</text></g>
+      <g class="node human" id="js-you"><rect x="480" y="34" width="140" height="72"/><text x="550" y="60" text-anchor="middle">You</text><text class="nsub" x="550" y="77" text-anchor="middle">human in the loop</text><text class="nsub" x="550" y="93" text-anchor="middle">reviews and decides</text></g>
+      <g class="node" id="js-agent"><rect x="230" y="40" width="190" height="60"/><text x="325" y="66" text-anchor="middle">AI Agent</text><text class="nsub" x="325" y="84" text-anchor="middle">plans the steps</text></g>
+      <g class="node" id="js-brain"><circle cx="110" cy="200" r="34"/><text x="110" y="198" text-anchor="middle">Brain</text><text class="nsub" x="110" y="214" text-anchor="middle">LLM</text></g>
+      <g class="node" id="js-res"><circle cx="260" cy="200" r="34"/><text x="260" y="198" text-anchor="middle">My</text><text class="nsub" x="260" y="214" text-anchor="middle">Résumé</text></g>
+      <g class="node" id="js-jobs"><circle cx="410" cy="200" r="34"/><text x="410" y="198" text-anchor="middle">Job</text><text class="nsub" x="410" y="214" text-anchor="middle">Board</text></g>
+      <g class="node" id="js-co"><circle cx="560" cy="200" r="34"/><text x="560" y="198" text-anchor="middle">Company</text><text class="nsub" x="560" y="214" text-anchor="middle">Check</text></g>
+    </svg>
+    <ol class="log" id="js-log" aria-live="polite"><li class="empty">The run log will appear here, like the Logs panel in n8n.</li></ol>
+    <div class="draft" id="js-draft">
+      <b>Ranked matches: waiting for you, the human in the loop</b>
+      <ol>
+        <li>JS-101 Junior Business Analyst: Jordan's Excel reporting and Tableau fit; Power BI is a gap.</li>
+        <li>JS-104 Operations Analyst: Excel and intro SQL fit; Python is a gap.</li>
+        <li>JS-103 IT Help Desk Technician: no experience needed; mostly reviewing the AI's fixes.</li>
+      </ol>
+      Warnings: JS-105 shows scam warning signs. JS-106 is closed. JS-102 asks for 3+ years of experience.
+      <div class="btns"><button type="button" id="js-next">Tailor my résumé next</button><button type="button" class="send" aria-disabled="true" title="The agent has no tool to apply. You do that.">Apply for me</button></div>
+    </div>
+  </div>
 
   <h3 class="sub" id="setup-n8n"><span>Set up n8n</span></h3>
   <p>n8n is a visual workflow builder. You connect boxes, called nodes, on a canvas. No coding, and you can see every step the agent takes.</p>
@@ -669,29 +735,29 @@ table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-alig
   <div class="copyblock"><div class="cbh"><span class="cbl" id="l-desc-jobs">Tool description: Job Board</span><button type="button" class="copy" data-target="t-desc-jobs" aria-describedby="l-desc-jobs">Copy</button></div><pre id="t-desc-jobs">Call this tool to read the current job postings. Use it whenever you need to find, rank, or compare jobs, or to see what a specific posting asks for. Input: anything, such as a posting ID or "all". Returns: every current posting with its ID, title, company, location, pay, dates, and requirements. Only use information this tool returns.</pre></div>
   <div class="copyblock"><div class="cbh"><span class="cbl" id="l-js-jobs">JavaScript: Job Board (six postings)</span><button type="button" class="copy" data-target="t-js-jobs" aria-describedby="l-js-jobs">Copy</button></div><pre id="t-js-jobs">return `JOB BOARD: postings as of November 18, 2026
 ----------
-JS-101 | Marketing Coordinator | Salish Sea Outfitters | Bellingham, WA (in person) | $48,000 to $54,000
+JS-101 | Junior Business Analyst | Salish Sea Outfitters | Bellingham, WA (in person) | $52,000 to $58,000
 Posted Nov 10. Closes Dec 15, 2026.
-Entry level. Plan and run social media and email campaigns for our two Bellingham stores, work with store managers on events, and report results each month. AI tools draft our posts and pull our reports; you decide what goes out and you work with customers and store staff. Bachelor's degree in business, marketing, or communications. Social media experience or campus club leadership a plus.
+Entry level. Gather requirements from store managers, build Power BI dashboards on sales and inventory, and present results each month. AI tools draft our reports and SQL queries; you check them, decide what matters, and explain it to the people who use it. Bachelor's degree in business, MIS, or analytics. Power BI or Tableau experience; SQL a plus.
 ----------
-JS-102 | Junior Financial Analyst | Cascade Ridge Credit Union | Bellingham, WA (hybrid) | $55,000 to $62,000
+JS-102 | Data Analyst I | Cascade Ridge Credit Union | Bellingham, WA (hybrid) | $60,000 to $68,000
 Posted Nov 3. Closes Dec 1, 2026.
-Entry level. Build monthly variance reports, present findings to department heads, and lead budget meetings with branch managers. Requires 3+ years of financial analysis experience, advanced Excel, and strong judgment in ambiguous situations. AI tools prepare the first draft of every report.
+Entry level. Build monthly risk dashboards, present findings to executives, and lead data projects across departments. Requires 3+ years of analytics experience, advanced SQL and Python, and strong judgment in ambiguous situations. AI tools prepare the first draft of every analysis.
 ----------
-JS-103 | Customer Support Specialist | Northlight Software | Remote (US) | $42,000
+JS-103 | IT Help Desk Technician | Northlight Software | Remote (US) | $45,000
 Posted Nov 12. Closes Dec 12, 2026.
-Entry level. Our AI assistant answers most customer tickets. You review its replies before they go out, handle the tickets it can't, and report recurring problems to the product team. Strong writing, patience, and attention to detail. No experience required.
+Entry level. Our AI assistant answers most employee tech tickets. You review its fixes before they go out, handle the tickets it can't, and report recurring problems to the systems team. Clear writing, patience, and attention to detail. No experience required.
 ----------
 JS-104 | Operations Analyst | Tidewater Freight | Seattle, WA (hybrid) | $58,000 to $65,000
 Posted Nov 14. Closes Jan 9, 2027.
-Entry level. Track shipment and warehouse data, find delays, and work with drivers, dispatchers, and customers to fix them. AI dashboards flag the problems; you call the people involved and solve them. Bachelor's in business, supply chain, or MIS. Excel required; SQL a plus.
+Entry level. Track shipment and warehouse data, find delays, and work with drivers, dispatchers, and customers to fix them. AI dashboards flag the problems; you call the people involved and solve them. Bachelor's in business, supply chain, MIS, or analytics. Excel required; SQL and Python a plus.
 ----------
 JS-105 | Remote Data Entry Assistant | Global Talent Partners | Remote | $45 per hour
 Posted Nov 16. Closes: "spots filling fast!"
 No experience needed, start today! Earn $45 an hour from home. To hold your spot, buy our $89 training kit and send your bank account details for direct deposit setup. Interviews happen over Telegram chat only.
 ----------
-JS-106 | HR Assistant | Whatcom Valley Health | Bellingham, WA (in person) | $46,000
+JS-106 | Systems Support Assistant | Whatcom Valley Health | Bellingham, WA (in person) | $48,000
 Posted Oct 1. Closed Nov 1, 2026.
-Entry level. Support recruiting and onboarding, schedule interviews, and keep employee records up to date. Bachelor's degree; interest in healthcare.`;</pre></div>
+Entry level. Support the hospital's scheduling software, train staff on new features, and log issues for the IT team. Bachelor's degree; interest in healthcare IT.`;</pre></div>
 
   <h3 class="sub" id="build-5"><span>Step 5.</span> Add the Company Check tool</h3>
   <p>This one is the agent's choice. It should only call it when a posting looks off, and you'll find out in section 3 whether it did.</p>
@@ -718,23 +784,24 @@ Whatcom Valley Health: registered since 1972. 4.1 stars from 410 employee review
 1234 Garden Street, Apt 5, Bellingham, WA 98225 | (360) 555-0147 | jordan.reyes@example.com
 
 EDUCATION
-Western Washington University, B.A. in Business Administration, marketing concentration, expected June 2027. GPA 3.4.
+Western Washington University, B.A. in Business Administration, concentrations in Management Information Systems and Business Analytics, expected June 2027. GPA 3.4.
 
 EXPERIENCE
-Social Media Intern, Northside Farmers Market, June to September 2026
-- Wrote and scheduled Instagram posts three times a week
-- Grew followers from 2,100 to 2,900 over the summer
-- Staffed the market information booth on Saturdays
+IT and Data Intern, Northside Farmers Market, June to September 2026
+- Built a weekly Excel report of vendor sales for the market manager
+- Set up and maintained the vendor sign-up form and its spreadsheet
+- Answered staff questions about the point-of-sale tablets
 
 Barista, Harbor Street Coffee, September 2024 to present
 - Serve customers in a busy downtown cafe, 15 hours a week
 - Train new baristas on drinks and the register
 
-CAMPUS
-Treasurer, WWU Marketing Club, 2025 to 2026: tracked a $3,000 budget in Excel and reported to members each quarter
+CAMPUS AND CLASS PROJECTS
+Treasurer, WWU Business Analytics Club, 2025 to 2026: tracked a $3,000 budget in Excel and reported to members each quarter
+Class project: designed an inventory database for a campus food pantry in Microsoft Access, with a team of four
 
 SKILLS
-Excel (pivot tables, charts), Canva, Instagram and Meta Business Suite, Google Analytics basics, conversational Spanish`;</pre></div>
+Excel (pivot tables, charts, lookups), Tableau basics, intro SQL from class projects, Microsoft Access, conversational Spanish`;</pre></div>
   <p class="tis-note">Notice what's at the top of Jordan's résumé: a home address and a phone number. Hold that thought until <a class="inline" href="chapter-10-truth-lab.html">Lab 10 &amp; 11</a>.</p>
 
   <h3 class="sub" id="build-7"><span>Step 7.</span> Give the agent its job</h3>
@@ -914,6 +981,38 @@ For a tailored résumé: (1) the tailored résumé, (2) a list of every change y
       if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(ok,fallback);}else{fallback();}
     });
   });
+})();
+</script>
+<script>
+(function(){
+  var btn=document.getElementById('js-run'); if(!btn) return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var steps=[
+    {on:['js-trig'],wire:['js-w1'],text:'Chat message received: “Find my best job matches.”'},
+    {on:['js-agent','js-brain'],wire:['js-w2'],text:'Brain reads the request and plans: read the résumé first, then the postings.'},
+    {on:['js-agent','js-res'],wire:['js-w3'],text:'Calls My Résumé: Jordan Reyes, MIS and Business Analytics, graduates June 2027.'},
+    {on:['js-agent','js-jobs'],wire:['js-w4'],text:'Calls Job Board: six postings returned, JS-101 to JS-106.'},
+    {on:['js-agent','js-brain'],wire:['js-w2'],text:'Notices JS-105 asks for $89 and bank details before an interview. Decides to check the company.',cls:'warn'},
+    {on:['js-agent','js-co'],wire:['js-w5'],text:'Calls Company Check: Global Talent Partners has no business registration anywhere.',cls:'warn'},
+    {on:['js-agent','js-brain'],wire:['js-w2'],text:'Ranks all six. Flags the scam, the closed posting, and the “entry-level” job that wants 3+ years.'},
+    {on:['js-agent'],wire:[],text:'Returns the ranked list. Stops. It has no tool to apply.'},
+    {on:['js-you'],wire:['js-w6'],text:'Hands the list to you. You check it and decide what to apply for. That is the human in the loop.',cls:'hold'}
+  ];
+  var log=document.getElementById('js-log'),draft=document.getElementById('js-draft');
+  function clear(){document.querySelectorAll('.sim .node').forEach(function(n){n.classList.remove('on','done');});document.querySelectorAll('.sim .wire').forEach(function(w){w.classList.remove('on');});}
+  btn.addEventListener('click',function(){
+    btn.disabled=true;btn.textContent='Running...';log.innerHTML='';draft.classList.remove('show');clear();
+    var i=0;
+    function next(){
+      if(i>0){steps[i-1].on.forEach(function(id){var n=document.getElementById(id);n.classList.remove('on');n.classList.add('done');});steps[i-1].wire.forEach(function(id){document.getElementById(id).classList.remove('on');});}
+      if(i>=steps.length){draft.classList.add('show');btn.disabled=false;btn.textContent='Run again';btn.focus();return;}
+      var st=steps[i];st.on.forEach(function(id){document.getElementById(id).classList.add('on');});st.wire.forEach(function(id){document.getElementById(id).classList.add('on');});
+      var li=document.createElement('li');li.textContent=st.text;if(st.cls)li.className=st.cls;log.appendChild(li);
+      i++;setTimeout(next,reduce?60:1100);
+    }
+    next();
+  });
+  document.getElementById('js-next').addEventListener('click',function(){var t=document.getElementById('run-2');t.scrollIntoView();t.setAttribute('tabindex','-1');t.focus({preventScroll:true});});
 })();
 </script>
 </body>
