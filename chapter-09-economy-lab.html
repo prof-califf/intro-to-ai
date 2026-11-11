@@ -558,8 +558,8 @@ p.runnote{font-size:.9rem;color:var(--gray);}
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 9 · Week 9, Wednesday, in class</div>
     <h1>Run the <b>Firm</b></h1>
-    <p class="kicker">You're the operations analyst at a mid-sized company, and the CEO wants an AI plan. Chapter 9 said a general-purpose technology pays off only when work is reorganized around it, and that the first people to feel the reorganization are the ones trying to get hired. Today you feel both from the inside. You run the firm for eight quarters and live through the dip, decide how many junior people to hire while AI does their old work, and map a job you actually want with Claude. Then you sit in the hiring manager's chair and debate what to do when AI can do most of the old junior work: cut entry-level hiring, or rebuild the entry-level job?</p>
-    <p class="factline">eight quarters in the chair · the senior bench · your first job, mapped with Claude · under the hood · one debate</p>
+    <p class="kicker">You're a new analyst at a mid-sized company, and AI can now do a lot of the work your job used to start with. Chapter 9 said the first people to feel AI in the job market are the ones trying to get hired, and Monday's guest said expertise still matters. Today you test that. Claude does a junior task from your field, and you play the expert who has to catch what it got wrong. Then you sit in the hiring manager's chair and debate what a company should do when AI can do most of the old junior work.</p>
+    <p class="factline">be the expert · inside the machine · one debate</p>
   </div>
 </header>
 
@@ -573,129 +573,66 @@ p.runnote{font-size:.9rem;color:var(--gray);}
 
 <div class="callout">
   <div class="label">From Chapter 9 · what this lab runs on</div>
-  <p><strong>How today runs.</strong> Sections 1 to 3 and the debate happen in class, at the machine in front of you, in this order. Section 4 and the writeup are for after class. The five writeup questions are due on Canvas by 11:59 p.m. Friday, November 20; jot notes for them as you go.</p>
+  <p><strong>How today runs.</strong> Section 1 and the debate happen in class, at the machine in front of you. Section 2 and the writeup are for after class. The five writeup questions are due on Canvas by 11:59 p.m. Friday, November 20.</p>
   <div class="peekwrap"><table class="peek runshow"><thead><tr><th scope="col">Clock</th><th scope="col">What</th><th scope="col">Time</th></tr></thead><tbody>
-    <tr><td>0:00</td><th scope="row">1. Eight quarters in the chair</th><td>12 min</td></tr>
-    <tr><td>0:12</td><th scope="row">2. Build the senior bench</th><td>10 min</td></tr>
-    <tr><td>0:22</td><th scope="row">3. Map your first job with Claude</th><td>20 min</td></tr>
-    <tr><td>0:42</td><th scope="row">5. Debate: read the records, prep, speak</th><td>45 min</td></tr>
-    <tr><td>1:27</td><th scope="row">Wrap-up and questions</th><td>5 min</td></tr>
-    <tr><td>After class</td><th scope="row">4. Under the hood, and the writeup</th><td></td></tr>
+    <tr><td>0:00</td><th scope="row">Recap: Monday's guest and Chapter 9</th><td>10 min</td></tr>
+    <tr><td>0:10</td><th scope="row">1. Be the expert</th><td>30 min</td></tr>
+    <tr><td>0:40</td><th scope="row">Break</th><td>10 min</td></tr>
+    <tr><td>0:50</td><th scope="row">3. Debate: read the records, prep, speak</th><td>45 min</td></tr>
+    <tr><td>1:35</td><th scope="row">Wrap-up and questions</th><td>5 min</td></tr>
+    <tr><td>After class</td><th scope="row">2. Inside the machine, and the writeup</th><td></td></tr>
   </tbody></table></div>
-  <p class="runnote">That’s about 92 minutes of a 110-minute class, so there’s room. If a section runs long, keep moving; you can come back to the tools later.</p>
-  <p>Section 1 is the dynamo from <a class="inline" href="chapter-09-economy.html#s2-2">section 2.2</a>, with you as the manager: buying tools is the extensive margin and redesigning work is the intensive margin (<a class="inline" href="chapter-09-economy.html#s2-3">section 2.3</a>). Section 2 is <a class="inline" href="chapter-09-economy.html#s2-4">section 2.4</a>'s automating-versus-complementing choice, made with hiring. Section 3 puts codified and tacit knowledge on a job you want. And the debate takes <a class="inline" href="chapter-09-economy.html#s3">the case</a> into the hiring manager’s chair: what should a company do while the cause is still being argued?</p>
+  <p class="runnote">That’s about 100 minutes of a 110-minute class. If section 1 runs long, keep moving; you can finish it at home.</p>
+  <p>Section 1 puts <a class="inline" href="chapter-09-economy.html#s2-4">section 2.4</a> on one task: AI can do the codified part of a junior job fast, and someone still has to know whether it did it right. That's the automating-versus-complementing choice, seen from the desk. The debate takes <a class="inline" href="chapter-09-economy.html#s3">the case</a> into the hiring manager’s chair: what should a company do while the cause is still being argued?</p>
 </div>
 
-<section id="firm">
-  <div class="shead"><span class="num">1</span><h2>In class: Eight quarters in the chair</h2></div>
-  <p class="lead">Your firm starts at a productivity index of 100. Each quarter, pick one move. <strong>Adopt AI tools</strong> hands your people copilots inside today's workflows: quick wins that shrink each round. <strong>Redesign a workflow</strong> rebuilds one process around AI: it costs you now and pays permanently later. <strong>Hold steady</strong> is always available, and always defensible to the board. Play it twice: once however you like, once trying to beat your own final number. About 12 minutes.</p>
-
-  <div class="tool">
-    <div class="label" id="qlabel">Quarter 1 of 8 · productivity 100</div>
-    <div class="graphbox" style="background:#fff;">
-      <svg id="chart" viewBox="0 0 800 300" role="img" aria-label="Productivity by quarter"></svg>
-    </div>
-    <p class="roundinfo" id="flavor" aria-live="polite">The fiscal year opens. Your competitors are all issuing press releases about AI. Your board has read every one of them.</p>
-    <div class="simgrid" id="moves">
-      <button type="button" class="simcard" data-m="tools"><span class="tag">Adopt AI tools</span>License copilots, let teams use them inside today's workflows. Fast, visible, diminishing.</button>
-      <button type="button" class="simcard" data-m="reorg"><span class="tag">Redesign a workflow</span>Rebuild one process around AI end to end. Disruption now, structural gains in about two quarters.</button>
-      <button type="button" class="simcard" data-m="hold"><span class="tag">Hold steady</span>No new initiatives. Watch the market. The board never punishes this quarter, only the decade.</button>
-    </div>
-    <div class="verdict" id="verdict" hidden>
-      <div class="label">Year two begins without you, the review</div>
-      <p class="read" id="reading" aria-live="polite"></p>
-      <div class="chips" style="margin-top:16px;"><button type="button" class="btn" id="again">Run it again</button></div>
-    </div>
-    <p class="sim-note">What the model bakes in, on purpose: tools give +4, then +2, then +1, then nothing (the copilot plateau). Each redesign costs 4 points the quarter you do it and 1 the next, then pays +7 every quarter after, permanently. The numbers are invented; the shape is Paul David's J-curve. Nothing is saved.</p>
-  </div>
-
-  <p>Try the two pure strategies if you haven't: tools every quarter, and redesign early then add tools. The first tops out at 107. The second finishes around 121, after two ugly quarters. That gap is the chapter's whole argument, in integers, and the dip is why most real firms never collect it. A manager's review comes every quarter. The payoff comes later.</p>
-  <p>Now look at what real firms are choosing. Open the Stanford <a class="inline" href="https://digitaleconomy.stanford.edu/project/indicators/" target="_blank" rel="noopener">AI Adoption Monitor</a> and find this month's readings for worker adoption and firm adoption. In the model's language, how much of the economy is on "adopt tools," and how much is on "redesign"?</p>
-</section>
-
-<section id="bench">
-  <div class="shead"><span class="num">2</span><h2>In class: Build the senior bench (automating or complementing)</h2></div>
-  <p class="lead">Your redesign worked: AI now does most of the first-draft, look-it-up, fill-in-the-template work your junior hires used to do. So the CEO asks the obvious question: why hire juniors at all? Here's what that decision does over eight years. About 10 minutes.</p>
-  <div class="tool" id="bench-tool">
-    <div class="label">Mini-Bench · who will be your seniors in five years?</div>
-    <details class="howto-in" open>
-      <summary>Your job</summary>
-      <ol>
-        <li><strong>Pick how many juniors to hire each year.</strong> Zero is the automating build: AI does the junior work, and nobody new comes in. Hiring juniors and giving them AI as a coach is the complementing build.</li>
-        <li><strong>Pick what the rest of your industry does.</strong> If other firms keep training juniors, you can hire their experienced people later, at a premium. If everyone stops, there's no one to hire.</li>
-        <li><strong>Press Run eight years</strong> and read the table. Seniors do the judgment work AI can't: the client who's about to walk, the number that's wrong before you can say why. One retires or leaves every year. A junior becomes senior after three years.</li>
-      </ol>
-    </details>
-    <div class="ctrlgrid">
-      <div><span class="ctrllbl" id="bj-lbl">Juniors hired per year</span>
-        <div class="chips" role="group" aria-labelledby="bj-lbl">
-          <button type="button" class="chip on" aria-pressed="true" data-j="0">0 (automating)</button>
-          <button type="button" class="chip" aria-pressed="false" data-j="1">1</button>
-          <button type="button" class="chip" aria-pressed="false" data-j="2">2</button>
-          <button type="button" class="chip" aria-pressed="false" data-j="3">3</button>
-        </div></div>
-      <div><span class="ctrllbl" id="bi-lbl">The rest of your industry</span>
-        <div class="chips" role="group" aria-labelledby="bi-lbl">
-          <button type="button" class="chip on" aria-pressed="true" data-ind="train">Keeps training juniors</button>
-          <button type="button" class="chip" aria-pressed="false" data-ind="stop">Stops hiring juniors too</button>
-        </div></div>
-    </div>
-    <div class="chips ctrlrow"><button type="button" class="btn" id="bench-run">Run eight years</button></div>
-    <div class="wrapx"><table class="minitab" id="bench-table" hidden><thead><tr><th scope="col">Year</th><th scope="col" style="text-align:right">Seniors</th><th scope="col" style="text-align:right">Juniors in training</th><th scope="col" style="text-align:right">Seniors hired from outside</th><th scope="col" style="text-align:right">Judgment work covered</th><th scope="col" style="text-align:right">Payroll index</th></tr></thead><tbody></tbody></table></div>
-    <p class="readline" id="bench-read" aria-live="polite"></p>
-    <p class="sim-note">Invented numbers: 8 seniors to start, 7 needed for the judgment work, one leaving each year, three years to train a junior, outside hires at one and a half times the cost when any are available. The shape is the Canaries study's point, not a forecast. Nothing is saved.</p>
-  </div>
-  <p><strong>The entry-level job was never just cheap labor.</strong> It was the company's training system, the way tacit knowledge got passed from one person to the next. The automating build looks cheaper every year until the year the seniors run out, and by then it's three years too late to start. And if every firm makes the same choice, nobody has anyone to poach. That's the chapter's "uncomfortable sentence" from the employer's side: AI reproduces the codified work, so the scarce thing becomes the tacit kind, and the only way to grow it is to hire someone who doesn't have it yet.</p>
-</section>
-
-<section id="map">
-  <div class="shead"><span class="num">3</span><h2>In class: Map your first job with Claude</h2></div>
+<section id="expert">
+  <div class="shead"><span class="num">1</span><h2>In class: Be the expert</h2></div>
   <details class="srcnote noai">
     <summary>Don't want to use AI? Do this instead</summary>
     <div class="noai-body">
-      <p>Same 20 minutes, no chatbot. Search <a class="inline" href="https://www.onetonline.org/" target="_blank" rel="noopener">O*NET OnLine</a> (the U.S. Labor Department's job database) for a job you want after graduation. Copy ten of its listed tasks into a sheet. For each, mark codified or tacit, and whether today's AI could do it (low, some, high). Then mark which tasks an automating build would hand to AI and which a complementing build would keep with you. Count what's left of the job under each build, and name the two tasks you'd most want to get good at.</p>
+      <p>Same 30 minutes, no chatbot. Search <a class="inline" href="https://www.onetonline.org/" target="_blank" rel="noopener">O*NET OnLine</a> (the U.S. Labor Department's job database) for a job you want after graduation. Copy ten of its listed tasks into a sheet and mark each one codified (written down in procedures and textbooks) or tacit (learned by practice and mentoring). Pick the one task a brand-new hire would most likely get wrong. Write what an experienced person would check that a beginner wouldn't, and where they learned to check it.</p>
     </div>
   </details>
-  <p class="lead">Section 2 was the employer's view. Now take yours. You'll ask Claude for a small interactive page that breaks a job you want into tasks and shows what happens to it under each build. Then you check its work against the government's own job database. About 20 minutes; finish at home if you need to.</p>
+  <p class="lead">Monday's guest said expertise still matters. Here's a way to test that on your own field. AI can do a lot of the junior work in a minute. The question is whether anyone in the room can tell if it did it right. About 30 minutes; finish at home if you need to.</p>
 
-  <h3 class="sub" id="map-job"><span>Your job</span></h3>
-  <p>Your manager asks every new hire the same question: <strong>which parts of your job should AI do, and which should stay with you?</strong> You'll answer it for the job you actually want. <strong>You're the person in the loop.</strong> Claude makes the page. You decide whether its tags are right.</p>
-  <div class="callout"><div class="label">Free accounts run out of messages</div><p>Building a page uses a free Claude account's messages up fast, because Claude rewrites the whole page every time you send something. If you hit the limit, Claude tells you when your messages come back, and your chat and page are saved. Send each step once, and if a check turns up problems, list every fix in one message.</p></div>
+  <h3 class="sub" id="expert-job"><span>Your job</span></h3>
+  <p>Your manager hands you something Claude produced and asks: <strong>is this good enough to send?</strong> You're the reviewer. <strong>Claude does the work. You decide whether it holds up</strong>, and you name what you had to know to decide.</p>
 
-  <h3 class="sub" id="map-steps"><span>Step by step</span></h3>
+  <h3 class="sub" id="expert-steps"><span>Step by step</span></h3>
   <div class="steps">
     <div class="step"><span class="sn">1</span><div>
-      <p><strong>Copy the prompt</strong>, replace the bracket with a real job title you'd apply for, paste it into a new chat at claude.ai, and send it.</p>
-      <div class="probe"><div class="ptext" id="prompt-map">Build me an interactive web page that maps the job of [a job title I want after college, like marketing coordinator or financial analyst]. Use plain HTML and JavaScript, no libraries, easy to read on a phone. List 12 tasks a person in this job actually does in their first two years. For each task, show three tags: codified or tacit knowledge (codified means it's written down in procedures and textbooks; tacit means it's learned by practice and mentoring), how much of it today's AI could do (low, some, or high), and one sentence on why. Add a switch between two ways an employer could build the job: an automating build, where AI does every high-exposure task and the person reviews, and a complementing build, where AI drafts or searches and the person decides. For each build, show which tasks stay with the person and what share of the job's time that is. At the bottom, list the three tacit tasks I should get good at first, and how a new hire usually learns them.</div></div>
-      <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#prompt-map">Copy the prompt</button><span class="cpstat" aria-live="polite"></span></div>
+      <p><strong>Pick a junior task from your field.</strong> Something a first-year hire would actually be handed. A few ideas: explain why a small budget came in over plan (accounting), write a one-page brief for a local business's campaign (marketing), list the requirements for a simple app a club wants (MIS), compare two loan offers for a small business (finance), or write the email announcing a schedule change to a team (management). A task from a job or internship you've had works best. Make up the details; don't paste anything private.</p>
     </div></div>
     <div class="step"><span class="sn">2</span><div>
-      <p><strong>Check the tasks.</strong> Look up the same job on <a class="inline" href="https://www.onetonline.org/" target="_blank" rel="noopener">O*NET OnLine</a>. Do Claude's twelve tasks match what the government lists? Name one task Claude invented or got wrong, and one it missed.</p>
+      <p><strong>Copy the prompt</strong>, fill in the brackets, paste it into a new chat at claude.ai, and send it.</p>
+      <div class="probe"><div class="ptext" id="prompt-expert">I'm a first-year [job title] at a [kind of company]. My manager asked me to [the task]. Here are the details: [the numbers, the audience, the situation]. Do the task the way a capable first-year hire would, and keep it to about a page.</div></div>
+      <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#prompt-expert">Copy the prompt</button><span class="cpstat" aria-live="polite"></span></div>
     </div></div>
     <div class="step"><span class="sn">3</span><div>
-      <p><strong>Disagree with a tag.</strong> Find at least one task where you think Claude got codified versus tacit wrong, or overrated what AI can do. Tell it why and ask it to change the page. Then ask: <em>"Which of your tags are you least sure about, and why?"</em></p>
+      <p><strong>Be the expert.</strong> Read it the way your manager would. Find at least one thing that's wrong, missing, or would land badly with the real audience. Then name what you had to know to catch it, and where you learned it: a class, a job, a person. (If you can't find anything wrong, that's a finding too. Say what you checked and how sure you are.)</p>
     </div></div>
     <div class="step"><span class="sn">4</span><div>
-      <p><strong>Read both builds.</strong> How much of the job is left for you under the automating build? Under the complementing build? Which would you rather be hired into, and which would a cost-cutting employer pick?</p>
+      <p><strong>Ask it to check itself.</strong> Send: <em>"What in your answer would an experienced [job title] question first, and what would you need to know that I didn't tell you?"</em> Did it find what you found? Did it find something you missed?</p>
     </div></div>
     <div class="step"><span class="sn">5</span><div>
-      <p><strong>Save it.</strong> Download the page as an HTML file or print it to PDF. You'll attach it to writeup item 3.</p>
+      <p><strong>Sort the problems.</strong> For each problem you or Claude found, decide: could a beginner have caught it with the textbook open, or did it take experience? That's codified versus tacit, on your own task.</p>
     </div></div>
   </div>
-  <p class="tis-note">Claude's estimates of "how much AI could do" are its own judgment, about its own kind of technology. Treat them as a claim to check, the way the chapter treats every claim about AI's effects.</p>
+  <p class="tis-note">Five messages or fewer. Claude's review of its own work is a claim to check, the same as everything else it says.</p>
 </section>
 
 <section id="hood">
-  <div class="shead"><span class="num">4</span><h2>At home: Under the hood, what the toys were computing</h2></div>
-  <p><strong>The firm simulator has no AI in it at all.</strong> It's the economics of AI with the AI removed: a small bonus that plateaus for tools, and a dip followed by a permanent gain for redesign. That the strategic problem survives without any AI in the model is the point. The hard part of a general-purpose technology isn't the technology. It's the reorganization, and who absorbs the dip.</p>
-  <p><strong>The bench is a pipeline with a delay.</strong> Juniors take three years to become seniors, and seniors leave on their own schedule. Any system with a delay punishes decisions that look fine in the short run. That's why the Canaries gap shows up in hiring, not firing: the cost of not opening the door arrives years later, at a different desk.</p>
-  <p><strong>Your job map is section 2.4 on one person.</strong> Exposure says how much of a job AI could touch. The build says what the employer does with that. Codified tasks are where AI is strong, because they're written down, which is what the models trained on. Tacit tasks are where you're scarce.</p>
-  <p><strong>Claude's part.</strong> Claude listed twelve tasks and tagged them in a minute. It couldn't tell you which job you'd rather have, and its sense of what AI can do is a claim about itself. You checked it against the government's list and your own judgment, which is the tacit part.</p>
+  <div class="shead"><span class="num">2</span><h2>At home: Inside the machine, why the checker needs expertise</h2></div>
+  <p><strong>Claude learned from written text.</strong> A language model is trained on an enormous amount of what people have written down, so it's strongest at the codified part of a task: the format, the standard steps, the textbook explanation. That's why its first draft of junior work looks so good so fast.</p>
+  <p><strong>It doesn't know what was never written down.</strong> Your client's mood, your company's real numbers, which manager actually decides, the rule everyone follows and nobody wrote: none of that was in the training data. When the task depends on it, the model fills the gap with something that sounds right.</p>
+  <p><strong>It sounds the same either way.</strong> A right answer and a wrong answer come out in the same confident voice (Chapter 10 picks this up). So checking AI's work takes the knowledge to check it. That's what you did in section 1.</p>
+  <p><strong>That's the entry-level problem in one sentence.</strong> If AI does the junior work and only experts can check it, companies want experts. But experts used to learn by doing the junior work. Hold onto that for the debate.</p>
 </section>
 <section id="debate">
-  <div class="shead"><span class="num">5</span><h2>In class: Debate</h2></div>
+  <div class="shead"><span class="num">3</span><h2>In class: Debate</h2></div>
   <p class="lead"><strong>The question: AI can now do most of the old junior work at your company. Do you cut entry-level hiring, or rebuild the entry-level job?</strong> Left half of the room is Side A: <strong>cut it, and hire experienced people.</strong> Right half is Side B: <strong>rebuild it, and keep hiring juniors for a bigger job.</strong> About 45 minutes: 8 to read the records below, 12 to prep, 25 to debate. The Gilman Street rules apply.</p>
-  <p>Today you’re the hiring manager, not the applicant. You’re deciding what a company should do, the way you did with the senior bench in <a class="inline" href="#bench">section 2</a>. And before you start, one honest thing about the room: nobody here is arguing about whether you will get a job. The evidence below is mixed, the first rung is moving, and a lot of what’s hard about this job market right now has nothing to do with AI.</p>
+  <p>Today you’re the hiring manager, not the applicant. You’re deciding what a company should do, the way you judged Claude’s work in <a class="inline" href="#expert">section 1</a>. And before you start, one honest thing about the room: nobody here is arguing about whether you will get a job. The evidence below is mixed, the first rung is moving, and a lot of what’s hard about this job market right now has nothing to do with AI.</p>
 
   <div class="callout casebox">
     <div class="label">This week’s case: the canaries</div>
@@ -711,9 +648,9 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     <li class="tli"><span class="tly">2025 to 2026</span><div><p class="tlt">Tariffs</p><p class="tlx">Broad new tariffs raised costs for consumers and for American companies that import parts. Stanford economists flagged tariffs, interest rates, and a low-hire, low-fire labor market among the biggest economic issues for 2026.</p><p class="tlc">The catch: it’s hard to separate what tariffs did to hiring from everything else happening at the same time. That’s true of AI too.</p></div><p class="tlcite">Stanford Institute for Economic Policy Research. (2026). The U.S. economy in 2026: What to watch for. <a class="tpsrc" href="https://siepr.stanford.edu/publications/policy-brief/us-economy-2026-what-watch" target="_blank" rel="noopener">Open source</a></p></li>
     <li class="tli"><span class="tly">Since February 2026</span><div><p class="tlt">War and oil</p><p class="tlx">The war with Iran set off a major oil shock. The World Bank projected energy prices up 24 percent in 2026 and warned the hit would arrive in waves: energy first, then food, then broader inflation and higher interest rates.</p></div><p class="tlcite">World Bank, Commodity Markets Outlook, as reported by <em>The Standard</em>, April 2026. <a class="tpsrc" href="https://www.thestandard.com.hk/finance/article/330573/World-Bank-forecasts-24pc-surge-in-energy-prices-in-2026-due-to-Middle-East-war" target="_blank" rel="noopener">Open source</a></p></li>
     <li class="tli"><span class="tly">March 2026</span><div><p class="tlt">Recent graduates</p><p class="tlx">Unemployment for recent college graduates, ages 22 to 27, was about 5.6 percent, up from 3.6 percent in March 2019.</p><p class="tlc">The catch: higher than before, and still most recent graduates are working.</p></div><p class="tlcite">Federal Reserve Bank of New York. (2026). <a class="tpsrc" href="https://www.newyorkfed.org/newsevents/mediaadvisory/2026/0528-2026" target="_blank" rel="noopener">Open source</a></p></li>
-    <li class="tli"><span class="tly">September 2026</span><div><p class="tlt">Low hire, low fire</p><p class="tlx">Employers added 29,000 jobs and unemployment ticked up to 4.2 percent. Companies aren’t laying off many people, but they aren’t hiring many either, and a measure of gross hiring has been stuck in a rut for more than two years.</p><p class="tlc">The catch: few layoffs is good news for people who have jobs. Few openings is bad news for people looking for their first one.</p></div><p class="tlcite">AP, via WTTW. (2026, October 2). <a class="tpsrc" href="https://news.wttw.com/2026/10/02/us-hiring-slows-and-unemployment-ticks-higher-month-remaining-americans-head-polls" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">September to October 2026</span><div><p class="tlt">Hiring picks back up, mostly</p><p class="tlx">Employers added 165,000 jobs in October, far more than forecasters expected, and unemployment dipped to 4.1 percent. September’s weak first count was revised up to 60,000.</p><p class="tlc">The catch: long-term unemployment rose sharply, and one strong month isn’t a trend. A better month overall doesn’t tell you who’s getting the first job.</p></div><p class="tlcite">NPR. (2026, November 6). Hiring jumps: The economy added 165,000 jobs last month. <a class="tpsrc" href="https://npr.org/2026/11/06/nx-s1-6030867/jobs-labor-market-economy-wages-inflation" target="_blank" rel="noopener">Open source</a> CNBC. (2026, November 6). <a class="tpsrc" href="https://www.cnbc.com/2026/11/06/jobs-report-october-2026.html" target="_blank" rel="noopener">Open source</a></p></li>
   </ol>
-  <p class="tlnote"><strong>Notice the pattern.</strong> A slow, cautious economy hits first-time job seekers hardest, AI or no AI, because the first thing a nervous company stops doing is opening new seats. Side A will say caution is exactly why you hire experienced people. Side B will say that’s the economy talking, not AI, and cutting the pipeline fixes the wrong problem.</p>
+  <p class="tlnote"><strong>Notice the pattern.</strong> Even with October’s rebound, a cautious economy hits first-time job seekers hardest, AI or no AI, because the first thing a nervous company stops doing is opening new seats. Side A will say caution is exactly why you hire experienced people. Side B will say that’s the economy talking, not AI, and cutting the pipeline fixes the wrong problem.</p>
 
   <h3 class="sub" id="ai-record"><span>What the data says:</span> AI and young workers</h3>
   <p>Now the part that is about AI. These are the strongest numbers for Side A, each with its catch.</p>
@@ -724,6 +661,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     <li class="tli"><span class="tly">2026</span><div><p class="tlt">Automating versus helping</p><p class="tlx">Jobs where more of the AI use is automation, people handing a whole task to AI, show declines or weaker growth for young workers. Jobs where AI is used to help people work show no clear relationship with employment.</p><p class="tlc">The catch: the usage data comes from the Anthropic Economic Index, and Anthropic makes Claude. It’s also a correlation.</p></div><p class="tlcite">Canaries Dashboard, “Automation v. Augmentation.” <a class="tpsrc" href="https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/" target="_blank" rel="noopener">Open source</a></p></li>
     <li class="tli"><span class="tly">2026</span><div><p class="tlt">Who’s in the exposed jobs</p><p class="tlx">Among workers ages 22 to 25, 43.8 percent of women work in the most AI-exposed group of jobs, compared with 32.4 percent of men. The researchers say the gender gap they see comes mostly from which jobs people hold, not from unequal effects within the same job.</p></div><p class="tlcite">Canaries Dashboard, “Gender partition,” updated July 22, 2026. <a class="tpsrc" href="https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/" target="_blank" rel="noopener">Open source</a></p></li>
     <li class="tli"><span class="tly">2025 to 2026</span><div><p class="tlt">The firm-level test</p><p class="tlx">Tracking tens of millions of résumés, two Harvard researchers found junior employment falls at firms that start building generative AI into their work, while senior employment holds.</p><p class="tlc">The catch: other careful studies using different data find small effects, including whole-population records from Finland and Norway that show no clear effect on young workers.</p></div><p class="tlcite">Hosseini Maasoum & Lichtinger, SSRN. <a class="tpsrc" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5425555" target="_blank" rel="noopener">Open source</a> Humlum &amp; Vestergaard, Becker Friedman Institute. <a class="tpsrc" href="https://bfi.uchicago.edu/working-papers/large-language-models-small-labor-market-effects/" target="_blank" rel="noopener">Open source</a> Finland, ETLA. <a class="tpsrc" href="https://www.etla.fi/wp-content/uploads/ETLA-Working-Papers-135.pdf" target="_blank" rel="noopener">Open source</a> Norway, CESifo. <a class="tpsrc" href="https://ideas.repec.org/p/ces/ceswps/_12752.html" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">October 2026</span><div><p class="tlt">An AI company, on itself</p><p class="tlx">Anthropic studied its own workforce. Juniors fell from 27 percent of its new technical hires to 9 percent in about a year, and its hiring managers now weigh judgment and autonomy over technical expertise.</p><p class="tlc">The catch: these are shares, not head counts. The company tripled in size, so it still hired more people overall. It’s one company describing itself, and it sells the AI tool its staff use, including the Claude in this lab.</p></div><p class="tlcite">Anthropic. (2026, October 16). How employment is changing at Anthropic. <a class="tpsrc" href="https://www.anthropic.com/research/employment-at-anthropic" target="_blank" rel="noopener">Open source</a></p></li>
   </ol>
   <p class="tlnote"><strong>Notice the pattern.</strong> The gap shows up in specific jobs, at specific ages, where AI does the work instead of helping with it. That’s a real signal. It’s also a correlation in a cautious economy, and two whole countries don’t see it. Side A leans on the signal. Side B leans on the catches.</p>
 
@@ -734,6 +672,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     <li class="tli"><span class="tly">February 2026</span><div><p class="tlt">Reshaped, not erased</p><p class="tlx">The Economist’s economics correspondent reports that over three years, white-collar employment grew by about 3 million jobs, software developers were up 7 percent and paralegals 20 percent, and jobs that mix technical and people skills, like project managers and information security analysts, grew more than 30 percent. Secretaries and administrative assistants fell about 20 percent.</p><p class="tlc">The catch: these are The Economist’s own figures, counting all ages. The same video says entry-level analysts and programmers are the most exposed, and Stanford finds young software developers down sharply.</p></div><p class="tlcite"><em>The Economist.</em> (2026, February 23). Why AI won’t wipe out white-collar jobs [Video]. <a class="tpsrc" href="https://www.youtube.com/watch?v=1CAvNn5tUR8" target="_blank" rel="noopener">Open source</a></p></li>
     <li class="tli"><span class="tly">June 2026</span><div><p class="tlt">The “seniorised” entry level</p><p class="tlx">Looking at 2.4 million U.S. entry-level job ads, PwC found AI-exposed entry-level roles are seven times more likely to ask for skills that used to be senior, like judgment and leadership. Openings for these roles grew 35 percent since 2019, while other entry-level roles shrank 10 percent.</p><p class="tlc">The catch: job ads show what employers ask for, not who got hired. And PwC sells AI consulting.</p></div><p class="tlcite">PwC. (2026). <em>2026 Global AI Jobs Barometer</em> [Press release]. <a class="tpsrc" href="https://www.pwc.com/id/en/media-centre/press-release/2026/english/ai-jobs-barometer-en.html" target="_blank" rel="noopener">Open source</a></p></li>
     <li class="tli"><span class="tly">Ramp data</span><div><p class="tlt">The heaviest AI spenders</p><p class="tlx">In Ramp’s spending data, the companies spending most on AI grew their entry-level headcount by about 12 percent.</p><p class="tlc">The catch: those firms were already larger and growing faster.</p></div><p class="tlcite">Ramp. AI jobs impact. <a class="tpsrc" href="https://ramp.com/data/ai-jobs-impact/paper" target="_blank" rel="noopener">Open source</a></p></li>
+    <li class="tli"><span class="tly">October 2026</span><div><p class="tlt">The class of 2026</p><p class="tlx">A UCLA study of this summer’s new college graduates found their unemployment only slightly higher in AI-exposed fields, too small a difference to be sure it’s real.</p><p class="tlc">The catch: computer science grads were slower to land a first job. And unemployment doesn’t show whether the job a grad landed is the one they trained for.</p></div><p class="tlcite">Fairlie &amp; Wu, as reported by UCLA Anderson Review. (2026, October 7). <a class="tpsrc" href="https://anderson-review.ucla.edu/for-new-college-grads-the-ai-jobpocalypse-didnt-arrive/" target="_blank" rel="noopener">Open source</a></p></li>
     <li class="tli"><span class="tly">July 2026</span><div><p class="tlt">Economists on steering it</p><p class="tlx">Over 200 economists and AI experts, including 17 Nobel laureates, called for building the incentives, guardrails, and institutions to steer AI toward complementing people.</p><p class="tlc">The catch: a statement is a goal, not a result.</p></div><p class="tlcite">Stanford Digital Economy Lab, homepage, on the July 2026 statement. <a class="tpsrc" href="https://digitaleconomy.stanford.edu/" target="_blank" rel="noopener">Open source</a></p></li>
   </ol>
   <p class="tlnote"><strong>Notice the pattern.</strong> When people count all ages, AI-touched jobs are mostly growing. When they look only at the youngest workers, the picture is worse. And the entry-level jobs that are growing ask for more on day one. Side B leans on the growth. Side A asks where a 22-year-old gets senior skills.</p>
@@ -766,7 +705,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
       <div class="tp"><span class="tpn">2</span>
         <p class="tpc">“In this economy, experience is the safer bet.”</p>
         <p class="tpe"><span class="tpl">The evidence</span>Hiring in 2025 was the weakest outside a recession in more than two decades, tariffs and an oil shock are raising costs, and companies are cautious. An experienced hire is productive on day one. <a class="tpsrc" href="#economy-record">The economy record</a></p>
-        <p class="tpb"><span class="tpl">Expect them to say</span>“That’s the economy, not AI. Cutting your pipeline because of oil prices fixes the wrong problem.”</p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“October added 165,000 jobs. That’s the economy, not AI, and cutting your pipeline because of a slow year fixes the wrong problem.”</p>
       </div>
       <div class="tp"><span class="tpn">3</span>
         <p class="tpc">“The new entry-level job asks for skills juniors don’t have.”</p>
@@ -779,9 +718,9 @@ p.runnote{font-size:.9rem;color:var(--gray);}
         <p class="tpb"><span class="tpl">Expect them to say</span>“He also says white-collar work grew by about 3 million jobs, and that jobs get reshaped more than erased.”</p>
       </div>
       <div class="tp"><span class="tpn">5</span>
-        <p class="tpc">“Let someone else train them.”</p>
-        <p class="tpe"><span class="tpl">The evidence</span>In section 2’s bench toy, if other firms keep training juniors, you can hire their experienced people later. <a class="tpsrc" href="#bench">Section 2</a></p>
-        <p class="tpb"><span class="tpl">Expect them to say</span>“Run it again with the whole industry doing that. When everyone stops, there’s no one to hire.”</p>
+        <p class="tpc">“The companies closest to AI already hire senior.”</p>
+        <p class="tpe"><span class="tpl">The evidence</span>Anthropic’s juniors fell from 27 percent of its technical hires to 9 percent in about a year, and its managers now weigh judgment over technical expertise. <a class="tpsrc" href="#ai-record">The AI record</a></p>
+        <p class="tpb"><span class="tpl">Expect them to say</span>“Those are shares. Anthropic tripled and hired more people overall, and it’s one company describing itself while it sells the tool.”</p>
       </div>
     </div>
     <div class="tpside b">
@@ -793,7 +732,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
       </div>
       <div class="tp"><span class="tpn">2</span>
         <p class="tpc">“Today’s juniors are tomorrow’s seniors.”</p>
-        <p class="tpe"><span class="tpl">The evidence</span>In section 2’s bench toy, a company that stops hiring juniors runs short of seniors about three years later, and when the whole industry stops, there’s no one left to hire. <a class="tpsrc" href="#bench">Section 2</a></p>
+        <p class="tpe"><span class="tpl">The evidence</span>Experts learned by doing the junior work. A company that stops hiring juniors stops growing its own experts, and if every company stops, there’s no one left to hire later. <a class="tpsrc" href="#hood">Section 2</a></p>
         <p class="tpb"><span class="tpl">Expect them to say</span>“That’s a cost three years out. The board wants this quarter, and this quarter is expensive.”</p>
       </div>
       <div class="tp"><span class="tpn">3</span>
@@ -818,7 +757,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     <div class="label">Prep, 12 minutes</div>
     <ol>
       <li><strong>Get your point (1 min).</strong> Groups of 2 or 3. Count off 1 to 5 on your side. That’s your talking point.</li>
-      <li><strong>Check the evidence (3 min).</strong> Click the tag on your point, reread the entries behind it, and open at least one source. Stanford’s dashboard updates on November 18, which is today. If the new numbers are out, check whether the gap for young workers grew or shrank.</li>
+      <li><strong>Check the evidence (3 min).</strong> Click the tag on your point, reread the entries behind it, and open at least one source. Stanford’s dashboard updates monthly. If a new reading is out, check whether the gap for young workers grew or shrank.</li>
       <li><strong>Pressure-test it with Claude (5 min).</strong> Fill in the brackets and send:</li>
     </ol>
     <div class="probe"><div class="ptext" id="prompt-debate">I'm in a class debate. AI can now do most of the old junior work at a company. Should the company cut entry-level hiring and hire experienced people (Side A), or rebuild the entry-level job and keep hiring juniors for bigger work (Side B)? I'm on Side [A / B]. My point is: [paste the claim]. My evidence is: [paste the evidence]. Argue against me as hard as you can: what's the other side's best answer, and where is my point weakest? Don't go easy on me.</div></div>
@@ -847,42 +786,42 @@ p.runnote{font-size:.9rem;color:var(--gray);}
     <summary>Every source in this debate, with links</summary>
     <div class="srcbody">
       <p class="srcintro">Research institutions, government and central bank data, and established news organizations. Company and consulting-firm figures are labeled as theirs.</p>
-      <ol class="reflist"><li>AP, via WTTW. (2026, October 2). US hiring slows and unemployment ticks higher with a month remaining before Americans head to polls. <a class="inline" href="https://news.wttw.com/2026/10/02/us-hiring-slows-and-unemployment-ticks-higher-month-remaining-americans-head-polls" target="_blank" rel="noopener">Link</a></li><li>Federal Reserve Bank of New York. (2026). Recent college graduates’ labor market, March 2026 rates. <a class="inline" href="https://www.newyorkfed.org/newsevents/mediaadvisory/2026/0528-2026" target="_blank" rel="noopener">Link</a></li><li>Hosseini Maasoum, S. M., &amp; Lichtinger, G. Generative AI and junior employment. SSRN. <a class="inline" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5425555" target="_blank" rel="noopener">Link</a></li><li>Humlum, A., &amp; Vestergaard, E. Large language models, small labor market effects. Becker Friedman Institute. <a class="inline" href="https://bfi.uchicago.edu/working-papers/large-language-models-small-labor-market-effects/" target="_blank" rel="noopener">Link</a></li><li>ETLA. Working Paper 135 (Finland). <a class="inline" href="https://www.etla.fi/wp-content/uploads/ETLA-Working-Papers-135.pdf" target="_blank" rel="noopener">Link</a></li><li>CESifo Working Paper 12752 (Norway). <a class="inline" href="https://ideas.repec.org/p/ces/ceswps/_12752.html" target="_blank" rel="noopener">Link</a></li><li>PwC. (2026). <em>2026 Global AI Jobs Barometer</em> [Press release]. <a class="inline" href="https://www.pwc.com/id/en/media-centre/press-release/2026/english/ai-jobs-barometer-en.html" target="_blank" rel="noopener">Link</a></li><li>Ramp. AI jobs impact. <a class="inline" href="https://ramp.com/data/ai-jobs-impact/paper" target="_blank" rel="noopener">Link</a></li><li>Stanford Digital Economy Lab. (2026, August). No widespread displacement, but the AI employment gap for young workers has widened to 19%. <a class="inline" href="https://digitaleconomy.stanford.edu/news/canariesaug26/" target="_blank" rel="noopener">Link</a></li><li>Stanford Digital Economy Lab. (2026, February). Canaries, interest rates, and timing. <a class="inline" href="https://digitaleconomy.stanford.edu/news/canaries-interest-rates-and-timinga-more-on-recent-drivers-of-employment-changes-for-young-workers/" target="_blank" rel="noopener">Link</a></li><li>Stanford Digital Economy Lab and ADP Research. Canaries Dashboard, last updated October 21, 2026. <a class="inline" href="https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/" target="_blank" rel="noopener">Link</a></li><li>Stanford Digital Economy Lab. Homepage, on the July 2026 economists’ statement. <a class="inline" href="https://digitaleconomy.stanford.edu/" target="_blank" rel="noopener">Link</a></li><li>Stanford Institute for Economic Policy Research. (2026). The U.S. economy in 2026: What to watch for. <a class="inline" href="https://siepr.stanford.edu/publications/policy-brief/us-economy-2026-what-watch" target="_blank" rel="noopener">Link</a></li><li><em>The Economist.</em> (2026, February 23). Why AI won’t wipe out white-collar jobs [Video]. <a class="inline" href="https://www.youtube.com/watch?v=1CAvNn5tUR8" target="_blank" rel="noopener">Link</a></li><li>World Bank, Commodity Markets Outlook (April 2026), as reported by <em>The Standard</em>. <a class="inline" href="https://www.thestandard.com.hk/finance/article/330573/World-Bank-forecasts-24pc-surge-in-energy-prices-in-2026-due-to-Middle-East-war" target="_blank" rel="noopener">Link</a></li></ol>
+      <ol class="reflist"><li>AP, via WTTW. (2026, October 2). US hiring slows and unemployment ticks higher with a month remaining before Americans head to polls. <a class="inline" href="https://news.wttw.com/2026/10/02/us-hiring-slows-and-unemployment-ticks-higher-month-remaining-americans-head-polls" target="_blank" rel="noopener">Link</a></li><li>Anthropic. (2026, October 16). How employment is changing at Anthropic. <a class="inline" href="https://www.anthropic.com/research/employment-at-anthropic" target="_blank" rel="noopener">Link</a></li><li>CNBC. (2026, November 6). U.S. economy added 165,000 jobs in October; unemployment rate slips to 4.1%. <a class="inline" href="https://www.cnbc.com/2026/11/06/jobs-report-october-2026.html" target="_blank" rel="noopener">Link</a></li><li>Fairlie, R. W., &amp; Wu, J. (2026). The early impacts of AI on employment among recent college graduates, as reported by UCLA Anderson Review, October 7. <a class="inline" href="https://anderson-review.ucla.edu/for-new-college-grads-the-ai-jobpocalypse-didnt-arrive/" target="_blank" rel="noopener">Link</a></li><li>Federal Reserve Bank of New York. (2026). Recent college graduates’ labor market, March 2026 rates. <a class="inline" href="https://www.newyorkfed.org/newsevents/mediaadvisory/2026/0528-2026" target="_blank" rel="noopener">Link</a></li><li>Hosseini Maasoum, S. M., &amp; Lichtinger, G. Generative AI and junior employment. SSRN. <a class="inline" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5425555" target="_blank" rel="noopener">Link</a></li><li>Humlum, A., &amp; Vestergaard, E. Large language models, small labor market effects. Becker Friedman Institute. <a class="inline" href="https://bfi.uchicago.edu/working-papers/large-language-models-small-labor-market-effects/" target="_blank" rel="noopener">Link</a></li><li>ETLA. Working Paper 135 (Finland). <a class="inline" href="https://www.etla.fi/wp-content/uploads/ETLA-Working-Papers-135.pdf" target="_blank" rel="noopener">Link</a></li><li>CESifo Working Paper 12752 (Norway). <a class="inline" href="https://ideas.repec.org/p/ces/ceswps/_12752.html" target="_blank" rel="noopener">Link</a></li><li>NPR. (2026, November 6). Hiring jumps: The economy added 165,000 jobs last month. <a class="inline" href="https://npr.org/2026/11/06/nx-s1-6030867/jobs-labor-market-economy-wages-inflation" target="_blank" rel="noopener">Link</a></li><li>PwC. (2026). <em>2026 Global AI Jobs Barometer</em> [Press release]. <a class="inline" href="https://www.pwc.com/id/en/media-centre/press-release/2026/english/ai-jobs-barometer-en.html" target="_blank" rel="noopener">Link</a></li><li>Ramp. AI jobs impact. <a class="inline" href="https://ramp.com/data/ai-jobs-impact/paper" target="_blank" rel="noopener">Link</a></li><li>Stanford Digital Economy Lab. (2026, August). No widespread displacement, but the AI employment gap for young workers has widened to 19%. <a class="inline" href="https://digitaleconomy.stanford.edu/news/canariesaug26/" target="_blank" rel="noopener">Link</a></li><li>Stanford Digital Economy Lab. (2026, February). Canaries, interest rates, and timing. <a class="inline" href="https://digitaleconomy.stanford.edu/news/canaries-interest-rates-and-timinga-more-on-recent-drivers-of-employment-changes-for-young-workers/" target="_blank" rel="noopener">Link</a></li><li>Stanford Digital Economy Lab and ADP Research. Canaries Dashboard, last updated October 21, 2026. <a class="inline" href="https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/" target="_blank" rel="noopener">Link</a></li><li>Stanford Digital Economy Lab. Homepage, on the July 2026 economists’ statement. <a class="inline" href="https://digitaleconomy.stanford.edu/" target="_blank" rel="noopener">Link</a></li><li>Stanford Institute for Economic Policy Research. (2026). The U.S. economy in 2026: What to watch for. <a class="inline" href="https://siepr.stanford.edu/publications/policy-brief/us-economy-2026-what-watch" target="_blank" rel="noopener">Link</a></li><li><em>The Economist.</em> (2026, February 23). Why AI won’t wipe out white-collar jobs [Video]. <a class="inline" href="https://www.youtube.com/watch?v=1CAvNn5tUR8" target="_blank" rel="noopener">Link</a></li><li>World Bank, Commodity Markets Outlook (April 2026), as reported by <em>The Standard</em>. <a class="inline" href="https://www.thestandard.com.hk/finance/article/330573/World-Bank-forecasts-24pc-surge-in-energy-prices-in-2026-due-to-Middle-East-war" target="_blank" rel="noopener">Link</a></li></ol>
     </div>
   </details>
 </section>
 
 <section id="writeup">
-  <div class="shead"><span class="num">6</span><h2>For homework: The writeup</h2></div>
+  <div class="shead"><span class="num">4</span><h2>For homework: The writeup</h2></div>
   <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, November 20.</strong> Answer them as you go today. Written reflections, no screenshots.</p>
   <ol class="writeup">
-    <li><strong>The dip.</strong> Give both runs' final numbers and shapes: plateau, J-curve, flat, or something else. Name the quarter you felt the most pressure to avoid the dip, and what exactly it threatened. Then this month's Adoption Monitor readings, and one sentence explaining the gap between worker and firm adoption from the inside: not "firms are slow," but why.</li>
-    <li><strong>The bench.</strong> How many juniors did it take to keep the judgment work covered in year 8, and what did that cost compared with hiring none? What happened when the whole industry stopped hiring juniors? In two sentences, explain why a company that closes the entry-level door this year might not notice for three years.</li>
-    <li><strong>Your first job.</strong> Attach the page you built with Claude, as an HTML file or PDF. Name one task Claude got wrong or invented compared with O*NET, and one tag you changed and why. How much of the job is left for you under each build? (No-AI path: your sheet's ten tasks, tags, and counts.)</li>
+    <li><strong>The task.</strong> What task did you give Claude, and what did it get wrong, leave out, or get right that surprised you? Name what you had to know to catch it, and where you learned it. (No-AI path: your ten O*NET tasks, your tags, and the task a new hire would most likely get wrong.)</li>
+    <li><strong>Codified or tacit.</strong> When you asked Claude to check itself, what did it find that you missed, and what did it miss that you found? Which of the problems could a beginner catch with the textbook open, and which took experience? Connect one of them to something Monday's guest said.</li>
+    <li><strong>The junior question.</strong> If a company had Claude do this task with no junior on it, who would catch what you caught? In two sentences, explain why a company that stops hiring juniors this year might not notice the cost for years.</li>
     <li><strong>The debate.</strong> Which side were you handed, and what was the other side’s best point? Then where you actually land: should a company cut entry-level hiring or rebuild the job, and who pays for your answer? Use at least one source from the debate, and name one thing in the records that has nothing to do with AI. What specific reading or study would change your mind? Did Claude’s pushback find the weak spot in your case before the other side did?</li>
-    <li><strong>Your commitment card.</strong> From your job map: the one tacit skill you'll start building before you graduate, and how, specifically (a class, a job, a person you'll learn from). Then what it costs you this year, in time or money. Three sentences.</li>
+    <li><strong>Your commitment card.</strong> From today’s task: the one tacit skill you'll start building before you graduate, and how, specifically (a class, a job, a person you'll learn from). Then what it costs you this year, in time or money. Three sentences.</li>
   </ol>
   <div class="callout">
     <div class="label">Using AI on this writeup</div>
     <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
     <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
-    <p><strong>Two conditions.</strong> What you submit has to be about your run, your numbers, your partner's disagreement, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
+    <p><strong>Two conditions.</strong> What you submit has to be about your task, your catches, your side in the debate, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
   </div>
 </section>
 
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p class="srcintro">Lab rebuilt 24 Oct 2026. Every outside claim is carried from Chapter 9 and its dated note (verified 29 Sep 2026); the 19 percent figure was re-checked against Stanford's August 12, 2026 update on 24 Oct 2026. The Canaries Dashboard updates monthly; check it the week before this lab runs. Debate rebuilt 29 Oct 2026 in the format of Labs 6 to 8, with the economy record, the Stanford dashboard findings, PwC, and The Economist added; the October jobs report comes out Nov 6, so update the September figures before Nov 18.</p>
+    <p class="srcintro">Updated 10 Nov 2026: the firm simulator, the senior bench, and the Claude job map were replaced by "Be the expert" (section 1) and a short "Inside the machine" (section 2); the September jobs record was replaced with October's report (NPR and CNBC, 6 Nov 2026); Anthropic's 16 Oct 2026 report on its own workforce and Fairlie and Wu's UCLA study of 2026 graduates were added as records; the two talking points that relied on the bench toy were replaced. Earlier history: lab rebuilt 24 Oct 2026. Every outside claim is carried from Chapter 9 and its dated note (verified 29 Sep 2026); the 19 percent figure was re-checked against Stanford's August 12, 2026 update on 24 Oct 2026. The Canaries Dashboard updates monthly; check it the week before this lab runs. Debate rebuilt 29 Oct 2026 in the format of Labs 6 to 8, with the economy record, the Stanford dashboard findings, PwC, and The Economist added; the October jobs report comes out Nov 6, so update the September figures before Nov 18.</p>
     <dl>
-      <dt>The two toys (sections 1 and 2)</dt>
-      <dd>Self-contained, no network calls, nothing persists. The firm simulator is carried unchanged from the previous version of this lab: tools +4, +2, +1, then nothing; each redesign −4 that quarter and −1 the next, then +7 every quarter after. Mini-Bench is new and its numbers are invented: 8 seniors at the start, 7 needed for judgment work, one leaving each year, three years to train a junior, outside hires at 1.5 times the cost, two a year available only when the industry keeps training. The previous version's "Inside the machine" described a hiring lever the simulator didn't have; Mini-Bench now supplies it.</dd>
-      <dt>Live instruments (sections 1 and 5)</dt>
-      <dd>Stanford Digital Economy Lab: AI Adoption Monitor and Canaries Dashboard (linked), and the August 12, 2026 Canaries update (linked).</dd>
-      <dt>Job tasks (section 3)</dt>
-      <dd>O*NET OnLine, the U.S. Department of Labor's occupational database (linked). Claude's task lists and exposure tags are its own judgment and are framed as claims to check.</dd>
-      <dt>Debate (section 5)</dt>
-      <dd>Every source is listed in "Every source in this debate," at the end of section 5. Carried from Chapter 9: Stanford's August 2026 Canaries update, Hosseini Maasoum and Lichtinger, Humlum and Vestergaard, Ramp, ETLA (Finland), CESifo (Norway). New on 29 Oct 2026: the Canaries Dashboard's job-level, automation-versus-augmentation, and gender findings (dashboard last updated Oct 21, 2026; the usage data is from the Anthropic Economic Index, which the record says); Stanford's February 2026 timing update; PwC's 2026 Global AI Jobs Barometer (job ads, labeled as PwC's); The Economist's February 23, 2026 video (figures labeled as The Economist's); the AP's October 2, 2026 jobs report coverage; SIEPR's 2026 outlook; the World Bank's April 2026 energy forecast via The Standard; the New York Fed's March 2026 recent-graduate rate. The NPR anecdote of one graduate's applications was removed: it is a story, not data, and the debate no longer needs it.</dd>
+      <dt>Be the expert (section 1)</dt>
+      <dd>No tool on the page. Students give Claude a junior task with made-up details and review the result; the no-AI path uses O*NET OnLine. Claude's self-review is framed as a claim to check.</dd>
+      <dt>Live instruments (section 3)</dt>
+      <dd>Stanford Digital Economy Lab: Canaries Dashboard (linked), and the August 12, 2026 Canaries update (linked).</dd>
+      <dt>Job tasks (section 1, no-AI path)</dt>
+      <dd>O*NET OnLine, the U.S. Department of Labor's occupational database (linked).</dd>
+      <dt>Debate (section 3)</dt>
+      <dd>Every source is listed in "Every source in this debate," at the end of section 3. Carried from Chapter 9: Stanford's August 2026 Canaries update, Hosseini Maasoum and Lichtinger, Humlum and Vestergaard, Ramp, ETLA (Finland), CESifo (Norway). New on 29 Oct 2026: the Canaries Dashboard's job-level, automation-versus-augmentation, and gender findings (dashboard last updated Oct 21, 2026; the usage data is from the Anthropic Economic Index, which the record says); Stanford's February 2026 timing update; PwC's 2026 Global AI Jobs Barometer (job ads, labeled as PwC's); The Economist's February 23, 2026 video (figures labeled as The Economist's); the AP's October 2, 2026 jobs report coverage; SIEPR's 2026 outlook; the World Bank's April 2026 energy forecast via The Standard; the New York Fed's March 2026 recent-graduate rate. The NPR anecdote of one graduate's applications was removed: it is a story, not data, and the debate no longer needs it.</dd>
     </dl>
     <p class="srcfoot">Outbound links were checked by search, not click-verified. Found an error? Tell your instructor; corrections are course content.</p>
   </div>
@@ -906,189 +845,9 @@ p.runnote{font-size:.9rem;color:var(--gray);}
 
 <script>
 (function(){
-  var TOTAL = 8;
-  var quarter, toolCount, reorgQuarters, history, done;
-
-  var flavors = {
-    start: 'The fiscal year opens. Your competitors are all issuing press releases about AI. Your board has read every one of them.',
-    tools: [
-      'The copilots land well. Teams report faster drafts and quicker analysis. The board is pleased, this looked like leadership and cost almost nothing.',
-      'More licenses, smaller lift. The easy wins were already won; people are faster at the old workflow, but it\u2019s still the old workflow.',
-      'Diminishing returns arrive on schedule. Everyone has a copilot now. Nobody\u2019s job works differently.',
-      'The new tools change little, the workflow itself is the bottleneck now, and everyone below you already knows it.'
-    ],
-    reorgNow: 'The redesign begins. Handoffs break, veterans grumble, two people quit, and this quarter\u2019s numbers dip. The board requests a meeting about "the AI initiative\u2019s underperformance."',
-    reorgTeething: 'The redesigned workflow is finding its feet, still awkward, but the shape of something better is visible to the people inside it.',
-    reorgPaying: 'A redesigned workflow hits stride: the process now does things the old one structurally couldn\u2019t. These gains don\u2019t plateau, they\u2019re the new building.',
-    hold: [
-      'A quiet quarter. Nothing broke. A competitor announced a "workflow transformation", their numbers dipped, and your board chuckled. Remember the chuckle.',
-      'Steady as she goes. The market moved; you didn\u2019t. Cheap now. Priced later.',
-      'Another held quarter. Holding is a decision too, it just never feels like one on the day.'
-    ]
-  };
-
-  var chart = document.getElementById('chart');
-  var NS = 'http://www.w3.org/2000/svg';
-
-  function prodAt(q, tCount, rQuarters){
-    var toolBonus = [0,4,6,7,7,7,7,7,7][Math.min(tCount,8)];
-    var r = 0;
-    rQuarters.forEach(function(rq){
-      if (q === rq) r += -4;
-      else if (q === rq+1) r += -1;
-      else if (q >= rq+2) r += 7;
-    });
-    return 100 + toolBonus + r;
-  }
-
-  function drawChart(){
-    while (chart.firstChild) chart.removeChild(chart.firstChild);
-    var minY = 88, maxY = 132;
-    function X(q){ return 60 + (q-1) * (700/(TOTAL-1)); }
-    function Y(v){ return 280 - (v - minY) * (260/(maxY-minY)); }
-    // axes + gridlines
-    [90,100,110,120,130].forEach(function(v){
-      var l = document.createElementNS(NS,'line');
-      l.setAttribute('x1',55); l.setAttribute('x2',770);
-      l.setAttribute('y1',Y(v)); l.setAttribute('y2',Y(v));
-      l.setAttribute('stroke', v===100 ? '#C9CED6' : '#EFEFEA');
-      l.setAttribute('stroke-width','1');
-      chart.appendChild(l);
-      var t = document.createElementNS(NS,'text');
-      t.setAttribute('x',48); t.setAttribute('y',Y(v)+4);
-      t.setAttribute('text-anchor','end');
-      t.setAttribute('style','font-family:Inter,sans-serif;font-size:11px;fill:#9AA1AB;');
-      t.textContent = v;
-      chart.appendChild(t);
-    });
-    for (var q=1; q<=TOTAL; q++){
-      var t = document.createElementNS(NS,'text');
-      t.setAttribute('x',X(q)); t.setAttribute('y',296);
-      t.setAttribute('text-anchor','middle');
-      t.setAttribute('style','font-family:Inter,sans-serif;font-size:11px;fill:#9AA1AB;');
-      t.textContent = 'Q'+q;
-      chart.appendChild(t);
-    }
-    if (history.length){
-      var pts = history.map(function(h,i){ return X(i+1)+','+Y(h); }).join(' ');
-      var pl = document.createElementNS(NS,'polyline');
-      pl.setAttribute('points', pts);
-      pl.setAttribute('fill','none');
-      pl.setAttribute('stroke','#FF3D8A');
-      pl.setAttribute('stroke-width','3');
-      pl.setAttribute('stroke-linejoin','round');
-      chart.appendChild(pl);
-      history.forEach(function(h,i){
-        var c = document.createElementNS(NS,'circle');
-        c.setAttribute('cx',X(i+1)); c.setAttribute('cy',Y(h)); c.setAttribute('r',4.5);
-        c.setAttribute('fill','#FF3D8A');
-        chart.appendChild(c);
-        var v = document.createElementNS(NS,'text');
-        v.setAttribute('x',X(i+1)); v.setAttribute('y',Y(h)-10);
-        v.setAttribute('text-anchor','middle');
-        v.setAttribute('style','font-family:Inter,sans-serif;font-size:11px;font-weight:600;fill:#14181D;');
-        v.textContent = h;
-        chart.appendChild(v);
-      });
-    }
-  }
-
-  function label(){
-    var current = history.length ? history[history.length-1] : 100;
-    document.getElementById('qlabel').textContent = done
-      ? 'Year complete · final productivity ' + current
-      : 'Quarter ' + quarter + ' of ' + TOTAL + ' · productivity ' + current;
-  }
-
-  function move(m){
-    if (done) return;
-    if (m==='tools') toolCount++;
-    if (m==='reorg') reorgQuarters.push(quarter);
-    var p = prodAt(quarter, toolCount, reorgQuarters);
-    history.push(p);
-
-    var f;
-    if (m==='tools') f = flavors.tools[Math.min(toolCount-1,3)];
-    else if (m==='reorg') f = flavors.reorgNow;
-    else {
-      var paying = reorgQuarters.some(function(rq){ return quarter >= rq+2; });
-      var teething = reorgQuarters.some(function(rq){ return quarter === rq+1; });
-      if (teething) f = flavors.reorgTeething;
-      else if (paying) f = flavors.reorgPaying;
-      else f = flavors.hold[(quarter-1) % 3];
-    }
-    document.getElementById('flavor').textContent = f;
-
-    quarter++;
-    if (quarter > TOTAL){ done = true; finish(); }
-    drawChart(); label();
-  }
-
-  function finish(){
-    document.getElementById('moves').style.display = 'none';
-    var final_ = history[TOTAL-1];
-    var v = document.getElementById('verdict');
-    v.hidden = false;
-    var read;
-    var firstReorg = reorgQuarters.length ? reorgQuarters[0] : null;
-    if (!reorgQuarters.length && toolCount > 0){
-      read = 'Final productivity: <b>' + final_ + '</b>. Your curve is the <b>copilot plateau</b>, the swapped engine. Quick wins, early praise, and a ceiling you hit around Q3 that no amount of additional licenses moved. For reference: this strategy tops out at 107. A firm that redesigned in Q1 and Q2 finishes around 121, after two ugly quarters. You avoided every dip and paid for it with the whole difference. This is the most common real-world curve, now you know why.';
-    } else if (!reorgQuarters.length && toolCount === 0){
-      read = 'Final productivity: <b>' + final_ + '</b>. You held for eight straight quarters, perfectly flat, perfectly defensible, quarter by quarter. No board meeting was ever awkward. The decade, however, belongs to the firms that took the dip. If this was a deliberate bet that the technology disappoints, the bubble reading, say so explicitly in your writeup; it\u2019s a real position and it deserves a real defense.';
-    } else if (firstReorg <= 3){
-      read = 'Final productivity: <b>' + final_ + '</b>. That\u2019s a <b>J-curve</b>, the dynamo strategy. You took the dip early' + (reorgQuarters.length>1 ? ', more than once,' : '') + ' sat through the board meeting, and let the structural gains compound. The uncomfortable writeup question: you did this with play money and a fake board. Name the real-world structure that would have stopped you, and the one that would have protected you.';
-    } else {
-      read = 'Final productivity: <b>' + final_ + '</b>. You redesigned <b>late</b>, quarter ' + firstReorg + ', which means you paid the dip without collecting much of the payoff inside the year. This is the tragedy curve of real firms: the pressure delays the redesign until the redesign can\u2019t show results before the next review. The lesson isn\u2019t "don\u2019t redesign." It\u2019s that reorganization needs runway, and whoever controls the review clock controls whether it ever happens.';
-    }
-    document.getElementById('reading').innerHTML = read;
-  }
-
-  document.querySelectorAll('#moves .simcard').forEach(function(b){
-    b.addEventListener('click', function(){ move(b.getAttribute('data-m')); });
-  });
-  document.getElementById('again').addEventListener('click', function(){
-    init();
-  });
-
-  function init(){
-    quarter = 1; toolCount = 0; reorgQuarters = []; history = []; done = false;
-    document.getElementById('moves').style.display = '';
-    document.getElementById('verdict').hidden = true;
-    document.getElementById('flavor').textContent = flavors.start;
-    drawChart(); label();
-  }
-  init();
-})();
-</script>
-<script>
-(function(){
   function $(id){return document.getElementById(id);}
   function setChip(b,on){b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');}
   function group(sel,attr,cb){var bs=document.querySelectorAll(sel);bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){setChip(x,x===b);});cb(b.getAttribute(attr));});});}
-  if($('bench-tool')){
-    var J=0,IND='train';
-    group('#bench-tool [data-j]','data-j',function(v){J=+v;});
-    group('#bench-tool [data-ind]','data-ind',function(v){IND=v;});
-    function sim(j,ind){var inS=8,outS=0,need=7,hires=[],rows=[],cum=0;
-      for(var y=1;y<=8;y++){
-        if(outS>0&&y%2===0)outS--;else inS=Math.max(0,inS-1);   // one senior leaves each year
-        if(y-3>=1)inS+=hires[y-4]||0;                            // juniors hired three years ago are now senior
-        var bought=0;if(ind==='train'){while(inS+outS<need&&bought<2){outS++;bought++;}}
-        hires.push(j);
-        var juniors=0;for(var k=Math.max(0,y-3);k<y;k++)juniors+=hires[k];
-        var S=inS+outS,cov=Math.min(100,Math.round(100*S/need)),pay=inS*10+outS*15+juniors*5;cum+=pay;
-        rows.push({y:y,S:S,jr:juniors,bought:bought,cov:cov,pay:pay});}
-      return {rows:rows,cum:cum};}
-    window.LAB9_BENCH=sim;
-    $('bench-run').addEventListener('click',function(){var r=sim(J,IND),tb=$('bench-table');tb.hidden=false;
-      tb.querySelector('tbody').innerHTML=r.rows.map(function(x){return '<tr><td>Year '+x.y+'</td><td class="num">'+x.S+'</td><td class="num">'+x.jr+'</td><td class="num">'+(x.bought||'')+'</td><td class="num"><b>'+x.cov+'%</b></td><td class="num">'+x.pay+'</td></tr>';}).join('');
-      var last=r.rows[7],base=sim(0,IND),m='<b>'+J+' junior'+(J===1?'':'s')+' a year, industry '+(IND==='train'?'still training':'not training')+':</b> judgment work covered in year 8: <b>'+last.cov+'%</b>. Eight-year payroll: <b>'+r.cum+'</b>'+(J?' (versus '+base.cum+' hiring none)':'')+'.';
-      if(J===0&&IND==='stop')m+=' Nobody new came in and nobody was left to poach. The seniors just ran out, one a year, and the judgment work went with them.';
-      else if(J===0)m+=' You covered the gap by buying other firms\u2019 seniors at a premium. That works only as long as somebody else keeps training them. Switch the industry to "stops hiring juniors too."';
-      else if(last.cov<100)m+=' The bench stopped shrinking, one junior in and one senior out, but it settled below what the work needs. You never made up the three years before the first junior was ready.';
-      else m+=' The bench holds. It costs more in the early years, and it\u2019s the only setting that works no matter what the rest of the industry does.';
-      $('bench-read').innerHTML=m;});
-  }
   function copyText(txt,stat){function done(ok){if(stat){stat.textContent=ok?'Copied.':'Couldn\u2019t copy. Select the text and copy it by hand.';setTimeout(function(){stat.textContent='';},4000);}}
     if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(function(){done(true);},function(){done(fallback());});}else done(fallback());
     function fallback(){var ta=document.createElement('textarea');ta.value=txt;ta.setAttribute('readonly','');ta.style.position='absolute';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();var ok=false;try{ok=document.execCommand('copy');}catch(e){}document.body.removeChild(ta);return ok;}}
