@@ -299,7 +299,7 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>The Bellingham Pitch</a>
 <a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
-<a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Be the Expert</a>
+<a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>The Job Scout</a>
 <a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 &amp; 11 · Week 10 · Monday</span>Govern the Agent</a>
 </div></div>
     </div>
@@ -601,36 +601,36 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 
 <section id="s3">
   <div class="shead"><span class="num">3</span><h2>The case: Amazon's recruiting engine</h2></div>
-  <h3 class="sub" id="s3-background"><span>Background:</span> The problem Amazon was trying to solve</h3>
+  <h3 class="sub" id="s3-background"><span>Background</span> The problem Amazon was trying to solve</h3>
   <p>By 2014, Amazon was hiring at a pace few companies in history had matched, and its recruiters were drowning in résumés. The company's answer was the one you'd expect from a company that had automated its warehouses: automate the screening. A team in Edinburgh, Scotland, set out to build a tool that could do for hiring what Amazon's systems did for products. Feed it a hundred résumés, get back the top five. As <a class="inline" href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G/" target="_blank" rel="noopener">Reuters reported in 2018</a>, the team built hundreds of models, each focused on a specific job function and location, and taught them to recognize tens of thousands of terms that had appeared on past applicants' résumés.</p>
   <p>The training data was a decade of résumés submitted to Amazon, and the outcomes were what happened to them: who got hired. That's the résumé sorter from <a class="inline" href="#s2-1">section 2.1</a>, exactly. Learn the pattern of past good candidates, apply it to new ones. It's worth pausing on how reasonable this was. Nobody set out to build a biased tool. They set out to save recruiters time using the best data they had.</p>
 
-  <h3 class="sub" id="s3-what-happened"><span>What happened:</span> The model found the women</h3>
+  <h3 class="sub" id="s3-what-happened"><span>What happened</span> The model found the women</h3>
   <p>The tech industry's applicant pool over that decade had been mostly male, and so were its hires. So the model learned, correctly from its point of view, that maleness predicted "good candidate." It penalized résumés containing the word "women's," as in "women's chess club captain," and downgraded graduates of two all-women's colleges. Nobody programmed that rule. The model <em>found</em> it, because it really was there in the data. The objectivity trap and the proxy, in one system: no gender field anywhere, and "women's" was proxy enough.</p>
   <p>Amazon's engineers did the obvious fix. They edited the model to neutralize those specific terms. And then they scrapped the project anyway, because they couldn't guarantee it wasn't finding <em>other</em> ways to reach the same conclusion. Think about that. The people with full access to the model, at one of the most technically capable companies on earth, could not prove their classifier fair. They could only stop using it. Amazon told Reuters the tool was never used by its recruiters to evaluate candidates on its own; the team was disbanded by 2017.</p>
 
   <p><strong>The five critical AI questions, run on this case:</strong></p>
-  <h3 class="sub" id="s3-what-this-ai-is-and-how-it-w">Question 1: what is the AI system, and what does it do?</h3>
+  <h3 class="sub" id="s3-what-this-ai-is-and-how-it-w"><span>What this AI is, and how it works</span> Question 1: what is the AI system, and what does it do?</h3>
   <p>A predictive classifier: hundreds of models that score résumés against the pattern of past Amazon hires. The five parts: <strong>data</strong>, ten years of résumés and hiring outcomes; <strong>model</strong>, the term-weighting that learned which words predicted a hire; <strong>output</strong>, a ranking of applicants; <strong>feedback loop</strong>, had it shipped, the people it recommended would have become the next decade's "good hires," and the pattern would have tightened; <strong>humans</strong>, the Edinburgh engineers, the recruiters, and the applicants who never knew a model read their résumé.</p>
 
-  <h3 class="sub" id="s3-who-benefits-and-who-doesn-t">Question 2: why does it exist, and who benefits?</h3>
+  <h3 class="sub" id="s3-who-benefits-and-who-doesn-t"><span>Who benefits, and who doesn't</span> Question 2: why does it exist, and who benefits?</h3>
   <p>To process a flood of applications at a cost no human team could match, and to make hiring feel objective. Amazon benefits from speed and from cover: "the model ranked them" is an easier sentence than "the recruiter preferred him." The applicant was never the customer. The best-case applicant benefit is real, though: a fair model would have read every résumé with the same attention, which no tired recruiter does.</p>
   <p>Who doesn't benefit: the applicants the model scored down for a word on their résumé, who never learned a model had read it; and, quietly, Amazon itself, which spent three years building a tool it couldn't trust and got a Reuters headline for it.</p>
 
-  <h3 class="sub" id="s3-when-it-fails-who-finds-out">Question 3: what happens when it fails, and who finds out?</h3>
+  <h3 class="sub" id="s3-when-it-fails-who-finds-out"><span>When it fails, who finds out</span> Question 3: what happens when it fails, and who finds out?</h3>
   <p>It fails silently, in the invisible pile. A woman's résumé scores lower and she never learns that a model read it, let alone why. Every one of those is a false negative, and the people who found them were insiders, engineers looking at their own model's weights. Nobody outside Amazon would have. That's the pattern across this chapter: iTutorGroup's bias was found by one applicant's lucky experiment, and Workday's is being tested in court. Every discovery was nearly an accident, and the failures that weren't discovered are still out there.</p>
 
-  <h3 class="sub" id="s3-business-implications"><span>Business implications:</span> What this means for anyone buying a screener</h3>
+  <h3 class="sub" id="s3-business-implications"><span>Business implications</span> What this means for anyone buying a screener</h3>
   <p>Almost no company builds its own screener now; they buy one, which is what makes <em>Mobley v. Workday</em> the business end of this case. Three questions before signing. Can you audit it? A vendor that won't let you run two identical applications through its model, differing in one detail, is asking you to take its fairness on faith, and the courts are deciding whether that faith is your liability. What does it optimize for? A tool tuned to minimize bad hires makes more of the mistake you can't see, and the rejected pile is where the lawsuit lives. Who reads the noes? Someone should, on a schedule, because that's the only way false negatives ever surface. The costs are a slower rollout, an audit fee, and a person's time. The alternative is Amazon's choice, dropping the tool, or the choice Amazon's engineers wished they'd made: building it to be checked from the start.</p>
-  <h3 class="sub" id="s3-societal-implications">Question 4: who's saying that, and how would we know?</h3>
+  <h3 class="sub" id="s3-societal-implications"><span>Societal implications</span> Question 4: who's saying that, and how would we know?</h3>
   <p>"Our screener removes human bias" is said by vendors selling screeners. "It launders it" is what the Amazon engineers learned when their model found the women anyway. Amazon says the tool was never the sole basis for a decision, which is a company's claim about its own system. The Berkeley mortgage study says both things at once: algorithms were less biased than the loan officers on some loans, and the gaps still cost Black and Latino borrowers more than $450 million a year. How would we know about any specific system? The same way Amazon's engineers did: look inside, or run two identical applications that differ in one detail and compare. That test is Wednesday's lab.</p>
 
-  <h3 class="sub" id="s3-how-to-make-it-beneficial">Question 5: keep it, fix it, or drop it, and what does that cost?</h3>
+  <h3 class="sub" id="s3-how-to-make-it-beneficial"><span>How to make it beneficial</span> Question 5: keep it, fix it, or drop it, and what does that cost?</h3>
   <p><strong>Keep it:</strong> the case for keeping a screener is that it can be fairer than the tired recruiters it replaced. But the Berkeley study shows a system can be fairer than people and still discriminate, so "better than before" isn't the finish line; a passed audit is. The cost of keeping it unchecked falls on the people in the invisible pile.</p>
   <p><strong>Fix it:</strong> a required audit before launch and every year after, a right to an explanation like lending's, and a person who reads the rejected pile. Each costs speed and money, and sometimes an audit fails and the tool has to wait.</p>
   <p><strong>Drop it:</strong> Amazon's choice. The cost is going back to people screening by hand, with their own bias and the recruiters' time. Refusal is the hardest position to argue this week and the most worth arguing.</p>
 
-  <h3 class="sub" id="s3-thinking-critically"><span>Thinking critically:</span> The five critical AI questions, on this case, by you</h3>
+  <h3 class="sub" id="s3-thinking-critically"><span>Thinking critically</span> The five critical AI questions, on this case, by you</h3>
   <div class="ticket">
     <div class="label">Thinking critically · for Monday's discussion · skim the Reuters Amazon story and the EEOC settlement release linked above · one question each, answered by you, not by the chapter</div>
     <ol>
