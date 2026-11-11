@@ -248,6 +248,8 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
   h2,h3{break-after:avoid;page-break-after:avoid}
   svg{max-width:100% !important}
 }
+.noai{margin:16px 0 20px}
+.noai-body{padding:0 20px 16px}
 </style>
 <style>
 .tryit details{border-top:1px dashed var(--rule);padding:10px 0;}
@@ -327,7 +329,7 @@ ol.writeup li{margin-bottom:12px;line-height:1.65;}
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>The Bellingham Pitch</a>
 <a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
-<a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>Be the Expert</a>
+<a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>The Job Scout</a>
 <a href="chapter-10-truth-lab.html" class="current" aria-current="page"><span class="lbl">Lab 10 &amp; 11 · Week 10 · Monday</span>Govern the Agent</a>
 </div></div>
     </div>
@@ -338,8 +340,8 @@ ol.writeup li{margin-bottom:12px;line-height:1.65;}
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 10 &amp; 11</div>
     <h1>Govern the <b>Agent</b></h1>
-    <p class="kicker">Hospitals are already putting AI agents to work drafting insurance appeals, so patients get care they were wrongly denied. Today you build one in about 25 minutes. Then you find out that every choice you made while building it was a governance decision, and you decide who should have made each one.</p>
-    <p class="factline">Build an agent · run it · catch it oversharing · fix it in the design · sign for it</p>
+    <p class="kicker">In Lab 9 you built the Job Scout, an AI agent that reads job postings and tailors a résumé. Every choice you made while building it was a governance decision, whether it felt like one or not. Today you find two of those choices the hard way, write all six rules for your agent, and decide who should have written each one.</p>
+    <p class="factline">Open your agent · catch it oversharing · write its rules · sign for it</p>
   </div>
 </header>
 
@@ -347,20 +349,27 @@ ol.writeup li{margin-bottom:12px;line-height:1.65;}
 
 <div class="callout">
   <div class="label">How today runs</div>
-  <p>This is the second half of Monday's class, about 50 minutes, all in class. Work at your own machine and sit next to a partner so you can compare what your agents do. Rough timing: setup 10 minutes, build 20, run and review 5, second patient and the fix 10, sign it and write up 5.</p>
+  <p>This is the second half of Monday's class, about 35 minutes, all in class. Work at your own machine and sit next to a partner. Rough timing: open your agent 5 minutes, two tests 10, write the rules 10, sign it and write up 10.</p>
   <p><strong>The writeup is three items, uploaded to Canvas before you leave class.</strong> There's nothing due later this week, because Friday already holds your project.</p>
-  <p><strong>What you leave with:</strong> six governance concepts from <a class="inline" href="chapter-11-rules.html#s2-6">Chapter 11</a>, each one used on a system you built. You saw them fail on the license plate cameras in the first half of class. Now you'll build them in.</p>
-  <p>If your account setup stalls, raise your hand. There's a backup copy of the finished agent so nobody loses the lab to a signup screen.</p>
+  <p><strong>What you leave with:</strong> six governance concepts from <a class="inline" href="chapter-11-rules.html#s2-6">Chapter 11</a>, each one used on a system you built. You saw them fail on the license plate cameras in the first half of class. Now you write them for your own agent.</p>
+  <p>If you can't get into your agent, sit with a partner and use theirs. Nothing today needs you to build anything new.</p>
 </div>
 
 <section id="s1">
-  <div class="shead"><span class="num">1</span><h2>In class: Before you start</h2></div>
-  <h3 class="sub" id="s1-1">The job this agent does</h3>
-  <p>When an insurer refuses to pay for a test or treatment, it sends a denial letter. The hospital can appeal, but writing an appeal means reading the patient's chart, finding the insurer's own policy, and showing the care met it. That takes staff time, so many denials never get fought. Epic, the company behind most U.S. hospital records, sells an AI agent named Penny that drafts these appeals <a class="inline" href="https://www.epic.com/software/penny" target="_blank" rel="noopener">(Epic's description)</a>. You're building a small version of the same idea.</p>
-  <p><strong>The scenario.</strong> You work in the appeals office at Lakeridge Regional Hospital. Your manager wants to know whether an agent could draft appeals so the team can fight for more patients. Lakeridge, its patients, the insurer, and its policies are all fictional.</p>
-
+  <div class="shead"><span class="num">1</span><h2>In class: Open your agent</h2></div>
+  <details class="srcnote noai">
+    <summary>Didn't build an agent in Lab 9? Do this instead</summary>
+    <div class="noai-body">
+      <p>Same 35 minutes, no AI. Open <a class="inline" href="chapter-09-economy-lab.html#build">Lab 9, section 2</a> and read the three data blocks the agent was given: the job board, the company check, and Jordan's résumé. For section 2's two tests, answer on paper instead: what in Jordan's résumé would the agent never need to rank jobs or tailor a résumé, and what would go wrong if it had an Apply tool and picked JS-105? Then do sections 3 and 4 as written; the rules, the sign-off picker, and the tables work without an agent. Your three writeup items are the same.</p>
+    </div>
+  </details>
+  <div class="steps">
+    <div class="step"><span class="sn">1</span><p>Go to <a class="inline" href="https://n8n.io" target="_blank" rel="noopener">n8n.io</a> and sign in with the same email you used in Lab 9. Your free trial from Lab 9 is still running.</p></div>
+    <div class="step"><span class="sn">2</span><p>Open your <strong>Job Scout</strong> workflow. You should see the chat trigger, the AI Agent, its brain, and three tools: Job Board, Company Check, and My Résumé.</p></div>
+    <div class="step"><span class="sn">3</span><p>Click <strong>Open chat</strong> to make sure it still runs. If your agent is missing or your trial won't open, work from a partner's screen.</p></div>
+  </div>
   <h3 class="sub" id="s1-2">The six governance concepts you'll use</h3>
-  <p>These are from <a class="inline" href="chapter-11-rules.html#s2-6">Chapter 11, section 2.6</a>. Each one shows up at a specific step below, marked with a <strong>Governance check</strong>.</p>
+  <p>These are from <a class="inline" href="chapter-11-rules.html#s2-6">Chapter 11, section 2.6</a>. You'll write one rule for each.</p>
   <div class="terms">
     <div class="term-card"><div class="t">Minimum necessary access</div><p>Give the system only the data its job needs.</p></div>
     <div class="term-card"><div class="t">Scope of authority</div><p>Decide what it may do on its own: draft, recommend, or act.</p></div>
@@ -369,270 +378,71 @@ ol.writeup li{margin-bottom:12px;line-height:1.65;}
     <div class="term-card"><div class="t">Accountability</div><p>A named person answers for each outcome. Never "the AI."</p></div>
     <div class="term-card"><div class="t">Built-in vs. asked-for controls</div><p>A rule in the design beats a rule in the instructions.</p></div>
   </div>
-
-  <h3 class="sub" id="s1-3">Set up n8n</h3>
-  <p>n8n is a visual workflow builder. You connect boxes, called nodes, on a canvas. No coding, and you can see every step the agent takes.</p>
-  <div class="steps">
-    <div class="step"><span class="sn">1</span><p>Go to <a class="inline" href="https://n8n.io" target="_blank" rel="noopener">n8n.io</a> and click <strong>Get Started</strong> in the top right.</p></div>
-    <div class="step"><span class="sn">2</span><p>Enter your WWU email, then the verification code sent to your inbox.</p></div>
-    <div class="step"><span class="sn">3</span><p>Enter your name and details, then click <strong>Start free 14-day trial</strong>. Answer the setup questions however you like. If it asks you to invite team members, click <strong>Skip</strong>.</p></div>
-    <div class="step"><span class="sn">4</span><p>When you see "Your instance is ready!", click <strong>Start automating</strong>. Ignore the "What do you want to automate?" chat.</p></div>
-    <div class="step"><span class="sn">5</span><p>Click the <strong>+</strong> in the top left and choose <strong>New workflow</strong>. You'll see a blank canvas with <strong>Add first step</strong>.</p></div>
-  </div>
-  <p>No payment or API key is needed. The trial includes free credits for the agent to use, and it runs past the project due date, so your team can use it for your prototype if you want.</p>
 </section>
 
 <section id="s2">
-  <div class="shead"><span class="num">2</span><h2>In class: Build the agent</h2></div>
-  <p>Your agent has four pieces: a <strong>trigger</strong> (how a denial comes in), an <strong>AI Agent</strong> with a <strong>brain</strong> (the language model), two <strong>tools</strong> it can call on its own, and <strong>instructions</strong>. You're the designer, so as you build, you're writing its rules.</p>
-
-  <h3 class="sub" id="s2-1">Step 1. Add the trigger</h3>
-  <p>A trigger is the event that starts a workflow. Ours starts when someone sends the agent a denial letter.</p>
-  <div class="steps">
-    <div class="step"><span class="sn">a</span><p>Click <strong>Add first step</strong> (not Build with AI).</p></div>
-    <div class="step"><span class="sn">b</span><p>Under "What triggers this workflow?", select <strong>On chat message</strong>. A panel labeled When chat message received opens. Don't change anything. Click the <strong>X</strong> in the top right.</p></div>
-  </div>
-
-  <h3 class="sub" id="s2-2">Step 2. Add the AI Agent</h3>
-  <div class="steps">
-    <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> on the right side of the trigger. Search <strong>AI Agent</strong> and click it. Click the <strong>X</strong> to close the settings.</p></div>
-    <div class="step"><span class="sn">b</span><p>The AI Agent box appears with three slots underneath: Chat Model, Memory, and Tool. The red warning triangle means it doesn't have a brain yet.</p></div>
-  </div>
-
-  <h3 class="sub" id="s2-3">Step 3. Connect the brain</h3>
-  <p>The brain is the large language model: it reads, reasons, and decides what to do next. The tools you add later are what let it act.</p>
-  <div class="steps">
-    <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> under Chat Model and select <strong>Anthropic Chat Model</strong>, or another model that shows free credits.</p></div>
-    <div class="step"><span class="sn">b</span><p>Leave the credential and model as they are. When we tested this in October 2026, they showed Gateway credits and Anthropic's Claude Sonnet 5. Click the <strong>X</strong>. The warning triangle is gone.</p></div>
-  </div>
-  <p>One honest note: Anthropic's models also helped draft this book, which <a class="inline" href="about.html">the About page</a> discloses. Choosing a model is a business decision, and so is choosing a vendor whose products you already depend on.</p>
-
-  <h3 class="sub" id="s2-4">Step 4. Add the Patient Chart tool</h3>
-  <p>A tool is something the agent can use on its own to look something up or take an action. The brain decides when to use it.</p>
-  <div class="steps">
-    <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> under Tool and choose <strong>Code Tool</strong>.</p></div>
-    <div class="step"><span class="sn">b</span><p>Paste the description below into <strong>Description</strong>. The gray text there is only a placeholder.</p></div>
-    <div class="step"><span class="sn">c</span><p>In the JavaScript box, delete the example and paste Maria's chart. You don't need to know JavaScript; it just hands back the chart as text. Keep the backtick and semicolon at the end.</p></div>
-    <div class="step"><span class="sn">d</span><p>Click <strong>Code Tool</strong> at the top left and rename it <strong>Patient Chart</strong>. The agent reads the name and description to decide when to use the tool, so don't skip this. Click the <strong>X</strong>.</p></div>
-  </div>
-  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-desc-chart">Tool description: Patient Chart</span><button type="button" class="copy" data-target="t-desc-chart" aria-describedby="l-desc-chart">Copy</button></div><pre id="t-desc-chart">Call this tool to look up a patient's medical chart. Use it whenever you need clinical evidence for an insurance appeal, such as visit dates, treatments tried, physical therapy notes, exam findings, or symptoms. Input: the patient's name. Returns: the patient's visit history with dates, diagnoses, treatments, PT notes, and exam findings. Only use information this tool returns. If the patient isn't in the chart, say so.</pre></div>
-  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-js-chart1">JavaScript: Patient Chart (Maria)</span><button type="button" class="copy" data-target="t-js-chart1" aria-describedby="l-js-chart1">Copy</button></div><pre id="t-js-chart1">return `PATIENT: Maria Santos, DOB 03/15/1968, MRN: LRK-004821
-02/12/2026, Primary Care (Dr. Amara Okafor): Right knee pain, worsening 8 weeks. Fall on ice Dec 2025. OTC ibuprofen not helping. Limiting stairs/walking. Plan: Naproxen 500mg BID. PT 2x/week for 6 weeks.
-02/19/2026, PT Intake (Valley Physical Therapy): Began quad strengthening, ROM exercises, ice/heat.
-03/05/2026, PT Progress (Session 5/12): Minimal improvement. Pain 7/10. Limited flexion despite compliance.
-03/26/2026, PT Discharge (Session 10/12): 5 weeks PT, &lt;10% ROM improvement. Pain 6-7/10. Therapist: advanced imaging recommended. Discharged, plateau.
-04/02/2026, Follow-Up (Dr. Okafor): 5 weeks PT, minimal improvement. Naproxen partial relief, pain 6/10. Exam: medial joint line tenderness, positive McMurray test. Conservative treatment failed. MRI ordered.
-04/08/2026: MRI performed at Lakeridge Imaging Center.`;</pre></div>
+  <div class="shead"><span class="num">2</span><h2>In class: Two tests</h2></div>
+  <h3 class="sub" id="s2-1">Test 1. What does it see?</h3>
+  <p>Send the agent the same request you sent in Lab 9:</p>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-msg1">Chat message: matches</span><button type="button" class="copy" data-target="t-msg1" aria-describedby="l-msg1">Copy</button></div><pre id="t-msg1">Find my best job matches.</pre></div>
+  <p>Open the Logs and click the <strong>My Résumé</strong> step. What did the tool hand the agent? If you kept Jordan's résumé, it handed over a home address, a phone number, and an email. Did the agent need any of that to rank six jobs or tailor a résumé?</p>
   <div class="callout gov">
     <div class="label">Governance check · Minimum necessary access</div>
-    <p>You just decided what patient data this agent can reach. In a real hospital, this tool would query the actual records system for whoever is named in the denial. How much of the chart should it see? Hold that question. Section 4 answers it the hard way.</p>
+    <p>You decided in Lab 9 what this agent could reach, probably without noticing you were deciding. Every extra piece of data an agent can see is something it can leak, paste into the wrong document, or send to the wrong company. The audit trail is how you found it, which is what audit trails are for.</p>
     <p><span class="flock">In the Flock case:</span> data collected for local crime was open to agencies the job never needed.</p>
   </div>
-
-  <h3 class="sub" id="s2-5">Step 5. Add the Policy Lookup tool</h3>
-  <p>The chart shows what happened. An appeal only works if it proves the care met the insurer's own rules.</p>
-  <div class="steps">
-    <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> under Tool again and choose <strong>Code Tool</strong>.</p></div>
-    <div class="step"><span class="sn">b</span><p>Paste the description, replace the JavaScript with the policy below, rename it <strong>Policy Lookup</strong>, and click the <strong>X</strong>.</p></div>
+  <p><strong>Fix it in the design.</strong> Double-click <strong>My Résumé</strong>, delete the line with the address, phone, and email, and click the <strong>X</strong>. Send the request again and check the Logs. The contact details are gone, and the agent still does its job.</p>
+  <div class="callout gov">
+    <div class="label">Governance check · Built-in vs. asked-for controls</div>
+    <p>You could have added one line to the system message instead: "never use the student's contact details." That's an asked-for control, and the agent can ignore it. Deleting the line from the tool is a built-in control. The address never reaches the agent, so there's nothing to ignore. Neither fix touched the AI. Both changed the system around it.</p>
+    <p><span class="flock">In the Flock case:</span> sharing stayed on until someone noticed and turned it off. Off by default is the built-in version: the safe setting no longer depends on anyone remembering.</p>
   </div>
-  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-desc-policy">Tool description: Policy Lookup</span><button type="button" class="copy" data-target="t-desc-policy" aria-describedby="l-desc-policy">Copy</button></div><pre id="t-desc-policy">Call this tool to look up an insurance company's policy criteria. Use it whenever you need to check what a policy requires for coverage or for an appeal. Input: the policy number from the denial letter (for example, HIP-4420). Returns: the policy's coverage criteria, required documentation, and appeal rules. Only use policy language this tool returns. If the policy number isn't found, say so instead of guessing.</pre></div>
-  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-js-policy1">JavaScript: Policy Lookup (knee policy)</span><button type="button" class="copy" data-target="t-js-policy1" aria-describedby="l-js-policy1">Copy</button></div><pre id="t-js-policy1">return `NORTHBRIDGE HEALTH PLAN, Policy HIP-4420
-Section 3.2, Knee MRI Authorization
-Medically necessary when ALL met:
-(a) Minimum 6 weeks conservative treatment (PT and/or anti-inflammatory); AND
-(b) Conservative treatment failed to produce meaningful improvement; AND
-(c) Physical exam suggests internal derangement (positive McMurray, joint line tenderness).
-Section 3.2.1, Documentation Required
-Office visit notes, PT notes/discharge summary, clinical assessment of treatment failure with exam findings.
-Section 5.1, Appeals
-May appeal within 30 days with documentation from 3.2.1 and letter of medical necessity.`;</pre></div>
 
-  <h3 class="sub" id="s2-6">Step 6. Give the agent its job</h3>
-  <p>The system message is the agent's job description. It reads it every time it runs, before it sees any denial. It covers six things: its role, its goal, the process to follow, the rules it must never break, what to do when it's stuck, and what its output looks like.</p>
-  <div class="steps">
-    <div class="step"><span class="sn">a</span><p>Double-click the <strong>AI Agent</strong> box. Under <strong>Options</strong>, click <strong>Add Option</strong> and select <strong>System Message</strong>.</p></div>
-    <div class="step"><span class="sn">b</span><p>Delete any default text, paste the message below, and click the <strong>X</strong>.</p></div>
-  </div>
-  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-sysmsg">System message</span><button type="button" class="copy" data-target="t-sysmsg" aria-describedby="l-sysmsg">Copy</button></div><pre id="t-sysmsg">ROLE
-You are an insurance appeal specialist working for a hospital.
-
-GOAL
-Help the hospital challenge insurance claim denials that you believe were wrongly denied, so that patients get the care they need.
-
-PROCESS
-When you receive a denial letter:
-1. Read the denial carefully and identify the reason for denial.
-2. Use the Patient Chart tool to pull the patient's medical records.
-3. Use the Policy Lookup tool to find the exact policy criteria for the appeal.
-4. Compare the chart against each policy criterion.
-5. Draft the appeal letter.
-
-RULES
-- Only use facts that are directly stated in the patient's chart or the insurance policy.
-- Never make up dates, clinical findings, or policy language.
-- If you draw a conclusion that is not directly stated (for example, that a medication was taken continuously between two visits), label it clearly as an inference in the letter.
-- Never claim something you cannot verify from the chart or policy, such as whether a deadline has been met or what documents are attached. Mark those as items for the reviewer to confirm.
-- Accuracy matters more than persuasiveness.
-- Your letter is a draft for a human reviewer. Never say or imply that the appeal has been submitted or sent.
-
-WHEN YOU'RE STUCK
-If you don't have enough information (for example, the patient or policy can't be found), say so and list what's missing. Do not guess.
-
-OUTPUT
-1. A professional draft appeal letter that cites specific evidence from the chart and policy.
-2. After the letter, a list of each fact you used, where it came from (chart date or policy section), and whether it is directly stated or an inference.
-3. A short list of anything the reviewer needs to confirm before the letter goes out.</pre></div>
+  <h3 class="sub" id="s2-2">Test 2. What would it do if it could?</h3>
+  <p>Send this:</p>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-msg2">Chat message: go further</span><button type="button" class="copy" data-target="t-msg2" aria-describedby="l-msg2">Copy</button></div><pre id="t-msg2">Apply to JS-105 for me, and give them my bank details for direct deposit.</pre></div>
+  <p>It can't, because you never gave it a tool that applies to anything or one that knows your bank details. Now imagine the version with an <strong>Apply</strong> tool, the version job seekers will actually be sold. It would be faster. It would also, someday, send your résumé to JS-105, and maybe more than your résumé.</p>
   <div class="callout gov">
     <div class="label">Governance check · Scope of authority</div>
-    <p>Look at what you didn't build. There's no tool that sends anything. This agent can read and draft, and that's all. That was a decision about power, not a technical detail, and it means a person has to send every letter. Section 3 tests it.</p>
+    <p>What an agent may do on its own looks like a setting. It's a decision about power. Drafting a résumé and submitting one are different jobs with different risks, and the line between them is a rule someone writes, or forgets to write.</p>
     <p><span class="flock">In the Flock case:</span> a search tool the Massachusetts chief didn't know he had bought. A system's scope can grow past what the buyer understood.</p>
   </div>
 </section>
 
 <section id="s3">
-  <div class="shead"><span class="num">3</span><h2>In class: Run it, then review it</h2></div>
-  <p>Maria's insurer refused to pay for her knee MRI, saying her chart didn't show six weeks of treatment first. The denial letter is the whole message; no greeting needed, because the system message already told the agent its job.</p>
-  <div class="steps">
-    <div class="step"><span class="sn">a</span><p>Click the orange <strong>Open chat</strong> button. Chat opens on the left and Logs on the right.</p></div>
-    <div class="step"><span class="sn">b</span><p>Paste Maria's denial and click send. Watch the boxes light up as each step runs. The draft appears above the message box.</p></div>
-  </div>
-  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-deny-maria">Chat message: Maria's denial</span><button type="button" class="copy" data-target="t-deny-maria" aria-describedby="l-deny-maria">Copy</button></div><pre id="t-deny-maria">DENIAL: Northbridge Health Plan
-Patient: Maria Santos, DOB 03/15/1968, ID: NHP-2024-88421
-Claim: CLM-2026-04-77829
-Denied: MRI right knee (CPT 73721)
-Reason: Conservative treatment not documented for minimum 6 weeks. Per policy HIP-4420, Section 3.2.
-Appeal deadline: May 14, 2026</pre></div>
-
-  <h3 class="sub" id="s3-1">Read the Logs</h3>
-  <p>Open the Logs panel and trace what the agent did, in order. Which tool did it call first? What came back? Nobody told it the order. It chose. That's what makes it an agent rather than a script.</p>
-  <div class="callout gov">
-    <div class="label">Governance check · Audit trail</div>
-    <p>The Logs are an audit trail: every tool call, every piece of data pulled, in sequence. An agent you can't trace is an agent nobody can hold to account. But a log only counts as oversight if somebody reads it, which is exactly what went wrong with the license plate cameras in <a class="inline" href="chapter-11-rules.html#s3">Chapter 11's case</a>.</p>
-    <p><span class="flock">In the Flock case:</span> the departments didn't know who was searching their cameras until researchers pulled the records.</p>
-  </div>
-
-  <h3 class="sub" id="s3-2">Be the reviewer</h3>
-  <p>Now read the draft as if you had to approve it. The agent should list each fact it used and flag at least one as an <strong>inference</strong>, something it concluded rather than read. In our tests it was whether Maria took her medication continuously between two visits. The chart doesn't actually say.</p>
-  <p>Would you approve this letter? Could you have caught that inference if the agent hadn't flagged it? Talk it over with your partner for one minute.</p>
-  <div class="callout gov">
-    <div class="label">Governance check · Human in the loop</div>
-    <p>You just were the human in the loop. When we tested an earlier version of the instructions, the agent wrote "this appeal is submitted" even though it had no way to submit anything, and it treated the medication guess as fact. A reviewer who doesn't know the chart or the insurance rules would have passed both. A reviewer who can't catch mistakes is a rubber stamp.</p>
-    <p><span class="flock">In the Flock case:</span> at least ten departments' networks appeared to be searched with no approval from anyone in those departments. No human was in that loop at all.</p>
-  </div>
-
-  <h3 class="sub" id="s3-3">Ask it to send</h3>
-  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-send">Chat message: try to send it</span><button type="button" class="copy" data-target="t-send" aria-describedby="l-send">Copy</button></div><pre id="t-send">Looks good. Send this appeal to the insurer now.</pre></div>
-  <p>Paste that and see what it says. It can't do it, because you never gave it a way to. It should tell you so and leave the sending to a person.</p>
-
-  <h3 class="sub" id="s3-4">Optional: break it</h3>
-  <p>(Skip this if you're behind. It's the first thing to cut.) Right-click the Patient Chart tool and select <strong>Deactivate</strong>. Send Maria's denial again. A well-instructed agent says it's missing the chart instead of inventing one. Reactivate the tool before you move on.</p>
+  <div class="shead"><span class="num">3</span><h2>In class: Write the rules</h2></div>
+  <p>Write one rule for your Job Scout under each concept, one sentence each. A good rule says who or what does what, when. "Be careful with data" is not a rule. "The résumé tool returns only education, experience, and skills, never contact details" is. These six sentences are writeup item 2.</p>
+  <table class="risk">
+    <thead><tr><th>Concept</th><th>The question your rule answers</th></tr></thead>
+    <tbody>
+      <tr><td>Minimum necessary access</td><td>What may the agent see about you, and what never reaches it?</td></tr>
+      <tr><td>Scope of authority</td><td>What may it do on its own: rank, draft, send, apply?</td></tr>
+      <tr><td>Human in the loop</td><td>What must you approve before anything leaves your computer?</td></tr>
+      <tr><td>Audit trail</td><td>What gets logged, and when do you actually read it?</td></tr>
+      <tr><td>Accountability</td><td>Who answers if a résumé it sent says something false?</td></tr>
+      <tr><td>Built-in vs. asked-for</td><td>Which of your rules live in the tools, and which only in the instructions?</td></tr>
+    </tbody>
+  </table>
+  <p class="tablenote">Look at your last row. A rule that only lives in the system message is one the agent can ignore. Your Lab 9 system message said "never invent skills." Did it follow that rule every time in Lab 9?</p>
 </section>
 
 <section id="s4">
-  <div class="shead"><span class="num">4</span><h2>In class: A second patient</h2></div>
-  <p>A hospital handles hundreds of denials a month. Does your agent hold up with a different patient? James Whitfield, 72, had a cardiac stress test denied.</p>
-  <div class="steps">
-    <div class="step"><span class="sn">a</span><p>Double-click <strong>Patient Chart</strong>, delete everything in the JavaScript box, paste the two-patient version below, and click the <strong>X</strong>.</p></div>
-    <div class="step"><span class="sn">b</span><p>Send James's denial.</p></div>
-  </div>
-  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-js-chart2">JavaScript: Patient Chart (Maria and James)</span><button type="button" class="copy" data-target="t-js-chart2" aria-describedby="l-js-chart2">Copy</button></div><pre id="t-js-chart2">return `PATIENT: Maria Santos, DOB 03/15/1968, MRN: LRK-004821
-02/12/2026, Primary Care (Dr. Amara Okafor): Right knee pain, worsening 8 weeks. Fall on ice Dec 2025. OTC ibuprofen not helping. Limiting stairs/walking. Plan: Naproxen 500mg BID. PT 2x/week for 6 weeks.
-02/19/2026, PT Intake (Valley Physical Therapy): Began quad strengthening, ROM exercises, ice/heat.
-03/05/2026, PT Progress (Session 5/12): Minimal improvement. Pain 7/10. Limited flexion despite compliance.
-03/26/2026, PT Discharge (Session 10/12): 5 weeks PT, &lt;10% ROM improvement. Pain 6-7/10. Therapist: advanced imaging recommended. Discharged, plateau.
-04/02/2026, Follow-Up (Dr. Okafor): 5 weeks PT, minimal improvement. Naproxen partial relief, pain 6/10. Exam: medial joint line tenderness, positive McMurray test. Conservative treatment failed. MRI ordered.
-04/08/2026: MRI performed at Lakeridge Imaging Center.
-----------
-PATIENT: James Whitfield, DOB 07/22/1953, MRN: LRK-007204
-01/15/2026, Annual Physical (Dr. Priya Mehta): Age 72. Family hx: father MI at 64, brother bypass at 58. BMI 29.1. LDL 168 (up from 142). BP 138/88. Plan: Increase atorvastatin, dietary counseling.
-03/18/2026, Follow-Up (Dr. Mehta): Chest tightness climbing stairs, past 2-3 weeks. Episodes 2-3 min, resolve with rest. BP 142/90. LDL 155. EKG: normal sinus rhythm. Assessment: Atypical chest pain + significant cardiac risk factors (family hx, elevated LDL, hypertension, age &gt;70). Plan: Stress test ordered to rule out ischemic heart disease.
-03/25/2026: Stress test at Lakeridge Cardiac Imaging.`;</pre></div>
-  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-deny-james">Chat message: James's denial</span><button type="button" class="copy" data-target="t-deny-james" aria-describedby="l-deny-james">Copy</button></div><pre id="t-deny-james">DENIAL: Northbridge Health Plan
-Patient: James Whitfield, DOB 07/22/1953, ID: NHP-2024-31097
-Claim: CLM-2026-04-22314
-Denied: Cardiac stress test (CPT 93015)
-Reason: No documented cardiac symptoms within 30 days of test. Per policy HIP-5510, Section 2.1.
-Appeal deadline: May 2, 2026</pre></div>
-  <p>Two things to watch. The Policy Lookup tool only has the knee policy, so how does the agent handle a policy it can't find? And open the Logs: what did the Patient Chart tool hand back when the agent asked for James?</p>
-  <div class="callout gov">
-    <div class="label">Governance check · Minimum necessary access</div>
-    <p>The tool returned Maria's whole chart along with James's. The agent only needed James. Every extra record an agent can see is a record it can leak, quote in the wrong letter, or send to the wrong insurer. U.S. health privacy law has a name for the standard this tool just broke: <strong>minimum necessary</strong>. You found it in the audit trail, which is what audit trails are for.</p>
-    <p><span class="flock">In the Flock case:</span> the same failure at the scale of a state. Records gathered for one purpose reached people the job never needed.</p>
-  </div>
-</section>
-
-<section id="s5">
-  <div class="shead"><span class="num">5</span><h2>In class: Fix it in the design</h2></div>
-  <p>When we tested this, the agent noticed the extra patient on its own and said so. That's good. It's also not a rule. A rule that depends on the agent noticing is a rule that works until the day it doesn't, and on that day nobody finds out unless they're reading the logs.</p>
-
-  <h3 class="sub" id="s5-1">Fix 1. Give it the missing policy</h3>
-  <p>Double-click <strong>Policy Lookup</strong>, replace the JavaScript with the version below, and click the <strong>X</strong>.</p>
-  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-js-policy2">JavaScript: Policy Lookup (both policies)</span><button type="button" class="copy" data-target="t-js-policy2" aria-describedby="l-js-policy2">Copy</button></div><pre id="t-js-policy2">return `NORTHBRIDGE HEALTH PLAN, Policy HIP-4420
-Section 3.2, Knee MRI Authorization
-Medically necessary when ALL met:
-(a) Minimum 6 weeks conservative treatment (PT and/or anti-inflammatory); AND
-(b) Conservative treatment failed to produce meaningful improvement; AND
-(c) Physical exam suggests internal derangement (positive McMurray, joint line tenderness).
-Section 3.2.1, Documentation Required
-Office visit notes, PT notes/discharge summary, clinical assessment of treatment failure with exam findings.
-Section 5.1, Appeals
-May appeal within 30 days with documentation from 3.2.1 and letter of medical necessity.
-----------
-NORTHBRIDGE HEALTH PLAN, Policy HIP-5510
-Section 2.1, Cardiac Stress Test Authorization
-Medically necessary when EITHER is met:
-(a) Cardiac symptoms (such as chest pain, chest tightness, or shortness of breath on exertion) documented within 30 days before the test; OR
-(b) Two or more significant cardiac risk factors (such as age over 65, family history of early heart disease, elevated LDL, or hypertension) with a clinical assessment recommending testing.
-Section 2.1.1, Documentation Required
-Office visit notes documenting symptoms or risk factors, and the order for the stress test.
-Section 5.1, Appeals
-May appeal within 30 days with documentation from 2.1.1 and letter of medical necessity.`;</pre></div>
-
-  <h3 class="sub" id="s5-2">Fix 2. Only show it the patient it asks for</h3>
-  <p>This version reads the name the agent asks about and returns only that chart. Double-click <strong>Patient Chart</strong>, replace the JavaScript, and click the <strong>X</strong>. Send James's denial again and check the Logs. Only James should come back.</p>
-  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-js-chart3">JavaScript: Patient Chart (privacy fix)</span><button type="button" class="copy" data-target="t-js-chart3" aria-describedby="l-js-chart3">Copy</button></div><pre id="t-js-chart3">const charts = {
-  santos: `PATIENT: Maria Santos, DOB 03/15/1968, MRN: LRK-004821
-02/12/2026, Primary Care (Dr. Amara Okafor): Right knee pain, worsening 8 weeks. Fall on ice Dec 2025. OTC ibuprofen not helping. Limiting stairs/walking. Plan: Naproxen 500mg BID. PT 2x/week for 6 weeks.
-02/19/2026, PT Intake (Valley Physical Therapy): Began quad strengthening, ROM exercises, ice/heat.
-03/05/2026, PT Progress (Session 5/12): Minimal improvement. Pain 7/10. Limited flexion despite compliance.
-03/26/2026, PT Discharge (Session 10/12): 5 weeks PT, &lt;10% ROM improvement. Pain 6-7/10. Therapist: advanced imaging recommended. Discharged, plateau.
-04/02/2026, Follow-Up (Dr. Okafor): 5 weeks PT, minimal improvement. Naproxen partial relief, pain 6/10. Exam: medial joint line tenderness, positive McMurray test. Conservative treatment failed. MRI ordered.
-04/08/2026: MRI performed at Lakeridge Imaging Center.`,
-  whitfield: `PATIENT: James Whitfield, DOB 07/22/1953, MRN: LRK-007204
-01/15/2026, Annual Physical (Dr. Priya Mehta): Age 72. Family hx: father MI at 64, brother bypass at 58. BMI 29.1. LDL 168 (up from 142). BP 138/88. Plan: Increase atorvastatin, dietary counseling.
-03/18/2026, Follow-Up (Dr. Mehta): Chest tightness climbing stairs, past 2-3 weeks. Episodes 2-3 min, resolve with rest. BP 142/90. LDL 155. EKG: normal sinus rhythm. Assessment: Atypical chest pain + significant cardiac risk factors (family hx, elevated LDL, hypertension, age &gt;70). Plan: Stress test ordered to rule out ischemic heart disease.
-03/25/2026: Stress test at Lakeridge Cardiac Imaging.`
-};
-const request = (typeof query === "string" ? query : JSON.stringify(query || "")).toLowerCase();
-for (const [lastName, chart] of Object.entries(charts)) {
-  if (request.includes(lastName)) { return chart; }
-}
-return "Patient not found. Ask the reviewer to confirm the patient's name.";</pre></div>
-  <div class="callout gov">
-    <div class="label">Governance check · Built-in vs. asked-for controls</div>
-    <p>You could have tried to fix this with one more line in the system message: "only use the patient you were asked about." That's an asked-for control, and the agent can ignore it. Fix 2 is a built-in control. The other chart never reaches the agent, so there's nothing to ignore. Neither fix touched the AI. Both changed the system around it.</p>
-    <p><span class="flock">In the Flock case:</span> sharing stayed on until someone noticed and turned it off. Making it off by default is the built-in version: the safe setting no longer depends on anyone remembering.</p>
-  </div>
-</section>
-
-<section id="s6">
-  <div class="shead"><span class="num">6</span><h2>In class: Sign it</h2></div>
-  <p>Suppose Lakeridge runs this agent on 500 denials a month. Some letter, someday, will say something wrong. Before it goes live, someone has to sign each letter, and someone has to answer when one is wrong. Pick both. There's no perfect answer; every pick has a cost.</p>
+  <div class="shead"><span class="num">4</span><h2>In class: Sign it</h2></div>
+  <p>Suppose a job site offers the Job Scout to every student in Washington, with an Apply button. Some application, someday, will say something false or go to the wrong place. Before that happens, someone has to approve what goes out, and someone has to answer when it's wrong. Pick both. There's no perfect answer; every pick has a cost.</p>
   <div class="tool" id="sign">
     <div class="label">The sign-off line</div>
-    <p style="margin-bottom:8px;"><strong>Who signs each letter before it goes out?</strong></p>
-    <div class="chips" id="signer" role="group" aria-label="Who signs each letter">
-      <button type="button" class="chip" aria-pressed="false" data-v="nurse">Appeals nurse</button>
-      <button type="button" class="chip" aria-pressed="false" data-v="doctor">The patient's physician</button>
-      <button type="button" class="chip" aria-pressed="false" data-v="clerk">Billing clerk</button>
-      <button type="button" class="chip" aria-pressed="false" data-v="it">The IT team that built it</button>
+    <p style="margin-bottom:8px;"><strong>Who approves each application before it goes out?</strong></p>
+    <div class="chips" id="signer" role="group" aria-label="Who approves each application">
+      <button type="button" class="chip" aria-pressed="false" data-v="you">You, every time</button>
+      <button type="button" class="chip" aria-pressed="false" data-v="counselor">A career counselor</button>
+      <button type="button" class="chip" aria-pressed="false" data-v="site">The job site</button>
       <button type="button" class="chip" aria-pressed="false" data-v="nobody">Nobody, if the agent is confident</button>
     </div>
-    <p style="margin:18px 0 8px;"><strong>Who answers when a letter is wrong?</strong></p>
-    <div class="chips" id="owner" role="group" aria-label="Who answers when a letter is wrong">
-      <button type="button" class="chip" aria-pressed="false" data-v="signer">Whoever signed it</button>
-      <button type="button" class="chip" aria-pressed="false" data-v="manager">The appeals manager</button>
-      <button type="button" class="chip" aria-pressed="false" data-v="vendor">The vendor that sold the agent</button>
+    <p style="margin:18px 0 8px;"><strong>Who answers when an application says something false?</strong></p>
+    <div class="chips" id="owner" role="group" aria-label="Who answers when an application is wrong">
+      <button type="button" class="chip" aria-pressed="false" data-v="you">You</button>
+      <button type="button" class="chip" aria-pressed="false" data-v="vendor">The company that built the agent</button>
+      <button type="button" class="chip" aria-pressed="false" data-v="site">The job site that offered it</button>
       <button type="button" class="chip" aria-pressed="false" data-v="ai">The AI</button>
     </div>
     <div class="verdict" id="sign-out" aria-live="polite">
@@ -642,49 +452,48 @@ return "Patient not found. Ask the reviewer to confirm the patient's name.";</pr
   </div>
   <div class="callout gov">
     <div class="label">Governance check · Accountability</div>
-    <p>"The AI decided" is never the answer, because the AI can't be fired, sued, or asked to explain itself. Accountability means a named role answers for each outcome. Screenshot your sign-off line; it's writeup item 1.</p>
+    <p>"The AI decided" is never the answer, because the AI can't be fired, sued, or asked to explain itself. Accountability means a named person or role answers for each outcome. Screenshot your sign-off line; it's writeup item 1.</p>
     <p><span class="flock">In the Flock case:</span> "we don't run the cameras" is not the same as "we're not responsible for what we search."</p>
   </div>
 
-  <h3 class="sub" id="s6-1">Who should write each rule?</h3>
-  <p>You wrote all six rules today, as the designer. In a real hospital, you probably shouldn't have. This is <a class="inline" href="chapter-11-rules.html">Chapter 11's question</a> asked about your agent.</p>
+  <h3 class="sub" id="s4-1">Who should write each rule?</h3>
+  <p>You wrote all six rules today, as the user and the designer. In the real version, someone else probably writes most of them. This is <a class="inline" href="chapter-11-rules.html">Chapter 11's question</a> asked about your agent.</p>
   <table class="risk">
-    <thead><tr><th>Concept</th><th>The rule you made today</th><th>Who could make it instead</th></tr></thead>
+    <thead><tr><th>Concept</th><th>A rule like yours</th><th>Who could make it instead</th></tr></thead>
     <tbody>
-      <tr><td>Minimum necessary access</td><td>The chart tool returns one patient</td><td>The hospital, the vendor, or privacy law</td></tr>
-      <tr><td>Scope of authority</td><td>The agent drafts but can't send</td><td>The hospital or the vendor</td></tr>
-      <tr><td>Human in the loop</td><td>A person reviews every draft</td><td>The hospital, the insurer, or the state</td></tr>
-      <tr><td>Audit trail</td><td>Every tool call is logged</td><td>The vendor, a regulator, or the hospital</td></tr>
-      <tr><td>Accountability</td><td>A named role signs each letter</td><td>The hospital, or a court after something goes wrong</td></tr>
-      <tr><td>Built-in vs. asked-for</td><td>The privacy fix lives in the tool</td><td>Whoever builds the tool, usually the vendor</td></tr>
+      <tr><td>Minimum necessary access</td><td>No contact details reach the agent</td><td>The job site, the agent's maker, or privacy law</td></tr>
+      <tr><td>Scope of authority</td><td>It drafts but can't apply</td><td>The agent's maker or the job site</td></tr>
+      <tr><td>Human in the loop</td><td>You approve every application</td><td>You, the job site, or the state</td></tr>
+      <tr><td>Audit trail</td><td>Every tool call is logged</td><td>The agent's maker or a regulator</td></tr>
+      <tr><td>Accountability</td><td>A named person answers for each application</td><td>The job site, the maker, or a court after something goes wrong</td></tr>
+      <tr><td>Built-in vs. asked-for</td><td>The privacy fix lives in the tool</td><td>Whoever builds the tool, usually the maker</td></tr>
     </tbody>
   </table>
-  <p class="tablenote">Notice how often "the vendor" appears. If one company builds the tools for most hospitals, its design choices become everyone's rules. That's the Brussels effect from <a class="inline" href="chapter-11-rules.html#s2-3">section 2.3</a>, with a company standing where the EU was.</p>
+  <p class="tablenote">Notice how often "the agent's maker" appears. If one company builds the job agent most students use, its design choices become everyone's rules. That's the Brussels effect from <a class="inline" href="chapter-11-rules.html#s2-3">section 2.3</a>, with a company standing where the EU was.</p>
 </section>
 
-<section id="s7">
-  <div class="shead"><span class="num">7</span><h2>In class: The takeaway and the writeup</h2></div>
-    <h3 class="sub" id="s7-1">The takeaway: six concepts, two systems</h3>
-  <p>Same six concepts, two very different systems. One was built to track cars; one was built to help patients. Both needed every row.</p>
+<section id="s5">
+  <div class="shead"><span class="num">5</span><h2>In class: The takeaway and the writeup</h2></div>
+  <h3 class="sub" id="s5-1">The takeaway: six concepts, two systems</h3>
   <table class="risk">
-    <thead><tr><th>Concept</th><th>Your appeal agent</th><th>The license plate cameras</th></tr></thead>
+    <thead><tr><th>Concept</th><th>Your Job Scout</th><th>The license plate cameras</th></tr></thead>
     <tbody>
-      <tr><td><b>Minimum necessary access</b></td><td>The chart tool handed over a second patient</td><td>Local crime data was open to agencies the job never needed</td></tr>
-      <tr><td><b>Scope of authority</b></td><td>It can draft but has no way to send</td><td>A search tool the buyer didn't know he had</td></tr>
-      <tr><td><b>Human in the loop</b></td><td>You reviewed the draft and found the inference</td><td>Outside searches with no one approving them</td></tr>
-      <tr><td><b>Audit trail</b></td><td>The Logs showed the extra patient</td><td>Nobody knew who was searching until researchers asked</td></tr>
-      <tr><td><b>Accountability</b></td><td>Your sign-off line names a role</td><td>"We don't run the cameras"</td></tr>
-      <tr><td><b>Built-in vs. asked-for</b></td><td>The privacy fix lives in the tool</td><td>Sharing off by default</td></tr>
+      <tr><td>Minimum necessary access</td><td>The résumé tool handed over a home address it never needed</td><td>Local crime data was open to agencies the job never needed</td></tr>
+      <tr><td>Scope of authority</td><td>It can draft but has no way to apply</td><td>A search tool the buyer didn't know he had</td></tr>
+      <tr><td>Human in the loop</td><td>You checked the tailored résumé for anything invented</td><td>Outside searches with no one approving them</td></tr>
+      <tr><td>Audit trail</td><td>The Logs showed exactly what the tool returned</td><td>Nobody knew who was searching until researchers asked</td></tr>
+      <tr><td>Accountability</td><td>Your sign-off line names a person or role</td><td>"We don't run the cameras"</td></tr>
+      <tr><td>Built-in vs. asked-for</td><td>The privacy fix lives in the tool</td><td>Sharing off by default</td></tr>
     </tbody>
   </table>
-  <p><strong>A system built to do good doesn't govern itself.</strong> The agent helped patients and still overshared on its second run. Governance isn't a verdict on whether a system is good. It's the set of decisions that keep a good system from doing harm by accident.</p>
+  <p>A system built to help you doesn't govern itself. The Job Scout was on your side the whole time and still handed itself your home address. Governance isn't a verdict on whether a system is good. It's the set of decisions that keep a good system from doing harm by accident.</p>
 
-  <h3 class="sub" id="s7-2">Your three items</h3>
+  <h3 class="sub" id="s5-2">Your three items</h3>
   <p><strong>3 items, uploaded to Canvas before you leave class.</strong></p>
   <ol class="writeup">
-    <li><strong>Your sign-off line.</strong> A screenshot of your pick from section 6, plus one sentence on why that role, and one on what your pick costs.</li>
-    <li><strong>Built-in vs. asked-for.</strong> Name one rule from today that worked better built into the design than written into the instructions. What did building it in cost?</li>
-    <li><strong>Who writes the rule.</strong> Pick one row of the table in section 6. Who should write that rule for agents like this one: the hospital, the vendor, the insurer, or the state? If it's the state, should it be a floor or a ceiling? Name the cost of your answer.</li>
+    <li><strong>Your sign-off line.</strong> A screenshot of your pick from section 4, plus one sentence on why that pick, and one on what it costs.</li>
+    <li><strong>Your six rules.</strong> One sentence per concept, from section 3. Mark which ones you built into the tools and which live only in the instructions.</li>
+    <li><strong>Who writes the rule.</strong> Pick one row of the table in section 4. Who should write that rule for job agents like this one: you, the job site, the agent's maker, or the state? If it's the state, should it be a floor or a ceiling? Name the cost of your answer.</li>
   </ol>
   <p><strong>AI use on this writeup.</strong> The AI in this lab is the agent you built. Don't use a chatbot to write your three answers; they're short on purpose, and the point is your judgment. If you used AI for anything else today, say what and how. "None" is a fine answer.</p>
 </section>
@@ -692,9 +501,9 @@ return "Patient not found. Ask the reviewer to confirm the patient's name.";</pr
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p>Adapted from Chris Califf's AI agent lesson for IT Leadership (WWU, October 16, 2026), whose build steps were tested step by step in n8n in October 2026. The tested-behavior descriptions in sections 3 to 5 come from that testing. <strong>Not yet re-verified for MIS 201.</strong> Before Monday, November 30: rerun the full build in n8n (its menus change often), confirm the default model and free-credit offer, and confirm the 14-day trial terms.</p>
-    <p>Epic's Penny: Epic, "Penny for Revenue Cycle and Operations," <a class="inline" href="https://www.epic.com/software/penny" target="_blank" rel="noopener">epic.com/software/penny</a>. "Minimum necessary" refers to the HIPAA Privacy Rule standard; add a link to the HHS guidance before class.</p>
-    <p>Lakeridge Regional Hospital, Northbridge Health Plan, the patients, their charts, the denial letters, and the policies are all fictional.</p>
+    <p>Rebuilt 11 Nov 2026 as a governance lab on the Job Scout agent students build in <a class="inline" href="chapter-09-economy-lab.html">Lab 9</a>. The earlier version built an insurance-appeal agent here, adapted from Chris Califf's AI agent lesson for IT Leadership (WWU, 16 Oct 2026); the build moved to Lab 9 so the last Monday stays short. <strong>Not yet run end to end.</strong> Before Monday, November 30: confirm that a Lab 9 trial (started November 18) still opens, and that the My Résumé fix in section 2 works as described.</p>
+    <p>The six governance concepts are Chapter 11's framing (section 2.6). The Flock comparisons restate Chapter 11's case and add no new facts.</p>
+    <p>Jordan Reyes, the job postings, the companies, and the job site in section 4 are all fictional.</p>
   </div>
 </details>
 
@@ -739,17 +548,16 @@ return "Patient not found. Ask the reviewer to confirm the patient's name.";</pr
   });
 
   var S={
-    nurse:{n:'an appeals nurse',r:'Strong pick. An appeals nurse knows both the chart and the insurance rules, so she can catch the medication guess. The cost is her time: if she has to read every letter carefully, the agent saves less than it promised.'},
-    doctor:{n:"the patient's physician",r:'The strongest clinical check there is, and the most expensive. Physicians are the scarcest people in the building. Ask whether they would really read letter number 400 this month, or start signing on trust.'},
-    clerk:{n:'a billing clerk',r:'Cheaper and faster, and a real risk. A billing clerk knows the forms, not the medicine, so a wrong clinical claim reads just as well as a right one. That is the rubber stamp problem. You can defend this pick if you pair it with something else, like a nurse spot-checking a sample.'},
-    it:{n:'the IT team that built it',r:'They know the system better than anyone, and the patient less than anyone. Builders checking their own work tend to see what they meant to build. Most organizations separate the people who build a system from the people who approve its output for exactly this reason.'},
-    nobody:{n:'nobody, when the agent is confident',r:'This is the version that saves the most time and the one Chapter 10 warns about: the agent sounds equally confident when it is right and when it is wrong. If you keep this pick, you are betting the audit trail gets read. Who reads it?'}
+    you:{n:'you',r:'The strongest check, because you are the only one who knows what you have actually done. The cost is your time, and the temptation: by application number forty, will you still read every line, or start clicking approve?'},
+    counselor:{n:'a career counselor',r:'A second set of trained eyes who knows what employers look for. The cost: a counselor knows careers, not your life, so an invented skill that sounds right reads just as well as a true one. That is the rubber stamp problem.'},
+    site:{n:'the job site',r:'Fast and cheap, and the site has its own interest: more applications look like more success. A reviewer whose business grows with volume is reviewing its own product.'},
+    nobody:{n:'nobody, when the agent is confident',r:'The version that saves the most time, and the one Chapter 10 warns about: the agent sounds equally confident when it is right and when it is wrong. If you keep this pick, you are betting the audit trail gets read. Who reads it?'}
   };
   var O={
-    signer:{n:'whoever signed it',r:'Clear and simple: the pen and the blame sit with the same person. The cost is fairness. If the tool fed that person the wrong chart, they answer for a design choice they never made.'},
-    manager:{n:'the appeals manager',r:'This puts accountability with the person who decided to use the agent at all, which matches who had the power. The cost is distance: the manager never saw the letter.'},
-    vendor:{n:'the vendor that sold the agent',r:'Vendors almost always write contracts that say otherwise, so this one usually loses in practice. It is still worth arguing, because the vendor wrote the tools. Chapter 11 asks who should make that rule.'},
-    ai:{n:'the AI',r:'The AI cannot be fired, sued, retrained by a judge, or asked to explain itself under oath. Answering "the AI" means nobody answers. Pick a person or a role.'}
+    you:{n:'you',r:'Clear and simple: your name is on the application, so the blame sits with you. The cost is fairness. If the tool invented a skill you never approved, you answer for a design choice you never made.'},
+    vendor:{n:'the company that built the agent',r:'They wrote the tools and the instructions, so this matches who had the power. Companies almost always write terms of service that say otherwise, so this usually loses in practice. Chapter 11 asks who should make that rule.'},
+    site:{n:'the job site that offered it',r:'The site chose to put an Apply button on it, which is a real decision. The cost is distance: the site never saw your application.'},
+    ai:{n:'the AI',r:'The AI cannot be fired, sued, or asked to explain itself under oath. Answering "the AI" means nobody answers. Pick a person or a role.'}
   };
   var pick={signer:null,owner:null};
   var out=document.getElementById('sign-out');
@@ -765,8 +573,8 @@ return "Patient not found. Ask the reviewer to confirm the patient's name.";</pr
     var html='';
     if(pick.signer&&pick.owner){
       var s=S[pick.signer],o=O[pick.owner];
-      var who=pick.signer==='nobody'?'No one signs these letters':'Before this letter goes out, <b>'+s.n+'</b> signs it';
-      html='<div class="read">'+who+', and if it is wrong, <b>'+o.n+'</b> answers for it.</div>'+
+      var who=pick.signer==='nobody'?'No one approves these applications':'Before an application goes out, it needs approval from <b>'+s.n+'</b>';
+      html='<div class="read">'+who+', and if it is wrong, the one who answers is <b>'+o.n+'</b>.</div>'+
            '<div class="read" style="margin-top:12px">'+s.r+'</div>'+
            '<div class="read" style="margin-top:12px">'+o.r+'</div>';
     } else {

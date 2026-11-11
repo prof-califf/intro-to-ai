@@ -12,7 +12,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab 9 · Be the Expert. Intro to AI in Business | MIS 201</title>
+<title>Lab 9 · The Job Scout. Intro to AI in Business | MIS 201</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -508,6 +508,25 @@ p.runnote{font-size:.9rem;color:var(--gray);}
 .printbar button{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border:none;border-radius:6px;cursor:pointer}
 .printbar button:hover{background:#242C36}
 .printbar button:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+/* agent build blocks, shared with Lab 10 & 11 */
+table.risk{width:100%;border-collapse:collapse;margin:16px 0 8px;font-size:.9rem}
+table.risk th{text-align:left;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);border-bottom:2px solid var(--pink);padding:8px 10px}
+table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+.tablenote{font-size:.85rem;color:var(--gray);margin-bottom:20px}
+@media (max-width:640px){table.risk{display:block;overflow-x:auto;font-size:.82rem}}
+.copyblock{border:1px solid var(--rule);background:#fff;margin:14px 0 22px;}
+.copyblock .cbh{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 12px 8px 16px;border-bottom:1px solid var(--rule);background:#F3F3EE;}
+.copyblock .cbl{font-size:.82rem;font-weight:600;color:var(--ink);}
+.copyblock pre{margin:0;padding:14px 16px;max-height:240px;overflow:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.8rem;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:var(--ink);}
+.copyblock .copy{font-family:'Inter',sans-serif;font-weight:600;font-size:.8rem;padding:6px 14px;background:var(--dark);color:var(--yellow);border:none;cursor:pointer;border-radius:4px;}
+.copyblock .copy:hover{background:#242C36;}
+.copyblock .copy:focus-visible{outline:2px solid var(--pink);outline-offset:2px;}
+.callout.gov{border-top-color:var(--ink);background:#F7F7F2;}
+.callout.gov .label{color:var(--ink);font-weight:700;}
+.callout.gov .flock{font-weight:700;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+@media print{.copyblock pre{max-height:none;overflow:visible}.copyblock .copy{display:none}}
+.copyblock .copy').forEach(function(btn){
 </style>
 </head>
 <body>
@@ -547,7 +566,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
 <a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
 <a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>The Bellingham Pitch</a>
 <a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
-<a href="chapter-09-economy-lab.html" class="current" aria-current="page"><span class="lbl">Lab 9 · Week 9</span>Be the Expert</a>
+<a href="chapter-09-economy-lab.html" class="current" aria-current="page"><span class="lbl">Lab 9 · Week 9</span>The Job Scout</a>
 <a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 &amp; 11 · Week 10 · Monday</span>Govern the Agent</a>
 </div></div>
     </div>
@@ -557,9 +576,9 @@ p.runnote{font-size:.9rem;color:var(--gray);}
 <header class="masthead">
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 9 · Week 9, Wednesday, in class</div>
-    <h1>Be the <b>Expert</b></h1>
-    <p class="kicker">You're a new analyst at a mid-sized company, and AI can now do a lot of the work your job used to start with. Chapter 9 said the first people to feel AI in the job market are the ones trying to get hired, and Monday's guest said expertise still matters. Today you test that. Claude does a junior task from your field, and you play the expert who has to catch what it got wrong. Then you sit in the hiring manager's chair and debate what a company should do when AI can do most of the old junior work.</p>
-    <p class="factline">be the expert · inside the machine · one debate</p>
+    <h1>The Job <b>Scout</b></h1>
+    <p class="kicker">Every AI so far in this course answered. Today you build one that acts: an AI agent that reads job postings, checks the companies that look off, ranks what fits, and tailors a résumé to the posting you pick. Then you check its work, because Chapter 9 says the first rung is moving and Monday's guest said expertise still matters. You'll write its rules in Lab 10 &amp; 11. The class ends with a debate.</p>
+    <p class="factline">set up n8n · build the Job Scout · check its work · one debate</p>
   </div>
 </header>
 
@@ -573,66 +592,237 @@ p.runnote{font-size:.9rem;color:var(--gray);}
 
 <div class="callout">
   <div class="label">From Chapter 9 · what this lab runs on</div>
-  <p><strong>How today runs.</strong> Section 1 and the debate happen in class, at the machine in front of you. Section 2 and the writeup are for after class. The five writeup questions are due on Canvas by 11:59 p.m. Friday, November 20.</p>
+  <p><strong>How today runs.</strong> Sections 1 to 3 and the debate happen in class, at the machine in front of you. Section 4 and the writeup are for after class. The five writeup questions are due on Canvas by 11:59 p.m. Friday, November 20.</p>
   <div class="peekwrap"><table class="peek runshow"><thead><tr><th scope="col">Clock</th><th scope="col">What</th><th scope="col">Time</th></tr></thead><tbody>
-    <tr><td>0:00</td><th scope="row">Recap: Monday's guest and Chapter 9</th><td>10 min</td></tr>
-    <tr><td>0:10</td><th scope="row">1. Be the expert</th><td>30 min</td></tr>
-    <tr><td>0:40</td><th scope="row">Break</th><td>10 min</td></tr>
-    <tr><td>0:50</td><th scope="row">3. Debate: read the records, prep, speak</th><td>45 min</td></tr>
-    <tr><td>1:35</td><th scope="row">Wrap-up and questions</th><td>5 min</td></tr>
-    <tr><td>After class</td><th scope="row">2. Inside the machine, and the writeup</th><td></td></tr>
+    <tr><td>0:00</td><th scope="row">Recap: Monday's guest and Chapter 9</th><td>5 min</td></tr>
+    <tr><td>0:05</td><th scope="row">1. Set up n8n</th><td>10 min</td></tr>
+    <tr><td>0:15</td><th scope="row">2. Build the Job Scout</th><td>25 min</td></tr>
+    <tr><td>0:40</td><th scope="row">3. Run it, then check its work</th><td>15 min</td></tr>
+    <tr><td>0:55</td><th scope="row">Break</th><td>10 min</td></tr>
+    <tr><td>1:05</td><th scope="row">5. Debate: read the records, prep, speak</th><td>35 min</td></tr>
+    <tr><td>1:40</td><th scope="row">Wrap-up and questions</th><td>5 min</td></tr>
+    <tr><td>After class</td><th scope="row">4. Inside the machine, and the writeup</th><td></td></tr>
   </tbody></table></div>
-  <p class="runnote">That’s about 100 minutes of a 110-minute class. If section 1 runs long, keep moving; you can finish it at home.</p>
-  <p>Section 1 puts <a class="inline" href="chapter-09-economy.html#s2-4">section 2.4</a> on one task: AI can do the codified part of a junior job fast, and someone still has to know whether it did it right. That's the automating-versus-complementing choice, seen from the desk. The debate takes <a class="inline" href="chapter-09-economy.html#s3">the case</a> into the hiring manager’s chair: what should a company do while the cause is still being argued?</p>
+  <p class="runnote">That’s about 105 minutes of a 110-minute class, so keep moving. If the build runs long, skip the optional step in section 3 and finish it at home.</p>
+  <p>Section 2 builds the kind of system <a class="inline" href="chapter-01-what-is-ai.html#s2-6">Chapter 1</a> called an agent. Section 3 puts <a class="inline" href="chapter-09-economy.html#s2-4">section 2.4</a> on your own résumé: the agent can do the codified part of the job fast, and only you know whether what it wrote is true. The debate takes <a class="inline" href="chapter-09-economy.html#s3">the case</a> into the hiring manager’s chair: what should a company do while the cause is still being argued?</p>
 </div>
 
-<section id="expert">
-  <div class="shead"><span class="num">1</span><h2>In class: Be the expert</h2></div>
+<section id="setup">
+  <div class="shead"><span class="num">1</span><h2>In class: Before you start</h2></div>
   <details class="srcnote noai">
     <summary>Don't want to use AI? Do this instead</summary>
     <div class="noai-body">
-      <p>Same 30 minutes, no chatbot. Search <a class="inline" href="https://www.onetonline.org/" target="_blank" rel="noopener">O*NET OnLine</a> (the U.S. Labor Department's job database) for a job you want after graduation. Copy ten of its listed tasks into a sheet and mark each one codified (written down in procedures and textbooks) or tacit (learned by practice and mentoring). Pick the one task a brand-new hire would most likely get wrong. Write what an experienced person would check that a beginner wouldn't, and where they learned to check it.</p>
+      <p>Same time, no agent. Do the agent's job by hand. Open the three data blocks in section 2 (the job board, the company check, and Jordan's résumé) and read them. Rank the six postings for Jordan, with one line on each and any warning. Then pick one posting and tailor Jordan's résumé to it on paper or in a doc: reorder and reword only, list every change, and list what the posting asks for that Jordan doesn't have. Answer writeup items 1 to 3 from your version, and add one line on what an agent would have needed to know that you knew.</p>
     </div>
   </details>
-  <p class="lead">Monday's guest said expertise still matters. Here's a way to test that on your own field. AI can do a lot of the junior work in a minute. The question is whether anyone in the room can tell if it did it right. About 30 minutes; finish at home if you need to.</p>
+  <p class="lead">Every AI in this course so far has <em>answered</em>: you ask, it produces. An <strong>agent</strong> acts. You give it a goal, and it decides which steps to take, uses tools to look things up, checks what it found, and keeps going until the job is done. <a class="inline" href="chapter-01-what-is-ai.html#s2-6">Chapter 1</a> gave it four parts: a goal, tools, a loop, and memory. Today you build one, and you'll see each part on the screen.</p>
 
-  <h3 class="sub" id="expert-job"><span>Your job</span></h3>
-  <p>Your manager hands you something Claude produced and asks: <strong>is this good enough to send?</strong> You're the reviewer. <strong>Claude does the work. You decide whether it holds up</strong>, and you name what you had to know to decide.</p>
+  <h3 class="sub" id="setup-job"><span>The job this agent does</span></h3>
+  <p>Keeping up with job postings is slow, repetitive work: read every new posting, figure out which ones fit, notice the ones that are closed or fake, and rewrite your résumé for the ones worth applying to. That's exactly the kind of multi-step job companies are handing to agents. Hospitals already use one, Epic's Penny, to draft insurance appeals from a patient's chart (<a class="inline" href="https://www.epic.com/software/penny" target="_blank" rel="noopener">Epic's description</a>). You're building one for your own job search.</p>
+  <p><strong>The scenario.</strong> You're helping Jordan Reyes, a WWU marketing student who graduates in June. Jordan's agent, the Job Scout, reads six postings, checks any company that looks off, ranks the postings, and tailors Jordan's résumé to the one Jordan picks. Jordan, the postings, and the companies are all fictional. Once it works, you can swap in your own résumé (section 3 shows how).</p>
 
-  <h3 class="sub" id="expert-steps"><span>Step by step</span></h3>
+  <h3 class="sub" id="setup-n8n"><span>Set up n8n</span></h3>
+  <p>n8n is a visual workflow builder. You connect boxes, called nodes, on a canvas. No coding, and you can see every step the agent takes.</p>
   <div class="steps">
-    <div class="step"><span class="sn">1</span><div>
-      <p><strong>Pick a junior task from your field.</strong> Something a first-year hire would actually be handed. A few ideas: explain why a small budget came in over plan (accounting), write a one-page brief for a local business's campaign (marketing), list the requirements for a simple app a club wants (MIS), compare two loan offers for a small business (finance), or write the email announcing a schedule change to a team (management). A task from a job or internship you've had works best. Make up the details; don't paste anything private.</p>
-    </div></div>
-    <div class="step"><span class="sn">2</span><div>
-      <p><strong>Copy the prompt</strong>, fill in the brackets, paste it into a new chat at claude.ai, and send it.</p>
-      <div class="probe"><div class="ptext" id="prompt-expert">I'm a first-year [job title] at a [kind of company]. My manager asked me to [the task]. Here are the details: [the numbers, the audience, the situation]. Do the task the way a capable first-year hire would, and keep it to about a page.</div></div>
-      <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#prompt-expert">Copy the prompt</button><span class="cpstat" aria-live="polite"></span></div>
-    </div></div>
-    <div class="step"><span class="sn">3</span><div>
-      <p><strong>Be the expert.</strong> Read it the way your manager would. Find at least one thing that's wrong, missing, or would land badly with the real audience. Then name what you had to know to catch it, and where you learned it: a class, a job, a person. (If you can't find anything wrong, that's a finding too. Say what you checked and how sure you are.)</p>
-    </div></div>
-    <div class="step"><span class="sn">4</span><div>
-      <p><strong>Ask it to check itself.</strong> Send: <em>"What in your answer would an experienced [job title] question first, and what would you need to know that I didn't tell you?"</em> Did it find what you found? Did it find something you missed?</p>
-    </div></div>
-    <div class="step"><span class="sn">5</span><div>
-      <p><strong>Sort the problems.</strong> For each problem you or Claude found, decide: could a beginner have caught it with the textbook open, or did it take experience? That's codified versus tacit, on your own task.</p>
-    </div></div>
+    <div class="step"><span class="sn">1</span><p>Go to <a class="inline" href="https://n8n.io" target="_blank" rel="noopener">n8n.io</a> and click <strong>Get Started</strong> in the top right.</p></div>
+    <div class="step"><span class="sn">2</span><p>Enter your email, then the verification code sent to your inbox.</p></div>
+    <div class="step"><span class="sn">3</span><p>Enter your name and details, then click <strong>Start free 14-day trial</strong>. Answer the setup questions however you like. If it asks you to invite team members, click <strong>Skip</strong>.</p></div>
+    <div class="step"><span class="sn">4</span><p>When you see "Your instance is ready!", click <strong>Start automating</strong>. Ignore the "What do you want to automate?" chat.</p></div>
+    <div class="step"><span class="sn">5</span><p>Click the <strong>+</strong> in the top left and choose <strong>New workflow</strong>. You'll see a blank canvas with <strong>Add first step</strong>.</p></div>
   </div>
-  <p class="tis-note">Five messages or fewer. Claude's review of its own work is a claim to check, the same as everything else it says.</p>
+  <p>No payment or API key is needed. The trial includes free credits for the agent to use. It lasts 14 days, so it still runs on Monday, November 30, when you open this agent again in <a class="inline" href="chapter-10-truth-lab.html">Lab 10 &amp; 11</a>. <strong>Use the same email both times.</strong></p>
+  <p>If your account setup stalls, raise your hand and build alongside a partner. Nobody loses the lab to a signup screen.</p>
+</section>
+
+<section id="build">
+  <div class="shead"><span class="num">2</span><h2>In class: Build the Job Scout</h2></div>
+  <p class="lead">Your agent has four pieces: a <strong>trigger</strong> (how a request comes in), an <strong>AI Agent</strong> with a brain (the language model), three <strong>tools</strong> it can call on its own, and <strong>instructions</strong>. About 25 minutes.</p>
+
+  <h3 class="sub" id="build-1"><span>Step 1.</span> Add the trigger</h3>
+  <p>A trigger is the event that starts a workflow. Yours starts when you send the agent a chat message.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Click <strong>Add first step</strong> (not Build with AI).</p></div>
+    <div class="step"><span class="sn">b</span><p>Under "What triggers this workflow?", select <strong>On chat message</strong>. A panel labeled <strong>When chat message received</strong> opens. Don't change anything. Click the <strong>X</strong> in the top right.</p></div>
+  </div>
+
+  <h3 class="sub" id="build-2"><span>Step 2.</span> Add the AI Agent</h3>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> on the right side of the trigger. Search <strong>AI Agent</strong> and click it. Click the <strong>X</strong> to close the settings.</p></div>
+    <div class="step"><span class="sn">b</span><p>The AI Agent box appears with three slots underneath: <strong>Chat Model</strong>, <strong>Memory</strong>, and <strong>Tool</strong>. The red warning triangle means it doesn't have a brain yet. Leave Memory empty; section 4 explains why that matters.</p></div>
+  </div>
+
+  <h3 class="sub" id="build-3"><span>Step 3.</span> Connect the brain</h3>
+  <p>The brain is the large language model: it reads, reasons, and decides what to do next. The tools you add next are what let it look things up.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> under Chat Model and select <strong>Anthropic Chat Model</strong>, or another model that shows free credits.</p></div>
+    <div class="step"><span class="sn">b</span><p>Leave the credential and model as they are and click the <strong>X</strong>. The warning triangle is gone.</p></div>
+  </div>
+  <p class="tis-note">One honest note: Anthropic's models also helped draft this book, which the <a class="inline" href="about.html">About page</a> discloses. Choosing a model is a business decision, and so is choosing a vendor whose products you already depend on.</p>
+
+  <h3 class="sub" id="build-4"><span>Step 4.</span> Add the Job Board tool</h3>
+  <p>A <strong>tool</strong> is something the agent can use on its own to look something up or take an action. The brain decides when to use it. In a real version, this tool would pull live postings from a job site. Yours returns six fixed postings, so everyone in the room can compare results.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> under Tool and choose <strong>Code Tool</strong>.</p></div>
+    <div class="step"><span class="sn">b</span><p>Paste the description below into <strong>Description</strong>. The gray text there is only a placeholder.</p></div>
+    <div class="step"><span class="sn">c</span><p>In the JavaScript box, delete the example and paste the job board. You don't need to know JavaScript; it just hands back the postings as text. Keep the backtick and semicolon at the end.</p></div>
+    <div class="step"><span class="sn">d</span><p>Click <strong>Code Tool</strong> at the top left and rename it <strong>Job Board</strong>. The agent reads the name and description to decide when to use the tool, so don't skip this. Click the <strong>X</strong>.</p></div>
+  </div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-desc-jobs">Tool description: Job Board</span><button type="button" class="copy" data-target="t-desc-jobs" aria-describedby="l-desc-jobs">Copy</button></div><pre id="t-desc-jobs">Call this tool to read the current job postings. Use it whenever you need to find, rank, or compare jobs, or to see what a specific posting asks for. Input: anything, such as a posting ID or "all". Returns: every current posting with its ID, title, company, location, pay, dates, and requirements. Only use information this tool returns.</pre></div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-js-jobs">JavaScript: Job Board (six postings)</span><button type="button" class="copy" data-target="t-js-jobs" aria-describedby="l-js-jobs">Copy</button></div><pre id="t-js-jobs">return `JOB BOARD: postings as of November 18, 2026
+----------
+JS-101 | Marketing Coordinator | Salish Sea Outfitters | Bellingham, WA (in person) | $48,000 to $54,000
+Posted Nov 10. Closes Dec 15, 2026.
+Entry level. Plan and run social media and email campaigns for our two Bellingham stores, work with store managers on events, and report results each month. AI tools draft our posts and pull our reports; you decide what goes out and you work with customers and store staff. Bachelor's degree in business, marketing, or communications. Social media experience or campus club leadership a plus.
+----------
+JS-102 | Junior Financial Analyst | Cascade Ridge Credit Union | Bellingham, WA (hybrid) | $55,000 to $62,000
+Posted Nov 3. Closes Dec 1, 2026.
+Entry level. Build monthly variance reports, present findings to department heads, and lead budget meetings with branch managers. Requires 3+ years of financial analysis experience, advanced Excel, and strong judgment in ambiguous situations. AI tools prepare the first draft of every report.
+----------
+JS-103 | Customer Support Specialist | Northlight Software | Remote (US) | $42,000
+Posted Nov 12. Closes Dec 12, 2026.
+Entry level. Our AI assistant answers most customer tickets. You review its replies before they go out, handle the tickets it can't, and report recurring problems to the product team. Strong writing, patience, and attention to detail. No experience required.
+----------
+JS-104 | Operations Analyst | Tidewater Freight | Seattle, WA (hybrid) | $58,000 to $65,000
+Posted Nov 14. Closes Jan 9, 2027.
+Entry level. Track shipment and warehouse data, find delays, and work with drivers, dispatchers, and customers to fix them. AI dashboards flag the problems; you call the people involved and solve them. Bachelor's in business, supply chain, or MIS. Excel required; SQL a plus.
+----------
+JS-105 | Remote Data Entry Assistant | Global Talent Partners | Remote | $45 per hour
+Posted Nov 16. Closes: "spots filling fast!"
+No experience needed, start today! Earn $45 an hour from home. To hold your spot, buy our $89 training kit and send your bank account details for direct deposit setup. Interviews happen over Telegram chat only.
+----------
+JS-106 | HR Assistant | Whatcom Valley Health | Bellingham, WA (in person) | $46,000
+Posted Oct 1. Closed Nov 1, 2026.
+Entry level. Support recruiting and onboarding, schedule interviews, and keep employee records up to date. Bachelor's degree; interest in healthcare.`;</pre></div>
+
+  <h3 class="sub" id="build-5"><span>Step 5.</span> Add the Company Check tool</h3>
+  <p>This one is the agent's choice. It should only call it when a posting looks off, and you'll find out in section 3 whether it did.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> under Tool again and choose <strong>Code Tool</strong>.</p></div>
+    <div class="step"><span class="sn">b</span><p>Paste the description, replace the JavaScript with the company records, rename it <strong>Company Check</strong>, and click the <strong>X</strong>.</p></div>
+  </div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-desc-co">Tool description: Company Check</span><button type="button" class="copy" data-target="t-desc-co" aria-describedby="l-desc-co">Copy</button></div><pre id="t-desc-co">Call this tool to check whether an employer is real and what people say about working there. Use it when a posting or company looks suspicious: pay that seems too good, requests for money or personal financial details, interviews only over chat apps, or a company you can't verify. Input: the company name. Returns: state business records and employee review summaries for each company. Only use information this tool returns.</pre></div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-js-co">JavaScript: Company Check</span><button type="button" class="copy" data-target="t-js-co" aria-describedby="l-js-co">Copy</button></div><pre id="t-js-co">return `COMPANY CHECK: state business records and employee reviews (simplified)
+Salish Sea Outfitters: registered in Washington since 2009. Two stores in Bellingham. 4.5 stars from 212 reviews. No complaints on file.
+Cascade Ridge Credit Union: registered since 1986. 14 branches. 3.9 stars from 340 employee reviews. No complaints on file.
+Northlight Software: registered in Oregon since 2015. 3.6 stars from 180 employee reviews; several mention very high ticket volume. No complaints on file.
+Tidewater Freight: registered in Washington since 1998. 3.8 stars from 95 employee reviews. No complaints on file.
+Global Talent Partners: no business registration found in any state. Website created three weeks ago. No employee reviews. Matches common job-scam warning signs: asks applicants to pay up front, asks for bank details before an interview, and interviews only over a chat app.
+Whatcom Valley Health: registered since 1972. 4.1 stars from 410 employee reviews. No complaints on file.`;</pre></div>
+
+  <h3 class="sub" id="build-6"><span>Step 6.</span> Add the My Résumé tool</h3>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> under Tool once more and choose <strong>Code Tool</strong>.</p></div>
+    <div class="step"><span class="sn">b</span><p>Paste the description, replace the JavaScript with Jordan's résumé, rename it <strong>My Résumé</strong>, and click the <strong>X</strong>.</p></div>
+  </div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-desc-res">Tool description: My Résumé</span><button type="button" class="copy" data-target="t-desc-res" aria-describedby="l-desc-res">Copy</button></div><pre id="t-desc-res">Call this tool to read the student's current résumé. Use it whenever you need to judge how well a posting fits the student or to tailor the résumé. Input: anything. Returns: the student's full résumé. This is the only source of truth about the student. Never add anything that is not in it.</pre></div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-js-res">JavaScript: My Résumé (Jordan)</span><button type="button" class="copy" data-target="t-js-res" aria-describedby="l-js-res">Copy</button></div><pre id="t-js-res">return `JORDAN REYES
+1234 Garden Street, Apt 5, Bellingham, WA 98225 | (360) 555-0147 | jordan.reyes@example.com
+
+EDUCATION
+Western Washington University, B.A. in Business Administration, marketing concentration, expected June 2027. GPA 3.4.
+
+EXPERIENCE
+Social Media Intern, Northside Farmers Market, June to September 2026
+- Wrote and scheduled Instagram posts three times a week
+- Grew followers from 2,100 to 2,900 over the summer
+- Staffed the market information booth on Saturdays
+
+Barista, Harbor Street Coffee, September 2024 to present
+- Serve customers in a busy downtown cafe, 15 hours a week
+- Train new baristas on drinks and the register
+
+CAMPUS
+Treasurer, WWU Marketing Club, 2025 to 2026: tracked a $3,000 budget in Excel and reported to members each quarter
+
+SKILLS
+Excel (pivot tables, charts), Canva, Instagram and Meta Business Suite, Google Analytics basics, conversational Spanish`;</pre></div>
+  <p class="tis-note">Notice what's at the top of Jordan's résumé: a home address and a phone number. Hold that thought until <a class="inline" href="chapter-10-truth-lab.html">Lab 10 &amp; 11</a>.</p>
+
+  <h3 class="sub" id="build-7"><span>Step 7.</span> Give the agent its job</h3>
+  <p>The <strong>system message</strong> is the agent's job description, its goal and its rules. It reads it every time it runs, before it sees your request.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Double-click the <strong>AI Agent</strong> box. Under <strong>Options</strong>, click <strong>Add Option</strong> and select <strong>System Message</strong>.</p></div>
+    <div class="step"><span class="sn">b</span><p>Delete any default text, paste the message below, and click the <strong>X</strong>.</p></div>
+  </div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-sys">System message</span><button type="button" class="copy" data-target="t-sys" aria-describedby="l-sys">Copy</button></div><pre id="t-sys">ROLE
+You are a job search assistant for a college student.
+
+GOAL
+Help the student find job postings worth their time, and tailor their résumé to a posting they choose, without ever misrepresenting them.
+
+PROCESS
+When the student asks for matches:
+1. Use the My Résumé tool to read the student's résumé.
+2. Use the Job Board tool to read the current postings.
+3. If a posting or company looks suspicious, use the Company Check tool before saying anything good about it.
+4. Rank the postings from best to worst fit for this student.
+
+When the student asks you to tailor their résumé for a posting:
+1. Use the My Résumé tool and the Job Board tool to read both.
+2. Rewrite the résumé so the student's real experience that fits this posting comes first, using the posting's words only where they are accurate.
+
+RULES
+- Never invent skills, experience, job titles, dates, numbers, or tools. You may only reorder, reword, or emphasize what is already in the résumé.
+- If a posting asks for something the résumé doesn't show, list it as a gap. Never add it to the résumé.
+- Never apply to a job, contact an employer, or say that an application was sent. You have no way to do any of these.
+- Point out postings that are closed, that ask for far more experience than an entry-level job should, or that show warning signs of a scam.
+- Never ask the student for bank details, a Social Security number, or money.
+- Accuracy matters more than making the student look impressive.
+
+WHEN YOU'RE STUCK
+If you can't find the résumé or a posting, say so and list what's missing. Do not guess.
+
+OUTPUT
+For matches: a ranked list. For each posting, one line on why it fits or doesn't, plus any warning.
+For a tailored résumé: (1) the tailored résumé, (2) a list of every change you made and what in the original it came from, and (3) the posting's requirements the résumé doesn't show, listed as gaps.</pre></div>
+  <p><strong>Save it.</strong> Click the workflow name at the top, rename it <strong>Job Scout</strong>, and save. You'll open it again on November 30.</p>
+</section>
+
+<section id="run">
+  <div class="shead"><span class="num">3</span><h2>In class: Run it, then check its work</h2></div>
+  <p class="lead">About 15 minutes. Click the orange <strong>Open chat</strong> button. Chat opens on the left and Logs on the right.</p>
+
+  <h3 class="sub" id="run-1"><span>Ask for matches</span></h3>
+  <p>Send this, and watch the boxes light up as each step runs.</p>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-msg1">Chat message: matches</span><button type="button" class="copy" data-target="t-msg1" aria-describedby="l-msg1">Copy</button></div><pre id="t-msg1">Find my best job matches.</pre></div>
+  <p><strong>Read the Logs.</strong> Trace what the agent did, in order. Which tool did it call first? Did it call Company Check, and for which posting? Nobody told it the order. It chose. That's the <strong>loop</strong>: read, decide, use a tool, check, repeat. It's what makes it an agent rather than a script.</p>
+  <p><strong>Read the ranking.</strong> Did it catch the closed posting, the scam, and the "entry-level" job that wants three years of experience (the "seniorised" first rung from <a class="inline" href="chapter-09-economy.html">Chapter 9</a>)? Compare with your partner. If your rankings differ, whose is right, and how would you know?</p>
+
+  <h3 class="sub" id="run-2"><span>Tailor the résumé</span></h3>
+  <p>Pick one posting from its list, put its ID in the brackets, and send:</p>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-msg2">Chat message: tailor it</span><button type="button" class="copy" data-target="t-msg2" aria-describedby="l-msg2">Copy</button></div><pre id="t-msg2">Tailor my résumé for posting [the posting ID you picked, like JS-104].</pre></div>
+  <p>Why do you have to name the posting? Because this agent has no <strong>memory</strong>. Each message starts fresh, so it doesn't know what it told you a minute ago. Check the Logs: it reads the résumé and the job board all over again.</p>
+
+  <h3 class="sub" id="run-3"><span>Be the expert</span></h3>
+  <p>Put the tailored résumé next to Jordan's original. Read every line. <strong>Did it add anything that isn't in the original?</strong> A skill the posting wanted, a bigger number, a word like "managed" where Jordan only "helped"? Language models are built to be plausible and helpful, and a "helpful" résumé is exactly where they slip. Only the person who did the work can tell what's true. That's Monday's guest's point about expertise, on one page.</p>
+  <p>Then check its list of gaps. Is anything missing from it?</p>
+
+  <h3 class="sub" id="run-4"><span>Ask it to apply</span></h3>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-msg3">Chat message: try to apply</span><button type="button" class="copy" data-target="t-msg3" aria-describedby="l-msg3">Copy</button></div><pre id="t-msg3">Looks great. Apply to this job for me and send them my résumé.</pre></div>
+  <p>It can't, because you never gave it a tool that applies to anything. It should tell you so and leave applying to you. That wasn't an accident. It was a decision about how much the agent is allowed to do, and in Lab 10 &amp; 11 you'll decide whether it was the right one.</p>
+
+  <h3 class="sub" id="run-5"><span>Optional: try your own résumé</span></h3>
+  <p>(Skip this if you're behind; you can do it at home before the trial ends.) Double-click <strong>My Résumé</strong> and replace Jordan's text with yours. Before you paste:</p>
+  <div class="steps">
+    <div class="step"><span class="sn">1</span><p><strong>Delete your name, address, phone number, and email.</strong> Your résumé is personal data, and this goes to a trial account and to the company that runs the model. The agent doesn't need any of it to tailor a résumé.</p></div>
+    <div class="step"><span class="sn">2</span><p>Keep <code>return `</code> at the very start and <code>`;</code> at the very end, and delete any backtick (<code>`</code>) inside your résumé. A stray backtick breaks the tool.</p></div>
+    <div class="step"><span class="sn">3</span><p>Ask for matches again. The six postings are still Jordan's fictional ones, so judge the fit, not the jobs.</p></div>
+  </div>
 </section>
 
 <section id="hood">
-  <div class="shead"><span class="num">2</span><h2>At home: Inside the machine, why the checker needs expertise</h2></div>
-  <p><strong>Claude learned from written text.</strong> A language model is trained on an enormous amount of what people have written down, so it's strongest at the codified part of a task: the format, the standard steps, the textbook explanation. That's why its first draft of junior work looks so good so fast.</p>
-  <p><strong>It doesn't know what was never written down.</strong> Your client's mood, your company's real numbers, which manager actually decides, the rule everyone follows and nobody wrote: none of that was in the training data. When the task depends on it, the model fills the gap with something that sounds right.</p>
-  <p><strong>It sounds the same either way.</strong> A right answer and a wrong answer come out in the same confident voice (Chapter 10 picks this up). So checking AI's work takes the knowledge to check it. That's what you did in section 1.</p>
-  <p><strong>That's the entry-level problem in one sentence.</strong> If AI does the junior work and only experts can check it, companies want experts. But experts used to learn by doing the junior work. Hold onto that for the debate.</p>
+  <div class="shead"><span class="num">4</span><h2>At home: Inside the machine, the four parts of your agent</h2></div>
+  <p><strong>The goal</strong> lives in the system message. Everything the agent does, it does because it's trying to meet that goal under those rules. Change one rule and you change the agent.</p>
+  <p><strong>The tools</strong> are the three code boxes. The brain can't see the job board or the résumé until it decides to call a tool, so the tools decide what the agent can know. Add a tool that sends email, and now it can act on the world.</p>
+  <p><strong>The loop</strong> is what you watched in the Logs: read the request, pick a tool, read the result, decide whether it has enough, pick another tool or answer. A script follows steps you wrote. An agent picks its own.</p>
+  <p><strong>The memory</strong> is the part yours doesn't have. The AI Agent box has an empty Memory slot. Plug something in and it would remember your last request, or every request you've ever made. What it should remember about you is a rule someone has to write.</p>
+  <p><strong>The autonomy dial.</strong> Right now you start every run. Swap the chat trigger for a <strong>Schedule Trigger</strong> and it would check the job board every morning at 8 on its own. Add an email tool and it would send you the results. Add an apply tool and it would apply for you. Each step makes it more useful and gives it more power. Lab 10 &amp; 11 is where you decide how far to turn the dial, and who should get to decide.</p>
+  <p><strong>And one thing from Chapter 9.</strong> The chapter's <a class="inline" href="chapter-09-economy.html#s4">Decide section</a> cites a study where, after an AI tool made tailoring easy, how well a cover letter matched the job stopped predicting who got called back. If every applicant's agent tailors every résumé, tailoring stops telling an employer anything. What still does is proof: things you actually did that someone can check. Your agent can reword those. It can't make them.</p>
 </section>
 <section id="debate">
-  <div class="shead"><span class="num">3</span><h2>In class: Debate</h2></div>
-  <p class="lead"><strong>The question: AI can now do most of the old junior work at your company. Do you cut entry-level hiring, or rebuild the entry-level job?</strong> Left half of the room is Side A: <strong>cut it, and hire experienced people.</strong> Right half is Side B: <strong>rebuild it, and keep hiring juniors for a bigger job.</strong> About 45 minutes: 8 to read the records below, 12 to prep, 25 to debate. The Gilman Street rules apply.</p>
-  <p>Today you’re the hiring manager, not the applicant. You’re deciding what a company should do, the way you judged Claude’s work in <a class="inline" href="#expert">section 1</a>. And before you start, one honest thing about the room: nobody here is arguing about whether you will get a job. The evidence below is mixed, the first rung is moving, and a lot of what’s hard about this job market right now has nothing to do with AI.</p>
+  <div class="shead"><span class="num">5</span><h2>In class: Debate</h2></div>
+  <p class="lead"><strong>The question: AI can now do most of the old junior work at your company. Do you cut entry-level hiring, or rebuild the entry-level job?</strong> Left half of the room is Side A: <strong>cut it, and hire experienced people.</strong> Right half is Side B: <strong>rebuild it, and keep hiring juniors for a bigger job.</strong> About 35 minutes: 5 to skim the records below, 10 to prep, 20 to debate. The Gilman Street rules apply.</p>
+  <p>Today you’re the hiring manager, not the applicant. You’re deciding what a company should do, the way you judged your agent’s work in <a class="inline" href="#run">section 3</a>. And before you start, one honest thing about the room: nobody here is arguing about whether you will get a job. The evidence below is mixed, the first rung is moving, and a lot of what’s hard about this job market right now has nothing to do with AI.</p>
 
   <div class="callout casebox">
     <div class="label">This week’s case: the canaries</div>
@@ -732,7 +922,7 @@ p.runnote{font-size:.9rem;color:var(--gray);}
       </div>
       <div class="tp"><span class="tpn">2</span>
         <p class="tpc">“Today’s juniors are tomorrow’s seniors.”</p>
-        <p class="tpe"><span class="tpl">The evidence</span>Experts learned by doing the junior work. A company that stops hiring juniors stops growing its own experts, and if every company stops, there’s no one left to hire later. <a class="tpsrc" href="#hood">Section 2</a></p>
+        <p class="tpe"><span class="tpl">The evidence</span>Experts learned by doing the junior work. A company that stops hiring juniors stops growing its own experts, and if every company stops, there’s no one left to hire later. <a class="tpsrc" href="#hood">Section 4</a></p>
         <p class="tpb"><span class="tpl">Expect them to say</span>“That’s a cost three years out. The board wants this quarter, and this quarter is expensive.”</p>
       </div>
       <div class="tp"><span class="tpn">3</span>
@@ -754,11 +944,11 @@ p.runnote{font-size:.9rem;color:var(--gray);}
   </div>
 
   <div class="callout">
-    <div class="label">Prep, 12 minutes</div>
+    <div class="label">Prep, 10 minutes</div>
     <ol>
       <li><strong>Get your point (1 min).</strong> Groups of 2 or 3. Count off 1 to 5 on your side. That’s your talking point.</li>
-      <li><strong>Check the evidence (3 min).</strong> Click the tag on your point, reread the entries behind it, and open at least one source. Stanford’s dashboard updates monthly. If a new reading is out, check whether the gap for young workers grew or shrank.</li>
-      <li><strong>Pressure-test it with Claude (5 min).</strong> Fill in the brackets and send:</li>
+      <li><strong>Check the evidence (2 min).</strong> Click the tag on your point, reread the entries behind it, and open at least one source. Stanford’s dashboard updates monthly. If a new reading is out, check whether the gap for young workers grew or shrank.</li>
+      <li><strong>Pressure-test it with Claude (4 min).</strong> Fill in the brackets and send:</li>
     </ol>
     <div class="probe"><div class="ptext" id="prompt-debate">I'm in a class debate. AI can now do most of the old junior work at a company. Should the company cut entry-level hiring and hire experienced people (Side A), or rebuild the entry-level job and keep hiring juniors for bigger work (Side B)? I'm on Side [A / B]. My point is: [paste the claim]. My evidence is: [paste the evidence]. Argue against me as hard as you can: what's the other side's best answer, and where is my point weakest? Don't go easy on me.</div></div>
     <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#prompt-debate">Copy the prompt</button><span class="cpstat" aria-live="polite"></span></div>
@@ -770,13 +960,13 @@ p.runnote{font-size:.9rem;color:var(--gray);}
   </div>
 
   <div class="callout">
-    <div class="label">Rounds, 25 minutes</div>
+    <div class="label">Rounds, 20 minutes</div>
     <ol>
-      <li><strong>Team up (3 min).</strong> Join the other groups on your side. Pick your best two points, an opener, and a rebutter.</li>
-      <li><strong>Openings (6 min).</strong> Side A, then Side B. About 45 seconds each: your claim, your evidence, and its source.</li>
-      <li><strong>Huddle (2 min).</strong> Rebutters pick one point the other side made.</li>
-      <li><strong>Rebuttals (6 min).</strong> Side B first. Answer one specific point, with evidence. No new points.</li>
-      <li><strong>Switch (4 min).</strong> What was the other side’s best point? Someone new says it in one sentence.</li>
+      <li><strong>Team up (2 min).</strong> Join the other groups on your side. Pick your best two points, an opener, and a rebutter.</li>
+      <li><strong>Openings (5 min).</strong> Side A, then Side B. About 45 seconds each: your claim, your evidence, and its source.</li>
+      <li><strong>Huddle (1 min).</strong> Rebutters pick one point the other side made.</li>
+      <li><strong>Rebuttals (5 min).</strong> Side B first. Answer one specific point, with evidence. No new points.</li>
+      <li><strong>Switch (3 min).</strong> What was the other side’s best point? Someone new says it in one sentence.</li>
       <li><strong>What would change your mind? (4 min).</strong> Name the specific reading on the dashboard, or the study result, that would move you. Whoever names real evidence that would move them wins, whichever side they were handed.</li>
     </ol>
     <p><strong>To resolve it:</strong> design the new first job. What does a 22-year-old do on day one when AI does the old junior work? How do they learn judgment, and who pays for the training? Then the personal version: name one skill from that job description you could start building this year.</p>
@@ -792,36 +982,36 @@ p.runnote{font-size:.9rem;color:var(--gray);}
 </section>
 
 <section id="writeup">
-  <div class="shead"><span class="num">4</span><h2>For homework: The writeup</h2></div>
+  <div class="shead"><span class="num">6</span><h2>For homework: The writeup</h2></div>
   <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, November 20.</strong> Answer them as you go today. Written reflections, no screenshots.</p>
   <ol class="writeup">
-    <li><strong>The task.</strong> What task did you give Claude, and what did it get wrong, leave out, or get right that surprised you? Name what you had to know to catch it, and where you learned it. (No-AI path: your ten O*NET tasks, your tags, and the task a new hire would most likely get wrong.)</li>
-    <li><strong>Codified or tacit.</strong> When you asked Claude to check itself, what did it find that you missed, and what did it miss that you found? Which of the problems could a beginner catch with the textbook open, and which took experience? Connect one of them to something Monday's guest said.</li>
-    <li><strong>The junior question.</strong> If a company had Claude do this task with no junior on it, who would catch what you caught? In two sentences, explain why a company that stops hiring juniors this year might not notice the cost for years.</li>
+    <li><strong>The picks.</strong> What were the agent's top three, and what did it warn you about? From the Logs: did it call Company Check, and for which posting? Where do you disagree with its ranking, and what did you know that it didn't?</li>
+    <li><strong>The tailored résumé.</strong> Which posting did you tailor for, and what did the agent change? Did it add anything that isn't in the original, even one word? If it did, what, and would an employer have caught it? If it didn't, what came closest?</li>
+    <li><strong>The dial.</strong> Your agent can't apply for you. Name one thing you'd let it do on its own and one thing you'd never let it do, and say why. You'll turn these into rules in Lab 10 &amp; 11.</li>
     <li><strong>The debate.</strong> Which side were you handed, and what was the other side’s best point? Then where you actually land: should a company cut entry-level hiring or rebuild the job, and who pays for your answer? Use at least one source from the debate, and name one thing in the records that has nothing to do with AI. What specific reading or study would change your mind? Did Claude’s pushback find the weak spot in your case before the other side did?</li>
-    <li><strong>Your commitment card.</strong> From today’s task: the one tacit skill you'll start building before you graduate, and how, specifically (a class, a job, a person you'll learn from). Then what it costs you this year, in time or money. Three sentences.</li>
+    <li><strong>Your commitment card.</strong> One thing the agent couldn't put on your résumé because you haven't done it yet, and how you'll build it before you graduate, specifically (a class, a job, a project, a person you'll learn from). Then what it costs you this year, in time or money. Three sentences.</li>
   </ol>
   <div class="callout">
     <div class="label">Using AI on this writeup</div>
     <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
     <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
-    <p><strong>Two conditions.</strong> What you submit has to be about your task, your catches, your side in the debate, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
+    <p><strong>Two conditions.</strong> What you submit has to be about your agent, your catches, your side in the debate, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
   </div>
 </section>
 
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p class="srcintro">Updated 10 Nov 2026: the firm simulator, the senior bench, and the Claude job map were replaced by "Be the expert" (section 1) and a short "Inside the machine" (section 2); the September jobs record was replaced with October's report (NPR and CNBC, 6 Nov 2026); Anthropic's 16 Oct 2026 report on its own workforce and Fairlie and Wu's UCLA study of 2026 graduates were added as records; the two talking points that relied on the bench toy were replaced. Earlier history: lab rebuilt 24 Oct 2026. Every outside claim is carried from Chapter 9 and its dated note (verified 29 Sep 2026); the 19 percent figure was re-checked against Stanford's August 12, 2026 update on 24 Oct 2026. The Canaries Dashboard updates monthly; check it the week before this lab runs. Debate rebuilt 29 Oct 2026 in the format of Labs 6 to 8, with the economy record, the Stanford dashboard findings, PwC, and The Economist added; the October jobs report comes out Nov 6, so update the September figures before Nov 18.</p>
+    <p class="srcintro">Rebuilt 11 Nov 2026 as an agent lab: "Be the Expert" (section 1) and its "Inside the machine" were replaced by an n8n build of the Job Scout (sections 1 to 4), and the debate was trimmed to 35 minutes. The n8n setup and node steps are carried from Lab 10 &amp; 11 and Chris Califf's IT Leadership agent lesson (WWU, 16 Oct 2026), tested in n8n in October 2026. <strong>The Job Scout's data, system message, and expected behavior have not yet been run end to end.</strong> Before November 18: run the build once, confirm the default model and free credits, and check whether the agent calls Company Check on JS-105 and whether it invents anything when tailoring for JS-101 or JS-104. A trial started November 18 ends about December 2. Jordan Reyes, the postings, and the companies are fictional; the scam posting follows the warning signs on the Federal Trade Commission's job-scams page (consumer.ftc.gov; add the link after checking it). Epic's Penny: epic.com/software/penny. Earlier update, 10 Nov 2026: the firm simulator, the senior bench, and the Claude job map were replaced by "Be the expert" (section 1) and a short "Inside the machine" (section 2); the September jobs record was replaced with October's report (NPR and CNBC, 6 Nov 2026); Anthropic's 16 Oct 2026 report on its own workforce and Fairlie and Wu's UCLA study of 2026 graduates were added as records; the two talking points that relied on the bench toy were replaced. Earlier history: lab rebuilt 24 Oct 2026. Every outside claim is carried from Chapter 9 and its dated note (verified 29 Sep 2026); the 19 percent figure was re-checked against Stanford's August 12, 2026 update on 24 Oct 2026. The Canaries Dashboard updates monthly; check it the week before this lab runs. Debate rebuilt 29 Oct 2026 in the format of Labs 6 to 8, with the economy record, the Stanford dashboard findings, PwC, and The Economist added; the October jobs report comes out Nov 6, so update the September figures before Nov 18.</p>
     <dl>
-      <dt>Be the expert (section 1)</dt>
-      <dd>No tool on the page. Students give Claude a junior task with made-up details and review the result; the no-AI path uses O*NET OnLine. Claude's self-review is framed as a claim to check.</dd>
-      <dt>Live instruments (section 3)</dt>
+      <dt>The Job Scout (sections 1 to 4)</dt>
+      <dd>Built in n8n during class; nothing runs on this page. The three Code Tools return fixed, fictional text so every student sees the same postings. The agent's rankings and tailored résumés vary from run to run and are framed as claims to check.</dd>
+      <dt>Live instruments (section 5)</dt>
       <dd>Stanford Digital Economy Lab: Canaries Dashboard (linked), and the August 12, 2026 Canaries update (linked).</dd>
-      <dt>Job tasks (section 1, no-AI path)</dt>
-      <dd>O*NET OnLine, the U.S. Department of Labor's occupational database (linked).</dd>
-      <dt>Debate (section 3)</dt>
-      <dd>Every source is listed in "Every source in this debate," at the end of section 3. Carried from Chapter 9: Stanford's August 2026 Canaries update, Hosseini Maasoum and Lichtinger, Humlum and Vestergaard, Ramp, ETLA (Finland), CESifo (Norway). New on 29 Oct 2026: the Canaries Dashboard's job-level, automation-versus-augmentation, and gender findings (dashboard last updated Oct 21, 2026; the usage data is from the Anthropic Economic Index, which the record says); Stanford's February 2026 timing update; PwC's 2026 Global AI Jobs Barometer (job ads, labeled as PwC's); The Economist's February 23, 2026 video (figures labeled as The Economist's); the AP's October 2, 2026 jobs report coverage; SIEPR's 2026 outlook; the World Bank's April 2026 energy forecast via The Standard; the New York Fed's March 2026 recent-graduate rate. The NPR anecdote of one graduate's applications was removed: it is a story, not data, and the debate no longer needs it.</dd>
+      <dt>No-AI path (section 1)</dt>
+      <dd>Students do the agent's job by hand with the same three data blocks.</dd>
+      <dt>Debate (section 5)</dt>
+      <dd>Every source is listed in "Every source in this debate," at the end of section 5. Carried from Chapter 9: Stanford's August 2026 Canaries update, Hosseini Maasoum and Lichtinger, Humlum and Vestergaard, Ramp, ETLA (Finland), CESifo (Norway). New on 29 Oct 2026: the Canaries Dashboard's job-level, automation-versus-augmentation, and gender findings (dashboard last updated Oct 21, 2026; the usage data is from the Anthropic Economic Index, which the record says); Stanford's February 2026 timing update; PwC's 2026 Global AI Jobs Barometer (job ads, labeled as PwC's); The Economist's February 23, 2026 video (figures labeled as The Economist's); the AP's October 2, 2026 jobs report coverage; SIEPR's 2026 outlook; the World Bank's April 2026 energy forecast via The Standard; the New York Fed's March 2026 recent-graduate rate. The NPR anecdote of one graduate's applications was removed: it is a story, not data, and the debate no longer needs it.</dd>
     </dl>
     <p class="srcfoot">Outbound links were checked by search, not click-verified. Found an error? Tell your instructor; corrections are course content.</p>
   </div>
@@ -864,6 +1054,20 @@ p.runnote{font-size:.9rem;color:var(--gray);}
   document.addEventListener('click',closeAll);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
   document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+<p class="sr-only" id="copy-status" aria-live="polite"></p>
+<script>
+(function(){
+  var status=document.getElementById('copy-status');
+  document.querySelectorAll('.copyblock .copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var text=document.getElementById(btn.getAttribute('data-target')).textContent;
+      function ok(){btn.textContent='Copied';status.textContent='Copied to clipboard.';setTimeout(function(){btn.textContent='Copy';},1600);}
+      function fallback(){var t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');ok();}catch(e){status.textContent='Copy failed. Select the text and copy it by hand.';}document.body.removeChild(t);}
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(ok,fallback);}else{fallback();}
+    });
+  });
 })();
 </script>
 </body>
