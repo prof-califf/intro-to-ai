@@ -577,8 +577,8 @@ table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-alig
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 9 · Week 9, Wednesday, in class</div>
     <h1>The Job <b>Scout</b></h1>
-    <p class="kicker">Every AI so far in this course answered. Today you build one that acts: an AI agent that reads job postings, checks the companies that look off, ranks what fits, and tailors a résumé to the posting you pick. Then you check its work, because Chapter 9 says the first rung is moving and Monday's guest said expertise still matters. You'll write its rules in Lab 10 &amp; 11. The class ends with a debate.</p>
-    <p class="factline">set up n8n · build the Job Scout · check its work · one debate</p>
+    <p class="kicker">Every AI so far in this course answered. Today you build one that acts: an AI agent that reads job postings, checks the companies that look off, ranks what fits, and tailors a résumé to the posting you pick. Then you check its work, because Chapter 9 says the first rung is moving and Monday's guest said expertise still matters. You'll write its rules in Lab 10 &amp; 11. The second half of class is time to work on your Prototype project with your team.</p>
+    <p class="factline">set up n8n · build the Job Scout · check its work · project time</p>
   </div>
 </header>
 
@@ -592,19 +592,18 @@ table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-alig
 
 <div class="callout">
   <div class="label">From Chapter 9 · what this lab runs on</div>
-  <p><strong>How today runs.</strong> Sections 1 to 3 and the debate happen in class, at the machine in front of you. Section 4 and the writeup are for after class. The five writeup questions are due on Canvas by 11:59 p.m. Friday, November 20.</p>
+  <p><strong>How today runs.</strong> Sections 1 to 3 and project time happen in class, at the machine in front of you. Section 4 and the writeup are for after class. The five writeup questions are due on Canvas by 11:59 p.m. Friday, November 20.</p>
   <div class="peekwrap"><table class="peek runshow"><thead><tr><th scope="col">Clock</th><th scope="col">What</th><th scope="col">Time</th></tr></thead><tbody>
     <tr><td>0:00</td><th scope="row">Recap: Monday's guest and Chapter 9</th><td>5 min</td></tr>
     <tr><td>0:05</td><th scope="row">1. Set up n8n</th><td>10 min</td></tr>
     <tr><td>0:15</td><th scope="row">2. Build the Job Scout</th><td>25 min</td></tr>
     <tr><td>0:40</td><th scope="row">3. Run it, then check its work</th><td>15 min</td></tr>
     <tr><td>0:55</td><th scope="row">Break</th><td>10 min</td></tr>
-    <tr><td>1:05</td><th scope="row">5. Debate: read the records, prep, speak</th><td>35 min</td></tr>
-    <tr><td>1:40</td><th scope="row">Wrap-up and questions</th><td>5 min</td></tr>
+    <tr><td>1:05</td><th scope="row">5. Work on your project</th><td>45 min</td></tr>
     <tr><td>After class</td><th scope="row">4. Inside the machine, and the writeup</th><td></td></tr>
   </tbody></table></div>
-  <p class="runnote">That’s about 105 minutes of a 110-minute class, so keep moving. If the build runs long, skip the optional step in section 3 and finish it at home.</p>
-  <p>Section 2 builds the kind of system <a class="inline" href="chapter-01-what-is-ai.html#s2-6">Chapter 1</a> called an agent. Section 3 puts <a class="inline" href="chapter-09-economy.html#s2-4">section 2.4</a> on your own résumé: the agent can do the codified part of the job fast, and only you know whether what it wrote is true. The debate takes <a class="inline" href="chapter-09-economy.html#s3">the case</a> into the hiring manager’s chair: what should a company do while the cause is still being argued?</p>
+  <p class="runnote">That’s the full 110 minutes. If the build runs long, skip the optional step in section 3 and finish it at home; project time doesn’t shrink.</p>
+  <p>Section 2 builds the kind of system <a class="inline" href="chapter-01-what-is-ai.html#s2-6">Chapter 1</a> called an agent. Section 3 puts <a class="inline" href="chapter-09-economy.html#s2-4">section 2.4</a> on your own résumé: the agent can do the codified part of the job fast, and only you know whether what it wrote is true. Project time is your chance to put the same parts into your own team's design.</p>
 </div>
 
 <section id="setup">
@@ -819,166 +818,17 @@ For a tailored résumé: (1) the tailored résumé, (2) a list of every change y
   <p><strong>The autonomy dial.</strong> Right now you start every run. Swap the chat trigger for a <strong>Schedule Trigger</strong> and it would check the job board every morning at 8 on its own. Add an email tool and it would send you the results. Add an apply tool and it would apply for you. Each step makes it more useful and gives it more power. Lab 10 &amp; 11 is where you decide how far to turn the dial, and who should get to decide.</p>
   <p><strong>And one thing from Chapter 9.</strong> The chapter's <a class="inline" href="chapter-09-economy.html#s4">Decide section</a> cites a study where, after an AI tool made tailoring easy, how well a cover letter matched the job stopped predicting who got called back. If every applicant's agent tailors every résumé, tailoring stops telling an employer anything. What still does is proof: things you actually did that someone can check. Your agent can reword those. It can't make them.</p>
 </section>
-<section id="debate">
-  <div class="shead"><span class="num">5</span><h2>In class: Debate</h2></div>
-  <p class="lead"><strong>The question: AI can now do most of the old junior work at your company. Do you cut entry-level hiring, or rebuild the entry-level job?</strong> Left half of the room is Side A: <strong>cut it, and hire experienced people.</strong> Right half is Side B: <strong>rebuild it, and keep hiring juniors for a bigger job.</strong> About 35 minutes: 5 to skim the records below, 10 to prep, 20 to debate. The Gilman Street rules apply.</p>
-  <p>Today you’re the hiring manager, not the applicant. You’re deciding what a company should do, the way you judged your agent’s work in <a class="inline" href="#run">section 3</a>. And before you start, one honest thing about the room: nobody here is arguing about whether you will get a job. The evidence below is mixed, the first rung is moving, and a lot of what’s hard about this job market right now has nothing to do with AI.</p>
-
-  <div class="callout casebox">
-    <div class="label">This week’s case: the canaries</div>
-    <p>Stanford researchers used ADP payroll records to compare young workers in jobs AI can do a lot of with young workers in jobs it can’t. Their August 2026 update found workers ages 22 to 25 in the most AI-exposed jobs about 19 percent behind their less-exposed peers, with no comparable gap for experienced workers. The same update’s headline: no widespread displacement (<a class="inline" href="https://digitaleconomy.stanford.edu/news/canariesaug26/" target="_blank" rel="noopener">Stanford Digital Economy Lab</a>).</p>
-    <p><strong>Both sides can use it.</strong> Side A: the gap is real, it’s in exactly the junior work AI does, and it’s widening. Side B: the authors call it a correlation, not proof of cause, and the jobs where AI helps people instead of replacing them aren’t shrinking.</p>
+<section id="project">
+  <div class="shead"><span class="num">5</span><h2>In class: Work on your project</h2></div>
+  <p class="lead">Your pitch is Wednesday, December 2, two weeks from today, with Thanksgiving in between. Your slides are due Monday, November 30. Use these 45 minutes with your team, and I'll come around. Have one question ready for me.</p>
+  <h3 class="sub" id="project-1"><span>Start here</span></h3>
+  <div class="steps">
+    <div class="step"><span class="sn">1</span><p><strong>Sit with your team.</strong> Open the <a class="inline" href="prototype-project.html">Prototype project page</a> and your team's draft.</p></div>
+    <div class="step"><span class="sn">2</span><p><strong>Put your system on the dial.</strong> Is it predictive, generative, or an agent? If it's an agent, name its tools, the one rule its instructions must include, and the one thing it should never be able to do on its own. Today's build is your model.</p></div>
+    <div class="step"><span class="sn">3</span><p><strong>Check your five parts.</strong> Data, model, output, feedback loop, humans. Which one is still vague? Fix that one first.</p></div>
+    <div class="step"><span class="sn">4</span><p><strong>Run the five questions on your own design.</strong> The one teams usually skip is Question 3: describe one realistic failure, and who would notice.</p></div>
+    <div class="step"><span class="sn">5</span><p><strong>Split the work.</strong> Before you leave, agree who's doing which part of the paper, who's building the slides, and when you'll meet next.</p></div>
   </div>
-
-  <h3 class="sub" id="economy-record"><span>Before you blame AI:</span> the economy right now</h3>
-  <p>Start with the honest part. The job market in fall 2026 is strange for reasons that hit everyone, not just people in AI-exposed jobs. Every number in the next two records lands on top of this one, which is why it’s so hard to tell how much is AI.</p>
-  <ol class="timeline">
-    <li class="tlhead" aria-hidden="true"><span>When</span><span>What happened</span><span>Source</span></li>
-    <li class="tli"><span class="tly">2025</span><div><p class="tlt">A slow year to look for work</p><p class="tlx">Employers added an average of about 9,700 jobs a month in 2025, the weakest hiring outside a recession since 2002, by the AP’s account of Labor Department data.</p></div><p class="tlcite">AP, via WTTW. (2026, October 2). US hiring slows and unemployment ticks higher. <a class="tpsrc" href="https://news.wttw.com/2026/10/02/us-hiring-slows-and-unemployment-ticks-higher-month-remaining-americans-head-polls" target="_blank" rel="noopener">Open source</a></p></li>
-    <li class="tli"><span class="tly">2025 to 2026</span><div><p class="tlt">Tariffs</p><p class="tlx">Broad new tariffs raised costs for consumers and for American companies that import parts. Stanford economists flagged tariffs, interest rates, and a low-hire, low-fire labor market among the biggest economic issues for 2026.</p><p class="tlc">The catch: it’s hard to separate what tariffs did to hiring from everything else happening at the same time. That’s true of AI too.</p></div><p class="tlcite">Stanford Institute for Economic Policy Research. (2026). The U.S. economy in 2026: What to watch for. <a class="tpsrc" href="https://siepr.stanford.edu/publications/policy-brief/us-economy-2026-what-watch" target="_blank" rel="noopener">Open source</a></p></li>
-    <li class="tli"><span class="tly">Since February 2026</span><div><p class="tlt">War and oil</p><p class="tlx">The war with Iran set off a major oil shock. The World Bank projected energy prices up 24 percent in 2026 and warned the hit would arrive in waves: energy first, then food, then broader inflation and higher interest rates.</p></div><p class="tlcite">World Bank, Commodity Markets Outlook, as reported by <em>The Standard</em>, April 2026. <a class="tpsrc" href="https://www.thestandard.com.hk/finance/article/330573/World-Bank-forecasts-24pc-surge-in-energy-prices-in-2026-due-to-Middle-East-war" target="_blank" rel="noopener">Open source</a></p></li>
-    <li class="tli"><span class="tly">March 2026</span><div><p class="tlt">Recent graduates</p><p class="tlx">Unemployment for recent college graduates, ages 22 to 27, was about 5.6 percent, up from 3.6 percent in March 2019.</p><p class="tlc">The catch: higher than before, and still most recent graduates are working.</p></div><p class="tlcite">Federal Reserve Bank of New York. (2026). <a class="tpsrc" href="https://www.newyorkfed.org/newsevents/mediaadvisory/2026/0528-2026" target="_blank" rel="noopener">Open source</a></p></li>
-    <li class="tli"><span class="tly">September to October 2026</span><div><p class="tlt">Hiring picks back up, mostly</p><p class="tlx">Employers added 165,000 jobs in October, far more than forecasters expected, and unemployment dipped to 4.1 percent. September’s weak first count was revised up to 60,000.</p><p class="tlc">The catch: long-term unemployment rose sharply, and one strong month isn’t a trend. A better month overall doesn’t tell you who’s getting the first job.</p></div><p class="tlcite">NPR. (2026, November 6). Hiring jumps: The economy added 165,000 jobs last month. <a class="tpsrc" href="https://npr.org/2026/11/06/nx-s1-6030867/jobs-labor-market-economy-wages-inflation" target="_blank" rel="noopener">Open source</a> CNBC. (2026, November 6). <a class="tpsrc" href="https://www.cnbc.com/2026/11/06/jobs-report-october-2026.html" target="_blank" rel="noopener">Open source</a></p></li>
-  </ol>
-  <p class="tlnote"><strong>Notice the pattern.</strong> Even with October’s rebound, a cautious economy hits first-time job seekers hardest, AI or no AI, because the first thing a nervous company stops doing is opening new seats. Side A will say caution is exactly why you hire experienced people. Side B will say that’s the economy talking, not AI, and cutting the pipeline fixes the wrong problem.</p>
-
-  <h3 class="sub" id="ai-record"><span>What the data says:</span> AI and young workers</h3>
-  <p>Now the part that is about AI. These are the strongest numbers for Side A, each with its catch.</p>
-  <ol class="timeline alt">
-    <li class="tlhead" aria-hidden="true"><span>When</span><span>What the record shows</span><span>Source</span></li>
-    <li class="tli"><span class="tly">February 2026</span><div><p class="tlt">The timing question</p><p class="tlx">When the Stanford authors added the broadest set of controls, the declines in AI-exposed jobs only became statistically significant in 2024. They say the earlier declines are likely driven by things other than AI.</p><p class="tlc">The catch for Side B: from 2024 on, the controls didn’t make the gap go away.</p></div><p class="tlcite">Stanford Digital Economy Lab. (2026, February). Canaries, interest rates, and timing. <a class="tpsrc" href="https://digitaleconomy.stanford.edu/news/canaries-interest-rates-and-timinga-more-on-recent-drivers-of-employment-changes-for-young-workers/" target="_blank" rel="noopener">Open source</a></p></li>
-    <li class="tli"><span class="tly">2026</span><div><p class="tlt">Specific jobs</p><p class="tlx">On Stanford’s live dashboard, early-career software developers and customer service workers show large declines. Stock clerks show almost no age pattern. Young home health aides, whose work is relational and physical, are gaining faster than older ones.</p><p class="tlc">The catch: the sample is 25,000 firms that use ADP, and the lab says it represents neither the whole U.S. labor market nor every ADP firm.</p></div><p class="tlcite">Stanford Digital Economy Lab and ADP Research. Canaries Dashboard. <a class="tpsrc" href="https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/" target="_blank" rel="noopener">Open source</a></p></li>
-    <li class="tli"><span class="tly">2026</span><div><p class="tlt">Automating versus helping</p><p class="tlx">Jobs where more of the AI use is automation, people handing a whole task to AI, show declines or weaker growth for young workers. Jobs where AI is used to help people work show no clear relationship with employment.</p><p class="tlc">The catch: the usage data comes from the Anthropic Economic Index, and Anthropic makes Claude. It’s also a correlation.</p></div><p class="tlcite">Canaries Dashboard, “Automation v. Augmentation.” <a class="tpsrc" href="https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/" target="_blank" rel="noopener">Open source</a></p></li>
-    <li class="tli"><span class="tly">2026</span><div><p class="tlt">Who’s in the exposed jobs</p><p class="tlx">Among workers ages 22 to 25, 43.8 percent of women work in the most AI-exposed group of jobs, compared with 32.4 percent of men. The researchers say the gender gap they see comes mostly from which jobs people hold, not from unequal effects within the same job.</p></div><p class="tlcite">Canaries Dashboard, “Gender partition,” updated July 22, 2026. <a class="tpsrc" href="https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/" target="_blank" rel="noopener">Open source</a></p></li>
-    <li class="tli"><span class="tly">2025 to 2026</span><div><p class="tlt">The firm-level test</p><p class="tlx">Tracking tens of millions of résumés, two Harvard researchers found junior employment falls at firms that start building generative AI into their work, while senior employment holds.</p><p class="tlc">The catch: other careful studies using different data find small effects, including whole-population records from Finland and Norway that show no clear effect on young workers.</p></div><p class="tlcite">Hosseini Maasoum & Lichtinger, SSRN. <a class="tpsrc" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5425555" target="_blank" rel="noopener">Open source</a> Humlum &amp; Vestergaard, Becker Friedman Institute. <a class="tpsrc" href="https://bfi.uchicago.edu/working-papers/large-language-models-small-labor-market-effects/" target="_blank" rel="noopener">Open source</a> Finland, ETLA. <a class="tpsrc" href="https://www.etla.fi/wp-content/uploads/ETLA-Working-Papers-135.pdf" target="_blank" rel="noopener">Open source</a> Norway, CESifo. <a class="tpsrc" href="https://ideas.repec.org/p/ces/ceswps/_12752.html" target="_blank" rel="noopener">Open source</a></p></li>
-    <li class="tli"><span class="tly">October 2026</span><div><p class="tlt">An AI company, on itself</p><p class="tlx">Anthropic studied its own workforce. Juniors fell from 27 percent of its new technical hires to 9 percent in about a year, and its hiring managers now weigh judgment and autonomy over technical expertise.</p><p class="tlc">The catch: these are shares, not head counts. The company tripled in size, so it still hired more people overall. It’s one company describing itself, and it sells the AI tool its staff use, including the Claude in this lab.</p></div><p class="tlcite">Anthropic. (2026, October 16). How employment is changing at Anthropic. <a class="tpsrc" href="https://www.anthropic.com/research/employment-at-anthropic" target="_blank" rel="noopener">Open source</a></p></li>
-  </ol>
-  <p class="tlnote"><strong>Notice the pattern.</strong> The gap shows up in specific jobs, at specific ages, where AI does the work instead of helping with it. That’s a real signal. It’s also a correlation in a cautious economy, and two whole countries don’t see it. Side A leans on the signal. Side B leans on the catches.</p>
-
-  <h3 class="sub" id="rung-record"><span>The first rung is moving:</span> what’s growing</h3>
-  <p>The evidence that the entry-level job is changing shape rather than disappearing. These are the strongest numbers for Side B, each with its catch.</p>
-  <ol class="timeline worse">
-    <li class="tlhead" aria-hidden="true"><span>When</span><span>What the record shows</span><span>Source</span></li>
-    <li class="tli"><span class="tly">February 2026</span><div><p class="tlt">Reshaped, not erased</p><p class="tlx">The Economist’s economics correspondent reports that over three years, white-collar employment grew by about 3 million jobs, software developers were up 7 percent and paralegals 20 percent, and jobs that mix technical and people skills, like project managers and information security analysts, grew more than 30 percent. Secretaries and administrative assistants fell about 20 percent.</p><p class="tlc">The catch: these are The Economist’s own figures, counting all ages. The same video says entry-level analysts and programmers are the most exposed, and Stanford finds young software developers down sharply.</p></div><p class="tlcite"><em>The Economist.</em> (2026, February 23). Why AI won’t wipe out white-collar jobs [Video]. <a class="tpsrc" href="https://www.youtube.com/watch?v=1CAvNn5tUR8" target="_blank" rel="noopener">Open source</a></p></li>
-    <li class="tli"><span class="tly">June 2026</span><div><p class="tlt">The “seniorised” entry level</p><p class="tlx">Looking at 2.4 million U.S. entry-level job ads, PwC found AI-exposed entry-level roles are seven times more likely to ask for skills that used to be senior, like judgment and leadership. Openings for these roles grew 35 percent since 2019, while other entry-level roles shrank 10 percent.</p><p class="tlc">The catch: job ads show what employers ask for, not who got hired. And PwC sells AI consulting.</p></div><p class="tlcite">PwC. (2026). <em>2026 Global AI Jobs Barometer</em> [Press release]. <a class="tpsrc" href="https://www.pwc.com/id/en/media-centre/press-release/2026/english/ai-jobs-barometer-en.html" target="_blank" rel="noopener">Open source</a></p></li>
-    <li class="tli"><span class="tly">Ramp data</span><div><p class="tlt">The heaviest AI spenders</p><p class="tlx">In Ramp’s spending data, the companies spending most on AI grew their entry-level headcount by about 12 percent.</p><p class="tlc">The catch: those firms were already larger and growing faster.</p></div><p class="tlcite">Ramp. AI jobs impact. <a class="tpsrc" href="https://ramp.com/data/ai-jobs-impact/paper" target="_blank" rel="noopener">Open source</a></p></li>
-    <li class="tli"><span class="tly">October 2026</span><div><p class="tlt">The class of 2026</p><p class="tlx">A UCLA study of this summer’s new college graduates found their unemployment only slightly higher in AI-exposed fields, too small a difference to be sure it’s real.</p><p class="tlc">The catch: computer science grads were slower to land a first job. And unemployment doesn’t show whether the job a grad landed is the one they trained for.</p></div><p class="tlcite">Fairlie &amp; Wu, as reported by UCLA Anderson Review. (2026, October 7). <a class="tpsrc" href="https://anderson-review.ucla.edu/for-new-college-grads-the-ai-jobpocalypse-didnt-arrive/" target="_blank" rel="noopener">Open source</a></p></li>
-    <li class="tli"><span class="tly">July 2026</span><div><p class="tlt">Economists on steering it</p><p class="tlx">Over 200 economists and AI experts, including 17 Nobel laureates, called for building the incentives, guardrails, and institutions to steer AI toward complementing people.</p><p class="tlc">The catch: a statement is a goal, not a result.</p></div><p class="tlcite">Stanford Digital Economy Lab, homepage, on the July 2026 statement. <a class="tpsrc" href="https://digitaleconomy.stanford.edu/" target="_blank" rel="noopener">Open source</a></p></li>
-  </ol>
-  <p class="tlnote"><strong>Notice the pattern.</strong> When people count all ages, AI-touched jobs are mostly growing. When they look only at the youngest workers, the picture is worse. And the entry-level jobs that are growing ask for more on day one. Side B leans on the growth. Side A asks where a 22-year-old gets senior skills.</p>
-
-  <div class="sides">
-    <div class="side">
-      <div class="side-tag">Side A &middot; left half</div>
-      <h3 id="motion-for">Cut it: hire experienced people</h3>
-      <p>AI does the old junior work. The company hires people who already have judgment, and pays more for fewer of them.</p>
-      <p class="side-cost"><strong>What you have to prove:</strong> that the savings now are worth the empty bench later, and say where your seniors come from in five years.</p>
-    </div>
-    <div class="side">
-      <div class="side-tag">Side B &middot; right half</div>
-      <h3 id="motion-against">Rebuild it: keep hiring juniors, for a bigger job</h3>
-      <p>Juniors start higher: checking AI’s work, handling the exceptions, learning judgment on purpose. The company pays to train them.</p>
-      <p class="side-cost"><strong>What you have to prove:</strong> that the training cost is worth it in a cautious economy, and say how a 22-year-old learns senior skills without the old junior work.</p>
-    </div>
-  </div>
-
-  <h3 class="sub" id="talking-points"><span>Talking points:</span> your group takes one</h3>
-  <p>Each point has a claim, the evidence behind it, and the comeback to expect. The tags jump to the full record.</p>
-  <div class="tpgrid">
-    <div class="tpside">
-      <p class="tphead">Side A: cut it</p>
-      <div class="tp"><span class="tpn">1</span>
-        <p class="tpc">“AI already does the junior work.”</p>
-        <p class="tpe"><span class="tpl">The evidence</span>Young workers in the most AI-exposed jobs are about 19 percent behind their peers, concentrated where AI automates the work. Harvard’s résumé data finds junior employment falls at firms that adopt generative AI. <a class="tpsrc" href="#ai-record">The AI record</a></p>
-        <p class="tpb"><span class="tpl">Expect them to say</span>“Stanford calls its own finding a correlation, and Finland and Norway show no clear effect.”</p>
-      </div>
-      <div class="tp"><span class="tpn">2</span>
-        <p class="tpc">“In this economy, experience is the safer bet.”</p>
-        <p class="tpe"><span class="tpl">The evidence</span>Hiring in 2025 was the weakest outside a recession in more than two decades, tariffs and an oil shock are raising costs, and companies are cautious. An experienced hire is productive on day one. <a class="tpsrc" href="#economy-record">The economy record</a></p>
-        <p class="tpb"><span class="tpl">Expect them to say</span>“October added 165,000 jobs. That’s the economy, not AI, and cutting your pipeline because of a slow year fixes the wrong problem.”</p>
-      </div>
-      <div class="tp"><span class="tpn">3</span>
-        <p class="tpc">“The new entry-level job asks for skills juniors don’t have.”</p>
-        <p class="tpe"><span class="tpl">The evidence</span>PwC finds AI-exposed entry-level ads are seven times more likely to ask for senior skills like judgment and leadership. <a class="tpsrc" href="#rung-record">The rung record</a></p>
-        <p class="tpb"><span class="tpl">Expect them to say</span>“Then train for them. That’s what rebuilding the job means.”</p>
-      </div>
-      <div class="tp"><span class="tpn">4</span>
-        <p class="tpc">“Even the optimists say juniors are the most exposed.”</p>
-        <p class="tpe"><span class="tpl">The evidence</span>The Economist’s correspondent, arguing AI won’t wipe out white-collar jobs, names interns, entry-level analysts, and entry-level programmers as the most exposed. <a class="tpsrc" href="#rung-record">The rung record</a></p>
-        <p class="tpb"><span class="tpl">Expect them to say</span>“He also says white-collar work grew by about 3 million jobs, and that jobs get reshaped more than erased.”</p>
-      </div>
-      <div class="tp"><span class="tpn">5</span>
-        <p class="tpc">“The companies closest to AI already hire senior.”</p>
-        <p class="tpe"><span class="tpl">The evidence</span>Anthropic’s juniors fell from 27 percent of its technical hires to 9 percent in about a year, and its managers now weigh judgment over technical expertise. <a class="tpsrc" href="#ai-record">The AI record</a></p>
-        <p class="tpb"><span class="tpl">Expect them to say</span>“Those are shares. Anthropic tripled and hired more people overall, and it’s one company describing itself while it sells the tool.”</p>
-      </div>
-    </div>
-    <div class="tpside b">
-      <p class="tphead">Side B: rebuild it</p>
-      <div class="tp"><span class="tpn">1</span>
-        <p class="tpc">“The first rung moved up. It didn’t disappear.”</p>
-        <p class="tpe"><span class="tpl">The evidence</span>PwC finds “seniorised” entry-level openings grew 35 percent since 2019 while other entry-level roles shrank 10 percent. <a class="tpsrc" href="#rung-record">The rung record</a></p>
-        <p class="tpb"><span class="tpl">Expect them to say</span>“Job ads aren’t hires, and PwC sells AI consulting.”</p>
-      </div>
-      <div class="tp"><span class="tpn">2</span>
-        <p class="tpc">“Today’s juniors are tomorrow’s seniors.”</p>
-        <p class="tpe"><span class="tpl">The evidence</span>Experts learned by doing the junior work. A company that stops hiring juniors stops growing its own experts, and if every company stops, there’s no one left to hire later. <a class="tpsrc" href="#hood">Section 4</a></p>
-        <p class="tpb"><span class="tpl">Expect them to say</span>“That’s a cost three years out. The board wants this quarter, and this quarter is expensive.”</p>
-      </div>
-      <div class="tp"><span class="tpn">3</span>
-        <p class="tpc">“The jobs AI touches are still growing.”</p>
-        <p class="tpe"><span class="tpl">The evidence</span>The Economist reports software developers up 7 percent and paralegals up 20 percent over three years. Stanford’s own August headline was no widespread displacement. <a class="tpsrc" href="#rung-record">The rung record</a></p>
-        <p class="tpb"><span class="tpl">Expect them to say</span>“That counts all ages. Stanford finds young software developers down sharply.”</p>
-      </div>
-      <div class="tp"><span class="tpn">4</span>
-        <p class="tpc">“The heaviest AI users are still hiring juniors.”</p>
-        <p class="tpe"><span class="tpl">The evidence</span>In Ramp’s data, the biggest AI spenders grew entry-level headcount about 12 percent. <a class="tpsrc" href="#rung-record">The rung record</a></p>
-        <p class="tpb"><span class="tpl">Expect them to say</span>“Those firms were already bigger and growing faster. They’d hire more of everyone.”</p>
-      </div>
-      <div class="tp"><span class="tpn">5</span>
-        <p class="tpc">“How you use AI decides who loses.”</p>
-        <p class="tpe"><span class="tpl">The evidence</span>Jobs where AI mostly automates show declines for young workers. Jobs where AI mostly helps people show no clear relationship with employment. The build is a choice. <a class="tpsrc" href="#ai-record">The AI record</a></p>
-        <p class="tpb"><span class="tpl">Expect them to say</span>“That’s a correlation, and the usage data comes from Anthropic, which makes Claude.”</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="callout">
-    <div class="label">Prep, 10 minutes</div>
-    <ol>
-      <li><strong>Get your point (1 min).</strong> Groups of 2 or 3. Count off 1 to 5 on your side. That’s your talking point.</li>
-      <li><strong>Check the evidence (2 min).</strong> Click the tag on your point, reread the entries behind it, and open at least one source. Stanford’s dashboard updates monthly. If a new reading is out, check whether the gap for young workers grew or shrank.</li>
-      <li><strong>Pressure-test it with Claude (4 min).</strong> Fill in the brackets and send:</li>
-    </ol>
-    <div class="probe"><div class="ptext" id="prompt-debate">I'm in a class debate. AI can now do most of the old junior work at a company. Should the company cut entry-level hiring and hire experienced people (Side A), or rebuild the entry-level job and keep hiring juniors for bigger work (Side B)? I'm on Side [A / B]. My point is: [paste the claim]. My evidence is: [paste the evidence]. Argue against me as hard as you can: what's the other side's best answer, and where is my point weakest? Don't go easy on me.</div></div>
-    <div class="chips cpbar"><button type="button" class="btn alt" data-copy="#prompt-debate">Copy the prompt</button><span class="cpstat" aria-live="polite"></span></div>
-    <p>If Claude cites a study, check it against the records above. Then close it. You can’t read from Claude during the debate.</p>
-    <ol start="4">
-      <li><strong>Write your notes (3 min),</strong> in your own words: your point in one sentence, the evidence, the comeback you expect, and your answer to it.</li>
-    </ol>
-    <p class="noai-line"><strong>No AI?</strong> Skip step 3. Instead, read two entries in the other side’s record and write the strongest thing they’ll say to you.</p>
-  </div>
-
-  <div class="callout">
-    <div class="label">Rounds, 20 minutes</div>
-    <ol>
-      <li><strong>Team up (2 min).</strong> Join the other groups on your side. Pick your best two points, an opener, and a rebutter.</li>
-      <li><strong>Openings (5 min).</strong> Side A, then Side B. About 45 seconds each: your claim, your evidence, and its source.</li>
-      <li><strong>Huddle (1 min).</strong> Rebutters pick one point the other side made.</li>
-      <li><strong>Rebuttals (5 min).</strong> Side B first. Answer one specific point, with evidence. No new points.</li>
-      <li><strong>Switch (3 min).</strong> What was the other side’s best point? Someone new says it in one sentence.</li>
-      <li><strong>What would change your mind? (4 min).</strong> Name the specific reading on the dashboard, or the study result, that would move you. Whoever names real evidence that would move them wins, whichever side they were handed.</li>
-    </ol>
-    <p><strong>To resolve it:</strong> design the new first job. What does a 22-year-old do on day one when AI does the old junior work? How do they learn judgment, and who pays for the training? Then the personal version: name one skill from that job description you could start building this year.</p>
-  </div>
-
-  <details class="srcnote" id="debate-sources">
-    <summary>Every source in this debate, with links</summary>
-    <div class="srcbody">
-      <p class="srcintro">Research institutions, government and central bank data, and established news organizations. Company and consulting-firm figures are labeled as theirs.</p>
-      <ol class="reflist"><li>AP, via WTTW. (2026, October 2). US hiring slows and unemployment ticks higher with a month remaining before Americans head to polls. <a class="inline" href="https://news.wttw.com/2026/10/02/us-hiring-slows-and-unemployment-ticks-higher-month-remaining-americans-head-polls" target="_blank" rel="noopener">Link</a></li><li>Anthropic. (2026, October 16). How employment is changing at Anthropic. <a class="inline" href="https://www.anthropic.com/research/employment-at-anthropic" target="_blank" rel="noopener">Link</a></li><li>CNBC. (2026, November 6). U.S. economy added 165,000 jobs in October; unemployment rate slips to 4.1%. <a class="inline" href="https://www.cnbc.com/2026/11/06/jobs-report-october-2026.html" target="_blank" rel="noopener">Link</a></li><li>Fairlie, R. W., &amp; Wu, J. (2026). The early impacts of AI on employment among recent college graduates, as reported by UCLA Anderson Review, October 7. <a class="inline" href="https://anderson-review.ucla.edu/for-new-college-grads-the-ai-jobpocalypse-didnt-arrive/" target="_blank" rel="noopener">Link</a></li><li>Federal Reserve Bank of New York. (2026). Recent college graduates’ labor market, March 2026 rates. <a class="inline" href="https://www.newyorkfed.org/newsevents/mediaadvisory/2026/0528-2026" target="_blank" rel="noopener">Link</a></li><li>Hosseini Maasoum, S. M., &amp; Lichtinger, G. Generative AI and junior employment. SSRN. <a class="inline" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5425555" target="_blank" rel="noopener">Link</a></li><li>Humlum, A., &amp; Vestergaard, E. Large language models, small labor market effects. Becker Friedman Institute. <a class="inline" href="https://bfi.uchicago.edu/working-papers/large-language-models-small-labor-market-effects/" target="_blank" rel="noopener">Link</a></li><li>ETLA. Working Paper 135 (Finland). <a class="inline" href="https://www.etla.fi/wp-content/uploads/ETLA-Working-Papers-135.pdf" target="_blank" rel="noopener">Link</a></li><li>CESifo Working Paper 12752 (Norway). <a class="inline" href="https://ideas.repec.org/p/ces/ceswps/_12752.html" target="_blank" rel="noopener">Link</a></li><li>NPR. (2026, November 6). Hiring jumps: The economy added 165,000 jobs last month. <a class="inline" href="https://npr.org/2026/11/06/nx-s1-6030867/jobs-labor-market-economy-wages-inflation" target="_blank" rel="noopener">Link</a></li><li>PwC. (2026). <em>2026 Global AI Jobs Barometer</em> [Press release]. <a class="inline" href="https://www.pwc.com/id/en/media-centre/press-release/2026/english/ai-jobs-barometer-en.html" target="_blank" rel="noopener">Link</a></li><li>Ramp. AI jobs impact. <a class="inline" href="https://ramp.com/data/ai-jobs-impact/paper" target="_blank" rel="noopener">Link</a></li><li>Stanford Digital Economy Lab. (2026, August). No widespread displacement, but the AI employment gap for young workers has widened to 19%. <a class="inline" href="https://digitaleconomy.stanford.edu/news/canariesaug26/" target="_blank" rel="noopener">Link</a></li><li>Stanford Digital Economy Lab. (2026, February). Canaries, interest rates, and timing. <a class="inline" href="https://digitaleconomy.stanford.edu/news/canaries-interest-rates-and-timinga-more-on-recent-drivers-of-employment-changes-for-young-workers/" target="_blank" rel="noopener">Link</a></li><li>Stanford Digital Economy Lab and ADP Research. Canaries Dashboard, last updated October 21, 2026. <a class="inline" href="https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/" target="_blank" rel="noopener">Link</a></li><li>Stanford Digital Economy Lab. Homepage, on the July 2026 economists’ statement. <a class="inline" href="https://digitaleconomy.stanford.edu/" target="_blank" rel="noopener">Link</a></li><li>Stanford Institute for Economic Policy Research. (2026). The U.S. economy in 2026: What to watch for. <a class="inline" href="https://siepr.stanford.edu/publications/policy-brief/us-economy-2026-what-watch" target="_blank" rel="noopener">Link</a></li><li><em>The Economist.</em> (2026, February 23). Why AI won’t wipe out white-collar jobs [Video]. <a class="inline" href="https://www.youtube.com/watch?v=1CAvNn5tUR8" target="_blank" rel="noopener">Link</a></li><li>World Bank, Commodity Markets Outlook (April 2026), as reported by <em>The Standard</em>. <a class="inline" href="https://www.thestandard.com.hk/finance/article/330573/World-Bank-forecasts-24pc-surge-in-energy-prices-in-2026-due-to-Middle-East-war" target="_blank" rel="noopener">Link</a></li></ol>
-    </div>
-  </details>
 </section>
 
 <section id="writeup">
@@ -988,31 +838,27 @@ For a tailored résumé: (1) the tailored résumé, (2) a list of every change y
     <li><strong>The picks.</strong> What were the agent's top three, and what did it warn you about? From the Logs: did it call Company Check, and for which posting? Where do you disagree with its ranking, and what did you know that it didn't?</li>
     <li><strong>The tailored résumé.</strong> Which posting did you tailor for, and what did the agent change? Did it add anything that isn't in the original, even one word? If it did, what, and would an employer have caught it? If it didn't, what came closest?</li>
     <li><strong>The dial.</strong> Your agent can't apply for you. Name one thing you'd let it do on its own and one thing you'd never let it do, and say why. You'll turn these into rules in Lab 10 &amp; 11.</li>
-    <li><strong>The debate.</strong> Which side were you handed, and what was the other side’s best point? Then where you actually land: should a company cut entry-level hiring or rebuild the job, and who pays for your answer? Use at least one source from the debate, and name one thing in the records that has nothing to do with AI. What specific reading or study would change your mind? Did Claude’s pushback find the weak spot in your case before the other side did?</li>
-    <li><strong>Your commitment card.</strong> One thing the agent couldn't put on your résumé because you haven't done it yet, and how you'll build it before you graduate, specifically (a class, a job, a project, a person you'll learn from). Then what it costs you this year, in time or money. Three sentences.</li>
+    <li><strong>Your project, on the dial.</strong> Is your team's system predictive, generative, or an agent? Name one tool or data source it needs, one thing it should never do without a person approving it, and where the human sits. Use today's build to explain.</li>
+    <li><strong>Your team's plan.</strong> What did your team get done today, what's left before the pitch on December 2, and what are you personally doing? Then one question you still need answered.</li>
   </ol>
   <div class="callout">
     <div class="label">Using AI on this writeup</div>
     <p><strong>Use it.</strong> This is an AI course, and part of the point is finding out where these tools help and where they quietly don't.</p>
     <p><strong>How to use it well.</strong> Write your own answer first. Then ask a chatbot the same question. Then add one line on where it differed from you and who was right. Asking it to argue against your answer is worth more than asking it to write one.</p>
-    <p><strong>Two conditions.</strong> What you submit has to be about your agent, your catches, your side in the debate, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
+    <p><strong>Two conditions.</strong> What you submit has to be about your agent, your catches, your team's project, because a model that wasn't in the room can only guess. And at the bottom, say which tool you used, what you asked it, and what you changed. If you kept something it wrote word for word, say that too, and say why it was right. The disclosure is part of the assignment, not a formality.</p>
   </div>
 </section>
 
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p class="srcintro">Rebuilt 11 Nov 2026 as an agent lab: "Be the Expert" (section 1) and its "Inside the machine" were replaced by an n8n build of the Job Scout (sections 1 to 4), and the debate was trimmed to 35 minutes. The n8n setup and node steps are carried from Lab 10 &amp; 11 and Chris Califf's IT Leadership agent lesson (WWU, 16 Oct 2026), tested in n8n in October 2026. <strong>The Job Scout's data, system message, and expected behavior have not yet been run end to end.</strong> Before November 18: run the build once, confirm the default model and free credits, and check whether the agent calls Company Check on JS-105 and whether it invents anything when tailoring for JS-101 or JS-104. A trial started November 18 ends about December 2. Jordan Reyes, the postings, and the companies are fictional; the scam posting follows the warning signs on the Federal Trade Commission's job-scams page (consumer.ftc.gov; add the link after checking it). Epic's Penny: epic.com/software/penny. Earlier update, 10 Nov 2026: the firm simulator, the senior bench, and the Claude job map were replaced by "Be the expert" (section 1) and a short "Inside the machine" (section 2); the September jobs record was replaced with October's report (NPR and CNBC, 6 Nov 2026); Anthropic's 16 Oct 2026 report on its own workforce and Fairlie and Wu's UCLA study of 2026 graduates were added as records; the two talking points that relied on the bench toy were replaced. Earlier history: lab rebuilt 24 Oct 2026. Every outside claim is carried from Chapter 9 and its dated note (verified 29 Sep 2026); the 19 percent figure was re-checked against Stanford's August 12, 2026 update on 24 Oct 2026. The Canaries Dashboard updates monthly; check it the week before this lab runs. Debate rebuilt 29 Oct 2026 in the format of Labs 6 to 8, with the economy record, the Stanford dashboard findings, PwC, and The Economist added; the October jobs report comes out Nov 6, so update the September figures before Nov 18.</p>
+    <p class="srcintro">Rebuilt 11 Nov 2026 as an agent lab: "Be the Expert" (section 1) and its "Inside the machine" were replaced by an n8n build of the Job Scout (sections 1 to 4), and the debate was later replaced by 45 minutes of Prototype project time (same day). The n8n setup and node steps are carried from Lab 10 &amp; 11 and Chris Califf's IT Leadership agent lesson (WWU, 16 Oct 2026), tested in n8n in October 2026. <strong>The Job Scout's data, system message, and expected behavior have not yet been run end to end.</strong> Before November 18: run the build once, confirm the default model and free credits, and check whether the agent calls Company Check on JS-105 and whether it invents anything when tailoring for JS-101 or JS-104. A trial started November 18 ends about December 2. Jordan Reyes, the postings, and the companies are fictional; the scam posting follows the warning signs on the Federal Trade Commission's job-scams page (consumer.ftc.gov; add the link after checking it). Epic's Penny: epic.com/software/penny. Earlier update, 10 Nov 2026: the firm simulator, the senior bench, and the Claude job map were replaced by "Be the expert" (section 1) and a short "Inside the machine" (section 2); the September jobs record was replaced with October's report (NPR and CNBC, 6 Nov 2026); Anthropic's 16 Oct 2026 report on its own workforce and Fairlie and Wu's UCLA study of 2026 graduates were added as records; the two talking points that relied on the bench toy were replaced. Earlier history: lab rebuilt 24 Oct 2026. Every outside claim is carried from Chapter 9 and its dated note (verified 29 Sep 2026); the 19 percent figure was re-checked against Stanford's August 12, 2026 update on 24 Oct 2026. The Canaries Dashboard updates monthly; check it the week before this lab runs. Debate rebuilt 29 Oct 2026 in the format of Labs 6 to 8, with the economy record, the Stanford dashboard findings, PwC, and The Economist added; the October jobs report comes out Nov 6, so update the September figures before Nov 18.</p>
     <dl>
       <dt>The Job Scout (sections 1 to 4)</dt>
       <dd>Built in n8n during class; nothing runs on this page. The three Code Tools return fixed, fictional text so every student sees the same postings. The agent's rankings and tailored résumés vary from run to run and are framed as claims to check.</dd>
-      <dt>Live instruments (section 5)</dt>
-      <dd>Stanford Digital Economy Lab: Canaries Dashboard (linked), and the August 12, 2026 Canaries update (linked).</dd>
-      <dt>No-AI path (section 1)</dt>
+            <dt>No-AI path (section 1)</dt>
       <dd>Students do the agent's job by hand with the same three data blocks.</dd>
-      <dt>Debate (section 5)</dt>
-      <dd>Every source is listed in "Every source in this debate," at the end of section 5. Carried from Chapter 9: Stanford's August 2026 Canaries update, Hosseini Maasoum and Lichtinger, Humlum and Vestergaard, Ramp, ETLA (Finland), CESifo (Norway). New on 29 Oct 2026: the Canaries Dashboard's job-level, automation-versus-augmentation, and gender findings (dashboard last updated Oct 21, 2026; the usage data is from the Anthropic Economic Index, which the record says); Stanford's February 2026 timing update; PwC's 2026 Global AI Jobs Barometer (job ads, labeled as PwC's); The Economist's February 23, 2026 video (figures labeled as The Economist's); the AP's October 2, 2026 jobs report coverage; SIEPR's 2026 outlook; the World Bank's April 2026 energy forecast via The Standard; the New York Fed's March 2026 recent-graduate rate. The NPR anecdote of one graduate's applications was removed: it is a story, not data, and the debate no longer needs it.</dd>
-    </dl>
+          </dl>
     <p class="srcfoot">Outbound links were checked by search, not click-verified. Found an error? Tell your instructor; corrections are course content.</p>
   </div>
 </details>
