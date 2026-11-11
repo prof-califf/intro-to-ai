@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K9V6CZ9N83"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K9V6CZ9N83');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turning the labs into a resume and a portfolio · Intro to AI in Business · MIS 201</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --yellow:#E4FF32;
+  --pink:#FF3D8A; --pinktext:#D61F69;
+  --ink:#14181D;
+  --dark:#0E1116;
+  --gray:#5A626C;
+  --lightgray:#9AA1AB;
+  --bg:#FCFCFA;
+  --rule:#E7E7E2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--bg);}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+
+/* ---- nav ---- */
+.nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:10;}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+.brand b{color:var(--pinktext);font-weight:700;}
+.nav a.navlink{font-size:.85rem;color:var(--gray);text-decoration:none;margin-left:20px;}
+.nav a.navlink:hover{color:var(--pinktext);}
+
+/* ---- masthead ---- */
+.masthead{background:var(--dark);color:#fff;padding:64px 0 56px;}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lightgray);margin-bottom:18px;}
+.masthead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.15;}
+.masthead h1 b{color:var(--yellow);font-weight:700;}
+.masthead .kicker{margin-top:18px;color:#C9CED6;max-width:640px;}
+.factline{margin-top:26px;font-size:.9rem;color:var(--pink);}
+
+/* ---- contents ---- */
+.contents{border:1px solid var(--rule);background:#fff;padding:24px 28px;margin:48px 0 8px;}
+.contents .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;}
+.contents ol{list-style:none;counter-reset:toc;}
+.contents li{counter-increment:toc;padding:5px 0;}
+.contents li::before{content:counter(toc);font-family:'Fraunces',serif;color:var(--pinktext);font-weight:600;margin-right:12px;}
+.contents a{color:var(--ink);text-decoration:none;}
+.contents a:hover{color:var(--pinktext);}
+
+/* ---- sections ---- */
+section{padding:44px 0 8px;}
+.shead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--pink);padding-bottom:10px;margin-bottom:26px;}
+.shead .num,.shead h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;line-height:1.2;}
+.shead .num{color:var(--pink);}
+p{margin-bottom:1.1em;}
+p.lead{font-size:1.05rem;}
+a.inline{color:var(--pinktext);}
+.masthead a.inline,.foot a.inline,.concept a.inline,.ticket a.inline,.verdict a.inline,.howto a.inline,.rhythm a.inline,.graphbox a.inline{color:var(--pink);}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin:1.6em 0 .6em;}
+
+/* ---- concept boxes ---- */
+.concept{background:var(--dark);color:#E7EAEF;padding:20px 24px;margin:26px 0;border-left:4px solid var(--yellow);}
+.concept .term{font-family:'Fraunces',serif;font-weight:600;color:var(--yellow);font-size:1.02rem;margin-bottom:6px;}
+.concept p{margin-bottom:0;font-size:.95rem;line-height:1.65;}
+
+/* ---- callout ---- */
+.callout{border:1px solid var(--rule);background:#fff;border-top:3px solid var(--pink);padding:22px 26px;margin:26px 0;}
+.callout .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+
+/* ---- number facts ---- */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.fact{background:#fff;padding:20px;}
+.fact .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:var(--ink);}
+.fact .big em{font-style:normal;color:var(--pink);}
+.fact .small{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.5;}
+@media(max-width:640px){.facts{grid-template-columns:1fr;}}
+
+/* ---- five questions ---- */
+.fourq{margin:26px 0;}
+.fourq .q{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);}
+.fourq .q:last-child{border-bottom:none;}
+.fourq .qn{font-family:'Fraunces',serif;font-weight:600;color:var(--pinktext);min-width:20px;}
+.fourq p{margin-bottom:0;}
+
+/* ---- key terms ---- */
+.terms{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0;}
+.term-card{background:#fff;padding:18px 20px;}
+.term-card .t{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.term-card p{font-size:.9rem;color:var(--gray);margin-bottom:0;line-height:1.6;}
+@media(max-width:640px){.terms{grid-template-columns:1fr;}}
+
+/* ---- entry ticket ---- */
+.ticket{background:var(--dark);color:#E7EAEF;padding:30px 32px;margin:26px 0;}
+.ticket .label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.ticket ol{padding-left:20px;}
+.ticket li{margin-bottom:14px;line-height:1.65;}
+.ticket li:last-child{margin-bottom:0;}
+
+/* ---- next ---- */
+.nextbar{margin:56px 0 0;border-top:1px solid var(--rule);padding:28px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.nextbar a{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);text-decoration:none;}
+.nextbar a:hover{color:var(--pinktext);}
+.nextbar .dir{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+
+/* ---- footer ---- */
+.foot{background:var(--dark);color:#C9CED6;margin-top:64px;padding:40px 0;}
+.foot .brand{color:#fff;display:block;margin-bottom:6px;}
+.foot .brand b{color:var(--yellow);}
+.foot .tiny{display:block;font-size:.75rem;color:var(--lightgray);font-family:'Inter',sans-serif;font-weight:400;margin-bottom:4px;}
+.foot .fine{font-size:.82rem;color:var(--lightgray);margin-top:12px;}
+
+/* ---- dropdown navigation (chapters / labs) ---- */
+.nav .navlinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.nav a.navlink{margin-left:0;padding:6px 10px}
+.dd{position:relative}
+.dd-btn{font:inherit;font-size:.85rem;font-weight:600;color:#fff;background:var(--dark);border:1px solid var(--dark);border-radius:4px;padding:7px 14px;cursor:pointer}
+.dd-btn:hover,.dd-btn[aria-expanded="true"]{background:var(--pinktext);border-color:var(--pinktext);color:#fff}
+.dd-btn .caret{color:var(--yellow)}
+.dd-btn .caret{font-size:.7rem;margin-left:.3rem}
+.dd-menu{display:none;position:absolute;right:0;top:calc(100% + 6px);min-width:19rem;background:var(--bg);border:1px solid var(--rule);border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:.35rem 0;max-height:75vh;overflow-y:auto;z-index:50}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:.5rem 1rem;text-decoration:none;color:var(--ink);font-size:.9rem;line-height:1.35}
+.dd-menu a:hover{background:#F3F3EE;color:var(--pinktext)}
+.dd-menu a .lbl{display:block;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--pinktext);margin-bottom:.1rem}
+.dd-menu a.current{background:#F3F3EE;border-left:3px solid var(--pink)}
+@media (max-width:640px){
+  .nav .wrap{flex-wrap:wrap;gap:8px}
+  .nav .navlinks{width:100%;justify-content:flex-start}
+  .dd-menu{right:auto;left:0;min-width:min(92vw,20rem)}
+}
+figure.diagram{margin:22px 0}
+figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;margin-top:8px}
+
+/* print */
+.printbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 6px;font-size:.9rem;color:var(--gray)}
+.printbar button{font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:8px 14px;background:var(--dark);color:var(--yellow);border:none;border-radius:6px;cursor:pointer}
+.printbar button:hover{background:#242C36}
+@media print{
+  nav,.topnav,.printbar,.nextbar,footer.foot{display:none !important}
+  body{background:#fff;color:#000}
+  main.wrap{max-width:none;padding:0}
+  header.masthead{background:#fff !important;color:#000 !important;padding:0 0 12px}
+  header.masthead h1,header.masthead .kicker,header.masthead .eyebrow{color:#000 !important}
+  header.masthead h1 b{color:#000 !important}
+  a{color:#000;text-decoration:none}
+  a.inline::after{content:" (" attr(href) ")";font-size:.75em;color:#555;word-break:break-all}
+  details{display:block}
+  details>summary{list-style:none}
+  details:not([open])>*:not(summary){display:block}
+  .concept,.callout,.term-card,.ticket,figure.diagram{break-inside:avoid;page-break-inside:avoid}
+  .concept{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  h2,h3{break-after:avoid;page-break-after:avoid}
+  svg{max-width:100% !important}
+}
+</style>
+<style>
+.tryit details{border-top:1px dashed var(--rule);padding:10px 0;}
+.tryit details:first-of-type{border-top:none;}
+.tryit summary{cursor:pointer;font-weight:600;font-size:.95rem;}
+.tryit p{margin:8px 0 2px;font-size:.9rem;color:var(--gray);}
+.srcnote{border:1px solid var(--rule);border-radius:10px;padding:14px 18px;margin:30px 0;background:#fff;font-size:.9rem;}
+.srcnote summary{cursor:pointer;font-weight:700;color:var(--ink);}
+.srcnote p{margin:10px 0 2px;color:var(--gray);}
+</style>
+<style>
+  ul.ideas{margin:0 0 1.1em 1.25rem;padding:0}
+  ul.ideas li{margin-bottom:.7em}
+</style>
+<style>
+/* resume and portfolio page */
+table.sumtable{width:100%;border-collapse:collapse;margin:18px 0 26px;font-size:.95rem}
+table.sumtable th,table.sumtable td{border-bottom:1px solid var(--rule);padding:10px 12px;text-align:left;vertical-align:top}
+table.sumtable th{background:var(--ink);color:#fff;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
+table.sumtable .strong{font-weight:700;color:var(--pinktext)}
+@media (max-width:640px){table.sumtable thead{display:none}table.sumtable tr{display:block;border-bottom:2px solid var(--rule);padding:8px 0}table.sumtable td{display:block;border:0;padding:4px 0}table.sumtable td::before{content:attr(data-label);display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray)}}
+.labline{border-left:3px solid var(--pink);background:#fff;padding:14px 18px;margin:14px 0}
+.labline .lab{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--pinktext);margin-bottom:6px;font-weight:700}
+.labline p{margin:0}
+.formula{font-weight:700;text-align:center;font-size:1.1rem;margin:20px 0}
+.promptbox{white-space:pre-wrap;word-wrap:break-word;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;line-height:1.5;background:#fff;border:1px solid var(--rule);padding:16px;margin:12px 0 10px;max-height:420px;overflow:auto}
+.copybtn{font:600 .9rem 'Inter',sans-serif;padding:8px 14px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer}
+.copybtn:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.copystat{font-size:.85rem;margin-left:10px}
+details.ghguide{border:1px solid var(--rule);background:#fff;margin:24px 0;padding:0 20px}
+details.ghguide summary{cursor:pointer;font-weight:600;padding:14px 0}
+@media print{.promptbox{max-height:none;overflow:visible}.copybtn,.copystat{display:none}}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Intro to <b>AI</b> in Business</a>
+    <div class="navlinks">
+      <a class="navlink" href="index.html">Contents</a>
+      <a class="navlink" href="syllabus.html">Syllabus</a>
+      <a class="navlink" href="rules.html">Rules</a>
+      <a class="navlink" href="schedule.html">Schedule</a>
+      <a class="navlink" href="prototype-project.html">Project</a>
+      <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddc" data-dd="ddc">Chapters<span class="caret" aria-hidden="true">▾</span></button>
+<div class="dd-menu" id="ddc">
+<a href="about.html"><span class="lbl">Start here</span>About this book</a>
+          <a href="chapter-01-what-is-ai.html"><span class="lbl">Chapter 1 · Week 2</span>What Is AI?</a>
+<a href="chapter-02-human.html"><span class="lbl">Chapter 2 · Week 3</span>Seemingly Human</a>
+<a href="chapter-03-systems.html"><span class="lbl">Chapter 3 · Week 3</span>Systems That Know You</a>
+<a href="chapter-04-medicine.html"><span class="lbl">Chapter 4 · Week 4</span>Medicine</a>
+<a href="chapter-05-environment.html"><span class="lbl">Chapter 5 · Week 5</span>Environment</a>
+<a href="chapter-06-hiring-lending.html"><span class="lbl">Chapter 6 · Week 6</span>Bias: Hiring &amp; Lending</a>
+<a href="chapter-07-transportation.html"><span class="lbl">Chapter 7 · Week 7</span>Transportation</a>
+<a href="chapter-08-ethics-war.html"><span class="lbl">Chapter 8 · Week 8</span>Ethics &amp; War</a>
+<a href="chapter-09-economy.html"><span class="lbl">Chapter 9 · Week 9</span>The Economy</a>
+<a href="chapter-10-truth.html"><span class="lbl">Chapter 10 · Week 10</span>Truth</a>
+<a href="chapter-11-rules.html"><span class="lbl">Chapter 11 · Week 10</span>Who Makes the Rules?</a>
+<a href="chapter-12-future.html"><span class="lbl">Chapter 12 · Week 10</span>The Future</a>
+</div></div>
+      <div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="ddl" data-dd="ddl">Labs<span class="caret" aria-hidden="true">▾</span></button>
+<div class="dd-menu" id="ddl">
+<a href="lab-00-first-contact.html"><span class="lbl">Lab 0 · Day 1</span>First Contact</a>
+<a href="chapter-01-what-is-ai-lab.html"><span class="lbl">Lab 1 · Week 2</span>Inside the Machine</a>
+<a href="chapter-02-human-lab.html"><span class="lbl">Lab 2 &amp; 3 · Week 3</span>Build the Bot, Train the Feed</a>
+<a href="chapter-04-medicine-lab.html"><span class="lbl">Lab 4 · Week 4</span>Inside the Graph</a>
+<a href="chapter-05-environment-lab.html"><span class="lbl">Lab 5 · Week 5</span>The Footprint Machine</a>
+<a href="chapter-06-hiring-lending-lab.html"><span class="lbl">Lab 6 · Week 6</span>You Are the Auditor</a>
+<a href="chapter-07-transportation-lab.html"><span class="lbl">Lab 7 · Week 7</span>The Bellingham Pitch</a>
+<a href="chapter-08-ethics-war-lab.html"><span class="lbl">Lab 8 · Week 8 · Monday, then at home</span>The Red Lines</a>
+<a href="chapter-09-economy-lab.html"><span class="lbl">Lab 9 · Week 9</span>The Job Scout</a>
+<a href="chapter-10-truth-lab.html"><span class="lbl">Lab 10 &amp; 11 · Week 10 · Monday</span>Govern the Agent</a>
+</div></div>
+    </div>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">Western Washington University &middot; MIS 201 &middot; Resources</p>
+    <h1>Turning the labs into a <b>resume</b> and a <b>portfolio</b></h1>
+    <p class="kicker">Every lab in this course left you with something most applicants can't show: you've tested AI, audited it, built with it, and written the rules for it. This page shows you how to write that down, and how to put it where a recruiter can see it.</p>
+    <p class="factline">The formula &middot; each lab as a resume line &middot; the skills section &middot; a portfolio site, built with AI</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="printbar">
+  <button type="button" onclick="window.print()">Wanna go analog? Print or save as a PDF</button>
+  <span>Links print with full web addresses.</span>
+</div>
+
+<section id="s1">
+  <div class="shead"><span class="num">1</span><h2>The formula</h2></div>
+  <p>The data analyst <a class="inline" href="https://karina-datascientist.beehiiv.com" target="_blank" rel="noopener">Karina Samsonova</a>, who writes a newsletter on data careers and has reviewed hundreds of CVs for hiring, gives one piece of advice to students with no job experience yet: you've done things, you just haven't written them down properly. A class project is experience. The mistake is burying it in one line that says "group project for MIS class." Her formula for writing up any project has four parts:</p>
+  <p class="formula">What you did &rarr; what you worked with &rarr; what you found &rarr; what it means for the business</p>
+  <p>"Used ChatGPT for a class assignment" is true and weak. "Ran a controlled bias audit of an AI resume screener, testing two resumes that differed in one detail across repeated trials, and found [your finding]" is the same work, written so somebody would want to ask you about it. Her whole guide is in <a class="inline" href="https://www.youtube.com/watch?v=HtH4KqKxZ0E" target="_blank" rel="noopener">her video for fresh graduates</a>.</p>
+  <p>Three more of her rules that apply to you now:</p>
+  <ul>
+    <li>Don't call yourself an "aspiring" anything. You're a student who has already done the work.</li>
+    <li>Take "teamwork" and "time management" out of your skills section. Everybody claims them. Use the space for what you can actually do.</li>
+    <li>Put the work somewhere a stranger can see it: a personal site, a GitHub page, or a folder of PDFs you can link to.</li>
+  </ul>
+</section>
+
+<section id="s2">
+  <div class="shead"><span class="num">2</span><h2>Lead with the judgment, not the tool</h2></div>
+  <p>Almost every applicant can say they use ChatGPT. Saying it tells a recruiter nothing, and in five years the tools you used this quarter will have new names. What lasts is the judgment this course kept asking for: what you tested, what you caught, what you decided a person should stay in charge of, and what you'd keep, fix, or drop. That's what an employer is actually worried about when they hire someone to work with AI.</p>
+  <p>So lead with what you did and found. Name the tool last, in passing. Below is each lab written that way. Some labs used fictional data, like the job postings and Jordan's resume in Lab 9, so say so: "simulated job postings" is honest, and nobody will hold it against you. Use these as a starting point, not text to paste. Rewrite each in your own words, put in your own results, and cut anything you didn't actually do. A line copied from a course page reads like one.</p>
+
+  <div class="labline"><span class="lab">Lab 0 &middot; First Contact</span><p>Sorted twelve everyday technologies into AI and not AI, then checked my calls against how each system actually works, and found that the AI I use most, like the feed, the map, and the spam filter, was the AI I noticed least. <em>Why it's worth a line:</em> seeing the system behind a product is where every AI decision at work starts.</p></div>
+  <div class="labline"><span class="lab">Lab 1 &middot; Inside the Machine</span><p>Trained two small machine-learning models from scratch, an image classifier and a game-playing learner, then broke the classifier and biased it on purpose by changing its training examples. Learned firsthand that a model only knows what its examples contain.</p></div>
+  <div class="labline"><span class="lab">Lab 2 &amp; 3 &middot; The Seeming Test and the Feed</span><p>Tested a chatbot with the same scripted prompts every time and scored how human its answers seemed, separating tone from content. Then ran a feed simulator twice, once tuned for engagement and once for wellbeing, and measured the gap between them: [your numbers].</p></div>
+  <div class="labline"><span class="lab">Lab 4 &middot; Inside the Graph</span><p>Explored a knowledge graph that predicts new uses for existing drugs, removed published research to watch predictions disappear, and explained why diseases with little research get weaker predictions: a prediction can only find what the data holds.</p></div>
+  <div class="labline"><span class="lab">Lab 5 &middot; The Footprint Machine</span><p>Estimated the energy cost of AI use at four scales, from one person to a whole organization, using published estimates, and reported the result as a range rather than a single number because the sources disagree. Found [your finding].</p></div>
+  <div class="labline"><span class="lab">Lab 6 &middot; You Are the Auditor</span><p>Ran a controlled bias audit of an AI resume screener: two resumes identical except for one detail, run repeatedly in fresh chats, with results pooled across the class to separate a pattern from a fluke. Found [your finding].</p></div>
+  <div class="labline"><span class="lab">Lab 7 &middot; You Are the City Council</span><p>Weighed evidence on robotaxi safety and drivers' jobs and wrote a city permit with conditions, naming what each condition costs and who pays for it. Recommended [your decision].</p></div>
+  <div class="labline"><span class="lab">Lab 8 &middot; The Red Lines</span><p>Sorted eight military AI contracts by whether an AI company should accept them, located where I would draw the line, and defended it against the strongest argument on the other side.</p></div>
+  <div class="labline"><span class="lab">Lab 9 &middot; The Job Scout</span><p>Built a working AI agent in n8n that reads job postings, decides on its own when to check a suspicious employer, ranks the matches, and tailors a resume. Then audited its output for invented qualifications and kept a person as the final approval before anything is sent. Found [what it got right and what it invented]. (Simulated job postings.)</p></div>
+  <div class="labline"><span class="lab">Lab 10 &amp; 11 &middot; Govern the Agent</span><p>Wrote six governance rules for the agent I built: what data it can see, what it may do alone, who approves its work, what gets logged, who answers for mistakes, and which rules are built into the design. Found and fixed a data-exposure problem by changing the tool, not the instructions.</p></div>
+  <div class="labline"><span class="lab">Prototype project</span><p>With a team of four, designed an AI system for [the problem]: specified its data, model, output, feedback loop, and human oversight, tested the design against five critical questions, decided what to keep, fix, and drop with the cost of each, and pitched it to the class. <em>This is usually your strongest piece.</em></p></div>
+</section>
+
+<section id="s3">
+  <div class="shead"><span class="num">3</span><h2>The skills section</h2></div>
+  <p>This is the one place on a resume where you do name tools, plainly, because most resumes are read by software before a person sees them, and that software looks for words. You need both: the bullets for the person, the skills line for the scanner.</p>
+  <p>Give the skills section three parts. First, the judgment skills, because those last: checking AI output for errors and invented facts; testing an AI system with a controlled comparison; deciding where a person approves the work; estimating a cost honestly, with a range; writing the rules an AI system runs under. Second, the ideas, named plainly: predictive, generative, and agentic AI; human in the loop; minimum necessary access. Third, the tools by name, each with one clause about what you did: "n8n (built an AI agent with three tools and a review step); Claude and ChatGPT (structured testing and prompt design)." The scanner finds the names. The person reads the clause.</p>
+</section>
+
+<section id="s4">
+  <div class="shead"><span class="num">4</span><h2>Build a portfolio, not just a resume</h2></div>
+  <p>A resume tells someone what you did. A portfolio shows them. When a recruiter can see the agent you built, read the rules you wrote for it, and see the problem you started from, a line on a page becomes work they can judge for themselves. The interview starts from what you made instead of what you claim. Most business students apply with a resume alone, which is the best reason to build one.</p>
+
+  <h3 class="sub" id="s4-1"><span>What each lab gave you</span></h3>
+  <p>Here's every lab in one place: the key point, and what it can become in a portfolio. You don't need all of them. Three or four strong pieces beat eleven weak ones, and the strongest are marked.</p>
+  <table class="sumtable">
+<thead><tr><th>Lab</th><th>The key point</th><th>Portfolio piece</th></tr></thead>
+<tbody>
+<tr><td data-label="Lab"><strong>Lab 0</strong><br>First Contact</td><td data-label="The key point">Most of the AI you use is the AI you don't notice</td><td data-label="Portfolio piece">Your AI-or-not sort, with the ones you got wrong</td></tr>
+<tr><td data-label="Lab"><strong>Lab 1</strong><br>Inside the Machine</td><td data-label="The key point">A model only knows what its examples contain</td><td data-label="Portfolio piece">A short write-up of how you broke and biased the classifier</td></tr>
+<tr><td data-label="Lab"><strong>Lab 2 &amp; 3</strong><br>The Seeming Test and the Feed</td><td data-label="The key point">"Seeming human" is a setting someone chooses, and a feed's goal shapes what you see</td><td data-label="Portfolio piece">Your two feed runs side by side, with the gap explained</td></tr>
+<tr><td data-label="Lab"><strong>Lab 4</strong><br>Inside the Graph</td><td data-label="The key point">Predictions are thin where the research is thin</td><td data-label="Portfolio piece">A one-paragraph explanation of a prediction that disappeared</td></tr>
+<tr><td data-label="Lab"><strong>Lab 5</strong><br>The Footprint Machine</td><td data-label="The key point">An honest estimate comes with a range</td><td data-label="Portfolio piece">Your estimate at four scales, with the range and your sources <span class="strong">(a strong piece)</span></td></tr>
+<tr><td data-label="Lab"><strong>Lab 6</strong><br>You Are the Auditor</td><td data-label="The key point">Bias shows up in a controlled comparison, not one example</td><td data-label="Portfolio piece">Your audit design and the class's pooled result <span class="strong">(a strong piece)</span></td></tr>
+<tr><td data-label="Lab"><strong>Lab 7</strong><br>You Are the City Council</td><td data-label="The key point">Every condition on a new technology has a cost and someone who pays it</td><td data-label="Portfolio piece">Your permit, with each condition priced</td></tr>
+<tr><td data-label="Lab"><strong>Lab 8</strong><br>The Red Lines</td><td data-label="The key point">Deciding where to draw a line, and defending it</td><td data-label="Portfolio piece">A short memo on where you drew the line and why</td></tr>
+<tr><td data-label="Lab"><strong>Lab 9</strong><br>The Job Scout</td><td data-label="The key point">An agent decides its own steps, and a person still has to check its work</td><td data-label="Portfolio piece">Screenshots of your agent, one run in the Logs, and what it invented <span class="strong">(a strong piece)</span></td></tr>
+<tr><td data-label="Lab"><strong>Lab 10 &amp; 11</strong><br>Govern the Agent</td><td data-label="The key point">Rules built into the design beat rules in the instructions</td><td data-label="Portfolio piece">Your six rules, paired with Lab 9 <span class="strong">(a strong piece)</span></td></tr>
+<tr><td data-label="Lab"><strong>Project</strong><br>Prototype project</td><td data-label="The key point">Designing an AI system and questioning it as hard as any other</td><td data-label="Portfolio piece">Your paper and pitch slides <span class="strong">(a strong piece)</span></td></tr>
+</tbody>
+</table>
+  <p><strong>Save your work before it disappears.</strong> The n8n trial from Lab 9 ends about two weeks after you start it. Before it does, take screenshots of your Job Scout workflow, one run in the Logs, and the tailored resume next to the original, so you still have them when you build your site.</p>
+
+  <h3 class="sub" id="s4-2"><span>One site for all of college, starting with MIS 201</span></h3>
+  <p>Build the portfolio once and keep adding to it. The site has a short header about you, then one card for each class that produced work worth showing, and inside each class card, a smaller card for each project. MIS 201 can be your first class card. Next quarter, when another class gives you a project you're proud of, add its card. By graduation the site shows four years of work, and how it got better.</p>
+  <figure class="diagram" style="max-width:600px;margin:26px auto">
+  <svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto;font-family:'Inter',sans-serif" aria-labelledby="pfT pfD">
+    <title id="pfT">How the portfolio site is organized</title>
+    <desc id="pfD">A drawing of a web page. At the top, a header with your name, major, and links. Below it, a grid of class cards. The first card, MIS 201, is filled in and holds four project cards: the Prototype project, the Job Scout agent from Lab 9, its governance rules from Lab 10 and 11, and the bias audit from Lab 6. The other class cards are dashed outlines waiting to be added.</desc>
+    <rect x="0" y="0" width="600" height="340" rx="8" fill="#FCFCFA" stroke="#14181D" stroke-width="1"/>
+    <rect x="18" y="16" width="564" height="56" rx="6" fill="#14181D"/>
+    <text x="34" y="40" font-size="14" font-weight="700" fill="#ffffff">Your Name</text>
+    <text x="34" y="58" font-size="10.5" fill="#ffffff">Major, WWU &#183; email &#183; LinkedIn &#183; resume</text>
+    <text x="18" y="96" font-size="10.5" font-weight="700" fill="#14181D">CLASSES AND PROJECTS</text>
+    <rect x="18" y="106" width="284" height="160" rx="6" fill="#0E1116" stroke="#FF3D8A" stroke-width="2"/>
+    <text x="30" y="128" font-size="12" font-weight="700" fill="#ffffff">MIS 201 &#183; Intro to AI in Business</text>
+    <text x="30" y="142" font-size="10" fill="#E4FF32">start here</text>
+    <rect x="30" y="150" width="122" height="30" rx="4" fill="#ffffff"/><text x="38" y="169" font-size="9.5" fill="#14181D">Prototype project</text>
+    <rect x="160" y="150" width="122" height="30" rx="4" fill="#ffffff"/><text x="168" y="169" font-size="9.5" fill="#14181D">AI agent (Lab 9)</text>
+    <rect x="30" y="186" width="122" height="30" rx="4" fill="#ffffff"/><text x="38" y="205" font-size="9.5" fill="#14181D">Agent rules (Lab 10)</text>
+    <rect x="160" y="186" width="122" height="30" rx="4" fill="#ffffff"/><text x="168" y="205" font-size="9.5" fill="#14181D">Bias audit (Lab 6)</text>
+    <rect x="318" y="106" width="264" height="74" rx="6" fill="none" stroke="#5A626C" stroke-width="1.2" stroke-dasharray="6 4"/><text x="330" y="128" font-size="12" font-weight="700" fill="#5A626C">Next quarter&#8217;s class</text><text x="330" y="144" font-size="10" fill="#5A626C">add a card when it is done</text>
+    <rect x="318" y="192" width="264" height="74" rx="6" fill="none" stroke="#5A626C" stroke-width="1.2" stroke-dasharray="6 4"/><text x="330" y="214" font-size="12" font-weight="700" fill="#5A626C">A class in your major</text><text x="330" y="230" font-size="10" fill="#5A626C">MIS, analytics, finance, marketing...</text>
+    <rect x="18" y="278" width="564" height="48" rx="6" fill="none" stroke="#5A626C" stroke-width="1.2" stroke-dasharray="6 4"/><text x="30" y="300" font-size="12" font-weight="700" fill="#5A626C">Your own project</text><text x="30" y="316" font-size="10" fill="#5A626C">a problem you chose yourself</text>
+  </svg>
+  <figcaption><strong>One site for all of college, one card per class.</strong> MIS 201 can be the first card. Every quarter that produces work worth showing adds another, so by graduation the site shows how you grew, not just what you did in one course.</figcaption>
+</figure>
+  <p>Write every project card as a short case study, in the order of the formula: the question, what you worked with, what you did, and what you found. Then add two things a resume has no room for: how you checked the AI's work, and what you'd do next if the project kept going. Those two lines show judgment, which is what an interviewer is trying to see.</p>
+
+  <h3 class="sub" id="s4-3"><span>Build it with AI, in an afternoon</span></h3>
+  <p>You don't need to know how to build a website, and you don't need to pay for anything. The free version of Claude can do all of it. Use it the way this course taught: let the AI do the parts you haven't learned yet, and keep every claim on the page yours.</p>
+  <ol>
+    <li><strong>Gather your work.</strong> Put your best pieces in one folder: your Prototype paper and slides as PDFs, your Lab 9 screenshots, your Lab 10 &amp; 11 rules, your writeups. Write two or three sentences of notes for each: the question, what you found, and what you'd do next.</li>
+    <li><strong>Fill in the prompt below, then paste it into Claude or ChatGPT.</strong> Replace every bracketed part with your own details. Leave an optional line blank if it doesn't apply. The AI will build the page and ask you for anything it needs.</li>
+    <li><strong>Make it yours by talking it through.</strong> The first version is a starting point. Keep the conversation going and say what you want: "make it feel more professional," "the cards look crowded on my phone," "add a small photo of me in the header." When you're stuck, ask: "what would make this stand out to a recruiter in finance?" or "give me three color schemes to choose from." Let it suggest, then decide for yourself.</li>
+    <li><strong>Check every word.</strong> Read the page as a recruiter would. Change anything that isn't in your voice, and delete anything you didn't actually do. You've spent a quarter catching AI inventing things; this is one more place to look.</li>
+    <li><strong>Look at it.</strong> Save the file as <code>index.html</code> and open it in your browser. Ask the AI to fix anything that looks wrong on a laptop or a phone.</li>
+    <li><strong>Publish it.</strong> Put it on GitHub Pages, which is free. The AI will walk you through it, or use the guide below the prompt. You'll get a web address you can share.</li>
+    <li><strong>Link it everywhere.</strong> Put the address at the top of your resume and in the Featured section of your LinkedIn profile.</li>
+    <li><strong>Add a card every quarter.</strong> When a class gives you work worth showing, ask the AI to add a new class card.</li>
+  </ol>
+
+  <div class="callout">
+    <div class="label">The prompt</div>
+    <p>Copy this into a document first, replace everything in [BRACKETS] with your own details, then paste the whole thing into Claude or ChatGPT.</p>
+    <pre class="promptbox" id="pf-prompt">I am a business student at Western Washington University. Help me build a portfolio website of the projects I have done in college, as a single HTML file that I can host for free on GitHub Pages.
+
+About me (use exactly what I write here):
+- Name: [YOUR NAME]
+- Major and concentration: [FOR EXAMPLE: BUSINESS ADMINISTRATION, MIS CONCENTRATION]
+- Expected graduation: [QUARTER AND YEAR]
+- One sentence about the problems I like to solve: [YOUR SENTENCE]
+- Email: [YOUR EMAIL]
+- LinkedIn: [YOUR LINKEDIN PROFILE LINK]
+- Resume PDF: [LINK TO YOUR RESUME, OR WRITE "LATER"]
+- GitHub (optional): [LINK, OR LEAVE BLANK]
+- Accent color (optional): [A COLOR YOU LIKE, OR LEAVE BLANK]
+
+How it should be organized:
+- A header with my name, my major, my expected graduation, my one sentence, and clickable links to my email, LinkedIn, resume, and any other links I gave above. Leave out any link I left blank.
+- One card for each class that produced work worth showing. Each class card shows the course number and name, the quarter I took it, and one sentence about what the class was about.
+- Inside each class card, one smaller card for each project. Each project card says: the question or problem, what I did, what I found or built, how I checked it, and what I would do next. Each project card links to the work itself (a PDF, a screenshot, or a GitHub repository).
+- Start with one class: MIS 201, Intro to AI in Business. I will add other classes later, so make adding a class card easy, and show me exactly which block of HTML to copy when I do.
+
+How it should look:
+- A dark header band across the top, with my name in large white text and my major and links in smaller white text underneath.
+- Below it, a small heading that says "Classes and projects," then the class cards in a grid: two columns on a laptop, one column on a phone.
+- Each class card has rounded corners and a bold accent color as its background, with the course name in white. Use my accent color, or a deep blue if I left it blank.
+- The project cards sit inside the class card as smaller white cards with rounded corners and dark text, two per row on a laptop.
+- One dashed-outline card at the end of the grid that says "Next class, coming soon," so the page looks like it is still growing.
+- A clean, modern sans-serif font, a light gray page background, and plenty of space between cards.
+
+Rules:
+- Do not invent anything about me or my work. Use clear placeholders like [YOUR FINDING] wherever you need information, then ask me for it, one project at a time.
+- Some of my MIS 201 labs used fictional data, like the job postings and the student resume in the agent lab. Describe those as "simulated" or "fictional."
+- For any project where I used AI, add one line saying what the AI did and what I checked or decided myself.
+- Keep it simple: plain HTML and CSS in one file, no frameworks. It must be easy to read on a phone and work with a screen reader: headings in order, alt text on every image, and strong color contrast.
+- When the page is finished, walk me step by step through publishing it free on GitHub Pages, assuming I have never used GitHub.
+
+The MIS 201 projects I want to include are: [LIST THE LABS AND PROJECT YOU CHOSE, AND PASTE YOUR NOTES OR FINDINGS FOR EACH ONE].</pre>
+    <button type="button" class="copybtn" id="pf-copy">Copy the prompt</button><span class="copystat" id="pf-copied" role="status" aria-live="polite"></span>
+  </div>
+
+  <details class="ghguide">
+    <summary>Optional: step-by-step guide to publishing on GitHub Pages (about 15 minutes, no coding)</summary>
+    <p>GitHub is a free website where people store files, and GitHub Pages turns those files into a public website. You only need a web browser.</p>
+    <ol>
+      <li><strong>Make a free account.</strong> Go to <a class="inline" href="https://github.com" target="_blank" rel="noopener">github.com</a> and sign up. Pick your username carefully, because it becomes part of your web address. Something close to your real name, like <em>janedoe</em>, looks best to a recruiter.</li>
+      <li><strong>Make a new repository.</strong> A repository is just a folder for your website. Click the <strong>+</strong> in the top right corner, then <strong>New repository</strong>.</li>
+      <li><strong>Name it exactly right.</strong> Type your username followed by <code>.github.io</code>. If your username is janedoe, type <code>janedoe.github.io</code>. Set it to <strong>Public</strong>, then click <strong>Create repository</strong>.</li>
+      <li><strong>Upload your files.</strong> Click <strong>uploading an existing file</strong>, or <strong>Add file</strong>, then <strong>Upload files</strong>. Drag in your <code>index.html</code> and any PDFs and images it links to. The website file must be named <code>index.html</code>. Then click the green <strong>Commit changes</strong> button, which just means save.</li>
+      <li><strong>Turn on the website.</strong> Click <strong>Settings</strong>, then <strong>Pages</strong> in the menu on the left. Under <strong>Source</strong>, choose <strong>Deploy from a branch</strong>. Under <strong>Branch</strong>, choose <strong>main</strong>, leave the folder as <strong>/ (root)</strong>, and click <strong>Save</strong>. If it's already set this way, you don't need to change anything.</li>
+      <li><strong>Wait a few minutes, then visit your site.</strong> Go to <code>https://janedoe.github.io</code>, using your own username. It can take up to ten minutes to appear the first time.</li>
+      <li><strong>To update it later,</strong> go back to the repository, click <strong>Add file</strong>, then <strong>Upload files</strong>, and drag in the new version of <code>index.html</code>. It replaces the old one, and your site updates within a few minutes.</li>
+    </ol>
+    <p><strong>If something looks different or goes wrong:</strong> GitHub moves its buttons around from time to time. Take a screenshot, paste it into your AI conversation, and ask, "Where do I find this now?" If your site shows a 404 page, the two usual causes are a repository name that doesn't match your username exactly, or a website file that isn't named <code>index.html</code>.</p>
+  </details>
+
+  <p><strong>Then add one project that's only yours.</strong> The labs show you can work from a brief. One project you chose yourself shows you can find a question. Pick a small problem you actually have, from your job, a club, or your family, and take it through what this course taught: name the system, decide where the human sits, test it, and say what you'd keep, fix, or drop. Your Prototype project is already a version of this.</p>
+
+  <div class="callout">
+    <div class="label">Four rules for anything you post</div>
+    <p><strong>Your own words.</strong> The descriptions on the site are yours, for the same reason the resume lines are. <strong>Say what was simulated, and what AI did.</strong> Label fictional data as fictional, and say where AI helped and what you checked. <strong>Show your work, not an answer key.</strong> Post your findings, screenshots, and rules, but not a step-by-step solution to the lab, so the next class still has to do its own thinking. <strong>Nothing private.</strong> Never post your own contact details inside a screenshot, anyone else's personal data, or anything from an employer without permission. Lab 10 &amp; 11 called this minimum necessary access; it applies to your website too.</p>
+  </div>
+</section>
+
+<div class="nextbar">
+  <a href="index.html"><span class="dir">&larr; Back</span>Contents</a>
+  <a href="prototype-project.html"><span class="dir">Next &rarr;</span>The Prototype project</a>
+</div>
+
+<p class="fine" style="margin-top:28px">Last revised November 2026.</p>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="tiny">Western Washington University</span>Intro to <b>AI</b> in Business</a>
+    <p class="fine">A free, critical field guide to AI, for the people who'll live with it, not just build it.</p>
+    <p class="fine"><a class="inline" href="https://cbe.wwu.edu/dsci/management-information-systems" target="_blank" rel="noopener">Management Information Systems</a> · <a class="inline" href="https://cbe.wwu.edu/dsci" target="_blank" rel="noopener">Department of Decision Sciences</a> · <a class="inline" href="https://cbe.wwu.edu" target="_blank" rel="noopener">College of Business &amp; Economics</a></p>
+    <p class="fine">MIS 201 · <a class="inline" href="about.html">About this book</a> · <a class="inline" href="resume.html">Resume and portfolio</a> · <a class="inline" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.dd-btn'));
+  function closeAll(){btns.forEach(function(b){var m=document.getElementById(b.getAttribute('data-dd'));if(m){m.classList.remove('open');b.setAttribute('aria-expanded','false');}});}
+  btns.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var m=document.getElementById(b.getAttribute('data-dd'));var open=m.classList.contains('open');closeAll();if(!open){m.classList.add('open');b.setAttribute('aria-expanded','true');}});});
+  document.addEventListener('click',closeAll);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+  document.querySelectorAll('.dd-menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();});});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('pf-copy'),st=document.getElementById('pf-copied'),t=document.getElementById('pf-prompt').textContent;
+  function ok(){st.textContent='Copied.';b.textContent='Copied';setTimeout(function(){b.textContent='Copy the prompt';},1600);}
+  function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');ok();}catch(e){st.textContent='Copy failed. Select the text and copy it by hand.';}document.body.removeChild(a);}
+  b.addEventListener('click',function(){if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(ok,fb);}else{fb();}});
+})();
+</script>
+<script>window.addEventListener("beforeprint",function(){document.querySelectorAll("details").forEach(function(d){d.open=true;});});</script>
+</body>
+</html>
