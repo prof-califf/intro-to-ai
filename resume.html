@@ -179,6 +179,8 @@ figure.diagram figcaption{font-size:.85rem;color:var(--gray);line-height:1.55;ma
 </style>
 <style>
 /* resume and portfolio page */
+main.wrap ul,main.wrap ol{padding-left:1.5em;margin:0 0 1.1em}
+main.wrap li{margin-bottom:.6em}
 table.sumtable{width:100%;border-collapse:collapse;margin:18px 0 26px;font-size:.95rem}
 table.sumtable th,table.sumtable td{border-bottom:1px solid var(--rule);padding:10px 12px;text-align:left;vertical-align:top}
 table.sumtable th{background:var(--ink);color:#fff;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
@@ -244,7 +246,7 @@ details.ghguide summary{cursor:pointer;font-weight:600;padding:14px 0}
   <div class="wrap">
     <p class="eyebrow">Western Washington University &middot; MIS 201 &middot; Resources</p>
     <h1>Turning the labs into a <b>resume</b> and a <b>portfolio</b></h1>
-    <p class="kicker">Every lab in this course left you with something most applicants can't show: you've tested AI, audited it, built with it, and written the rules for it. This page shows you how to write that down, and how to put it where a recruiter can see it.</p>
+    <p class="kicker">Starting with Lab 4, you've been building real things with AI. This page shows you how to put them on a resume and a portfolio site.</p>
     <p class="factline">The formula &middot; each lab as a resume line &middot; the skills section &middot; a portfolio site, built with AI</p>
   </div>
 </header>
@@ -260,7 +262,7 @@ details.ghguide summary{cursor:pointer;font-weight:600;padding:14px 0}
   <div class="shead"><span class="num">1</span><h2>The formula</h2></div>
   <p>The data analyst <a class="inline" href="https://karina-datascientist.beehiiv.com" target="_blank" rel="noopener">Karina Samsonova</a>, who writes a newsletter on data careers and has reviewed hundreds of CVs for hiring, gives one piece of advice to students with no job experience yet: you've done things, you just haven't written them down properly. A class project is experience. The mistake is burying it in one line that says "group project for MIS class." Her formula for writing up any project has four parts:</p>
   <p class="formula">What you did &rarr; what you worked with &rarr; what you found &rarr; what it means for the business</p>
-  <p>"Used ChatGPT for a class assignment" is true and weak. "Ran a controlled bias audit of an AI resume screener, testing two resumes that differed in one detail across repeated trials, and found [your finding]" is the same work, written so somebody would want to ask you about it. Her whole guide is in <a class="inline" href="https://www.youtube.com/watch?v=HtH4KqKxZ0E" target="_blank" rel="noopener">her video for fresh graduates</a>.</p>
+  <p>"Used ChatGPT for a class assignment" is true and weak. "Built an AI-powered resume scanner that scores a resume against a job posting, ran my own resume through it, and kept only the suggestions that were true" is the same work, written so somebody would want to ask you about it. Her whole guide is in <a class="inline" href="https://www.youtube.com/watch?v=HtH4KqKxZ0E" target="_blank" rel="noopener">her video for fresh graduates</a>.</p>
   <p>Three more of her rules that apply to you now:</p>
   <ul>
     <li>Don't call yourself an "aspiring" anything. You're a student who has already done the work.</li>
@@ -272,16 +274,12 @@ details.ghguide summary{cursor:pointer;font-weight:600;padding:14px 0}
 <section id="s2">
   <div class="shead"><span class="num">2</span><h2>Lead with the judgment, not the tool</h2></div>
   <p>Almost every applicant can say they use ChatGPT. Saying it tells a recruiter nothing, and in five years the tools you used this quarter will have new names. What lasts is the judgment this course kept asking for: what you tested, what you caught, what you decided a person should stay in charge of, and what you'd keep, fix, or drop. That's what an employer is actually worried about when they hire someone to work with AI.</p>
-  <p>So lead with what you did and found. Name the tool last, in passing. Below is each lab written that way. Some labs used fictional data, like the job postings and Jordan's resume in Lab 9, so say so: "simulated job postings" is honest, and nobody will hold it against you. Use these as a starting point, not text to paste. Rewrite each in your own words, put in your own results, and cut anything you didn't actually do. A line copied from a course page reads like one.</p>
-
-  <div class="labline"><span class="lab">Lab 0 &middot; First Contact</span><p>Sorted twelve everyday technologies into AI and not AI, then checked my calls against how each system actually works, and found that the AI I use most, like the feed, the map, and the spam filter, was the AI I noticed least. <em>Why it's worth a line:</em> seeing the system behind a product is where every AI decision at work starts.</p></div>
-  <div class="labline"><span class="lab">Lab 1 &middot; Inside the Machine</span><p>Trained two small machine-learning models from scratch, an image classifier and a game-playing learner, then broke the classifier and biased it on purpose by changing its training examples. Learned firsthand that a model only knows what its examples contain.</p></div>
-  <div class="labline"><span class="lab">Lab 2 &amp; 3 &middot; The Seeming Test and the Feed</span><p>Tested a chatbot with the same scripted prompts every time and scored how human its answers seemed, separating tone from content. Then ran a feed simulator twice, once tuned for engagement and once for wellbeing, and measured the gap between them: [your numbers].</p></div>
-  <div class="labline"><span class="lab">Lab 4 &middot; Inside the Graph</span><p>Explored a knowledge graph that predicts new uses for existing drugs, removed published research to watch predictions disappear, and explained why diseases with little research get weaker predictions: a prediction can only find what the data holds.</p></div>
-  <div class="labline"><span class="lab">Lab 5 &middot; The Footprint Machine</span><p>Estimated the energy cost of AI use at four scales, from one person to a whole organization, using published estimates, and reported the result as a range rather than a single number because the sources disagree. Found [your finding].</p></div>
-  <div class="labline"><span class="lab">Lab 6 &middot; You Are the Auditor</span><p>Ran a controlled bias audit of an AI resume screener: two resumes identical except for one detail, run repeatedly in fresh chats, with results pooled across the class to separate a pattern from a fluke. Found [your finding].</p></div>
-  <div class="labline"><span class="lab">Lab 7 &middot; You Are the City Council</span><p>Weighed evidence on robotaxi safety and drivers' jobs and wrote a city permit with conditions, naming what each condition costs and who pays for it. Recommended [your decision].</p></div>
-  <div class="labline"><span class="lab">Lab 8 &middot; The Red Lines</span><p>Sorted eight military AI contracts by whether an AI company should accept them, located where I would draw the line, and defended it against the strongest argument on the other side.</p></div>
+  <p>So lead with what you did and found. Name the tool last, in passing. Labs 1 to 3 taught the ideas the rest of the course runs on. The pieces worth showing start at Lab 4, when you started building things with Claude. Below is each one written that way. Some labs used fictional data, like the job postings and Jordan's resume in Lab 9, so say so: "simulated job postings" is honest, and nobody will hold it against you. Use these as a starting point, not text to paste. Rewrite each in your own words, put in your own results, and cut anything you didn't actually do. A line copied from a course page reads like one.</p>
+  <div class="labline"><span class="lab">Lab 4 &middot; Inside the Graph</span><p>Built a chatbot app on a nonprofit's real drug-research data (Every Cure), set up to answer only from that data and to say when the data can't answer, then checked its answers against the source. Found [what it got right and where it overreached].</p></div>
+  <div class="labline"><span class="lab">Lab 5 &middot; The Footprint Machine</span><p>Built an interactive calculator comparing the energy use of AI with everyday tech, using only published estimates I could cite, and checked every number the AI put in against its source. Found [your finding].</p></div>
+  <div class="labline"><span class="lab">Lab 6 &middot; You Are the Auditor</span><p>Built an AI-powered resume scanner that scores a resume against a job posting and suggests rewrites, ran my own resume through it, and kept only the suggestions that were true. Also ran a controlled bias test of an AI screener with two resumes that differed in one detail. Found [your finding].</p></div>
+  <div class="labline"><span class="lab">Lab 7 &middot; You Are the City Council</span><p>Built an interactive page that weighs a robotaxi company's published safety numbers against the paid driving work it would replace in Seattle, with sliders for every assumption, to support a city permit decision. Recommended [your decision].</p></div>
+  <div class="labline"><span class="lab">Lab 8 &middot; The Red Lines</span><p>Wrote a rule for which military AI systems should be banned, then built a "treaty tester" that applies my rule to six kinds of weapons and flags the cases it can't decide. Found [where your rule broke].</p></div>
   <div class="labline"><span class="lab">Lab 9 &middot; The Job Scout</span><p>Built a working AI agent in n8n that reads job postings, decides on its own when to check a suspicious employer, ranks the matches, and tailors a resume. Then audited its output for invented qualifications and kept a person as the final approval before anything is sent. Found [what it got right and what it invented]. (Simulated job postings.)</p></div>
   <div class="labline"><span class="lab">Lab 10 &amp; 11 &middot; Govern the Agent</span><p>Wrote six governance rules for the agent I built: what data it can see, what it may do alone, who approves its work, what gets logged, who answers for mistakes, and which rules are built into the design. Found and fixed a data-exposure problem by changing the tool, not the instructions.</p></div>
   <div class="labline"><span class="lab">Prototype project</span><p>With a team of four, designed an AI system for [the problem]: specified its data, model, output, feedback loop, and human oversight, tested the design against five critical questions, decided what to keep, fix, and drop with the cost of each, and pitched it to the class. <em>This is usually your strongest piece.</em></p></div>
@@ -290,7 +288,7 @@ details.ghguide summary{cursor:pointer;font-weight:600;padding:14px 0}
 <section id="s3">
   <div class="shead"><span class="num">3</span><h2>The skills section</h2></div>
   <p>This is the one place on a resume where you do name tools, plainly, because most resumes are read by software before a person sees them, and that software looks for words. You need both: the bullets for the person, the skills line for the scanner.</p>
-  <p>Give the skills section three parts. First, the judgment skills, because those last: checking AI output for errors and invented facts; testing an AI system with a controlled comparison; deciding where a person approves the work; estimating a cost honestly, with a range; writing the rules an AI system runs under. Second, the ideas, named plainly: predictive, generative, and agentic AI; human in the loop; minimum necessary access. Third, the tools by name, each with one clause about what you did: "n8n (built an AI agent with three tools and a review step); Claude and ChatGPT (structured testing and prompt design)." The scanner finds the names. The person reads the clause.</p>
+  <p>Give the skills section three parts. First, the judgment skills, because those last: checking AI output for errors and invented facts; testing an AI system with a controlled comparison; deciding where a person approves the work; estimating a cost honestly, with a range; writing the rules an AI system runs under. Second, the ideas, named plainly: predictive, generative, and agentic AI; human in the loop; minimum necessary access. Third, the tools by name, each with one clause about what you did: "Claude (built interactive tools and a chatbot app, and checked their numbers); n8n (built an AI agent with three tools and a review step)." The scanner finds the names. The person reads the clause.</p>
 </section>
 
 <section id="s4">
@@ -298,23 +296,21 @@ details.ghguide summary{cursor:pointer;font-weight:600;padding:14px 0}
   <p>A resume tells someone what you did. A portfolio shows them. When a recruiter can see the agent you built, read the rules you wrote for it, and see the problem you started from, a line on a page becomes work they can judge for themselves. The interview starts from what you made instead of what you claim. Most business students apply with a resume alone, which is the best reason to build one.</p>
 
   <h3 class="sub" id="s4-1"><span>What each lab gave you</span></h3>
-  <p>Here's every lab in one place: the key point, and what it can become in a portfolio. You don't need all of them. Three or four strong pieces beat eleven weak ones, and the strongest are marked.</p>
+  <p>Here's every lab in one place: the key point, and what it can become in a portfolio. You don't need all of them. Three or four strong pieces beat eight weak ones, and the strongest are marked.</p>
   <table class="sumtable">
 <thead><tr><th>Lab</th><th>The key point</th><th>Portfolio piece</th></tr></thead>
 <tbody>
-<tr><td data-label="Lab"><strong>Lab 0</strong><br>First Contact</td><td data-label="The key point">Most of the AI you use is the AI you don't notice</td><td data-label="Portfolio piece">Your AI-or-not sort, with the ones you got wrong</td></tr>
-<tr><td data-label="Lab"><strong>Lab 1</strong><br>Inside the Machine</td><td data-label="The key point">A model only knows what its examples contain</td><td data-label="Portfolio piece">A short write-up of how you broke and biased the classifier</td></tr>
-<tr><td data-label="Lab"><strong>Lab 2 &amp; 3</strong><br>The Seeming Test and the Feed</td><td data-label="The key point">"Seeming human" is a setting someone chooses, and a feed's goal shapes what you see</td><td data-label="Portfolio piece">Your two feed runs side by side, with the gap explained</td></tr>
-<tr><td data-label="Lab"><strong>Lab 4</strong><br>Inside the Graph</td><td data-label="The key point">Predictions are thin where the research is thin</td><td data-label="Portfolio piece">A one-paragraph explanation of a prediction that disappeared</td></tr>
-<tr><td data-label="Lab"><strong>Lab 5</strong><br>The Footprint Machine</td><td data-label="The key point">An honest estimate comes with a range</td><td data-label="Portfolio piece">Your estimate at four scales, with the range and your sources <span class="strong">(a strong piece)</span></td></tr>
-<tr><td data-label="Lab"><strong>Lab 6</strong><br>You Are the Auditor</td><td data-label="The key point">Bias shows up in a controlled comparison, not one example</td><td data-label="Portfolio piece">Your audit design and the class's pooled result <span class="strong">(a strong piece)</span></td></tr>
-<tr><td data-label="Lab"><strong>Lab 7</strong><br>You Are the City Council</td><td data-label="The key point">Every condition on a new technology has a cost and someone who pays it</td><td data-label="Portfolio piece">Your permit, with each condition priced</td></tr>
-<tr><td data-label="Lab"><strong>Lab 8</strong><br>The Red Lines</td><td data-label="The key point">Deciding where to draw a line, and defending it</td><td data-label="Portfolio piece">A short memo on where you drew the line and why</td></tr>
+<tr><td data-label="Lab"><strong>Lab 4</strong><br>Inside the Graph</td><td data-label="The key point">A prediction can only find what the data holds</td><td data-label="Portfolio piece">Your chatbot app, with one answer you checked against the data</td></tr>
+<tr><td data-label="Lab"><strong>Lab 5</strong><br>The Footprint Machine</td><td data-label="The key point">An honest estimate names its sources and comes with a range</td><td data-label="Portfolio piece">Your calculator, with your sources <span class="strong">(a strong piece)</span></td></tr>
+<tr><td data-label="Lab"><strong>Lab 6</strong><br>You Are the Auditor</td><td data-label="The key point">A screener reads you a certain way, and you decide what's true</td><td data-label="Portfolio piece">Your resume scanner, and what you kept and rejected <span class="strong">(a strong piece)</span></td></tr>
+<tr><td data-label="Lab"><strong>Lab 7</strong><br>You Are the City Council</td><td data-label="The key point">Every condition on a new technology has a cost and someone who pays it</td><td data-label="Portfolio piece">Your robotaxi pitch-math page and your recommendation</td></tr>
+<tr><td data-label="Lab"><strong>Lab 8</strong><br>The Red Lines</td><td data-label="The key point">A rule is only as good as the cases it can decide</td><td data-label="Portfolio piece">Your treaty tester and where your rule broke</td></tr>
 <tr><td data-label="Lab"><strong>Lab 9</strong><br>The Job Scout</td><td data-label="The key point">An agent decides its own steps, and a person still has to check its work</td><td data-label="Portfolio piece">Screenshots of your agent, one run in the Logs, and what it invented <span class="strong">(a strong piece)</span></td></tr>
 <tr><td data-label="Lab"><strong>Lab 10 &amp; 11</strong><br>Govern the Agent</td><td data-label="The key point">Rules built into the design beat rules in the instructions</td><td data-label="Portfolio piece">Your six rules, paired with Lab 9 <span class="strong">(a strong piece)</span></td></tr>
 <tr><td data-label="Lab"><strong>Project</strong><br>Prototype project</td><td data-label="The key point">Designing an AI system and questioning it as hard as any other</td><td data-label="Portfolio piece">Your paper and pitch slides <span class="strong">(a strong piece)</span></td></tr>
 </tbody>
 </table>
+  <p><strong>Sharing what you built.</strong> If you built something as a Claude artifact, the cleanest portfolio piece is a few screenshots plus two sentences on what you checked. Some artifacts can be published to a link, but ones that call Claude behind the scenes may not work for a recruiter who isn't signed in, so don't rely on the link alone.</p>
   <p><strong>Save your work before it disappears.</strong> The n8n trial from Lab 9 ends about two weeks after you start it. Before it does, take screenshots of your Job Scout workflow, one run in the Logs, and the tailored resume next to the original, so you still have them when you build your site.</p>
 
   <h3 class="sub" id="s4-2"><span>One site for all of college, starting with MIS 201</span></h3>
@@ -322,7 +318,7 @@ details.ghguide summary{cursor:pointer;font-weight:600;padding:14px 0}
   <figure class="diagram" style="max-width:600px;margin:26px auto">
   <svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto;font-family:'Inter',sans-serif" aria-labelledby="pfT pfD">
     <title id="pfT">How the portfolio site is organized</title>
-    <desc id="pfD">A drawing of a web page. At the top, a header with your name, major, and links. Below it, a grid of class cards. The first card, MIS 201, is filled in and holds four project cards: the Prototype project, the Job Scout agent from Lab 9, its governance rules from Lab 10 and 11, and the bias audit from Lab 6. The other class cards are dashed outlines waiting to be added.</desc>
+    <desc id="pfD">A drawing of a web page. At the top, a header with your name, major, and links. Below it, a grid of class cards. The first card, MIS 201, is filled in and holds four project cards: the Prototype project, the Job Scout agent from Lab 9, its governance rules from Lab 10 and 11, and the resume scanner from Lab 6. The other class cards are dashed outlines waiting to be added.</desc>
     <rect x="0" y="0" width="600" height="340" rx="8" fill="#FCFCFA" stroke="#14181D" stroke-width="1"/>
     <rect x="18" y="16" width="564" height="56" rx="6" fill="#14181D"/>
     <text x="34" y="40" font-size="14" font-weight="700" fill="#ffffff">Your Name</text>
@@ -334,7 +330,7 @@ details.ghguide summary{cursor:pointer;font-weight:600;padding:14px 0}
     <rect x="30" y="150" width="122" height="30" rx="4" fill="#ffffff"/><text x="38" y="169" font-size="9.5" fill="#14181D">Prototype project</text>
     <rect x="160" y="150" width="122" height="30" rx="4" fill="#ffffff"/><text x="168" y="169" font-size="9.5" fill="#14181D">AI agent (Lab 9)</text>
     <rect x="30" y="186" width="122" height="30" rx="4" fill="#ffffff"/><text x="38" y="205" font-size="9.5" fill="#14181D">Agent rules (Lab 10)</text>
-    <rect x="160" y="186" width="122" height="30" rx="4" fill="#ffffff"/><text x="168" y="205" font-size="9.5" fill="#14181D">Bias audit (Lab 6)</text>
+    <rect x="160" y="186" width="122" height="30" rx="4" fill="#ffffff"/><text x="168" y="205" font-size="9.5" fill="#14181D">Resume scanner (Lab 6)</text>
     <rect x="318" y="106" width="264" height="74" rx="6" fill="none" stroke="#5A626C" stroke-width="1.2" stroke-dasharray="6 4"/><text x="330" y="128" font-size="12" font-weight="700" fill="#5A626C">Next quarter&#8217;s class</text><text x="330" y="144" font-size="10" fill="#5A626C">add a card when it is done</text>
     <rect x="318" y="192" width="264" height="74" rx="6" fill="none" stroke="#5A626C" stroke-width="1.2" stroke-dasharray="6 4"/><text x="330" y="214" font-size="12" font-weight="700" fill="#5A626C">A class in your major</text><text x="330" y="230" font-size="10" fill="#5A626C">MIS, analytics, finance, marketing...</text>
     <rect x="18" y="278" width="564" height="48" rx="6" fill="none" stroke="#5A626C" stroke-width="1.2" stroke-dasharray="6 4"/><text x="30" y="300" font-size="12" font-weight="700" fill="#5A626C">Your own project</text><text x="30" y="316" font-size="10" fill="#5A626C">a problem you chose yourself</text>
@@ -346,7 +342,7 @@ details.ghguide summary{cursor:pointer;font-weight:600;padding:14px 0}
   <h3 class="sub" id="s4-3"><span>Build it with AI, in an afternoon</span></h3>
   <p>You don't need to know how to build a website, and you don't need to pay for anything. The free version of Claude can do all of it. Use it the way this course taught: let the AI do the parts you haven't learned yet, and keep every claim on the page yours.</p>
   <ol>
-    <li><strong>Gather your work.</strong> Put your best pieces in one folder: your Prototype paper and slides as PDFs, your Lab 9 screenshots, your Lab 10 &amp; 11 rules, your writeups. Write two or three sentences of notes for each: the question, what you found, and what you'd do next.</li>
+    <li><strong>Gather your work.</strong> Put your best pieces in one folder: your Prototype paper and slides as PDFs, screenshots of the tools you built in Labs 4 to 8, your Lab 9 screenshots, your Lab 10 &amp; 11 rules, your writeups. Write two or three sentences of notes for each: the question, what you found, and what you'd do next. For your Prototype project, the prompt below lists exactly what to fill in.</li>
     <li><strong>Fill in the prompt below, then paste it into Claude or ChatGPT.</strong> Replace every bracketed part with your own details. Leave an optional line blank if it doesn't apply. The AI will build the page and ask you for anything it needs.</li>
     <li><strong>Make it yours by talking it through.</strong> The first version is a starting point. Keep the conversation going and say what you want: "make it feel more professional," "the cards look crowded on my phone," "add a small photo of me in the header." When you're stuck, ask: "what would make this stand out to a recruiter in finance?" or "give me three color schemes to choose from." Let it suggest, then decide for yourself.</li>
     <li><strong>Check every word.</strong> Read the page as a recruiter would. Change anything that isn't in your voice, and delete anything you didn't actually do. You've spent a quarter catching AI inventing things; this is one more place to look.</li>
@@ -373,27 +369,47 @@ About me (use exactly what I write here):
 - Accent color (optional): [A COLOR YOU LIKE, OR LEAVE BLANK]
 
 How it should be organized:
-- A header with my name, my major, my expected graduation, my one sentence, and clickable links to my email, LinkedIn, resume, and any other links I gave above. Leave out any link I left blank.
-- One card for each class that produced work worth showing. Each class card shows the course number and name, the quarter I took it, and one sentence about what the class was about.
-- Inside each class card, one smaller card for each project. Each project card says: the question or problem, what I did, what I found or built, how I checked it, and what I would do next. Each project card links to the work itself (a PDF, a screenshot, or a GitHub repository).
-- Start with one class: MIS 201, Intro to AI in Business. I will add other classes later, so make adding a class card easy, and show me exactly which block of HTML to copy when I do.
+- A top bar with my name on the left and three links on the right: Projects, About, Contact.
+- A header with my name, a one-line headline (my major and the kind of work I want), my expected graduation, my one sentence, and two buttons: "View my resume" and "Contact me." Then small text links to LinkedIn and anything else I gave above. Leave out any link I left blank.
+- A short "Skills" row under the header: the skills I list, as small tags, so a recruiter can scan them in five seconds.
+- A "Projects" section with one group for each class that produced work worth showing. Each class card shows the course number and name, the quarter I took it, and one sentence about what the class was about.
+- Inside each class group, one card for each project. Each project card has a short title, a few skill tags, and one bolded line with the result. Underneath, it says: the question or problem, what I did, what I found or built, how I checked it, and what I would do next. Each project card links to the work itself (a PDF, a screenshot, or a GitHub repository).
+- A short "About" section (three or four sentences in my voice) and a "Contact" section at the bottom with my email and LinkedIn.
+- Start with one class: MIS 201, Intro to AI in Business. I will add other classes later, so make adding a class group easy, and show me exactly which block of HTML to copy when I do.
 
 How it should look:
-- A dark header band across the top, with my name in large white text and my major and links in smaller white text underneath.
-- Below it, a small heading that says "Classes and projects," then the class cards in a grid: two columns on a laptop, one column on a phone.
-- Each class card has rounded corners and a bold accent color as its background, with the course name in white. Use my accent color, or a deep blue if I left it blank.
-- The project cards sit inside the class card as smaller white cards with rounded corners and dark text, two per row on a laptop.
-- One dashed-outline card at the end of the grid that says "Next class, coming soon," so the page looks like it is still growing.
-- A clean, modern sans-serif font, a light gray page background, and plenty of space between cards.
+- It should look like a polished professional site that would impress a recruiter at a consulting firm or a tech company: calm, confident, and clean. Think of a well-designed company website, not a student assignment.
+- Mostly white and off-white, with near-black text and generous white space. Use one accent color, sparingly, for links, buttons, tags, and thin lines. Use my accent color, or a deep navy if I left it blank. No big blocks of bright color.
+- Content centered in a column about 1,000 pixels wide, so lines stay easy to read on a big screen.
+- Two fonts from Google Fonts: a refined serif for my name and section headings (like Source Serif 4) and a clean sans-serif for everything else (like Inter). Clear sizes: a large name, medium headings, comfortable body text.
+- Project cards in a grid: two or three per row on a laptop, one on a phone. White cards with a thin light-gray border, soft rounded corners, and a subtle shadow that grows slightly when you hover.
+- Class groups separated by a small uppercase label (like "MIS 201 · INTRO TO AI IN BUSINESS · FALL 2026") and a thin line, not by colored boxes.
+- Small touches that make it feel finished: a favicon with my initials, smooth scrolling to each section, a simple footer with my name and the year, and a layout that still looks good when printed.
 
 Rules:
-- Do not invent anything about me or my work. Use clear placeholders like [YOUR FINDING] wherever you need information, then ask me for it, one project at a time.
+- Do not invent anything about me or my work. Before you write any code, look at what I filled in and ask me for anything that is missing, a few questions at a time. The finished page must never show brackets or placeholder text; if I leave something out, leave that part out of the page.
 - Some of my MIS 201 labs used fictional data, like the job postings and the student resume in the agent lab. Describe those as "simulated" or "fictional."
 - For any project where I used AI, add one line saying what the AI did and what I checked or decided myself.
 - Keep it simple: plain HTML and CSS in one file, no frameworks. It must be easy to read on a phone and work with a screen reader: headings in order, alt text on every image, and strong color contrast.
 - When the page is finished, walk me step by step through publishing it free on GitHub Pages, assuming I have never used GitHub.
 
-The MIS 201 projects I want to include are: [LIST THE LABS AND PROJECT YOU CHOSE, AND PASTE YOUR NOTES OR FINDINGS FOR EACH ONE].</pre>
+My MIS 201 Prototype project (a team project; make it the first project card, labeled as a team project):
+- Project name: [NAME]
+- The problem, and who has it: [ONE OR TWO SENTENCES]
+- What our system does, and what kind of AI it is (predictive, generative, or agentic): [ONE OR TWO SENTENCES]
+- Its five parts, one line each: data: [ ]; model: [ ]; output: [ ]; feedback loop: [ ]; humans: [WHERE A PERSON APPROVES OR CHECKS THE WORK]
+- The failure we planned for, and who would notice: [ONE OR TWO SENTENCES]
+- What we decided to keep, fix, and drop, and what each choice cost: [ONE LINE EACH]
+- My role on the team: [WHAT I PERSONALLY DID]
+- What I would do next: [ONE SENTENCE]
+- Links: [PAPER PDF, SLIDES PDF, ANY WORKING PROTOTYPE, OR LEAVE BLANK]
+
+The MIS 201 labs I want to include (copy this block once for each lab):
+- Lab and what I built: [FOR EXAMPLE: LAB 6, AN AI-POWERED RESUME SCANNER]
+- The question it answered: [ONE SENTENCE]
+- What I checked or caught: [ONE SENTENCE]
+- What I found: [ONE SENTENCE]
+- Screenshot or link: [FILE NAME OR LINK]</pre>
     <button type="button" class="copybtn" id="pf-copy">Copy the prompt</button><span class="copystat" id="pf-copied" role="status" aria-live="polite"></span>
   </div>
 
