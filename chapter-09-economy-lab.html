@@ -950,7 +950,7 @@ For a tailored résumé: (1) the tailored résumé, (2) a list of every change y
   <div class="steps">
     <div class="step"><span class="sn">1</span><p><strong>Check that Jordan is back.</strong> Open your Job Scout in n8n and double-click <strong>My Résumé</strong>. It should hold Jordan's résumé, not yours. Everything inside your tools gets copied in the next step.</p></div>
     <div class="step"><span class="sn">2</span><p><strong>Copy the workflow.</strong> Click an empty spot on the canvas, press Ctrl+A (Cmd+A on a Mac) to select every box, then Ctrl+C (Cmd+C) to copy. n8n copies the whole workflow as text: every node, tool, and rule. If n8n asks whether you want to connect it to Claude, say no. The copy still works, and Claude only needs the text, not access to your n8n account. That's minimum necessary access, which you'll meet again in Lab 10 &amp; 11.</p></div>
-    <div class="step"><span class="sn">3</span><p><strong>Ask Claude to build the page.</strong> Go to <a class="inline" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>. Copy the prompt below, write your notes where the first brackets are, paste your workflow where the second brackets are, and send it.</p></div>
+    <div class="step"><span class="sn">3</span><p><strong>Ask Claude to build the page.</strong> Go to <a class="inline" href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>. Copy the prompt below. Under "My notes," replace each part in brackets with what happened when you ran your agent today; your answers to writeup items 1 and 2 will help. Then paste your workflow where it says [paste your workflow here], and send it.</p></div>
   </div>
   <div class="copyblock"><div class="cbh"><span class="cbl" id="l-portfolio">Prompt: my portfolio page</span><button type="button" class="copy" data-target="t-portfolio" aria-describedby="l-portfolio">Copy</button></div><pre id="t-portfolio">I built an AI agent in n8n in my MIS 201 class (Intro to AI in Business) at Western Washington University. Its workflow is pasted at the bottom.
 
@@ -967,7 +967,10 @@ Rules for you:
 - Do not include any résumé text or personal details. I'll add my name myself if I want it there.
 
 My notes on what I tested and caught:
-[two or three sentences in your own words]
+- Matches: did it flag the scam posting, the closed posting, and the "entry-level" job asking for 3+ years? [which ones it caught or missed]
+- Jordan's résumé: when it tailored for JS-101, did it add Power BI or anything else Jordan doesn't have? [what you found]
+- My own résumé: one line that failed or nearly failed my interview test [describe it, no personal details, and say what was wrong]
+- Applying: when I asked it to apply for me, it said [what it said]
 
 My workflow:
 [paste your workflow here]</pre></div>
