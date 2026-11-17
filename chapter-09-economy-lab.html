@@ -561,10 +561,6 @@ table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-alig
 .sim .draft .btns{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
 .sim .draft button{font:600 13px 'Inter',sans-serif;padding:7px 12px;border:1px solid #1d1d1b;background:#fff;color:#1d1d1b;cursor:pointer}
 .sim .draft button.send{background:#d9d6d0;color:#4a4844;border-color:#c9c6c0;cursor:not-allowed}
-#ioa select{padding:4px 6px;font-size:.82rem;}
-#ioa td{white-space:nowrap;}
-#ioa td.dis{background:#FBF3F6;}
-#ioa .sl{display:inline-block;width:1px;}
 </style>
 </head>
 <body>
@@ -615,8 +611,8 @@ table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-alig
   <div class="wrap">
     <div class="eyebrow">Western Washington University · MIS 201 · Lab 9 · Week 9, Wednesday, in class</div>
     <h1>The Job <b>Scout</b></h1>
-    <p class="kicker">Every AI so far in this course answered. Today you build one that acts: an AI agent that reads job postings, checks the companies that look off, ranks what fits, and tailors a résumé to the posting you pick. Then you check its work the way Monday's guest, Haley Scheer, checks AI drafts for a living: define what good looks like, score it, compare with a second reviewer, and fix the instructions. Chapter 9 says the first rung is moving; Haley's job is one place it moved to. You'll write its rules in Lab 10 &amp; 11. The second half of class is time to work on your Prototype project with your team.</p>
-    <p class="factline">set up n8n · build the Job Scout · check it like Haley · project time</p>
+    <p class="kicker">Every AI so far in this course answered. Today you build one that acts: an AI agent that reads job postings, checks the companies that look off, ranks what fits, and tailors a résumé to the posting you pick. Then you make it real: your own résumé and a real job from Handshake. You'll measure how much an "entry-level" job really asks for, test the résumé the agent writes, and let the agent email you, but only you. That's what Monday's guest, Haley Scheer, does for a living: a person who knows the work checks the AI's draft before it goes anywhere. Chapter 9 says the first rung is moving; Haley's job is one place it moved to. You'll write its rules in Lab 10 &amp; 11. The second half of class is time to work on your Prototype project with your team.</p>
+    <p class="factline">set up n8n · build the Job Scout · make it real · project time</p>
   </div>
 </header>
 
@@ -635,13 +631,13 @@ table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-alig
     <tr><td>0:00</td><th scope="row">Recap: Haley's talk and Chapter 9</th><td>5 min</td></tr>
     <tr><td>0:05</td><th scope="row">1. Set up n8n</th><td>10 min</td></tr>
     <tr><td>0:15</td><th scope="row">2. Build the Job Scout</th><td>25 min</td></tr>
-    <tr><td>0:40</td><th scope="row">3. Run it, then check it like Haley</th><td>20 min</td></tr>
-    <tr><td>1:00</td><th scope="row">Break</th><td>10 min</td></tr>
-    <tr><td>1:10</td><th scope="row">5. Work on your project</th><td>40 min</td></tr>
+    <tr><td>0:40</td><th scope="row">3. Run it, then make it real</th><td>25 min</td></tr>
+    <tr><td>1:05</td><th scope="row">Break</th><td>10 min</td></tr>
+    <tr><td>1:15</td><th scope="row">5. Work on your project</th><td>35 min</td></tr>
     <tr><td>After class</td><th scope="row">4. Inside the machine, and the writeup</th><td></td></tr>
   </tbody></table></div>
-  <p class="runnote">That’s the full 110 minutes. If the build runs long, skip the rerun and the optional step in section 3 and finish them at home; project time doesn’t shrink.</p>
-  <p>Section 2 builds the kind of system <a class="inline" href="chapter-01-what-is-ai.html#s2-6">Chapter 1</a> called an agent. Section 3 runs Haley's supervision cycle on the agent's résumé (define it, measure it, give feedback, keep monitoring) and puts <a class="inline" href="chapter-09-economy.html#s2-4">section 2.4</a> on the page: the agent can do the codified part of the job fast, and only a person who knows the source can say whether what it wrote is true. Project time is your chance to put the same parts into your own team's design.</p>
+  <p class="runnote">That’s the full 110 minutes. If the build runs long, do Part C at home with your own résumé before the trial ends; project time doesn’t shrink. Bring your résumé (a doc or PDF you can copy from) to class.</p>
+  <p>Section 2 builds the kind of system <a class="inline" href="chapter-01-what-is-ai.html#s2-6">Chapter 1</a> called an agent. Section 3 runs it on Jordan first, then on you, and puts <a class="inline" href="chapter-09-economy.html#s2-4">section 2.4</a> on the page: the agent can do the codified part of the job fast, and only the person who did the work can say whether what it wrote is true. Project time is your chance to put the same parts into your own team's design.</p>
 </div>
 
 <section id="setup">
@@ -649,7 +645,7 @@ table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-alig
   <details class="srcnote noai">
     <summary>Don't want to use AI? Do this instead</summary>
     <div class="noai-body">
-      <p>Same time, no agent. Do the agent's job by hand. Open the three data blocks in section 2 (the job board, the company check, and Jordan's résumé) and read them. Rank the six postings for Jordan, with one line on each and any warning. Then pick one posting and tailor Jordan's résumé to it on paper or in a doc: reorder and reword only, list every change, and list what the posting asks for that Jordan doesn't have. Then trade with a partner and score each other's version with the rubric and agreement checker in section 3, the same way everyone else scores the agent's. Answer writeup items 1 to 3 from your version, and add one line on what an agent would have needed to know that you knew.</p>
+      <p>Same time, no agent. Do the agent's job by hand. Open the three data blocks in section 2 (the job board, the company check, and Jordan's résumé) and read them. Rank the six postings for Jordan, with one line on each and any warning. Then find a real posting on Handshake and tailor your own résumé to it by hand: reorder and reword only, list every change, and list what the posting asks for that you don't have. Sort the posting's requirements into entry-level tasks and senior skills, and count both. Answer writeup items 1 and 2 from your version, and add one line on what an agent would have needed to know that you knew.</p>
     </div>
   </details>
   <p class="lead">Every AI in this course so far has <em>answered</em>: you ask, it produces. An <strong>agent</strong> acts. You give it a goal, and it decides which steps to take, uses tools to look things up, checks what it found, and keeps going until the job is done. <a class="inline" href="chapter-01-what-is-ai.html#s2-6">Chapter 1</a> gave it four parts: a goal, tools, a loop, and memory. Today you build one, and you'll see each part on the screen.</p>
@@ -658,8 +654,28 @@ table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-alig
   <p>Keeping up with job postings is slow, repetitive work: read every new posting, figure out which ones fit, notice the ones that are closed or fake, and rewrite your résumé for the ones worth applying to. That's exactly the kind of multi-step job companies are handing to agents. Hospitals already use one, Epic's Penny, to draft insurance appeals from a patient's chart (<a class="inline" href="https://www.epic.com/software/penny" target="_blank" rel="noopener">Epic's description</a>). You're building one for your own job search.</p>
   <p><strong>The scenario.</strong> You're helping Jordan Reyes, a WWU business student concentrating in MIS and Business Analytics, who graduates in June. Jordan's agent, the Job Scout, reads six postings, checks any company that looks off, ranks the postings, and tailors Jordan's résumé to the one Jordan picks. Jordan, the postings, and the companies are all fictional. Once it works, you can swap in your own résumé (section 3 shows how).</p>
 
+  <h3 class="sub" id="setup-why"><span>Why an agent, and not just a chatbot?</span></h3>
+  <p>You could paste your résumé and one posting into ChatGPT and ask it to tailor the résumé. For one job, that works fine. Here's what changes when you build an agent instead:</p>
+  <table class="risk">
+    <thead><tr><th scope="col"></th><th scope="col">A chatbot</th><th scope="col">Your Job Scout agent</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Where the facts come from</strong></td><td>Whatever you paste in, every single time</td><td>Its tools: your résumé, the job board, company records. It goes and gets them.</td></tr>
+      <tr><td><strong>Who decides the steps</strong></td><td>You. One question, one answer.</td><td>The agent. It reads, ranks, and decides on its own when a company looks off enough to check.</td></tr>
+      <tr><td><strong>How much it handles</strong></td><td>The one posting in front of you</td><td>Every posting on the board, and it could run every morning without you</td></tr>
+      <tr><td><strong>Can it act?</strong></td><td>No. It only writes text.</td><td>Yes. It can email you, and only you. That's a limit you build in.</td></tr>
+    </tbody>
+  </table>
+  <p>Here's where the Job Scout sits among the kinds of AI you've seen this quarter:</p>
+  <ul class="ideas">
+    <li><strong>A rule, no AI:</strong> "Email me every posting with 'analyst' in the title." Fast and predictable, but it can't tell a good fit from a scam.</li>
+    <li><strong>Predictive AI:</strong> a job site's "recommended for you" list. It scores postings, but it can't rewrite your résumé.</li>
+    <li><strong>Generative AI:</strong> a chatbot tailoring a résumé you paste in. One job, one answer, and you do all the gathering.</li>
+    <li><strong>An agent:</strong> the Job Scout. It works through several steps across several sources, chooses which tools to use, and can take an action at the end.</li>
+  </ul>
+  <p>A job search fits an agent because it's repetitive (new postings every week), it takes several steps across different sources, every posting is a little different, the rules can be written down ("never invent a skill"), and a person can check the result. That last part matters most. An agent is worth building only when someone can catch its mistakes, and for your résumé, that someone is you.</p>
+
   <h3 class="sub" id="setup-overview"><span>The big picture</span></h3>
-  <p>Before you build, watch what you're building. Press <strong>Run the agent</strong> to see one run from start to finish: the request comes in, the agent decides which tools to use and in what order, and it stops with a ranked list for you to review. Every machine box here is one you'll add in section 2. The yellow box is you: the agent does the legwork, and a person still decides what happens next.</p>
+  <p>Before you build, watch what you're building. Press <strong>Run the agent</strong> to see one run from start to finish: the request comes in, the agent decides which tools to use and in what order, and it stops with a ranked list for you to review. Every machine box here is one you'll add in section 2, and you'll add one more: a practice tool that lets it email you. The yellow box is you: the agent does the legwork, and a person still decides what happens next.</p>
   <div class="sim" aria-label="Simulation of the Job Scout agent you'll build">
     <div class="sim-head"><span>Example run. Your agent's choices and ranking may differ.</span><button class="run" id="js-run" type="button">Run the agent</button></div>
     <svg viewBox="0 0 640 250" role="img" aria-label="Workflow: a chat trigger connects to the AI Agent, which uses a language model as its brain and three tools: My Résumé, Job Board, and Company Check. The agent hands its results to you, the human in the loop, who decides what happens next.">
@@ -705,7 +721,7 @@ table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-alig
 
 <section id="build">
   <div class="shead"><span class="num">2</span><h2>In class: Build the Job Scout</h2></div>
-  <p class="lead">Your agent has four pieces: a <strong>trigger</strong> (how a request comes in), an <strong>AI Agent</strong> with a brain (the language model), three <strong>tools</strong> it can call on its own, and <strong>instructions</strong>. About 25 minutes.</p>
+  <p class="lead">Your agent has four pieces: a <strong>trigger</strong> (how a request comes in), an <strong>AI Agent</strong> with a brain (the language model), four <strong>tools</strong> it can call on its own, and <strong>instructions</strong>. About 25 minutes.</p>
 
   <h3 class="sub" id="build-1"><span>Step 1.</span> Add the trigger</h3>
   <p>A trigger is the event that starts a workflow. Yours starts when you send the agent a chat message.</p>
@@ -714,18 +730,22 @@ table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-alig
     <div class="step"><span class="sn">b</span><p>Under "What triggers this workflow?", select <strong>On chat message</strong>. A panel labeled <strong>When chat message received</strong> opens. Don't change anything. Click the <strong>X</strong> in the top right.</p></div>
   </div>
 
+  <p class="readline"><strong>Check:</strong> One box on the canvas: <strong>When chat message received</strong>.</p>
   <h3 class="sub" id="build-2"><span>Step 2.</span> Add the AI Agent</h3>
+  <p><strong>What it's for.</strong> The AI Agent box is the manager. It takes your request, reads its instructions, and runs the loop: decide what to do next, call a tool, read what came back, decide again, and stop when the job is done. It can't think on its own (that's the brain in step 3), and it can't see anything on its own (that's the tools in steps 4 to 6). Its job is to connect the two.</p>
   <div class="steps">
     <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> on the right side of the trigger. Search <strong>AI Agent</strong> and click it. Click the <strong>X</strong> to close the settings.</p></div>
     <div class="step"><span class="sn">b</span><p>The AI Agent box appears with three slots underneath: <strong>Chat Model</strong>, <strong>Memory</strong>, and <strong>Tool</strong>. The red warning triangle means it doesn't have a brain yet. Leave Memory empty; section 4 explains why that matters.</p></div>
   </div>
 
+  <p class="readline"><strong>Check:</strong> An <strong>AI Agent</strong> box connected to the trigger, with a red warning triangle and three slots underneath (Chat Model, Memory, Tool).</p>
   <h3 class="sub" id="build-3"><span>Step 3.</span> Connect the brain</h3>
   <p>The brain is the large language model: it reads, reasons, and decides what to do next. The tools you add next are what let it look things up.</p>
   <div class="steps">
     <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> under Chat Model and select <strong>Anthropic Chat Model</strong>, or another model that shows free credits.</p></div>
     <div class="step"><span class="sn">b</span><p>Leave the credential and model as they are and click the <strong>X</strong>. The warning triangle is gone.</p></div>
   </div>
+  <p class="readline"><strong>Check:</strong> A circle under <strong>Chat Model</strong> connected to the AI Agent, and the red triangle is gone. If it's still there, open the model box and make sure a credential is selected.</p>
   <p class="tis-note">One honest note: Anthropic's models also helped draft this book, which the <a class="inline" href="about.html">About page</a> discloses. Choosing a model is a business decision, and so is choosing a vendor whose products you already depend on.</p>
 
   <h3 class="sub" id="build-4"><span>Step 4.</span> Add the Job Board tool</h3>
@@ -736,6 +756,7 @@ table.risk td{padding:9px 10px;border-bottom:1px solid var(--rule);vertical-alig
     <div class="step"><span class="sn">c</span><p>In the JavaScript box, delete the example and paste the job board. You don't need to know JavaScript; it just hands back the postings as text. Keep the backtick and semicolon at the end.</p></div>
     <div class="step"><span class="sn">d</span><p>Click <strong>Code Tool</strong> at the top left and rename it <strong>Job Board</strong>. The agent reads the name and description to decide when to use the tool, so don't skip this. Click the <strong>X</strong>.</p></div>
   </div>
+  <p><strong>What the two boxes are for.</strong> Every tool you add has two parts. The <strong>description</strong> is written for the agent, not for you: it says what the tool does and when to use it, and the agent reads it to decide whether this tool fits the step it's on. A vague description means the agent calls the wrong tool, or never calls the right one. The <strong>JavaScript</strong> is what the tool hands back when the agent does call it. Here that's fixed text standing in for a live job site, so everyone in the room works from the same six postings.</p>
   <div class="copyblock"><div class="cbh"><span class="cbl" id="l-desc-jobs">Tool description: Job Board</span><button type="button" class="copy" data-target="t-desc-jobs" aria-describedby="l-desc-jobs">Copy</button></div><pre id="t-desc-jobs">Call this tool to read the current job postings. Use it whenever you need to find, rank, or compare jobs, or to see what a specific posting asks for. Input: anything, such as a posting ID or "all". Returns: every current posting with its ID, title, company, location, pay, dates, and requirements. Only use information this tool returns.</pre></div>
   <div class="copyblock"><div class="cbh"><span class="cbl" id="l-js-jobs">JavaScript: Job Board (six postings)</span><button type="button" class="copy" data-target="t-js-jobs" aria-describedby="l-js-jobs">Copy</button></div><pre id="t-js-jobs">return `JOB BOARD: postings as of November 18, 2026
 ----------
@@ -763,8 +784,9 @@ JS-106 | Systems Support Assistant | Whatcom Valley Health | Bellingham, WA (in 
 Posted Oct 1. Closed Nov 1, 2026.
 Entry level. Support the hospital's scheduling software, train staff on new features, and log issues for the IT team. Bachelor's degree; interest in healthcare IT.`;</pre></div>
 
+  <p class="readline"><strong>Check:</strong> A circle named <strong>Job Board</strong> under the AI Agent's Tool slot. Not "Code Tool": if the name didn't change, double-click it and rename it.</p>
   <h3 class="sub" id="build-5"><span>Step 5.</span> Add the Company Check tool</h3>
-  <p>This one is the agent's choice. It should only call it when a posting looks off, and you'll find out in section 3 whether it did.</p>
+  <p><strong>What it's for.</strong> Job scams aimed at students are common, and a scam posting can look as good as a real one, or better. This tool lets the agent check an employer before it recommends one: state business records and employee reviews, the same things a careful person would look up. Notice the description doesn't say "always call this." It lists warning signs and says to call it when a posting looks off. So this one is the agent's choice, and you'll find out in section 3 whether it made it.</p>
   <div class="steps">
     <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> under Tool again and choose <strong>Code Tool</strong>.</p></div>
     <div class="step"><span class="sn">b</span><p>Paste the description, replace the JavaScript with the company records, rename it <strong>Company Check</strong>, and click the <strong>X</strong>.</p></div>
@@ -778,7 +800,9 @@ Tidewater Freight: registered in Washington since 1998. 3.8 stars from 95 employ
 Global Talent Partners: no business registration found in any state. Website created three weeks ago. No employee reviews. Matches common job-scam warning signs: asks applicants to pay up front, asks for bank details before an interview, and interviews only over a chat app.
 Whatcom Valley Health: registered since 1972. 4.1 stars from 410 employee reviews. No complaints on file.`;</pre></div>
 
+  <p class="readline"><strong>Check:</strong> Two tools under the AI Agent: <strong>Job Board</strong> and <strong>Company Check</strong>.</p>
   <h3 class="sub" id="build-6"><span>Step 6.</span> Add the My Résumé tool</h3>
+  <p><strong>What it's for.</strong> This is everything the agent knows about Jordan, and the description calls it "the only source of truth." That line matters: the agent needs Jordan's real experience to judge fit and to tailor, and it should never fill a gap with something that sounds right. Every line in the tailored résumé has to trace back to this block. That's exactly what you'll check in section 3.</p>
   <div class="steps">
     <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> under Tool once more and choose <strong>Code Tool</strong>.</p></div>
     <div class="step"><span class="sn">b</span><p>Paste the description, replace the JavaScript with Jordan's résumé, rename it <strong>My Résumé</strong>, and click the <strong>X</strong>.</p></div>
@@ -808,7 +832,26 @@ SKILLS
 Excel (pivot tables, charts, lookups), Tableau basics, intro SQL from class projects, Microsoft Access, conversational Spanish`;</pre></div>
   <p class="tis-note">Notice what's at the top of Jordan's résumé: a home address and a phone number. Hold that thought until <a class="inline" href="chapter-10-truth-lab.html">Lab 10 &amp; 11</a>.</p>
 
-  <h3 class="sub" id="build-7"><span>Step 7.</span> Give the agent its job</h3>
+  <p class="readline"><strong>Check:</strong> Three tools: <strong>Job Board</strong>, <strong>Company Check</strong>, <strong>My Résumé</strong>. Double-click one and confirm the code still starts with <code>return `</code> and ends with <code>`;</code>.</p>
+  <h3 class="sub" id="build-7"><span>Step 7.</span> Add the Send Email tool (practice)</h3>
+  <p><strong>What it's for.</strong> So far your agent can only read. This tool lets it <em>do</em> something: email you your results. It's a practice version. Nothing actually gets sent, because a real email tool would mean connecting your own email account, and you shouldn't hand that to a trial app. Instead it shows you, in the Logs, exactly what it would have sent. One line in the code holds the only address it's allowed to email. That's a limit built into the tool itself, not a rule the agent is asked to follow, and you'll test the difference in section 3.</p>
+  <div class="steps">
+    <div class="step"><span class="sn">a</span><p>Click the <strong>+</strong> under Tool once more and choose <strong>Code Tool</strong>.</p></div>
+    <div class="step"><span class="sn">b</span><p>Paste the description and the JavaScript below. Then change <strong>one line</strong>: replace <code>your.name@wwu.edu</code> with your own email address. Keep the quotation marks.</p></div>
+    <div class="step"><span class="sn">c</span><p>Rename it <strong>Send Email</strong> and click the <strong>X</strong>.</p></div>
+  </div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-desc-mail">Tool description: Send Email</span><button type="button" class="copy" data-target="t-desc-mail" aria-describedby="l-desc-mail">Copy</button></div><pre id="t-desc-mail">Call this tool to email the student a copy of their results. Only use it when the student asks you to email something. Input: one piece of text with the recipient's email address, a subject line, and the message. Returns: what was sent, or a message saying the email was blocked.</pre></div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-js-mail">JavaScript: Send Email (practice)</span><button type="button" class="copy" data-target="t-js-mail" aria-describedby="l-js-mail">Copy</button></div><pre id="t-js-mail">const allowed = "your.name@wwu.edu"; // put your own email address here
+const request = (typeof query === "string" ? query : JSON.stringify(query || ""));
+const found = (request.match(/[^\s"'&lt;&gt;,;:()]+@[^\s"'&lt;&gt;,;:()]+\.[a-z]+/gi) || []).map(e =&gt; e.toLowerCase());
+const others = found.filter(e =&gt; e !== allowed.toLowerCase());
+if (found.length === 0 || others.length &gt; 0) {
+  return "BLOCKED: This tool can only email " + allowed + ". Nothing was sent.";
+}
+return "PRACTICE MODE: nothing was actually sent. This is what would have gone to " + allowed + ":\n\n" + request;</pre></div>
+
+  <p class="readline"><strong>Check:</strong> Four tools under the AI Agent, and your own email address in the first line of Send Email's code, inside the quotation marks.</p>
+  <h3 class="sub" id="build-8"><span>Step 8.</span> Give the agent its job</h3>
   <p>The <strong>system message</strong> is the agent's job description, its goal and its rules. It reads it every time it runs, before it sees your request.</p>
   <div class="steps">
     <div class="step"><span class="sn">a</span><p>Double-click the <strong>AI Agent</strong> box. Under <strong>Options</strong>, click <strong>Add Option</strong> and select <strong>System Message</strong>.</p></div>
@@ -831,10 +874,15 @@ When the student asks you to tailor their résumé for a posting:
 1. Use the My Résumé tool and the Job Board tool to read both.
 2. Rewrite the résumé so the student's real experience that fits this posting comes first, using the posting's words only where they are accurate.
 
+When the student asks you to email them something:
+1. Use the Send Email tool with their email address, a subject line, and the message.
+2. Tell the student exactly what the tool returned.
+
 RULES
 - Never invent skills, experience, job titles, dates, numbers, or tools. You may only reorder, reword, or emphasize what is already in the résumé.
 - If a posting asks for something the résumé doesn't show, list it as a gap. Never add it to the résumé.
 - Never apply to a job, contact an employer, or say that an application was sent. You have no way to do any of these.
+- Only email the student. Never email anyone else.
 - Point out postings that are closed, that ask for far more experience than an entry-level job should, or that show warning signs of a scam.
 - Never ask the student for bank details, a Social Security number, or money.
 - Accuracy matters more than making the student look impressive.
@@ -845,95 +893,100 @@ If you can't find the résumé or a posting, say so and list what's missing. Do 
 OUTPUT
 For matches: a ranked list. For each posting, one line on why it fits or doesn't, plus any warning.
 For a tailored résumé: (1) the tailored résumé, (2) a list of every change you made and what in the original it came from, and (3) the posting's requirements the résumé doesn't show, listed as gaps.</pre></div>
+  <p><strong>What each part is for.</strong></p>
+  <ul class="ideas">
+    <li><strong>ROLE</strong> tells the agent who it's working for.</li>
+    <li><strong>GOAL</strong> is what success means, including the limit: "without ever misrepresenting them."</li>
+    <li><strong>PROCESS</strong> gives it a usual order of steps, though it can still choose.</li>
+    <li><strong>RULES</strong> are the lines it must not cross. Most exist because of an error a model like this would otherwise make, like adding Power BI because the posting asks for it.</li>
+    <li><strong>WHEN YOU'RE STUCK</strong> tells it to say so instead of guessing.</li>
+    <li><strong>OUTPUT</strong> makes it show its work. The list of changes and gaps is what lets a person check it.</li>
+  </ul>
+  <p>You'll write new RULES in Lab 10 &amp; 11.</p>
+  <p class="readline"><strong>Check:</strong> Double-click the AI Agent: under Options you should see <strong>System Message</strong> filled in. The whole canvas should show the trigger, then the AI Agent, with the brain and four tools hanging underneath.</p>
   <p><strong>Save it.</strong> Click the workflow name at the top, rename it <strong>Job Scout</strong>, and save. You'll open it again on November 30.</p>
 </section>
 
 <section id="run">
-  <div class="shead"><span class="num">3</span><h2>In class: Run it, then check its work</h2></div>
-  <p class="lead">About 20 minutes. Click the orange <strong>Open chat</strong> button. Chat opens on the left and Logs on the right.</p>
+  <div class="shead"><span class="num">3</span><h2>In class: Run it, then make it real</h2></div>
+  <p class="lead">About 25 minutes. First you run the mock version, so you know how the agent behaves on data where you know the right answers. Then you make it real: your résumé, a real job from Handshake. Click <strong>Open chat</strong> at the bottom of the canvas (it's a white button now, not orange). Chat opens on the left and Logs on the right. The chat is where you talk to the agent. The Logs show every step it took and every tool it called, in order, so you can see how it reached its answer, not just the answer.</p>
 
-  <h3 class="sub" id="run-1"><span>Ask for matches</span></h3>
+  <h3 class="sub" id="run-1"><span>Part A.</span> Ask for matches</h3>
   <p>Send this, and watch the boxes light up as each step runs.</p>
   <div class="copyblock"><div class="cbh"><span class="cbl" id="l-msg1">Chat message: matches</span><button type="button" class="copy" data-target="t-msg1" aria-describedby="l-msg1">Copy</button></div><pre id="t-msg1">Find my best job matches.</pre></div>
   <p><strong>Read the Logs.</strong> Trace what the agent did, in order. Which tool did it call first? Did it call Company Check, and for which posting? Nobody told it the order. It chose. That's the <strong>loop</strong>: read, decide, use a tool, check, repeat. It's what makes it an agent rather than a script.</p>
-  <p><strong>Read the ranking.</strong> Did it catch the closed posting, the scam, and the "entry-level" job that wants three years of experience (the "seniorised" first rung from <a class="inline" href="chapter-09-economy.html">Chapter 9</a>)? Compare with your partner. If your rankings differ, whose is right, and how would you know?</p>
+  <p><strong>Read the ranking.</strong> Did it catch the closed posting, the scam, and the "entry-level" job that wants three years of experience (the "seniorised" first rung from <a class="inline" href="chapter-09-economy.html">Chapter 9</a>)? If you'd rank them differently, whose ranking is right, and how would you know?</p>
 
-  <h3 class="sub" id="run-2"><span>Tailor the résumé</span></h3>
-  <p>Pick one posting from its list, put its ID in the brackets, and send:</p>
-  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-msg2">Chat message: tailor it</span><button type="button" class="copy" data-target="t-msg2" aria-describedby="l-msg2">Copy</button></div><pre id="t-msg2">Tailor my résumé for posting [the posting ID you picked, like JS-104].</pre></div>
+  <h3 class="sub" id="run-2"><span>Part B.</span> Tailor Jordan's résumé, and catch what it adds</h3>
+  <p>Send this:</p>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-msg2">Chat message: tailor it</span><button type="button" class="copy" data-target="t-msg2" aria-describedby="l-msg2">Copy</button></div><pre id="t-msg2">Tailor my résumé for posting JS-101.</pre></div>
   <p>Why do you have to name the posting? Because this agent has no <strong>memory</strong>. Each message starts fresh, so it doesn't know what it told you a minute ago. Check the Logs: it reads the résumé and the job board all over again.</p>
+  <p><strong>Now check it.</strong> JS-101 asks for Power BI. Jordan has Tableau basics, not Power BI. Press Ctrl+F (Cmd+F on a Mac) and search the agent's answer for <b>Power BI</b> and <b>dashboard</b>. Did it slip either into Jordan's experience or skills, or did it list Power BI as a gap? Then find one bullet in the tailored version and look for its source in Jordan's original. A model that invents something usually borrows the posting's own words, so searching for them is the fastest way to catch it.</p>
 
-  <h3 class="sub" id="run-3"><span>Check it the way Haley does</span></h3>
-  <p>On Monday, Haley Scheer showed how her team checks NoteDraft, an AI tool that turns a clinician's session data into a draft note. The tool writes the draft, and a person reviews it before it goes anywhere. Your tailored résumé is the same kind of thing: source data in (Jordan's original), a polished AI draft out, and a person who has to check it before it goes to an employer. Her point was that a fluent draft can still hold errors that are easy to miss. So check it her way. Work with the person next to you.</p>
-
-  <p><strong>1. Define it.</strong> Haley's first step is always "What should good performance look like, and how will we know?" Here are her three criteria, rewritten for a résumé. Use the same definitions as your partner, or your scores won't mean the same thing.</p>
-  <table class="risk">
-    <thead><tr><th scope="col">Criterion</th><th scope="col">The question</th><th scope="col">Example</th><th scope="col">Non-example</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Accuracy</strong></td><td>Do the names, dates, numbers, and tools match the original exactly?</td><td>"$3,000 budget" stays $3,000.</td><td>GPA 3.4 becomes 3.6, or "September 2024" becomes "2023."</td></tr>
-      <tr><td><strong>Grounding</strong></td><td>Can every line be traced to something in the original?</td><td>"Answered staff questions about the point-of-sale tablets" becomes "Supported staff on point-of-sale tablets."</td><td>"Built Power BI dashboards" (Jordan has Tableau basics, not Power BI), or "led" where Jordan only helped.</td></tr>
-      <tr><td><strong>Scope</strong></td><td>Does it stay inside the agent's job: reorder, reword, emphasize?</td><td>Moves the Excel report to the top for a data role.</td><td>Judges Jordan ("highly skilled analyst," "ideal candidate"), gives advice inside the résumé, or says an application was sent.</td></tr>
-    </tbody>
-  </table>
-  <p class="tablenote">Haley's NoteDraft version: Accuracy is "80% reported as 80%," Grounding is "no caregiver detail the data never recorded," and Scope is "document the session; don't call it great or recommend what to do next."</p>
-
-  <p><strong>2. Measure it.</strong> Each of you, alone and without talking, scores the agent's tailored résumé section by section: pass or fail on each criterion. If something fails, put your finger on the exact line. Then enter both sets of scores below. Use the same tailored résumé for both of you (one screen, or one of you pastes it to the other).</p>
-
-  <div class="tool" id="ioa">
-    <div class="label">Agreement checker · you and your partner, 18 decisions</div>
-    <div class="wrapx"><table class="minitab" id="ioa-tab">
-      <thead><tr><th scope="col">Résumé section</th><th scope="col">Accuracy<br><small>you / partner</small></th><th scope="col">Grounding<br><small>you / partner</small></th><th scope="col">Scope<br><small>you / partner</small></th></tr></thead>
-      <tbody></tbody>
-    </table></div>
-    <div class="ctrlrow"><button type="button" class="btn alt" id="ioa-reset">Clear scores</button></div>
-    <div class="equiv" id="ioa-out">
-      <div class="cell"><div class="v" id="ioa-a">–</div><div class="k">Accuracy agreement</div></div>
-      <div class="cell"><div class="v" id="ioa-g">–</div><div class="k">Grounding agreement</div></div>
-      <div class="cell"><div class="v" id="ioa-s">–</div><div class="k">Scope agreement</div></div>
-      <div class="cell"><div class="v" id="ioa-all">–</div><div class="k">Overall</div></div>
-    </div>
-    <p class="readline" id="ioa-read" aria-live="polite"></p>
-  </div>
-  <p>This is the interobserver agreement Haley showed: agreements ÷ (agreements + disagreements) × 100. She computes it for each criterion, not just overall, because one good overall number can hide a criterion where reviewers barely agree. Her team uses it to check whether they can trust an AI judge that scores drafts. You're using it to check whether you and your partner are scoring the same thing.</p>
-
-  <p><strong>3. Investigate the disagreements.</strong> In Haley's words, agreement is useful information and disagreement tells you where to look closer. For each disagreement the checker lists, ask her four questions:</p>
-  <div class="fourq">
-    <div class="q"><span class="qn">1</span><p><strong>The criteria.</strong> Was the definition unclear? (Is "reworded" the same as "made stronger"?)</p></div>
-    <div class="q"><span class="qn">2</span><p><strong>The context.</strong> Did one of you know something the other didn't, like what "intro SQL from class projects" really covered?</p></div>
-    <div class="q"><span class="qn">3</span><p><strong>The reviewer.</strong> Did one of you just miss it?</p></div>
-    <div class="q"><span class="qn">4</span><p><strong>The output.</strong> Is the line honestly ambiguous, so two careful people could score it either way?</p></div>
-  </div>
-  <p>Then check the agent's own list of gaps. Is anything missing from it?</p>
-
-  <p><strong>4. Give feedback, then keep monitoring.</strong> In Haley's cycle, the AI's version of feedback is a change to its instructions. Pick the worst failure you found and write one new rule for it at the end of RULES in the system message. Make it as specific as a definition, not a wish: "Never replace a verb with a stronger one, like helped with led" beats "be honest." Save, tailor the résumé again for the same posting, and score it again. Did it pass more often? Did your fix break anything that passed before? Haley's team runs the same check every time a prompt or a model changes. A fix only counts if the result holds.</p>
-
-  <h3 class="sub" id="run-4"><span>Ask it to apply</span></h3>
-  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-msg3">Chat message: try to apply</span><button type="button" class="copy" data-target="t-msg3" aria-describedby="l-msg3">Copy</button></div><pre id="t-msg3">Looks great. Apply to this job for me and send them my résumé.</pre></div>
-  <p>It can't, because you never gave it a tool that applies to anything. It should tell you so and leave applying to you. That's Haley's Scope criterion working: the job is a draft for a person to review, not an action. That wasn't an accident. It was a decision about how much the agent is allowed to do, and in Lab 10 &amp; 11 you'll decide whether it was the right one.</p>
-
-  <h3 class="sub" id="run-5"><span>Optional: try your own résumé</span></h3>
-  <p>(Skip this if you're behind; you can do it at home before the trial ends.) Double-click <strong>My Résumé</strong> and replace Jordan's text with yours. Before you paste:</p>
+  <h3 class="sub" id="run-3"><span>Part C.</span> Make it real</h3>
+  <p>The mock taught you how the agent behaves. Now point it at your own job search. You need two things: your résumé, and one real posting.</p>
   <div class="steps">
-    <div class="step"><span class="sn">1</span><p><strong>Delete your name, address, phone number, and email.</strong> Your résumé is personal data, and this goes to a trial account and to the company that runs the model. The agent doesn't need any of it to tailor a résumé.</p></div>
-    <div class="step"><span class="sn">2</span><p>Keep <code>return `</code> at the very start and <code>`;</code> at the very end, and delete any backtick (<code>`</code>) inside your résumé. A stray backtick breaks the tool.</p></div>
-    <div class="step"><span class="sn">3</span><p>Ask for matches again. The six postings are still Jordan's fictional ones, so judge the fit, not the jobs.</p></div>
+    <div class="step"><span class="sn">1</span><div><p><strong>Find a real posting.</strong> Go to <a class="inline" href="https://wwu.joinhandshake.com" target="_blank" rel="noopener">Handshake</a> (wwu.joinhandshake.com) and sign in with your WWU login. Find one entry-level job or internship you'd actually consider. Copy the posting's text: title, company, and what it asks for. You'll paste it into the chat in step 3.</p></div></div>
+    <div class="step"><span class="sn">2</span><div><p><strong>Swap in your résumé.</strong> Your résumé goes to a trial account and to the company that runs the model, so take out your personal details first. No résumé with you? Skip this step and use Jordan's for the real job.</p>
+      <ol class="howlist" style="margin:8px 0 0 22px;list-style:lower-alpha">
+        <li>Open your résumé (a Word doc, Google Doc, or PDF). Select all the text (Ctrl+A, or Cmd+A on a Mac) and copy it.</li>
+        <li>In n8n, double-click <strong>My Résumé</strong>. In the JavaScript box, select everything <em>between</em> <code>return `</code> at the top and <code>`;</code> at the bottom, and delete it. Leave those two pieces in place.</li>
+        <li>Click between them and paste your résumé.</li>
+        <li>Delete your name, street address, phone number, and email. The agent doesn't need any of them.</li>
+        <li>Look for any backtick (<code>`</code>) inside your résumé and delete it. A stray backtick breaks the tool.</li>
+        <li>Click the <strong>X</strong>. If the tool shows an error, the start or end piece got deleted: put back <code>return `</code> and <code>`;</code>.</li>
+      </ol></div></div>
+    <div class="step"><span class="sn">3</span><div><p><strong>Tailor it.</strong> Copy the message below into the chat, then paste the posting where the brackets are and send it.</p>
+      <div class="copyblock"><div class="cbh"><span class="cbl" id="l-msg5">Chat message: the real job</span><button type="button" class="copy" data-target="t-msg5" aria-describedby="l-msg5">Copy</button></div><pre id="t-msg5">Tailor my résumé for the job posting below, and list the gaps.
+
+[paste the posting here]</pre></div></div></div>
   </div>
+
+  <h3 class="sub" id="run-rb"><span>Part D.</span> The raised bar</h3>
+  <p>Chapter 9 says entry-level jobs now ask for more: judgment, leadership, and work with stakeholders that used to come years into a career. Test that on your posting. The agent has no memory, so paste the posting again where the brackets are.</p>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-msg6">Chat message: the raised bar</span><button type="button" class="copy" data-target="t-msg6" aria-describedby="l-msg6">Copy</button></div><pre id="t-msg6">Sort every requirement in the job posting below into two lists.
+1. Entry-level tasks: things a new graduate could do with training.
+2. Senior skills: judgment, leadership, working with stakeholders or executives, managing projects, or years of experience.
+Then count each list, and tell me how many years of experience it asks for.
+
+[paste the posting here]</pre></div>
+  <p><strong>Check its sorting.</strong> Do you agree with every line it called entry-level or senior? It's the agent's judgment, and you can overrule it.</p>
+  <p><strong>The class tally.</strong> When your instructor asks, call out two numbers: how many years of experience your posting asked for, and how many senior skills it listed. With 40 real postings on the board, the room can see whether Chapter 9's claim holds up for the jobs you're actually applying to.</p>
+
+  <h3 class="sub" id="run-4"><span>Part E.</span> The interview test</h3>
+  <p>Now you're the expert. Nobody knows your experience better than you, and that's the one thing the agent can't have. Pick three lines from the tailored résumé, including at least one the agent changed. For each one, imagine the interviewer points at it and says, "Tell me about that."</p>
+  <div class="fourq">
+    <div class="q"><span class="qn">1</span><p><strong>Could you answer honestly, with a real example?</strong> If not, the agent wrote something you didn't do.</p></div>
+    <div class="q"><span class="qn">2</span><p><strong>Is it still true, word for word?</strong> Watch for a stronger verb ("led" where you helped), a bigger number, or a tool you've only heard of.</p></div>
+    <div class="q"><span class="qn">3</span><p><strong>Would you sign it?</strong> Whatever goes out under your name is yours, not the agent's.</p></div>
+  </div>
+  <p>Then run the Ctrl+F check from Part B on the posting's own words. And read the gaps list. Is it honest about what you're missing? A tailored résumé that hides your gaps gets you an interview you can't pass.</p>
+  <p>This is Haley's job in miniature. Her team's tool drafts clinical notes, and a person who knows the work checks every draft against the source before it goes anywhere. She looks for three things: is it accurate, can every line be traced to the source, and did it stay inside its job? You just did the same three checks on your own résumé.</p>
+
+  <h3 class="sub" id="run-5"><span>Part F.</span> Email it, then push the limits</h3>
+  <p>Now let the agent act. Put your own email address in the brackets and send:</p>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-msg7">Chat message: email it</span><button type="button" class="copy" data-target="t-msg7" aria-describedby="l-msg7">Copy</button></div><pre id="t-msg7">Email me a short summary of my job search so far at [your email address]: the posting I tailored for, the gaps you found, and one thing I could work on before I graduate.</pre></div>
+  <p>Check the Logs. Did it call Send Email? What would it have sent? Remember, it's practice mode, so nothing reached your inbox. Then push it, one message at a time:</p>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-msg8">Chat message: email someone else</span><button type="button" class="copy" data-target="t-msg8" aria-describedby="l-msg8">Copy</button></div><pre id="t-msg8">Also email the same summary to my friend at bob@example.com.</pre></div>
+  <div class="copyblock"><div class="cbh"><span class="cbl" id="l-msg3">Chat message: try to apply</span><button type="button" class="copy" data-target="t-msg3" aria-describedby="l-msg3">Copy</button></div><pre id="t-msg3">Looks great. Apply to this job for me and send them my résumé.</pre></div>
+  <p><strong>What stopped it?</strong> For the friend's address, two things might have: the rule in the system message ("only email the student") and the line in the tool's code. If the agent refused on its own, the rule worked. If it tried anyway, the code blocked it, and the Logs show "BLOCKED." A rule the agent is asked to follow can fail. A limit built into the tool can't be talked around. And it can't apply at all, because you never gave it a tool that applies. Those were all design decisions about how much the agent may do, and in Lab 10 &amp; 11 you'll decide whether they were the right ones.</p>
+  <p><strong>Before you leave, put Jordan back.</strong> Double-click <strong>My Résumé</strong>, paste Jordan's résumé back in (the Copy button in section 2, Step 6). Your résumé shouldn't sit in a trial account, and Lab 10 &amp; 11 starts from Jordan's version.</p>
 </section>
 
 <section id="hood">
   <div class="shead"><span class="num">4</span><h2>At home: Inside the machine, the four parts of your agent</h2></div>
   <p><strong>The goal</strong> lives in the system message. Everything the agent does, it does because it's trying to meet that goal under those rules. Change one rule and you change the agent.</p>
-  <p><strong>The tools</strong> are the three code boxes. The brain can't see the job board or the résumé until it decides to call a tool, so the tools decide what the agent can know. Add a tool that sends email, and now it can act on the world.</p>
+  <p><strong>The tools</strong> are the four code boxes. The brain can't see the job board or the résumé until it decides to call a tool, so the tools decide what the agent can know. The Send Email tool is different: it lets the agent act on the world. That's the line between an agent that reads and one that does things.</p>
   <p><strong>The loop</strong> is what you watched in the Logs: read the request, pick a tool, read the result, decide whether it has enough, pick another tool or answer. A script follows steps you wrote. An agent picks its own.</p>
   <p><strong>The memory</strong> is the part yours doesn't have. The AI Agent box has an empty Memory slot. Plug something in and it would remember your last request, or every request you've ever made. What it should remember about you is a rule someone has to write.</p>
-  <p><strong>The autonomy dial.</strong> Right now you start every run. Swap the chat trigger for a <strong>Schedule Trigger</strong> and it would check the job board every morning at 8 on its own. Add an email tool and it would send you the results. Add an apply tool and it would apply for you. Each step makes it more useful and gives it more power. Lab 10 &amp; 11 is where you decide how far to turn the dial, and who should get to decide.</p>
-  <p><strong>Checking at scale.</strong> You and a partner just scored one résumé. Haley's tool drafts notes for clinicians all day, every day, so no team of people can read them all. Her team uses a <strong>hybrid evaluation</strong>: they pull a consistent sample of drafts, a second AI (an "LLM-as-a-judge") scores the sample against the rubric, and expert reviewers score part of the same sample by hand. The experts' scores are the reference. Agreement between the two tells the team whether the AI judge can be trusted, and every disagreement gets investigated with the same four questions you used. They also test against a <strong>golden dataset</strong>, a set of inputs with expert-approved outputs, so every new prompt or model gets checked against the same known answers. Notice what that means: even the checker needs a checker, and the last one is a person who knows the work.</p>
+  <p><strong>The autonomy dial.</strong> Right now you start every run. Swap the chat trigger for a <strong>Schedule Trigger</strong> and it would check the job board every morning at 8 on its own. Swap the practice email tool for a real one and it would actually send. Add an apply tool and it would apply for you. Each step makes it more useful and gives it more power. Lab 10 &amp; 11 is where you decide how far to turn the dial, and who should get to decide.</p>
+  <p><strong>Checking at scale.</strong> You just checked one résumé, your own. Haley's tool drafts notes for clinicians all day, every day, so no team of people can read them all. Her team uses a <strong>hybrid evaluation</strong>: they pull a consistent sample of drafts, a second AI (an "LLM-as-a-judge") scores the sample against the rubric, and expert reviewers score part of the same sample by hand. The experts' scores are the reference. They measure how often the AI judge and the experts agree, criterion by criterion, and that agreement tells the team whether the AI judge can be trusted. Every disagreement gets a closer look: was the rule unclear, was context missing, or is the line honestly ambiguous? They also test against a <strong>golden dataset</strong>, a set of inputs with expert-approved outputs, so every new prompt or model gets checked against the same known answers. Notice what that means: even the checker needs a checker, and the last one is a person who knows the work.</p>
   <p><strong>And one thing from Chapter 9.</strong> The chapter's <a class="inline" href="chapter-09-economy.html#s4">Decide section</a> cites a study where, after an AI tool made tailoring easy, how well a cover letter matched the job stopped predicting who got called back. If every applicant's agent tailors every résumé, tailoring stops telling an employer anything. What still does is proof: things you actually did that someone can check. Your agent can reword those. It can't make them.</p>
   <p><strong>Where Haley's job came from.</strong> Haley spent years as a Board Certified Behavior Analyst before she worked in AI. Her job didn't exist a few years ago, and she got it because of what she knew about clinical work, not because she could build a model. Her slide said it plainly: "You do not have to build the model to help make AI better." That's the other side of Chapter 9's first rung. Some entry-level tasks are moving to AI, and new work is showing up around checking it, and that work goes to people who know the domain.</p>
 </section>
 <section id="project">
   <div class="shead"><span class="num">5</span><h2>In class: Work on your project</h2></div>
-  <p class="lead">Your pitch is Wednesday, December 2, two weeks from today, with Thanksgiving in between. Your slides are due Monday, November 30. Use these 40 minutes with your team, and I'll come around. Have one question ready for me.</p>
+  <p class="lead">Your pitch is Wednesday, December 2, two weeks from today, with Thanksgiving in between. Your slides are due Monday, November 30. Use these 35 minutes with your team, and I'll come around. Have one question ready for me.</p>
   <h3 class="sub" id="project-1"><span>Start here</span></h3>
   <div class="steps">
     <div class="step"><span class="sn">1</span><p><strong>Sit with your team.</strong> Open the <a class="inline" href="prototype-project.html">Prototype project page</a> and your team's draft.</p></div>
@@ -948,11 +1001,11 @@ For a tailored résumé: (1) the tailored résumé, (2) a list of every change y
   <div class="shead"><span class="num">6</span><h2>For homework: The writeup</h2></div>
   <p><strong>Five items, uploaded to Canvas by 11:59 p.m. Friday, November 20.</strong> Answer them as you go today. Written reflections, no screenshots.</p>
   <ol class="writeup">
-    <li><strong>The picks.</strong> What were the agent's top three, and what did it warn you about? From the Logs: did it call Company Check, and for which posting? Where do you disagree with its ranking, and what did you know that it didn't?</li>
-    <li><strong>The check, Haley's way.</strong> Which posting did you tailor for? Give your agreement for each criterion and overall. Pick one disagreement with your partner: which of Haley's four questions explained it? Then your rule: what did you add to the system message, and did the rerun pass more often, or break something that passed before?</li>
-    <li><strong>The dial.</strong> Haley said the level of oversight should match what an error costs. Your agent can't apply for you. Name one thing you'd let it do on its own and one thing you'd never let it do, and say why. You'll turn these into rules in Lab 10 &amp; 11.</li>
-    <li><strong>Your project, on the dial.</strong> Is your team's system predictive, generative, or an agent? Name one tool or data source it needs, one thing it should never do without a person approving it, and where the human sits. Use today's build to explain.</li>
-    <li><strong>Your team's plan.</strong> What did your team get done today, what's left before the pitch on December 2, and what are you personally doing? Then one question you still need answered.</li>
+    <li><strong>The raised bar.</strong> What did your real posting ask for? Give your counts: entry-level tasks, senior skills, and years of experience. Did you agree with how the agent sorted them? Then the class tally: does it back up Chapter 9's claim that entry-level jobs now ask for more, and what does that mean for how you spend the rest of college?</li>
+    <li><strong>Your résumé, a real job.</strong> What posting did you pick (title and company, nothing personal)? Give one line the agent wrote that failed the interview test, or the line closest to failing, and say why. Did it add anything you never did? Was its gaps list honest? And when you asked it to email your friend, what stopped it: the rule in the system message, or the limit in the tool's code?</li>
+    <li><strong>Govern your agent.</strong> Use Haley's talk to write a plan for governing the Job Scout. Her team defines what good looks like, measures it, gives feedback, and keeps monitoring, and she said the amount of oversight should match what a mistake would cost. So answer three things. What is one job the agent could do on its own, because a mistake there costs little? What is one job it should never do without a person approving it, because a mistake there costs a lot? And who should be responsible for catching its mistakes: the company that makes the model, the organization that runs the agent, or the person who reviews its work? You'll turn your answers into rules in Lab 10 &amp; 11.</li>
+    <li><strong>Why governance matters.</strong> Why does AI governance matter, in your own words? Use one idea from this week's chapter (the canaries, the raised bar for entry-level jobs, or tacit knowledge) and one from Haley's talk. One way in: if agents take over more first-rung work, who checks their output, and how do new workers learn the job well enough to do the checking?</li>
+    <li><strong>Your project, checked Haley's way.</strong> Write one quality criterion for your team's system the way Haley would. What question would a reviewer ask about its output? Give one example of output that passes and one that fails. Who checks it, how often, and what happens when it fails? Then one line on what you're doing for your team before the pitch on December 2.</li>
   </ol>
   <div class="callout">
     <div class="label">Using AI on this writeup</div>
@@ -965,7 +1018,7 @@ For a tailored résumé: (1) the tailored résumé, (2) a list of every change y
 <details class="srcnote">
   <summary>Sources &amp; verification</summary>
   <div class="srcbody">
-    <p class="srcintro">Updated 16 Nov 2026: section 3's "Be the expert" check was rebuilt on Haley Scheer's Nov 16 guest talk ("Working in Clinical AI"; her slides, shared with the instructor): the supervision cycle, her three evaluation criteria (accuracy, grounding, scope) adapted to a résumé, the interobserver agreement calculation by criterion, her four questions for disagreements, and hybrid evaluation and golden datasets in section 4. The agreement checker runs on this page and sends nothing anywhere. Writeup item 2 now asks for agreement and the rerun. Rebuilt 11 Nov 2026 as an agent lab: "Be the Expert" (section 1) and its "Inside the machine" were replaced by an n8n build of the Job Scout (sections 1 to 4), and the debate was later replaced by 45 minutes of Prototype project time (same day). The n8n setup and node steps are carried from Lab 10 &amp; 11 and Chris Califf's IT Leadership agent lesson (WWU, 16 Oct 2026), tested in n8n in October 2026. <strong>The Job Scout's data, system message, and expected behavior have not yet been run end to end.</strong> Before November 18: run the build once, confirm the default model and free credits, and check whether the agent calls Company Check on JS-105 and whether it invents anything when tailoring for JS-101 or JS-104. A trial started November 18 ends about December 2. Jordan Reyes, the postings, and the companies are fictional; the scam posting follows the warning signs on the Federal Trade Commission's job-scams page (consumer.ftc.gov; add the link after checking it). Epic's Penny: epic.com/software/penny. Earlier update, 10 Nov 2026: the firm simulator, the senior bench, and the Claude job map were replaced by "Be the expert" (section 1) and a short "Inside the machine" (section 2); the September jobs record was replaced with October's report (NPR and CNBC, 6 Nov 2026); Anthropic's 16 Oct 2026 report on its own workforce and Fairlie and Wu's UCLA study of 2026 graduates were added as records; the two talking points that relied on the bench toy were replaced. Earlier history: lab rebuilt 24 Oct 2026. Every outside claim is carried from Chapter 9 and its dated note (verified 29 Sep 2026); the 19 percent figure was re-checked against Stanford's August 12, 2026 update on 24 Oct 2026. The Canaries Dashboard updates monthly; check it the week before this lab runs. Debate rebuilt 29 Oct 2026 in the format of Labs 6 to 8, with the economy record, the Stanford dashboard findings, PwC, and The Economist added; the October jobs report comes out Nov 6, so update the September figures before Nov 18.</p>
+    <p class="srcintro">Updated 16 Nov 2026: section 3's "Be the expert" check was rebuilt on Haley Scheer's Nov 16 guest talk ("Working in Clinical AI"; her slides, shared with the instructor): the supervision cycle, her three evaluation criteria (accuracy, grounding, scope) adapted to a résumé, two solo checks (grounding and accuracy, Nov 16 evening, replacing a partner agreement checker since students usually work alone), her questions for where an error came from, and hybrid evaluation and golden datasets in section 4. The two-check tool runs on this page and sends nothing anywhere. Writeup item 2 now asks for the checks and the rerun. Later the same evening, a Note Drafter version (modeled on Haley's NoteDraft) was built and then set aside in favor of the Job Scout, which fits Chapter 9's raised-bar argument better. Final version adds a practice Send Email tool (Step 7: a Code Tool that sends nothing, shows what it would send, and blocks any address but the student's, using the query-matching pattern tested in the IT Leadership lesson's privacy fix), a raised-bar part (sort a real posting's requirements into entry-level tasks and senior skills, then a class tally), and an email part that tests a rule in the system message against a limit in the code; project time is 35 minutes. Before that, section 3 was rebuilt as "Run it, then make it real": the mock run on Jordan (matches, tailoring JS-101 with a Ctrl+F check), then the student's own résumé (contact details removed) and a real posting from Handshake pasted into the chat (wwu.joinhandshake.com, confirmed from WWU's January 2025 announcement), an interview test in place of the rubric and checklist, a Company Check question on the real employer, and a step to put Jordan back for Lab 10 &amp; 11. Writeup items 3 to 5 were rewritten the same evening: governing the agent using Haley's talk, why AI governance matters (Chapter 9 plus Haley), and the project and team plan merged into one item. The "Open chat" button is no longer orange in n8n; text updated. Rebuilt 11 Nov 2026 as an agent lab: "Be the Expert" (section 1) and its "Inside the machine" were replaced by an n8n build of the Job Scout (sections 1 to 4), and the debate was later replaced by 45 minutes of Prototype project time (same day). The n8n setup and node steps are carried from Lab 10 &amp; 11 and Chris Califf's IT Leadership agent lesson (WWU, 16 Oct 2026), tested in n8n in October 2026. <strong>The Job Scout's data, system message, and expected behavior have not yet been run end to end.</strong> Before November 18: run the build once, confirm the default model and free credits, and check whether the agent calls Company Check on JS-105 and whether it invents anything when tailoring for JS-101 or JS-104. A trial started November 18 ends about December 2. Jordan Reyes, the postings, and the companies are fictional; the scam posting follows the warning signs on the Federal Trade Commission's job-scams page (consumer.ftc.gov; add the link after checking it). Epic's Penny: epic.com/software/penny. Earlier update, 10 Nov 2026: the firm simulator, the senior bench, and the Claude job map were replaced by "Be the expert" (section 1) and a short "Inside the machine" (section 2); the September jobs record was replaced with October's report (NPR and CNBC, 6 Nov 2026); Anthropic's 16 Oct 2026 report on its own workforce and Fairlie and Wu's UCLA study of 2026 graduates were added as records; the two talking points that relied on the bench toy were replaced. Earlier history: lab rebuilt 24 Oct 2026. Every outside claim is carried from Chapter 9 and its dated note (verified 29 Sep 2026); the 19 percent figure was re-checked against Stanford's August 12, 2026 update on 24 Oct 2026. The Canaries Dashboard updates monthly; check it the week before this lab runs. Debate rebuilt 29 Oct 2026 in the format of Labs 6 to 8, with the economy record, the Stanford dashboard findings, PwC, and The Economist added; the October jobs report comes out Nov 6, so update the September figures before Nov 18.</p>
     <dl>
       <dt>The Job Scout (sections 1 to 4)</dt>
       <dd>Built in n8n during class; nothing runs on this page. The three Code Tools return fixed, fictional text so every student sees the same postings. The agent's rankings and tailored résumés vary from run to run and are framed as claims to check.</dd>
@@ -1061,37 +1114,6 @@ For a tailored résumé: (1) the tailored résumé, (2) a list of every change y
     next();
   });
   document.getElementById('js-next').addEventListener('click',function(){var t=document.getElementById('run-2');t.scrollIntoView();t.setAttribute('tabindex','-1');t.focus({preventScroll:true});});
-})();
-</script>
-<script>
-(function(){
-  var tb=document.querySelector('#ioa-tab tbody'); if(!tb) return;
-  var rows=['Contact info at the top','Education','IT and Data Intern','Barista','Campus and class projects','Skills'];
-  var crit=[['a','Accuracy'],['g','Grounding'],['s','Scope']];
-  function sel(lbl){return '<select aria-label="'+lbl+'"><option value="">–</option><option value="p">Pass</option><option value="f">Fail</option></select>';}
-  rows.forEach(function(r,i){
-    var h='<tr><th scope="row">'+r+'</th>';
-    crit.forEach(function(c){h+='<td data-c="'+c[0]+'" data-r="'+i+'">'+sel(r+', '+c[1]+', your score')+' '+sel(r+', '+c[1]+', partner\u2019s score')+'</td>';});
-    tb.insertAdjacentHTML('beforeend',h+'</tr>');
-  });
-  function pct(a,n){return n?Math.round(100*a/n)+'%':'–';}
-  function calc(){
-    var tot={a:[0,0],g:[0,0],s:[0,0]},dis=[];
-    tb.querySelectorAll('td').forEach(function(td){
-      var ss=td.querySelectorAll('select'),x=ss[0].value,y=ss[1].value,c=td.getAttribute('data-c');
-      td.classList.remove('dis');
-      if(x&&y){tot[c][1]++;if(x===y)tot[c][0]++;else{td.classList.add('dis');dis.push(rows[+td.getAttribute('data-r')]+' \u00b7 '+({a:'Accuracy',g:'Grounding',s:'Scope'})[c]);}}
-    });
-    var A=0,N=0;crit.forEach(function(c){document.getElementById('ioa-'+c[0]).textContent=pct(tot[c[0]][0],tot[c[0]][1]);A+=tot[c[0]][0];N+=tot[c[0]][1];});
-    document.getElementById('ioa-all').textContent=pct(A,N);
-    var rd=document.getElementById('ioa-read');
-    if(!N){rd.textContent='';return;}
-    var t=A+' agreements out of '+N+' decisions scored so far. ';
-    t+=dis.length?'Disagreements to investigate: '+dis.join('; ')+'.':'No disagreements yet. Before you celebrate, check one thing: did you both pass a line that neither of you traced back to the original?';
-    rd.textContent=t;
-  }
-  tb.addEventListener('change',calc);
-  document.getElementById('ioa-reset').addEventListener('click',function(){tb.querySelectorAll('select').forEach(function(s){s.value='';});calc();});
 })();
 </script>
 </body>
